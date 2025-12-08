@@ -732,8 +732,8 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit: ; preds = %36
   store i8 %89, ptr %87, align 1, !tbaa !15
   %.not.i97 = icmp eq i8 %89, 0
   %90 = add nsw i64 %.03.i, -1
-  %91 = icmp samesign ugt i64 %90, 12
-  %or.cond.i = select i1 %.not.i97, i1 %91, i1 false
+  %91 = icmp samesign ugt i64 %.03.i, 13
+  %or.cond.i = and i1 %91, %.not.i97
   br i1 %or.cond.i, label %85, label %_ZL8gcm_incrPh.exit, !llvm.loop !36
 
 _ZL8gcm_incrPh.exit:                              ; preds = %85
@@ -812,8 +812,8 @@ _ZL8gcm_maskP19mbedtls_gcm_contextPhmmPKhS1_.exit103: ; preds = %_ZL8gcm_incrPh.
   store i8 %124, ptr %122, align 1, !tbaa !15
   %.not.i105 = icmp eq i8 %124, 0
   %125 = add nsw i64 %.03.i104, -1
-  %126 = icmp samesign ugt i64 %125, 12
-  %or.cond.i106 = select i1 %.not.i105, i1 %126, i1 false
+  %126 = icmp samesign ugt i64 %.03.i104, 13
+  %or.cond.i106 = and i1 %126, %.not.i105
   br i1 %or.cond.i106, label %.preheader, label %_ZL8gcm_incrPh.exit107, !llvm.loop !36
 
 _ZL8gcm_incrPh.exit107:                           ; preds = %.preheader

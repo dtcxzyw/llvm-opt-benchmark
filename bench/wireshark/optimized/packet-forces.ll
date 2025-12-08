@@ -618,8 +618,8 @@ define internal fastcc void @dissect_forces(ptr noundef %0, ptr noundef %1, ptr 
   %126 = add i32 %.0148, 12
   %127 = call i32 @tvb_reported_length_remaining(ptr noundef %0, i32 noundef %126)
   %128 = icmp sgt i32 %127, 4
-  %129 = icmp samesign ugt i32 %117, 12
-  %130 = select i1 %128, i1 %129, i1 false
+  %129 = icmp ugt i16 %99, 4
+  %130 = and i1 %129, %128
   br i1 %130, label %.lr.ph.i, label %dissect_lfbselecttlv.exit
 
 131:                                              ; preds = %dissect_operation_tlv.exit.i

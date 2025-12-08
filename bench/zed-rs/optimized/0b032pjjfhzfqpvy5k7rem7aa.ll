@@ -15306,7 +15306,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   br i1 %.not.not.not75, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %59, %2
-  %.sroa.12.0.lcssa = phi i64 [ %1, %2 ], [ %62, %59 ]
+  %.sroa.12.0.lcssa = phi i64 [ %1, %2 ], [ %61, %59 ]
   %.sroa.09.0.in.lcssa = phi i64 [ %.sroa.09.0.in73, %2 ], [ %.sroa.09.0.in, %59 ]
   %.sroa.09.0.lcssa = phi i64 [ %.sroa.09.074, %2 ], [ %.sroa.09.0, %59 ]
   %10 = add i64 %4, -2
@@ -15316,7 +15316,7 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
 .lr.ph:                                           ; preds = %2, %59
   %.sroa.09.078 = phi i64 [ %.sroa.09.0, %59 ], [ %.sroa.09.074, %2 ]
   %.sroa.09.0.in77 = phi i64 [ %.sroa.09.0.in, %59 ], [ %.sroa.09.0.in73, %2 ]
-  %.sroa.12.076 = phi i64 [ %62, %59 ], [ %1, %2 ]
+  %.sroa.12.076 = phi i64 [ %61, %59 ], [ %1, %2 ]
   %12 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %.sroa.09.078
   %13 = add nuw i64 %.sroa.09.0.in77, 2
   %14 = icmp ult i64 %13, %4
@@ -15329,12 +15329,12 @@ define hidden void @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T$C$A$GT
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3935)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !3938)
   %16 = invoke { i64, i64 } @_ZN8language10syntax_map9ParseStep5range17h75447180ccc0373fE.llvm.16711830050994594654(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %12)
-          to label %.noexc unwind label %65
+          to label %.noexc unwind label %64
 
 .noexc:                                           ; preds = %.lr.ph
   %17 = extractvalue { i64, i64 } %16, 1
   %18 = invoke { i64, i64 } @_ZN8language10syntax_map9ParseStep5range17h75447180ccc0373fE.llvm.16711830050994594654(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %15)
-          to label %.noexc57 unwind label %65
+          to label %.noexc57 unwind label %64
 
 .noexc57:                                         ; preds = %.noexc
   %19 = extractvalue { i64, i64 } %18, 1
@@ -15409,23 +15409,22 @@ _ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830
 
 59:                                               ; preds = %43, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i, %30
   %.sroa.0.2.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %30 ], [ %52, %43 ], [ 1, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i ], [ %spec.select.i.i.i.i, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i ]
-  %60 = add nsw i8 %.sroa.0.2.i.i.i, -3
-  %switch.i = icmp samesign ult i8 %60, -2
-  %61 = zext i1 %switch.i to i64
-  %62 = add nuw i64 %.sroa.09.078, %61
-  %63 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %62
-  %64 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %.sroa.12.076
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %64, ptr noundef nonnull align 8 dereferenceable(152) %63, i64 152, i1 false)
-  %.sroa.09.0.in = shl i64 %62, 1
+  %switch.i = icmp slt i8 %.sroa.0.2.i.i.i, 1
+  %60 = zext i1 %switch.i to i64
+  %61 = add nuw i64 %.sroa.09.078, %60
+  %62 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %61
+  %63 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %.sroa.12.076
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %63, ptr noundef nonnull align 8 dereferenceable(152) %62, i64 152, i1 false)
+  %.sroa.09.0.in = shl i64 %61, 1
   %.sroa.09.0 = or disjoint i64 %.sroa.09.0.in, 1
   %.not.not.not = icmp ult i64 %.sroa.09.0.in, %9
   br i1 %.not.not.not, label %.lr.ph, label %._crit_edge
 
-65:                                               ; preds = %.noexc, %.lr.ph
+64:                                               ; preds = %.noexc, %.lr.ph
   %lpad.thr_comm = landingpad { ptr, i32 }
           cleanup
-  %66 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %.sroa.12.076
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %66, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0, i64 152, i1 false)
+  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %6, i64 %.sroa.12.076
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %65, ptr noundef nonnull align 8 dereferenceable(152) %.sroa.0, i64 152, i1 false)
   resume { ptr, i32 } %lpad.thr_comm
 }
 
@@ -15605,7 +15604,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %13 = getelementptr inbounds nuw i8, ptr %4, i64 168
   store i64 %2, ptr %13, align 8
   %14 = icmp ugt i64 %2, %1
-  br i1 %14, label %.lr.ph, label %._crit_edge
+  br i1 %14, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %4, i64 128
@@ -15613,8 +15612,8 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 144
   br label %18
 
-18:                                               ; preds = %.lr.ph, %.thread
-  %19 = phi i64 [ %2, %.lr.ph ], [ %21, %.thread ]
+18:                                               ; preds = %.lr.ph, %.thread30
+  %19 = phi i64 [ %2, %.lr.ph ], [ %21, %.thread30 ]
   %20 = add i64 %19, -1
   %21 = lshr i64 %20, 1
   %22 = load ptr, ptr %11, align 8, !nonnull !7, !align !16, !noundef !7
@@ -15629,12 +15628,12 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   call void @llvm.experimental.noalias.scope.decl(metadata !3984)
   call void @llvm.experimental.noalias.scope.decl(metadata !3987)
   %26 = invoke { i64, i64 } @_ZN8language10syntax_map9ParseStep5range17h75447180ccc0373fE.llvm.16711830050994594654(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %4)
-          to label %.noexc unwind label %70
+          to label %.noexc unwind label %67
 
 .noexc:                                           ; preds = %18
   %27 = extractvalue { i64, i64 } %26, 1
   %28 = invoke { i64, i64 } @_ZN8language10syntax_map9ParseStep5range17h75447180ccc0373fE.llvm.16711830050994594654(ptr noalias noundef nonnull readonly align 8 dereferenceable(152) %25)
-          to label %.noexc27 unwind label %70
+          to label %.noexc27 unwind label %67
 
 .noexc27:                                         ; preds = %.noexc
   %29 = extractvalue { i64, i64 } %28, 1
@@ -15657,7 +15656,7 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   %41 = call i8 @llvm.ucmp.i8.i64(i64 %27, i64 %29)
   %.sroa.0.1.i.i.i = select i1 %40, i8 %41, i8 %.sroa.0.0.i.i.i
   %42 = icmp eq i8 %.sroa.0.1.i.i.i, 0
-  br i1 %42, label %43, label %63
+  br i1 %42, label %43, label %61
 
 43:                                               ; preds = %39
   call void @llvm.experimental.noalias.scope.decl(metadata !3991)
@@ -15665,73 +15664,60 @@ define hidden noundef i64 @"_ZN5alloc11collections11binary_heap23BinaryHeap$LT$T
   call void @llvm.experimental.noalias.scope.decl(metadata !3996)
   %44 = load ptr, ptr %16, align 8, !alias.scope !3999, !noalias !4000, !noundef !7
   %45 = icmp eq ptr %44, null
-  %46 = getelementptr inbounds nuw i8, ptr %25, i64 136
-  br i1 %45, label %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i, label %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i
+  br i1 %45, label %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i, label %.thread
 
-_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i: ; preds = %43
+.thread:                                          ; preds = %43
   call void @llvm.experimental.noalias.scope.decl(metadata !4001)
-  %47 = load ptr, ptr %46, align 8, !alias.scope !4004, !noalias !4005, !noundef !7
-  %48 = icmp eq ptr %47, null
-  %spec.select.i.i.i.i = sext i1 %48 to i8
-  br label %63
+  br label %.loopexit
 
 _ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i: ; preds = %43
-  %49 = load ptr, ptr %46, align 8, !alias.scope !4006, !noalias !4005, !noundef !7
-  %50 = icmp eq ptr %49, null
-  br i1 %50, label %51, label %.thread
+  %46 = getelementptr inbounds nuw i8, ptr %25, i64 136
+  %47 = load ptr, ptr %46, align 8, !alias.scope !4004, !noalias !4006, !noundef !7
+  %48 = icmp eq ptr %47, null
+  br i1 %48, label %49, label %.thread30
 
-51:                                               ; preds = %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i
-  %52 = load ptr, ptr %17, align 8, !alias.scope !3999, !noalias !4000, !nonnull !7, !noundef !7
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 456
-  %54 = load i64, ptr %53, align 8, !noalias !4008, !noundef !7
-  %55 = getelementptr inbounds nuw i8, ptr %25, i64 144
-  %56 = load ptr, ptr %55, align 8, !alias.scope !4004, !noalias !4005, !nonnull !7, !noundef !7
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 456
-  %58 = load i64, ptr %57, align 8, !noalias !4009, !noundef !7
-  %59 = call i8 @llvm.ucmp.i8.i64(i64 %54, i64 %58)
-  br label %63
+49:                                               ; preds = %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i
+  %50 = load ptr, ptr %17, align 8, !alias.scope !3999, !noalias !4000, !nonnull !7, !noundef !7
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 456
+  %52 = load i64, ptr %51, align 8, !noalias !4007, !noundef !7
+  %53 = getelementptr inbounds nuw i8, ptr %25, i64 144
+  %54 = load ptr, ptr %53, align 8, !alias.scope !4008, !noalias !4006, !nonnull !7, !noundef !7
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 456
+  %56 = load i64, ptr %55, align 8, !noalias !4009, !noundef !7
+  %57 = call i8 @llvm.ucmp.i8.i64(i64 %52, i64 %56)
+  br label %61
 
-._crit_edge.loopexit:                             ; preds = %.thread, %.._crit_edge.loopexit_crit_edge
-  %.pre = phi i64 [ %.pre.pre, %.._crit_edge.loopexit_crit_edge ], [ %21, %.thread ]
-  %.pre31 = load ptr, ptr %11, align 8, !alias.scope !4010
-  br label %._crit_edge
-
-._crit_edge:                                      ; preds = %._crit_edge.loopexit, %3
-  %60 = phi ptr [ %.pre31, %._crit_edge.loopexit ], [ %6, %3 ]
-  %61 = phi i64 [ %.pre, %._crit_edge.loopexit ], [ %2, %3 ]
-  %62 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %60, i64 %61
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %62, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 152, i1 false)
+.loopexit:                                        ; preds = %.thread30, %61, %3, %.thread
+  %58 = load i64, ptr %13, align 8, !noundef !7
+  %59 = load ptr, ptr %11, align 8, !alias.scope !4010, !nonnull !7, !align !16, !noundef !7
+  %60 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %59, i64 %58
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %60, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 152, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  ret i64 %61
+  ret i64 %58
 
-63:                                               ; preds = %51, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i, %39
-  %.sroa.0.2.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %39 ], [ %59, %51 ], [ %spec.select.i.i.i.i, %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.i.i.i.i ]
-  %64 = add nsw i8 %.sroa.0.2.i.i.i, -3
-  %switch.i = icmp samesign ult i8 %64, -2
-  br i1 %switch.i, label %.._crit_edge.loopexit_crit_edge, label %.thread
+61:                                               ; preds = %49, %39
+  %.sroa.0.2.i.i.i = phi i8 [ %.sroa.0.1.i.i.i, %39 ], [ %57, %49 ]
+  %switch.i = icmp slt i8 %.sroa.0.2.i.i.i, 1
+  br i1 %switch.i, label %.loopexit, label %.thread30
 
-.._crit_edge.loopexit_crit_edge:                  ; preds = %63
-  %.pre.pre = load i64, ptr %13, align 8
-  br label %._crit_edge.loopexit
-
-.thread:                                          ; preds = %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i, %63
-  %65 = load ptr, ptr %11, align 8, !nonnull !7, !align !16, !noundef !7
-  %66 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %65, i64 %21
-  %67 = load i64, ptr %13, align 8, !noundef !7
-  %68 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %65, i64 %67
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %68, ptr noundef nonnull align 8 dereferenceable(152) %66, i64 152, i1 false)
+.thread30:                                        ; preds = %_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654.exit.thread.i.i.i.i, %61
+  %62 = load ptr, ptr %11, align 8, !nonnull !7, !align !16, !noundef !7
+  %63 = getelementptr inbounds nuw { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %62, i64 %21
+  %64 = load i64, ptr %13, align 8, !noundef !7
+  %65 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %62, i64 %64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %65, ptr noundef nonnull align 8 dereferenceable(152) %63, i64 152, i1 false)
   store i64 %21, ptr %13, align 8
-  %69 = icmp ugt i64 %21, %1
-  br i1 %69, label %18, label %._crit_edge.loopexit
+  %66 = icmp ugt i64 %21, %1
+  br i1 %66, label %18, label %.loopexit
 
-70:                                               ; preds = %18, %.noexc
-  %71 = landingpad { ptr, i32 }
+67:                                               ; preds = %18, %.noexc
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %72 = load i64, ptr %13, align 8, !alias.scope !4015, !noundef !7
-  %73 = load ptr, ptr %11, align 8, !alias.scope !4015, !nonnull !7, !align !16, !noundef !7
-  %74 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %73, i64 %72
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %74, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 152, i1 false)
-  resume { ptr, i32 } %71
+  %69 = load i64, ptr %13, align 8, !alias.scope !4015, !noundef !7
+  %70 = load ptr, ptr %11, align 8, !alias.scope !4015, !nonnull !7, !align !16, !noundef !7
+  %71 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, { i64, [4 x i64] }, { { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] }, { { i32, i16, [1 x i16] }, i64, i64, i8, [7 x i8] } }, i64, { ptr, [1 x i64] } }, ptr %70, i64 %69
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(152) %71, ptr noundef nonnull readonly align 8 dereferenceable(176) %4, i64 152, i1 false)
+  resume { ptr, i32 } %68
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -37785,11 +37771,11 @@ attributes #53 = { nounwind }
 !4001 = !{!4002}
 !4002 = distinct !{!4002, !4003, !"_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654: argument 0"}
 !4003 = distinct !{!4003, !"_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654"}
-!4004 = !{!4002, !3995, !3988, !3983, !3978}
-!4005 = !{!3992, !3985, !3980, !3975}
-!4006 = !{!4007, !3995, !3988, !3983, !3978}
-!4007 = distinct !{!4007, !4003, !"_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654: argument 0:thread"}
-!4008 = !{!3997, !3992, !3995}
+!4004 = !{!4005, !3995, !3988, !3983, !3978}
+!4005 = distinct !{!4005, !4003, !"_ZN8language10syntax_map17ParseStepLanguage2id17h8d09c1a04c13d0f6E.llvm.16711830050994594654: argument 0:thread"}
+!4006 = !{!3992, !3985, !3980, !3975}
+!4007 = !{!3997, !3992, !3995}
+!4008 = !{!4002, !3995, !3988, !3983, !3978}
 !4009 = !{!4002, !3992, !3995}
 !4010 = !{!4011, !4013}
 !4011 = distinct !{!4011, !4012, !"_ZN88_$LT$alloc..collections..binary_heap..Hole$LT$T$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hcd952590a5af8d32E: argument 0"}

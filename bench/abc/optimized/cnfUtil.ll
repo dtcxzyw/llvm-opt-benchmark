@@ -1704,13 +1704,11 @@ Vec_IntAlloc.exit:                                ; preds = %20
   store ptr %35, ptr %36, align 8, !tbaa !29
   %37 = shl nsw i32 %26, 3
   %38 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #26
-  %39 = add nsw i32 %37, -1
-  %or.cond.i85 = icmp samesign ult i32 %39, 15
-  %spec.store.select.i86 = select i1 %or.cond.i85, i32 16, i32 %37
+  %39 = tail call i32 @llvm.umax.i32(i32 %37, i32 16)
   %40 = getelementptr inbounds nuw i8, ptr %38, i64 4
   store i32 0, ptr %40, align 4, !tbaa !71
-  store i32 %spec.store.select.i86, ptr %38, align 8, !tbaa !72
-  %41 = zext nneg i32 %spec.store.select.i86 to i64
+  store i32 %39, ptr %38, align 8, !tbaa !72
+  %41 = zext nneg i32 %39 to i64
   %42 = shl nuw nsw i64 %41, 2
   %43 = tail call noalias ptr @malloc(i64 noundef %42) #26
   %44 = getelementptr inbounds nuw i8, ptr %38, i64 8

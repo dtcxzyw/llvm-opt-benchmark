@@ -424,7 +424,7 @@ define internal fastcc noundef range(i32 -1, 5) i32 @tcpmss_mangle_packet(ptr no
 61:                                               ; preds = %58, %37
   %62 = phi i16 [ %60, %58 ], [ %38, %37 ]
   %63 = add nsw i32 %33, -4
-  %64 = icmp samesign ult i32 %63, 20
+  %64 = icmp samesign ult i16 %32, 24
   br i1 %64, label %.loopexit, label %.preheader
 
 .preheader:                                       ; preds = %61, %103

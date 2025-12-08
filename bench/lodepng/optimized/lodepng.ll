@@ -3646,7 +3646,7 @@ _ZL31HuffmanTree_makeFromFrequenciesP11HuffmanTreePKjmmj.exit241.i.i: ; preds = 
 
 513:                                              ; preds = %.preheader294.i.i
   %514 = add nsw i64 %.0200332.i.i, -1
-  %515 = icmp samesign ugt i64 %514, 4
+  %515 = icmp samesign ugt i64 %.0200332.i.i, 5
   br i1 %515, label %.preheader294.i.i, label %.lr.ph335.i.i, !llvm.loop !153
 
 .lr.ph335.i.i:                                    ; preds = %513, %.preheader294.i.i

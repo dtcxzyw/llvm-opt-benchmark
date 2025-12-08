@@ -79,8 +79,8 @@ define range(i32 -1094995529, 1) i32 @ff_spatial_idwt_init(ptr noundef writeonly
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 64
   store i32 -5, ptr %35, align 8, !tbaa !23
   %indvars.iv.next107.i = add nsw i64 %indvars.iv106.i, -1
-  %.not126.i = icmp eq i64 %indvars.iv106.i, 0
-  br i1 %.not126.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !25
+  %.not127.i = icmp eq i64 %indvars.iv106.i, 0
+  br i1 %.not127.i, label %._crit_edge.thread.i, label %.lr.ph.split.us.i, !llvm.loop !25
 
 .lr.ph.split.us79.i:                              ; preds = %.lr.ph.i, %spatial_compose53i_init_8bit.exit.us.i
   %indvars.iv103.i = phi i64 [ %indvars.iv.next104.i, %spatial_compose53i_init_8bit.exit.us.i ], [ %24, %.lr.ph.i ]
@@ -188,7 +188,7 @@ spatial_compose53i_init_8bit.exit.us.i:           ; preds = %52, %avpriv_mirror.
   store i32 -5, ptr %81, align 8, !tbaa !23
   %indvars.iv.next101.i = add nsw i64 %indvars.iv100.i, -1
   %.not.i = icmp eq i64 %indvars.iv100.i, 0
-  br i1 %.not.i, label %._crit_edge.thread120.i, label %.lr.ph.split.us82.i, !llvm.loop !25
+  br i1 %.not.i, label %._crit_edge.thread121.i, label %.lr.ph.split.us82.i, !llvm.loop !25
 
 .lr.ph.split.us85.i:                              ; preds = %.lr.ph.split.us85.i.preheader, %.lr.ph.split.us85.i
   %indvars.iv97.i = phi i64 [ %indvars.iv.next98.i, %.lr.ph.split.us85.i ], [ %24, %.lr.ph.split.us85.i.preheader ]
@@ -228,7 +228,7 @@ avpriv_mirror.exit21.i.us.i:                      ; preds = %avpriv_mirror.exit.
   %98 = getelementptr inbounds i8, ptr %7, i64 %97
   %99 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %98, ptr %99, align 8, !tbaa !22
-  %100 = icmp samesign ult i32 %90, -2
+  %100 = icmp slt i32 %87, -1
   br i1 %100, label %.lr.ph42.i.us.i, label %avpriv_mirror.exit27.i.us.i
 
 avpriv_mirror.exit27.i.us.i:                      ; preds = %avpriv_mirror.exit21.i.us.i
@@ -338,14 +338,14 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
   %138 = getelementptr inbounds nuw i8, ptr %137, i64 160
   store i32 0, ptr %138, align 8, !tbaa !23
   %indvars.iv.next110.i = add nsw i64 %indvars.iv109.i, -1
-  %.not127.i = icmp eq i64 %indvars.iv109.i, 0
-  br i1 %.not127.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !25
+  %.not128.i = icmp eq i64 %indvars.iv109.i, 0
+  br i1 %.not128.i, label %._crit_edge.i, label %.lr.ph.split.i, !llvm.loop !25
 
 ._crit_edge.i:                                    ; preds = %spatial_compose97i_init_8bit.exit.us.i, %.lr.ph.split.us85.i, %spatial_compose53i_init_8bit.exit.us.i, %.lr.ph.split.i, %20
   switch i32 %2, label %spatial_idwt_init_8bit.exit [
     i32 2, label %._crit_edge.thread.i
     i32 3, label %142
-    i32 4, label %._crit_edge.thread120.i
+    i32 4, label %._crit_edge.thread121.i
     i32 5, label %149
     i32 6, label %149
     i32 7, label %153
@@ -370,7 +370,7 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
   store ptr @vertical_compose_dirac53iH0_8bit, ptr %145, align 8, !tbaa !29
   br label %.sink.split.i
 
-._crit_edge.thread120.i:                          ; preds = %.lr.ph.split.us82.i, %._crit_edge.i
+._crit_edge.thread121.i:                          ; preds = %.lr.ph.split.us82.i, %._crit_edge.i
   %146 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @spatial_compose_dd137i_dy_8bit, ptr %146, align 8, !tbaa !28
   %147 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -410,9 +410,9 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
   store ptr @vertical_compose_daub97iH1_8bit, ptr %162, align 8, !tbaa !32
   br label %.sink.split.i
 
-.sink.split.i:                                    ; preds = %157, %153, %149, %._crit_edge.thread120.i, %142, %._crit_edge.thread.i
-  %horizontal_compose_dd97i_8bit.sink.i = phi ptr [ @horizontal_compose_dd97i_8bit, %._crit_edge.thread.i ], [ @horizontal_compose_dirac53i_8bit, %142 ], [ @horizontal_compose_dd137i_8bit, %._crit_edge.thread120.i ], [ %spec.select.i, %149 ], [ @horizontal_compose_fidelityi_8bit, %153 ], [ @horizontal_compose_daub97i_8bit, %157 ]
-  %.sink.i = phi i32 [ 7, %._crit_edge.thread.i ], [ 3, %142 ], [ 7, %._crit_edge.thread120.i ], [ 1, %149 ], [ 0, %153 ], [ 5, %157 ]
+.sink.split.i:                                    ; preds = %157, %153, %149, %._crit_edge.thread121.i, %142, %._crit_edge.thread.i
+  %horizontal_compose_dd97i_8bit.sink.i = phi ptr [ @horizontal_compose_dd97i_8bit, %._crit_edge.thread.i ], [ @horizontal_compose_dirac53i_8bit, %142 ], [ @horizontal_compose_dd137i_8bit, %._crit_edge.thread121.i ], [ %spec.select.i, %149 ], [ @horizontal_compose_fidelityi_8bit, %153 ], [ @horizontal_compose_daub97i_8bit, %157 ]
+  %.sink.i = phi i32 [ 7, %._crit_edge.thread.i ], [ 3, %142 ], [ 7, %._crit_edge.thread121.i ], [ 1, %149 ], [ 0, %153 ], [ 5, %157 ]
   %163 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %horizontal_compose_dd97i_8bit.sink.i, ptr %163, align 8, !tbaa !33
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -462,8 +462,8 @@ spatial_compose97i_init_8bit.exit.us.i:           ; preds = %126, %avpriv_mirror
   %180 = getelementptr inbounds nuw i8, ptr %172, i64 64
   store i32 -5, ptr %180, align 8, !tbaa !23
   %indvars.iv.next105.i = add nsw i64 %indvars.iv104.i, -1
-  %.not124.i = icmp eq i64 %indvars.iv104.i, 0
-  br i1 %.not124.i, label %._crit_edge.thread.i31, label %.lr.ph.split.us.i60, !llvm.loop !35
+  %.not125.i = icmp eq i64 %indvars.iv104.i, 0
+  br i1 %.not125.i, label %._crit_edge.thread.i31, label %.lr.ph.split.us.i60, !llvm.loop !35
 
 .lr.ph.split.us77.i:                              ; preds = %.lr.ph.i32, %spatial_compose53i_init_10bit.exit.us.i
   %indvars.iv101.i = phi i64 [ %indvars.iv.next102.i, %spatial_compose53i_init_10bit.exit.us.i ], [ %169, %.lr.ph.i32 ]
@@ -571,7 +571,7 @@ spatial_compose53i_init_10bit.exit.us.i:          ; preds = %197, %avpriv_mirror
   store i32 -5, ptr %226, align 8, !tbaa !23
   %indvars.iv.next99.i = add nsw i64 %indvars.iv98.i, -1
   %.not.i50 = icmp eq i64 %indvars.iv98.i, 0
-  br i1 %.not.i50, label %._crit_edge.thread118.i, label %.lr.ph.split.us80.i, !llvm.loop !35
+  br i1 %.not.i50, label %._crit_edge.thread119.i, label %.lr.ph.split.us80.i, !llvm.loop !35
 
 .lr.ph.split.us83.i:                              ; preds = %.lr.ph.split.us83.i.preheader, %.lr.ph.split.us83.i
   %indvars.iv95.i = phi i64 [ %indvars.iv.next96.i, %.lr.ph.split.us83.i ], [ %169, %.lr.ph.split.us83.i.preheader ]
@@ -611,7 +611,7 @@ avpriv_mirror.exit27.i.us.i34:                    ; preds = %avpriv_mirror.exit3
   %243 = getelementptr inbounds i8, ptr %7, i64 %242
   %244 = getelementptr inbounds nuw i8, ptr %234, i64 8
   store ptr %243, ptr %244, align 8, !tbaa !22
-  %245 = icmp samesign ult i32 %235, -2
+  %245 = icmp slt i32 %232, -1
   br i1 %245, label %.lr.ph42.i.us.i39, label %avpriv_mirror.exit21.i.us.i35
 
 avpriv_mirror.exit21.i.us.i35:                    ; preds = %avpriv_mirror.exit27.i.us.i34
@@ -721,14 +721,14 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
   %283 = getelementptr inbounds nuw i8, ptr %282, i64 160
   store i32 0, ptr %283, align 8, !tbaa !23
   %indvars.iv.next108.i = add nsw i64 %indvars.iv107.i, -1
-  %.not125.i = icmp eq i64 %indvars.iv107.i, 0
-  br i1 %.not125.i, label %._crit_edge.i26, label %.lr.ph.split.i62, !llvm.loop !35
+  %.not126.i = icmp eq i64 %indvars.iv107.i, 0
+  br i1 %.not126.i, label %._crit_edge.i26, label %.lr.ph.split.i62, !llvm.loop !35
 
 ._crit_edge.i26:                                  ; preds = %spatial_compose97i_init_10bit.exit.us.i, %.lr.ph.split.us83.i, %spatial_compose53i_init_10bit.exit.us.i, %.lr.ph.split.i62, %165
   switch i32 %2, label %spatial_idwt_init_8bit.exit [
     i32 2, label %._crit_edge.thread.i31
     i32 3, label %287
-    i32 4, label %._crit_edge.thread118.i
+    i32 4, label %._crit_edge.thread119.i
     i32 5, label %294
     i32 6, label %294
     i32 7, label %298
@@ -753,7 +753,7 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
   store ptr @vertical_compose_dirac53iH0_10bit, ptr %290, align 8, !tbaa !29
   br label %.sink.split.i27
 
-._crit_edge.thread118.i:                          ; preds = %.lr.ph.split.us80.i, %._crit_edge.i26
+._crit_edge.thread119.i:                          ; preds = %.lr.ph.split.us80.i, %._crit_edge.i26
   %291 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @spatial_compose_dd137i_dy_10bit, ptr %291, align 8, !tbaa !28
   %292 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -793,9 +793,9 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
   store ptr @vertical_compose_daub97iH1_10bit, ptr %307, align 8, !tbaa !32
   br label %.sink.split.i27
 
-.sink.split.i27:                                  ; preds = %302, %298, %294, %._crit_edge.thread118.i, %287, %._crit_edge.thread.i31
-  %horizontal_compose_dd97i_10bit.sink.i = phi ptr [ @horizontal_compose_dd97i_10bit, %._crit_edge.thread.i31 ], [ @horizontal_compose_dirac53i_10bit, %287 ], [ @horizontal_compose_dd137i_10bit, %._crit_edge.thread118.i ], [ %spec.select.i30, %294 ], [ @horizontal_compose_fidelityi_10bit, %298 ], [ @horizontal_compose_daub97i_10bit, %302 ]
-  %.sink.i28 = phi i32 [ 7, %._crit_edge.thread.i31 ], [ 3, %287 ], [ 7, %._crit_edge.thread118.i ], [ 1, %294 ], [ 0, %298 ], [ 5, %302 ]
+.sink.split.i27:                                  ; preds = %302, %298, %294, %._crit_edge.thread119.i, %287, %._crit_edge.thread.i31
+  %horizontal_compose_dd97i_10bit.sink.i = phi ptr [ @horizontal_compose_dd97i_10bit, %._crit_edge.thread.i31 ], [ @horizontal_compose_dirac53i_10bit, %287 ], [ @horizontal_compose_dd137i_10bit, %._crit_edge.thread119.i ], [ %spec.select.i30, %294 ], [ @horizontal_compose_fidelityi_10bit, %298 ], [ @horizontal_compose_daub97i_10bit, %302 ]
+  %.sink.i28 = phi i32 [ 7, %._crit_edge.thread.i31 ], [ 3, %287 ], [ 7, %._crit_edge.thread119.i ], [ 1, %294 ], [ 0, %298 ], [ 5, %302 ]
   %308 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %horizontal_compose_dd97i_10bit.sink.i, ptr %308, align 8, !tbaa !33
   %309 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -845,8 +845,8 @@ spatial_compose97i_init_10bit.exit.us.i:          ; preds = %271, %avpriv_mirror
   %325 = getelementptr inbounds nuw i8, ptr %317, i64 64
   store i32 -5, ptr %325, align 8, !tbaa !23
   %indvars.iv.next105.i135 = add nsw i64 %indvars.iv104.i134, -1
-  %.not124.i136 = icmp eq i64 %indvars.iv104.i134, 0
-  br i1 %.not124.i136, label %._crit_edge.thread.i70, label %.lr.ph.split.us.i133, !llvm.loop !36
+  %.not125.i136 = icmp eq i64 %indvars.iv104.i134, 0
+  br i1 %.not125.i136, label %._crit_edge.thread.i70, label %.lr.ph.split.us.i133, !llvm.loop !36
 
 .lr.ph.split.us77.i114:                           ; preds = %.lr.ph.i71, %spatial_compose53i_init_12bit.exit.us.i
   %indvars.iv101.i115 = phi i64 [ %indvars.iv.next102.i126, %spatial_compose53i_init_12bit.exit.us.i ], [ %314, %.lr.ph.i71 ]
@@ -954,7 +954,7 @@ spatial_compose53i_init_12bit.exit.us.i:          ; preds = %342, %avpriv_mirror
   store i32 -5, ptr %371, align 8, !tbaa !23
   %indvars.iv.next99.i112 = add nsw i64 %indvars.iv98.i109, -1
   %.not.i113 = icmp eq i64 %indvars.iv98.i109, 0
-  br i1 %.not.i113, label %._crit_edge.thread118.i69, label %.lr.ph.split.us80.i108, !llvm.loop !36
+  br i1 %.not.i113, label %._crit_edge.thread119.i69, label %.lr.ph.split.us80.i108, !llvm.loop !36
 
 .lr.ph.split.us83.i105:                           ; preds = %.lr.ph.split.us83.i105.preheader, %.lr.ph.split.us83.i105
   %indvars.iv95.i106 = phi i64 [ %indvars.iv.next96.i107, %.lr.ph.split.us83.i105 ], [ %314, %.lr.ph.split.us83.i105.preheader ]
@@ -994,7 +994,7 @@ avpriv_mirror.exit27.i.us.i77:                    ; preds = %avpriv_mirror.exit3
   %388 = getelementptr inbounds i8, ptr %7, i64 %387
   %389 = getelementptr inbounds nuw i8, ptr %379, i64 8
   store ptr %388, ptr %389, align 8, !tbaa !22
-  %390 = icmp samesign ult i32 %380, -2
+  %390 = icmp slt i32 %377, -1
   br i1 %390, label %.lr.ph42.i.us.i87, label %avpriv_mirror.exit21.i.us.i78
 
 avpriv_mirror.exit21.i.us.i78:                    ; preds = %avpriv_mirror.exit27.i.us.i77
@@ -1104,14 +1104,14 @@ spatial_compose97i_init_12bit.exit.us.i:          ; preds = %416, %avpriv_mirror
   %428 = getelementptr inbounds nuw i8, ptr %427, i64 160
   store i32 0, ptr %428, align 8, !tbaa !23
   %indvars.iv.next108.i140 = add nsw i64 %indvars.iv107.i139, -1
-  %.not125.i141 = icmp eq i64 %indvars.iv107.i139, 0
-  br i1 %.not125.i141, label %._crit_edge.i64, label %.lr.ph.split.i138, !llvm.loop !36
+  %.not126.i141 = icmp eq i64 %indvars.iv107.i139, 0
+  br i1 %.not126.i141, label %._crit_edge.i64, label %.lr.ph.split.i138, !llvm.loop !36
 
 ._crit_edge.i64:                                  ; preds = %spatial_compose97i_init_12bit.exit.us.i, %.lr.ph.split.us83.i105, %spatial_compose53i_init_12bit.exit.us.i, %.lr.ph.split.i138, %310
   switch i32 %2, label %spatial_idwt_init_8bit.exit [
     i32 2, label %._crit_edge.thread.i70
     i32 3, label %432
-    i32 4, label %._crit_edge.thread118.i69
+    i32 4, label %._crit_edge.thread119.i69
     i32 5, label %439
     i32 6, label %439
     i32 7, label %443
@@ -1136,7 +1136,7 @@ spatial_compose97i_init_12bit.exit.us.i:          ; preds = %416, %avpriv_mirror
   store ptr @vertical_compose_dirac53iH0_12bit, ptr %435, align 8, !tbaa !29
   br label %.sink.split.i65
 
-._crit_edge.thread118.i69:                        ; preds = %.lr.ph.split.us80.i108, %._crit_edge.i64
+._crit_edge.thread119.i69:                        ; preds = %.lr.ph.split.us80.i108, %._crit_edge.i64
   %436 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr @spatial_compose_dd137i_dy_12bit, ptr %436, align 8, !tbaa !28
   %437 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -1176,9 +1176,9 @@ spatial_compose97i_init_12bit.exit.us.i:          ; preds = %416, %avpriv_mirror
   store ptr @vertical_compose_daub97iH1_12bit, ptr %452, align 8, !tbaa !32
   br label %.sink.split.i65
 
-.sink.split.i65:                                  ; preds = %447, %443, %439, %._crit_edge.thread118.i69, %432, %._crit_edge.thread.i70
-  %horizontal_compose_dd97i_12bit.sink.i = phi ptr [ @horizontal_compose_dd97i_12bit, %._crit_edge.thread.i70 ], [ @horizontal_compose_dirac53i_12bit, %432 ], [ @horizontal_compose_dd137i_12bit, %._crit_edge.thread118.i69 ], [ %spec.select.i68, %439 ], [ @horizontal_compose_fidelityi_12bit, %443 ], [ @horizontal_compose_daub97i_12bit, %447 ]
-  %.sink.i66 = phi i32 [ 7, %._crit_edge.thread.i70 ], [ 3, %432 ], [ 7, %._crit_edge.thread118.i69 ], [ 1, %439 ], [ 0, %443 ], [ 5, %447 ]
+.sink.split.i65:                                  ; preds = %447, %443, %439, %._crit_edge.thread119.i69, %432, %._crit_edge.thread.i70
+  %horizontal_compose_dd97i_12bit.sink.i = phi ptr [ @horizontal_compose_dd97i_12bit, %._crit_edge.thread.i70 ], [ @horizontal_compose_dirac53i_12bit, %432 ], [ @horizontal_compose_dd137i_12bit, %._crit_edge.thread119.i69 ], [ %spec.select.i68, %439 ], [ @horizontal_compose_fidelityi_12bit, %443 ], [ @horizontal_compose_daub97i_12bit, %447 ]
+  %.sink.i66 = phi i32 [ 7, %._crit_edge.thread.i70 ], [ 3, %432 ], [ 7, %._crit_edge.thread119.i69 ], [ 1, %439 ], [ 0, %443 ], [ 5, %447 ]
   %453 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store ptr %horizontal_compose_dd97i_12bit.sink.i, ptr %453, align 8, !tbaa !33
   %454 = getelementptr inbounds nuw i8, ptr %0, i64 32

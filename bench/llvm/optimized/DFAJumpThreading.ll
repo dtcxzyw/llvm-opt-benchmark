@@ -5249,7 +5249,7 @@ _ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit.i:  ; preds = %1965, %1963
   br i1 %1981, label %1982, label %1988
 
 1982:                                             ; preds = %_ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit.i
-  %1983 = icmp samesign ult i64 %1980, 64
+  %1983 = icmp slt i64 %1979, 63
   br i1 %1983, label %1984, label %1986
 
 1984:                                             ; preds = %1982
@@ -14901,7 +14901,7 @@ _ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit:    ; preds = %822, %824
   br i1 %840, label %841, label %847
 
 841:                                              ; preds = %_ZN12_GLOBAL__N_113ThreadingPathC2ERKS0_.exit
-  %842 = icmp samesign ult i64 %839, 64
+  %842 = icmp slt i64 %838, 63
   br i1 %842, label %843, label %845
 
 843:                                              ; preds = %841

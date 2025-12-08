@@ -4576,7 +4576,7 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   br label %55
 
 55:                                               ; preds = %.lr.ph70, %.critedge
-  %.04469 = phi i32 [ %52, %.lr.ph70 ], [ %106, %.critedge ]
+  %.04469 = phi i32 [ %52, %.lr.ph70 ], [ %102, %.critedge ]
   %56 = tail call i32 @rand() #21
   %57 = sitofp i32 %56 to double
   %58 = load double, ptr @err_prob, align 8
@@ -4602,70 +4602,66 @@ find_dct2000_real_data.exit:                      ; preds = %.preheader.i
   br label %.critedge
 
 72:                                               ; preds = %61
-  %73 = udiv i32 %62, 119304648
-  %74 = add nsw i32 %73, -5
-  %75 = icmp samesign ult i32 %74, 5
-  br i1 %75, label %.thread54, label %81
+  %73 = icmp samesign ult i32 %62, 1193046480
+  br i1 %73, label %.thread54, label %79
 
 .thread54:                                        ; preds = %72
-  %76 = tail call i32 @rand() #21
-  %77 = sdiv i32 %76, 8421505
-  %78 = trunc i32 %77 to i8
-  %79 = zext i32 %.04469 to i64
-  %80 = getelementptr i8, ptr %1, i64 %79
-  store i8 %78, ptr %80, align 1
+  %74 = tail call i32 @rand() #21
+  %75 = sdiv i32 %74, 8421505
+  %76 = trunc i32 %75 to i8
+  %77 = zext i32 %.04469 to i64
+  %78 = getelementptr i8, ptr %1, i64 %77
+  store i8 %76, ptr %78, align 1
   br label %.critedge
 
-81:                                               ; preds = %72
-  %82 = add nsw i32 %73, -10
-  %83 = icmp samesign ult i32 %82, 5
-  br i1 %83, label %.thread59, label %91
+79:                                               ; preds = %72
+  %80 = icmp samesign ult i32 %62, 1789569720
+  br i1 %80, label %.thread59, label %88
 
-.thread59:                                        ; preds = %81
-  %84 = tail call i32 @rand() #21
-  %85 = sext i32 %84 to i64
-  %86 = udiv i64 %85, 34636834
-  %87 = getelementptr i8, ptr @.str.217, i64 %86
-  %88 = load i8, ptr %87, align 1
-  %89 = zext i32 %.04469 to i64
-  %90 = getelementptr i8, ptr %1, i64 %89
-  store i8 %88, ptr %90, align 1
+.thread59:                                        ; preds = %79
+  %81 = tail call i32 @rand() #21
+  %82 = sext i32 %81 to i64
+  %83 = udiv i64 %82, 34636834
+  %84 = getelementptr i8, ptr @.str.217, i64 %83
+  %85 = load i8, ptr %84, align 1
+  %86 = zext i32 %.04469 to i64
+  %87 = getelementptr i8, ptr %1, i64 %86
+  store i8 %85, ptr %87, align 1
   br label %.critedge
 
-91:                                               ; preds = %81
-  %92 = add nsw i32 %73, -15
-  %93 = icmp samesign ult i32 %92, 2
-  br i1 %93, label %100, label %.preheader
+88:                                               ; preds = %79
+  %89 = icmp samesign ult i32 %62, 2028179016
+  br i1 %89, label %96, label %.preheader
 
-.preheader:                                       ; preds = %91
-  %94 = icmp ult i32 %.04469, %.048
-  br i1 %94, label %.lr.ph.preheader, label %.critedge
+.preheader:                                       ; preds = %88
+  %90 = icmp ult i32 %.04469, %.048
+  br i1 %90, label %.lr.ph.preheader, label %.critedge
 
 .lr.ph.preheader:                                 ; preds = %.preheader
-  %95 = zext i32 %.04469 to i64
-  %scevgep = getelementptr i8, ptr %1, i64 %95
-  %96 = xor i32 %.04469, -1
-  %97 = add i32 %.048, %96
-  %98 = zext i32 %97 to i64
-  %99 = add nuw nsw i64 %98, 1
-  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %scevgep, i8 -86, i64 %99, i1 false)
+  %91 = zext i32 %.04469 to i64
+  %scevgep = getelementptr i8, ptr %1, i64 %91
+  %92 = xor i32 %.04469, -1
+  %93 = add i32 %.048, %92
+  %94 = zext i32 %93 to i64
+  %95 = add nuw nsw i64 %94, 1
+  tail call void @llvm.memset.p0.i64(ptr noundef align 1 %scevgep, i8 -86, i64 %95, i1 false)
   br label %.critedge
 
-100:                                              ; preds = %91
-  %101 = icmp ult i32 %.04469, %54
-  br i1 %101, label %102, label %.critedge
+96:                                               ; preds = %88
+  %97 = icmp ult i32 %.04469, %54
+  br i1 %97, label %98, label %.critedge
 
-102:                                              ; preds = %100
-  %103 = zext i32 %.04469 to i64
-  %104 = getelementptr i8, ptr %1, i64 %103
-  %105 = tail call i64 @g_strlcpy(ptr noundef %104, ptr noundef nonnull @.str.62, i64 noundef 2)
+98:                                               ; preds = %96
+  %99 = zext i32 %.04469 to i64
+  %100 = getelementptr i8, ptr %1, i64 %99
+  %101 = tail call i64 @g_strlcpy(ptr noundef %100, ptr noundef nonnull @.str.62, i64 noundef 2)
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph.preheader, %.preheader, %.thread57, %.thread54, %.thread59, %100, %102, %55
-  %.246 = phi i32 [ %.04469, %55 ], [ %.04469, %100 ], [ %.04469, %102 ], [ %.04469, %.thread59 ], [ %.04469, %.thread54 ], [ %.04469, %.thread57 ], [ %.048, %.preheader ], [ %.048, %.lr.ph.preheader ]
-  %106 = add i32 %.246, 1
-  %107 = icmp ult i32 %106, %.048
-  br i1 %107, label %55, label %.loopexit, !llvm.loop !50
+.critedge:                                        ; preds = %.lr.ph.preheader, %.preheader, %.thread57, %.thread54, %.thread59, %96, %98, %55
+  %.246 = phi i32 [ %.04469, %55 ], [ %.04469, %96 ], [ %.04469, %98 ], [ %.04469, %.thread59 ], [ %.04469, %.thread54 ], [ %.04469, %.thread57 ], [ %.048, %.preheader ], [ %.048, %.lr.ph.preheader ]
+  %102 = add i32 %.246, 1
+  %103 = icmp ult i32 %102, %.048
+  br i1 %103, label %55, label %.loopexit, !llvm.loop !50
 
 .loopexit:                                        ; preds = %.critedge, %51, %4, %48
   ret void

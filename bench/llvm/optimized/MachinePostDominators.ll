@@ -22001,7 +22001,7 @@ _ZNSt14priority_queueIPN4llvm15DomTreeNodeBaseINS0_17MachineBasicBlockEEENS0_11S
   %140 = lshr exact i64 %139, 3
   %141 = add nsw i64 %140, -1
   %142 = lshr i64 %141, 1
-  %143 = icmp samesign ugt i64 %139, 16
+  %143 = icmp ugt i32 %131, 3
   br i1 %143, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %134, %.lr.ph.i.i.i.i

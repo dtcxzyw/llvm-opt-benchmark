@@ -6544,7 +6544,7 @@ _ZSt4iotaIPjiEvT_S1_T0_.exit.thread:              ; preds = %_ZN4llvm11SmallVect
   %232 = lshr exact i64 %231, 2
   %233 = add nsw i64 %232, -1
   %234 = lshr i64 %233, 1
-  %235 = icmp samesign ugt i64 %231, 8
+  %235 = icmp ugt i32 %223, 3
   br i1 %235, label %.lr.ph.i.i.i124, label %._crit_edge.i.i.i112
 
 .lr.ph.i.i.i124:                                  ; preds = %225, %.lr.ph.i.i.i124

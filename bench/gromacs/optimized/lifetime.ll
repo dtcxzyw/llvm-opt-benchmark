@@ -802,7 +802,7 @@ _ZN3gmx26AnalysisDataLifetimeModule4Impl11addLifetimeEii.exit: ; preds = %43, %_
   br i1 %151, label %152, label %158
 
 152:                                              ; preds = %.lr.ph123
-  %153 = icmp samesign ult i64 %150, 128
+  %153 = icmp slt i64 %149, 127
   br i1 %153, label %154, label %156
 
 154:                                              ; preds = %152

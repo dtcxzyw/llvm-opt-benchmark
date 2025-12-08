@@ -7352,14 +7352,14 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr readnone capt
   %15 = add i32 %3, 12
   %16 = tail call fastcc i32 @flow_process_timeperiod(ptr noundef %2, ptr noundef %0, i32 noundef %15)
   %17 = load i8, ptr %4, align 8
-  switch i8 %17, label %147 [
+  switch i8 %17, label %146 [
     i8 1, label %18
     i8 9, label %18
     i8 2, label %42
     i8 10, label %42
-    i8 14, label %97
-    i8 13, label %97
-    i8 5, label %97
+    i8 14, label %96
+    i8 13, label %96
+    i8 5, label %96
     i8 3, label %73
     i8 11, label %73
     i8 4, label %72
@@ -7380,7 +7380,7 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr readnone capt
   %29 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %28, ptr noundef %0, i32 noundef %27, i32 noundef 2, i32 noundef 0)
   %30 = add i32 %16, 8
   %31 = icmp eq i8 %17, 9
-  br i1 %31, label %32, label %147
+  br i1 %31, label %32, label %146
 
 32:                                               ; preds = %18
   %33 = load i32, ptr @hf_cflow_tos, align 4
@@ -7392,7 +7392,7 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr readnone capt
   %39 = load i32, ptr @hf_cflow_reserved, align 4
   %40 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %39, ptr noundef %0, i32 noundef %38, i32 noundef 2, i32 noundef 0)
   %41 = add i32 %16, 12
-  br label %147
+  br label %146
 
 42:                                               ; preds = %6, %6
   %43 = load i32, ptr @hf_cflow_prot, align 4
@@ -7427,7 +7427,7 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr readnone capt
   %62 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %61, ptr noundef %0, i32 noundef %60, i32 noundef 2, i32 noundef 0)
   %63 = add i32 %.1, 6
   %64 = icmp eq i8 %17, 10
-  br i1 %64, label %65, label %147
+  br i1 %64, label %65, label %146
 
 65:                                               ; preds = %54
   %66 = load i32, ptr @hf_cflow_inputint, align 4
@@ -7436,7 +7436,7 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr readnone capt
   %69 = load i32, ptr @hf_cflow_outputint, align 4
   %70 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %69, ptr noundef %0, i32 noundef %68, i32 noundef 2, i32 noundef 0)
   %71 = add i32 %.1, 10
-  br label %147
+  br label %146
 
 72:                                               ; preds = %6, %6
   br label %73
@@ -7454,111 +7454,110 @@ define internal noundef i32 @dissect_v8_aggpdu(ptr noundef %0, ptr readnone capt
   %75 = add i32 %16, 4
   %76 = add i32 %16, 5
   %77 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0, ptr noundef %0, i32 noundef %75, i32 noundef 1, i32 noundef 0)
-  %78 = add nsw i8 %17, -3
-  %or.cond = icmp samesign ult i8 %78, 2
-  br i1 %or.cond, label %79, label %83
+  %or.cond = icmp samesign ult i8 %17, 5
+  br i1 %or.cond, label %78, label %82
 
-79:                                               ; preds = %73
-  %80 = load i32, ptr @hf_cflow_padding, align 4
-  %81 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %80, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0)
-  %82 = add i32 %16, 6
-  br label %89
+78:                                               ; preds = %73
+  %79 = load i32, ptr @hf_cflow_padding, align 4
+  %80 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %79, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0)
+  %81 = add i32 %16, 6
+  br label %88
 
-83:                                               ; preds = %73
-  %84 = add nsw i8 %17, -11
-  %or.cond5 = icmp ult i8 %84, 2
-  br i1 %or.cond5, label %85, label %89
+82:                                               ; preds = %73
+  %83 = add nsw i8 %17, -11
+  %or.cond5 = icmp ult i8 %83, 2
+  br i1 %or.cond5, label %84, label %88
 
-85:                                               ; preds = %83
-  %86 = load i32, ptr @hf_cflow_tos, align 4
-  %87 = add i32 %16, 6
-  %88 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %86, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0)
-  br label %89
+84:                                               ; preds = %82
+  %85 = load i32, ptr @hf_cflow_tos, align 4
+  %86 = add i32 %16, 6
+  %87 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %85, ptr noundef %0, i32 noundef %76, i32 noundef 1, i32 noundef 0)
+  br label %88
 
-89:                                               ; preds = %85, %83, %79
-  %.2 = phi i32 [ %82, %79 ], [ %87, %85 ], [ %76, %83 ]
-  %90 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0139, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0)
-  %91 = add i32 %.2, 2
-  %92 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0137, ptr noundef %0, i32 noundef %91, i32 noundef 2, i32 noundef 0)
-  %93 = add i32 %.2, 4
-  %94 = load i32, ptr @hf_cflow_reserved, align 4
-  %95 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %94, ptr noundef %0, i32 noundef %93, i32 noundef 2, i32 noundef 0)
-  %96 = add i32 %.2, 6
-  br label %147
+88:                                               ; preds = %84, %82, %78
+  %.2 = phi i32 [ %81, %78 ], [ %86, %84 ], [ %76, %82 ]
+  %89 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0139, ptr noundef %0, i32 noundef %.2, i32 noundef 2, i32 noundef 0)
+  %90 = add i32 %.2, 2
+  %91 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %.0137, ptr noundef %0, i32 noundef %90, i32 noundef 2, i32 noundef 0)
+  %92 = add i32 %.2, 4
+  %93 = load i32, ptr @hf_cflow_reserved, align 4
+  %94 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %93, ptr noundef %0, i32 noundef %92, i32 noundef 2, i32 noundef 0)
+  %95 = add i32 %.2, 6
+  br label %146
 
-97:                                               ; preds = %6, %6, %6
-  %98 = load i32, ptr @hf_cflow_srcnet, align 4
-  %99 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %98, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0)
-  %100 = add i32 %16, 4
-  %101 = load i32, ptr @hf_cflow_dstnet, align 4
-  %102 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %101, ptr noundef %0, i32 noundef %100, i32 noundef 4, i32 noundef 0)
-  %103 = add i32 %16, 8
-  %104 = load i32, ptr @hf_cflow_dstmask, align 4
-  %105 = add i32 %16, 9
-  %106 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %104, ptr noundef %0, i32 noundef %103, i32 noundef 1, i32 noundef 0)
-  %107 = load i32, ptr @hf_cflow_srcmask, align 4
-  %108 = add i32 %16, 10
-  %109 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %107, ptr noundef %0, i32 noundef %105, i32 noundef 1, i32 noundef 0)
-  %110 = add nsw i8 %17, -13
-  %or.cond8 = icmp ult i8 %110, 2
-  br i1 %or.cond8, label %111, label %119
+96:                                               ; preds = %6, %6, %6
+  %97 = load i32, ptr @hf_cflow_srcnet, align 4
+  %98 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %97, ptr noundef %0, i32 noundef %16, i32 noundef 4, i32 noundef 0)
+  %99 = add i32 %16, 4
+  %100 = load i32, ptr @hf_cflow_dstnet, align 4
+  %101 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %100, ptr noundef %0, i32 noundef %99, i32 noundef 4, i32 noundef 0)
+  %102 = add i32 %16, 8
+  %103 = load i32, ptr @hf_cflow_dstmask, align 4
+  %104 = add i32 %16, 9
+  %105 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %103, ptr noundef %0, i32 noundef %102, i32 noundef 1, i32 noundef 0)
+  %106 = load i32, ptr @hf_cflow_srcmask, align 4
+  %107 = add i32 %16, 10
+  %108 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %106, ptr noundef %0, i32 noundef %104, i32 noundef 1, i32 noundef 0)
+  %109 = add nsw i8 %17, -13
+  %or.cond8 = icmp ult i8 %109, 2
+  br i1 %or.cond8, label %110, label %118
 
-111:                                              ; preds = %97
-  %112 = icmp eq i8 %17, 13
-  %113 = load i32, ptr @hf_cflow_tos, align 4
-  %114 = add i32 %16, 11
-  %115 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %113, ptr noundef %0, i32 noundef %108, i32 noundef 1, i32 noundef 0)
-  br i1 %112, label %.thread145, label %130
+110:                                              ; preds = %96
+  %111 = icmp eq i8 %17, 13
+  %112 = load i32, ptr @hf_cflow_tos, align 4
+  %113 = add i32 %16, 11
+  %114 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %112, ptr noundef %0, i32 noundef %107, i32 noundef 1, i32 noundef 0)
+  br i1 %111, label %.thread145, label %129
 
-.thread145:                                       ; preds = %111
-  %116 = load i32, ptr @hf_cflow_padding, align 4
-  %117 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %116, ptr noundef %0, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %118 = add i32 %16, 12
-  br label %123
+.thread145:                                       ; preds = %110
+  %115 = load i32, ptr @hf_cflow_padding, align 4
+  %116 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %115, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0)
+  %117 = add i32 %16, 12
+  br label %122
 
-119:                                              ; preds = %97
-  %120 = load i32, ptr @hf_cflow_reserved, align 4
-  %121 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %120, ptr noundef %0, i32 noundef %108, i32 noundef 2, i32 noundef 0)
-  %122 = add i32 %16, 12
+118:                                              ; preds = %96
+  %119 = load i32, ptr @hf_cflow_reserved, align 4
+  %120 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %119, ptr noundef %0, i32 noundef %107, i32 noundef 2, i32 noundef 0)
+  %121 = add i32 %16, 12
   %cond = icmp eq i8 %17, 5
-  br i1 %cond, label %123, label %140
+  br i1 %cond, label %122, label %139
 
-123:                                              ; preds = %119, %.thread145
-  %.3149 = phi i32 [ %118, %.thread145 ], [ %122, %119 ]
-  %124 = load i32, ptr @hf_cflow_srcas, align 4
-  %125 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %124, ptr noundef %0, i32 noundef %.3149, i32 noundef 2, i32 noundef 0)
-  %126 = add i32 %.3149, 2
-  %127 = load i32, ptr @hf_cflow_dstas, align 4
-  %128 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %127, ptr noundef %0, i32 noundef %126, i32 noundef 2, i32 noundef 0)
-  %129 = add i32 %.3149, 4
-  br label %140
+122:                                              ; preds = %118, %.thread145
+  %.3149 = phi i32 [ %117, %.thread145 ], [ %121, %118 ]
+  %123 = load i32, ptr @hf_cflow_srcas, align 4
+  %124 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %123, ptr noundef %0, i32 noundef %.3149, i32 noundef 2, i32 noundef 0)
+  %125 = add i32 %.3149, 2
+  %126 = load i32, ptr @hf_cflow_dstas, align 4
+  %127 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %126, ptr noundef %0, i32 noundef %125, i32 noundef 2, i32 noundef 0)
+  %128 = add i32 %.3149, 4
+  br label %139
 
-130:                                              ; preds = %111
-  %131 = load i32, ptr @hf_cflow_prot, align 4
-  %132 = add i32 %16, 12
-  %133 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %131, ptr noundef %0, i32 noundef %114, i32 noundef 1, i32 noundef 0)
-  %134 = load i32, ptr @hf_cflow_srcport, align 4
-  %135 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %134, ptr noundef %0, i32 noundef %132, i32 noundef 2, i32 noundef 0)
-  %136 = add i32 %16, 14
-  %137 = load i32, ptr @hf_cflow_dstport, align 4
-  %138 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %137, ptr noundef %0, i32 noundef %136, i32 noundef 2, i32 noundef 0)
-  %139 = add i32 %16, 16
-  br label %140
+129:                                              ; preds = %110
+  %130 = load i32, ptr @hf_cflow_prot, align 4
+  %131 = add i32 %16, 12
+  %132 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %130, ptr noundef %0, i32 noundef %113, i32 noundef 1, i32 noundef 0)
+  %133 = load i32, ptr @hf_cflow_srcport, align 4
+  %134 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %133, ptr noundef %0, i32 noundef %131, i32 noundef 2, i32 noundef 0)
+  %135 = add i32 %16, 14
+  %136 = load i32, ptr @hf_cflow_dstport, align 4
+  %137 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %136, ptr noundef %0, i32 noundef %135, i32 noundef 2, i32 noundef 0)
+  %138 = add i32 %16, 16
+  br label %139
 
-140:                                              ; preds = %119, %130, %123
-  %.4 = phi i32 [ %129, %123 ], [ %139, %130 ], [ %122, %119 ]
-  %141 = load i32, ptr @hf_cflow_inputint, align 4
-  %142 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %141, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0)
-  %143 = add i32 %.4, 2
-  %144 = load i32, ptr @hf_cflow_outputint, align 4
-  %145 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %144, ptr noundef %0, i32 noundef %143, i32 noundef 2, i32 noundef 0)
-  %146 = add i32 %.4, 4
-  br label %147
+139:                                              ; preds = %118, %129, %122
+  %.4 = phi i32 [ %128, %122 ], [ %138, %129 ], [ %121, %118 ]
+  %140 = load i32, ptr @hf_cflow_inputint, align 4
+  %141 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %140, ptr noundef %0, i32 noundef %.4, i32 noundef 2, i32 noundef 0)
+  %142 = add i32 %.4, 2
+  %143 = load i32, ptr @hf_cflow_outputint, align 4
+  %144 = tail call ptr @proto_tree_add_item(ptr noundef %2, i32 noundef %143, ptr noundef %0, i32 noundef %142, i32 noundef 2, i32 noundef 0)
+  %145 = add i32 %.4, 4
+  br label %146
 
-147:                                              ; preds = %6, %54, %65, %18, %32, %140, %89
-  %.0140 = phi i32 [ %16, %6 ], [ %41, %32 ], [ %30, %18 ], [ %71, %65 ], [ %63, %54 ], [ %96, %89 ], [ %146, %140 ]
-  %148 = sub i32 %.0140, %3
-  ret i32 %148
+146:                                              ; preds = %6, %54, %65, %18, %32, %139, %88
+  %.0140 = phi i32 [ %16, %6 ], [ %41, %32 ], [ %30, %18 ], [ %71, %65 ], [ %63, %54 ], [ %95, %88 ], [ %145, %139 ]
+  %147 = sub i32 %.0140, %3
+  ret i32 %147
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -7621,7 +7620,7 @@ define internal i32 @dissect_v9_v10_flowset(ptr noundef %0, ptr noundef %1, ptr 
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %41 = load ptr, ptr %40, align 8
   tail call void @col_append_str(ptr noundef %41, i32 noundef 25, ptr noundef nonnull @.str.4648)
-  %42 = icmp samesign ugt i32 %30, 3
+  %42 = icmp ugt i16 %16, 7
   br i1 %42, label %.lr.ph.i, label %._crit_edge.i
 
 .lr.ph.i:                                         ; preds = %39
@@ -7844,7 +7843,7 @@ dissect_v9_v10_data_template.exit:                ; preds = %._crit_edge.i, %168
   %174 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %175 = load ptr, ptr %174, align 8
   tail call void @col_append_str(ptr noundef %175, i32 noundef 25, ptr noundef nonnull @.str.4669)
-  %176 = icmp samesign ugt i32 %173, 3
+  %176 = icmp ugt i16 %16, 7
   br i1 %176, label %.lr.ph.i55, label %._crit_edge.i54
 
 .lr.ph.i55:                                       ; preds = %172

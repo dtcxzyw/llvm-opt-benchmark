@@ -123,7 +123,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 
 16:                                               ; preds = %tf_get_section.exit
   %17 = add nsw i32 %14, -1
-  %18 = icmp samesign ugt i32 %17, 11
+  %18 = icmp samesign ugt i32 %14, 12
   %or.cond3.i.i = or i1 %7, %18
   br i1 %or.cond3.i.i, label %.thread.i.i, label %19
 

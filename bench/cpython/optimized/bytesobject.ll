@@ -4614,9 +4614,9 @@ _PyBytesWriter_Alloc.exit.thread100:              ; preds = %4, %_PyBytesWriter_
   %73 = zext nneg i8 %70 to i32
   %74 = shl nuw nsw i32 %67, 3
   %75 = getelementptr i8, ptr %.074120, i64 4
-  %76 = add nsw i32 %74, -48
-  %77 = add nsw i32 %76, %73
-  %78 = icmp samesign ugt i32 %77, 255
+  %76 = add nuw nsw i32 %74, %73
+  %77 = add nsw i32 %76, -48
+  %78 = icmp samesign ugt i32 %76, 303
   br i1 %78, label %79, label %.thread
 
 79:                                               ; preds = %72

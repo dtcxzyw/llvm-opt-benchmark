@@ -1414,7 +1414,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 
 41:                                               ; preds = %38
   %42 = icmp samesign ult i64 %2, 15
-  %or.cond107 = or i1 %40, %42
+  %or.cond107 = or i1 %42, %40
   br i1 %or.cond107, label %43, label %47
 
 43:                                               ; preds = %41
@@ -1429,7 +1429,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5F__superblock_prefix_decode(ptr n
 
 49:                                               ; preds = %38
   %50 = icmp samesign ult i64 %2, 11
-  %or.cond109 = or i1 %40, %50
+  %or.cond109 = or i1 %50, %40
   br i1 %or.cond109, label %51, label %55
 
 51:                                               ; preds = %49

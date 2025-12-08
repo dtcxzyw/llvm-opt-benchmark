@@ -124837,7 +124837,7 @@ _ZNSt15_Deque_iteratorIiRKiPS0_EpLEl.exit.i34:    ; preds = %105, %99
   br i1 %121, label %122, label %128
 
 122:                                              ; preds = %115
-  %123 = icmp ugt i64 %119, -129
+  %123 = icmp slt i64 %119, 0
   br i1 %123, label %124, label %126
 
 124:                                              ; preds = %122

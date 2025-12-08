@@ -30796,11 +30796,11 @@ _ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit: ; preds = %"_Z
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 8864
   %28 = load i64, ptr %27, align 16, !range !65, !noundef !4
   %trunc = trunc nuw i64 %28 to i1
-  br i1 %trunc, label %31, label %63
+  br i1 %trunc, label %31, label %59
 
-_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread: ; preds = %.lr.ph.i, %50, %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i, %61, %4, %63
-  %.sroa.5.0 = phi i64 [ %64, %63 ], [ undef, %4 ], [ %62, %61 ], [ %38, %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i ], [ %38, %50 ], [ %38, %.lr.ph.i ]
-  %.sroa.0.0 = phi i64 [ 1, %63 ], [ 0, %4 ], [ 1, %61 ], [ 1, %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i ], [ 1, %50 ], [ 1, %.lr.ph.i ]
+_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread: ; preds = %48, %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i, %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i", %57, %4, %59
+  %.sroa.5.0 = phi i64 [ %60, %59 ], [ undef, %4 ], [ %58, %57 ], [ %38, %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i" ], [ %38, %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i ], [ %38, %48 ]
+  %.sroa.0.0 = phi i64 [ 1, %59 ], [ 0, %4 ], [ 1, %57 ], [ 1, %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i" ], [ 1, %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i ], [ 1, %48 ]
   %29 = insertvalue { i64, i64 } poison, i64 %.sroa.0.0, 0
   %30 = insertvalue { i64, i64 } %29, i64 %.sroa.5.0, 1
   ret { i64, i64 } %30
@@ -30816,56 +30816,57 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread:
 
 .lr.ph.i:                                         ; preds = %31, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"
   %37 = phi ptr [ %39, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i" ], [ %1, %31 ]
-  %38 = phi i64 [ %59, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i" ], [ 0, %31 ]
+  %38 = phi i64 [ %55, %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i" ], [ 0, %31 ]
   %39 = getelementptr inbounds nuw i8, ptr %37, i64 40
   %.val21.i.i.i.i.i = load i64, ptr %37, align 8, !alias.scope !6773, !noalias !6786, !noundef !4
   %40 = getelementptr inbounds nuw i8, ptr %37, i64 8
   %.val22.i.i.i.i.i = load i32, ptr %40, align 8, !alias.scope !6794, !noalias !6797, !noundef !4
-  %41 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %.val22.i.i.i.i.i, i32 %35)
-  %42 = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %.val21.i.i.i.i.i, i64 %33)
-  %43 = icmp eq i32 %.val22.i.i.i.i.i, %35
-  %spec.store.select.i.i.i.i.i.i.i.i = select i1 %43, i8 %42, i8 %41
-  %44 = add nsw i8 %spec.store.select.i.i.i.i.i.i.i.i, -3
-  %switch.i.i.i.i.i.i = icmp samesign ult i8 %44, -2
-  br i1 %switch.i.i.i.i.i.i, label %45, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread
+  %41 = icmp eq i32 %.val22.i.i.i.i.i, %35
+  %switch5.i.i.i.i.i.i = icmp ule i64 %.val21.i.i.i.i.i, %33
+  %switch6.i.i.i.i.i.i = icmp sle i32 %.val22.i.i.i.i.i, %35
+  %switch.i.i.i.i.i.i = select i1 %41, i1 %switch5.i.i.i.i.i.i, i1 %switch6.i.i.i.i.i.i
+  br i1 %switch.i.i.i.i.i.i, label %42, label %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i"
 
-45:                                               ; preds = %.lr.ph.i
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %47 = load i8, ptr %46, align 8, !range !177, !alias.scope !6799, !noalias !6802, !noundef !4
+42:                                               ; preds = %.lr.ph.i
+  %43 = getelementptr inbounds nuw i8, ptr %37, i64 32
+  %44 = load i8, ptr %43, align 8, !range !177, !alias.scope !6799, !noalias !6802, !noundef !4
   %.sroa.3.0.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %37, i64 16
-  %48 = icmp eq i8 %47, 0
+  %45 = icmp eq i8 %44, 0
   %.val19.i.i.i.i.i = load i64, ptr %.sroa.3.0.i.i.i.i.i.i, align 8, !alias.scope !6803, !noalias !6802, !noundef !4
-  %49 = getelementptr inbounds nuw i8, ptr %37, i64 24
-  %.val20.i.i.i.i.i = load i32, ptr %49, align 8, !alias.scope !6803, !noalias !6802, !noundef !4
-  br i1 %48, label %50, label %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %37, i64 24
+  %.val20.i.i.i.i.i = load i32, ptr %46, align 8, !alias.scope !6803, !noalias !6802, !noundef !4
+  %47 = icmp eq i32 %35, %.val20.i.i.i.i.i
+  br i1 %45, label %48, label %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i
 
-50:                                               ; preds = %45
-  %51 = tail call noundef i8 @llvm.scmp.i8.i32(i32 %35, i32 %.val20.i.i.i.i.i)
-  %52 = tail call noundef i8 @llvm.ucmp.i8.i64(i64 %33, i64 %.val19.i.i.i.i.i)
-  %53 = icmp eq i32 %35, %.val20.i.i.i.i.i
-  %spec.store.select.i.i.i29.i.i.i.i.i = select i1 %53, i8 %52, i8 %51
-  %54 = add nsw i8 %spec.store.select.i.i.i29.i.i.i.i.i, -3
-  %switch.i30.i.i.i.i.i = icmp samesign ult i8 %54, -2
-  br i1 %switch.i30.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"
+48:                                               ; preds = %42
+  %switch5.i29.i.i.i.i.i = icmp ule i64 %33, %.val19.i.i.i.i.i
+  %switch6.i30.i.i.i.i.i = icmp sle i32 %35, %.val20.i.i.i.i.i
+  %switch.i31.i.i.i.i.i = select i1 %47, i1 %switch5.i29.i.i.i.i.i, i1 %switch6.i30.i.i.i.i.i
+  br i1 %switch.i31.i.i.i.i.i, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread, label %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i"
 
-_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i: ; preds = %45
-  %55 = icmp eq i32 %35, %.val20.i.i.i.i.i
-  %56 = icmp ult i64 %33, %.val19.i.i.i.i.i
-  %57 = icmp slt i32 %35, %.val20.i.i.i.i.i
-  %58 = select i1 %55, i1 %56, i1 %57
-  br i1 %58, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"
+_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i: ; preds = %42
+  %49 = icmp ult i64 %33, %.val19.i.i.i.i.i
+  %50 = icmp slt i32 %35, %.val20.i.i.i.i.i
+  %51 = select i1 %47, i1 %49, i1 %50
+  br i1 %51, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread, label %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i"
 
-"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i": ; preds = %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i, %50
-  %59 = add nuw nsw i64 %38, 1
-  %60 = icmp eq ptr %39, %36
-  br i1 %60, label %61, label %.lr.ph.i
+"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i": ; preds = %_ZN4core3ops5range11RangeBounds8contains17h9815a256ef924453E.exit.i.i.i.i, %48, %.lr.ph.i
+  %52 = icmp ugt i64 %.val21.i.i.i.i.i, %33
+  %53 = icmp sgt i32 %.val22.i.i.i.i.i, %35
+  %54 = select i1 %41, i1 %52, i1 %53
+  br i1 %54, label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread, label %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"
 
-61:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"
-  %62 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
+"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i": ; preds = %"_ZN85_$LT$terminal_view..TerminalView$u20$as$u20$workspace..searchable..SearchableItem$GT$18active_match_index28_$u7b$$u7b$closure$u7d$$u7d$17h142cf1c5528bac45E.exit.i.i.i"
+  %55 = add nuw nsw i64 %38, 1
+  %56 = icmp eq ptr %39, %36
+  br i1 %56, label %57, label %.lr.ph.i
+
+57:                                               ; preds = %"_ZN110_$LT$core..iter..adapters..enumerate..Enumerate$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold9enumerate28_$u7b$$u7b$closure$u7d$$u7d$17hbcb8565d672dc570E.exit.i"
+  %58 = tail call i64 @llvm.usub.sat.i64(i64 %2, i64 1)
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread
 
-63:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit
-  %64 = add i64 %2, -1
+59:                                               ; preds = %_ZN4gpui3app10entity_map9EntityMap4read17h2703cfc2acf74dedE.exit
+  %60 = add i64 %2, -1
   br label %_ZN4core4iter6traits8iterator8Iterator8try_fold17h5ace0ed6f5e683e5E.exit.thread
 }
 
@@ -33867,20 +33868,14 @@ declare void @llvm.lifetime.start.p0(ptr captures(none)) #50
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
 declare void @llvm.lifetime.end.p0(ptr captures(none)) #50
 
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.ucmp.i8.i64(i64, i64) #51
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare range(i8 -1, 2) i8 @llvm.scmp.i8.i32(i32, i32) #51
-
 ; Function Attrs: nocallback nofree nounwind nonlazybind willreturn memory(argmem: read)
-declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #52
+declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_addr #51
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite)
-declare void @llvm.experimental.noalias.scope.decl(metadata) #53
+declare void @llvm.experimental.noalias.scope.decl(metadata) #52
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i64 @llvm.umax.i64(i64, i64) #51
+declare i64 @llvm.umax.i64(i64, i64) #53
 
 attributes #0 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #1 = { inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(read, argmem: readwrite, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
@@ -33933,9 +33928,9 @@ attributes #47 = { nounwind nonlazybind allockind("alloc,uninitialized,aligned")
 attributes #48 = { nounwind nonlazybind allockind("alloc,zeroed,aligned") allocsize(0) uwtable "alloc-family"="__rust_alloc" "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #49 = { noreturn nonlazybind uwtable "probe-stack"="inline-asm" "target-cpu"="x86-64" }
 attributes #50 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #51 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
-attributes #52 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
-attributes #53 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #51 = { nocallback nofree nounwind nonlazybind willreturn memory(argmem: read) }
+attributes #52 = { nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: readwrite) }
+attributes #53 = { nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none) }
 attributes #54 = { noreturn }
 attributes #55 = { cold }
 attributes #56 = { cold noreturn nounwind }

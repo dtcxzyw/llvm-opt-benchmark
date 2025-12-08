@@ -352,7 +352,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %18, label %19, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 19:                                               ; preds = %5
-  %20 = icmp samesign ugt i64 %17, 2305843009213693951
+  %20 = icmp samesign ugt i64 %16, 2305843009213693950
   br i1 %20, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %19
@@ -945,7 +945,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %18, label %19, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 19:                                               ; preds = %5
-  %20 = icmp samesign ugt i64 %17, 2305843009213693951
+  %20 = icmp samesign ugt i64 %16, 2305843009213693950
   br i1 %20, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %19
@@ -1541,7 +1541,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %27, label %28, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %5
-  %29 = icmp samesign ugt i64 %26, 2305843009213693951
+  %29 = icmp samesign ugt i64 %25, 2305843009213693950
   br i1 %29, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %28
@@ -2202,7 +2202,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %27, label %28, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %5
-  %29 = icmp samesign ugt i64 %26, 2305843009213693951
+  %29 = icmp samesign ugt i64 %25, 2305843009213693950
   br i1 %29, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %28
@@ -2863,7 +2863,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %27, label %28, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %5
-  %29 = icmp samesign ugt i64 %26, 2305843009213693951
+  %29 = icmp samesign ugt i64 %25, 2305843009213693950
   br i1 %29, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %28
@@ -3587,7 +3587,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %27, label %28, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %5
-  %29 = icmp samesign ugt i64 %26, 2305843009213693951
+  %29 = icmp samesign ugt i64 %25, 2305843009213693950
   br i1 %29, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %28
@@ -4146,7 +4146,7 @@ define weak_odr dso_local void @_ZN3igl31random_points_on_mesh_intrinsicIN5Eigen
   br i1 %27, label %28, label %.lr.ph52.i.i.i.i.i.i.i.i.i.i
 
 28:                                               ; preds = %5
-  %29 = icmp samesign ugt i64 %26, 2305843009213693951
+  %29 = icmp samesign ugt i64 %25, 2305843009213693950
   br i1 %29, label %.invoke.i, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i.i.i: ; preds = %28

@@ -3537,7 +3537,7 @@ define internal fastcc void @dissect_tlv_path_vector(ptr noundef %0, ptr noundef
   %17 = add i8 %.02326, 1
   %18 = add i32 %.027, 4
   %19 = add nsw i32 %.02425, -4
-  %20 = icmp samesign ugt i32 %19, 3
+  %20 = icmp samesign ugt i32 %.02425, 7
   br i1 %20, label %10, label %._crit_edge, !llvm.loop !18
 
 ._crit_edge:                                      ; preds = %10, %5
@@ -3787,7 +3787,7 @@ define internal fastcc void @dissect_tlv_mac(ptr noundef %0, ptr noundef %1, i32
   %10 = tail call ptr @proto_tree_add_item(ptr noundef %7, i32 noundef %9, ptr noundef %0, i32 noundef %.017, i32 noundef 6, i32 noundef 0)
   %11 = add i32 %.017, 6
   %12 = add nsw i32 %.01516, -6
-  %13 = icmp samesign ugt i32 %12, 5
+  %13 = icmp samesign ugt i32 %.01516, 11
   br i1 %13, label %.lr.ph, label %._crit_edge, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %.lr.ph, %5
@@ -3871,7 +3871,7 @@ define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr n
   %24 = load i32, ptr @ett_ldp_tlv_val, align 4
   %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.1054)
   %26 = icmp ne i8 %16, 0
-  %27 = icmp samesign ugt i32 %23, 7
+  %27 = icmp samesign ugt i32 %4, 11
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph, label %._crit_edge
 
@@ -3898,7 +3898,7 @@ define internal fastcc void @dissect_tlv_atm_session_parms(ptr noundef %0, ptr n
   %43 = add nsw i32 %.06264, -8
   %44 = add nsw i8 %.06066, -1
   %45 = icmp ne i8 %44, 0
-  %46 = icmp samesign ugt i32 %43, 7
+  %46 = icmp samesign ugt i32 %.06264, 15
   %47 = select i1 %45, i1 %46, i1 false
   br i1 %47, label %.lr.ph, label %._crit_edge, !llvm.loop !20
 
@@ -3945,7 +3945,7 @@ define internal fastcc void @dissect_tlv_frame_relay_session_parms(ptr noundef %
   %24 = load i32, ptr @ett_ldp_tlv_val, align 4
   %25 = tail call ptr @proto_tree_add_subtree(ptr noundef %11, ptr noundef %0, i32 noundef %22, i32 noundef %23, i32 noundef %24, ptr noundef null, ptr noundef nonnull @.str.1059)
   %26 = icmp ne i8 %16, 0
-  %27 = icmp samesign ugt i32 %23, 7
+  %27 = icmp samesign ugt i32 %4, 11
   %28 = select i1 %26, i1 %27, i1 false
   br i1 %28, label %.lr.ph, label %._crit_edge
 
@@ -3974,7 +3974,7 @@ define internal fastcc void @dissect_tlv_frame_relay_session_parms(ptr noundef %
   %45 = add nsw i32 %.06466, -8
   %46 = add nsw i8 %.06367, -1
   %47 = icmp ne i8 %46, 0
-  %48 = icmp samesign ugt i32 %45, 7
+  %48 = icmp samesign ugt i32 %.06466, 15
   %49 = select i1 %47, i1 %48, i1 false
   br i1 %49, label %.lr.ph, label %._crit_edge, !llvm.loop !21
 

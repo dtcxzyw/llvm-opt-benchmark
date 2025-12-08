@@ -92,7 +92,7 @@ define range(i32 0, 2) i32 @ossl_rsaz_mod_exp_avx512_x2(ptr noundef %0, ptr noun
   %68 = mul nsw i32 %22, 24
   %69 = sext i32 %68 to i64
   %70 = getelementptr inbounds i64, ptr %43, i64 %69
-  %71 = icmp samesign ugt i32 %51, 52
+  %71 = icmp samesign ugt i32 %.03647.i, 156
   br i1 %71, label %.preheader.i, label %95
 
 .preheader.i:                                     ; preds = %._crit_edge.i, %.preheader.i
@@ -196,7 +196,7 @@ to_words52.exit:                                  ; preds = %get_digit.exit40.i,
   br i1 %121, label %.lr.ph.i139, label %._crit_edge.i119, !llvm.loop !9
 
 ._crit_edge.i119:                                 ; preds = %.lr.ph.i139
-  %122 = icmp samesign ugt i32 %119, 52
+  %122 = icmp samesign ugt i32 %.03647.i143, 156
   br i1 %122, label %.preheader.i130, label %146
 
 .preheader.i130:                                  ; preds = %._crit_edge.i119, %.preheader.i130
@@ -300,7 +300,7 @@ to_words52.exit146:                               ; preds = %get_digit.exit40.i1
   br i1 %172, label %.lr.ph.i167, label %._crit_edge.i147, !llvm.loop !9
 
 ._crit_edge.i147:                                 ; preds = %.lr.ph.i167
-  %173 = icmp samesign ugt i32 %170, 52
+  %173 = icmp samesign ugt i32 %.03647.i171, 156
   br i1 %173, label %.preheader.i158, label %197
 
 .preheader.i158:                                  ; preds = %._crit_edge.i147, %.preheader.i158
@@ -404,7 +404,7 @@ to_words52.exit174:                               ; preds = %get_digit.exit40.i1
   br i1 %223, label %.lr.ph.i195, label %._crit_edge.i175, !llvm.loop !9
 
 ._crit_edge.i175:                                 ; preds = %.lr.ph.i195
-  %224 = icmp samesign ugt i32 %221, 52
+  %224 = icmp samesign ugt i32 %.03647.i199, 156
   br i1 %224, label %.preheader.i186, label %248
 
 .preheader.i186:                                  ; preds = %._crit_edge.i175, %.preheader.i186
@@ -508,7 +508,7 @@ to_words52.exit202:                               ; preds = %get_digit.exit40.i1
   br i1 %274, label %.lr.ph.i223, label %._crit_edge.i203, !llvm.loop !9
 
 ._crit_edge.i203:                                 ; preds = %.lr.ph.i223
-  %275 = icmp samesign ugt i32 %272, 52
+  %275 = icmp samesign ugt i32 %.03647.i227, 156
   br i1 %275, label %.preheader.i214, label %299
 
 .preheader.i214:                                  ; preds = %._crit_edge.i203, %.preheader.i214
@@ -612,7 +612,7 @@ to_words52.exit230:                               ; preds = %get_digit.exit40.i2
   br i1 %325, label %.lr.ph.i251, label %._crit_edge.i231, !llvm.loop !9
 
 ._crit_edge.i231:                                 ; preds = %.lr.ph.i251
-  %326 = icmp samesign ugt i32 %323, 52
+  %326 = icmp samesign ugt i32 %.03647.i255, 156
   br i1 %326, label %.preheader.i242, label %350
 
 .preheader.i242:                                  ; preds = %._crit_edge.i231, %.preheader.i242

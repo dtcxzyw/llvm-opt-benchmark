@@ -2969,7 +2969,7 @@ define void @Abc_GenChaseTest() local_unnamed_addr #4 {
   %16 = getelementptr inbounds i32, ptr %1, i64 %indvars.iv.next.i
   %17 = load i32, ptr %16, align 4, !tbaa !7
   %18 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %17)
-  %.not.not.i = icmp samesign ugt i64 %indvars.iv.next.i, 2
+  %.not.not.i = icmp samesign ugt i64 %indvars.iv.i, 3
   br i1 %.not.not.i, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !67
 
 ._crit_edge.i:                                    ; preds = %.lr.ph.i

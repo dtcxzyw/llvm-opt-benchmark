@@ -6143,7 +6143,7 @@ _ZN4absl16strings_internal11BigUnsignedILi4EE9ShiftLeftEi.exit: ; preds = %53, %
   %84 = getelementptr inbounds nuw i32, ptr %71, i64 %indvars.iv.i25
   store i32 %83, ptr %84, align 4, !tbaa !22
   %indvars.iv.next.i26 = add nsw i64 %indvars.iv.i25, -1
-  %85 = icmp samesign ugt i64 %indvars.iv.next.i26, 1
+  %85 = icmp samesign ugt i64 %indvars.iv.i25, 2
   br i1 %85, label %78, label %._crit_edge.i22, !llvm.loop !154
 
 86:                                               ; preds = %._crit_edge.i22.thread, %._crit_edge.i22

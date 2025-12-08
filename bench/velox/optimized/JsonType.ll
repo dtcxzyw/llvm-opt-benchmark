@@ -107719,16 +107719,14 @@ if.else.i:                                        ; preds = %if.then.i
   br label %_ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEjvvvSt17integral_constantIbLb1EEEEE25computeChunkCountAndScaleEmbb.exit
 
 if.else11.i:                                      ; preds = %if.end
-  %conv = zext i32 %0 to i64
-  %sub.i = add nsw i64 %conv, -1
-  %div.i.lhs.trunc = trunc nuw i64 %sub.i to i32
-  %div.i11 = udiv i32 %div.i.lhs.trunc, 10
+  %sub.i = add i32 %0, -1
+  %div.i11 = udiv i32 %sub.i, 10
   %1 = tail call range(i32 3, 33) i32 @llvm.ctlz.i32(i32 %div.i11, i1 true)
   %2 = or disjoint i32 %1, 32
   %add.i.i = sub nuw nsw i32 64, %2
   %conv.i = zext nneg i32 %add.i.i to i64
   %shl.i = shl nuw nsw i64 1, %conv.i
-  %cmp17.i = icmp samesign ugt i64 %sub.i, 20479
+  %cmp17.i = icmp ugt i32 %0, 20480
   %sub18.i.neg = add nsw i32 %1, -20
   %.neg = select i1 %cmp17.i, i32 %sub18.i.neg, i32 0
   %sh_prom.i = add nsw i32 %.neg, %add.i.i

@@ -6280,8 +6280,8 @@ _ZN3nix8Bindings4findENS_6SymbolE.exit.thread:    ; preds = %_ZSt11lower_boundIP
   %70 = call noundef zeroext i1 @_ZN3nix11PackageInfo9checkMetaERNS_5ValueE(ptr noundef nonnull align 8 dereferenceable(296) %0, ptr noundef nonnull align 8 dereferenceable(24) %69)
   %71 = getelementptr inbounds nuw i8, ptr %.0120, i64 16
   %.not50 = icmp ne ptr %71, %57
-  %or.cond139.not = select i1 %70, i1 %.not50, i1 false
-  br i1 %or.cond139.not, label %.lr.ph121, label %_ZNK3nix5Value4typeEb.exit55
+  %or.cond138.not = select i1 %70, i1 %.not50, i1 false
+  br i1 %or.cond138.not, label %.lr.ph121, label %_ZNK3nix5Value4typeEb.exit55
 
 .thread109:                                       ; preds = %32
   br label %_ZNK3nix5Value4typeEb.exit61

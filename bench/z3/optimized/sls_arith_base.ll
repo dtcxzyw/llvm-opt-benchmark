@@ -113919,8 +113919,7 @@ _ZSt22__chunk_insertion_sortIPSt4pairIj6vectorIN3sls10arith_baseI8rationalE15non
 
 _ZSt22__chunk_insertion_sortIPSt4pairIj6vectorIN3sls10arith_baseI8rationalE15nonlinear_coeffELb1EjEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_9init_ineqEjRNS5_4ineqEEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_.exit.i: ; preds = %.lr.ph.i.i
   tail call void @_ZSt16__insertion_sortIPSt4pairIj6vectorIN3sls10arith_baseI8rationalE15nonlinear_coeffELb1EjEEN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_9init_ineqEjRNS5_4ineqEEUlRKT_RKT0_E0_EEEvSF_SF_SI_(ptr noundef nonnull %17, ptr noundef %11)
-  %.off = add nsw i64 %8, -13
-  %.not.i = icmp samesign ult i64 %.off, 2
+  %.not.i = icmp slt i64 %8, 15
   br i1 %.not.i, label %_ZSt24__merge_sort_with_bufferIPSt4pairIj6vectorIN3sls10arith_baseI8rationalE15nonlinear_coeffELb1EjEES9_N9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_9init_ineqEjRNS5_4ineqEEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %_ZSt22__chunk_insertion_sortIPSt4pairIj6vectorIN3sls10arith_baseI8rationalE15nonlinear_coeffELb1EjEElN9__gnu_cxx5__ops15_Iter_comp_iterIZNS5_9init_ineqEjRNS5_4ineqEEUlRKT_RKT0_E0_EEEvSF_SF_SI_T1_.exit.i, %.lr.ph.i

@@ -210,7 +210,7 @@ define dso_local range(i32 -2147483648, 1) i32 @tcf_em_tree_validate(ptr noundef
   br i1 %76, label %77, label %87
 
 77:                                               ; preds = %73
-  %78 = icmp samesign ult i32 %62, 4
+  %78 = icmp ult i16 %55, 12
   br i1 %78, label %.thread27, label %79
 
 79:                                               ; preds = %77

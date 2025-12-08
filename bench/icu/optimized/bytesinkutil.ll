@@ -484,7 +484,7 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
 
 .lr.ph113:                                        ; preds = %11, %._crit_edge.thread
   %.065111 = phi i32 [ %95, %._crit_edge.thread ], [ 0, %11 ]
-  %.071110 = phi i32 [ %.172.lcssa123, %._crit_edge.thread ], [ 0, %11 ]
+  %.071110 = phi i32 [ %.172.lcssa121, %._crit_edge.thread ], [ 0, %11 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %12 = sub nsw i32 %2, %.071110
   %13 = icmp slt i32 %12, 715827882
@@ -544,9 +544,9 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   %48 = getelementptr inbounds i16, ptr %1, i64 %47
   %49 = load i16, ptr %48, align 2, !tbaa !17
   %50 = zext i16 %49 to i32
-  %51 = add nsw i32 %45, -56613888
-  %52 = add nuw nsw i32 %51, %50
-  %53 = icmp samesign ult i32 %52, 65536
+  %51 = add nuw nsw i32 %45, %50
+  %52 = add nsw i32 %51, -56613888
+  %53 = icmp samesign ult i32 %51, 56679424
   br i1 %53, label %.thread93, label %60
 
 .thread93:                                        ; preds = %38, %44
@@ -619,15 +619,15 @@ define noundef signext range(i8 0, 2) i8 @_ZN6icu_7712ByteSinkUtil12appendChange
   br i1 %.not78, label %96, label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %.lr.ph113, %._crit_edge
-  %.061.lcssa124 = phi i32 [ %.162, %._crit_edge ], [ 0, %.lr.ph113 ]
-  %.172.lcssa123 = phi i32 [ %.27383, %._crit_edge ], [ %.071110, %.lr.ph113 ]
+  %.061.lcssa122 = phi i32 [ %.162, %._crit_edge ], [ 0, %.lr.ph113 ]
+  %.172.lcssa121 = phi i32 [ %.27383, %._crit_edge ], [ %.071110, %.lr.ph113 ]
   %92 = load ptr, ptr %3, align 8, !tbaa !15
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %94 = load ptr, ptr %93, align 8
-  call void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20, i32 noundef %.061.lcssa124)
-  %95 = add nsw i32 %.061.lcssa124, %.065111
+  call void %94(ptr noundef nonnull align 8 dereferenceable(8) %3, ptr noundef %20, i32 noundef %.061.lcssa122)
+  %95 = add nsw i32 %.061.lcssa122, %.065111
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %.not79 = icmp slt i32 %.172.lcssa123, %2
+  %.not79 = icmp slt i32 %.172.lcssa121, %2
   br i1 %.not79, label %.lr.ph113, label %.thread102
 
 96:                                               ; preds = %._crit_edge

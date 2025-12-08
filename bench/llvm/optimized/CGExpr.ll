@@ -11060,7 +11060,7 @@ define dso_local void @_ZN5clang7CodeGen15CodeGenFunction24EmitPointerWithAlignm
   br i1 %.not.i, label %.thread, label %30
 
 30:                                               ; preds = %6
-  %spec.select.i.i.i.i.i.i.i.i56 = icmp samesign ult i16 %29, -9
+  %spec.select.i.i.i.i.i.i.i.i56 = icmp samesign ult i16 %28, 82
   br i1 %spec.select.i.i.i.i.i.i.i.i56, label %_ZN5clang7CodeGen13CodeGenModule24EmitExplicitCastExprTypeEPKNS_16ExplicitCastExprEPNS0_15CodeGenFunctionE.exit, label %31
 
 31:                                               ; preds = %30

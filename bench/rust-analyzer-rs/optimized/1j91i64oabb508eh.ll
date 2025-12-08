@@ -66134,7 +66134,7 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport3inc17h401b2e3c4ff30ca3E.
   invoke void @"_ZN86_$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb3854840f449d0ddE.llvm.10409712727403535664"(ptr noalias noundef nonnull align 8 dereferenceable(32) %151)
           to label %"_ZN4core3ptr88drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$hir..term_search..expr..Expr$GT$$GT$17h189135a1b12d4b94E.exit" unwind label %518
 
-1020:                                             ; preds = %.invoke2750
+1020:                                             ; preds = %.invoke2749
   %1021 = landingpad { ptr, i32 }
           cleanup
   br label %1019
@@ -67647,9 +67647,9 @@ _ZN13rust_analyzer3cli15progress_report14ProgressReport7println17h90e4dbaa79f9c5
 
 1483:                                             ; preds = %1481, %1478, %.noexc643
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !16006
-  br label %.invoke2750
+  br label %.invoke2749
 
-.backedge904:                                     ; preds = %.invoke2750
+.backedge904:                                     ; preds = %.invoke2749
   call void @llvm.lifetime.end.p0(ptr nonnull %150)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.8)
@@ -67693,7 +67693,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit651: ; pr
 1492:                                             ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit654", %1490
   call void @llvm.lifetime.end.p0(ptr nonnull %145)
   %1493 = trunc nuw i8 %.6266 to i1
-  br i1 %1493, label %1501, label %.invoke2750
+  br i1 %1493, label %1501, label %.invoke2749
 
 1494:                                             ; preds = %1490
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16029
@@ -67719,7 +67719,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit651: ; pr
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !16029
   br label %1492
 
-.invoke2750:                                      ; preds = %1492, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit657", %1483
+.invoke2749:                                      ; preds = %1492, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit657", %1483
   call void @llvm.lifetime.end.p0(ptr nonnull %149)
   invoke void @"_ZN4core3ptr49drop_in_place$LT$hir..term_search..expr..Expr$GT$17hc753631a3e799948E.llvm.15439407322995335751"(ptr noalias noundef nonnull align 8 dereferenceable(64) %150)
           to label %.backedge904 unwind label %1020
@@ -67746,7 +67746,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.llvm.15439407322995335751.exit651: ; pr
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE.exit657": ; preds = %.noexc656, %1503, %1506
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !16038
-  br label %.invoke2750
+  br label %.invoke2749
 
 1508:                                             ; preds = %.body559
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h846e5092bb01abaeE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %145) #71

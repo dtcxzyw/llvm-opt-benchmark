@@ -725,11 +725,11 @@ lean_int_dec_eq.exit:                             ; preds = %9
 
 23:                                               ; preds = %22
   %24 = icmp eq ptr %1, %4
-  br i1 %24, label %76, label %26
+  br i1 %24, label %75, label %26
 
 lean_int_dec_eq.exit21:                           ; preds = %22
   %25 = tail call zeroext i1 @lean_int_big_eq(ptr noundef %1, ptr noundef %4) #7
-  br i1 %25, label %76, label %.critedge.i
+  br i1 %25, label %75, label %.critedge.i
 
 26:                                               ; preds = %23
   %27 = shl i64 %5, 31
@@ -762,7 +762,7 @@ lean_int_add.exit:                                ; preds = %34, %39, %.critedge
   %43 = ptrtoint ptr %.0.i to i64
   %44 = and i64 %43, 1
   %.not.i23 = icmp eq i64 %44, 0
-  br i1 %.not.i23, label %68, label %45, !prof !15
+  br i1 %.not.i23, label %67, label %45, !prof !15
 
 45:                                               ; preds = %lean_int_add.exit
   %46 = ptrtoint ptr %42 to i64
@@ -788,46 +788,45 @@ lean_int_emod.exit.thread28:                      ; preds = %45
   %.p.i = tail call i64 @llvm.abs.i64(i64 %51, i1 true)
   %58 = select i1 %57, i64 %.p.i, i64 0
   %.0.i24 = add nsw i64 %58, %56
-  %59 = add nsw i64 %.0.i24, 2147483648
-  %60 = icmp samesign ult i64 %59, 4294967296
-  br i1 %60, label %61, label %66, !prof !9
+  %59 = icmp slt i64 %.0.i24, 2147483648
+  br i1 %59, label %60, label %65, !prof !9
 
-61:                                               ; preds = %53
-  %62 = shl nsw i64 %.0.i24, 1
-  %63 = and i64 %62, 8589934590
-  %64 = or disjoint i64 %63, 1
-  %65 = inttoptr i64 %64 to ptr
+60:                                               ; preds = %53
+  %61 = shl nsw i64 %.0.i24, 1
+  %62 = and i64 %61, 8589934590
+  %63 = or disjoint i64 %62, 1
+  %64 = inttoptr i64 %63 to ptr
   br label %lean_inc.exit
 
-66:                                               ; preds = %53
-  %67 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i24) #7
+65:                                               ; preds = %53
+  %66 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i24) #7
   br label %lean_inc.exit
 
-68:                                               ; preds = %lean_int_add.exit
-  %69 = tail call ptr @lean_int_big_emod(ptr noundef %.0.i, ptr noundef %42) #7
-  %70 = load i32, ptr %.0.i, align 4, !tbaa !4
-  %71 = icmp sgt i32 %70, 1
-  br i1 %71, label %72, label %74, !prof !9
+67:                                               ; preds = %lean_int_add.exit
+  %68 = tail call ptr @lean_int_big_emod(ptr noundef %.0.i, ptr noundef %42) #7
+  %69 = load i32, ptr %.0.i, align 4, !tbaa !4
+  %70 = icmp sgt i32 %69, 1
+  br i1 %70, label %71, label %73, !prof !9
 
-72:                                               ; preds = %68
-  %73 = add nsw i32 %70, -1
-  store i32 %73, ptr %.0.i, align 4, !tbaa !4
+71:                                               ; preds = %67
+  %72 = add nsw i32 %69, -1
+  store i32 %72, ptr %.0.i, align 4, !tbaa !4
   br label %lean_inc.exit
 
-74:                                               ; preds = %68
-  %.not.i = icmp eq i32 %70, 0
-  br i1 %.not.i, label %lean_inc.exit, label %75
+73:                                               ; preds = %67
+  %.not.i = icmp eq i32 %69, 0
+  br i1 %.not.i, label %lean_inc.exit, label %74
 
-75:                                               ; preds = %74
+74:                                               ; preds = %73
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i) #7
   br label %lean_inc.exit
 
-76:                                               ; preds = %23, %lean_int_dec_eq.exit21
-  %77 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__16, align 8, !tbaa !10
+75:                                               ; preds = %23, %lean_int_dec_eq.exit21
+  %76 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__16, align 8, !tbaa !10
   br label %lean_inc.exit
 
-lean_inc.exit:                                    ; preds = %66, %61, %49, %lean_int_emod.exit.thread28, %72, %74, %75, %13, %16, %18, %19, %76, %20
-  %.1 = phi ptr [ %21, %20 ], [ %77, %76 ], [ %1, %19 ], [ %1, %18 ], [ %1, %16 ], [ %1, %13 ], [ %48, %lean_int_emod.exit.thread28 ], [ %69, %72 ], [ %69, %74 ], [ %69, %75 ], [ %67, %66 ], [ %65, %61 ], [ %.0.i, %49 ]
+lean_inc.exit:                                    ; preds = %65, %60, %49, %lean_int_emod.exit.thread28, %71, %73, %74, %13, %16, %18, %19, %75, %20
+  %.1 = phi ptr [ %21, %20 ], [ %76, %75 ], [ %1, %19 ], [ %1, %18 ], [ %1, %16 ], [ %1, %13 ], [ %48, %lean_int_emod.exit.thread28 ], [ %68, %71 ], [ %68, %73 ], [ %68, %74 ], [ %66, %65 ], [ %64, %60 ], [ %.0.i, %49 ]
   ret ptr %.1
 }
 
@@ -1309,7 +1308,7 @@ define ptr @initialize_Std_Time_Time_HourMarker(i8 noundef zeroext %0, ptr nound
   %.val = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val, -16777216
   %10 = icmp eq i32 %.mask.i, 16777216
-  br i1 %10, label %319, label %11
+  br i1 %10, label %315, label %11
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !4
@@ -1666,387 +1665,383 @@ _init_l_Std_Time_HourMarker_toAbsolute___closed__5.exit: ; preds = %118, %123, %
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %135, i1 true)
   %142 = select i1 %141, i64 %.p.i.i, i64 0
   %.0.i.i16 = add nsw i64 %142, %140
-  %143 = add nsw i64 %.0.i.i16, 2147483648
-  %144 = icmp samesign ult i64 %143, 4294967296
-  br i1 %144, label %145, label %150, !prof !9
+  %143 = icmp slt i64 %.0.i.i16, 2147483648
+  br i1 %143, label %144, label %149, !prof !9
 
-145:                                              ; preds = %137
-  %146 = shl nsw i64 %.0.i.i16, 1
-  %147 = and i64 %146, 8589934590
-  %148 = or disjoint i64 %147, 1
-  %149 = inttoptr i64 %148 to ptr
+144:                                              ; preds = %137
+  %145 = shl nsw i64 %.0.i.i16, 1
+  %146 = and i64 %145, 8589934590
+  %147 = or disjoint i64 %146, 1
+  %148 = inttoptr i64 %147 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
 
-150:                                              ; preds = %137
-  %151 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i16) #7
+149:                                              ; preds = %137
+  %150 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i16) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
 
 .critedge.i.i17:                                  ; preds = %130, %_init_l_Std_Time_HourMarker_toAbsolute___closed__5.exit
-  %152 = tail call ptr @lean_int_big_emod(ptr noundef %126, ptr noundef %127) #7
+  %151 = tail call ptr @lean_int_big_emod(ptr noundef %126, ptr noundef %127) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit: ; preds = %133, %145, %150, %.critedge.i.i17
-  %.1.i.i = phi ptr [ %152, %.critedge.i.i17 ], [ %126, %133 ], [ %149, %145 ], [ %151, %150 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit: ; preds = %133, %144, %149, %.critedge.i.i17
+  %.1.i.i = phi ptr [ %151, %.critedge.i.i17 ], [ %126, %133 ], [ %148, %144 ], [ %150, %149 ]
   store ptr %.1.i.i, ptr @l_Std_Time_HourMarker_toAbsolute___closed__7, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #7
-  %153 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__7, align 8, !tbaa !10
-  %154 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
-  %155 = ptrtoint ptr %153 to i64
-  %156 = and i64 %155, 1
-  %.not.i.i18 = icmp eq i64 %156, 0
-  br i1 %.not.i.i18, label %.critedge.i.i21, label %157, !prof !15
+  %152 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__7, align 8, !tbaa !10
+  %153 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
+  %154 = ptrtoint ptr %152 to i64
+  %155 = and i64 %154, 1
+  %.not.i.i18 = icmp eq i64 %155, 0
+  br i1 %.not.i.i18, label %.critedge.i.i21, label %156, !prof !15
 
-157:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
-  %158 = ptrtoint ptr %154 to i64
-  %159 = and i64 %158, 1
-  %.not7.i.i19 = icmp eq i64 %159, 0
-  br i1 %.not7.i.i19, label %.critedge.i.i21, label %160, !prof !15
+156:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
+  %157 = ptrtoint ptr %153 to i64
+  %158 = and i64 %157, 1
+  %.not7.i.i19 = icmp eq i64 %158, 0
+  br i1 %.not7.i.i19, label %.critedge.i.i21, label %159, !prof !15
 
-160:                                              ; preds = %157
-  %161 = shl i64 %155, 31
-  %162 = ashr i64 %161, 32
-  %163 = shl i64 %158, 31
-  %164 = ashr i64 %163, 32
-  %165 = add nsw i64 %164, %162
-  %166 = add nsw i64 %165, 2147483648
-  %167 = icmp ult i64 %166, 4294967296
-  br i1 %167, label %168, label %173, !prof !9
+159:                                              ; preds = %156
+  %160 = shl i64 %154, 31
+  %161 = ashr i64 %160, 32
+  %162 = shl i64 %157, 31
+  %163 = ashr i64 %162, 32
+  %164 = add nsw i64 %163, %161
+  %165 = add nsw i64 %164, 2147483648
+  %166 = icmp ult i64 %165, 4294967296
+  br i1 %166, label %167, label %172, !prof !9
 
-168:                                              ; preds = %160
-  %169 = shl nsw i64 %165, 1
-  %170 = and i64 %169, 8589934590
-  %171 = or disjoint i64 %170, 1
-  %172 = inttoptr i64 %171 to ptr
+167:                                              ; preds = %159
+  %168 = shl nsw i64 %164, 1
+  %169 = and i64 %168, 8589934590
+  %170 = or disjoint i64 %169, 1
+  %171 = inttoptr i64 %170 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
 
-173:                                              ; preds = %160
-  %174 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %165) #7
+172:                                              ; preds = %159
+  %173 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %164) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
 
-.critedge.i.i21:                                  ; preds = %157, %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
-  %175 = tail call ptr @lean_int_big_add(ptr noundef %153, ptr noundef %154) #7
+.critedge.i.i21:                                  ; preds = %156, %_init_l_Std_Time_HourMarker_toAbsolute___closed__7.exit
+  %174 = tail call ptr @lean_int_big_add(ptr noundef %152, ptr noundef %153) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit: ; preds = %168, %173, %.critedge.i.i21
-  %.0.i.i20 = phi ptr [ %175, %.critedge.i.i21 ], [ %172, %168 ], [ %174, %173 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit: ; preds = %167, %172, %.critedge.i.i21
+  %.0.i.i20 = phi ptr [ %174, %.critedge.i.i21 ], [ %171, %167 ], [ %173, %172 ]
   store ptr %.0.i.i20, ptr @l_Std_Time_HourMarker_toAbsolute___closed__8, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i20) #7
-  %176 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__8, align 8, !tbaa !10
-  %177 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
-  %178 = ptrtoint ptr %176 to i64
-  %179 = and i64 %178, 1
-  %.not.i.i22 = icmp eq i64 %179, 0
-  br i1 %.not.i.i22, label %.critedge.i.i27, label %180, !prof !15
+  %175 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__8, align 8, !tbaa !10
+  %176 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
+  %177 = ptrtoint ptr %175 to i64
+  %178 = and i64 %177, 1
+  %.not.i.i22 = icmp eq i64 %178, 0
+  br i1 %.not.i.i22, label %.critedge.i.i27, label %179, !prof !15
 
-180:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
-  %181 = ptrtoint ptr %177 to i64
-  %182 = and i64 %181, 1
-  %.not21.i.i23 = icmp eq i64 %182, 0
-  br i1 %.not21.i.i23, label %.critedge.i.i27, label %183, !prof !15
+179:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
+  %180 = ptrtoint ptr %176 to i64
+  %181 = and i64 %180, 1
+  %.not21.i.i23 = icmp eq i64 %181, 0
+  br i1 %.not21.i.i23, label %.critedge.i.i27, label %182, !prof !15
 
-183:                                              ; preds = %180
-  %184 = shl i64 %181, 31
-  %185 = ashr i64 %184, 32
-  %186 = icmp eq i64 %185, 0
-  br i1 %186, label %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit, label %187
+182:                                              ; preds = %179
+  %183 = shl i64 %180, 31
+  %184 = ashr i64 %183, 32
+  %185 = icmp eq i64 %184, 0
+  br i1 %185, label %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit, label %186
 
-187:                                              ; preds = %183
-  %188 = shl i64 %178, 31
-  %189 = ashr i64 %188, 32
-  %190 = srem i64 %189, %185
-  %191 = icmp slt i64 %190, 0
-  %.p.i.i24 = tail call i64 @llvm.abs.i64(i64 %185, i1 true)
-  %192 = select i1 %191, i64 %.p.i.i24, i64 0
-  %.0.i.i25 = add nsw i64 %192, %190
-  %193 = add nsw i64 %.0.i.i25, 2147483648
-  %194 = icmp samesign ult i64 %193, 4294967296
-  br i1 %194, label %195, label %200, !prof !9
+186:                                              ; preds = %182
+  %187 = shl i64 %177, 31
+  %188 = ashr i64 %187, 32
+  %189 = srem i64 %188, %184
+  %190 = icmp slt i64 %189, 0
+  %.p.i.i24 = tail call i64 @llvm.abs.i64(i64 %184, i1 true)
+  %191 = select i1 %190, i64 %.p.i.i24, i64 0
+  %.0.i.i25 = add nsw i64 %191, %189
+  %192 = icmp slt i64 %.0.i.i25, 2147483648
+  br i1 %192, label %193, label %198, !prof !9
 
-195:                                              ; preds = %187
-  %196 = shl nsw i64 %.0.i.i25, 1
-  %197 = and i64 %196, 8589934590
-  %198 = or disjoint i64 %197, 1
-  %199 = inttoptr i64 %198 to ptr
+193:                                              ; preds = %186
+  %194 = shl nsw i64 %.0.i.i25, 1
+  %195 = and i64 %194, 8589934590
+  %196 = or disjoint i64 %195, 1
+  %197 = inttoptr i64 %196 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit
 
-200:                                              ; preds = %187
-  %201 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i25) #7
+198:                                              ; preds = %186
+  %199 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i25) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit
 
-.critedge.i.i27:                                  ; preds = %180, %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
-  %202 = tail call ptr @lean_int_big_emod(ptr noundef %176, ptr noundef %177) #7
+.critedge.i.i27:                                  ; preds = %179, %_init_l_Std_Time_HourMarker_toAbsolute___closed__8.exit
+  %200 = tail call ptr @lean_int_big_emod(ptr noundef %175, ptr noundef %176) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit: ; preds = %183, %195, %200, %.critedge.i.i27
-  %.1.i.i26 = phi ptr [ %202, %.critedge.i.i27 ], [ %176, %183 ], [ %199, %195 ], [ %201, %200 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit: ; preds = %182, %193, %198, %.critedge.i.i27
+  %.1.i.i26 = phi ptr [ %200, %.critedge.i.i27 ], [ %175, %182 ], [ %197, %193 ], [ %199, %198 ]
   store ptr %.1.i.i26, ptr @l_Std_Time_HourMarker_toAbsolute___closed__9, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i26) #7
-  %203 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__9, align 8, !tbaa !10
-  %204 = ptrtoint ptr %203 to i64
-  %205 = and i64 %204, 1
-  %.not.i.i28 = icmp eq i64 %205, 0
-  br i1 %.not.i.i28, label %.critedge.i.i31, label %206, !prof !15
+  %201 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__9, align 8, !tbaa !10
+  %202 = ptrtoint ptr %201 to i64
+  %203 = and i64 %202, 1
+  %.not.i.i28 = icmp eq i64 %203, 0
+  br i1 %.not.i.i28, label %.critedge.i.i31, label %204, !prof !15
 
-206:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit
-  %207 = and i64 %204, 8589934591
-  %208 = inttoptr i64 %207 to ptr
+204:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit
+  %205 = and i64 %202, 8589934591
+  %206 = inttoptr i64 %205 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit
 
 .critedge.i.i31:                                  ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__9.exit
-  %209 = tail call ptr @lean_int_big_add(ptr noundef %203, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
+  %207 = tail call ptr @lean_int_big_add(ptr noundef %201, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit: ; preds = %206, %.critedge.i.i31
-  %.0.i.i30 = phi ptr [ %209, %.critedge.i.i31 ], [ %208, %206 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit: ; preds = %204, %.critedge.i.i31
+  %.0.i.i30 = phi ptr [ %207, %.critedge.i.i31 ], [ %206, %204 ]
   store ptr %.0.i.i30, ptr @l_Std_Time_HourMarker_toAbsolute___closed__10, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i30) #7
   store ptr inttoptr (i64 49 to ptr), ptr @l_Std_Time_HourMarker_toAbsolute___closed__11, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 49 to ptr)) #7
   store ptr inttoptr (i64 25 to ptr), ptr @l_Std_Time_HourMarker_toAbsolute___closed__12, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 25 to ptr)) #7
-  %210 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__12, align 8, !tbaa !10
-  %211 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
-  %212 = ptrtoint ptr %210 to i64
-  %213 = and i64 %212, 1
-  %.not.i.i36 = icmp eq i64 %213, 0
-  br i1 %.not.i.i36, label %.critedge.i.i41, label %214, !prof !15
+  %208 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__12, align 8, !tbaa !10
+  %209 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
+  %210 = ptrtoint ptr %208 to i64
+  %211 = and i64 %210, 1
+  %.not.i.i36 = icmp eq i64 %211, 0
+  br i1 %.not.i.i36, label %.critedge.i.i41, label %212, !prof !15
 
-214:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit
-  %215 = ptrtoint ptr %211 to i64
-  %216 = and i64 %215, 1
-  %.not21.i.i37 = icmp eq i64 %216, 0
-  br i1 %.not21.i.i37, label %.critedge.i.i41, label %217, !prof !15
+212:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit
+  %213 = ptrtoint ptr %209 to i64
+  %214 = and i64 %213, 1
+  %.not21.i.i37 = icmp eq i64 %214, 0
+  br i1 %.not21.i.i37, label %.critedge.i.i41, label %215, !prof !15
 
-217:                                              ; preds = %214
-  %218 = shl i64 %215, 31
-  %219 = ashr i64 %218, 32
-  %220 = icmp eq i64 %219, 0
-  br i1 %220, label %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit, label %221
+215:                                              ; preds = %212
+  %216 = shl i64 %213, 31
+  %217 = ashr i64 %216, 32
+  %218 = icmp eq i64 %217, 0
+  br i1 %218, label %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit, label %219
 
-221:                                              ; preds = %217
-  %222 = shl i64 %212, 31
-  %223 = ashr i64 %222, 32
-  %224 = srem i64 %223, %219
-  %225 = icmp slt i64 %224, 0
-  %.p.i.i38 = tail call i64 @llvm.abs.i64(i64 %219, i1 true)
-  %226 = select i1 %225, i64 %.p.i.i38, i64 0
-  %.0.i.i39 = add nsw i64 %226, %224
-  %227 = add nsw i64 %.0.i.i39, 2147483648
-  %228 = icmp samesign ult i64 %227, 4294967296
-  br i1 %228, label %229, label %234, !prof !9
+219:                                              ; preds = %215
+  %220 = shl i64 %210, 31
+  %221 = ashr i64 %220, 32
+  %222 = srem i64 %221, %217
+  %223 = icmp slt i64 %222, 0
+  %.p.i.i38 = tail call i64 @llvm.abs.i64(i64 %217, i1 true)
+  %224 = select i1 %223, i64 %.p.i.i38, i64 0
+  %.0.i.i39 = add nsw i64 %224, %222
+  %225 = icmp slt i64 %.0.i.i39, 2147483648
+  br i1 %225, label %226, label %231, !prof !9
 
-229:                                              ; preds = %221
-  %230 = shl nsw i64 %.0.i.i39, 1
-  %231 = and i64 %230, 8589934590
-  %232 = or disjoint i64 %231, 1
-  %233 = inttoptr i64 %232 to ptr
+226:                                              ; preds = %219
+  %227 = shl nsw i64 %.0.i.i39, 1
+  %228 = and i64 %227, 8589934590
+  %229 = or disjoint i64 %228, 1
+  %230 = inttoptr i64 %229 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
 
-234:                                              ; preds = %221
-  %235 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i39) #7
+231:                                              ; preds = %219
+  %232 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i39) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
 
-.critedge.i.i41:                                  ; preds = %214, %_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit
-  %236 = tail call ptr @lean_int_big_emod(ptr noundef %210, ptr noundef %211) #7
+.critedge.i.i41:                                  ; preds = %212, %_init_l_Std_Time_HourMarker_toAbsolute___closed__10.exit
+  %233 = tail call ptr @lean_int_big_emod(ptr noundef %208, ptr noundef %209) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit: ; preds = %217, %229, %234, %.critedge.i.i41
-  %.1.i.i40 = phi ptr [ %236, %.critedge.i.i41 ], [ %210, %217 ], [ %233, %229 ], [ %235, %234 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit: ; preds = %215, %226, %231, %.critedge.i.i41
+  %.1.i.i40 = phi ptr [ %233, %.critedge.i.i41 ], [ %208, %215 ], [ %230, %226 ], [ %232, %231 ]
   store ptr %.1.i.i40, ptr @l_Std_Time_HourMarker_toAbsolute___closed__13, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i40) #7
-  %237 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__13, align 8, !tbaa !10
-  %238 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
-  %239 = ptrtoint ptr %237 to i64
+  %234 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__13, align 8, !tbaa !10
+  %235 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
+  %236 = ptrtoint ptr %234 to i64
+  %237 = and i64 %236, 1
+  %.not.i.i42 = icmp eq i64 %237, 0
+  br i1 %.not.i.i42, label %.critedge.i.i45, label %238, !prof !15
+
+238:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
+  %239 = ptrtoint ptr %235 to i64
   %240 = and i64 %239, 1
-  %.not.i.i42 = icmp eq i64 %240, 0
-  br i1 %.not.i.i42, label %.critedge.i.i45, label %241, !prof !15
+  %.not7.i.i43 = icmp eq i64 %240, 0
+  br i1 %.not7.i.i43, label %.critedge.i.i45, label %241, !prof !15
 
-241:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
-  %242 = ptrtoint ptr %238 to i64
-  %243 = and i64 %242, 1
-  %.not7.i.i43 = icmp eq i64 %243, 0
-  br i1 %.not7.i.i43, label %.critedge.i.i45, label %244, !prof !15
+241:                                              ; preds = %238
+  %242 = shl i64 %236, 31
+  %243 = ashr i64 %242, 32
+  %244 = shl i64 %239, 31
+  %245 = ashr i64 %244, 32
+  %246 = add nsw i64 %245, %243
+  %247 = add nsw i64 %246, 2147483648
+  %248 = icmp ult i64 %247, 4294967296
+  br i1 %248, label %249, label %254, !prof !9
 
-244:                                              ; preds = %241
-  %245 = shl i64 %239, 31
-  %246 = ashr i64 %245, 32
-  %247 = shl i64 %242, 31
-  %248 = ashr i64 %247, 32
-  %249 = add nsw i64 %248, %246
-  %250 = add nsw i64 %249, 2147483648
-  %251 = icmp ult i64 %250, 4294967296
-  br i1 %251, label %252, label %257, !prof !9
-
-252:                                              ; preds = %244
-  %253 = shl nsw i64 %249, 1
-  %254 = and i64 %253, 8589934590
-  %255 = or disjoint i64 %254, 1
-  %256 = inttoptr i64 %255 to ptr
+249:                                              ; preds = %241
+  %250 = shl nsw i64 %246, 1
+  %251 = and i64 %250, 8589934590
+  %252 = or disjoint i64 %251, 1
+  %253 = inttoptr i64 %252 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
 
-257:                                              ; preds = %244
-  %258 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %249) #7
+254:                                              ; preds = %241
+  %255 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %246) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
 
-.critedge.i.i45:                                  ; preds = %241, %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
-  %259 = tail call ptr @lean_int_big_add(ptr noundef %237, ptr noundef %238) #7
+.critedge.i.i45:                                  ; preds = %238, %_init_l_Std_Time_HourMarker_toAbsolute___closed__13.exit
+  %256 = tail call ptr @lean_int_big_add(ptr noundef %234, ptr noundef %235) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit: ; preds = %252, %257, %.critedge.i.i45
-  %.0.i.i44 = phi ptr [ %259, %.critedge.i.i45 ], [ %256, %252 ], [ %258, %257 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit: ; preds = %249, %254, %.critedge.i.i45
+  %.0.i.i44 = phi ptr [ %256, %.critedge.i.i45 ], [ %253, %249 ], [ %255, %254 ]
   store ptr %.0.i.i44, ptr @l_Std_Time_HourMarker_toAbsolute___closed__14, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i44) #7
-  %260 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__14, align 8, !tbaa !10
-  %261 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
-  %262 = ptrtoint ptr %260 to i64
+  %257 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__14, align 8, !tbaa !10
+  %258 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__5, align 8, !tbaa !10
+  %259 = ptrtoint ptr %257 to i64
+  %260 = and i64 %259, 1
+  %.not.i.i46 = icmp eq i64 %260, 0
+  br i1 %.not.i.i46, label %.critedge.i.i51, label %261, !prof !15
+
+261:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
+  %262 = ptrtoint ptr %258 to i64
   %263 = and i64 %262, 1
-  %.not.i.i46 = icmp eq i64 %263, 0
-  br i1 %.not.i.i46, label %.critedge.i.i51, label %264, !prof !15
+  %.not21.i.i47 = icmp eq i64 %263, 0
+  br i1 %.not21.i.i47, label %.critedge.i.i51, label %264, !prof !15
 
-264:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
-  %265 = ptrtoint ptr %261 to i64
-  %266 = and i64 %265, 1
-  %.not21.i.i47 = icmp eq i64 %266, 0
-  br i1 %.not21.i.i47, label %.critedge.i.i51, label %267, !prof !15
+264:                                              ; preds = %261
+  %265 = shl i64 %262, 31
+  %266 = ashr i64 %265, 32
+  %267 = icmp eq i64 %266, 0
+  br i1 %267, label %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit, label %268
 
-267:                                              ; preds = %264
-  %268 = shl i64 %265, 31
-  %269 = ashr i64 %268, 32
-  %270 = icmp eq i64 %269, 0
-  br i1 %270, label %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit, label %271
+268:                                              ; preds = %264
+  %269 = shl i64 %259, 31
+  %270 = ashr i64 %269, 32
+  %271 = srem i64 %270, %266
+  %272 = icmp slt i64 %271, 0
+  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %266, i1 true)
+  %273 = select i1 %272, i64 %.p.i.i48, i64 0
+  %.0.i.i49 = add nsw i64 %273, %271
+  %274 = icmp slt i64 %.0.i.i49, 2147483648
+  br i1 %274, label %275, label %280, !prof !9
 
-271:                                              ; preds = %267
-  %272 = shl i64 %262, 31
-  %273 = ashr i64 %272, 32
-  %274 = srem i64 %273, %269
-  %275 = icmp slt i64 %274, 0
-  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %269, i1 true)
-  %276 = select i1 %275, i64 %.p.i.i48, i64 0
-  %.0.i.i49 = add nsw i64 %276, %274
-  %277 = add nsw i64 %.0.i.i49, 2147483648
-  %278 = icmp samesign ult i64 %277, 4294967296
-  br i1 %278, label %279, label %284, !prof !9
-
-279:                                              ; preds = %271
-  %280 = shl nsw i64 %.0.i.i49, 1
-  %281 = and i64 %280, 8589934590
-  %282 = or disjoint i64 %281, 1
-  %283 = inttoptr i64 %282 to ptr
+275:                                              ; preds = %268
+  %276 = shl nsw i64 %.0.i.i49, 1
+  %277 = and i64 %276, 8589934590
+  %278 = or disjoint i64 %277, 1
+  %279 = inttoptr i64 %278 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit
 
-284:                                              ; preds = %271
-  %285 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i49) #7
+280:                                              ; preds = %268
+  %281 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, 4294967296) %.0.i.i49) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit
 
-.critedge.i.i51:                                  ; preds = %264, %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
-  %286 = tail call ptr @lean_int_big_emod(ptr noundef %260, ptr noundef %261) #7
+.critedge.i.i51:                                  ; preds = %261, %_init_l_Std_Time_HourMarker_toAbsolute___closed__14.exit
+  %282 = tail call ptr @lean_int_big_emod(ptr noundef %257, ptr noundef %258) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit: ; preds = %267, %279, %284, %.critedge.i.i51
-  %.1.i.i50 = phi ptr [ %286, %.critedge.i.i51 ], [ %260, %267 ], [ %283, %279 ], [ %285, %284 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit: ; preds = %264, %275, %280, %.critedge.i.i51
+  %.1.i.i50 = phi ptr [ %282, %.critedge.i.i51 ], [ %257, %264 ], [ %279, %275 ], [ %281, %280 ]
   store ptr %.1.i.i50, ptr @l_Std_Time_HourMarker_toAbsolute___closed__15, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i50) #7
-  %287 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__15, align 8, !tbaa !10
-  %288 = ptrtoint ptr %287 to i64
-  %289 = and i64 %288, 1
-  %.not.i.i52 = icmp eq i64 %289, 0
-  br i1 %.not.i.i52, label %.critedge.i.i55, label %290, !prof !15
+  %283 = load ptr, ptr @l_Std_Time_HourMarker_toAbsolute___closed__15, align 8, !tbaa !10
+  %284 = ptrtoint ptr %283 to i64
+  %285 = and i64 %284, 1
+  %.not.i.i52 = icmp eq i64 %285, 0
+  br i1 %.not.i.i52, label %.critedge.i.i55, label %286, !prof !15
 
-290:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit
-  %291 = and i64 %288, 8589934591
-  %292 = inttoptr i64 %291 to ptr
+286:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit
+  %287 = and i64 %284, 8589934591
+  %288 = inttoptr i64 %287 to ptr
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit
 
 .critedge.i.i55:                                  ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__15.exit
-  %293 = tail call ptr @lean_int_big_add(ptr noundef %287, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
+  %289 = tail call ptr @lean_int_big_add(ptr noundef %283, ptr noundef nonnull inttoptr (i64 1 to ptr)) #7
   br label %_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit
 
-_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit: ; preds = %290, %.critedge.i.i55
-  %.0.i.i54 = phi ptr [ %293, %.critedge.i.i55 ], [ %292, %290 ]
+_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit: ; preds = %286, %.critedge.i.i55
+  %.0.i.i54 = phi ptr [ %289, %.critedge.i.i55 ], [ %288, %286 ]
   store ptr %.0.i.i54, ptr @l_Std_Time_HourMarker_toAbsolute___closed__16, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i54) #7
   store ptr inttoptr (i64 8589934569 to ptr), ptr @l_Std_Time_HourMarker_toRelative___closed__1, align 8, !tbaa !10
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 8589934569 to ptr)) #7
   tail call void @lean_inc_heartbeat() #7
-  %294 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
-  %295 = icmp eq ptr %294, null
-  br i1 %295, label %296, label %_init_l_Std_Time_HourMarker_toRelative___closed__2.exit
+  %290 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
+  %291 = icmp eq ptr %290, null
+  br i1 %291, label %292, label %_init_l_Std_Time_HourMarker_toRelative___closed__2.exit
 
-296:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit
+292:                                              ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
 _init_l_Std_Time_HourMarker_toRelative___closed__2.exit: ; preds = %_init_l_Std_Time_HourMarker_toAbsolute___closed__16.exit
-  %297 = getelementptr inbounds nuw i8, ptr %294, i64 4
-  store i32 1, ptr %294, align 4, !tbaa !4
-  store i32 -184549352, ptr %297, align 4
-  %298 = getelementptr inbounds nuw i8, ptr %294, i64 8
-  store ptr @l_Std_Time_HourMarker_toRelative___lambda__1, ptr %298, align 8, !tbaa !10
-  %299 = getelementptr inbounds nuw i8, ptr %294, i64 16
-  store i16 1, ptr %299, align 8, !tbaa !12
-  %300 = getelementptr inbounds nuw i8, ptr %294, i64 18
-  store i16 0, ptr %300, align 2, !tbaa !12
-  store ptr %294, ptr @l_Std_Time_HourMarker_toRelative___closed__2, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef nonnull %294) #7
+  %293 = getelementptr inbounds nuw i8, ptr %290, i64 4
+  store i32 1, ptr %290, align 4, !tbaa !4
+  store i32 -184549352, ptr %293, align 4
+  %294 = getelementptr inbounds nuw i8, ptr %290, i64 8
+  store ptr @l_Std_Time_HourMarker_toRelative___lambda__1, ptr %294, align 8, !tbaa !10
+  %295 = getelementptr inbounds nuw i8, ptr %290, i64 16
+  store i16 1, ptr %295, align 8, !tbaa !12
+  %296 = getelementptr inbounds nuw i8, ptr %290, i64 18
+  store i16 0, ptr %296, align 2, !tbaa !12
+  store ptr %290, ptr @l_Std_Time_HourMarker_toRelative___closed__2, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef nonnull %290) #7
   tail call void @lean_inc_heartbeat() #7
-  %301 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
-  %302 = icmp eq ptr %301, null
-  br i1 %302, label %303, label %_init_l_Std_Time_HourMarker_toRelative___closed__3.exit
+  %297 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
+  %298 = icmp eq ptr %297, null
+  br i1 %298, label %299, label %_init_l_Std_Time_HourMarker_toRelative___closed__3.exit
 
-303:                                              ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__2.exit
+299:                                              ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
 _init_l_Std_Time_HourMarker_toRelative___closed__3.exit: ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__2.exit
-  %304 = getelementptr inbounds nuw i8, ptr %301, i64 4
-  store i32 1, ptr %301, align 4, !tbaa !4
-  store i32 131096, ptr %304, align 4
-  %305 = getelementptr inbounds nuw i8, ptr %301, i64 8
-  store ptr inttoptr (i64 25 to ptr), ptr %305, align 8, !tbaa !10
-  %306 = getelementptr inbounds nuw i8, ptr %301, i64 16
-  store ptr inttoptr (i64 3 to ptr), ptr %306, align 8, !tbaa !10
-  store ptr %301, ptr @l_Std_Time_HourMarker_toRelative___closed__3, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef nonnull %301) #7
+  %300 = getelementptr inbounds nuw i8, ptr %297, i64 4
+  store i32 1, ptr %297, align 4, !tbaa !4
+  store i32 131096, ptr %300, align 4
+  %301 = getelementptr inbounds nuw i8, ptr %297, i64 8
+  store ptr inttoptr (i64 25 to ptr), ptr %301, align 8, !tbaa !10
+  %302 = getelementptr inbounds nuw i8, ptr %297, i64 16
+  store ptr inttoptr (i64 3 to ptr), ptr %302, align 8, !tbaa !10
+  store ptr %297, ptr @l_Std_Time_HourMarker_toRelative___closed__3, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef nonnull %297) #7
   tail call void @lean_inc_heartbeat() #7
-  %307 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
-  %308 = icmp eq ptr %307, null
-  br i1 %308, label %309, label %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit
+  %303 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
+  %304 = icmp eq ptr %303, null
+  br i1 %304, label %305, label %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit
 
-309:                                              ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__3.exit
+305:                                              ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__3.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
 _init_l_Std_Time_HourMarker_toRelative___closed__4.exit: ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__3.exit
-  %310 = getelementptr inbounds nuw i8, ptr %307, i64 4
-  store i32 1, ptr %307, align 4, !tbaa !4
-  store i32 131096, ptr %310, align 4
-  %311 = getelementptr inbounds nuw i8, ptr %307, i64 8
-  store ptr inttoptr (i64 25 to ptr), ptr %311, align 8, !tbaa !10
-  %312 = getelementptr inbounds nuw i8, ptr %307, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %312, align 8, !tbaa !10
-  store ptr %307, ptr @l_Std_Time_HourMarker_toRelative___closed__4, align 8, !tbaa !10
-  tail call void @lean_mark_persistent(ptr noundef nonnull %307) #7
+  %306 = getelementptr inbounds nuw i8, ptr %303, i64 4
+  store i32 1, ptr %303, align 4, !tbaa !4
+  store i32 131096, ptr %306, align 4
+  %307 = getelementptr inbounds nuw i8, ptr %303, i64 8
+  store ptr inttoptr (i64 25 to ptr), ptr %307, align 8, !tbaa !10
+  %308 = getelementptr inbounds nuw i8, ptr %303, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %308, align 8, !tbaa !10
+  store ptr %303, ptr @l_Std_Time_HourMarker_toRelative___closed__4, align 8, !tbaa !10
+  tail call void @lean_mark_persistent(ptr noundef nonnull %303) #7
   tail call void @lean_inc_heartbeat() #7
-  %313 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
-  %314 = icmp eq ptr %313, null
-  br i1 %314, label %315, label %.sink.split
+  %309 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #7
+  %310 = icmp eq ptr %309, null
+  br i1 %310, label %311, label %.sink.split
 
-315:                                              ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit
+311:                                              ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit
   tail call void @lean_internal_panic_out_of_memory() #8
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit, %3
-  %.sink84 = phi ptr [ %4, %3 ], [ %313, %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit ]
-  %316 = getelementptr inbounds nuw i8, ptr %.sink84, i64 4
+  %.sink84 = phi ptr [ %4, %3 ], [ %309, %_init_l_Std_Time_HourMarker_toRelative___closed__4.exit ]
+  %312 = getelementptr inbounds nuw i8, ptr %.sink84, i64 4
   store i32 1, ptr %.sink84, align 4, !tbaa !4
-  store i32 131096, ptr %316, align 4
-  %317 = getelementptr inbounds nuw i8, ptr %.sink84, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %317, align 8, !tbaa !10
-  %318 = getelementptr inbounds nuw i8, ptr %.sink84, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %318, align 8, !tbaa !10
-  br label %319
+  store i32 131096, ptr %312, align 4
+  %313 = getelementptr inbounds nuw i8, ptr %.sink84, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %313, align 8, !tbaa !10
+  %314 = getelementptr inbounds nuw i8, ptr %.sink84, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %314, align 8, !tbaa !10
+  br label %315
 
-319:                                              ; preds = %.sink.split, %7
+315:                                              ; preds = %.sink.split, %7
   %.0 = phi ptr [ %8, %7 ], [ %.sink84, %.sink.split ]
   ret ptr %.0
 }

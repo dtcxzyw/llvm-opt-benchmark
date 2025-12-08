@@ -7009,7 +7009,7 @@ _ZN5Eigen18TriangularViewImplINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELj1ENS_5Dens
   br i1 %172, label %173, label %.sink.split.i.i
 
 173:                                              ; preds = %170
-  %174 = icmp samesign ugt i64 %167, 2305843009213693951
+  %174 = icmp samesign ugt i64 %7, 2305843009213693952
   br i1 %174, label %175, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i
 
 175:                                              ; preds = %173
@@ -7050,7 +7050,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIdLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
   br i1 %187, label %188, label %.sink.split.i.i24
 
 188:                                              ; preds = %185
-  %189 = icmp samesign ugt i64 %167, 2305843009213693951
+  %189 = icmp samesign ugt i64 %7, 2305843009213693952
   br i1 %189, label %190, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i.i26
 
 190:                                              ; preds = %188
@@ -11105,7 +11105,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1, !tbaa !72
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp samesign ugt i64 %7, 7
+  %23 = icmp samesign ugt i64 %6, 8
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19
@@ -12916,7 +12916,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
   %93 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %94 = load <2 x double>, ptr %93, align 1, !tbaa !72
   %95 = fmul <2 x double> %92, %94
-  %96 = icmp samesign ugt i64 %37, 7
+  %96 = icmp samesign ugt i64 %18, 8
   br i1 %96, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %90

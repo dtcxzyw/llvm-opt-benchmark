@@ -484,7 +484,7 @@ ossl_param_is_empty.exit:                         ; preds = %2
   br i1 %.not.i, label %65, label %70
 
 65:                                               ; preds = %61
-  %66 = icmp samesign ult i64 %62, 16
+  %66 = icmp samesign ult i64 %59, 24
   br i1 %66, label %69, label %67
 
 67:                                               ; preds = %65

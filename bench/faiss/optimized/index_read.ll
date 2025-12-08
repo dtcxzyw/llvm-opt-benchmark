@@ -33289,7 +33289,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %972 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %973 = icmp samesign ugt i32 %972, 8
+  %973 = icmp sgt i32 %.02732.i.i, 16
   br i1 %973, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -33362,7 +33362,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %9
   %indvars.iv.next.i126.i = add nuw nsw i64 %indvars.iv.i122.i, 8
   %1009 = add nsw i32 %.02732.i125.i, -8
   %.024.i127.i = add nuw nsw i64 %.02435.i123.i, 1
-  %1010 = icmp samesign ugt i32 %1009, 8
+  %1010 = icmp sgt i32 %.02732.i125.i, 16
   br i1 %1010, label %.lr.ph.i121.i, label %._crit_edge.loopexit.i128.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i128.i:                      ; preds = %.lr.ph.i121.i
@@ -33523,7 +33523,7 @@ _ZNSt13unordered_mapIlSt6vectorIlSaIlEESt4hashIlESt8equal_toIlESaISt4pairIKlS2_E
   %indvars.iv.next.i147.i = add nuw nsw i64 %indvars.iv.i143.i, 8
   %1077 = add nsw i32 %.02732.i146.i, -8
   %.024.i148.i = add nuw nsw i64 %.02435.i144.i, 1
-  %1078 = icmp samesign ugt i32 %1077, 8
+  %1078 = icmp sgt i32 %.02732.i146.i, 16
   br i1 %1078, label %.lr.ph.i142.i, label %._crit_edge.loopexit.i149.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i149.i:                      ; preds = %.lr.ph.i142.i
@@ -34741,7 +34741,7 @@ _ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZNSt13unordered_ma
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %273 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %274 = icmp samesign ugt i32 %273, 8
+  %274 = icmp sgt i32 %.02732.i, 16
   br i1 %274, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !370
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -34814,7 +34814,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %260, %._crit_edge.i
   %indvars.iv.next.i196 = add nuw nsw i64 %indvars.iv.i192, 8
   %310 = add nsw i32 %.02732.i195, -8
   %.024.i197 = add nuw nsw i64 %.02435.i193, 1
-  %311 = icmp samesign ugt i32 %310, 8
+  %311 = icmp sgt i32 %.02732.i195, 16
   br i1 %311, label %.lr.ph.i191, label %._crit_edge.loopexit.i198, !llvm.loop !370
 
 ._crit_edge.loopexit.i198:                        ; preds = %.lr.ph.i191

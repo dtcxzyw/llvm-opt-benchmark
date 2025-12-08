@@ -2075,7 +2075,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp samesign ugt i64 %7, 7
+  %23 = icmp samesign ugt i64 %6, 8
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %19, %.lr.ph.i.i.i.i
@@ -8227,7 +8227,7 @@ define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi
   %43 = shl nsw i64 %42, 1
   %44 = icmp sgt i64 %15, 4
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.031.sroa.0.0.copyload, i64 16
-  %46 = icmp samesign ugt i64 %29, 7
+  %46 = icmp sgt i64 %15, 8
   %47 = icmp sgt i64 %43, %41
   %48 = getelementptr inbounds nuw double, ptr %.sroa.031.sroa.0.0.copyload, i64 %41
   %49 = icmp slt i64 %43, %29
@@ -8540,7 +8540,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLi2E
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp samesign ugt i64 %7, 7
+  %23 = icmp samesign ugt i64 %6, 8
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %19, %.lr.ph.i.i.i.i
@@ -9504,7 +9504,7 @@ define linkonce_odr void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixIdLi2ELi2ELi
   %43 = shl nsw i64 %42, 1
   %44 = icmp sgt i64 %15, 4
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.031.sroa.0.0.copyload, i64 16
-  %46 = icmp samesign ugt i64 %29, 7
+  %46 = icmp sgt i64 %15, 8
   %47 = icmp sgt i64 %43, %41
   %48 = getelementptr inbounds nuw double, ptr %.sroa.031.sroa.0.0.copyload, i64 %41
   %49 = icmp slt i64 %43, %29

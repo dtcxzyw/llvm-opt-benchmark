@@ -74,7 +74,7 @@ define range(i32 0, 2) i32 @ossl_encode_der_integer(ptr noundef %0, ptr noundef 
   br i1 %or.cond, label %ossl_encode_der_length.exit.thread, label %14
 
 14:                                               ; preds = %11
-  %15 = icmp samesign ugt i32 %8, 255
+  %15 = icmp sgt i32 %6, 2039
   br i1 %15, label %16, label %20
 
 16:                                               ; preds = %14
@@ -88,7 +88,7 @@ define range(i32 0, 2) i32 @ossl_encode_der_integer(ptr noundef %0, ptr noundef 
   br i1 %.not12.i, label %ossl_encode_der_length.exit.thread, label %ossl_encode_der_length.exit
 
 20:                                               ; preds = %14
-  %21 = icmp samesign ugt i32 %8, 127
+  %21 = icmp sgt i32 %6, 1015
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %20

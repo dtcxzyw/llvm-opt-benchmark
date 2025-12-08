@@ -9356,8 +9356,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit880: ; preds =
 
 901:                                              ; preds = %898
   %902 = icmp eq i64 %502, 1844674407370955161
-  %903 = icmp samesign ult i64 %899, 6
-  %or.cond5.i461 = select i1 %902, i1 %903, i1 false
+  %903 = icmp ult i8 %504, 54
+  %or.cond5.i461 = and i1 %902, %903
   br i1 %or.cond5.i461, label %904, label %919
 
 904:                                              ; preds = %901, %898
@@ -16137,8 +16137,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 
 4251:                                             ; preds = %4248
   %4252 = icmp eq i64 %3852, 1844674407370955161
-  %4253 = icmp samesign ult i64 %4249, 6
-  %or.cond5.i568 = select i1 %4252, i1 %4253, i1 false
+  %4253 = icmp ult i8 %3854, 54
+  %or.cond5.i568 = and i1 %4252, %4253
   br i1 %or.cond5.i568, label %4254, label %4269
 
 4254:                                             ; preds = %4251, %4248
@@ -19551,8 +19551,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit896: ; preds =
 
 5843:                                             ; preds = %5840
   %5844 = icmp eq i64 %5444, 1844674407370955161
-  %5845 = icmp samesign ult i64 %5841, 6
-  %or.cond5.i = select i1 %5844, i1 %5845, i1 false
+  %5845 = icmp ult i8 %5446, 54
+  %or.cond5.i = and i1 %5844, %5845
   br i1 %or.cond5.i, label %5846, label %5861
 
 5846:                                             ; preds = %5843, %5840
@@ -26094,8 +26094,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit888: ; preds =
 
 9116:                                             ; preds = %9113
   %9117 = icmp eq i64 %8717, 1844674407370955161
-  %9118 = icmp samesign ult i64 %9114, 6
-  %or.cond5.i354 = select i1 %9117, i1 %9118, i1 false
+  %9118 = icmp ult i8 %8719, 54
+  %or.cond5.i354 = and i1 %9117, %9118
   br i1 %or.cond5.i354, label %9119, label %9134
 
 9119:                                             ; preds = %9116, %9113
@@ -29585,8 +29585,8 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %3
 
 686:                                              ; preds = %683
   %687 = icmp eq i64 %287, 1844674407370955161
-  %688 = icmp samesign ult i64 %684, 6
-  %or.cond5.i = select i1 %687, i1 %688, i1 false
+  %688 = icmp ult i8 %289, 54
+  %or.cond5.i = and i1 %687, %688
   br i1 %or.cond5.i, label %689, label %704
 
 689:                                              ; preds = %686, %683
@@ -33920,8 +33920,8 @@ define noundef ptr @_ZN13duckdb_yyjson18yyjson_read_numberEPKcPNS_10yyjson_valEj
 
 665:                                              ; preds = %662
   %666 = icmp eq i64 %269, 1844674407370955161
-  %667 = icmp samesign ult i64 %663, 6
-  %or.cond5.i = select i1 %666, i1 %667, i1 false
+  %667 = icmp ult i8 %271, 54
+  %or.cond5.i = and i1 %666, %667
   br i1 %or.cond5.i, label %668, label %680
 
 668:                                              ; preds = %665, %662

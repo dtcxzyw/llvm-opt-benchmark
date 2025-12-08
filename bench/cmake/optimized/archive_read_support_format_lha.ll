@@ -1162,7 +1162,7 @@ lha_read_file_header_2.exit:                      ; preds = %lha_read_file_heade
   %535 = load i16, ptr %534, align 2, !tbaa !40
   %536 = xor i16 %535, %531
   %537 = add nsw i64 %.15365.i.i234, -8
-  %538 = icmp samesign ugt i64 %537, 7
+  %538 = icmp samesign ugt i64 %.15365.i.i234, 15
   br i1 %538, label %.lr.ph.i.i232, label %.preheader.i.i236, !llvm.loop !78
 
 .lr.ph73.i.i238:                                  ; preds = %.preheader.i.i236, %.lr.ph73.i.i238
@@ -4938,7 +4938,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
   %102 = zext nneg i32 %101 to i64
   %103 = getelementptr inbounds nuw i16, ptr %82, i64 %102
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(16) %103, ptr noundef nonnull align 2 dereferenceable(16) %90, i64 16, i1 false)
-  %104 = icmp samesign ugt i32 %101, 15
+  %104 = icmp samesign ugt i32 %75, 31
   br i1 %104, label %.lr.ph250, label %.loopexit
 
 .lr.ph250:                                        ; preds = %100, %.lr.ph250
@@ -4946,7 +4946,7 @@ define internal fastcc range(i32 0, 2) i32 @lzh_make_huffman_table(ptr noundef c
   %indvars.iv.next286 = add nsw i64 %indvars.iv285, -16
   %105 = getelementptr inbounds nuw i16, ptr %82, i64 %indvars.iv.next286
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(32) %105, ptr noundef nonnull align 2 dereferenceable(32) %103, i64 32, i1 false)
-  %106 = icmp samesign ugt i64 %indvars.iv.next286, 15
+  %106 = icmp samesign ugt i64 %indvars.iv285, 31
   br i1 %106, label %.lr.ph250, label %.loopexit.loopexit, !llvm.loop !177
 
 .loopexit.loopexit:                               ; preds = %.lr.ph250

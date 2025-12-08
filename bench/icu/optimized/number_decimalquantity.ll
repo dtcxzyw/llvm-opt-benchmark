@@ -1562,15 +1562,14 @@ _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit.thread: ; preds = %
 
 _ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35: ; preds = %111
   %indvars.iv.next65 = add nsw i64 %indvars.iv64, -1
-  %114 = and i64 %indvars.iv.next65, 4294967280
-  %or.cond.i31 = icmp ne i64 %114, 0
-  %115 = shl i64 %indvars.iv.next65, 2
-  %116 = and i64 %115, 4294967292
-  %117 = shl i64 15, %116
-  %118 = and i64 %117, %107
-  %119 = icmp eq i64 %118, 0
-  %120 = select i1 %or.cond.i31, i1 true, i1 %119
-  br i1 %120, label %111, label %.critedge6, !llvm.loop !45
+  %or.cond.i31 = icmp ugt i64 %indvars.iv64, 16
+  %114 = shl i64 %indvars.iv.next65, 2
+  %115 = and i64 %114, 4294967292
+  %116 = shl i64 15, %115
+  %117 = and i64 %116, %107
+  %118 = icmp eq i64 %117, 0
+  %119 = select i1 %or.cond.i31, i1 true, i1 %118
+  br i1 %119, label %111, label %.critedge6, !llvm.loop !45
 
 .critedge6:                                       ; preds = %111, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35
   %.0.in.lcssa = phi i32 [ %smin, %111 ], [ %112, %_ZNK6icu_776number4impl15DecimalQuantity11getDigitPosEi.exit35 ]

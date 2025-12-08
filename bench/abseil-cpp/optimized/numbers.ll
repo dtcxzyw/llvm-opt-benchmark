@@ -3317,7 +3317,7 @@ _ZN4abslL5Mul32ESt4pairImmEj.exit:                ; preds = %.lr.ph, %26
   %.sroa.0.0.i = phi i64 [ %34, %26 ], [ %20, %.lr.ph ]
   %.sroa.3.0.i = phi i64 [ %31, %26 ], [ %13, %.lr.ph ]
   %35 = add nsw i32 %.028, -13
-  %36 = icmp samesign ugt i32 %35, 12
+  %36 = icmp sgt i32 %.028, 25
   br i1 %36, label %.lr.ph, label %._crit_edge, !llvm.loop !49
 
 ._crit_edge:                                      ; preds = %_ZN4abslL5Mul32ESt4pairImmEj.exit, %2

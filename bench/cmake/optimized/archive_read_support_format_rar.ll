@@ -5405,7 +5405,7 @@ create_filter.exit.i.i:                           ; preds = %419, %418
   %521 = load i8, ptr %520, align 1, !tbaa !31
   %522 = zext i8 %521 to i32
   %523 = add nuw nsw i32 %522, 3
-  %.not208 = icmp samesign ult i32 %518, 8
+  %.not208 = icmp samesign ult i32 %47, 279
   br i1 %.not208, label %543, label %524
 
 524:                                              ; preds = %517
@@ -7112,7 +7112,7 @@ membr_bits.exit:                                  ; preds = %16, %.membr_fill.ex
   ]
 
 membr_bits.exit.thread:                           ; preds = %membr_bits.exit
-  %33 = icmp samesign ult i32 %28, 4
+  %33 = icmp slt i32 %27, 6
   br i1 %33, label %membr_bits.exit.thread.thread, label %.membr_fill.exit_crit_edge.i10
 
 .membr_fill.exit_crit_edge.i10:                   ; preds = %membr_bits.exit.thread

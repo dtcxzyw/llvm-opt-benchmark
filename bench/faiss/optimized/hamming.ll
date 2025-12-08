@@ -29398,8 +29398,8 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr no
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %10, align 8, !tbaa !4
   %19 = load i64, ptr %9, align 8, !tbaa !4
-  %.not45 = icmp ugt i64 %19, %18
-  br i1 %.not45, label %._crit_edge30, label %.lr.ph29
+  %.not44 = icmp ugt i64 %19, %18
+  br i1 %.not44, label %._crit_edge30, label %.lr.ph29
 
 .lr.ph29:                                         ; preds = %14
   %20 = load ptr, ptr %3, align 8, !tbaa !22
@@ -29464,7 +29464,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmiPKhmPi.omp_outlined(ptr no
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %53 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %54 = icmp samesign ugt i32 %53, 8
+  %54 = icmp sgt i32 %.02732.i.us, 16
   br i1 %54, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !997
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us
@@ -29653,8 +29653,8 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr 
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %10, align 8, !tbaa !4
   %19 = load i64, ptr %9, align 8, !tbaa !4
-  %.not46 = icmp ugt i64 %19, %18
-  br i1 %.not46, label %._crit_edge31, label %.lr.ph30
+  %.not45 = icmp ugt i64 %19, %18
+  br i1 %.not45, label %._crit_edge31, label %.lr.ph30
 
 .lr.ph30:                                         ; preds = %14
   %20 = load ptr, ptr %3, align 8, !tbaa !22
@@ -29721,7 +29721,7 @@ define internal void @_ZN5faiss17unpack_bitstringsEmmPKiPKhmPi.omp_outlined(ptr 
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %55 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %56 = icmp samesign ugt i32 %55, 8
+  %56 = icmp sgt i32 %.02732.i.us, 16
   br i1 %56, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !997
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us

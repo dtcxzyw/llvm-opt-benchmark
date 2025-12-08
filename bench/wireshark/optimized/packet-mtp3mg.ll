@@ -855,7 +855,7 @@ switch.lookup:                                    ; preds = %4
   br label %dissect_mtp3mg_test.exit
 
 332:                                              ; preds = %299
-  %or.cond.i = icmp samesign ult i8 %.off.i130, 2
+  %or.cond.i = icmp ult i8 %97, 48
   br i1 %or.cond.i, label %333, label %350
 
 333:                                              ; preds = %332

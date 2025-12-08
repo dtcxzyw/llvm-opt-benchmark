@@ -1344,7 +1344,7 @@ define internal fastcc void @decode_image_block(ptr noundef captures(none) %0, p
   br label %18
 
 .preheader51:                                     ; preds = %18
-  %13 = icmp samesign ult i32 %12, 4
+  %13 = icmp slt i32 %9, 2
   br i1 %13, label %.lr.ph57.preheader, label %._crit_edge
 
 .lr.ph57.preheader:                               ; preds = %5, %.preheader51
@@ -1355,7 +1355,7 @@ define internal fastcc void @decode_image_block(ptr noundef captures(none) %0, p
   %16 = shl nuw nsw i32 %.037.lcssa95, 2
   %narrow = sub nuw nsw i32 16, %16
   %17 = zext nneg i32 %narrow to i64
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 4 dereferenceable(1) %scevgep, i8 0, i64 %17, i1 false), !tbaa !56
+  call void @llvm.memset.p0.i64(ptr align 4 %scevgep, i8 0, i64 %17, i1 false), !tbaa !56
   br label %._crit_edge
 
 18:                                               ; preds = %.lr.ph, %18

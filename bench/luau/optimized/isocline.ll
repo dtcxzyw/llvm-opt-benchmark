@@ -4708,7 +4708,7 @@ sbuf_clear.exit.i.i.i:                            ; preds = %ic_memmove.exit.i.i
   %.not64.i.i.i = icmp eq i32 %61, 0
   br i1 %.not64.i.i.i, label %.lr.ph.i.i15.i, label %sbuf_len.exit.i.i.i
 
-.lr.ph.i.i15.i:                                   ; preds = %sbuf_clear.exit.i.i.i, %117
+.lr.ph.i.i15.i:                                   ; preds = %sbuf_clear.exit.i.i.i, %115
   %62 = call i32 @fgetc(ptr noundef nonnull %49)
   switch i32 %62, label %sbuf_append_char.exit51.i.i.i [
     i32 -1, label %sbuf_len.exit.i.i.i
@@ -4720,7 +4720,7 @@ sbuf_clear.exit.i.i.i:                            ; preds = %ic_memmove.exit.i.i
   %64 = call i32 @fgetc(ptr noundef nonnull %49)
   switch i32 %64, label %sbuf_free.exit.i.i [
     i32 110, label %sbuf_append.exit.i.i.i
-    i32 114, label %117
+    i32 114, label %115
     i32 116, label %sbuf_append.exit40.i.i.i
     i32 92, label %sbuf_append.exit43.i.i.i
     i32 120, label %71
@@ -4729,17 +4729,17 @@ sbuf_clear.exit.i.i.i:                            ; preds = %ic_memmove.exit.i.i
 sbuf_append.exit.i.i.i:                           ; preds = %63
   %65 = load i64, ptr %56, align 8, !tbaa !40
   %66 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly @.str.296, i64 noundef 1, i64 noundef %65)
-  br label %117
+  br label %115
 
 sbuf_append.exit40.i.i.i:                         ; preds = %63
   %67 = load i64, ptr %56, align 8, !tbaa !40
   %68 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly @.str.416, i64 noundef 1, i64 noundef %67)
-  br label %117
+  br label %115
 
 sbuf_append.exit43.i.i.i:                         ; preds = %63
   %69 = load i64, ptr %56, align 8, !tbaa !40
   %70 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly @.str.417, i64 noundef 1, i64 noundef %69)
-  br label %117
+  br label %115
 
 71:                                               ; preds = %63
   %72 = call i32 @fgetc(ptr noundef nonnull %49)
@@ -4786,136 +4786,134 @@ ic_isxdigit.exit44.i.i.i:                         ; preds = %ic_isxdigit.exit.th
   br i1 %77, label %.critedge.i.i.i, label %sbuf_free.exit.i.i
 
 .critedge.i.i.i:                                  ; preds = %ic_isxdigit.exit44.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i, %ic_isxdigit.exit.thread.i.i.i
-  %78 = add nsw i32 %72, -48
-  %or.cond.i.i.i.i = icmp samesign ult i32 %78, 10
-  br i1 %or.cond.i.i.i.i, label %79, label %82
+  %or.cond.i.i.i.i = icmp samesign ult i32 %72, 58
+  br i1 %or.cond.i.i.i.i, label %78, label %81
 
-79:                                               ; preds = %.critedge.i.i.i
-  %80 = trunc nuw nsw i32 %72 to i8
-  %81 = add nsw i8 %80, -48
+78:                                               ; preds = %.critedge.i.i.i
+  %79 = trunc nuw nsw i32 %72 to i8
+  %80 = add nsw i8 %79, -48
   br label %from_xdigit.exit.i.i.i
 
-82:                                               ; preds = %.critedge.i.i.i
-  %83 = add nsw i32 %72, -65
-  %or.cond3.i.i.i.i = icmp ult i32 %83, 6
-  br i1 %or.cond3.i.i.i.i, label %84, label %87
+81:                                               ; preds = %.critedge.i.i.i
+  %82 = add nsw i32 %72, -65
+  %or.cond3.i.i.i.i = icmp ult i32 %82, 6
+  br i1 %or.cond3.i.i.i.i, label %83, label %86
 
-84:                                               ; preds = %82
-  %85 = trunc nuw nsw i32 %72 to i8
-  %86 = add nsw i8 %85, -55
+83:                                               ; preds = %81
+  %84 = trunc nuw nsw i32 %72 to i8
+  %85 = add nsw i8 %84, -55
   br label %from_xdigit.exit.i.i.i
 
-87:                                               ; preds = %82
-  %88 = add nsw i32 %72, -97
-  %or.cond5.i.i.i.i = icmp ult i32 %88, 6
-  br i1 %or.cond5.i.i.i.i, label %89, label %from_xdigit.exit.i.i.i
+86:                                               ; preds = %81
+  %87 = add nsw i32 %72, -97
+  %or.cond5.i.i.i.i = icmp ult i32 %87, 6
+  br i1 %or.cond5.i.i.i.i, label %88, label %from_xdigit.exit.i.i.i
 
-89:                                               ; preds = %87
-  %90 = trunc nuw nsw i32 %72 to i8
-  %91 = add nsw i8 %90, -87
+88:                                               ; preds = %86
+  %89 = trunc nuw nsw i32 %72 to i8
+  %90 = add nsw i8 %89, -87
   br label %from_xdigit.exit.i.i.i
 
-from_xdigit.exit.i.i.i:                           ; preds = %89, %87, %84, %79
-  %.0.i.i.i.i = phi i8 [ %81, %79 ], [ %86, %84 ], [ %91, %89 ], [ 0, %87 ]
-  %92 = shl nuw i8 %.0.i.i.i.i, 4
-  %93 = add nsw i32 %73, -48
-  %or.cond.i45.i.i.i = icmp samesign ult i32 %93, 10
-  br i1 %or.cond.i45.i.i.i, label %94, label %97
+from_xdigit.exit.i.i.i:                           ; preds = %88, %86, %83, %78
+  %.0.i.i.i.i = phi i8 [ %80, %78 ], [ %85, %83 ], [ %90, %88 ], [ 0, %86 ]
+  %91 = shl nuw i8 %.0.i.i.i.i, 4
+  %or.cond.i45.i.i.i = icmp samesign ult i32 %73, 58
+  br i1 %or.cond.i45.i.i.i, label %92, label %95
 
-94:                                               ; preds = %from_xdigit.exit.i.i.i
-  %95 = trunc nuw nsw i32 %73 to i8
-  %96 = add nsw i8 %95, -48
+92:                                               ; preds = %from_xdigit.exit.i.i.i
+  %93 = trunc nuw nsw i32 %73 to i8
+  %94 = add nsw i8 %93, -48
   br label %sbuf_append_char.exit.i.i.i
 
-97:                                               ; preds = %from_xdigit.exit.i.i.i
-  %98 = add nsw i32 %73, -65
-  %or.cond3.i46.i.i.i = icmp ult i32 %98, 6
-  br i1 %or.cond3.i46.i.i.i, label %99, label %102
+95:                                               ; preds = %from_xdigit.exit.i.i.i
+  %96 = add nsw i32 %73, -65
+  %or.cond3.i46.i.i.i = icmp ult i32 %96, 6
+  br i1 %or.cond3.i46.i.i.i, label %97, label %100
 
-99:                                               ; preds = %97
-  %100 = trunc nuw nsw i32 %73 to i8
-  %101 = add nsw i8 %100, -55
+97:                                               ; preds = %95
+  %98 = trunc nuw nsw i32 %73 to i8
+  %99 = add nsw i8 %98, -55
   br label %sbuf_append_char.exit.i.i.i
 
-102:                                              ; preds = %97
-  %103 = add nsw i32 %73, -97
-  %or.cond5.i47.i.i.i = icmp ult i32 %103, 6
-  br i1 %or.cond5.i47.i.i.i, label %104, label %sbuf_append_char.exit.i.i.i
+100:                                              ; preds = %95
+  %101 = add nsw i32 %73, -97
+  %or.cond5.i47.i.i.i = icmp ult i32 %101, 6
+  br i1 %or.cond5.i47.i.i.i, label %102, label %sbuf_append_char.exit.i.i.i
 
-104:                                              ; preds = %102
-  %105 = trunc nuw nsw i32 %73 to i8
-  %106 = add nsw i8 %105, -87
+102:                                              ; preds = %100
+  %103 = trunc nuw nsw i32 %73 to i8
+  %104 = add nsw i8 %103, -87
   br label %sbuf_append_char.exit.i.i.i
 
-sbuf_append_char.exit.i.i.i:                      ; preds = %104, %102, %99, %94
-  %.0.i48.i.i.i = phi i8 [ %96, %94 ], [ %101, %99 ], [ %106, %104 ], [ 0, %102 ]
-  %107 = add nuw nsw i8 %.0.i48.i.i.i, %92
+sbuf_append_char.exit.i.i.i:                      ; preds = %102, %100, %97, %92
+  %.0.i48.i.i.i = phi i8 [ %94, %92 ], [ %99, %97 ], [ %104, %102 ], [ 0, %100 ]
+  %105 = add nuw nsw i8 %.0.i48.i.i.i, %91
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  store i8 %107, ptr %4, align 1, !tbaa !4
+  store i8 %105, ptr %4, align 1, !tbaa !4
   store i8 0, ptr %57, align 1, !tbaa !4
-  %108 = load i64, ptr %56, align 8, !tbaa !40
-  %109 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #33
-  %110 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %109, i64 0)
-  %111 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly %4, i64 noundef %110, i64 noundef %108)
+  %106 = load i64, ptr %56, align 8, !tbaa !40
+  %107 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %4) #33
+  %108 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %107, i64 0)
+  %109 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly %4, i64 noundef %108, i64 noundef %106)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %117
+  br label %115
 
 sbuf_append_char.exit51.i.i.i:                    ; preds = %.lr.ph.i.i15.i
-  %112 = trunc i32 %62 to i8
+  %110 = trunc i32 %62 to i8
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i8 %112, ptr %3, align 1, !tbaa !4
+  store i8 %110, ptr %3, align 1, !tbaa !4
   store i8 0, ptr %58, align 1, !tbaa !4
-  %113 = load i64, ptr %56, align 8, !tbaa !40
-  %114 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #33
-  %115 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %114, i64 0)
-  %116 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly %3, i64 noundef %115, i64 noundef %113)
+  %111 = load i64, ptr %56, align 8, !tbaa !40
+  %112 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %3) #33
+  %113 = call noundef range(i64 0, -9223372036854775808) i64 @llvm.smax.i64(i64 %112, i64 0)
+  %114 = call fastcc i64 @sbuf_insert_at_n(ptr noundef nonnull %53, ptr noundef nonnull readonly %3, i64 noundef %113, i64 noundef %111)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %117
+  br label %115
 
-117:                                              ; preds = %sbuf_append_char.exit51.i.i.i, %sbuf_append_char.exit.i.i.i, %sbuf_append.exit43.i.i.i, %sbuf_append.exit40.i.i.i, %sbuf_append.exit.i.i.i, %63
-  %118 = call i32 @feof(ptr noundef nonnull %49) #32
-  %.not.i.i.i = icmp eq i32 %118, 0
+115:                                              ; preds = %sbuf_append_char.exit51.i.i.i, %sbuf_append_char.exit.i.i.i, %sbuf_append.exit43.i.i.i, %sbuf_append.exit40.i.i.i, %sbuf_append.exit.i.i.i, %63
+  %116 = call i32 @feof(ptr noundef nonnull %49) #32
+  %.not.i.i.i = icmp eq i32 %116, 0
   br i1 %.not.i.i.i, label %.lr.ph.i.i15.i, label %sbuf_len.exit.i.i.i
 
-sbuf_len.exit.i.i.i:                              ; preds = %117, %.lr.ph.i.i15.i, %.lr.ph.i.i15.i, %sbuf_clear.exit.i.i.i
-  %119 = load i64, ptr %56, align 8, !tbaa !40
-  %120 = icmp eq i64 %119, 0
-  br i1 %120, label %.backedge.i.i, label %sbuf_string.exit.thread.i.i.i
+sbuf_len.exit.i.i.i:                              ; preds = %115, %.lr.ph.i.i15.i, %.lr.ph.i.i15.i, %sbuf_clear.exit.i.i.i
+  %117 = load i64, ptr %56, align 8, !tbaa !40
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %.backedge.i.i, label %sbuf_string.exit.thread.i.i.i
 
 sbuf_string.exit.thread.i.i.i:                    ; preds = %sbuf_len.exit.i.i.i
-  %121 = icmp sgt i64 %119, -1
-  call void @llvm.assume(i1 %121)
-  %122 = load ptr, ptr %53, align 8, !tbaa !43
-  %123 = icmp eq ptr %122, null
-  %spec.select.i.i.i.i.i = select i1 %123, ptr @.str.3, ptr %122
-  %124 = load i8, ptr %spec.select.i.i.i.i.i, align 1, !tbaa !4
-  %125 = icmp eq i8 %124, 35
-  br i1 %125, label %.backedge.i.i, label %sbuf_string.exit56.i.i.i
+  %119 = icmp sgt i64 %117, -1
+  call void @llvm.assume(i1 %119)
+  %120 = load ptr, ptr %53, align 8, !tbaa !43
+  %121 = icmp eq ptr %120, null
+  %spec.select.i.i.i.i.i = select i1 %121, ptr @.str.3, ptr %120
+  %122 = load i8, ptr %spec.select.i.i.i.i.i, align 1, !tbaa !4
+  %123 = icmp eq i8 %122, 35
+  br i1 %123, label %.backedge.i.i, label %sbuf_string.exit56.i.i.i
 
 sbuf_string.exit56.i.i.i:                         ; preds = %sbuf_string.exit.thread.i.i.i
-  %126 = call fastcc zeroext i1 @history_push(ptr noundef nonnull %13, ptr noundef nonnull %spec.select.i.i.i.i.i)
-  br i1 %126, label %.backedge.i.i, label %sbuf_free.exit.i.i
+  %124 = call fastcc zeroext i1 @history_push(ptr noundef nonnull %13, ptr noundef nonnull %spec.select.i.i.i.i.i)
+  br i1 %124, label %.backedge.i.i, label %sbuf_free.exit.i.i
 
 .backedge.i.i:                                    ; preds = %sbuf_string.exit56.i.i.i, %sbuf_string.exit.thread.i.i.i, %sbuf_len.exit.i.i.i
-  %127 = call i32 @feof(ptr noundef nonnull %49) #32
-  %.not12.i.i = icmp eq i32 %127, 0
+  %125 = call i32 @feof(ptr noundef nonnull %49) #32
+  %.not12.i.i = icmp eq i32 %125, 0
   br i1 %.not12.i.i, label %sbuf_len.exit.i.i.i.i, label %sbuf_free.exit.i.i, !llvm.loop !153
 
 sbuf_free.exit.i.i:                               ; preds = %.backedge.i.i, %sbuf_string.exit56.i.i.i, %ic_isxdigit.exit44.i.i.i, %ic_isxdigit.exit.i.i.i, %63, %sbuf_new.exit.i.i
-  %128 = load ptr, ptr %54, align 8, !tbaa !38
-  %129 = load ptr, ptr %53, align 8, !tbaa !43
-  %130 = getelementptr i8, ptr %128, i64 16
-  %.val.i.i.i.i = load ptr, ptr %130, align 8, !tbaa !44
-  call void %.val.i.i.i.i(ptr noundef %129) #32
+  %126 = load ptr, ptr %54, align 8, !tbaa !38
+  %127 = load ptr, ptr %53, align 8, !tbaa !43
+  %128 = getelementptr i8, ptr %126, i64 16
+  %.val.i.i.i.i = load ptr, ptr %128, align 8, !tbaa !44
+  call void %.val.i.i.i.i(ptr noundef %127) #32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %53, i8 0, i64 24, i1 false)
-  %131 = load ptr, ptr %54, align 8, !tbaa !38
-  %132 = getelementptr i8, ptr %131, i64 16
-  %.val.i13.i.i = load ptr, ptr %132, align 8, !tbaa !44
+  %129 = load ptr, ptr %54, align 8, !tbaa !38
+  %130 = getelementptr i8, ptr %129, i64 16
+  %.val.i13.i.i = load ptr, ptr %130, align 8, !tbaa !44
   call void %.val.i13.i.i(ptr noundef nonnull %53) #32
   br label %sbuf_new.exit.thread.i.i
 
 sbuf_new.exit.thread.i.i:                         ; preds = %sbuf_free.exit.i.i, %51
-  %133 = call i32 @fclose(ptr noundef nonnull %49)
+  %131 = call i32 @fclose(ptr noundef nonnull %49)
   br label %history_load_from.exit
 
 history_load_from.exit:                           ; preds = %7, %sbuf_new.exit.thread.i.i, %48, %43, %mem_zalloc.exit.thread.i, %mem_strdup.exit.i, %ic_get_env.exit
@@ -9594,7 +9592,7 @@ define internal fastcc void @attr_update_ansi_color(ptr noundef nonnull writeonl
   %6 = load i64, ptr %3, align 8
   %7 = icmp ult i64 %6, 257
   %or.cond3 = select i1 %5, i1 %7, i1 false
-  br i1 %or.cond3, label %8, label %24
+  br i1 %or.cond3, label %8, label %23
 
 8:                                                ; preds = %2
   %or.cond.i = icmp samesign ult i64 %6, 8
@@ -9616,23 +9614,22 @@ define internal fastcc void @attr_update_ansi_color(ptr noundef nonnull writeonl
   br label %color_from_ansi256.exit
 
 17:                                               ; preds = %12
-  %18 = add nsw i64 %6, -16
-  %or.cond5.i = icmp samesign ult i64 %18, 240
-  br i1 %or.cond5.i, label %19, label %color_from_ansi256.exit
+  %or.cond5.i = icmp samesign ult i64 %6, 256
+  br i1 %or.cond5.i, label %18, label %color_from_ansi256.exit
 
-19:                                               ; preds = %17
-  %20 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %6
-  %21 = load i32, ptr %20, align 4, !tbaa !112
-  %22 = and i32 %21, 16777215
-  %23 = or disjoint i32 %22, 16777216
+18:                                               ; preds = %17
+  %19 = getelementptr inbounds nuw i32, ptr @ansi256, i64 %6
+  %20 = load i32, ptr %19, align 4, !tbaa !112
+  %21 = and i32 %20, 16777215
+  %22 = or disjoint i32 %21, 16777216
   br label %color_from_ansi256.exit
 
-color_from_ansi256.exit:                          ; preds = %9, %14, %17, %19
-  %.0.i = phi i32 [ %11, %9 ], [ %16, %14 ], [ %23, %19 ], [ 39, %17 ]
+color_from_ansi256.exit:                          ; preds = %9, %14, %17, %18
+  %.0.i = phi i32 [ %11, %9 ], [ %16, %14 ], [ %22, %18 ], [ 39, %17 ]
   store i32 %.0.i, ptr %0, align 4, !tbaa !112
-  br label %24
+  br label %23
 
-24:                                               ; preds = %color_from_ansi256.exit, %2
+23:                                               ; preds = %color_from_ansi256.exit, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret void
 }

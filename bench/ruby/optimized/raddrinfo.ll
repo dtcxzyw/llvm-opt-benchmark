@@ -5273,7 +5273,7 @@ ai_get_afamily.exit.thread:                       ; preds = %get_addrinfo.exit, 
 
 rai_unixsocket_len.exit:                          ; preds = %15
   %gepdiff.i.i = add nsw i64 %.0.idx.i.i, -2
-  %18 = icmp samesign ugt i64 %gepdiff.i.i, 108
+  %18 = icmp samesign ugt i64 %.0.idx.i.i, 110
   br i1 %18, label %19, label %rai_unixsocket_len.exit.thread
 
 19:                                               ; preds = %rai_unixsocket_len.exit

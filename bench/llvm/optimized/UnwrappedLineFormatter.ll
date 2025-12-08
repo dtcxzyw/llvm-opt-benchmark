@@ -6132,7 +6132,7 @@ _ZNSt14priority_queueISt4pairIS0_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLi
   %108 = lshr exact i64 %107, 4
   %109 = add nsw i64 %108, -1
   %110 = lshr i64 %109, 1
-  %111 = icmp samesign ugt i64 %107, 32
+  %111 = icmp ugt i32 %.val2765176, 3
   br i1 %111, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %100, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIS3_IjjEPN5clang6format12_GLOBAL__N_123OptimizingLineFormatter9StateNodeEEEEclIPSB_SF_EEbT_T0_.exit.thread32.i.i.i.i

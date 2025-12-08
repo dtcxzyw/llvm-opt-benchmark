@@ -3900,16 +3900,13 @@ define linkonce_odr hidden void @_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_
   %10 = ptrtoint ptr %7 to i64
   %11 = sub i64 %9, %10
   %12 = ashr exact i64 %11, 3
-  %or.cond.i = icmp slt i64 %12, 1
-  br i1 %or.cond.i, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %_ZN4llvm12PowerOf2CeilEm.exit
+  %13 = add nsw i64 %12, -2147483649
+  %or.cond = icmp ult i64 %13, -2147483648
+  br i1 %or.cond, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %14
 
-_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
-  %13 = add nsw i64 %12, -1
-  %14 = icmp samesign ugt i64 %13, 2147483647
-  br i1 %14, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %15
-
-15:                                               ; preds = %_ZN4llvm12PowerOf2CeilEm.exit
-  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %13, i1 false)
+14:                                               ; preds = %3
+  %15 = add nsw i64 %12, -1
+  %16 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %15, i1 false)
   %17 = sub nuw nsw i64 64, %16
   %18 = shl nuw nsw i64 1, %17
   %19 = trunc nuw i64 %18 to i32
@@ -3946,8 +3943,8 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %.not5.i.i.i.i = icmp eq i32 %42, 0
   br i1 %.not5.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %15, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %39, %15 ]
+.lr.ph.i.i.i.i:                                   ; preds = %14, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %45, %.lr.ph.i.i.i.i ], [ %39, %14 ]
   store ptr inttoptr (i64 -1 to ptr), ptr %.06.i.i.i.i, align 8, !tbaa !46
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !47
@@ -3955,11 +3952,11 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %.not.i.i.i.i = icmp eq ptr %45, %44
   br i1 %.not.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit, label %.lr.ph.i.i.i.i, !llvm.loop !336
 
-_ZN4llvm12PowerOf2CeilEm.exit.thread:             ; preds = %3, %_ZN4llvm12PowerOf2CeilEm.exit
+_ZN4llvm12PowerOf2CeilEm.exit.thread:             ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   br label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit
 
-_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit: ; preds = %.lr.ph.i.i.i.i, %15, %_ZN4llvm12PowerOf2CeilEm.exit.thread
+_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit: ; preds = %.lr.ph.i.i.i.i, %14, %_ZN4llvm12PowerOf2CeilEm.exit.thread
   %46 = load ptr, ptr %1, align 8, !tbaa !327
   %47 = load ptr, ptr %2, align 8, !tbaa !327
   %.not5.i = icmp eq ptr %46, %47

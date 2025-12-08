@@ -8705,7 +8705,7 @@ if.then.i.i134:                                   ; preds = %while.body
   %sub.ptr.div.i.i.i = lshr exact i64 %sub.ptr.sub.i.i.i, 2
   %sub.i.i.i.i137 = add nsw i64 %sub.ptr.div.i.i.i, -1
   %div.i.i.i1.i = lshr i64 %sub.i.i.i.i137, 1
-  %cmp24.i.i.i.i138 = icmp samesign ugt i64 %sub.ptr.sub.i.i.i, 8
+  %cmp24.i.i.i.i138 = icmp ugt i32 %intervals.val762, 3
   br i1 %cmp24.i.i.i.i138, label %while.body.lr.ph.i.i.i.i160, label %while.end.i.i.i.i139
 
 while.body.lr.ph.i.i.i.i160:                      ; preds = %if.then.i.i134

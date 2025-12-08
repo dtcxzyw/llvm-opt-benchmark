@@ -584,7 +584,7 @@ define linkonce_odr void @_ZN12SubAllocator14GlueFreeBlocksEv(ptr noundef nonnul
   store ptr %.151, ptr %37, align 8, !tbaa !34
   %77 = add nsw i32 %.052, -128
   %78 = getelementptr inbounds nuw i8, ptr %.151, i64 2560
-  %79 = icmp samesign ugt i32 %77, 128
+  %79 = icmp samesign ugt i32 %.052, 256
   br i1 %79, label %.lr.ph54, label %._crit_edge55, !llvm.loop !49
 
 ._crit_edge55:                                    ; preds = %.lr.ph54, %63
@@ -6122,7 +6122,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit97: ; preds = %273, %.preh
   %325 = load i8, ptr %324, align 1, !tbaa !27
   %326 = zext i8 %325 to i32
   %327 = add nuw nsw i32 %326, 3
-  %.not65 = icmp samesign ult i32 %322, 8
+  %.not65 = icmp ult i16 %.0.in.i95, 278
   br i1 %.not65, label %346, label %328
 
 328:                                              ; preds = %321
@@ -8308,7 +8308,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit: ; preds = %207, %.prehea
   %258 = load i8, ptr %257, align 1, !tbaa !27
   %259 = zext i8 %258 to i32
   %260 = add nuw nsw i32 %259, 3
-  %.not143 = icmp samesign ult i32 %255, 8
+  %.not143 = icmp ult i16 %.0.in.i, 279
   br i1 %.not143, label %279, label %261
 
 261:                                              ; preds = %254
@@ -11583,18 +11583,18 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %248, %255, %264
   br i1 %272, label %273, label %512
 
 273:                                              ; preds = %271
-  %274 = add nsw i32 %.0.i, -262
-  %275 = icmp samesign ult i32 %274, 8
-  br i1 %275, label %.thread.i99, label %276
+  %274 = icmp ult i16 %.0.in.i, 270
+  br i1 %274, label %.thread.i99, label %275
 
 .thread.i99:                                      ; preds = %273
   %.018.i = add nsw i32 %.0.i, -260
   br label %_ZN6Unpack12SlotToLengthER8BitInputj.exit
 
-276:                                              ; preds = %273
-  %277 = lshr i32 %274, 2
+275:                                              ; preds = %273
+  %276 = add nsw i32 %.0.i, -262
+  %277 = lshr i32 %276, 2
   %278 = add nsw i32 %277, -1
-  %279 = and i32 %274, 3
+  %279 = and i32 %276, 3
   %280 = or disjoint i32 %279, 4
   %281 = shl i32 %280, %278
   %.0.i98 = add i32 %281, 2
@@ -11616,10 +11616,10 @@ _ZN16FragmentedWindowixEm.exit:                   ; preds = %248, %255, %264
   store i32 %295, ptr %66, align 4, !tbaa !167
   br label %_ZN6Unpack12SlotToLengthER8BitInputj.exit
 
-_ZN6Unpack12SlotToLengthER8BitInputj.exit:        ; preds = %.thread.i99, %276
-  %296 = phi i32 [ %295, %276 ], [ %236, %.thread.i99 ]
-  %297 = phi i32 [ %294, %276 ], [ %237, %.thread.i99 ]
-  %.1.i = phi i32 [ %291, %276 ], [ %.018.i, %.thread.i99 ]
+_ZN6Unpack12SlotToLengthER8BitInputj.exit:        ; preds = %.thread.i99, %275
+  %296 = phi i32 [ %295, %275 ], [ %236, %.thread.i99 ]
+  %297 = phi i32 [ %294, %275 ], [ %237, %.thread.i99 ]
+  %.1.i = phi i32 [ %291, %275 ], [ %.018.i, %.thread.i99 ]
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds i8, ptr %186, i64 %298
   %300 = load i32, ptr %299, align 4, !tbaa !93
@@ -11709,7 +11709,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit110: ; preds = %310, %.pre
   %353 = or disjoint i32 %352, 2
   %354 = shl i32 %353, %351
   %.062 = add i32 %354, 1
-  %355 = icmp samesign ugt i32 %351, 3
+  %355 = icmp ugt i16 %.0.in.i108, 9
   br i1 %355, label %356, label %430
 
 356:                                              ; preds = %349
@@ -11733,7 +11733,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit110: ; preds = %310, %.pre
   %371 = shl i32 %370, 4
   %372 = add i32 %371, %.062
   %373 = add nsw i32 %350, -5
-  %374 = add nuw nsw i32 %373, %346
+  %374 = add nsw i32 %373, %346
   %375 = lshr i32 %374, 3
   %376 = add i32 %375, %347
   store i32 %376, ptr %62, align 8, !tbaa !168
@@ -11831,7 +11831,7 @@ _ZN6Unpack12DecodeNumberER8BitInputP11DecodeTable.exit121: ; preds = %393, %.pre
   %437 = and i32 %436, 65535
   %438 = sub nuw nsw i32 17, %350
   %439 = lshr i32 %437, %438
-  %440 = add nuw nsw i32 %439, %.062
+  %440 = add i32 %439, %.062
   %441 = add nuw nsw i32 %346, %351
   %442 = lshr i32 %441, 3
   %443 = add i32 %442, %347

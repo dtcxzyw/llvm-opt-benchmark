@@ -266,9 +266,9 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 19:                                               ; preds = %4
   %20 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %21 = add nsw i32 %12, -1
-  %or.cond.i = icmp samesign ugt i32 %21, 268435455
-  %22 = shl nuw nsw i32 %21, 3
+  %or.cond.i = icmp samesign ugt i32 %12, 268435456
+  %21 = shl i32 %12, 3
+  %22 = add i32 %21, -8
   %23 = select i1 %or.cond.i, i32 -8, i32 %22
   %or.cond.i.i = icmp ugt i32 %23, 2147483134
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %23
@@ -356,9 +356,9 @@ define internal i32 @vorbis_decode_frame(ptr noundef %0, ptr noundef %1, ptr nou
 
 63:                                               ; preds = %60
   %64 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  %65 = add nsw i32 %12, -1
-  %or.cond.i103 = icmp samesign ugt i32 %65, 268435455
-  %66 = shl nuw nsw i32 %65, 3
+  %or.cond.i103 = icmp samesign ugt i32 %12, 268435456
+  %65 = shl i32 %12, 3
+  %66 = add i32 %65, -8
   %67 = select i1 %or.cond.i103, i32 -8, i32 %66
   %or.cond.i.i104 = icmp ugt i32 %67, 2147483134
   %.018.i.i105 = select i1 %or.cond.i.i104, i32 0, i32 %67
@@ -5832,7 +5832,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @vorbis_parse_setup_hdr_map
 151:                                              ; preds = %.lr.ph
   %152 = shl nuw nsw i32 %146, 1
   %153 = add nsw i32 %152, -2
-  %.not.i119 = icmp samesign ult i32 %153, 256
+  %.not.i119 = icmp ult i8 %145, -127
   %154 = lshr i32 %153, 8
   %.110.i120 = select i1 %.not.i119, i32 %153, i32 %154
   %.1.i121 = select i1 %.not.i119, i32 0, i32 8
@@ -6754,26 +6754,26 @@ get_bits_long.exit.i:                             ; preds = %38, %32
   %80 = shl i32 %77, 16
   %81 = or disjoint i32 %80, %69
   %82 = zext i32 %81 to i64
-  %83 = add nsw i32 %17, -32
-  %84 = icmp samesign ult i32 %83, 26
-  %85 = lshr i32 %79, 3
-  %86 = zext nneg i32 %85 to i64
-  %87 = getelementptr inbounds nuw i8, ptr %62, i64 %86
-  %88 = load i32, ptr %87, align 1, !tbaa !50
-  %89 = and i32 %79, 7
-  %90 = lshr i32 %88, %89
-  br i1 %84, label %91, label %97
+  %83 = icmp ult i8 %14, 58
+  %84 = lshr i32 %79, 3
+  %85 = zext nneg i32 %84 to i64
+  %86 = getelementptr inbounds nuw i8, ptr %62, i64 %85
+  %87 = load i32, ptr %86, align 1, !tbaa !50
+  %88 = and i32 %79, 7
+  %89 = lshr i32 %87, %88
+  br i1 %83, label %90, label %97
 
-91:                                               ; preds = %57
+90:                                               ; preds = %57
+  %91 = add nsw i32 %17, -32
   %92 = sub nuw nsw i32 64, %17
   %93 = lshr i32 -1, %92
-  %94 = and i32 %90, %93
-  %95 = add i32 %79, %83
+  %94 = and i32 %89, %93
+  %95 = add i32 %91, %79
   %96 = tail call i32 @llvm.umin.i32(i32 %61, i32 %95)
   br label %get_bits_long.exit10.i
 
 97:                                               ; preds = %57
-  %98 = and i32 %90, 65535
+  %98 = and i32 %89, 65535
   %99 = add i32 %79, 16
   %100 = tail call i32 @llvm.umin.i32(i32 %61, i32 %99)
   store i32 %100, ptr %58, align 8, !tbaa !49
@@ -6793,9 +6793,9 @@ get_bits_long.exit.i:                             ; preds = %38, %32
   %114 = or disjoint i32 %113, %98
   br label %get_bits_long.exit10.i
 
-get_bits_long.exit10.i:                           ; preds = %97, %91
-  %.sink11.i = phi i32 [ %96, %91 ], [ %112, %97 ]
-  %.0.i9.i = phi i32 [ %94, %91 ], [ %114, %97 ]
+get_bits_long.exit10.i:                           ; preds = %97, %90
+  %.sink11.i = phi i32 [ %96, %90 ], [ %112, %97 ]
+  %.0.i9.i = phi i32 [ %94, %90 ], [ %114, %97 ]
   store i32 %.sink11.i, ptr %58, align 8, !tbaa !49
   %115 = zext i32 %.0.i9.i to i64
   %116 = shl nuw i64 %115, 32
@@ -6980,7 +6980,7 @@ get_vlc2.exit:                                    ; preds = %170, %187, %208
   %232 = mul nuw nsw i32 %.062.i, %165
   %233 = zext nneg i32 %232 to i64
   %invariant.gep = getelementptr inbounds nuw float, ptr %.sroa.754.0.copyload, i64 %233
-  %invariant.gep209 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv187
+  %invariant.gep208 = getelementptr inbounds nuw float, ptr %5, i64 %indvars.iv187
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %.lr.ph
@@ -6988,8 +6988,8 @@ get_vlc2.exit:                                    ; preds = %170, %187, %208
   %gep = getelementptr inbounds nuw float, ptr %invariant.gep, i64 %indvars.iv
   %234 = load float, ptr %gep, align 4, !tbaa !115
   %235 = fadd nsz float %.0120155, %234
-  %gep210 = getelementptr inbounds nuw float, ptr %invariant.gep209, i64 %indvars.iv
-  store float %235, ptr %gep210, align 4, !tbaa !115
+  %gep209 = getelementptr inbounds nuw float, ptr %invariant.gep208, i64 %indvars.iv
+  store float %235, ptr %gep209, align 4, !tbaa !115
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !222
@@ -7005,9 +7005,9 @@ get_vlc2.exit:                                    ; preds = %170, %187, %208
   br i1 %240, label %170, label %.preheader147, !llvm.loop !223
 
 .preheader:                                       ; preds = %.lr.ph161, %.preheader147.thread
-  %.pn213.in = phi i16 [ %160, %.preheader147.thread ], [ %169, %.lr.ph161 ]
-  %.pn213 = uitofp i16 %.pn213.in to double
-  %.in = fdiv nsz double 0x400921FB54442D18, %.pn213
+  %.pn212.in = phi i16 [ %160, %.preheader147.thread ], [ %169, %.lr.ph161 ]
+  %.pn212 = uitofp i16 %.pn212.in to double
+  %.in = fdiv nsz double 0x400921FB54442D18, %.pn212
   %241 = fptrunc double %.in to float
   %242 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %243 = zext i8 %12 to i64

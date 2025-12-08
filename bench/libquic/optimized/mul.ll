@@ -685,7 +685,7 @@ define internal fastcc void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 n
   %43 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %40, ptr noundef %.045, i32 noundef %.050, i64 noundef %42) #5
   %44 = getelementptr inbounds nuw i8, ptr %.04661, i64 32
   store i64 %43, ptr %44, align 8, !tbaa !15
-  %45 = icmp samesign ult i32 %39, 2
+  %45 = icmp samesign ult i32 %.160, 6
   br i1 %45, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %38, %.lr.ph, %24, %31, %12, %10
@@ -1225,7 +1225,7 @@ define internal fastcc void @bn_sub_part_words(ptr noundef %0, ptr noundef %1, p
   %91 = getelementptr inbounds nuw i8, ptr %.3117178, i64 32
   %92 = load i64, ptr %90, align 8, !tbaa !15
   store i64 %92, ptr %91, align 8, !tbaa !15
-  %93 = icmp samesign ult i32 %89, 2
+  %93 = icmp samesign ult i32 %.7108180, 6
   br i1 %93, label %.thread158, label %.lr.ph181
 
 .thread158:                                       ; preds = %.lr.ph, %50, %56, %62, %83, %78, %.lr.ph181, %88, %37, %.lr.ph191, %23, %30, %.preheader164, %.preheader, %5

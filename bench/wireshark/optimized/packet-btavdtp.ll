@@ -4894,18 +4894,18 @@ define internal fastcc noundef i32 @dissect_capabilities(ptr noundef %0, ptr nou
   %66 = load i32, ptr @hf_btavdtp_maximum_recovery_window_size, align 4
   %67 = call ptr @proto_tree_add_item(ptr noundef %42, i32 noundef %66, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef 0)
   %68 = icmp eq i8 %63, 0
-  br i1 %68, label %.sink.split298, label %69
+  br i1 %68, label %.sink.split297, label %69
 
 69:                                               ; preds = %61
   %70 = icmp ugt i8 %63, 23
-  br i1 %70, label %.sink.split298, label %71
+  br i1 %70, label %.sink.split297, label %71
 
-.sink.split298:                                   ; preds = %69, %61
-  %.str.536.sink299 = phi ptr [ @.str.535, %61 ], [ @.str.536, %69 ]
-  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull %.str.536.sink299)
+.sink.split297:                                   ; preds = %69, %61
+  %.str.536.sink298 = phi ptr [ @.str.535, %61 ], [ @.str.536, %69 ]
+  call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %67, ptr noundef nonnull %.str.536.sink298)
   br label %71
 
-71:                                               ; preds = %.sink.split298, %69
+71:                                               ; preds = %.sink.split297, %69
   %72 = add i32 %.0249280, 5
   %73 = add nsw i32 %36, -3
   br label %.thread274
@@ -5720,7 +5720,7 @@ dissect_codec.exit:                               ; preds = %166, %210, %212, %2
   %640 = call ptr @proto_tree_add_item(ptr noundef %631, i32 noundef %639, ptr noundef %0, i32 noundef %636, i32 noundef 1, i32 noundef 0)
   %641 = add i32 %.2251, 2
   %642 = add nsw i32 %.1, -2
-  %643 = icmp samesign ugt i32 %642, 1
+  %643 = icmp samesign ugt i32 %.1, 3
   br i1 %643, label %644, label %.thread274
 
 644:                                              ; preds = %626

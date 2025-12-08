@@ -1043,7 +1043,7 @@ define noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__c
   br i1 %15, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %14, %.critedge.i.i.i
-  %16 = phi i32 [ %31, %.critedge.i.i.i ], [ 0, %14 ]
+  %16 = phi i32 [ %30, %.critedge.i.i.i ], [ 0, %14 ]
   %.01527.i.idx.i.i = phi i64 [ %.01527.i.add.i.i, %.critedge.i.i.i ], [ 2, %14 ]
   %.01527.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %.01740.i.lcssa.i, i64 %.01527.i.idx.i.i
   %17 = load i16, ptr %.01527.i.ptr.i.i, align 2, !tbaa !23
@@ -1052,38 +1052,37 @@ define noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__c
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw nsw i16 %17 to i8
-  %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq i64 %.01527.i.idx.i.i, 2
-  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
+  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %20
 
-22:                                               ; preds = %19
-  %23 = icmp slt i32 %16, -214748364
-  br i1 %23, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %24
+20:                                               ; preds = %19
+  %21 = icmp slt i32 %16, -214748364
+  br i1 %21, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %22
 
-24:                                               ; preds = %22
-  %25 = icmp eq i32 %16, -214748364
-  %26 = icmp samesign ugt i8 %21, 8
-  %or.cond.i.i.i.i = and i1 %25, %26
-  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %27
+22:                                               ; preds = %20
+  %23 = icmp eq i32 %16, -214748364
+  %24 = icmp samesign ugt i16 %17, 56
+  %or.cond.i.i.i.i = and i1 %23, %24
+  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %25
 
-27:                                               ; preds = %24
-  %28 = mul nsw i32 %16, 10
+25:                                               ; preds = %22
+  %26 = mul nsw i32 %16, 10
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %27, %19
-  %29 = phi i32 [ %28, %27 ], [ %16, %19 ]
-  %30 = zext nneg i8 %21 to i32
-  %31 = sub nsw i32 %29, %30
-  store i32 %31, ptr %1, align 4, !tbaa !66
+.critedge.i.i.i:                                  ; preds = %25, %19
+  %27 = phi i32 [ %26, %25 ], [ %16, %19 ]
+  %28 = and i16 %17, 15
+  %29 = zext nneg i16 %28 to i32
+  %30 = sub nsw i32 %27, %29
+  store i32 %30, ptr %1, align 4, !tbaa !66
   %.01527.i.add.i.i = add nuw nsw i64 %.01527.i.idx.i.i, 2
   %.ptr33.i.i = getelementptr inbounds nuw i8, ptr %.01740.i.lcssa.i, i64 %.01527.i.add.i.i
   %.not.i.i.i = icmp eq ptr %.ptr33.i.i, %4
   br i1 %.not.i.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i, !llvm.loop !74
 
 .critedge20.i.i:                                  ; preds = %.critedge.i.i
-  %32 = icmp eq i16 %12, 43
-  %spec.select22.idx.i.i = select i1 %32, i64 2, i64 0
+  %31 = icmp eq i16 %12, 43
+  %spec.select22.idx.i.i = select i1 %31, i64 2, i64 0
   %spec.select22.i.i = getelementptr inbounds nuw i8, ptr %.01740.i.lcssa.i, i64 %spec.select22.idx.i.i
   br label %.critedge21.i.i
 
@@ -1091,48 +1090,47 @@ define noundef zeroext i1 @_ZN4base11StringToIntERKNS_16BasicStringPieceINSt7__c
   %.037.i.i = phi i1 [ %.not32.i6.i, %.critedge20.i.i ], [ true, %2 ]
   %.118.i.i = phi ptr [ %spec.select22.i.i, %.critedge20.i.i ], [ %.val, %2 ]
   store i32 0, ptr %1, align 4, !tbaa !66
-  %33 = icmp eq ptr %.118.i.i, %4
-  br i1 %33, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i24.i.i
+  %32 = icmp eq ptr %.118.i.i, %4
+  br i1 %32, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i24.i.i
 
 .preheader.i24.i.i:                               ; preds = %.critedge21.i.i, %.critedge.i30.i.i
-  %34 = phi i32 [ %49, %.critedge.i30.i.i ], [ 0, %.critedge21.i.i ]
-  %.01527.i25.i.i = phi ptr [ %50, %.critedge.i30.i.i ], [ %.118.i.i, %.critedge21.i.i ]
-  %35 = load i16, ptr %.01527.i25.i.i, align 2, !tbaa !23
-  %36 = add i16 %35, -48
-  %or.cond.i.i.i26.i.i = icmp ult i16 %36, 10
-  br i1 %or.cond.i.i.i26.i.i, label %37, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
+  %33 = phi i32 [ %47, %.critedge.i30.i.i ], [ 0, %.critedge21.i.i ]
+  %.01527.i25.i.i = phi ptr [ %48, %.critedge.i30.i.i ], [ %.118.i.i, %.critedge21.i.i ]
+  %34 = load i16, ptr %.01527.i25.i.i, align 2, !tbaa !23
+  %35 = add i16 %34, -48
+  %or.cond.i.i.i26.i.i = icmp ult i16 %35, 10
+  br i1 %or.cond.i.i.i26.i.i, label %36, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
-37:                                               ; preds = %.preheader.i24.i.i
-  %38 = trunc nuw nsw i16 %35 to i8
-  %39 = add nsw i8 %38, -48
+36:                                               ; preds = %.preheader.i24.i.i
   %.not20.i28.i.i = icmp eq ptr %.01527.i25.i.i, %.118.i.i
-  br i1 %.not20.i28.i.i, label %.critedge.i30.i.i, label %40
+  br i1 %.not20.i28.i.i, label %.critedge.i30.i.i, label %37
 
-40:                                               ; preds = %37
-  %41 = icmp sgt i32 %34, 214748364
-  br i1 %41, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %42
+37:                                               ; preds = %36
+  %38 = icmp sgt i32 %33, 214748364
+  br i1 %38, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %39
 
-42:                                               ; preds = %40
-  %43 = icmp eq i32 %34, 214748364
-  %44 = icmp samesign ugt i8 %39, 7
-  %or.cond.i.i29.i.i = and i1 %43, %44
-  br i1 %or.cond.i.i29.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %45
+39:                                               ; preds = %37
+  %40 = icmp eq i32 %33, 214748364
+  %41 = icmp samesign ugt i16 %34, 55
+  %or.cond.i.i29.i.i = and i1 %40, %41
+  br i1 %or.cond.i.i29.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i, label %42
 
-45:                                               ; preds = %42
-  %46 = mul nsw i32 %34, 10
+42:                                               ; preds = %39
+  %43 = mul nsw i32 %33, 10
   br label %.critedge.i30.i.i
 
-.critedge.i30.i.i:                                ; preds = %45, %37
-  %47 = phi i32 [ %46, %45 ], [ %34, %37 ]
-  %48 = zext nneg i8 %39 to i32
-  %49 = add nsw i32 %47, %48
-  store i32 %49, ptr %1, align 4, !tbaa !66
-  %50 = getelementptr inbounds nuw i8, ptr %.01527.i25.i.i, i64 2
-  %.not.i31.i.i = icmp eq ptr %50, %4
+.critedge.i30.i.i:                                ; preds = %42, %36
+  %44 = phi i32 [ %43, %42 ], [ %33, %36 ]
+  %45 = and i16 %34, 15
+  %46 = zext nneg i16 %45 to i32
+  %47 = add nsw i32 %44, %46
+  store i32 %47, ptr %1, align 4, !tbaa !66
+  %48 = getelementptr inbounds nuw i8, ptr %.01527.i25.i.i, i64 2
+  %.not.i31.i.i = icmp eq ptr %48, %4
   br i1 %.not.i31.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i24.i.i, !llvm.loop !75
 
-_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i: ; preds = %.lr.ph.i, %24, %22, %42, %40
-  %.sink.i = phi i32 [ 2147483647, %40 ], [ 2147483647, %42 ], [ -2147483648, %22 ], [ -2147483648, %24 ], [ 0, %.lr.ph.i ]
+_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIiLi10EEEE6InvokeEPKtS6_Pi.exit.sink.split.i: ; preds = %.lr.ph.i, %22, %20, %39, %37
+  %.sink.i = phi i32 [ 2147483647, %37 ], [ 2147483647, %39 ], [ -2147483648, %20 ], [ -2147483648, %22 ], [ 0, %.lr.ph.i ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !66
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplIiEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
@@ -1284,44 +1282,43 @@ define noundef zeroext i1 @_ZN4base12StringToUintERKNS_16BasicStringPieceINSt7__
   br i1 %15, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIjEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.critedge18.i.i, %.critedge.i.i.i
-  %16 = phi i32 [ %31, %.critedge.i.i.i ], [ 0, %.critedge18.i.i ]
-  %.01527.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %.116.i.i, %.critedge18.i.i ]
+  %16 = phi i32 [ %30, %.critedge.i.i.i ], [ 0, %.critedge18.i.i ]
+  %.01527.i.i.i = phi ptr [ %31, %.critedge.i.i.i ], [ %.116.i.i, %.critedge18.i.i ]
   %17 = load i16, ptr %.01527.i.i.i, align 2, !tbaa !23
   %18 = add i16 %17, -48
   %or.cond.i.i.i.i.i = icmp ult i16 %18, 10
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIjEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw nsw i16 %17 to i8
-  %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq ptr %.01527.i.i.i, %.116.i.i
-  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
+  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %20
 
-22:                                               ; preds = %19
-  %23 = icmp ugt i32 %16, 429496729
-  br i1 %23, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE6InvokeEPKtS6_Pj.exit.sink.split.i, label %24
+20:                                               ; preds = %19
+  %21 = icmp ugt i32 %16, 429496729
+  br i1 %21, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE6InvokeEPKtS6_Pj.exit.sink.split.i, label %22
 
-24:                                               ; preds = %22
-  %25 = icmp eq i32 %16, 429496729
-  %26 = icmp samesign ugt i8 %21, 5
-  %or.cond.i.i.i.i = and i1 %25, %26
-  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE6InvokeEPKtS6_Pj.exit.sink.split.i, label %27
+22:                                               ; preds = %20
+  %23 = icmp eq i32 %16, 429496729
+  %24 = icmp samesign ugt i16 %17, 53
+  %or.cond.i.i.i.i = and i1 %23, %24
+  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE6InvokeEPKtS6_Pj.exit.sink.split.i, label %25
 
-27:                                               ; preds = %24
-  %28 = mul nuw i32 %16, 10
+25:                                               ; preds = %22
+  %26 = mul nuw i32 %16, 10
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %27, %19
-  %29 = phi i32 [ %28, %27 ], [ %16, %19 ]
-  %30 = zext nneg i8 %21 to i32
-  %31 = add i32 %29, %30
-  store i32 %31, ptr %1, align 4, !tbaa !66
-  %32 = getelementptr inbounds nuw i8, ptr %.01527.i.i.i, i64 2
-  %.not.i.i.i = icmp eq ptr %32, %4
+.critedge.i.i.i:                                  ; preds = %25, %19
+  %27 = phi i32 [ %26, %25 ], [ %16, %19 ]
+  %28 = and i16 %17, 15
+  %29 = zext nneg i16 %28 to i32
+  %30 = add i32 %27, %29
+  store i32 %30, ptr %1, align 4, !tbaa !66
+  %31 = getelementptr inbounds nuw i8, ptr %.01527.i.i.i, i64 2
+  %.not.i.i.i = icmp eq ptr %31, %4
   br i1 %.not.i.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIjEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i, !llvm.loop !79
 
-_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE6InvokeEPKtS6_Pj.exit.sink.split.i: ; preds = %.lr.ph.i, %24, %22, %.critedge.i.i
-  %.sink.i = phi i32 [ 0, %.critedge.i.i ], [ -1, %22 ], [ -1, %24 ], [ 0, %.lr.ph.i ]
+_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIjLi10EEEE6InvokeEPKtS6_Pj.exit.sink.split.i: ; preds = %.lr.ph.i, %22, %20, %.critedge.i.i
+  %.sink.i = phi i32 [ 0, %.critedge.i.i ], [ -1, %20 ], [ -1, %22 ], [ 0, %.lr.ph.i ]
   store i32 %.sink.i, ptr %1, align 4, !tbaa !66
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplIjEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
@@ -1509,7 +1506,7 @@ define noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7_
   br i1 %15, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %14, %.critedge.i.i.i
-  %16 = phi i64 [ %31, %.critedge.i.i.i ], [ 0, %14 ]
+  %16 = phi i64 [ %30, %.critedge.i.i.i ], [ 0, %14 ]
   %.01527.i.idx.i.i = phi i64 [ %.01527.i.add.i.i, %.critedge.i.i.i ], [ 2, %14 ]
   %.01527.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %.01740.i.lcssa.i, i64 %.01527.i.idx.i.i
   %17 = load i16, ptr %.01527.i.ptr.i.i, align 2, !tbaa !23
@@ -1518,38 +1515,37 @@ define noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7_
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw nsw i16 %17 to i8
-  %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq i64 %.01527.i.idx.i.i, 2
-  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
+  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %20
 
-22:                                               ; preds = %19
-  %23 = icmp slt i64 %16, -922337203685477580
-  br i1 %23, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %24
+20:                                               ; preds = %19
+  %21 = icmp slt i64 %16, -922337203685477580
+  br i1 %21, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %22
 
-24:                                               ; preds = %22
-  %25 = icmp eq i64 %16, -922337203685477580
-  %26 = icmp samesign ugt i8 %21, 8
-  %or.cond.i.i.i.i = and i1 %25, %26
-  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %27
+22:                                               ; preds = %20
+  %23 = icmp eq i64 %16, -922337203685477580
+  %24 = icmp samesign ugt i16 %17, 56
+  %or.cond.i.i.i.i = and i1 %23, %24
+  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %25
 
-27:                                               ; preds = %24
-  %28 = mul nsw i64 %16, 10
+25:                                               ; preds = %22
+  %26 = mul nsw i64 %16, 10
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %27, %19
-  %29 = phi i64 [ %28, %27 ], [ %16, %19 ]
-  %30 = zext nneg i8 %21 to i64
-  %31 = sub nsw i64 %29, %30
-  store i64 %31, ptr %1, align 8, !tbaa !18
+.critedge.i.i.i:                                  ; preds = %25, %19
+  %27 = phi i64 [ %26, %25 ], [ %16, %19 ]
+  %28 = and i16 %17, 15
+  %29 = zext nneg i16 %28 to i64
+  %30 = sub nsw i64 %27, %29
+  store i64 %30, ptr %1, align 8, !tbaa !18
   %.01527.i.add.i.i = add nuw nsw i64 %.01527.i.idx.i.i, 2
   %.ptr33.i.i = getelementptr inbounds nuw i8, ptr %.01740.i.lcssa.i, i64 %.01527.i.add.i.i
   %.not.i.i.i = icmp eq ptr %.ptr33.i.i, %4
   br i1 %.not.i.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i, !llvm.loop !84
 
 .critedge20.i.i:                                  ; preds = %.critedge.i.i
-  %32 = icmp eq i16 %12, 43
-  %spec.select22.idx.i.i = select i1 %32, i64 2, i64 0
+  %31 = icmp eq i16 %12, 43
+  %spec.select22.idx.i.i = select i1 %31, i64 2, i64 0
   %spec.select22.i.i = getelementptr inbounds nuw i8, ptr %.01740.i.lcssa.i, i64 %spec.select22.idx.i.i
   br label %.critedge21.i.i
 
@@ -1557,48 +1553,47 @@ define noundef zeroext i1 @_ZN4base13StringToInt64ERKNS_16BasicStringPieceINSt7_
   %.037.i.i = phi i1 [ %.not32.i6.i, %.critedge20.i.i ], [ true, %2 ]
   %.118.i.i = phi ptr [ %spec.select22.i.i, %.critedge20.i.i ], [ %.val, %2 ]
   store i64 0, ptr %1, align 8, !tbaa !18
-  %33 = icmp eq ptr %.118.i.i, %4
-  br i1 %33, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i24.i.i
+  %32 = icmp eq ptr %.118.i.i, %4
+  br i1 %32, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i24.i.i
 
 .preheader.i24.i.i:                               ; preds = %.critedge21.i.i, %.critedge.i30.i.i
-  %34 = phi i64 [ %49, %.critedge.i30.i.i ], [ 0, %.critedge21.i.i ]
-  %.01527.i25.i.i = phi ptr [ %50, %.critedge.i30.i.i ], [ %.118.i.i, %.critedge21.i.i ]
-  %35 = load i16, ptr %.01527.i25.i.i, align 2, !tbaa !23
-  %36 = add i16 %35, -48
-  %or.cond.i.i.i26.i.i = icmp ult i16 %36, 10
-  br i1 %or.cond.i.i.i26.i.i, label %37, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
+  %33 = phi i64 [ %47, %.critedge.i30.i.i ], [ 0, %.critedge21.i.i ]
+  %.01527.i25.i.i = phi ptr [ %48, %.critedge.i30.i.i ], [ %.118.i.i, %.critedge21.i.i ]
+  %34 = load i16, ptr %.01527.i25.i.i, align 2, !tbaa !23
+  %35 = add i16 %34, -48
+  %or.cond.i.i.i26.i.i = icmp ult i16 %35, 10
+  br i1 %or.cond.i.i.i26.i.i, label %36, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
-37:                                               ; preds = %.preheader.i24.i.i
-  %38 = trunc nuw nsw i16 %35 to i8
-  %39 = add nsw i8 %38, -48
+36:                                               ; preds = %.preheader.i24.i.i
   %.not20.i28.i.i = icmp eq ptr %.01527.i25.i.i, %.118.i.i
-  br i1 %.not20.i28.i.i, label %.critedge.i30.i.i, label %40
+  br i1 %.not20.i28.i.i, label %.critedge.i30.i.i, label %37
 
-40:                                               ; preds = %37
-  %41 = icmp sgt i64 %34, 922337203685477580
-  br i1 %41, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %42
+37:                                               ; preds = %36
+  %38 = icmp sgt i64 %33, 922337203685477580
+  br i1 %38, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %39
 
-42:                                               ; preds = %40
-  %43 = icmp eq i64 %34, 922337203685477580
-  %44 = icmp samesign ugt i8 %39, 7
-  %or.cond.i.i29.i.i = and i1 %43, %44
-  br i1 %or.cond.i.i29.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %45
+39:                                               ; preds = %37
+  %40 = icmp eq i64 %33, 922337203685477580
+  %41 = icmp samesign ugt i16 %34, 55
+  %or.cond.i.i29.i.i = and i1 %40, %41
+  br i1 %or.cond.i.i29.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i, label %42
 
-45:                                               ; preds = %42
-  %46 = mul nsw i64 %34, 10
+42:                                               ; preds = %39
+  %43 = mul nsw i64 %33, 10
   br label %.critedge.i30.i.i
 
-.critedge.i30.i.i:                                ; preds = %45, %37
-  %47 = phi i64 [ %46, %45 ], [ %34, %37 ]
-  %48 = zext nneg i8 %39 to i64
-  %49 = add nsw i64 %47, %48
-  store i64 %49, ptr %1, align 8, !tbaa !18
-  %50 = getelementptr inbounds nuw i8, ptr %.01527.i25.i.i, i64 2
-  %.not.i31.i.i = icmp eq ptr %50, %4
+.critedge.i30.i.i:                                ; preds = %42, %36
+  %44 = phi i64 [ %43, %42 ], [ %33, %36 ]
+  %45 = and i16 %34, 15
+  %46 = zext nneg i16 %45 to i64
+  %47 = add nsw i64 %44, %46
+  store i64 %47, ptr %1, align 8, !tbaa !18
+  %48 = getelementptr inbounds nuw i8, ptr %.01527.i25.i.i, i64 2
+  %.not.i31.i.i = icmp eq ptr %48, %4
   br i1 %.not.i31.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i24.i.i, !llvm.loop !85
 
-_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i: ; preds = %.lr.ph.i, %24, %22, %42, %40
-  %.sink.i = phi i64 [ 9223372036854775807, %40 ], [ 9223372036854775807, %42 ], [ -9223372036854775808, %22 ], [ -9223372036854775808, %24 ], [ 0, %.lr.ph.i ]
+_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsIlLi10EEEE6InvokeEPKtS6_Pl.exit.sink.split.i: ; preds = %.lr.ph.i, %22, %20, %39, %37
+  %.sink.i = phi i64 [ 9223372036854775807, %37 ], [ 9223372036854775807, %39 ], [ -9223372036854775808, %20 ], [ -9223372036854775808, %22 ], [ 0, %.lr.ph.i ]
   store i64 %.sink.i, ptr %1, align 8, !tbaa !18
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplIlEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
@@ -1750,44 +1745,43 @@ define noundef zeroext i1 @_ZN4base14StringToUint64ERKNS_16BasicStringPieceINSt7
   br i1 %15, label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.critedge18.i.i, %.critedge.i.i.i
-  %16 = phi i64 [ %31, %.critedge.i.i.i ], [ 0, %.critedge18.i.i ]
-  %.01527.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %.116.i.i, %.critedge18.i.i ]
+  %16 = phi i64 [ %30, %.critedge.i.i.i ], [ 0, %.critedge18.i.i ]
+  %.01527.i.i.i = phi ptr [ %31, %.critedge.i.i.i ], [ %.116.i.i, %.critedge18.i.i ]
   %17 = load i16, ptr %.01527.i.i.i, align 2, !tbaa !23
   %18 = add i16 %17, -48
   %or.cond.i.i.i.i.i = icmp ult i16 %18, 10
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw nsw i16 %17 to i8
-  %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq ptr %.01527.i.i.i, %.116.i.i
-  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
+  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %20
 
-22:                                               ; preds = %19
-  %23 = icmp ugt i64 %16, 1844674407370955161
-  br i1 %23, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %24
+20:                                               ; preds = %19
+  %21 = icmp ugt i64 %16, 1844674407370955161
+  br i1 %21, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %22
 
-24:                                               ; preds = %22
-  %25 = icmp eq i64 %16, 1844674407370955161
-  %26 = icmp samesign ugt i8 %21, 5
-  %or.cond.i.i.i.i = and i1 %25, %26
-  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %27
+22:                                               ; preds = %20
+  %23 = icmp eq i64 %16, 1844674407370955161
+  %24 = icmp samesign ugt i16 %17, 53
+  %or.cond.i.i.i.i = and i1 %23, %24
+  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %25
 
-27:                                               ; preds = %24
-  %28 = mul nuw i64 %16, 10
+25:                                               ; preds = %22
+  %26 = mul nuw i64 %16, 10
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %27, %19
-  %29 = phi i64 [ %28, %27 ], [ %16, %19 ]
-  %30 = zext nneg i8 %21 to i64
-  %31 = add i64 %29, %30
-  store i64 %31, ptr %1, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw i8, ptr %.01527.i.i.i, i64 2
-  %.not.i.i.i = icmp eq ptr %32, %4
+.critedge.i.i.i:                                  ; preds = %25, %19
+  %27 = phi i64 [ %26, %25 ], [ %16, %19 ]
+  %28 = and i16 %17, 15
+  %29 = zext nneg i16 %28 to i64
+  %30 = add i64 %27, %29
+  store i64 %30, ptr %1, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw i8, ptr %.01527.i.i.i, i64 2
+  %.not.i.i.i = icmp eq ptr %31, %4
   br i1 %.not.i.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i, !llvm.loop !89
 
-_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i: ; preds = %.lr.ph.i, %24, %22, %.critedge.i.i
-  %.sink.i = phi i64 [ 0, %.critedge.i.i ], [ -1, %22 ], [ -1, %24 ], [ 0, %.lr.ph.i ]
+_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i: ; preds = %.lr.ph.i, %22, %20, %.critedge.i.i
+  %.sink.i = phi i64 [ 0, %.critedge.i.i ], [ -1, %20 ], [ -1, %22 ], [ 0, %.lr.ph.i ]
   store i64 %.sink.i, ptr %1, align 8, !tbaa !18
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
@@ -1939,44 +1933,43 @@ define noundef zeroext i1 @_ZN4base13StringToSizeTERKNS_16BasicStringPieceINSt7_
   br i1 %15, label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i
 
 .preheader.i.i.i:                                 ; preds = %.critedge18.i.i, %.critedge.i.i.i
-  %16 = phi i64 [ %31, %.critedge.i.i.i ], [ 0, %.critedge18.i.i ]
-  %.01527.i.i.i = phi ptr [ %32, %.critedge.i.i.i ], [ %.116.i.i, %.critedge18.i.i ]
+  %16 = phi i64 [ %30, %.critedge.i.i.i ], [ 0, %.critedge18.i.i ]
+  %.01527.i.i.i = phi ptr [ %31, %.critedge.i.i.i ], [ %.116.i.i, %.critedge18.i.i ]
   %17 = load i16, ptr %.01527.i.i.i, align 2, !tbaa !23
   %18 = add i16 %17, -48
   %or.cond.i.i.i.i.i = icmp ult i16 %18, 10
   br i1 %or.cond.i.i.i.i.i, label %19, label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 
 19:                                               ; preds = %.preheader.i.i.i
-  %20 = trunc nuw nsw i16 %17 to i8
-  %21 = add nsw i8 %20, -48
   %.not20.i.i.i = icmp eq ptr %.01527.i.i.i, %.116.i.i
-  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %22
+  br i1 %.not20.i.i.i, label %.critedge.i.i.i, label %20
 
-22:                                               ; preds = %19
-  %23 = icmp ugt i64 %16, 1844674407370955161
-  br i1 %23, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %24
+20:                                               ; preds = %19
+  %21 = icmp ugt i64 %16, 1844674407370955161
+  br i1 %21, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %22
 
-24:                                               ; preds = %22
-  %25 = icmp eq i64 %16, 1844674407370955161
-  %26 = icmp samesign ugt i8 %21, 5
-  %or.cond.i.i.i.i = and i1 %25, %26
-  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %27
+22:                                               ; preds = %20
+  %23 = icmp eq i64 %16, 1844674407370955161
+  %24 = icmp samesign ugt i16 %17, 53
+  %or.cond.i.i.i.i = and i1 %23, %24
+  br i1 %or.cond.i.i.i.i, label %_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i, label %25
 
-27:                                               ; preds = %24
-  %28 = mul nuw i64 %16, 10
+25:                                               ; preds = %22
+  %26 = mul nuw i64 %16, 10
   br label %.critedge.i.i.i
 
-.critedge.i.i.i:                                  ; preds = %27, %19
-  %29 = phi i64 [ %28, %27 ], [ %16, %19 ]
-  %30 = zext nneg i8 %21 to i64
-  %31 = add i64 %29, %30
-  store i64 %31, ptr %1, align 8, !tbaa !18
-  %32 = getelementptr inbounds nuw i8, ptr %.01527.i.i.i, i64 2
-  %.not.i.i.i = icmp eq ptr %32, %4
+.critedge.i.i.i:                                  ; preds = %25, %19
+  %27 = phi i64 [ %26, %25 ], [ %16, %19 ]
+  %28 = and i16 %17, 15
+  %29 = zext nneg i16 %28 to i64
+  %30 = add i64 %27, %29
+  store i64 %30, ptr %1, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw i8, ptr %.01527.i.i.i, i64 2
+  %.not.i.i.i = icmp eq ptr %31, %4
   br i1 %.not.i.i.i, label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit, label %.preheader.i.i.i, !llvm.loop !89
 
-_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i: ; preds = %.lr.ph.i, %24, %22, %.critedge.i.i
-  %.sink.i = phi i64 [ 0, %.critedge.i.i ], [ -1, %22 ], [ -1, %24 ], [ 0, %.lr.ph.i ]
+_ZN4base12_GLOBAL__N_121IteratorRangeToNumberINS0_27StringPiece16ToNumberTraitsImLi10EEEE6InvokeEPKtS6_Pm.exit.sink.split.i: ; preds = %.lr.ph.i, %22, %20, %.critedge.i.i
+  %.sink.i = phi i64 [ 0, %.critedge.i.i ], [ -1, %20 ], [ -1, %22 ], [ 0, %.lr.ph.i ]
   store i64 %.sink.i, ptr %1, align 8, !tbaa !18
   br label %_ZN4base12_GLOBAL__N_117String16ToIntImplImEEbRKNS_16BasicStringPieceINSt7__cxx1112basic_stringItNS_20string16_char_traitsESaItEEEEEPT_.exit
 

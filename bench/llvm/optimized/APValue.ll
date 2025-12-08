@@ -4908,10 +4908,10 @@ _ZN4llvm11raw_ostreamlsEPKc.exit232:              ; preds = %217, %219
 _ZN4llvm11raw_ostreamlsEc.exit242:                ; preds = %320, %318, %310, %308, %312
   %.sroa.0419.1 = phi i64 [ %storemerge196, %312 ], [ %.sroa.0419.0, %308 ], [ %.sroa.0419.0, %310 ], [ %storemerge196, %318 ], [ %storemerge196, %320 ]
   %322 = and i64 %.sroa.0.0.copyload.i239, 3
-  %.not564 = icmp eq i64 %322, 0
+  %.not563 = icmp eq i64 %322, 0
   %323 = and i64 %.sroa.0.0.copyload.i239, -4
   %324 = inttoptr i64 %323 to ptr
-  br i1 %.not564, label %325, label %326
+  br i1 %.not563, label %325, label %326
 
 325:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit242
   call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %324, ptr noundef nonnull align 8 dereferenceable(48) %1) #25
@@ -5030,10 +5030,10 @@ _ZN4llvm11raw_ostreamlsEc.exit242:                ; preds = %320, %318, %310, %3
 _ZN4llvm11raw_ostreamlsEc.exit255:                ; preds = %368, %366, %370, %374
   %376 = call i64 @_ZNK5clang7APValue10LValueBase7getTypeEv(ptr noundef nonnull align 8 dereferenceable(16) %11)
   %377 = and i64 %.sroa.0.0.copyload.i239, 3
-  %.not563 = icmp eq i64 %377, 0
+  %.not562 = icmp eq i64 %377, 0
   %378 = and i64 %.sroa.0.0.copyload.i239, -4
   %379 = inttoptr i64 %378 to ptr
-  br i1 %.not563, label %380, label %381
+  br i1 %.not562, label %380, label %381
 
 380:                                              ; preds = %_ZN4llvm11raw_ostreamlsEc.exit255
   call void @_ZNK5clang9NamedDecl9printNameERN4llvm11raw_ostreamE(ptr noundef nonnull align 8 dereferenceable(48) %379, ptr noundef nonnull align 8 dereferenceable(48) %1) #25
@@ -5392,7 +5392,7 @@ _ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i: ; preds = %_ZNK4llv
   store i64 40, ptr %552, align 8, !tbaa !160
   store i8 34, ptr %550, align 8
   store i64 1, ptr %551, align 8, !tbaa !161
-  %553 = icmp samesign ugt i64 %549, 36
+  %553 = icmp ugt i32 %524, 37
   br i1 %553, label %554, label %558
 
 554:                                              ; preds = %_ZN4llvm23SmallVectorTemplateBaseIcLb1EE9push_backEc.exit.i

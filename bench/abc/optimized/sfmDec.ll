@@ -3376,7 +3376,7 @@ Abc_TtSwapVars.exit.us:                           ; preds = %25, %23
   br i1 %57, label %58, label %Abc_TtSwapVars.exit
 
 58:                                               ; preds = %56
-  %59 = icmp ult i32 %.015.in19, 7
+  %59 = icmp slt i32 %.015.in19, 7
   br i1 %59, label %60, label %82
 
 60:                                               ; preds = %58

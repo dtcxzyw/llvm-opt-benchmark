@@ -3700,7 +3700,7 @@ png_pow10.exit:                                   ; preds = %31, %36
   br i1 %43, label %47, label %44
 
 44:                                               ; preds = %.lr.ph
-  %45 = icmp samesign ult i32 %42, -307
+  %45 = icmp samesign ult i32 %41, -308
   br i1 %45, label %png_pow10.exit176.thread, label %.thread.i163
 
 .thread.i163:                                     ; preds = %44

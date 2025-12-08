@@ -921,7 +921,7 @@ read_sbr_channel_pair_element.exit.i:             ; preds = %.lr.ph130.i.i, %.lr
   br label %read_sbr_data.exit
 
 456:                                              ; preds = %431
-  %457 = icmp samesign ugt i32 %432, 16
+  %457 = icmp samesign ugt i32 %.177.i, 18
   br i1 %457, label %.loopexit.i, label %458
 
 458:                                              ; preds = %456

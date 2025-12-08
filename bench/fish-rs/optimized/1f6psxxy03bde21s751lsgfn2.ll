@@ -39799,8 +39799,7 @@ _ZN4fish6reader10ReaderData13get_selection17hb95bd14ad8df280dE.exit565: ; preds 
 
 1657:                                             ; preds = %2, %2, %1656
   %.sroa.0166.0 = phi i1 [ true, %1656 ], [ false, %2 ], [ false, %2 ]
-  %.off1016 = add nsw i8 %1, -71
-  %switch1017 = icmp samesign ult i8 %.off1016, 2
+  %switch1017 = icmp samesign ult i8 %1, 73
   %1658 = load ptr, ptr %0, align 8, !alias.scope !4336, !nonnull !12, !align !76, !noundef !12
   %1659 = getelementptr inbounds nuw i8, ptr %1658, i64 352
   %1660 = tail call noundef zeroext i1 @_ZN4fish5pager5Pager22is_navigating_contents17h172a5885c92712ebE(ptr noalias noundef nonnull readonly align 8 dereferenceable(280) %1659)

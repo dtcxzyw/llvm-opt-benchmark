@@ -47377,7 +47377,7 @@ define internal fastcc void @_ZN12_GLOBAL__N_130BuiltinOperatorOverloadBuilder28
   ret void
 
 11:                                               ; preds = %.lr.ph, %.critedge
-  %.044 = phi ptr [ %.val18, %.lr.ph ], [ %44, %.critedge ]
+  %.044 = phi ptr [ %.val18, %.lr.ph ], [ %43, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
   %12 = load i64, ptr %.044, align 8, !tbaa !23
   store i64 %12, ptr %2, align 8, !tbaa !23
@@ -47410,56 +47410,55 @@ _ZNK5clang4Type12isObjectTypeEv.exit:             ; preds = %11
   br i1 %.not41, label %.critedge, label %.thread31
 
 28:                                               ; preds = %11, %11, %11, %11
-  %29 = add nsw i8 %25, -25
-  %spec.select.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %29, 2
+  %spec.select.i.i.i.i.i.i.i.i.i = icmp samesign ult i8 %25, 27
   br i1 %spec.select.i.i.i.i.i.i.i.i.i, label %_ZNK5clang4Type12isObjectTypeEv.exit.thread28, label %.critedge
 
 _ZNK5clang4Type12isObjectTypeEv.exit.thread28:    ; preds = %11, %28
-  %30 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %31 = load i8, ptr %30, align 16
-  %.not.i = icmp eq i8 %31, 26
-  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37, label %34
+  %29 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %30 = load i8, ptr %29, align 16
+  %.not.i = icmp eq i8 %30, 26
+  br i1 %.not.i, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37, label %33
 
 .thread31:                                        ; preds = %_ZNK5clang4Type12isObjectTypeEv.exit
-  %32 = getelementptr inbounds nuw i8, ptr %19, i64 16
-  %33 = load i8, ptr %32, align 16
-  %.not.i32 = icmp eq i8 %33, 26
+  %31 = getelementptr inbounds nuw i8, ptr %19, i64 16
+  %32 = load i8, ptr %31, align 16
+  %.not.i32 = icmp eq i8 %32, 26
   br i1 %.not.i32, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37, label %.critedge17
 
-34:                                               ; preds = %_ZNK5clang4Type12isObjectTypeEv.exit.thread28
-  %35 = icmp eq i8 %25, 26
-  br i1 %35, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit, label %.critedge17
+33:                                               ; preds = %_ZNK5clang4Type12isObjectTypeEv.exit.thread28
+  %34 = icmp eq i8 %25, 26
+  br i1 %34, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit, label %.critedge17
 
-_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %34
-  %36 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %19) #30
-  %.not14 = icmp eq ptr %36, null
+_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit: ; preds = %33
+  %35 = tail call noundef ptr @_ZNK5clang4Type27getUnqualifiedDesugaredTypeEv(ptr noundef nonnull align 16 dereferenceable(24) %19) #30
+  %.not14 = icmp eq ptr %35, null
   br i1 %.not14, label %.critedge17, label %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37
 
 _ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37: ; preds = %.thread31, %_ZNK5clang4Type12isObjectTypeEv.exit.thread28, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %.1.i40 = phi ptr [ %36, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %19, %_ZNK5clang4Type12isObjectTypeEv.exit.thread28 ], [ %19, %.thread31 ]
-  %37 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i40)
-  %.not42 = icmp eq i64 %37, 0
-  br i1 %.not42, label %38, label %.critedge
+  %.1.i40 = phi ptr [ %35, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit ], [ %19, %_ZNK5clang4Type12isObjectTypeEv.exit.thread28 ], [ %19, %.thread31 ]
+  %36 = tail call i64 @_ZNK5clang17FunctionProtoType14getMethodQualsEv(ptr noundef nonnull align 16 dereferenceable(48) %.1.i40)
+  %.not42 = icmp eq i64 %36, 0
+  br i1 %.not42, label %37, label %.critedge
 
-38:                                               ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37
-  %39 = getelementptr inbounds nuw i8, ptr %.1.i40, i64 16
-  %40 = load i64, ptr %39, align 16
-  %41 = and i64 %40, 12884901888
-  %.not15 = icmp eq i64 %41, 0
+37:                                               ; preds = %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37
+  %38 = getelementptr inbounds nuw i8, ptr %.1.i40, i64 16
+  %39 = load i64, ptr %38, align 16
+  %40 = and i64 %39, 12884901888
+  %.not15 = icmp eq i64 %40, 0
   br i1 %.not15, label %.critedge17, label %.critedge
 
-.critedge17:                                      ; preds = %.thread31, %34, %38, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
-  %42 = load ptr, ptr %0, align 8, !tbaa !1845
+.critedge17:                                      ; preds = %.thread31, %33, %37, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit
+  %41 = load ptr, ptr %0, align 8, !tbaa !1845
   %.sroa.0.0.copyload = load ptr, ptr %9, align 8, !tbaa !1650
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !1148
-  %43 = load ptr, ptr %10, align 8, !tbaa !1860
-  call void @_ZN5clang4Sema19AddBuiltinCandidateEPNS_8QualTypeEN4llvm8ArrayRefIPNS_4ExprEEERNS_20OverloadCandidateSetEbj(ptr noundef nonnull align 8 dereferenceable(17504) %42, ptr noundef nonnull %2, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(6628) %43, i1 noundef zeroext false, i32 noundef 0)
+  %42 = load ptr, ptr %10, align 8, !tbaa !1860
+  call void @_ZN5clang4Sema19AddBuiltinCandidateEPNS_8QualTypeEN4llvm8ArrayRefIPNS_4ExprEEERNS_20OverloadCandidateSetEbj(ptr noundef nonnull align 8 dereferenceable(17504) %41, ptr noundef nonnull %2, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload, ptr noundef nonnull align 8 dereferenceable(6628) %42, i1 noundef zeroext false, i32 noundef 0)
   br label %.critedge
 
-.critedge:                                        ; preds = %_ZNK5clang4Type12isObjectTypeEv.exit, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37, %38, %28, %.critedge17
+.critedge:                                        ; preds = %_ZNK5clang4Type12isObjectTypeEv.exit, %_ZNK5clang4Type5getAsINS_17FunctionProtoTypeEEEPKT_v.exit.thread37, %37, %28, %.critedge17
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %44 = getelementptr inbounds nuw i8, ptr %.044, i64 8
-  %.not = icmp eq ptr %44, %8
+  %43 = getelementptr inbounds nuw i8, ptr %.044, i64 8
+  %.not = icmp eq ptr %43, %8
   br i1 %.not, label %._crit_edge, label %11
 }
 

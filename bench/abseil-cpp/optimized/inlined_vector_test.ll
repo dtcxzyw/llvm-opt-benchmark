@@ -25055,7 +25055,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 326:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i217, %.critedge106
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  %.not93.not256 = icmp samesign ugt i64 %188, 2
+  %.not93.not256 = icmp samesign ugt i64 %.0259, 4
   br i1 %.not93.not256, label %.lr.ph258, label %.critedge112
 
 327:                                              ; preds = %_ZN7testing7MessageD2Ev.exit214, %287
@@ -28871,7 +28871,7 @@ _ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEP
 
 291:                                              ; preds = %_ZNKSt14default_deleteINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEclEPS5_.exit.i.i195, %.critedge93
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  %.not82.not236 = icmp samesign ugt i64 %200, 1
+  %.not82.not236 = icmp samesign ugt i64 %.0239, 5
   br i1 %.not82.not236, label %.lr.ph238, label %.critedge99
 
 292:                                              ; preds = %_ZN7testing7MessageD2Ev.exit192, %252

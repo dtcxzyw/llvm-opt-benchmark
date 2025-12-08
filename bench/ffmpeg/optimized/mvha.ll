@@ -149,16 +149,16 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br label %.thread
 
 68:                                               ; preds = %18
-  %69 = add nsw i32 %10, -8
-  %70 = icmp samesign ugt i32 %69, 268435455
-  br i1 %70, label %.thread, label %.lr.ph
+  %69 = icmp samesign ugt i32 %10, 268435463
+  br i1 %69, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %68
+  %70 = add nsw i32 %10, -8
   %71 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %72 = shl nuw nsw i32 %69, 3
+  %72 = shl nuw nsw i32 %70, 3
   %73 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr %71, ptr %73, align 8, !tbaa !46
-  %74 = zext nneg i32 %69 to i64
+  %74 = zext nneg i32 %70 to i64
   %75 = getelementptr inbounds nuw i8, ptr %71, i64 %74
   %76 = getelementptr inbounds nuw i8, ptr %8, i64 16
   store ptr %75, ptr %76, align 8, !tbaa !48
@@ -212,7 +212,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
 106:                                              ; preds = %105
   %107 = load ptr, ptr %76, align 8, !tbaa !48
   %.not.i.i223 = icmp ult ptr %95, %107
-  br i1 %.not.i.i223, label %bits_read_bit_be.exit.thread348, label %bits_read_bit_be.exit.thread.thread
+  br i1 %.not.i.i223, label %bits_read_bit_be.exit.thread347, label %bits_read_bit_be.exit.thread.thread
 
 bits_read_bit_be.exit:                            ; preds = %105
   %.val.i.pre.i = load i64, ptr %8, align 8, !tbaa !52
@@ -223,15 +223,15 @@ bits_read_bit_be.exit:                            ; preds = %105
   %.not202 = icmp sgt i64 %.val.i.pre.i, -1
   br i1 %.not202, label %bits_read_bit_be.exit.thread, label %114
 
-bits_read_bit_be.exit.thread348:                  ; preds = %106
+bits_read_bit_be.exit.thread347:                  ; preds = %106
   %110 = load i64, ptr %95, align 1, !tbaa !31
   %111 = tail call noundef i64 @llvm.bswap.i64(i64 %110)
   %112 = getelementptr inbounds nuw i8, ptr %95, i64 8
   store ptr %112, ptr %77, align 8, !tbaa !49
   %113 = shl i64 %111, 1
   store i64 %113, ptr %8, align 8, !tbaa !52
-  %.not202350 = icmp sgt i64 %111, -1
-  br i1 %.not202350, label %bits_read_bit_be.exit.thread.bits_read_nz_be.exit232_crit_edge, label %bits_read_nz_be.exit228
+  %.not202349 = icmp sgt i64 %111, -1
+  br i1 %.not202349, label %bits_read_bit_be.exit.thread.bits_read_nz_be.exit232_crit_edge, label %bits_read_nz_be.exit228
 
 114:                                              ; preds = %bits_read_bit_be.exit
   %115 = icmp ult i32 %100, 13
@@ -255,9 +255,9 @@ bits_priv_refill_32_be.exit.i227:                 ; preds = %116
   %126 = or disjoint i32 %108, 32
   br label %bits_read_nz_be.exit228
 
-bits_read_nz_be.exit228:                          ; preds = %bits_read_bit_be.exit.thread348, %114, %116, %bits_priv_refill_32_be.exit.i227
-  %.val.i.i225 = phi i64 [ %124, %bits_priv_refill_32_be.exit.i227 ], [ %109, %114 ], [ %109, %116 ], [ %113, %bits_read_bit_be.exit.thread348 ]
-  %127 = phi i32 [ %126, %bits_priv_refill_32_be.exit.i227 ], [ %108, %114 ], [ 12, %116 ], [ 63, %bits_read_bit_be.exit.thread348 ]
+bits_read_nz_be.exit228:                          ; preds = %bits_read_bit_be.exit.thread347, %114, %116, %bits_priv_refill_32_be.exit.i227
+  %.val.i.i225 = phi i64 [ %124, %bits_priv_refill_32_be.exit.i227 ], [ %109, %114 ], [ %109, %116 ], [ %113, %bits_read_bit_be.exit.thread347 ]
+  %127 = phi i32 [ %126, %bits_priv_refill_32_be.exit.i227 ], [ %108, %114 ], [ 12, %116 ], [ 63, %bits_read_bit_be.exit.thread347 ]
   %128 = lshr i64 %.val.i.i225, 52
   %129 = shl i64 %.val.i.i225, 12
   store i64 %129, ptr %8, align 8, !tbaa !52
@@ -268,8 +268,8 @@ bits_read_bit_be.exit.thread:                     ; preds = %bits_read_bit_be.ex
   %131 = icmp ult i32 %100, 4
   br i1 %131, label %bits_read_bit_be.exit.thread.thread, label %bits_read_bit_be.exit.thread.bits_read_nz_be.exit232_crit_edge
 
-bits_read_bit_be.exit.thread.bits_read_nz_be.exit232_crit_edge: ; preds = %bits_read_bit_be.exit.thread348, %bits_read_bit_be.exit.thread
-  %132 = phi i32 [ %108, %bits_read_bit_be.exit.thread ], [ 63, %bits_read_bit_be.exit.thread348 ]
+bits_read_bit_be.exit.thread.bits_read_nz_be.exit232_crit_edge: ; preds = %bits_read_bit_be.exit.thread347, %bits_read_bit_be.exit.thread
+  %132 = phi i32 [ %108, %bits_read_bit_be.exit.thread ], [ 63, %bits_read_bit_be.exit.thread347 ]
   %.val.i.i229.pre = load i64, ptr %8, align 8, !tbaa !52
   br label %bits_read_nz_be.exit232
 

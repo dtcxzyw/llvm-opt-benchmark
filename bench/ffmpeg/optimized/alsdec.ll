@@ -3816,7 +3816,7 @@ define internal fastcc range(i32 -1163346256, 1) i32 @read_specific_config(ptr n
 336:                                              ; preds = %334
   %337 = shl nuw nsw i32 %315, 1
   %338 = add nsw i32 %337, -2
-  %.not.i = icmp samesign ult i32 %338, 256
+  %.not.i = icmp samesign ult i32 %315, 129
   %339 = lshr i32 %338, 8
   %.110.i = select i1 %.not.i, i32 %338, i32 %339
   %.1.i = select i1 %.not.i, i32 0, i32 8

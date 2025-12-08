@@ -143,15 +143,15 @@ define noundef i32 @H5HF__huge_init(ptr noundef captures(none) %0) local_unnamed
 
 44:                                               ; preds = %27, %43
   %45 = phi i32 [ %37, %43 ], [ %13, %27 ]
-  %46 = add nsw i32 %45, -1
-  %47 = icmp samesign ult i32 %46, 8
-  br i1 %47, label %48, label %55
+  %46 = icmp slt i32 %45, 9
+  br i1 %46, label %47, label %55
 
-48:                                               ; preds = %44
-  %49 = trunc nuw nsw i32 %46 to i8
+47:                                               ; preds = %44
+  %48 = add nsw i32 %45, -1
+  %49 = trunc nuw nsw i32 %48 to i8
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 680
   store i8 %49, ptr %50, align 8, !tbaa !37
-  %51 = shl nuw nsw i32 %46, 3
+  %51 = shl nuw nsw i32 %48, 3
   %52 = zext nneg i32 %51 to i64
   %notmask = shl nsw i64 -1, %52
   %53 = xor i64 %notmask, -1
@@ -166,7 +166,7 @@ define noundef i32 @H5HF__huge_init(ptr noundef captures(none) %0) local_unnamed
   store i64 -1, ptr %57, align 8, !tbaa !38
   br label %.thread
 
-.thread:                                          ; preds = %24, %40, %48, %55
+.thread:                                          ; preds = %24, %40, %47, %55
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 664
   store ptr null, ptr %58, align 8, !tbaa !39
   br label %59

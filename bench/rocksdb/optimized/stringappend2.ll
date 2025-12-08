@@ -954,7 +954,7 @@ define noundef zeroext i1 @_ZNK7rocksdb24StringAppendTESTOperator23_AssocPartial
   br i1 %59, label %60, label %66
 
 60:                                               ; preds = %._crit_edge
-  %61 = icmp samesign ult i64 %58, 32
+  %61 = icmp slt i64 %57, 31
   br i1 %61, label %62, label %64
 
 62:                                               ; preds = %60

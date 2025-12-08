@@ -3119,8 +3119,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNSt
   br i1 %356, label %_ZN4llvm21isScopedEHPersonalityENS_13EHPersonalityE.exit, label %350
 
 357:                                              ; preds = %342
-  %.off.i = add nsw i32 %334, -7
-  %switch.i = icmp samesign ult i32 %.off.i, 2
+  %switch.i = icmp samesign ult i32 %334, 9
   br i1 %switch.i, label %358, label %.thread1872
 
 358:                                              ; preds = %357

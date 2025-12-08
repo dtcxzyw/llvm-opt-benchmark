@@ -8130,7 +8130,7 @@ define hidden void @"_ZN45_$LT$git..Oid$u20$as$u20$core..hash..Hash$GT$4hash17hd
   %9 = mul i64 %8, 5871781006564002453
   %10 = add nsw i64 %.sroa.11.048.i.i, -8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i.i, i64 8
-  %12 = icmp samesign ugt i64 %10, 7
+  %12 = icmp samesign ugt i64 %.sroa.11.048.i.i, 15
   br i1 %12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i", label %"_ZN51_$LT$git2..oid..Oid$u20$as$u20$core..hash..Hash$GT$4hash17h5e01dce72b7ac1beE.llvm.10723454985916948783.exit"
 
 "_ZN51_$LT$git2..oid..Oid$u20$as$u20$core..hash..Hash$GT$4hash17h5e01dce72b7ac1beE.llvm.10723454985916948783.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i"
@@ -21928,7 +21928,7 @@ define hidden noundef i64 @_ZN4core4hash11BuildHasher8hash_one17h8d5d4276fa48892
   %5 = mul i64 %4, 5871781006564002453
   %6 = add nsw i64 %.sroa.11.048.i.i.i.i, -8
   %7 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i.i.i.i, i64 8
-  %8 = icmp samesign ugt i64 %6, 7
+  %8 = icmp samesign ugt i64 %.sroa.11.048.i.i.i.i, 15
   br i1 %8, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i.i", label %"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hd599c19ab6c9d59cE.llvm.10723454985916948783.exit"
 
 "_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for$u20$$RF$T$GT$4hash17hd599c19ab6c9d59cE.llvm.10723454985916948783.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i.i"
@@ -23389,7 +23389,7 @@ define hidden void @"_ZN4core4hash5impls52_$LT$impl$u20$core..hash..Hash$u20$for
   %10 = mul i64 %9, 5871781006564002453
   %11 = add nsw i64 %.sroa.11.048.i.i.i, -8
   %12 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i.i.i, i64 8
-  %13 = icmp samesign ugt i64 %11, 7
+  %13 = icmp samesign ugt i64 %.sroa.11.048.i.i.i, 15
   br i1 %13, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i", label %"_ZN45_$LT$git..Oid$u20$as$u20$core..hash..Hash$GT$4hash17hda47c89e1a6b2199E.llvm.10723454985916948783.exit"
 
 "_ZN45_$LT$git..Oid$u20$as$u20$core..hash..Hash$GT$4hash17hda47c89e1a6b2199E.llvm.10723454985916948783.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i"
@@ -49630,7 +49630,7 @@ define hidden void @"_ZN51_$LT$git2..oid..Oid$u20$as$u20$core..hash..Hash$GT$4ha
   %9 = mul i64 %8, 5871781006564002453
   %10 = add nsw i64 %.sroa.11.048.i, -8
   %11 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i, i64 8
-  %12 = icmp samesign ugt i64 %10, 7
+  %12 = icmp samesign ugt i64 %.sroa.11.048.i, 15
   br i1 %12, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i", label %"_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.10723454985916948783.exit"
 
 "_ZN59_$LT$rustc_hash..FxHasher$u20$as$u20$core..hash..Hasher$GT$5write17h5b780d2263fcefdeE.llvm.10723454985916948783.exit": ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i"
@@ -82896,7 +82896,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h61
   %8 = mul i64 %7, 5871781006564002453
   %9 = add nsw i64 %.sroa.11.048.i.i.i.i.i, -8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i.i.i.i.i, i64 8
-  %11 = icmp samesign ugt i64 %9, 7
+  %11 = icmp samesign ugt i64 %.sroa.11.048.i.i.i.i.i, 15
   br i1 %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i.i.i", label %12
 
 12:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i.i.i"
@@ -86800,7 +86800,7 @@ define hidden void @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17ha8
   %8 = mul i64 %7, 5871781006564002453
   %9 = add nsw i64 %.sroa.11.048.i.i.i.i.i, -8
   %10 = getelementptr inbounds nuw i8, ptr %.sroa.0.049.i.i.i.i.i, i64 8
-  %11 = icmp samesign ugt i64 %9, 7
+  %11 = icmp samesign ugt i64 %.sroa.11.048.i.i.i.i.i, 15
   br i1 %11, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i.i.i", label %12
 
 12:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17h27f12ed94c07f902E.exit.i.i.i.i.i"

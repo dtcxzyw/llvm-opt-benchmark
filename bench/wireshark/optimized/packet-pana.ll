@@ -224,7 +224,7 @@ define internal i32 @dissect_pana(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %.not48, label %.critedge, label %23
 
 23:                                               ; preds = %21
-  %24 = icmp samesign ult i32 %22, 8
+  %24 = icmp ult i16 %8, 24
   %25 = icmp ult i32 %5, 24
   %or.cond51 = or i1 %25, %24
   br i1 %or.cond51, label %38, label %26

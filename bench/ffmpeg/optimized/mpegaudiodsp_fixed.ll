@@ -551,7 +551,7 @@ define hidden void @ff_imdct36_blocks_fixed(ptr noundef writeonly captures(none)
   %23 = getelementptr inbounds nuw i32, ptr %.01828, i64 %indvars.iv179.i
   %24 = add i32 %22, %20
   store i32 %24, ptr %23, align 4, !tbaa !4
-  %25 = icmp samesign ugt i64 %indvars.iv.next180.i, 2
+  %25 = icmp samesign ugt i64 %indvars.iv179.i, 4
   br i1 %25, label %.preheader172.i, label %.preheader171.i, !llvm.loop !17
 
 .preheader171.i:                                  ; preds = %.preheader172.i, %.preheader171.i

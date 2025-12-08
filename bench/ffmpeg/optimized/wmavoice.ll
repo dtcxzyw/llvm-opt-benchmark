@@ -104,7 +104,7 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
   %18 = load i32, ptr %17, align 1, !tbaa !30
   %19 = shl nuw nsw i32 %11, 1
   %20 = add nsw i32 %19, -2
-  %21 = icmp samesign ugt i32 %20, 65535
+  %21 = icmp samesign ugt i32 %11, 32768
   %22 = lshr i32 %20, 16
   %spec.select.i149 = select i1 %21, i32 %22, i32 %20
   %spec.select11.i150 = select i1 %21, i32 16, i32 0
@@ -305,7 +305,7 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
 129:                                              ; preds = %115
   %130 = shl nuw nsw i32 %126, 1
   %131 = add nsw i32 %130, -2
-  %.not.i146 = icmp samesign ult i32 %131, 256
+  %.not.i146 = icmp samesign ult i32 %126, 129
   %132 = lshr i32 %131, 8
   %.110.i147 = select i1 %.not.i146, i32 %131, i32 %132
   %.1.i148 = select i1 %.not.i146, i32 0, i32 8
@@ -364,7 +364,7 @@ define internal range(i32 -2147483648, 1) i32 @wmavoice_decode_init(ptr noundef 
 165:                                              ; preds = %146
   %166 = shl nuw nsw i32 %161, 1
   %167 = add nsw i32 %166, -2
-  %.not.i141 = icmp samesign ult i32 %167, 256
+  %.not.i141 = icmp samesign ult i32 %161, 129
   %168 = lshr i32 %167, 8
   %.110.i142 = select i1 %.not.i141, i32 %167, i32 %168
   %169 = zext nneg i32 %.110.i142 to i64

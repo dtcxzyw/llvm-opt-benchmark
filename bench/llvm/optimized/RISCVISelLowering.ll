@@ -10741,7 +10741,7 @@ _ZNK4llvm3EVT8isVectorEv.exit:                    ; preds = %4
   br i1 %20, label %21, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread
 
 21:                                               ; preds = %.thread
-  %spec.select.i.i4 = icmp samesign ult i16 %8, 121
+  %spec.select.i.i4 = icmp samesign ult i16 %2, 138
   br i1 %spec.select.i.i4, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit, label %27
 
 _ZNK4llvm3EVT19isFixedLengthVectorEv.exit:        ; preds = %10
@@ -11796,51 +11796,47 @@ define dso_local noundef zeroext range(i8 0, 8) i8 @_ZN4llvm19RISCVTargetLowerin
 
 3:                                                ; preds = %1
   %or.cond = icmp samesign ult i16 %2, 7
-  br i1 %or.cond, label %22, label %4
+  br i1 %or.cond, label %18, label %4
 
 4:                                                ; preds = %3
-  %5 = add nsw i16 %0, -198
-  %or.cond7 = icmp samesign ult i16 %5, 7
-  br i1 %or.cond7, label %22, label %6
+  %or.cond7 = icmp samesign ult i16 %0, 205
+  br i1 %or.cond7, label %18, label %5
 
-6:                                                ; preds = %4
-  %7 = add nsw i16 %0, -205
-  %or.cond11 = icmp samesign ult i16 %7, 7
-  br i1 %or.cond11, label %22, label %8
+5:                                                ; preds = %4
+  %or.cond11 = icmp samesign ult i16 %0, 212
+  br i1 %or.cond11, label %18, label %6
 
-8:                                                ; preds = %6
-  %9 = add nsw i16 %0, -212
-  %or.cond15 = icmp samesign ult i16 %9, 7
-  br i1 %or.cond15, label %22, label %10
+6:                                                ; preds = %5
+  %or.cond15 = icmp samesign ult i16 %0, 219
+  br i1 %or.cond15, label %18, label %7
 
-10:                                               ; preds = %8
-  %11 = add nsw i16 %0, -219
-  %or.cond19 = icmp samesign ult i16 %11, 3
+7:                                                ; preds = %6
+  %or.cond19 = icmp samesign ult i16 %0, 222
   %spec.select23 = select i1 %or.cond19, i8 1, i8 2
-  br label %22
+  br label %18
 
 switch.lookup:                                    ; preds = %1
-  %12 = zext i16 %0 to i64
-  %13 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %12
-  %14 = getelementptr i8, ptr %13, i64 -16
-  %.sroa.0.0.copyload.i = load i64, ptr %14, align 16
-  %15 = trunc i64 %.sroa.0.0.copyload.i to i32
-  %16 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %12
-  %17 = getelementptr i8, ptr %16, i64 -2
-  %18 = load i16, ptr %17, align 2, !tbaa !226
-  %19 = icmp eq i16 %18, 2
-  %20 = shl i32 %15, 3
-  %spec.select = select i1 %19, i32 %20, i32 %15
-  %21 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select, i1 true)
-  %switch.tableidx = add nsw i32 %21, -3
+  %8 = zext i16 %0 to i64
+  %9 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %8
+  %10 = getelementptr i8, ptr %9, i64 -16
+  %.sroa.0.0.copyload.i = load i64, ptr %10, align 16
+  %11 = trunc i64 %.sroa.0.0.copyload.i to i32
+  %12 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %8
+  %13 = getelementptr i8, ptr %12, i64 -2
+  %14 = load i16, ptr %13, align 2, !tbaa !226
+  %15 = icmp eq i16 %14, 2
+  %16 = shl i32 %11, 3
+  %spec.select = select i1 %15, i32 %16, i32 %11
+  %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select, i1 true)
+  %switch.tableidx = add nsw i32 %17, -3
   %switch.cast = zext i32 %switch.tableidx to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 846628248815109, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
-  br label %22
+  br label %18
 
-22:                                               ; preds = %switch.lookup, %10, %8, %6, %4, %3
-  %.0 = phi i8 [ 5, %3 ], [ 6, %4 ], [ 7, %6 ], [ 0, %8 ], [ %spec.select23, %10 ], [ %switch.masked, %switch.lookup ]
+18:                                               ; preds = %switch.lookup, %7, %6, %5, %4, %3
+  %.0 = phi i8 [ 5, %3 ], [ 6, %4 ], [ 7, %5 ], [ 0, %6 ], [ %spec.select23, %7 ], [ %switch.masked, %switch.lookup ]
   ret i8 %.0
 }
 
@@ -11860,38 +11856,37 @@ define dso_local noundef i32 @_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVT
   br i1 %spec.select.i.i, label %4, label %switch.lookup
 
 4:                                                ; preds = %2
-  %5 = icmp samesign ult i16 %3, 28
-  br i1 %5, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %6
+  %or.cond15.i = icmp samesign ult i16 %0, 219
+  br i1 %or.cond15.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %5
 
-6:                                                ; preds = %4
-  %7 = add nsw i16 %0, -219
-  %or.cond19.i = icmp samesign ult i16 %7, 3
+5:                                                ; preds = %4
+  %or.cond19.i = icmp samesign ult i16 %0, 222
   %spec.select = select i1 %or.cond19.i, i32 13, i32 17
   br label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit
 
 switch.lookup:                                    ; preds = %2
-  %8 = zext i16 %0 to i64
-  %9 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %8
-  %10 = getelementptr i8, ptr %9, i64 -16
-  %.sroa.0.0.copyload.i.i = load i64, ptr %10, align 16
-  %11 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %12 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %8
-  %13 = getelementptr i8, ptr %12, i64 -2
-  %14 = load i16, ptr %13, align 2, !tbaa !226
-  %15 = icmp eq i16 %14, 2
-  %16 = shl i32 %11, 3
-  %spec.select.i = select i1 %15, i32 %16, i32 %11
-  %17 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i, i1 true)
-  %18 = zext nneg i32 %17 to i64
-  %19 = getelementptr i32, ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.208, i64 %18
-  %switch.gep = getelementptr i8, ptr %19, i64 -12
+  %6 = zext i16 %0 to i64
+  %7 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %6
+  %8 = getelementptr i8, ptr %7, i64 -16
+  %.sroa.0.0.copyload.i.i = load i64, ptr %8, align 16
+  %9 = trunc i64 %.sroa.0.0.copyload.i.i to i32
+  %10 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %6
+  %11 = getelementptr i8, ptr %10, i64 -2
+  %12 = load i16, ptr %11, align 2, !tbaa !226
+  %13 = icmp eq i16 %12, 2
+  %14 = shl i32 %9, 3
+  %spec.select.i = select i1 %13, i32 %14, i32 %9
+  %15 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i, i1 true)
+  %16 = zext nneg i32 %15 to i64
+  %17 = getelementptr i32, ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.208, i64 %16
+  %switch.gep = getelementptr i8, ptr %17, i64 -12
   %switch.load = load i32, ptr %switch.gep, align 4
   br label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit
 
-_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit: ; preds = %6, %switch.lookup, %4
-  %.sink = phi i32 [ 5, %4 ], [ %switch.load, %switch.lookup ], [ %spec.select, %6 ]
-  %20 = add i32 %1, %.sink
-  ret i32 %20
+_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit: ; preds = %5, %switch.lookup, %4
+  %.sink = phi i32 [ 5, %4 ], [ %switch.load, %switch.lookup ], [ %spec.select, %5 ]
+  %18 = add i32 %1, %.sink
+  ret i32 %18
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(inaccessiblemem: write) uwtable
@@ -12133,144 +12128,142 @@ switch.lookup85:                                  ; preds = %51
 
 _ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit32: ; preds = %switch.lookup89, %switch.lookup85, %41, %53, %55, %56, %57, %60
   %.1.i28 = phi i32 [ 81, %53 ], [ 74, %56 ], [ 83, %57 ], [ 62, %55 ], [ 85, %41 ], [ 47, %60 ], [ %switch.load87, %switch.lookup85 ], [ %switch.load91, %switch.lookup89 ]
-  br i1 %spec.select.i.i, label %72, label %77
+  br i1 %spec.select.i.i, label %72, label %75
 
 72:                                               ; preds = %_ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit32
   %73 = icmp eq i32 %.1.i, %.1.i28
-  br i1 %73, label %130, label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit
+  br i1 %73, label %126, label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit
 
 _ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit: ; preds = %72
-  %74 = icmp samesign ult i16 %6, 28
-  %75 = add nsw i16 %0, -219
-  %or.cond19.i.i = icmp samesign ult i16 %75, 3
+  %or.cond15.i.i = icmp samesign ult i16 %0, 219
+  %or.cond19.i.i = icmp samesign ult i16 %0, 222
   %spec.select = select i1 %or.cond19.i.i, i32 13, i32 17
-  %.sink.i = select i1 %74, i32 5, i32 %spec.select
-  %76 = add i32 %.sink.i, %2
-  br label %130
+  %.sink.i = select i1 %or.cond15.i.i, i32 5, i32 %spec.select
+  %74 = add i32 %.sink.i, %2
+  br label %126
 
-77:                                               ; preds = %_ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit32
+75:                                               ; preds = %_ZN4llvm19RISCVTargetLowering21getRegClassIDForVecVTENS_3MVTE.exit32
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 64, ptr %5, align 4, !tbaa !273
-  %78 = getelementptr inbounds nuw i8, ptr %5, i64 4
-  store i32 53, ptr %78, align 4, !tbaa !273
-  %79 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  store i32 47, ptr %79, align 4, !tbaa !273
-  br label %83
+  %76 = getelementptr inbounds nuw i8, ptr %5, i64 4
+  store i32 53, ptr %76, align 4, !tbaa !273
+  %77 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  store i32 47, ptr %77, align 4, !tbaa !273
+  br label %81
 
-80:                                               ; preds = %129
+78:                                               ; preds = %125
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %81 = zext i32 %.1 to i64
-  %82 = shl nuw i64 %81, 32
-  br label %130
+  %79 = zext i32 %.1 to i64
+  %80 = shl nuw i64 %79, 32
+  br label %126
 
-83:                                               ; preds = %77, %129
-  %.0.idx78 = phi i64 [ 0, %77 ], [ %.0.add, %129 ]
-  %.sroa.061.077 = phi i16 [ %0, %77 ], [ %.sroa.061.1, %129 ]
-  %.06976 = phi i32 [ %2, %77 ], [ %.1, %129 ]
-  %.07075 = phi i32 [ 0, %77 ], [ %.171, %129 ]
-  %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.idx78
-  %84 = load i32, ptr %.0.ptr, align 4, !tbaa !273
-  %85 = icmp ule i32 %.1.i, %84
-  %.not20 = icmp ugt i32 %.1.i28, %84
-  %or.cond = or i1 %85, %.not20
-  br i1 %or.cond, label %129, label %86
+81:                                               ; preds = %75, %125
+  %.0.idx79 = phi i64 [ 0, %75 ], [ %.0.add, %125 ]
+  %.sroa.062.078 = phi i16 [ %0, %75 ], [ %.sroa.062.1, %125 ]
+  %.07077 = phi i32 [ %2, %75 ], [ %.1, %125 ]
+  %.07176 = phi i32 [ 0, %75 ], [ %.172, %125 ]
+  %.0.ptr = getelementptr inbounds nuw i8, ptr %5, i64 %.0.idx79
+  %82 = load i32, ptr %.0.ptr, align 4, !tbaa !273
+  %83 = icmp ule i32 %.1.i, %82
+  %.not20 = icmp ugt i32 %.1.i28, %82
+  %or.cond = or i1 %83, %.not20
+  br i1 %or.cond, label %125, label %84
 
-86:                                               ; preds = %83
-  %87 = zext i16 %.sroa.061.077 to i64
-  %88 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %87
-  %89 = getelementptr i8, ptr %88, i64 -2
-  %90 = load i16, ptr %89, align 2, !tbaa !226
-  %91 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %87
-  %92 = getelementptr i8, ptr %91, i64 -2
-  %93 = load i16, ptr %92, align 2, !tbaa !228
-  %94 = add i16 %.sroa.061.077, -191
-  %spec.select.i.i.i36 = icmp ult i16 %94, -53
-  %95 = lshr i16 %93, 1
-  %.sroa.0.0.extract.trunc.i.i = zext nneg i16 %95 to i32
-  br i1 %spec.select.i.i.i36, label %98, label %96
+84:                                               ; preds = %81
+  %85 = zext i16 %.sroa.062.078 to i64
+  %86 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %85
+  %87 = getelementptr i8, ptr %86, i64 -2
+  %88 = load i16, ptr %87, align 2, !tbaa !226
+  %89 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %85
+  %90 = getelementptr i8, ptr %89, i64 -2
+  %91 = load i16, ptr %90, align 2, !tbaa !228
+  %92 = add i16 %.sroa.062.078, -191
+  %spec.select.i.i.i36 = icmp ult i16 %92, -53
+  %93 = lshr i16 %91, 1
+  %.sroa.0.0.extract.trunc.i.i = zext nneg i16 %93 to i32
+  br i1 %spec.select.i.i.i36, label %96, label %94
 
-96:                                               ; preds = %86
-  %97 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %90, i32 noundef %.sroa.0.0.extract.trunc.i.i)
+94:                                               ; preds = %84
+  %95 = tail call i16 @_ZN4llvm3MVT19getScalableVectorVTES0_j(i16 %88, i32 noundef %.sroa.0.0.extract.trunc.i.i)
   br label %_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit
 
-98:                                               ; preds = %86
-  %99 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %90, i32 noundef %.sroa.0.0.extract.trunc.i.i)
+96:                                               ; preds = %84
+  %97 = tail call i16 @_ZN4llvm3MVT11getVectorVTES0_j(i16 %88, i32 noundef %.sroa.0.0.extract.trunc.i.i)
   br label %_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit
 
-_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit: ; preds = %96, %98
-  %.sroa.04.0.i.i = phi i16 [ %97, %96 ], [ %99, %98 ]
-  %100 = zext i16 %.sroa.04.0.i.i to i64
-  %101 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %100
-  %102 = getelementptr i8, ptr %101, i64 -2
-  %103 = load i16, ptr %102, align 2, !tbaa !228
-  %.sroa.0.0.insert.ext.i.i = zext i16 %103 to i32
-  %104 = icmp uge i32 %.06976, %.sroa.0.0.insert.ext.i.i
-  %105 = zext i1 %104 to i32
-  %106 = add i16 %.sroa.04.0.i.i, -191
-  %spec.select.i.i.i38 = icmp ult i16 %106, 32
-  br i1 %spec.select.i.i.i38, label %107, label %switch.lookup93
+_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit: ; preds = %94, %96
+  %.sroa.04.0.i.i = phi i16 [ %95, %94 ], [ %97, %96 ]
+  %98 = zext i16 %.sroa.04.0.i.i to i64
+  %99 = getelementptr i16, ptr @_ZZNK4llvm3MVT23getVectorMinNumElementsEvE10NElemTable, i64 %98
+  %100 = getelementptr i8, ptr %99, i64 -2
+  %101 = load i16, ptr %100, align 2, !tbaa !228
+  %.sroa.0.0.insert.ext.i.i = zext i16 %101 to i32
+  %102 = icmp uge i32 %.07077, %.sroa.0.0.insert.ext.i.i
+  %103 = zext i1 %102 to i32
+  %104 = add i16 %.sroa.04.0.i.i, -191
+  %spec.select.i.i.i38 = icmp ult i16 %104, 32
+  br i1 %spec.select.i.i.i38, label %105, label %switch.lookup93
 
-107:                                              ; preds = %_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit
-  %108 = icmp samesign ult i16 %106, 28
-  br i1 %108, label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44, label %109
+105:                                              ; preds = %_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit
+  %or.cond15.i.i43 = icmp samesign ult i16 %.sroa.04.0.i.i, 219
+  br i1 %or.cond15.i.i43, label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45, label %106
 
-109:                                              ; preds = %107
-  %110 = add nsw i16 %.sroa.04.0.i.i, -219
-  %or.cond19.i.i43 = icmp samesign ult i16 %110, 3
-  %spec.select96 = select i1 %or.cond19.i.i43, i32 13, i32 17
-  br label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44
+106:                                              ; preds = %105
+  %or.cond19.i.i44 = icmp samesign ult i16 %.sroa.04.0.i.i, 222
+  %spec.select96 = select i1 %or.cond19.i.i44, i32 13, i32 17
+  br label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45
 
 switch.lookup93:                                  ; preds = %_ZNK4llvm3MVT26getHalfNumVectorElementsVTEv.exit
-  %111 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %100
-  %112 = getelementptr i8, ptr %111, i64 -16
-  %.sroa.0.0.copyload.i.i.i39 = load i64, ptr %112, align 16
-  %113 = trunc i64 %.sroa.0.0.copyload.i.i.i39 to i32
-  %114 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %100
-  %115 = getelementptr i8, ptr %114, i64 -2
-  %116 = load i16, ptr %115, align 2, !tbaa !226
-  %117 = icmp eq i16 %116, 2
-  %118 = shl i32 %113, 3
-  %spec.select.i.i40 = select i1 %117, i32 %118, i32 %113
-  %119 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i.i40, i1 true)
-  %120 = zext nneg i32 %119 to i64
-  %121 = getelementptr i32, ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.208, i64 %120
-  %switch.gep94 = getelementptr i8, ptr %121, i64 -12
+  %107 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %98
+  %108 = getelementptr i8, ptr %107, i64 -16
+  %.sroa.0.0.copyload.i.i.i39 = load i64, ptr %108, align 16
+  %109 = trunc i64 %.sroa.0.0.copyload.i.i.i39 to i32
+  %110 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %98
+  %111 = getelementptr i8, ptr %110, i64 -2
+  %112 = load i16, ptr %111, align 2, !tbaa !226
+  %113 = icmp eq i16 %112, 2
+  %114 = shl i32 %109, 3
+  %spec.select.i.i40 = select i1 %113, i32 %114, i32 %109
+  %115 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i.i40, i1 true)
+  %116 = zext nneg i32 %115 to i64
+  %117 = getelementptr i32, ptr @switch.table._ZN4llvm19RISCVTargetLowering40decomposeSubvectorInsertExtractToSubRegsENS_3MVTES1_jPKNS_17RISCVRegisterInfoE.208, i64 %116
+  %switch.gep94 = getelementptr i8, ptr %117, i64 -12
   %switch.load95 = load i32, ptr %switch.gep94, align 4
-  br label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44
+  br label %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45
 
-_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44: ; preds = %109, %switch.lookup93, %107
-  %.sink.i41 = phi i32 [ 5, %107 ], [ %switch.load95, %switch.lookup93 ], [ %spec.select96, %109 ]
-  %122 = add nuw nsw i32 %.sink.i41, %105
-  %.not.i = icmp eq i32 %.07075, 0
-  br i1 %.not.i, label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit, label %123
+_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45: ; preds = %106, %switch.lookup93, %105
+  %.sink.i41 = phi i32 [ 5, %105 ], [ %switch.load95, %switch.lookup93 ], [ %spec.select96, %106 ]
+  %118 = add nuw nsw i32 %.sink.i41, %103
+  %.not.i = icmp eq i32 %.07176, 0
+  br i1 %.not.i, label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit, label %119
 
-123:                                              ; preds = %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44
-  %124 = load ptr, ptr %3, align 8, !tbaa !11
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 272
-  %126 = load ptr, ptr %125, align 8
-  %127 = tail call noundef i32 %126(ptr noundef nonnull align 8 dereferenceable(308) %3, i32 noundef %.07075, i32 noundef %122) #37
+119:                                              ; preds = %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45
+  %120 = load ptr, ptr %3, align 8, !tbaa !11
+  %121 = getelementptr inbounds nuw i8, ptr %120, i64 272
+  %122 = load ptr, ptr %121, align 8
+  %123 = tail call noundef i32 %122(ptr noundef nonnull align 8 dereferenceable(308) %3, i32 noundef %.07176, i32 noundef %118) #37
   br label %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit
 
-_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44, %123
-  %.0.i = phi i32 [ %127, %123 ], [ %122, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit44 ]
-  %128 = select i1 %104, i32 %.sroa.0.0.insert.ext.i.i, i32 0
-  %spec.select72 = sub i32 %.06976, %128
-  br label %129
+_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit: ; preds = %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45, %119
+  %.0.i = phi i32 [ %123, %119 ], [ %118, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit45 ]
+  %124 = select i1 %102, i32 %.sroa.0.0.insert.ext.i.i, i32 0
+  %spec.select73 = sub i32 %.07077, %124
+  br label %125
 
-129:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit, %83
-  %.171 = phi i32 [ %.07075, %83 ], [ %.0.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit ]
-  %.1 = phi i32 [ %.06976, %83 ], [ %spec.select72, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit ]
-  %.sroa.061.1 = phi i16 [ %.sroa.061.077, %83 ], [ %.sroa.04.0.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit ]
-  %.0.add = add nuw nsw i64 %.0.idx78, 4
+125:                                              ; preds = %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit, %81
+  %.172 = phi i32 [ %.07176, %81 ], [ %.0.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit ]
+  %.1 = phi i32 [ %.07077, %81 ], [ %spec.select73, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit ]
+  %.sroa.062.1 = phi i16 [ %.sroa.062.078, %81 ], [ %.sroa.04.0.i.i, %_ZNK4llvm18TargetRegisterInfo20composeSubRegIndicesEjj.exit ]
+  %.0.add = add nuw nsw i64 %.0.idx79, 4
   %.not = icmp eq i64 %.0.add, 12
-  br i1 %.not, label %80, label %83
+  br i1 %.not, label %78, label %81
 
-130:                                              ; preds = %72, %80, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit
-  %.sroa.067.0 = phi i32 [ %76, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit ], [ %.171, %80 ], [ 0, %72 ]
-  %.sroa.468.0 = phi i64 [ 0, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit ], [ %82, %80 ], [ 0, %72 ]
-  %.sroa.067.0.insert.ext = zext i32 %.sroa.067.0 to i64
-  %.sroa.067.0.insert.insert = or disjoint i64 %.sroa.468.0, %.sroa.067.0.insert.ext
-  ret i64 %.sroa.067.0.insert.insert
+126:                                              ; preds = %72, %78, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit
+  %.sroa.068.0 = phi i32 [ %74, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit ], [ %.172, %78 ], [ 0, %72 ]
+  %.sroa.469.0 = phi i64 [ 0, %_ZN4llvm19RISCVTargetLowering19getSubregIndexByMVTENS_3MVTEj.exit ], [ %80, %78 ], [ 0, %72 ]
+  %.sroa.068.0.insert.ext = zext i32 %.sroa.068.0 to i64
+  %.sroa.068.0.insert.insert = or disjoint i64 %.sroa.469.0, %.sroa.068.0.insert.ext
+  ret i64 %.sroa.068.0.insert.insert
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -17043,7 +17036,7 @@ _ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit.thread: ; preds = %_ZNK
   br i1 %.not.i267941934198, label %_ZNK4llvm3EVT19isFixedLengthVectorEv.exit2689, label %438
 
 414:                                              ; preds = %399
-  %spec.select.i.i2688 = icmp samesign ult i16 %400, 121
+  %spec.select.i.i2688 = icmp samesign ult i16 %.sroa.0.0.copyload.i.i2651, 138
   br i1 %spec.select.i.i2688, label %416, label %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit2697.thread
 
 _ZNK4llvm3EVT19isFixedLengthVectorEv.exit2689:    ; preds = %_ZNK4llvm3EVT8isVectorEv.exit, %413
@@ -121333,55 +121326,51 @@ _ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread: ;
   br i1 %or.cond.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %82
 
 82:                                               ; preds = %81
-  %83 = add nsw i16 %.sroa.06.0, -198
-  %or.cond7.i = icmp samesign ult i16 %83, 7
-  br i1 %or.cond7.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %84
+  %or.cond7.i = icmp samesign ult i16 %.sroa.06.0, 205
+  br i1 %or.cond7.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %83
 
-84:                                               ; preds = %82
-  %85 = add nsw i16 %.sroa.06.0, -205
-  %or.cond11.i = icmp samesign ult i16 %85, 7
-  br i1 %or.cond11.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %86
+83:                                               ; preds = %82
+  %or.cond11.i = icmp samesign ult i16 %.sroa.06.0, 212
+  br i1 %or.cond11.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %84
 
-86:                                               ; preds = %84
-  %87 = add nsw i16 %.sroa.06.0, -212
-  %or.cond15.i = icmp samesign ult i16 %87, 7
-  br i1 %or.cond15.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %88
+84:                                               ; preds = %83
+  %or.cond15.i = icmp samesign ult i16 %.sroa.06.0, 219
+  br i1 %or.cond15.i, label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, label %85
 
-88:                                               ; preds = %86
-  %89 = add nsw i16 %.sroa.06.0, -219
-  %or.cond19.i = icmp samesign ult i16 %89, 3
+85:                                               ; preds = %84
+  %or.cond19.i = icmp samesign ult i16 %.sroa.06.0, 222
   %spec.select23.i = select i1 %or.cond19.i, i8 1, i8 2
   br label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit
 
 switch.lookup:                                    ; preds = %79
-  %90 = zext i16 %.sroa.06.0 to i64
-  %91 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %90
-  %92 = getelementptr i8, ptr %91, i64 -16
-  %.sroa.0.0.copyload.i.i = load i64, ptr %92, align 16
-  %93 = trunc i64 %.sroa.0.0.copyload.i.i to i32
-  %94 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %90
-  %95 = getelementptr i8, ptr %94, i64 -2
-  %96 = load i16, ptr %95, align 2, !tbaa !226
-  %97 = icmp eq i16 %96, 2
-  %98 = shl i32 %93, 3
-  %spec.select.i = select i1 %97, i32 %98, i32 %93
-  %99 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i, i1 true)
-  %switch.tableidx = add nsw i32 %99, -3
+  %86 = zext i16 %.sroa.06.0 to i64
+  %87 = getelementptr %"class.llvm::TypeSize", ptr @_ZZNK4llvm3MVT13getSizeInBitsEvE9SizeTable, i64 %86
+  %88 = getelementptr i8, ptr %87, i64 -16
+  %.sroa.0.0.copyload.i.i = load i64, ptr %88, align 16
+  %89 = trunc i64 %.sroa.0.0.copyload.i.i to i32
+  %90 = getelementptr i16, ptr @_ZZNK4llvm3MVT20getVectorElementTypeEvE10EltTyTable, i64 %86
+  %91 = getelementptr i8, ptr %90, i64 -2
+  %92 = load i16, ptr %91, align 2, !tbaa !226
+  %93 = icmp eq i16 %92, 2
+  %94 = shl i32 %89, 3
+  %spec.select.i = select i1 %93, i32 %94, i32 %89
+  %95 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %spec.select.i, i1 true)
+  %switch.tableidx = add nsw i32 %95, -3
   %switch.cast = zext i32 %switch.tableidx to i56
   %switch.shiftamt = shl nuw nsw i56 %switch.cast, 3
   %switch.downshift = lshr i56 846628248815109, %switch.shiftamt
   %switch.masked = trunc i56 %switch.downshift to i8
   br label %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit
 
-_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit: ; preds = %switch.lookup, %81, %82, %84, %86, %88
-  %.0.i31 = phi i8 [ 5, %81 ], [ 6, %82 ], [ 7, %84 ], [ 0, %86 ], [ %spec.select23.i, %88 ], [ %switch.masked, %switch.lookup ]
-  %100 = tail call i64 @_ZN4llvm10RISCVVType11decodeVLMULENS_7RISCVII5VLMULE(i8 noundef zeroext %.0.i31) #37
-  %101 = and i64 %100, 4294967296
-  %102 = icmp ne i64 %101, 0
-  %.sroa.0.0.extract.trunc = trunc i64 %100 to i32
-  %103 = mul i32 %2, %.sroa.0.0.extract.trunc
-  %104 = icmp ult i32 %103, 9
-  %.3 = select i1 %102, i1 true, i1 %104
+_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit: ; preds = %switch.lookup, %81, %82, %83, %84, %85
+  %.0.i31 = phi i8 [ 5, %81 ], [ 6, %82 ], [ 7, %83 ], [ 0, %84 ], [ %spec.select23.i, %85 ], [ %switch.masked, %switch.lookup ]
+  %96 = tail call i64 @_ZN4llvm10RISCVVType11decodeVLMULENS_7RISCVII5VLMULE(i8 noundef zeroext %.0.i31) #37
+  %97 = and i64 %96, 4294967296
+  %98 = icmp ne i64 %97, 0
+  %.sroa.0.0.extract.trunc = trunc i64 %96 to i32
+  %99 = mul i32 %2, %.sroa.0.0.extract.trunc
+  %100 = icmp ult i32 %99, 9
+  %.3 = select i1 %98, i1 true, i1 %100
   br label %.critedge
 
 .critedge:                                        ; preds = %_ZNK4llvm3EVT13getScalarTypeEv.exit, %6, %53, %47, %41, %35, %29, %_ZN4llvm19RISCVTargetLowering7getLMULENS_3MVTE.exit, %78, %72, %68, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit, %_ZNK4llvm19RISCVTargetLowering24isLegalElementTypeForRVVENS_3EVTE.exit.thread, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit

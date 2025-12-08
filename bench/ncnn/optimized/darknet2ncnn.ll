@@ -3535,7 +3535,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %244, label %245, label %251
 
 245:                                              ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit
-  %246 = icmp samesign ult i64 %243, 64
+  %246 = icmp slt i64 %242, 63
   br i1 %246, label %247, label %249
 
 247:                                              ; preds = %245
@@ -6151,7 +6151,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit616: ; preds = %_Z
   br i1 %1019, label %1020, label %1026
 
 1020:                                             ; preds = %1009
-  %1021 = icmp samesign ult i64 %1018, 64
+  %1021 = icmp slt i64 %1017, 63
   br i1 %1021, label %1022, label %1024
 
 1022:                                             ; preds = %1020
@@ -8923,7 +8923,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %2095, label %2096, label %2102
 
 2096:                                             ; preds = %_ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_backERKS5_.exit1026
-  %2097 = icmp samesign ult i64 %2094, 64
+  %2097 = icmp slt i64 %2093, 63
   br i1 %2097, label %2098, label %2100
 
 2098:                                             ; preds = %2096
@@ -12148,7 +12148,7 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EE9push_b
   br i1 %3359, label %3360, label %3366
 
 3360:                                             ; preds = %._crit_edge3447
-  %3361 = icmp samesign ult i64 %3358, 64
+  %3361 = icmp slt i64 %3357, 63
   br i1 %3361, label %3362, label %3364
 
 3362:                                             ; preds = %3360

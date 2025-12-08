@@ -18675,14 +18675,14 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %92, %_ZN12LIRGenera
 100:                                              ; preds = %_ZN12LIRGenerator20new_pointer_registerEv.exit
   %101 = load ptr, ptr %57, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %101, ptr noundef nonnull @.str.7) #18
-  %102 = icmp samesign ugt i32 %96, 9997
+  %102 = icmp samesign ugt i32 %95, 9996
   %.pre.i.i64 = load i32, ptr %76, align 8
   %spec.select.i.i65 = select i1 %102, i32 609, i32 %.pre.i.i64
   %spec.select6.i.i66 = select i1 %102, i32 609, i32 %96
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit67
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit67: ; preds = %92, %_ZN12LIRGenerator20new_pointer_registerEv.exit, %100
-  %.sroa.015.0.i.i.i101 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %100 ], [ 9982099, %92 ]
+  %.sroa.015.0.i.i.i102 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %100 ], [ 9982099, %92 ]
   %103 = phi i32 [ %96, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select.i.i65, %100 ], [ 610, %92 ]
   %.0.i.i62 = phi i32 [ %96, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select6.i.i66, %100 ], [ 610, %92 ]
   %104 = add nsw i32 %103, 1
@@ -18733,7 +18733,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %125, %123
 
 _ZN11LIR_OprFact11intptrConstEl.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %128
   %131 = ptrtoint ptr %.0.i.i.i.i to i64
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %107, i64 %131, i64 %.sroa.015.0.i.i.i101, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %107, i64 %131, i64 %.sroa.015.0.i.i.i102, ptr noundef null)
   %132 = icmp sgt i32 %55, 0
   br i1 %132, label %.lr.ph, label %._crit_edge
 
@@ -18786,7 +18786,7 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22C
   %159 = ptrtoint ptr %.0.i.i.i.i.i to i64
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 0, i64 %56, i64 %159, ptr noundef null)
   %160 = load ptr, ptr %86, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %160, i64 %.sroa.015.0.i.i.i101, i64 %.sroa.015.0.i.i.i63, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %160, i64 %.sroa.015.0.i.i.i102, i64 %.sroa.015.0.i.i.i63, ptr noundef null)
   %161 = load ptr, ptr %86, align 8
   %162 = sext i32 %135 to i64
   %163 = load ptr, ptr %109, align 8
@@ -18830,7 +18830,7 @@ _ZN22CompilationResourceObjnwEm.exit.i69:         ; preds = %178, %176
 _ZN11LIR_OprFact11intptrConstEl.exit71:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i69, %181
   %184 = ptrtoint ptr %.0.i.i.i.i70 to i64
   %.sroa.011.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 0, i64 %184, i64 %.sroa.015.0.i.i.i63, i64 %.sroa.015.0.i.i.i101, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
+  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %161, i32 noundef 0, i64 %184, i64 %.sroa.015.0.i.i.i63, i64 %.sroa.015.0.i.i.i102, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
   %185 = add nuw nsw i32 %.089, 1
   %exitcond.not = icmp eq i32 %185, %55
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !32
@@ -18892,7 +18892,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationRes
   %213 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %213, align 8
   %214 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i64 %.sroa.015.0.i.i.i101, ptr %214, align 8
+  store i64 %.sroa.015.0.i.i.i102, ptr %214, align 8
   %215 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 0, ptr %215, align 8
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -19253,14 +19253,14 @@ _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %90, %_ZN12LIRGenera
 98:                                               ; preds = %_ZN12LIRGenerator20new_pointer_registerEv.exit
   %99 = load ptr, ptr %55, align 8
   call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %99, ptr noundef nonnull @.str.7) #18
-  %100 = icmp samesign ugt i32 %94, 9997
+  %100 = icmp samesign ugt i32 %93, 9996
   %.pre.i.i63 = load i32, ptr %74, align 8
   %spec.select.i.i64 = select i1 %100, i32 609, i32 %.pre.i.i63
   %spec.select6.i.i65 = select i1 %100, i32 609, i32 %94
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit66
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit66: ; preds = %90, %_ZN12LIRGenerator20new_pointer_registerEv.exit, %98
-  %.sroa.015.0.i.i.i100 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %98 ], [ 9982099, %90 ]
+  %.sroa.015.0.i.i.i101 = phi i64 [ %.sroa.015.0.i.i.i, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %.sroa.015.0.i.i.i, %98 ], [ 9982099, %90 ]
   %101 = phi i32 [ %94, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select.i.i64, %98 ], [ 610, %90 ]
   %.0.i.i61 = phi i32 [ %94, %_ZN12LIRGenerator20new_pointer_registerEv.exit ], [ %spec.select6.i.i65, %98 ], [ 610, %90 ]
   %102 = add nsw i32 %101, 1
@@ -19311,7 +19311,7 @@ _ZN22CompilationResourceObjnwEm.exit.i:           ; preds = %123, %121
 
 _ZN11LIR_OprFact11intptrConstEl.exit:             ; preds = %_ZN22CompilationResourceObjnwEm.exit.i, %126
   %129 = ptrtoint ptr %.0.i.i.i.i to i64
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %105, i64 %129, i64 %.sroa.015.0.i.i.i100, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %105, i64 %129, i64 %.sroa.015.0.i.i.i101, ptr noundef null)
   %130 = icmp sgt i32 %54, 0
   br i1 %130, label %.lr.ph, label %._crit_edge
 
@@ -19374,7 +19374,7 @@ _ZN8LIR_List3cmpE13LIR_Condition7LIR_OpriP12CodeEmitInfo.exit: ; preds = %_ZN22C
   %163 = ptrtoint ptr %.0.i.i.i.i.i to i64
   call void @_ZN8LIR_List3cmpE13LIR_Condition7LIR_OprS1_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %136, i32 noundef 0, i64 %48, i64 %163, ptr noundef null)
   %164 = load ptr, ptr %84, align 8
-  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %164, i64 %.sroa.015.0.i.i.i100, i64 %.sroa.015.0.i.i.i62, ptr noundef null)
+  call void @_ZN8LIR_List4moveE7LIR_OprS0_P12CodeEmitInfo(ptr noundef nonnull align 8 dereferenceable(32) %164, i64 %.sroa.015.0.i.i.i101, i64 %.sroa.015.0.i.i.i62, ptr noundef null)
   %165 = load ptr, ptr %84, align 8
   %166 = sext i32 %135 to i64
   %167 = load ptr, ptr %107, align 8
@@ -19418,7 +19418,7 @@ _ZN22CompilationResourceObjnwEm.exit.i68:         ; preds = %182, %180
 _ZN11LIR_OprFact11intptrConstEl.exit70:           ; preds = %_ZN22CompilationResourceObjnwEm.exit.i68, %185
   %188 = ptrtoint ptr %.0.i.i.i.i69 to i64
   %.sroa.011.0.copyload = load i64, ptr @_ZN11LIR_OprFact10illegalOprE, align 8
-  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 0, i64 %188, i64 %.sroa.015.0.i.i.i62, i64 %.sroa.015.0.i.i.i100, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
+  call void @_ZN8LIR_List5cmoveE13LIR_Condition7LIR_OprS1_S1_9BasicTypeS1_S1_(ptr noundef nonnull align 8 dereferenceable(32) %165, i32 noundef 0, i64 %188, i64 %.sroa.015.0.i.i.i62, i64 %.sroa.015.0.i.i.i101, i8 noundef zeroext 10, i64 %.sroa.011.0.copyload, i64 %.sroa.011.0.copyload)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %132, !llvm.loop !33
@@ -19480,7 +19480,7 @@ _ZNK7LIR_Opr4typeEv.exit:                         ; preds = %_ZN22CompilationRes
   %216 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 8
   store i64 %.sroa.015.0.i.i, ptr %216, align 8
   %217 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 16
-  store i64 %.sroa.015.0.i.i.i100, ptr %217, align 8
+  store i64 %.sroa.015.0.i.i.i101, ptr %217, align 8
   %218 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i32 0, ptr %218, align 8
   %219 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 32
@@ -25420,14 +25420,14 @@ _ZN12LIRGenerator12new_registerE9BasicType.exit:  ; preds = %7, %2
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %16 = load ptr, ptr %15, align 8
   tail call void @_ZN11Compilation7bailoutEPKc(ptr noundef nonnull align 8 dereferenceable(704) %16, ptr noundef nonnull @.str.7) #18
-  %17 = icmp samesign ugt i32 %12, 9997
+  %17 = icmp samesign ugt i32 %11, 9996
   %.pre.i.i = load i32, ptr %4, align 8
   %spec.select.i.i = select i1 %17, i32 609, i32 %.pre.i.i
   %spec.select6.i.i = select i1 %17, i32 609, i32 %12
   br label %_ZN12LIRGenerator20new_pointer_registerEv.exit
 
 _ZN12LIRGenerator20new_pointer_registerEv.exit:   ; preds = %7, %_ZN12LIRGenerator12new_registerE9BasicType.exit, %14
-  %.0.i38 = phi i32 [ %5, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %5, %14 ], [ 609, %7 ]
+  %.0.i39 = phi i32 [ %5, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %5, %14 ], [ 609, %7 ]
   %18 = phi i32 [ %12, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select.i.i, %14 ], [ 610, %7 ]
   %.0.i.i = phi i32 [ %12, %_ZN12LIRGenerator12new_registerE9BasicType.exit ], [ %spec.select6.i.i, %14 ], [ 610, %7 ]
   %19 = add nsw i32 %18, 1
@@ -25548,7 +25548,7 @@ _ZNK11ProfileCall16nb_profiled_argsEv.exit22.thread.thread: ; preds = %_ZNK11Pro
   %70 = shl i32 %.0.i.i, 14
   %71 = or disjoint i32 %70, 4243
   %.sroa.015.0.i.i.i = sext i32 %71 to i64
-  %72 = shl i32 %.0.i38, 14
+  %72 = shl i32 %.0.i39, 14
   %73 = or disjoint i32 %72, 4155
   %.sroa.015.0.i.i = sext i32 %73 to i64
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 144

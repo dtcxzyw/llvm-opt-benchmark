@@ -84556,7 +84556,7 @@ for.body.i8:                                      ; preds = %for.body.i8, %_ZN7c
   store i8 %12, ptr %incdec.ptr16.i, align 1
   %add.ptr.i10 = getelementptr inbounds nuw i8, ptr %src.041.i, i64 3
   %sub.i11 = add nsw i64 %len.addr.042.i, -3
-  %cmp.i = icmp samesign ugt i64 %sub.i11, 2
+  %cmp.i = icmp samesign ugt i64 %len.addr.042.i, 5
   br i1 %cmp.i, label %for.body.i8, label %_ZN10code_utils13base64_encodeEPcPKvmi.exit, !llvm.loop !964
 
 _ZN10code_utils13base64_encodeEPcPKvmi.exit:      ; preds = %for.body.i8

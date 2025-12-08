@@ -656,19 +656,19 @@ define internal noundef i32 @dt_control_merge_hdr_job_run(ptr noundef %0) #0 {
   store i8 2, ptr %177, align 16, !tbaa !72
   store i8 0, ptr %178, align 1, !tbaa !72
   switch i32 %85, label %182 [
-    i32 -1802201964, label %_imageio_dng_make_tag.exit91.i.i
+    i32 -1802201964, label %_imageio_dng_make_tag.exit88.i.i
     i32 1229539657, label %180
     i32 1633771873, label %181
   ]
 
 180:                                              ; preds = %179
-  br label %_imageio_dng_make_tag.exit91.i.i
+  br label %_imageio_dng_make_tag.exit88.i.i
 
 181:                                              ; preds = %179
-  br label %_imageio_dng_make_tag.exit91.i.i
+  br label %_imageio_dng_make_tag.exit88.i.i
 
 182:                                              ; preds = %179
-  br label %_imageio_dng_make_tag.exit91.i.i
+  br label %_imageio_dng_make_tag.exit88.i.i
 
 _imageio_dng_make_tag.exit.i.i:                   ; preds = %90
   store i8 6, ptr %175, align 2, !tbaa !72
@@ -701,9 +701,9 @@ _imageio_dng_make_tag.exit.i.i:                   ; preds = %90
   store i8 0, ptr %194, align 1, !tbaa !72
   %195 = getelementptr inbounds nuw i8, ptr %2, i64 254
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(36) %195, ptr noundef nonnull readonly align 8 dereferenceable(36) %86, i64 36, i1 false)
-  br label %_imageio_dng_make_tag.exit99.i.i
+  br label %_imageio_dng_make_tag.exit93.i.i
 
-_imageio_dng_make_tag.exit91.i.i:                 ; preds = %182, %181, %180, %179
+_imageio_dng_make_tag.exit88.i.i:                 ; preds = %182, %181, %180, %179
   %.083.ph.i.i = phi i32 [ 65794, %182 ], [ 33620224, %179 ], [ 16908289, %181 ], [ 16777729, %180 ]
   %196 = getelementptr inbounds nuw i8, ptr %2, i64 178
   store i8 -114, ptr %196, align 2, !tbaa !72
@@ -723,10 +723,10 @@ _imageio_dng_make_tag.exit91.i.i:                 ; preds = %182, %181, %180, %1
   store i8 0, ptr %203, align 1, !tbaa !72
   %204 = getelementptr inbounds nuw i8, ptr %2, i64 186
   store i32 %.083.ph.i.i, ptr %204, align 2
-  br label %_imageio_dng_make_tag.exit99.i.i
+  br label %_imageio_dng_make_tag.exit93.i.i
 
-_imageio_dng_make_tag.exit99.i.i:                 ; preds = %_imageio_dng_make_tag.exit91.i.i, %_imageio_dng_make_tag.exit.i.i
-  %.084.i.i = phi i32 [ 290, %_imageio_dng_make_tag.exit.i.i ], [ 254, %_imageio_dng_make_tag.exit91.i.i ]
+_imageio_dng_make_tag.exit93.i.i:                 ; preds = %_imageio_dng_make_tag.exit88.i.i, %_imageio_dng_make_tag.exit.i.i
+  %.084.i.i = phi i32 [ 290, %_imageio_dng_make_tag.exit.i.i ], [ 254, %_imageio_dng_make_tag.exit88.i.i ]
   %205 = getelementptr inbounds nuw i8, ptr %2, i64 190
   store i8 18, ptr %205, align 2, !tbaa !72
   %206 = getelementptr inbounds nuw i8, ptr %2, i64 191
@@ -778,19 +778,19 @@ _imageio_dng_make_tag.exit99.i.i:                 ; preds = %_imageio_dng_make_t
   %229 = load float, ptr %88, align 16, !tbaa !70
   %230 = call float @llvm.fabs.f32(float %229)
   %231 = fcmp ueq float %230, 0x7FF0000000000000
-  br i1 %231, label %_imageio_dng_write_buf.exit.thread.i100.i.i, label %.preheader.i.i
+  br i1 %231, label %_imageio_dng_write_buf.exit.thread.i94.i.i, label %.preheader.i.i
 
-.preheader.i.i:                                   ; preds = %_imageio_dng_make_tag.exit99.i.i, %233
-  %indvars.iv162.i.i = phi i64 [ %indvars.iv.next163.i.i, %233 ], [ 0, %_imageio_dng_make_tag.exit99.i.i ]
-  %232 = getelementptr inbounds nuw [3 x float], ptr %88, i64 %indvars.iv162.i.i
-  %.idx.i.i = mul nuw nsw i64 %indvars.iv162.i.i, 12
+.preheader.i.i:                                   ; preds = %_imageio_dng_make_tag.exit93.i.i, %233
+  %indvars.iv156.i.i = phi i64 [ %indvars.iv.next157.i.i, %233 ], [ 0, %_imageio_dng_make_tag.exit93.i.i ]
+  %232 = getelementptr inbounds nuw [3 x float], ptr %88, i64 %indvars.iv156.i.i
+  %.idx.i.i = mul nuw nsw i64 %indvars.iv156.i.i, 12
   %invariant.gep.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.idx.i.i
   br label %234
 
 233:                                              ; preds = %234
-  %indvars.iv.next163.i.i = add nuw nsw i64 %indvars.iv162.i.i, 1
-  %exitcond165.not.i.i = icmp eq i64 %indvars.iv.next163.i.i, 3
-  br i1 %exitcond165.not.i.i, label %_imageio_dng_write_buf.exit.thread.i100.i.i, label %.preheader.i.i
+  %indvars.iv.next157.i.i = add nuw nsw i64 %indvars.iv156.i.i, 1
+  %exitcond159.not.i.i = icmp eq i64 %indvars.iv.next157.i.i, 3
+  br i1 %exitcond159.not.i.i, label %_imageio_dng_write_buf.exit.thread.i94.i.i, label %.preheader.i.i
 
 234:                                              ; preds = %234, %.preheader.i.i
   %indvars.iv.i.i = phi i64 [ 0, %.preheader.i.i ], [ %indvars.iv.next.i.i, %234 ]
@@ -805,8 +805,8 @@ _imageio_dng_make_tag.exit99.i.i:                 ; preds = %_imageio_dng_make_t
   %exitcond.not.i.i = icmp eq i64 %indvars.iv.next.i.i, 3
   br i1 %exitcond.not.i.i, label %233, label %234
 
-_imageio_dng_write_buf.exit.thread.i100.i.i:      ; preds = %233, %_imageio_dng_make_tag.exit99.i.i
-  %.0150155.i.i = phi i32 [ 1000000, %_imageio_dng_make_tag.exit99.i.i ], [ 10000, %233 ]
+_imageio_dng_write_buf.exit.thread.i94.i.i:       ; preds = %233, %_imageio_dng_make_tag.exit93.i.i
+  %.0144149.i.i = phi i32 [ 1000000, %_imageio_dng_make_tag.exit93.i.i ], [ 10000, %233 ]
   %240 = getelementptr inbounds nuw i8, ptr %2, i64 214
   store i8 33, ptr %240, align 2, !tbaa !72
   %241 = getelementptr inbounds nuw i8, ptr %2, i64 215
@@ -830,16 +830,16 @@ _imageio_dng_write_buf.exit.thread.i100.i.i:      ; preds = %233, %_imageio_dng_
   store i8 0, ptr %250, align 16, !tbaa !72
   %251 = getelementptr inbounds nuw i8, ptr %2, i64 225
   store i8 0, ptr %251, align 1, !tbaa !72
-  %252 = trunc i32 %.0150155.i.i to i8
-  %253 = lshr i32 %.0150155.i.i, 8
+  %252 = trunc i32 %.0144149.i.i to i8
+  %253 = lshr i32 %.0144149.i.i, 8
   %254 = trunc i32 %253 to i8
-  %255 = lshr i32 %.0150155.i.i, 16
+  %255 = lshr i32 %.0144149.i.i, 16
   %256 = trunc nuw nsw i32 %255 to i8
   %257 = zext nneg i32 %.084.i.i to i64
-  %invariant.gep174.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %257
-  br label %_imageio_dng_write_buf.exit108.i.i
+  %invariant.gep168.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %257
+  br label %_imageio_dng_write_buf.exit102.i.i
 
-_imageio_dng_write_buf.exit.thread.i104.i.i:      ; preds = %_imageio_dng_write_buf.exit108.i.i
+_imageio_dng_write_buf.exit.thread.i98.i.i:       ; preds = %_imageio_dng_write_buf.exit102.i.i
   %258 = add nuw nsw i32 %.084.i.i, 72
   %259 = getelementptr inbounds nuw i8, ptr %2, i64 226
   store i8 40, ptr %259, align 2, !tbaa !72
@@ -868,29 +868,29 @@ _imageio_dng_write_buf.exit.thread.i104.i.i:      ; preds = %_imageio_dng_write_
   %272 = zext nneg i32 %258 to i64
   %273 = load float, ptr %271, align 4, !tbaa !70
   %274 = fmul reassoc nsz arcp contract afn float %273, 1.000000e+06
-  %invariant.gep178.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %272
-  br label %_imageio_dng_write_buf.exit114.i.i
+  %invariant.gep172.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %272
+  br label %_imageio_dng_write_buf.exit108.i.i
 
-_imageio_dng_write_buf.exit108.i.i:               ; preds = %_imageio_dng_write_buf.exit108.i.i, %_imageio_dng_write_buf.exit.thread.i100.i.i
-  %indvars.iv166.i.i = phi i64 [ 0, %_imageio_dng_write_buf.exit.thread.i100.i.i ], [ %indvars.iv.next167.i.i, %_imageio_dng_write_buf.exit108.i.i ]
-  %275 = shl nuw nsw i64 %indvars.iv166.i.i, 3
-  %276 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv166.i.i
+_imageio_dng_write_buf.exit102.i.i:               ; preds = %_imageio_dng_write_buf.exit102.i.i, %_imageio_dng_write_buf.exit.thread.i94.i.i
+  %indvars.iv160.i.i = phi i64 [ 0, %_imageio_dng_write_buf.exit.thread.i94.i.i ], [ %indvars.iv.next161.i.i, %_imageio_dng_write_buf.exit102.i.i ]
+  %275 = shl nuw nsw i64 %indvars.iv160.i.i, 3
+  %276 = getelementptr inbounds nuw i32, ptr %3, i64 %indvars.iv160.i.i
   %277 = load i32, ptr %276, align 4, !tbaa !68
-  %gep175.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep174.i.i, i64 %275
-  store i32 %277, ptr %gep175.i.i, align 2
-  %278 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 4
+  %gep169.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep168.i.i, i64 %275
+  store i32 %277, ptr %gep169.i.i, align 2
+  %278 = getelementptr inbounds nuw i8, ptr %gep169.i.i, i64 4
   store i8 %252, ptr %278, align 2, !tbaa !72
-  %279 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 5
+  %279 = getelementptr inbounds nuw i8, ptr %gep169.i.i, i64 5
   store i8 %254, ptr %279, align 1, !tbaa !72
-  %280 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 6
+  %280 = getelementptr inbounds nuw i8, ptr %gep169.i.i, i64 6
   store i8 %256, ptr %280, align 4, !tbaa !72
-  %281 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 7
+  %281 = getelementptr inbounds nuw i8, ptr %gep169.i.i, i64 7
   store i8 0, ptr %281, align 1, !tbaa !72
-  %indvars.iv.next167.i.i = add nuw nsw i64 %indvars.iv166.i.i, 1
-  %exitcond169.not.i.i = icmp eq i64 %indvars.iv.next167.i.i, 9
-  br i1 %exitcond169.not.i.i, label %_imageio_dng_write_buf.exit.thread.i104.i.i, label %_imageio_dng_write_buf.exit108.i.i
+  %indvars.iv.next161.i.i = add nuw nsw i64 %indvars.iv160.i.i, 1
+  %exitcond163.not.i.i = icmp eq i64 %indvars.iv.next161.i.i, 9
+  br i1 %exitcond163.not.i.i, label %_imageio_dng_write_buf.exit.thread.i98.i.i, label %_imageio_dng_write_buf.exit102.i.i
 
-_imageio_dng_write_buf.exit.thread.i109.i.i:      ; preds = %_imageio_dng_write_buf.exit114.i.i
+_imageio_dng_write_buf.exit.thread.i103.i.i:      ; preds = %_imageio_dng_write_buf.exit108.i.i
   %282 = add nuw nsw i32 %.084.i.i, 96
   %283 = getelementptr inbounds nuw i8, ptr %2, i64 238
   store i8 90, ptr %283, align 2, !tbaa !72
@@ -924,38 +924,38 @@ _imageio_dng_write_buf.exit.thread.i109.i.i:      ; preds = %_imageio_dng_write_
   %.not86.i.i = icmp eq i8 %296, 20
   br i1 %.not86.i.i, label %307, label %.sink.split.i.i
 
-_imageio_dng_write_buf.exit114.i.i:               ; preds = %_imageio_dng_write_buf.exit114.i.i, %_imageio_dng_write_buf.exit.thread.i104.i.i
-  %indvars.iv170.i.i = phi i64 [ 0, %_imageio_dng_write_buf.exit.thread.i104.i.i ], [ %indvars.iv.next171.i.i, %_imageio_dng_write_buf.exit114.i.i ]
-  %297 = shl nuw nsw i64 %indvars.iv170.i.i, 3
-  %298 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv170.i.i
+_imageio_dng_write_buf.exit108.i.i:               ; preds = %_imageio_dng_write_buf.exit108.i.i, %_imageio_dng_write_buf.exit.thread.i98.i.i
+  %indvars.iv164.i.i = phi i64 [ 0, %_imageio_dng_write_buf.exit.thread.i98.i.i ], [ %indvars.iv.next165.i.i, %_imageio_dng_write_buf.exit108.i.i ]
+  %297 = shl nuw nsw i64 %indvars.iv164.i.i, 3
+  %298 = getelementptr inbounds nuw float, ptr %87, i64 %indvars.iv164.i.i
   %299 = load float, ptr %298, align 4, !tbaa !70
   %300 = fdiv reassoc nsz arcp contract afn float %274, %299
   %301 = call reassoc nsz arcp contract afn float @llvm.round.f32(float %300)
   %302 = fptosi float %301 to i32
-  %gep179.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep178.i.i, i64 %297
-  store i32 %302, ptr %gep179.i.i, align 2
-  %gep181.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep174.i.i, i64 %297
-  %303 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 76
+  %gep173.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep172.i.i, i64 %297
+  store i32 %302, ptr %gep173.i.i, align 2
+  %gep175.i.i = getelementptr inbounds nuw i8, ptr %invariant.gep168.i.i, i64 %297
+  %303 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 76
   store i8 64, ptr %303, align 2, !tbaa !72
-  %304 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 77
+  %304 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 77
   store i8 66, ptr %304, align 1, !tbaa !72
-  %305 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 78
+  %305 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 78
   store i8 15, ptr %305, align 4, !tbaa !72
-  %306 = getelementptr inbounds nuw i8, ptr %gep181.i.i, i64 79
+  %306 = getelementptr inbounds nuw i8, ptr %gep175.i.i, i64 79
   store i8 0, ptr %306, align 1, !tbaa !72
-  %indvars.iv.next171.i.i = add nuw nsw i64 %indvars.iv170.i.i, 1
-  %exitcond173.not.i.i = icmp eq i64 %indvars.iv.next171.i.i, 3
-  br i1 %exitcond173.not.i.i, label %_imageio_dng_write_buf.exit.thread.i109.i.i, label %_imageio_dng_write_buf.exit114.i.i
+  %indvars.iv.next165.i.i = add nuw nsw i64 %indvars.iv164.i.i, 1
+  %exitcond167.not.i.i = icmp eq i64 %indvars.iv.next165.i.i, 3
+  br i1 %exitcond167.not.i.i, label %_imageio_dng_write_buf.exit.thread.i103.i.i, label %_imageio_dng_write_buf.exit108.i.i
 
-307:                                              ; preds = %_imageio_dng_write_buf.exit.thread.i109.i.i
+307:                                              ; preds = %_imageio_dng_write_buf.exit.thread.i103.i.i
   %308 = zext nneg i32 %282 to i64
   %309 = call i64 @fwrite(ptr noundef nonnull %2, i64 noundef 1, i64 noundef %308, ptr noundef nonnull %89)
   %310 = trunc i64 %309 to i32
   %.not87.i.i = icmp eq i32 %282, %310
   br i1 %.not87.i.i, label %_imageio_dng_write_tiff_header.exit.i, label %.sink.split.i.i
 
-.sink.split.i.i:                                  ; preds = %307, %_imageio_dng_write_buf.exit.thread.i109.i.i
-  %.str.70.sink.i.i = phi ptr [ @.str.68, %_imageio_dng_write_buf.exit.thread.i109.i.i ], [ @.str.70, %307 ]
+.sink.split.i.i:                                  ; preds = %307, %_imageio_dng_write_buf.exit.thread.i103.i.i
+  %.str.70.sink.i.i = phi ptr [ @.str.68, %_imageio_dng_write_buf.exit.thread.i103.i.i ], [ @.str.70, %307 ]
   call void (ptr, ...) @dt_print_ext(ptr noundef nonnull %.str.70.sink.i.i) #17
   br label %_imageio_dng_write_tiff_header.exit.i
 

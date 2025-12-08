@@ -6718,7 +6718,7 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity17on_mouse_down_out28_$
   %7 = alloca [4 x i8], align 4
   %8 = alloca [4 x i8], align 4
   %9 = alloca [8 x i8], align 4
-  br i1 %2, label %10, label %37
+  br i1 %2, label %10, label %35
 
 10:                                               ; preds = %5
   %11 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -6742,38 +6742,36 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity17on_mouse_down_out28_$
   %21 = fadd float %18, %20
   store float %21, ptr %8, align 4, !noalias !2018
   %22 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %9, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !2017
-  %23 = add nsw i8 %22, -3
-  %switch.i5.i = icmp samesign ult i8 %23, -2
+  %switch.i5.i = icmp slt i8 %22, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2018
-  br i1 %switch.i5.i, label %24, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread"
+  br i1 %switch.i5.i, label %23, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread"
 
-24:                                               ; preds = %17
-  %25 = getelementptr inbounds nuw i8, ptr %3, i64 12
-  %26 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25), !range !2017
-  %switch.i6.i = icmp ult i8 %26, 2
+23:                                               ; preds = %17
+  %24 = getelementptr inbounds nuw i8, ptr %3, i64 12
+  %25 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %24), !range !2017
+  %switch.i6.i = icmp ult i8 %25, 2
   br i1 %switch.i6.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit": ; preds = %24
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit": ; preds = %23
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !2018
-  %27 = load float, ptr %25, align 4, !alias.scope !2027, !noalias !2023, !noundef !5
-  %28 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %29 = load float, ptr %28, align 4, !alias.scope !2030, !noalias !2023, !noundef !5
-  %30 = fadd float %27, %29
-  store float %30, ptr %7, align 4, !noalias !2018
-  %31 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !2017
-  %32 = add nsw i8 %31, -3
-  %switch.i7.i = icmp samesign ult i8 %32, -2
+  %26 = load float, ptr %24, align 4, !alias.scope !2027, !noalias !2023, !noundef !5
+  %27 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %28 = load float, ptr %27, align 4, !alias.scope !2030, !noalias !2023, !noundef !5
+  %29 = fadd float %26, %28
+  store float %29, ptr %7, align 4, !noalias !2018
+  %30 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !2017
+  %switch.i7.i = icmp slt i8 %30, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2018
-  br i1 %switch.i7.i, label %36, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread"
+  br i1 %switch.i7.i, label %34, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread": ; preds = %17, %10, %24, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit"
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread": ; preds = %17, %10, %23, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !2033
-  %33 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %34 = call noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h94d534013a760901E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %33, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
-  store ptr %34, ptr %6, align 8, !noalias !2033
-  %35 = icmp eq ptr %34, null
-  br i1 %35, label %"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$17h348b761a87271d84E.exit", label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hd8b4320c115d28f8E.llvm.17203375404686012749.exit.i"
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %32 = call noundef ptr @"_ZN4gpui4view17WeakView$LT$V$GT$6update17h94d534013a760901E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %0, ptr noalias noundef nonnull align 8 dereferenceable(16) %4, ptr noalias noundef nonnull readonly align 1 %31, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %1)
+  store ptr %32, ptr %6, align 8, !noalias !2033
+  %33 = icmp eq ptr %32, null
+  br i1 %33, label %"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$17h348b761a87271d84E.exit", label %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hd8b4320c115d28f8E.llvm.17203375404686012749.exit.i"
 
 "_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hd8b4320c115d28f8E.llvm.17203375404686012749.exit.i": ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread"
   call void @"_ZN6anyhow5error65_$LT$impl$u20$core..ops..drop..Drop$u20$for$u20$anyhow..Error$GT$4drop17ha085256a7583661aE"(ptr noalias noundef nonnull align 8 dereferenceable(8) %6)
@@ -6781,13 +6779,13 @@ define hidden void @"_ZN4gpui8elements3div13Interactivity17on_mouse_down_out28_$
 
 "_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$17h348b761a87271d84E.exit": ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit.thread", %"_ZN4core3ptr73drop_in_place$LT$core..result..Result$LT$$LP$$RP$$C$anyhow..Error$GT$$GT$17hd8b4320c115d28f8E.llvm.17203375404686012749.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !2033
-  br label %37
+  br label %35
 
-36:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit"
+34:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17h7404144c381f63e1E.exit"
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %37
+  br label %35
 
-37:                                               ; preds = %5, %36, %"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$17h348b761a87271d84E.exit"
+35:                                               ; preds = %5, %34, %"_ZN4gpui6window20ViewContext$LT$V$GT$8listener28_$u7b$$u7b$closure$u7d$$u7d$17h348b761a87271d84E.exit"
   ret void
 }
 

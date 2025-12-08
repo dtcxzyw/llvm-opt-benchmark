@@ -15074,7 +15074,7 @@ _ZNSt6vectorIcSaIcEE9push_backEOc.exit:           ; preds = %178, %_ZNSt6vectorI
   br i1 %209, label %210, label %216
 
 210:                                              ; preds = %_ZNSt6vectorIcSaIcEE9push_backEOc.exit
-  %211 = icmp samesign ult i64 %208, 512
+  %211 = icmp slt i64 %207, 511
   br i1 %211, label %212, label %214
 
 212:                                              ; preds = %210

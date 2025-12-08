@@ -27889,8 +27889,7 @@ thread-pre-split10427:                            ; preds = %15434, %15432, %154
   br label %15974
 
 15974:                                            ; preds = %15973, %15970
-  %.off9906 = add nsw i8 %141, 85
-  %switch9907 = icmp samesign ult i8 %.off9906, 2
+  %switch9907 = icmp slt i8 %141, -83
   br i1 %switch9907, label %15975, label %15998
 
 15975:                                            ; preds = %15974

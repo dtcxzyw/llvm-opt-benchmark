@@ -12466,20 +12466,20 @@ _ZL30removeCoroEndsFromRampFunctionRKN4llvm4coro5ShapeE.exit.i: ; preds = %1182,
   store ptr %193, ptr %19, align 8, !tbaa !88
   store i32 0, ptr %194, align 8, !tbaa !89
   store i32 6, ptr %195, align 4, !tbaa !153
-  %1204 = add nsw i64 %1203, 1
-  %1205 = icmp samesign ugt i64 %1204, 6
-  br i1 %1205, label %1206, label %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i
+  %1204 = icmp sgt i64 %1203, 5
+  br i1 %1204, label %1205, label %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i
 
-1206:                                             ; preds = %1194
-  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %193, i64 noundef %1204, i64 noundef 8) #17
+1205:                                             ; preds = %1194
+  %1206 = add nuw nsw i64 %1203, 1
+  call void @_ZN4llvm15SmallVectorBaseIjE8grow_podEPvmm(ptr noundef nonnull align 8 dereferenceable(16) %19, ptr noundef nonnull %193, i64 noundef %1206, i64 noundef 8) #17
   %.pre.i.i74 = load i32, ptr %194, align 8, !tbaa !89
   %.pre71.i.i = load i32, ptr %195, align 4, !tbaa !153
   %1207 = zext i32 %.pre71.i.i to i64
   br label %_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i
 
-_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i: ; preds = %1206, %1194
-  %1208 = phi i64 [ 6, %1194 ], [ %1207, %1206 ]
-  %1209 = phi i32 [ 0, %1194 ], [ %.pre.i.i74, %1206 ]
+_ZN4llvm15SmallVectorImplIPNS_4TypeEE7reserveEm.exit.i.i: ; preds = %1205, %1194
+  %1208 = phi i64 [ 6, %1194 ], [ %1207, %1205 ]
+  %1209 = phi i32 [ 0, %1194 ], [ %.pre.i.i74, %1205 ]
   %1210 = zext i32 %1209 to i64
   %1211 = add nsw i64 %1203, %1210
   %1212 = icmp ugt i64 %1211, %1208

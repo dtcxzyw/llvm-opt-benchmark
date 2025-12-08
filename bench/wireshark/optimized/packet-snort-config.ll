@@ -2118,14 +2118,12 @@ define hidden noundef zeroext i1 @content_convert_pcre_for_regex(ptr noundef cap
 10:                                               ; preds = %4
   %11 = load i8, ptr %6, align 1
   %.not32 = icmp eq i8 %11, 47
-  br i1 %.not32, label %.preheader, label %.thread
+  %12 = icmp sgt i32 %8, 3
+  %or.cond45 = and i1 %.not32, %12
+  br i1 %or.cond45, label %.lr.ph, label %.thread
 
-.preheader:                                       ; preds = %10
+.lr.ph:                                           ; preds = %10
   %.02836 = add nsw i32 %8, -1
-  %12 = icmp samesign ugt i32 %.02836, 2
-  br i1 %12, label %.lr.ph, label %.thread
-
-.lr.ph:                                           ; preds = %.preheader
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 67
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 66
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 65
@@ -2183,8 +2181,8 @@ define hidden noundef zeroext i1 @content_convert_pcre_for_regex(ptr noundef cap
   store i32 %31, ptr %36, align 4
   br label %.thread
 
-.thread:                                          ; preds = %25, %.preheader, %10, %4, %1, %27
-  %.029 = phi i1 [ true, %27 ], [ true, %1 ], [ false, %4 ], [ false, %10 ], [ false, %.preheader ], [ false, %25 ]
+.thread:                                          ; preds = %25, %10, %4, %1, %27
+  %.029 = phi i1 [ true, %27 ], [ true, %1 ], [ false, %4 ], [ false, %10 ], [ false, %25 ]
   ret i1 %.029
 }
 

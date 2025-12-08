@@ -6975,7 +6975,7 @@ tdefl_init.exit:                                  ; preds = %tdefl_output_buffer
   %162 = xor i32 %156, %161
   %163 = getelementptr inbounds nuw i8, ptr %.035.i, i64 4
   %164 = add nsw i64 %.02533.i, -4
-  %165 = icmp samesign ugt i64 %164, 3
+  %165 = icmp samesign ugt i64 %.02533.i, 7
   br i1 %165, label %.lr.ph.i, label %mz_crc32.exit
 
 mz_crc32.exit:                                    ; preds = %.lr.ph.i

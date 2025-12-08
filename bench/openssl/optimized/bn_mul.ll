@@ -179,7 +179,7 @@ define i64 @bn_sub_part_words(ptr noundef %0, ptr noundef %1, ptr noundef %2, i3
   %91 = getelementptr inbounds nuw i8, ptr %.3117177, i64 32
   %92 = load i64, ptr %90, align 8, !tbaa !3
   store i64 %92, ptr %91, align 8, !tbaa !3
-  %93 = icmp samesign ult i32 %89, 2
+  %93 = icmp samesign ult i32 %.7108179, 6
   br i1 %93, label %.thread157, label %.lr.ph180
 
 .thread157:                                       ; preds = %.lr.ph, %50, %56, %62, %83, %78, %.lr.ph180, %88, %37, %.lr.ph190, %23, %30, %.preheader163, %.preheader, %5
@@ -468,7 +468,7 @@ define void @bn_mul_normal(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr n
   %43 = tail call i64 @bn_mul_add_words(ptr noundef nonnull %40, ptr noundef %.045, i32 noundef %.050, i64 noundef %42) #4
   %44 = getelementptr inbounds nuw i8, ptr %.04661, i64 32
   store i64 %43, ptr %44, align 8, !tbaa !3
-  %45 = icmp samesign ult i32 %39, 2
+  %45 = icmp samesign ult i32 %.160, 6
   br i1 %45, label %.loopexit, label %.lr.ph
 
 .loopexit:                                        ; preds = %38, %.lr.ph, %24, %31, %12, %10

@@ -1043,16 +1043,16 @@ define void @_ZN6icu_7711ICU_Utility12appendToRuleERNS_13UnicodeStringEiaaS2_(pt
   br i1 %25, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %16
-  %.not132 = icmp eq i32 %24, 1
-  br i1 %.not132, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph
+  %.not130 = icmp eq i32 %24, 1
+  br i1 %.not130, label %.critedge, label %_ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph
 
 _ZNK6icu_7713UnicodeString6charAtEi.exit.lr.ph:   ; preds = %.preheader
   %26 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %27 = getelementptr inbounds nuw i8, ptr %4, i64 24
   %28 = and i16 %18, 2
-  %.not.i.i.i139 = icmp eq i16 %28, 0
+  %.not.i.i.i137 = icmp eq i16 %28, 0
   %29 = load ptr, ptr %27, align 8
-  %30 = select i1 %.not.i.i.i139, ptr %29, ptr %26
+  %30 = select i1 %.not.i.i.i137, ptr %29, ptr %26
   %31 = load i16, ptr %30, align 2, !tbaa !15
   %32 = icmp eq i16 %31, 39
   br i1 %32, label %_ZNK6icu_7713UnicodeString6charAtEi.exit85, label %.critedge.loopexit
@@ -1156,7 +1156,7 @@ _ZNK6icu_7713UnicodeString6charAtEi.exit91:       ; preds = %_ZNK6icu_7713Unicod
   br label %_ZN6icu_7713UnicodeString8truncateEi.exit
 
 85:                                               ; preds = %80
-  %86 = icmp samesign ult i32 %67, 1024
+  %86 = icmp samesign ult i32 %65, 1026
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %85

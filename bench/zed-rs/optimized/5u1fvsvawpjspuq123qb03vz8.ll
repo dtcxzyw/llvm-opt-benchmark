@@ -6259,8 +6259,7 @@ define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2ge17hf6d1320c2b7bbeaf
 ; Function Attrs: inlinehint nonlazybind uwtable
 define hidden noundef zeroext i1 @_ZN4core3cmp10PartialOrd2le17he2fa6088a1c87b1dE.llvm.14553352395880121525(ptr noalias noundef readonly align 4 dereferenceable(4) %0, ptr noalias noundef readonly align 4 dereferenceable(4) %1) unnamed_addr #9 {
   %3 = tail call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1), !range !1524
-  %4 = add nsw i8 %3, -3
-  %switch = icmp samesign ult i8 %4, -2
+  %switch = icmp slt i8 %3, 1
   ret i1 %switch
 }
 
@@ -7808,7 +7807,7 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17
   %4 = alloca [4 x i8], align 4
   %5 = tail call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %0), !range !1524
   %switch.i = icmp ult i8 %5, 2
-  br i1 %switch.i, label %6, label %24
+  br i1 %switch.i, label %6, label %22
 
 6:                                                ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -7818,33 +7817,31 @@ define hidden noundef zeroext i1 @"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17
   %10 = fadd float %7, %9
   store float %10, ptr %4, align 4
   %11 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %1, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %4), !range !1524
-  %12 = add nsw i8 %11, -3
-  %switch.i5 = icmp samesign ult i8 %12, -2
+  %switch.i5 = icmp slt i8 %11, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %switch.i5, label %13, label %24
+  br i1 %switch.i5, label %12, label %22
 
-13:                                               ; preds = %6
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %16 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15), !range !1524
-  %switch.i6 = icmp ult i8 %16, 2
-  br i1 %switch.i6, label %17, label %24
+12:                                               ; preds = %6
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %15 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14), !range !1524
+  %switch.i6 = icmp ult i8 %15, 2
+  br i1 %switch.i6, label %16, label %22
 
-17:                                               ; preds = %13
+16:                                               ; preds = %12
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %18 = load float, ptr %15, align 4, !alias.scope !1982, !noundef !11
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  %20 = load float, ptr %19, align 4, !alias.scope !1985, !noundef !11
-  %21 = fadd float %18, %20
-  store float %21, ptr %3, align 4
-  %22 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !1524
-  %23 = add nsw i8 %22, -3
-  %switch.i7 = icmp samesign ult i8 %23, -2
+  %17 = load float, ptr %14, align 4, !alias.scope !1982, !noundef !11
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  %19 = load float, ptr %18, align 4, !alias.scope !1985, !noundef !11
+  %20 = fadd float %17, %19
+  store float %20, ptr %3, align 4
+  %21 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %3), !range !1524
+  %switch.i7 = icmp slt i8 %21, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %24
+  br label %22
 
-24:                                               ; preds = %6, %2, %13, %17
-  %.sroa.0.0 = phi i1 [ %switch.i7, %17 ], [ false, %13 ], [ false, %2 ], [ false, %6 ]
+22:                                               ; preds = %6, %2, %12, %16
+  %.sroa.0.0 = phi i1 [ %switch.i7, %16 ], [ false, %12 ], [ false, %2 ], [ false, %6 ]
   ret i1 %.sroa.0.0
 }
 

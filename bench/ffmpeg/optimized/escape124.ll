@@ -145,7 +145,7 @@ define internal range(i32 -2147483648, 1) i32 @escape124_decode_frame(ptr nounde
   %67 = add i32 %.sroa.20.0351, 20
   %68 = tail call i32 @llvm.umin.i32(i32 %19, i32 %67)
   %69 = add nsw i32 %64, -1
-  %70 = icmp samesign ugt i32 %69, 65535
+  %70 = icmp samesign ugt i32 %64, 65536
   %71 = lshr i32 %69, 16
   %spec.select.i = select i1 %70, i32 %71, i32 %69
   %spec.select11.i = select i1 %70, i32 16, i32 0

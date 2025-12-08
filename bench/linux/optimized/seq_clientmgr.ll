@@ -3511,7 +3511,7 @@ define internal noundef range(i32 -2, 1) i32 @snd_seq_ioctl_query_next_client(pt
   %6 = tail call i32 @llvm.smax.i32(i32 %3, i32 -1)
   %spec.store.select = add nsw i32 %6, 1
   store i32 %spec.store.select, ptr %1, align 4
-  %7 = icmp samesign ult i32 %spec.store.select, 192
+  %7 = icmp slt i32 %3, 191
   br i1 %7, label %.preheader, label %.thread7
 
 .preheader:                                       ; preds = %5, %11

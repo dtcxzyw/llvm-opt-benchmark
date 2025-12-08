@@ -35445,7 +35445,7 @@ define internal void @"_ZN6client6Client30establish_websocket_connection28_$u7b$
   %.sroa.6 = alloca [72 x i8], align 8
   %131 = getelementptr inbounds nuw i8, ptr %1, i64 513
   %132 = load i8, ptr %131, align 1, !range !3712, !noundef !5
-  switch i8 %132, label %default.unreachable1123 [
+  switch i8 %132, label %default.unreachable1121 [
     i8 0, label %133
     i8 1, label %138
     i8 2, label %139
@@ -35455,7 +35455,7 @@ define internal void @"_ZN6client6Client30establish_websocket_connection28_$u7b$
     i8 6, label %2996
   ]
 
-default.unreachable1123:                          ; preds = %3050, %3030, %3011, %2996, %2752, %2729, %2707, %.noexc19.i.i.i235, %.noexc18.i.i.i229, %2429, %2329, %2312, %1860, %1434, %1186, %1050, %1034, %975, %960, %711, %633, %575, %560, %496, %140, %3
+default.unreachable1121:                          ; preds = %3050, %3030, %3011, %2996, %2752, %2729, %2707, %.noexc19.i.i.i235, %.noexc18.i.i.i229, %2429, %2329, %2312, %1860, %1434, %1186, %1050, %1034, %975, %960, %711, %633, %575, %560, %496, %140, %3
   unreachable
 
 133:                                              ; preds = %3
@@ -35483,7 +35483,7 @@ default.unreachable1123:                          ; preds = %3050, %3030, %3011,
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i)
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 569
   %143 = load i8, ptr %142, align 1, !range !21, !noalias !7803, !noundef !5
-  switch i8 %143, label %default.unreachable1123 [
+  switch i8 %143, label %default.unreachable1121 [
     i8 0, label %144
     i8 1, label %243
     i8 2, label %244
@@ -36411,9 +36411,9 @@ common.ret:                                       ; preds = %"_ZN4core3ptr42drop
           to label %425 unwind label %418
 
 422:                                              ; preds = %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12543213376774478311.exit129", %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12543213376774478311.exit"
-  %.sink1244 = phi i8 [ 1, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12543213376774478311.exit" ], [ 0, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12543213376774478311.exit129" ]
+  %.sink1242 = phi i8 [ 1, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12543213376774478311.exit" ], [ 0, %"_ZN4core3str6traits54_$LT$impl$u20$core..cmp..PartialEq$u20$for$u20$str$GT$2eq17hbfb42a77686a072fE.llvm.12543213376774478311.exit129" ]
   %423 = getelementptr inbounds nuw i8, ptr %1, i64 514
-  store i8 %.sink1244, ptr %423, align 2
+  store i8 %.sink1242, ptr %423, align 2
   %424 = invoke { ptr, i64 } @_ZN3url3Url8host_str17hdbbf70382587b03aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(88) %396)
           to label %434 unwind label %432
 
@@ -36626,7 +36626,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i)
   %498 = getelementptr inbounds nuw i8, ptr %1, i64 616
-  switch i8 %.pre, label %default.unreachable1123 [
+  switch i8 %.pre, label %default.unreachable1121 [
     i8 0, label %499
     i8 1, label %529
     i8 2, label %530
@@ -36673,7 +36673,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
 512:                                              ; preds = %499
   %513 = load i64, ptr %505, align 8, !range !98, !noalias !8176, !noundef !5
   %514 = icmp eq i64 %513, -9223372036854775808
-  br i1 %514, label %.thread390.i, label %515
+  br i1 %514, label %.thread388.i, label %515
 
 515:                                              ; preds = %512
   %516 = getelementptr inbounds nuw i8, ptr %1, i64 608
@@ -36683,7 +36683,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   %.sroa.10169.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 696
   br i1 %trunc.i164, label %526, label %522
 
-.thread390.i:                                     ; preds = %512
+.thread388.i:                                     ; preds = %512
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0237.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0234.i)
   %.sroa.0234.32..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sroa.0234.i, i64 32
@@ -36853,7 +36853,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   %.pre.i155 = load i8, ptr %.phi.trans.insert.i154, align 8, !range !21, !noalias !8196
   %561 = getelementptr inbounds nuw i8, ptr %1, i64 744
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.16127.sroa.0.i.i.i)
-  switch i8 %.pre.i155, label %default.unreachable1123 [
+  switch i8 %.pre.i155, label %default.unreachable1121 [
     i8 0, label %.thread.i.i
     i8 1, label %573
     i8 2, label %574
@@ -36914,7 +36914,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   %.pre.i.i = load i8, ptr %.phi.trans.insert.i.i, align 1, !range !21, !noalias !8204
   %576 = getelementptr inbounds nuw i8, ptr %1, i64 888
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1172.i.i.i)
-  switch i8 %.pre.i.i, label %default.unreachable1123 [
+  switch i8 %.pre.i.i, label %default.unreachable1121 [
     i8 0, label %._crit_edge.i
     i8 1, label %631
     i8 2, label %632
@@ -37100,7 +37100,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
   %.pre.i.i.i156 = load i8, ptr %.phi.trans.insert.i.i.i, align 8, !range !4, !noalias !8230
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i.i.i)
   %634 = getelementptr inbounds nuw i8, ptr %1, i64 1680
-  switch i8 %.pre.i.i.i156, label %default.unreachable1123 [
+  switch i8 %.pre.i.i.i156, label %default.unreachable1121 [
     i8 0, label %._crit_edge.i.i
     i8 1, label %688
     i8 2, label %689
@@ -37296,7 +37296,7 @@ _ZN3url3Url21port_or_known_default17h9cc681f6d65f1a28E.exit: ; preds = %451, %"_
 711:                                              ; preds = %633
   %.phi.trans.insert.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2000
   %.pre.i.i.i.i157 = load i8, ptr %.phi.trans.insert.i.i.i.i, align 8, !range !21, !noalias !8243
-  switch i8 %.pre.i.i.i.i157, label %default.unreachable1123 [
+  switch i8 %.pre.i.i.i.i157, label %default.unreachable1121 [
     i8 0, label %._crit_edge.i.i.i
     i8 1, label %752
     i8 2, label %753
@@ -37941,7 +37941,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 947:                                              ; preds = %942
   call void @llvm.experimental.noalias.scope.decl(metadata !8319)
   %948 = icmp eq i64 %940, 3
-  br i1 %948, label %949, label %.thread389.i
+  br i1 %948, label %949, label %.thread387.i
 
 949:                                              ; preds = %947
   %950 = icmp ne ptr %.sroa.3173.0.copyload.i, null
@@ -37958,7 +37958,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0159.i)
   br label %.body.i151
 
-.thread389.i:                                     ; preds = %947
+.thread387.i:                                     ; preds = %947
   store i64 %940, ptr %936, align 8, !alias.scope !8325, !noalias !8176
   %.sroa.3173.0..sroa_idx174.i = getelementptr inbounds nuw i8, ptr %1, i64 632
   store ptr %.sroa.3173.0.copyload.i, ptr %.sroa.3173.0..sroa_idx174.i, align 8, !alias.scope !8325, !noalias !8176
@@ -37975,7 +37975,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.sroa.10163.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %1, i64 2128
   store i8 0, ptr %.sroa.10163.0..sroa_idx.i, align 8, !noalias !8176
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1397.sroa.0.i.i.i)
-  br label %.thread103.i.i
+  br label %.thread101.i.i
 
 "_ZN153_$LT$core..result..Result$LT$T$C$F$GT$$u20$as$u20$core..ops..try_trait..FromResidual$LT$core..result..Result$LT$core..convert..Infallible$C$E$GT$$GT$$GT$13from_residual17h9ff8cd76a185c532E.exit45.i": ; preds = %949
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0159.i)
@@ -37994,18 +37994,18 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre322.i = load i8, ptr %.phi.trans.insert321.i, align 8, !range !21, !noalias !8330
   %961 = getelementptr inbounds nuw i8, ptr %1, i64 744
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1397.sroa.0.i.i.i)
-  switch i8 %.pre322.i, label %default.unreachable1123 [
-    i8 0, label %.thread103.i.i
+  switch i8 %.pre322.i, label %default.unreachable1121 [
+    i8 0, label %.thread101.i.i
     i8 1, label %973
     i8 2, label %974
     i8 3, label %975
   ]
 
-.thread103.i.i:                                   ; preds = %960, %.thread389.i
-  %962 = phi ptr [ %934, %.thread389.i ], [ %498, %960 ]
-  %963 = phi ptr [ %935, %.thread389.i ], [ %497, %960 ]
-  %964 = phi ptr [ %.sroa.10163.0..sroa_idx.i, %.thread389.i ], [ %.phi.trans.insert321.i, %960 ]
-  %965 = phi ptr [ %956, %.thread389.i ], [ %961, %960 ]
+.thread101.i.i:                                   ; preds = %960, %.thread387.i
+  %962 = phi ptr [ %934, %.thread387.i ], [ %498, %960 ]
+  %963 = phi ptr [ %935, %.thread387.i ], [ %497, %960 ]
+  %964 = phi ptr [ %.sroa.10163.0..sroa_idx.i, %.thread387.i ], [ %.phi.trans.insert321.i, %960 ]
+  %965 = phi ptr [ %956, %.thread387.i ], [ %961, %960 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.sroa.0.i.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(120) %.sroa.0.sroa.0.i.i, ptr noundef nonnull align 8 dereferenceable(120) %965, i64 120, i1 false), !noalias !8330
   %966 = getelementptr inbounds nuw i8, ptr %1, i64 864
@@ -38055,7 +38055,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre.i47.i = load i8, ptr %.phi.trans.insert.i46.i, align 1, !range !21, !noalias !8338
   %976 = getelementptr inbounds nuw i8, ptr %1, i64 888
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15125.i.i.i.i)
-  switch i8 %.pre.i47.i, label %default.unreachable1123 [
+  switch i8 %.pre.i47.i, label %default.unreachable1121 [
     i8 0, label %._crit_edge323.i
     i8 1, label %1032
     i8 2, label %1033
@@ -38067,14 +38067,14 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre325.i = load i8, ptr %.phi.trans.insert324.i, align 8, !range !8342, !noalias !8338
   br label %977
 
-977:                                              ; preds = %._crit_edge323.i, %.thread103.i.i
-  %978 = phi ptr [ %962, %.thread103.i.i ], [ %498, %._crit_edge323.i ]
-  %979 = phi ptr [ %963, %.thread103.i.i ], [ %497, %._crit_edge323.i ]
-  %980 = phi ptr [ %964, %.thread103.i.i ], [ %.phi.trans.insert321.i, %._crit_edge323.i ]
-  %981 = phi ptr [ %965, %.thread103.i.i ], [ %961, %._crit_edge323.i ]
-  %982 = phi i8 [ 1, %.thread103.i.i ], [ %.pre325.i, %._crit_edge323.i ]
-  %983 = phi ptr [ %.sroa.89.0..sroa_idx.i.i, %.thread103.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge323.i ]
-  %984 = phi ptr [ %967, %.thread103.i.i ], [ %976, %._crit_edge323.i ]
+977:                                              ; preds = %._crit_edge323.i, %.thread101.i.i
+  %978 = phi ptr [ %962, %.thread101.i.i ], [ %498, %._crit_edge323.i ]
+  %979 = phi ptr [ %963, %.thread101.i.i ], [ %497, %._crit_edge323.i ]
+  %980 = phi ptr [ %964, %.thread101.i.i ], [ %.phi.trans.insert321.i, %._crit_edge323.i ]
+  %981 = phi ptr [ %965, %.thread101.i.i ], [ %961, %._crit_edge323.i ]
+  %982 = phi i8 [ 1, %.thread101.i.i ], [ %.pre325.i, %._crit_edge323.i ]
+  %983 = phi ptr [ %.sroa.89.0..sroa_idx.i.i, %.thread101.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge323.i ]
+  %984 = phi ptr [ %967, %.thread101.i.i ], [ %976, %._crit_edge323.i ]
   %985 = getelementptr inbounds nuw i8, ptr %1, i64 2123
   %986 = getelementptr inbounds nuw i8, ptr %1, i64 2122
   call void @llvm.lifetime.start.p0(ptr nonnull %59), !noalias !8338
@@ -38165,9 +38165,9 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pr.i.i78.i = load i16, ptr %1008, align 8, !noalias !8338
   call void @llvm.lifetime.end.p0(ptr nonnull %56), !noalias !8338
   %1013 = icmp eq i16 %.pr.i.i78.i, 2
-  br i1 %1013, label %1023, label %.thread185.i.i.i
+  br i1 %1013, label %1023, label %.thread183.i.i.i
 
-.thread185.i.i.i:                                 ; preds = %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4f2eeebb19238aceE.exit.i.i77.i"
+.thread183.i.i.i:                                 ; preds = %"_ZN79_$LT$core..result..Result$LT$T$C$E$GT$$u20$as$u20$core..ops..try_trait..Try$GT$6branch17h4f2eeebb19238aceE.exit.i.i77.i"
   %1014 = getelementptr inbounds nuw i8, ptr %1, i64 1096
   call void @llvm.experimental.noalias.scope.decl(metadata !8358)
   %1015 = getelementptr inbounds nuw i8, ptr %1, i64 1186
@@ -38245,7 +38245,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.phi.trans.insert.i.i48.i = getelementptr inbounds nuw i8, ptr %1, i64 2000
   %.pre.i.i49.i = load i8, ptr %.phi.trans.insert.i.i48.i, align 8, !range !1428, !noalias !8368
   %1035 = getelementptr inbounds nuw i8, ptr %1, i64 1744
-  switch i8 %.pre.i.i49.i, label %default.unreachable1123 [
+  switch i8 %.pre.i.i49.i, label %default.unreachable1121 [
     i8 0, label %..thread.i.i_crit_edge.i.i
     i8 1, label %1048
     i8 2, label %1049
@@ -38259,16 +38259,16 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre62.i.i = load ptr, ptr %.phi.trans.insert61.i.i, align 8, !noalias !8368
   br label %.thread.i.i.i72.i
 
-.thread.i.i.i72.i:                                ; preds = %..thread.i.i_crit_edge.i.i, %.thread185.i.i.i
-  %1036 = phi ptr [ %978, %.thread185.i.i.i ], [ %498, %..thread.i.i_crit_edge.i.i ]
-  %1037 = phi ptr [ %979, %.thread185.i.i.i ], [ %497, %..thread.i.i_crit_edge.i.i ]
-  %1038 = phi ptr [ %980, %.thread185.i.i.i ], [ %.phi.trans.insert321.i, %..thread.i.i_crit_edge.i.i ]
-  %1039 = phi ptr [ %981, %.thread185.i.i.i ], [ %961, %..thread.i.i_crit_edge.i.i ]
-  %1040 = phi ptr [ %983, %.thread185.i.i.i ], [ %.phi.trans.insert.i46.i, %..thread.i.i_crit_edge.i.i ]
-  %1041 = phi ptr [ %984, %.thread185.i.i.i ], [ %976, %..thread.i.i_crit_edge.i.i ]
-  %1042 = phi ptr [ %1014, %.thread185.i.i.i ], [ %.pre62.i.i, %..thread.i.i_crit_edge.i.i ]
-  %1043 = phi ptr [ %.sroa.1146.0..sroa_idx.i.i80.i, %.thread185.i.i.i ], [ %.phi.trans.insert.i.i48.i, %..thread.i.i_crit_edge.i.i ]
-  %1044 = phi ptr [ %1020, %.thread185.i.i.i ], [ %1035, %..thread.i.i_crit_edge.i.i ]
+.thread.i.i.i72.i:                                ; preds = %..thread.i.i_crit_edge.i.i, %.thread183.i.i.i
+  %1036 = phi ptr [ %978, %.thread183.i.i.i ], [ %498, %..thread.i.i_crit_edge.i.i ]
+  %1037 = phi ptr [ %979, %.thread183.i.i.i ], [ %497, %..thread.i.i_crit_edge.i.i ]
+  %1038 = phi ptr [ %980, %.thread183.i.i.i ], [ %.phi.trans.insert321.i, %..thread.i.i_crit_edge.i.i ]
+  %1039 = phi ptr [ %981, %.thread183.i.i.i ], [ %961, %..thread.i.i_crit_edge.i.i ]
+  %1040 = phi ptr [ %983, %.thread183.i.i.i ], [ %.phi.trans.insert.i46.i, %..thread.i.i_crit_edge.i.i ]
+  %1041 = phi ptr [ %984, %.thread183.i.i.i ], [ %976, %..thread.i.i_crit_edge.i.i ]
+  %1042 = phi ptr [ %1014, %.thread183.i.i.i ], [ %.pre62.i.i, %..thread.i.i_crit_edge.i.i ]
+  %1043 = phi ptr [ %.sroa.1146.0..sroa_idx.i.i80.i, %.thread183.i.i.i ], [ %.phi.trans.insert.i.i48.i, %..thread.i.i_crit_edge.i.i ]
+  %1044 = phi ptr [ %1020, %.thread183.i.i.i ], [ %1035, %..thread.i.i_crit_edge.i.i ]
   %1045 = getelementptr inbounds nuw i8, ptr %1, i64 1872
   store ptr %1042, ptr %1045, align 8, !noalias !8368
   %1046 = getelementptr inbounds nuw i8, ptr %1, i64 1880
@@ -38299,7 +38299,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.phi.trans.insert.i.i.i63.i = getelementptr inbounds nuw i8, ptr %1, i64 2040
   %.pre.i.i.i64.i = load i8, ptr %.phi.trans.insert.i.i.i63.i, align 8, !range !1428, !noalias !8372
   %1051 = getelementptr inbounds nuw i8, ptr %1, i64 2008
-  switch i8 %.pre.i.i.i64.i, label %default.unreachable1123 [
+  switch i8 %.pre.i.i.i64.i, label %default.unreachable1121 [
     i8 0, label %._crit_edge.i.i68.i
     i8 1, label %1102
     i8 2, label %1103
@@ -38591,7 +38591,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 1186:                                             ; preds = %1050
   %.phi.trans.insert.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 2080
   %.pre.i.i.i.i.i = load i8, ptr %.phi.trans.insert.i.i.i.i.i, align 8, !range !4, !noalias !8396
-  switch i8 %.pre.i.i.i.i.i, label %default.unreachable1123 [
+  switch i8 %.pre.i.i.i.i.i, label %default.unreachable1121 [
     i8 0, label %._crit_edge210.i.i.i.i
     i8 1, label %1239
     i8 2, label %1240
@@ -39047,9 +39047,9 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 1428:                                             ; preds = %1425
   %1429 = extractvalue { i64, ptr } %1422, 1
   %1430 = icmp eq ptr %1429, null
-  br i1 %1430, label %.thread256.i.i.i.i, label %1400
+  br i1 %1430, label %.thread254.i.i.i.i, label %1400
 
-.thread256.i.i.i.i:                               ; preds = %1428
+.thread254.i.i.i.i:                               ; preds = %1428
   %1431 = getelementptr inbounds nuw i8, ptr %1, i64 1872
   %1432 = load ptr, ptr %1431, align 8, !noalias !8368, !nonnull !5, !align !316, !noundef !5
   %1433 = getelementptr inbounds nuw i8, ptr %1, i64 1880
@@ -39067,7 +39067,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre217.i.i.i.i = load i8, ptr %.phi.trans.insert216.i.i.i.i, align 8, !range !1428, !noalias !8405
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.554.sroa.3.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %52), !noalias !8368
-  switch i8 %.pre217.i.i.i.i, label %default.unreachable1123 [
+  switch i8 %.pre217.i.i.i.i, label %default.unreachable1121 [
     i8 0, label %._crit_edge140.i.i.i
     i8 1, label %1478
     i8 2, label %1479
@@ -39083,18 +39083,18 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre144.i.i.i = load ptr, ptr %.phi.trans.insert143.i.i.i, align 8, !noalias !8405
   br label %1435
 
-1435:                                             ; preds = %._crit_edge140.i.i.i, %.thread256.i.i.i.i
-  %1436 = phi ptr [ %1413, %.thread256.i.i.i.i ], [ %498, %._crit_edge140.i.i.i ]
-  %1437 = phi ptr [ %1414, %.thread256.i.i.i.i ], [ %497, %._crit_edge140.i.i.i ]
-  %1438 = phi ptr [ %1415, %.thread256.i.i.i.i ], [ %.phi.trans.insert321.i, %._crit_edge140.i.i.i ]
-  %1439 = phi ptr [ %1416, %.thread256.i.i.i.i ], [ %961, %._crit_edge140.i.i.i ]
-  %1440 = phi ptr [ %1417, %.thread256.i.i.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge140.i.i.i ]
-  %1441 = phi ptr [ %1418, %.thread256.i.i.i.i ], [ %976, %._crit_edge140.i.i.i ]
-  %1442 = phi ptr [ %1419, %.thread256.i.i.i.i ], [ %.phi.trans.insert.i.i48.i, %._crit_edge140.i.i.i ]
-  %1443 = phi ptr [ %1420, %.thread256.i.i.i.i ], [ %1035, %._crit_edge140.i.i.i ]
-  %1444 = phi ptr [ %1433, %.thread256.i.i.i.i ], [ %.pre144.i.i.i, %._crit_edge140.i.i.i ]
-  %1445 = phi ptr [ %1432, %.thread256.i.i.i.i ], [ %.pre142.i.i.i, %._crit_edge140.i.i.i ]
-  %1446 = phi ptr [ %.sroa.1079.0..sroa_idx.i.i.i.i, %.thread256.i.i.i.i ], [ %.phi.trans.insert216.i.i.i.i, %._crit_edge140.i.i.i ]
+1435:                                             ; preds = %._crit_edge140.i.i.i, %.thread254.i.i.i.i
+  %1436 = phi ptr [ %1413, %.thread254.i.i.i.i ], [ %498, %._crit_edge140.i.i.i ]
+  %1437 = phi ptr [ %1414, %.thread254.i.i.i.i ], [ %497, %._crit_edge140.i.i.i ]
+  %1438 = phi ptr [ %1415, %.thread254.i.i.i.i ], [ %.phi.trans.insert321.i, %._crit_edge140.i.i.i ]
+  %1439 = phi ptr [ %1416, %.thread254.i.i.i.i ], [ %961, %._crit_edge140.i.i.i ]
+  %1440 = phi ptr [ %1417, %.thread254.i.i.i.i ], [ %.phi.trans.insert.i46.i, %._crit_edge140.i.i.i ]
+  %1441 = phi ptr [ %1418, %.thread254.i.i.i.i ], [ %976, %._crit_edge140.i.i.i ]
+  %1442 = phi ptr [ %1419, %.thread254.i.i.i.i ], [ %.phi.trans.insert.i.i48.i, %._crit_edge140.i.i.i ]
+  %1443 = phi ptr [ %1420, %.thread254.i.i.i.i ], [ %1035, %._crit_edge140.i.i.i ]
+  %1444 = phi ptr [ %1433, %.thread254.i.i.i.i ], [ %.pre144.i.i.i, %._crit_edge140.i.i.i ]
+  %1445 = phi ptr [ %1432, %.thread254.i.i.i.i ], [ %.pre142.i.i.i, %._crit_edge140.i.i.i ]
+  %1446 = phi ptr [ %.sroa.1079.0..sroa_idx.i.i.i.i, %.thread254.i.i.i.i ], [ %.phi.trans.insert216.i.i.i.i, %._crit_edge140.i.i.i ]
   %1447 = getelementptr inbounds nuw i8, ptr %1, i64 2024
   store ptr %1445, ptr %1447, align 8, !noalias !8405
   %1448 = getelementptr inbounds nuw i8, ptr %1, i64 2032
@@ -39569,7 +39569,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
 
 1682:                                             ; preds = %1675
   %1683 = add nsw i64 %1679, -1
-  %1684 = icmp samesign ult i64 %1683, 513
+  %1684 = icmp samesign ult i64 %1679, 514
   br i1 %1684, label %1692, label %1689
 
 1685:                                             ; preds = %1675
@@ -40053,7 +40053,7 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
   %.pre327.i = load i8, ptr %.phi.trans.insert326.i, align 1, !range !4, !noalias !8519
   %1861 = getelementptr inbounds nuw i8, ptr %1, i64 624
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i)
-  switch i8 %.pre327.i, label %default.unreachable1123 [
+  switch i8 %.pre327.i, label %default.unreachable1121 [
     i8 0, label %1862
     i8 1, label %1880
     i8 2, label %1881
@@ -40061,11 +40061,11 @@ common.ret.sink.split.i23.i.i.i:                  ; preds = %875, %.body.i.i.i
     i8 4, label %1871
   ]
 
-1862:                                             ; preds = %1860, %.thread390.i
-  %1863 = phi ptr [ %500, %.thread390.i ], [ %498, %1860 ]
-  %1864 = phi ptr [ %501, %.thread390.i ], [ %497, %1860 ]
-  %1865 = phi ptr [ %.sroa.8238.0..sroa_idx.i, %.thread390.i ], [ %.phi.trans.insert326.i, %1860 ]
-  %1866 = phi ptr [ %519, %.thread390.i ], [ %1861, %1860 ]
+1862:                                             ; preds = %1860, %.thread388.i
+  %1863 = phi ptr [ %500, %.thread388.i ], [ %498, %1860 ]
+  %1864 = phi ptr [ %501, %.thread388.i ], [ %497, %1860 ]
+  %1865 = phi ptr [ %.sroa.8238.0..sroa_idx.i, %.thread388.i ], [ %.phi.trans.insert326.i, %1860 ]
+  %1866 = phi ptr [ %519, %.thread388.i ], [ %1861, %1860 ]
   %1867 = getelementptr inbounds nuw i8, ptr %1, i64 680
   %1868 = getelementptr inbounds nuw i8, ptr %1, i64 656
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %1866, ptr noundef nonnull align 8 dereferenceable(24) %1868, i64 24, i1 false), !noalias !8519
@@ -41275,7 +41275,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.end.p0(ptr nonnull %112)
   %2264 = load i8, ptr %2070, align 2, !range !283, !noundef !5
   %trunc41 = trunc nuw i8 %2264 to i1
-  br i1 %trunc41, label %2265, label %.thread1209
+  br i1 %trunc41, label %2265, label %.thread1207
 
 2265:                                             ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h1d226862da059270E.exit198"
   call void @llvm.lifetime.start.p0(ptr nonnull %108)
@@ -41287,7 +41287,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   invoke fastcc void @"_ZN87_$LT$std..sync..lazy_lock..LazyLock$LT$T$C$F$GT$$u20$as$u20$core..ops..deref..Deref$GT$5deref17h3416c0345fae4b69E"()
           to label %2269 unwind label %2277
 
-.thread1209:                                      ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h1d226862da059270E.exit198"
+.thread1207:                                      ; preds = %"_ZN4core3ptr81drop_in_place$LT$core..option..Option$LT$http..header..value..HeaderValue$GT$$GT$17h1d226862da059270E.exit198"
   call void @llvm.lifetime.start.p0(ptr nonnull %103)
   store i8 0, ptr %2124, align 1
   store i8 0, ptr %2074, align 4
@@ -41309,8 +41309,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   br label %.thread.i301
 
 2268:                                             ; preds = %.body306, %3207
-  %.sroa.0378.11235 = phi ptr [ %.sroa.0378.11228, %3207 ], [ %.sroa.0378.11236, %.body306 ]
-  %.sroa.15.11219 = phi ptr [ %.sroa.15.11212, %3207 ], [ %.sroa.15.11220, %.body306 ]
+  %.sroa.0378.11233 = phi ptr [ %.sroa.0378.11226, %3207 ], [ %.sroa.0378.11234, %.body306 ]
+  %.sroa.15.11217 = phi ptr [ %.sroa.15.11210, %3207 ], [ %.sroa.15.11218, %.body306 ]
   %.pn66 = phi { ptr, i32 } [ %3208, %3207 ], [ %.pn57, %.body306 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %103)
   br label %2286
@@ -41319,13 +41319,13 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %2270 = load ptr, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, align 8, !nonnull !5, !noundef !5
   %2271 = atomicrmw add ptr %2270, i64 1 monotonic, align 8
   %2272 = icmp slt i64 %2271, 0
-  br i1 %2272, label %2273, label %.thread1124
+  br i1 %2272, label %2273, label %.thread1122
 
 2273:                                             ; preds = %2269
   call void @llvm.trap()
   unreachable
 
-.thread1124:                                      ; preds = %2269
+.thread1122:                                      ; preds = %2269
   %2274 = load ptr, ptr @_ZN11http_client10TLS_CONFIG17h17f34612b7204849E, align 8, !nonnull !5, !noundef !5
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(224) %.sroa.0453, ptr noundef nonnull align 8 dereferenceable(224) %107, i64 224, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %107)
@@ -41364,8 +41364,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
           to label %.critedge unwind label %490
 
 2280:                                             ; preds = %.body248, %2960, %.critedge
-  %.sroa.15.4 = phi ptr [ %.sroa.15.01127, %2960 ], [ %.sroa.15.01147, %.body248 ], [ %.sroa.13399.0.ph, %.critedge ]
-  %.sroa.0378.4 = phi ptr [ %.sroa.0378.01168, %2960 ], [ %.sroa.0378.01188, %.body248 ], [ %.sroa.11398.0.ph, %.critedge ]
+  %.sroa.15.4 = phi ptr [ %.sroa.15.01125, %2960 ], [ %.sroa.15.01145, %.body248 ], [ %.sroa.13399.0.ph, %.critedge ]
+  %.sroa.0378.4 = phi ptr [ %.sroa.0378.01166, %2960 ], [ %.sroa.0378.01186, %.body248 ], [ %.sroa.11398.0.ph, %.critedge ]
   %.pn53 = phi { ptr, i32 } [ %2961, %2960 ], [ %.pn46, %.body248 ], [ %2278, %.critedge ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.0453)
   call void @llvm.lifetime.end.p0(ptr nonnull %108)
@@ -41377,8 +41377,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   br label %2282
 
 2282:                                             ; preds = %3256, %2994, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201", %2290, %2281
-  %.sroa.15.5 = phi ptr [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203" ], [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201" ], [ %.sroa.13399.0.ph, %2290 ], [ %.sroa.13399.0.ph, %2281 ], [ %.sroa.15.11212, %3256 ], [ %.sroa.15.01127, %2994 ]
-  %.sroa.0378.5 = phi ptr [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203" ], [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201" ], [ %.sroa.11398.0.ph, %2290 ], [ %.sroa.11398.0.ph, %2281 ], [ %.sroa.0378.11228, %3256 ], [ %.sroa.0378.01168, %2994 ]
+  %.sroa.15.5 = phi ptr [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203" ], [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201" ], [ %.sroa.13399.0.ph, %2290 ], [ %.sroa.13399.0.ph, %2281 ], [ %.sroa.15.11210, %3256 ], [ %.sroa.15.01125, %2994 ]
+  %.sroa.0378.5 = phi ptr [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203" ], [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201" ], [ %.sroa.11398.0.ph, %2290 ], [ %.sroa.11398.0.ph, %2281 ], [ %.sroa.0378.11226, %3256 ], [ %.sroa.0378.01166, %2994 ]
   %.sroa.14818.2 = phi i8 [ 3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203" ], [ 3, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201" ], [ 3, %2290 ], [ 3, %2281 ], [ %.sroa.0.0.i311, %3256 ], [ %.sroa.0.0.i253, %2994 ]
   %.sroa.25826.2 = phi ptr [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit203" ], [ undef, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit201" ], [ undef, %2290 ], [ undef, %2281 ], [ %.sroa.51.0.i310, %3256 ], [ %.sroa.51.0.i252, %2994 ]
   %2283 = getelementptr inbounds nuw i8, ptr %1, i64 515
@@ -41387,8 +41387,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   br i1 %2285, label %3257, label %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit325"
 
 2286:                                             ; preds = %3253, %2991, %2280, %2268, %2248, %2214, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit186", %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit"
-  %.sroa.15.3 = phi ptr [ %.sroa.15.11219, %2268 ], [ %.sroa.15.11212, %3253 ], [ %.sroa.15.4, %2280 ], [ %.sroa.15.01127, %2991 ], [ %.sroa.13399.0.ph, %2248 ], [ %.sroa.13399.0.ph, %2214 ], [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit186" ], [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit" ]
-  %.sroa.0378.3 = phi ptr [ %.sroa.0378.11235, %2268 ], [ %.sroa.0378.11228, %3253 ], [ %.sroa.0378.4, %2280 ], [ %.sroa.0378.01168, %2991 ], [ %.sroa.11398.0.ph, %2248 ], [ %.sroa.11398.0.ph, %2214 ], [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit186" ], [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit" ]
+  %.sroa.15.3 = phi ptr [ %.sroa.15.11217, %2268 ], [ %.sroa.15.11210, %3253 ], [ %.sroa.15.4, %2280 ], [ %.sroa.15.01125, %2991 ], [ %.sroa.13399.0.ph, %2248 ], [ %.sroa.13399.0.ph, %2214 ], [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit186" ], [ %.sroa.13399.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit" ]
+  %.sroa.0378.3 = phi ptr [ %.sroa.0378.11233, %2268 ], [ %.sroa.0378.11226, %3253 ], [ %.sroa.0378.4, %2280 ], [ %.sroa.0378.01166, %2991 ], [ %.sroa.11398.0.ph, %2248 ], [ %.sroa.11398.0.ph, %2214 ], [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit186" ], [ %.sroa.11398.0.ph, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit" ]
   %.pn78.pn = phi { ptr, i32 } [ %.pn66, %2268 ], [ %.pn61.pn972, %3253 ], [ %.pn53, %2280 ], [ %.pn50.pn944, %2991 ], [ %.pn68, %2248 ], [ %.pn70, %2214 ], [ %.pn74, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit186" ], [ %.pn78, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit" ]
   %2287 = getelementptr inbounds nuw i8, ptr %1, i64 515
   %2288 = load i8, ptr %2287, align 1, !range !283, !noundef !5
@@ -41511,18 +41511,18 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.28.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.32.i)
   %2314 = getelementptr inbounds nuw i8, ptr %1, i64 6528
-  switch i8 %.pre981, label %default.unreachable1123 [
+  switch i8 %.pre981, label %default.unreachable1121 [
     i8 0, label %.thread.i247
     i8 1, label %2327
     i8 2, label %2328
     i8 3, label %2329
   ]
 
-.thread.i247:                                     ; preds = %.thread1124, %2312
-  %2315 = phi ptr [ %2276, %.thread1124 ], [ %2314, %2312 ]
-  %2316 = phi ptr [ %2275, %.thread1124 ], [ %2313, %2312 ]
-  %.sroa.0378.01187 = phi ptr [ %.sroa.11398.0.ph, %.thread1124 ], [ undef, %2312 ]
-  %.sroa.15.01146 = phi ptr [ %.sroa.13399.0.ph, %.thread1124 ], [ undef, %2312 ]
+.thread.i247:                                     ; preds = %.thread1122, %2312
+  %2315 = phi ptr [ %2276, %.thread1122 ], [ %2314, %2312 ]
+  %2316 = phi ptr [ %2275, %.thread1122 ], [ %2313, %2312 ]
+  %.sroa.0378.01185 = phi ptr [ %.sroa.11398.0.ph, %.thread1122 ], [ undef, %2312 ]
+  %.sroa.15.01144 = phi ptr [ %.sroa.13399.0.ph, %.thread1122 ], [ undef, %2312 ]
   %2317 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %2318 = load ptr, ptr %2317, align 8, !noalias !8800, !nonnull !5, !align !447, !noundef !5
   %2319 = getelementptr inbounds nuw i8, ptr %1, i64 752
@@ -41549,8 +41549,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2324:                                             ; preds = %.body.i213, %2947
   %2325 = phi ptr [ %2943, %2947 ], [ %2949, %.body.i213 ]
   %2326 = phi ptr [ %2944, %2947 ], [ %2950, %.body.i213 ]
-  %.sroa.0378.01189 = phi ptr [ %.sroa.0378.01168, %2947 ], [ %.sroa.0378.01190, %.body.i213 ]
-  %.sroa.15.01148 = phi ptr [ %.sroa.15.01127, %2947 ], [ %.sroa.15.01149, %.body.i213 ]
+  %.sroa.0378.01187 = phi ptr [ %.sroa.0378.01166, %2947 ], [ %.sroa.0378.01188, %.body.i213 ]
+  %.sroa.15.01146 = phi ptr [ %.sroa.15.01125, %2947 ], [ %.sroa.15.01147, %.body.i213 ]
   %.pn4.i = phi { ptr, i32 } [ %2948, %2947 ], [ %.pn2.i, %.body.i213 ]
   store i8 2, ptr %2325, align 8, !noalias !8800
   br label %.body248
@@ -41576,7 +41576,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.537.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1030.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7148.sroa.31.i.i)
-  switch i8 %.pre.i205, label %default.unreachable1123 [
+  switch i8 %.pre.i205, label %default.unreachable1121 [
     i8 0, label %._crit_edge982
     i8 1, label %2427
     i8 2, label %2428
@@ -41596,8 +41596,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2331:                                             ; preds = %._crit_edge982, %.thread.i247
   %2332 = phi ptr [ %2315, %.thread.i247 ], [ %2314, %._crit_edge982 ]
   %2333 = phi ptr [ %2316, %.thread.i247 ], [ %2313, %._crit_edge982 ]
-  %.sroa.0378.01186 = phi ptr [ %.sroa.0378.01187, %.thread.i247 ], [ undef, %._crit_edge982 ]
-  %.sroa.15.01145 = phi ptr [ %.sroa.15.01146, %.thread.i247 ], [ undef, %._crit_edge982 ]
+  %.sroa.0378.01184 = phi ptr [ %.sroa.0378.01185, %.thread.i247 ], [ undef, %._crit_edge982 ]
+  %.sroa.15.01143 = phi ptr [ %.sroa.15.01144, %.thread.i247 ], [ undef, %._crit_edge982 ]
   %2334 = phi ptr [ %2322, %.thread.i247 ], [ %.pre988, %._crit_edge982 ]
   %2335 = phi ptr [ %2320, %.thread.i247 ], [ %.pre986, %._crit_edge982 ]
   %2336 = phi ptr [ %2318, %.thread.i247 ], [ %.pre984, %._crit_edge982 ]
@@ -41869,8 +41869,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2389:                                             ; preds = %2638, %2388
   %2390 = phi ptr [ %2623, %2638 ], [ %2332, %2388 ]
   %2391 = phi ptr [ %2624, %2638 ], [ %2333, %2388 ]
-  %.sroa.0378.01179 = phi ptr [ %.sroa.0378.01180, %2638 ], [ %.sroa.0378.01186, %2388 ]
-  %.sroa.15.01138 = phi ptr [ %.sroa.15.01139, %2638 ], [ %.sroa.15.01145, %2388 ]
+  %.sroa.0378.01177 = phi ptr [ %.sroa.0378.01178, %2638 ], [ %.sroa.0378.01184, %2388 ]
+  %.sroa.15.01136 = phi ptr [ %.sroa.15.01137, %2638 ], [ %.sroa.15.01143, %2388 ]
   %2392 = phi ptr [ %2625, %2638 ], [ %2337, %2388 ]
   %2393 = phi ptr [ %2626, %2638 ], [ %2338, %2388 ]
   %.sroa.11191.sroa.0.0.i.i = phi i8 [ %.sroa.11191.sroa.0.0.extract.trunc248.i.i, %2638 ], [ %2385, %2388 ]
@@ -41905,8 +41905,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2398:                                             ; preds = %.body.i.i228, %2631, %2379
   %2399 = phi ptr [ %2332, %2379 ], [ %2623, %2631 ], [ %2699, %.body.i.i228 ]
   %2400 = phi ptr [ %2333, %2379 ], [ %2624, %2631 ], [ %2700, %.body.i.i228 ]
-  %.sroa.0378.01196 = phi ptr [ %.sroa.0378.01186, %2379 ], [ %.sroa.0378.01180, %2631 ], [ %.sroa.0378.01197, %.body.i.i228 ]
-  %.sroa.15.01155 = phi ptr [ %.sroa.15.01145, %2379 ], [ %.sroa.15.01139, %2631 ], [ %.sroa.15.01156, %.body.i.i228 ]
+  %.sroa.0378.01194 = phi ptr [ %.sroa.0378.01184, %2379 ], [ %.sroa.0378.01178, %2631 ], [ %.sroa.0378.01195, %.body.i.i228 ]
+  %.sroa.15.01153 = phi ptr [ %.sroa.15.01143, %2379 ], [ %.sroa.15.01137, %2631 ], [ %.sroa.15.01154, %.body.i.i228 ]
   %2401 = phi ptr [ %2337, %2379 ], [ %2625, %2631 ], [ %2701, %.body.i.i228 ]
   %2402 = phi ptr [ %2338, %2379 ], [ %2626, %2631 ], [ %2702, %.body.i.i228 ]
   %.sroa.14.1.i.i = phi ptr [ %2374, %2379 ], [ %.sroa.14.0567.i.i, %2631 ], [ %.sroa.14.0574.i.i, %.body.i.i228 ]
@@ -41924,8 +41924,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i", %2389, %2345
   %2407 = phi ptr [ %2390, %2389 ], [ %2390, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %2332, %2345 ]
   %2408 = phi ptr [ %2391, %2389 ], [ %2391, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %2333, %2345 ]
-  %.sroa.0378.01178 = phi ptr [ %.sroa.0378.01179, %2389 ], [ %.sroa.0378.01179, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %.sroa.0378.01186, %2345 ]
-  %.sroa.15.01137 = phi ptr [ %.sroa.15.01138, %2389 ], [ %.sroa.15.01138, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %.sroa.15.01145, %2345 ]
+  %.sroa.0378.01176 = phi ptr [ %.sroa.0378.01177, %2389 ], [ %.sroa.0378.01177, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %.sroa.0378.01184, %2345 ]
+  %.sroa.15.01135 = phi ptr [ %.sroa.15.01136, %2389 ], [ %.sroa.15.01136, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %.sroa.15.01143, %2345 ]
   %2409 = phi ptr [ %2392, %2389 ], [ %2392, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %2337, %2345 ]
   %2410 = phi ptr [ %2393, %2389 ], [ %2393, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ %2338, %2345 ]
   %.sroa.11191.sroa.0.1.i.i = phi i8 [ %.sroa.11191.sroa.0.0.i.i, %2389 ], [ %.sroa.11191.sroa.0.0.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i.i.i" ], [ 1, %2345 ]
@@ -41957,8 +41957,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i": ; preds = %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i", %2398, %2376
   %2413 = phi ptr [ %2399, %2398 ], [ %2332, %2376 ], [ %2399, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
   %2414 = phi ptr [ %2400, %2398 ], [ %2333, %2376 ], [ %2400, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
-  %.sroa.0378.01194 = phi ptr [ %.sroa.0378.01196, %2398 ], [ %.sroa.0378.01186, %2376 ], [ %.sroa.0378.01196, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
-  %.sroa.15.01153 = phi ptr [ %.sroa.15.01155, %2398 ], [ %.sroa.15.01145, %2376 ], [ %.sroa.15.01155, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
+  %.sroa.0378.01192 = phi ptr [ %.sroa.0378.01194, %2398 ], [ %.sroa.0378.01184, %2376 ], [ %.sroa.0378.01194, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
+  %.sroa.15.01151 = phi ptr [ %.sroa.15.01153, %2398 ], [ %.sroa.15.01143, %2376 ], [ %.sroa.15.01153, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
   %2415 = phi ptr [ %2401, %2398 ], [ %2337, %2376 ], [ %2401, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
   %2416 = phi ptr [ %2402, %2398 ], [ %2338, %2376 ], [ %2402, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
   %.sroa.12.5.i.i = phi ptr [ %.sroa.12.2.i.i, %2398 ], [ %2335, %2376 ], [ %.sroa.12.2.i.i, %"_ZN63_$LT$alloc..alloc..Global$u20$as$u20$core..alloc..Allocator$GT$10deallocate17hb66d9ce94201aa99E.llvm.3246130142079152848.exit.i.i1.i.i47.i.i" ]
@@ -41989,8 +41989,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i": ; preds = %2913, %2641, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i"
   %2420 = phi ptr [ %2407, %2641 ], [ %2914, %2913 ], [ %2413, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
   %2421 = phi ptr [ %2408, %2641 ], [ %2915, %2913 ], [ %2414, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
-  %.sroa.0378.01193 = phi ptr [ %.sroa.0378.01178, %2641 ], [ %.sroa.0378.01202, %2913 ], [ %.sroa.0378.01194, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
-  %.sroa.15.01152 = phi ptr [ %.sroa.15.01137, %2641 ], [ %.sroa.15.01161, %2913 ], [ %.sroa.15.01153, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
+  %.sroa.0378.01191 = phi ptr [ %.sroa.0378.01176, %2641 ], [ %.sroa.0378.01200, %2913 ], [ %.sroa.0378.01192, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
+  %.sroa.15.01150 = phi ptr [ %.sroa.15.01135, %2641 ], [ %.sroa.15.01159, %2913 ], [ %.sroa.15.01151, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
   %2422 = phi ptr [ %2409, %2641 ], [ %2916, %2913 ], [ %2415, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
   %2423 = phi ptr [ %2410, %2641 ], [ %2917, %2913 ], [ %2416, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
   %.sroa.12.7.i.i = phi ptr [ %.sroa.12.4.i.i, %2641 ], [ %.sroa.12.1659.i.i, %2913 ], [ %.sroa.12.5.i.i, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit48.i.i" ]
@@ -42024,7 +42024,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1058.i.sroa.18.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.352.sroa.2.i.sroa.18.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.sroa.2.i.sroa.18.i.i)
-  switch i8 %.pre.i.i225, label %default.unreachable1123 [
+  switch i8 %.pre.i.i225, label %default.unreachable1121 [
     i8 0, label %._crit_edge.i238
     i8 1, label %2471
     i8 2, label %2472
@@ -42045,8 +42045,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2431:                                             ; preds = %._crit_edge.i238, %.thread.i.i246
   %2432 = phi ptr [ %2332, %.thread.i.i246 ], [ %2314, %._crit_edge.i238 ]
   %2433 = phi ptr [ %2333, %.thread.i.i246 ], [ %2313, %._crit_edge.i238 ]
-  %.sroa.0378.01185 = phi ptr [ %.sroa.0378.01186, %.thread.i.i246 ], [ undef, %._crit_edge.i238 ]
-  %.sroa.15.01144 = phi ptr [ %.sroa.15.01145, %.thread.i.i246 ], [ undef, %._crit_edge.i238 ]
+  %.sroa.0378.01183 = phi ptr [ %.sroa.0378.01184, %.thread.i.i246 ], [ undef, %._crit_edge.i238 ]
+  %.sroa.15.01142 = phi ptr [ %.sroa.15.01143, %.thread.i.i246 ], [ undef, %._crit_edge.i238 ]
   %2434 = phi ptr [ %2337, %.thread.i.i246 ], [ %.phi.trans.insert.i204, %._crit_edge.i238 ]
   %2435 = phi ptr [ %2338, %.thread.i.i246 ], [ %2330, %._crit_edge.i238 ]
   %2436 = phi i8 [ %2385, %.thread.i.i246 ], [ %.pre67.i, %._crit_edge.i238 ]
@@ -42150,8 +42150,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i": ; preds = %2544, %2534, %2529, %2460, %2455
   %2465 = phi ptr [ %2474, %2544 ], [ %2432, %2460 ], [ %2432, %2455 ], [ %2474, %2534 ], [ %2474, %2529 ]
   %2466 = phi ptr [ %2475, %2544 ], [ %2433, %2460 ], [ %2433, %2455 ], [ %2475, %2534 ], [ %2475, %2529 ]
-  %.sroa.0378.01199 = phi ptr [ %.sroa.0378.01184, %2544 ], [ %.sroa.0378.01185, %2460 ], [ %.sroa.0378.01185, %2455 ], [ %.sroa.0378.01184, %2534 ], [ %.sroa.0378.01184, %2529 ]
-  %.sroa.15.01158 = phi ptr [ %.sroa.15.01143, %2544 ], [ %.sroa.15.01144, %2460 ], [ %.sroa.15.01144, %2455 ], [ %.sroa.15.01143, %2534 ], [ %.sroa.15.01143, %2529 ]
+  %.sroa.0378.01197 = phi ptr [ %.sroa.0378.01182, %2544 ], [ %.sroa.0378.01183, %2460 ], [ %.sroa.0378.01183, %2455 ], [ %.sroa.0378.01182, %2534 ], [ %.sroa.0378.01182, %2529 ]
+  %.sroa.15.01156 = phi ptr [ %.sroa.15.01141, %2544 ], [ %.sroa.15.01142, %2460 ], [ %.sroa.15.01142, %2455 ], [ %.sroa.15.01141, %2534 ], [ %.sroa.15.01141, %2529 ]
   %2467 = phi ptr [ %2476, %2544 ], [ %2434, %2460 ], [ %2434, %2455 ], [ %2476, %2534 ], [ %2476, %2529 ]
   %2468 = phi ptr [ %2477, %2544 ], [ %2435, %2460 ], [ %2435, %2455 ], [ %2477, %2534 ], [ %2477, %2529 ]
   %2469 = phi ptr [ %2478, %2544 ], [ %2440, %2460 ], [ %2440, %2455 ], [ %2478, %2534 ], [ %2478, %2529 ]
@@ -42183,8 +42183,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2473:                                             ; preds = %2461, %2445
   %2474 = phi ptr [ %2432, %2461 ], [ %2314, %2445 ]
   %2475 = phi ptr [ %2433, %2461 ], [ %2313, %2445 ]
-  %.sroa.0378.01184 = phi ptr [ %.sroa.0378.01185, %2461 ], [ undef, %2445 ]
-  %.sroa.15.01143 = phi ptr [ %.sroa.15.01144, %2461 ], [ undef, %2445 ]
+  %.sroa.0378.01182 = phi ptr [ %.sroa.0378.01183, %2461 ], [ undef, %2445 ]
+  %.sroa.15.01141 = phi ptr [ %.sroa.15.01142, %2461 ], [ undef, %2445 ]
   %2476 = phi ptr [ %2434, %2461 ], [ %.phi.trans.insert.i204, %2445 ]
   %2477 = phi ptr [ %2435, %2461 ], [ %2330, %2445 ]
   %2478 = phi ptr [ %2440, %2461 ], [ %.phi.trans.insert.i.i224, %2445 ]
@@ -42256,7 +42256,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 
 .noexc18.i.i.i229:                                ; preds = %2500
   %2501 = load i64, ptr %24, align 8, !range !61, !noalias !8873, !noundef !5
-  switch i64 %2501, label %default.unreachable1123 [
+  switch i64 %2501, label %default.unreachable1121 [
     i64 2, label %2514
     i64 0, label %2504
     i64 1, label %2505
@@ -42287,7 +42287,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 
 .noexc19.i.i.i235:                                ; preds = %2507
   %2508 = load i64, ptr %23, align 8, !range !61, !noalias !8873, !noundef !5
-  switch i64 %2508, label %default.unreachable1123 [
+  switch i64 %2508, label %default.unreachable1121 [
     i64 2, label %2512
     i64 0, label %2509
     i64 1, label %2510
@@ -42501,8 +42501,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i": ; preds = %2569, %2566, %2556, %2451
   %2546 = phi ptr [ %2557, %2556 ], [ %2557, %2569 ], [ %2557, %2566 ], [ %2474, %2451 ]
   %2547 = phi ptr [ %2558, %2556 ], [ %2558, %2569 ], [ %2558, %2566 ], [ %2475, %2451 ]
-  %.sroa.0378.01182 = phi ptr [ %.sroa.0378.01183, %2556 ], [ %.sroa.0378.01183, %2569 ], [ %.sroa.0378.01183, %2566 ], [ %.sroa.0378.01184, %2451 ]
-  %.sroa.15.01141 = phi ptr [ %.sroa.15.01142, %2556 ], [ %.sroa.15.01142, %2569 ], [ %.sroa.15.01142, %2566 ], [ %.sroa.15.01143, %2451 ]
+  %.sroa.0378.01180 = phi ptr [ %.sroa.0378.01181, %2556 ], [ %.sroa.0378.01181, %2569 ], [ %.sroa.0378.01181, %2566 ], [ %.sroa.0378.01182, %2451 ]
+  %.sroa.15.01139 = phi ptr [ %.sroa.15.01140, %2556 ], [ %.sroa.15.01140, %2569 ], [ %.sroa.15.01140, %2566 ], [ %.sroa.15.01141, %2451 ]
   %2548 = phi ptr [ %2559, %2556 ], [ %2559, %2569 ], [ %2559, %2566 ], [ %2476, %2451 ]
   %2549 = phi ptr [ %2560, %2556 ], [ %2560, %2569 ], [ %2560, %2566 ], [ %2477, %2451 ]
   %2550 = phi ptr [ %2561, %2556 ], [ %2561, %2569 ], [ %2561, %2566 ], [ %2478, %2451 ]
@@ -42540,8 +42540,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2556:                                             ; preds = %._crit_edge.i.i233, %.thread.i.i.i240
   %2557 = phi ptr [ %2474, %._crit_edge.i.i233 ], [ %2432, %.thread.i.i.i240 ]
   %2558 = phi ptr [ %2475, %._crit_edge.i.i233 ], [ %2433, %.thread.i.i.i240 ]
-  %.sroa.0378.01183 = phi ptr [ %.sroa.0378.01184, %._crit_edge.i.i233 ], [ %.sroa.0378.01185, %.thread.i.i.i240 ]
-  %.sroa.15.01142 = phi ptr [ %.sroa.15.01143, %._crit_edge.i.i233 ], [ %.sroa.15.01144, %.thread.i.i.i240 ]
+  %.sroa.0378.01181 = phi ptr [ %.sroa.0378.01182, %._crit_edge.i.i233 ], [ %.sroa.0378.01183, %.thread.i.i.i240 ]
+  %.sroa.15.01140 = phi ptr [ %.sroa.15.01141, %._crit_edge.i.i233 ], [ %.sroa.15.01142, %.thread.i.i.i240 ]
   %2559 = phi ptr [ %2476, %._crit_edge.i.i233 ], [ %2434, %.thread.i.i.i240 ]
   %2560 = phi ptr [ %2477, %._crit_edge.i.i233 ], [ %2435, %.thread.i.i.i240 ]
   %2561 = phi ptr [ %2478, %._crit_edge.i.i233 ], [ %2440, %.thread.i.i.i240 ]
@@ -42589,8 +42589,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2570:                                             ; preds = %2583, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i", %2453
   %2571 = phi ptr [ %2557, %2583 ], [ %2465, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %2432, %2453 ]
   %2572 = phi ptr [ %2558, %2583 ], [ %2466, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %2433, %2453 ]
-  %.sroa.0378.01198 = phi ptr [ %.sroa.0378.01183, %2583 ], [ %.sroa.0378.01199, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %.sroa.0378.01185, %2453 ]
-  %.sroa.15.01157 = phi ptr [ %.sroa.15.01142, %2583 ], [ %.sroa.15.01158, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %.sroa.15.01144, %2453 ]
+  %.sroa.0378.01196 = phi ptr [ %.sroa.0378.01181, %2583 ], [ %.sroa.0378.01197, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %.sroa.0378.01183, %2453 ]
+  %.sroa.15.01155 = phi ptr [ %.sroa.15.01140, %2583 ], [ %.sroa.15.01156, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %.sroa.15.01142, %2453 ]
   %2573 = phi ptr [ %2559, %2583 ], [ %2467, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %2434, %2453 ]
   %2574 = phi ptr [ %2560, %2583 ], [ %2468, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %2435, %2453 ]
   %2575 = phi ptr [ %2561, %2583 ], [ %2469, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit.i.i.i" ], [ %2440, %2453 ]
@@ -42634,8 +42634,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i": ; preds = %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i", %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i"
   %2588 = phi ptr [ %2474, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %2546, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2589 = phi ptr [ %2475, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %2547, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
-  %.sroa.0378.01175 = phi ptr [ %.sroa.0378.01184, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %.sroa.0378.01182, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
-  %.sroa.15.01134 = phi ptr [ %.sroa.15.01143, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %.sroa.15.01141, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
+  %.sroa.0378.01173 = phi ptr [ %.sroa.0378.01182, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %.sroa.0378.01180, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
+  %.sroa.15.01132 = phi ptr [ %.sroa.15.01141, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %.sroa.15.01139, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2590 = phi ptr [ %2476, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %2548, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2591 = phi ptr [ %2477, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %2549, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2592 = phi ptr [ %2478, %"_ZN4core3ptr55drop_in_place$LT$async_tls..connector..TlsConnector$GT$17hdbefad2e91964e6dE.exit36.i.i.i" ], [ %2550, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
@@ -42725,8 +42725,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2613:                                             ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i", %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i"
   %2614 = phi ptr [ %2588, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %2546, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2615 = phi ptr [ %2589, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %2547, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
-  %.sroa.0378.01181 = phi ptr [ %.sroa.0378.01175, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %.sroa.0378.01182, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
-  %.sroa.15.01140 = phi ptr [ %.sroa.15.01134, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %.sroa.15.01141, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
+  %.sroa.0378.01179 = phi ptr [ %.sroa.0378.01173, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %.sroa.0378.01180, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
+  %.sroa.15.01138 = phi ptr [ %.sroa.15.01132, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %.sroa.15.01139, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2616 = phi ptr [ %2590, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %2548, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2617 = phi ptr [ %2591, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %2549, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
   %2618 = phi ptr [ %2592, %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit38.sink.split.i.i.i" ], [ %2550, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i.i" ]
@@ -42766,8 +42766,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2622:                                             ; preds = %2613, %.thread412.i.i
   %2623 = phi ptr [ %2474, %.thread412.i.i ], [ %2614, %2613 ]
   %2624 = phi ptr [ %2475, %.thread412.i.i ], [ %2615, %2613 ]
-  %.sroa.0378.01180 = phi ptr [ %.sroa.0378.01184, %.thread412.i.i ], [ %.sroa.0378.01181, %2613 ]
-  %.sroa.15.01139 = phi ptr [ %.sroa.15.01143, %.thread412.i.i ], [ %.sroa.15.01140, %2613 ]
+  %.sroa.0378.01178 = phi ptr [ %.sroa.0378.01182, %.thread412.i.i ], [ %.sroa.0378.01179, %2613 ]
+  %.sroa.15.01137 = phi ptr [ %.sroa.15.01141, %.thread412.i.i ], [ %.sroa.15.01138, %2613 ]
   %2625 = phi ptr [ %2476, %.thread412.i.i ], [ %2616, %2613 ]
   %2626 = phi ptr [ %2477, %.thread412.i.i ], [ %2617, %2613 ]
   %2627 = phi ptr [ %2479, %.thread412.i.i ], [ %2619, %2613 ]
@@ -42890,8 +42890,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit.i.i": ; preds = %2662, %2659, %2651, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i"
   %2643 = phi ptr [ %2652, %2659 ], [ %2652, %2651 ], [ %2652, %2662 ], [ %2407, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
   %2644 = phi ptr [ %2653, %2659 ], [ %2653, %2651 ], [ %2653, %2662 ], [ %2408, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
-  %.sroa.0378.01176 = phi ptr [ %.sroa.0378.01177, %2659 ], [ %.sroa.0378.01177, %2651 ], [ %.sroa.0378.01177, %2662 ], [ %.sroa.0378.01178, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
-  %.sroa.15.01135 = phi ptr [ %.sroa.15.01136, %2659 ], [ %.sroa.15.01136, %2651 ], [ %.sroa.15.01136, %2662 ], [ %.sroa.15.01137, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
+  %.sroa.0378.01174 = phi ptr [ %.sroa.0378.01175, %2659 ], [ %.sroa.0378.01175, %2651 ], [ %.sroa.0378.01175, %2662 ], [ %.sroa.0378.01176, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
+  %.sroa.15.01133 = phi ptr [ %.sroa.15.01134, %2659 ], [ %.sroa.15.01134, %2651 ], [ %.sroa.15.01134, %2662 ], [ %.sroa.15.01135, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
   %2645 = phi ptr [ %2654, %2659 ], [ %2654, %2651 ], [ %2654, %2662 ], [ %2409, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
   %2646 = phi ptr [ %2655, %2659 ], [ %2655, %2651 ], [ %2655, %2662 ], [ %2410, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
   %2647 = phi ptr [ %2657, %2659 ], [ %2657, %2651 ], [ %2657, %2662 ], [ %.phi.trans.insert479.i.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i.i" ]
@@ -42925,8 +42925,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2651:                                             ; preds = %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i", %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i"
   %2652 = phi ptr [ %2332, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %2407, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
   %2653 = phi ptr [ %2333, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %2408, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
-  %.sroa.0378.01177 = phi ptr [ %.sroa.0378.01186, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %.sroa.0378.01178, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
-  %.sroa.15.01136 = phi ptr [ %.sroa.15.01145, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %.sroa.15.01137, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
+  %.sroa.0378.01175 = phi ptr [ %.sroa.0378.01184, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %.sroa.0378.01176, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
+  %.sroa.15.01134 = phi ptr [ %.sroa.15.01143, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %.sroa.15.01135, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
   %2654 = phi ptr [ %2337, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %2409, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
   %2655 = phi ptr [ %2338, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %2410, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
   %2656 = phi ptr [ %2334, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.thread.i.i" ], [ %.pre68.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit.i._crit_edge.i" ]
@@ -42968,8 +42968,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i": ; preds = %2937, %2934, %2931, %2671, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i"
   %2663 = phi ptr [ %2652, %2671 ], [ %2420, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %2420, %2937 ], [ %2420, %2931 ], [ %2420, %2934 ]
   %2664 = phi ptr [ %2653, %2671 ], [ %2421, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %2421, %2937 ], [ %2421, %2931 ], [ %2421, %2934 ]
-  %.sroa.0378.01192 = phi ptr [ %.sroa.0378.01177, %2671 ], [ %.sroa.0378.01193, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %.sroa.0378.01193, %2937 ], [ %.sroa.0378.01193, %2931 ], [ %.sroa.0378.01193, %2934 ]
-  %.sroa.15.01151 = phi ptr [ %.sroa.15.01136, %2671 ], [ %.sroa.15.01152, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %.sroa.15.01152, %2937 ], [ %.sroa.15.01152, %2931 ], [ %.sroa.15.01152, %2934 ]
+  %.sroa.0378.01190 = phi ptr [ %.sroa.0378.01175, %2671 ], [ %.sroa.0378.01191, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %.sroa.0378.01191, %2937 ], [ %.sroa.0378.01191, %2931 ], [ %.sroa.0378.01191, %2934 ]
+  %.sroa.15.01149 = phi ptr [ %.sroa.15.01134, %2671 ], [ %.sroa.15.01150, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %.sroa.15.01150, %2937 ], [ %.sroa.15.01150, %2931 ], [ %.sroa.15.01150, %2934 ]
   %2665 = phi ptr [ %2654, %2671 ], [ %2422, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %2422, %2937 ], [ %2422, %2931 ], [ %2422, %2934 ]
   %2666 = phi ptr [ %2655, %2671 ], [ %2423, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %2423, %2937 ], [ %2423, %2931 ], [ %2423, %2934 ]
   %.sroa.12.8.i.i = phi ptr [ %.sroa.12.6559.i.i, %2671 ], [ %.sroa.12.7.i.i, %"_ZN4core3ptr59drop_in_place$LT$http..request..Request$LT$$LP$$RP$$GT$$GT$17h8deb08bf89bfa820E.exit40.i.i" ], [ %.sroa.12.7.i.i, %2937 ], [ %.sroa.12.7.i.i, %2931 ], [ %.sroa.12.7.i.i, %2934 ]
@@ -43036,8 +43036,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body45.i.i:                                      ; preds = %2938, %2693, %2685, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i"
   %2694 = phi ptr [ %2663, %2938 ], [ %2663, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %2643, %2693 ], [ %2643, %2685 ]
   %2695 = phi ptr [ %2664, %2938 ], [ %2664, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %2644, %2693 ], [ %2644, %2685 ]
-  %.sroa.0378.01191 = phi ptr [ %.sroa.0378.01192, %2938 ], [ %.sroa.0378.01192, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %.sroa.0378.01176, %2693 ], [ %.sroa.0378.01176, %2685 ]
-  %.sroa.15.01150 = phi ptr [ %.sroa.15.01151, %2938 ], [ %.sroa.15.01151, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %.sroa.15.01135, %2693 ], [ %.sroa.15.01135, %2685 ]
+  %.sroa.0378.01189 = phi ptr [ %.sroa.0378.01190, %2938 ], [ %.sroa.0378.01190, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %.sroa.0378.01174, %2693 ], [ %.sroa.0378.01174, %2685 ]
+  %.sroa.15.01148 = phi ptr [ %.sroa.15.01149, %2938 ], [ %.sroa.15.01149, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %.sroa.15.01133, %2693 ], [ %.sroa.15.01133, %2685 ]
   %2696 = phi ptr [ %2665, %2938 ], [ %2665, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %2645, %2693 ], [ %2645, %2685 ]
   %2697 = phi ptr [ %2666, %2938 ], [ %2666, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %2646, %2693 ], [ %2646, %2685 ]
   %.pn29.i.i = phi { ptr, i32 } [ %.pn27.i.i, %2938 ], [ %.pn27.i.i, %"_ZN4core3ptr83drop_in_place$LT$core..option..Option$LT$async_tls..connector..TlsConnector$GT$$GT$17hc483bc2c0d90e851E.exit62.i.i" ], [ %2686, %2693 ], [ %2686, %2685 ]
@@ -43049,8 +43049,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i.i228:                                     ; preds = %2611, %2608
   %2699 = phi ptr [ %2314, %2611 ], [ %2571, %2608 ]
   %2700 = phi ptr [ %2313, %2611 ], [ %2572, %2608 ]
-  %.sroa.0378.01197 = phi ptr [ undef, %2611 ], [ %.sroa.0378.01198, %2608 ]
-  %.sroa.15.01156 = phi ptr [ undef, %2611 ], [ %.sroa.15.01157, %2608 ]
+  %.sroa.0378.01195 = phi ptr [ undef, %2611 ], [ %.sroa.0378.01196, %2608 ]
+  %.sroa.15.01154 = phi ptr [ undef, %2611 ], [ %.sroa.15.01155, %2608 ]
   %2701 = phi ptr [ %.phi.trans.insert.i204, %2611 ], [ %2573, %2608 ]
   %2702 = phi ptr [ %2330, %2611 ], [ %2574, %2608 ]
   %2703 = phi ptr [ %2430, %2611 ], [ %2576, %2608 ]
@@ -43084,7 +43084,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %2708 = getelementptr inbounds nuw i8, ptr %1, i64 1392
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.336.i.sroa.8.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.0.i.i.i)
-  switch i8 %.pre478.i.i, label %default.unreachable1123 [
+  switch i8 %.pre478.i.i, label %default.unreachable1121 [
     i8 0, label %.thread.i54.i.i
     i8 1, label %2727
     i8 2, label %2728
@@ -43094,8 +43094,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body8.i.i.i:                                     ; preds = %.body.i.i.i210, %.body.i.i10.i.i.i, %2715
   %2709 = phi ptr [ %2895, %.body.i.i.i210 ], [ %2846, %2715 ], [ %2846, %.body.i.i10.i.i.i ]
   %2710 = phi ptr [ %2896, %.body.i.i.i210 ], [ %2847, %2715 ], [ %2847, %.body.i.i10.i.i.i ]
-  %.sroa.0378.01204 = phi ptr [ %.sroa.0378.01205, %.body.i.i.i210 ], [ %.sroa.0378.01169, %2715 ], [ %.sroa.0378.01169, %.body.i.i10.i.i.i ]
-  %.sroa.15.01163 = phi ptr [ %.sroa.15.01164, %.body.i.i.i210 ], [ %.sroa.15.01128, %2715 ], [ %.sroa.15.01128, %.body.i.i10.i.i.i ]
+  %.sroa.0378.01202 = phi ptr [ %.sroa.0378.01203, %.body.i.i.i210 ], [ %.sroa.0378.01167, %2715 ], [ %.sroa.0378.01167, %.body.i.i10.i.i.i ]
+  %.sroa.15.01161 = phi ptr [ %.sroa.15.01162, %.body.i.i.i210 ], [ %.sroa.15.01126, %2715 ], [ %.sroa.15.01126, %.body.i.i10.i.i.i ]
   %2711 = phi ptr [ %2897, %.body.i.i.i210 ], [ %2848, %2715 ], [ %2848, %.body.i.i10.i.i.i ]
   %2712 = phi ptr [ %2898, %.body.i.i.i210 ], [ %2849, %2715 ], [ %2849, %.body.i.i10.i.i.i ]
   %2713 = phi ptr [ %2899, %.body.i.i.i210 ], [ %2850, %2715 ], [ %2850, %.body.i.i10.i.i.i ]
@@ -43114,8 +43114,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .thread.i54.i.i:                                  ; preds = %2707, %.thread656.i.i
   %2717 = phi ptr [ %2623, %.thread656.i.i ], [ %2314, %2707 ]
   %2718 = phi ptr [ %2624, %.thread656.i.i ], [ %2313, %2707 ]
-  %.sroa.0378.01174 = phi ptr [ %.sroa.0378.01180, %.thread656.i.i ], [ undef, %2707 ]
-  %.sroa.15.01133 = phi ptr [ %.sroa.15.01139, %.thread656.i.i ], [ undef, %2707 ]
+  %.sroa.0378.01172 = phi ptr [ %.sroa.0378.01178, %.thread656.i.i ], [ undef, %2707 ]
+  %.sroa.15.01131 = phi ptr [ %.sroa.15.01137, %.thread656.i.i ], [ undef, %2707 ]
   %2719 = phi ptr [ %2625, %.thread656.i.i ], [ %.phi.trans.insert.i204, %2707 ]
   %2720 = phi ptr [ %2626, %.thread656.i.i ], [ %2330, %2707 ]
   %2721 = phi ptr [ %.sroa.14178.0..sroa_idx.i.i, %.thread656.i.i ], [ %.phi.trans.insert477.i.i, %2707 ]
@@ -43160,7 +43160,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   %2730 = getelementptr inbounds nuw i8, ptr %1, i64 2224
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.912.i.sroa.11.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1013.i.i.i.i)
-  switch i8 %.pre.i50.i.i, label %default.unreachable1123 [
+  switch i8 %.pre.i50.i.i, label %default.unreachable1121 [
     i8 0, label %.thread.i.i.i.i222
     i8 1, label %2750
     i8 2, label %2751
@@ -43170,8 +43170,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .thread.i.i.i.i222:                               ; preds = %2729, %.thread.i54.i.i
   %2731 = phi ptr [ %2717, %.thread.i54.i.i ], [ %2314, %2729 ]
   %2732 = phi ptr [ %2718, %.thread.i54.i.i ], [ %2313, %2729 ]
-  %.sroa.0378.01173 = phi ptr [ %.sroa.0378.01174, %.thread.i54.i.i ], [ undef, %2729 ]
-  %.sroa.15.01132 = phi ptr [ %.sroa.15.01133, %.thread.i54.i.i ], [ undef, %2729 ]
+  %.sroa.0378.01171 = phi ptr [ %.sroa.0378.01172, %.thread.i54.i.i ], [ undef, %2729 ]
+  %.sroa.15.01130 = phi ptr [ %.sroa.15.01131, %.thread.i54.i.i ], [ undef, %2729 ]
   %2733 = phi ptr [ %2719, %.thread.i54.i.i ], [ %.phi.trans.insert.i204, %2729 ]
   %2734 = phi ptr [ %2720, %.thread.i54.i.i ], [ %2330, %2729 ]
   %2735 = phi ptr [ %2721, %.thread.i54.i.i ], [ %.phi.trans.insert477.i.i, %2729 ]
@@ -43202,8 +43202,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2741:                                             ; preds = %.body.i.i.i.i209, %2856
   %2742 = phi ptr [ %2846, %2856 ], [ %2864, %.body.i.i.i.i209 ]
   %2743 = phi ptr [ %2847, %2856 ], [ %2865, %.body.i.i.i.i209 ]
-  %.sroa.0378.01206 = phi ptr [ %.sroa.0378.01169, %2856 ], [ %.sroa.0378.01207, %.body.i.i.i.i209 ]
-  %.sroa.15.01165 = phi ptr [ %.sroa.15.01128, %2856 ], [ %.sroa.15.01166, %.body.i.i.i.i209 ]
+  %.sroa.0378.01204 = phi ptr [ %.sroa.0378.01167, %2856 ], [ %.sroa.0378.01205, %.body.i.i.i.i209 ]
+  %.sroa.15.01163 = phi ptr [ %.sroa.15.01126, %2856 ], [ %.sroa.15.01164, %.body.i.i.i.i209 ]
   %2744 = phi ptr [ %2848, %2856 ], [ %2866, %.body.i.i.i.i209 ]
   %2745 = phi ptr [ %2849, %2856 ], [ %2867, %.body.i.i.i.i209 ]
   %2746 = phi ptr [ %2850, %2856 ], [ %2868, %.body.i.i.i.i209 ]
@@ -43241,7 +43241,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.3.i.i.sroa.16.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  switch i8 %.pre.i.i.i.i207, label %default.unreachable1123 [
+  switch i8 %.pre.i.i.i.i207, label %default.unreachable1121 [
     i8 0, label %2766
     i8 1, label %2780
     i8 2, label %2781
@@ -43252,8 +43252,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i.i.i.i.i208:                               ; preds = %2841, %2834, %2803, %2794, %2764
   %2754 = phi ptr [ %2783, %2794 ], [ %2783, %2764 ], [ %2783, %2803 ], [ %2823, %2841 ], [ %2823, %2834 ]
   %2755 = phi ptr [ %2784, %2794 ], [ %2784, %2764 ], [ %2784, %2803 ], [ %2824, %2841 ], [ %2824, %2834 ]
-  %.sroa.0378.01208 = phi ptr [ %.sroa.0378.01171, %2794 ], [ %.sroa.0378.01171, %2764 ], [ %.sroa.0378.01171, %2803 ], [ %.sroa.0378.01170, %2841 ], [ %.sroa.0378.01170, %2834 ]
-  %.sroa.15.01167 = phi ptr [ %.sroa.15.01130, %2794 ], [ %.sroa.15.01130, %2764 ], [ %.sroa.15.01130, %2803 ], [ %.sroa.15.01129, %2841 ], [ %.sroa.15.01129, %2834 ]
+  %.sroa.0378.01206 = phi ptr [ %.sroa.0378.01169, %2794 ], [ %.sroa.0378.01169, %2764 ], [ %.sroa.0378.01169, %2803 ], [ %.sroa.0378.01168, %2841 ], [ %.sroa.0378.01168, %2834 ]
+  %.sroa.15.01165 = phi ptr [ %.sroa.15.01128, %2794 ], [ %.sroa.15.01128, %2764 ], [ %.sroa.15.01128, %2803 ], [ %.sroa.15.01127, %2841 ], [ %.sroa.15.01127, %2834 ]
   %2756 = phi ptr [ %2785, %2794 ], [ %2785, %2764 ], [ %2785, %2803 ], [ %2825, %2841 ], [ %2825, %2834 ]
   %2757 = phi ptr [ %2786, %2794 ], [ %2786, %2764 ], [ %2786, %2803 ], [ %2826, %2841 ], [ %2826, %2834 ]
   %2758 = phi ptr [ %2787, %2794 ], [ %2787, %2764 ], [ %2787, %2803 ], [ %2827, %2841 ], [ %2827, %2834 ]
@@ -43276,8 +43276,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2766:                                             ; preds = %2752, %.thread.i.i.i.i222
   %2767 = phi ptr [ %2731, %.thread.i.i.i.i222 ], [ %2314, %2752 ]
   %2768 = phi ptr [ %2732, %.thread.i.i.i.i222 ], [ %2313, %2752 ]
-  %.sroa.0378.01172 = phi ptr [ %.sroa.0378.01173, %.thread.i.i.i.i222 ], [ undef, %2752 ]
-  %.sroa.15.01131 = phi ptr [ %.sroa.15.01132, %.thread.i.i.i.i222 ], [ undef, %2752 ]
+  %.sroa.0378.01170 = phi ptr [ %.sroa.0378.01171, %.thread.i.i.i.i222 ], [ undef, %2752 ]
+  %.sroa.15.01129 = phi ptr [ %.sroa.15.01130, %.thread.i.i.i.i222 ], [ undef, %2752 ]
   %2769 = phi ptr [ %2733, %.thread.i.i.i.i222 ], [ %.phi.trans.insert.i204, %2752 ]
   %2770 = phi ptr [ %2734, %.thread.i.i.i.i222 ], [ %2330, %2752 ]
   %2771 = phi ptr [ %2735, %.thread.i.i.i.i222 ], [ %.phi.trans.insert477.i.i, %2752 ]
@@ -43313,8 +43313,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2782:                                             ; preds = %2766, %2752
   %2783 = phi ptr [ %2767, %2766 ], [ %2314, %2752 ]
   %2784 = phi ptr [ %2768, %2766 ], [ %2313, %2752 ]
-  %.sroa.0378.01171 = phi ptr [ %.sroa.0378.01172, %2766 ], [ undef, %2752 ]
-  %.sroa.15.01130 = phi ptr [ %.sroa.15.01131, %2766 ], [ undef, %2752 ]
+  %.sroa.0378.01169 = phi ptr [ %.sroa.0378.01170, %2766 ], [ undef, %2752 ]
+  %.sroa.15.01128 = phi ptr [ %.sroa.15.01129, %2766 ], [ undef, %2752 ]
   %2785 = phi ptr [ %2769, %2766 ], [ %.phi.trans.insert.i204, %2752 ]
   %2786 = phi ptr [ %2770, %2766 ], [ %2330, %2752 ]
   %2787 = phi ptr [ %2771, %2766 ], [ %.phi.trans.insert477.i.i, %2752 ]
@@ -43565,8 +43565,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2822:                                             ; preds = %2817, %2752
   %2823 = phi ptr [ %2783, %2817 ], [ %2314, %2752 ]
   %2824 = phi ptr [ %2784, %2817 ], [ %2313, %2752 ]
-  %.sroa.0378.01170 = phi ptr [ %.sroa.0378.01171, %2817 ], [ undef, %2752 ]
-  %.sroa.15.01129 = phi ptr [ %.sroa.15.01130, %2817 ], [ undef, %2752 ]
+  %.sroa.0378.01168 = phi ptr [ %.sroa.0378.01169, %2817 ], [ undef, %2752 ]
+  %.sroa.15.01127 = phi ptr [ %.sroa.15.01128, %2817 ], [ undef, %2752 ]
   %2825 = phi ptr [ %2785, %2817 ], [ %.phi.trans.insert.i204, %2752 ]
   %2826 = phi ptr [ %2786, %2817 ], [ %2330, %2752 ]
   %2827 = phi ptr [ %2787, %2817 ], [ %.phi.trans.insert477.i.i, %2752 ]
@@ -43656,8 +43656,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2845:                                             ; preds = %2839, %2818, %2816
   %2846 = phi ptr [ %2783, %2818 ], [ %2823, %2839 ], [ %2783, %2816 ]
   %2847 = phi ptr [ %2784, %2818 ], [ %2824, %2839 ], [ %2784, %2816 ]
-  %.sroa.0378.01169 = phi ptr [ %.sroa.0378.01171, %2818 ], [ %.sroa.0378.01170, %2839 ], [ %.sroa.0378.01171, %2816 ]
-  %.sroa.15.01128 = phi ptr [ %.sroa.15.01130, %2818 ], [ %.sroa.15.01129, %2839 ], [ %.sroa.15.01130, %2816 ]
+  %.sroa.0378.01167 = phi ptr [ %.sroa.0378.01169, %2818 ], [ %.sroa.0378.01168, %2839 ], [ %.sroa.0378.01169, %2816 ]
+  %.sroa.15.01126 = phi ptr [ %.sroa.15.01128, %2818 ], [ %.sroa.15.01127, %2839 ], [ %.sroa.15.01128, %2816 ]
   %2848 = phi ptr [ %2785, %2818 ], [ %2825, %2839 ], [ %2785, %2816 ]
   %2849 = phi ptr [ %2786, %2818 ], [ %2826, %2839 ], [ %2786, %2816 ]
   %2850 = phi ptr [ %2787, %2818 ], [ %2827, %2839 ], [ %2787, %2816 ]
@@ -43729,8 +43729,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i.i.i.i209:                                 ; preds = %2843, %.body.i.i.i.i.i208
   %2864 = phi ptr [ %2314, %2843 ], [ %2754, %.body.i.i.i.i.i208 ]
   %2865 = phi ptr [ %2313, %2843 ], [ %2755, %.body.i.i.i.i.i208 ]
-  %.sroa.0378.01207 = phi ptr [ undef, %2843 ], [ %.sroa.0378.01208, %.body.i.i.i.i.i208 ]
-  %.sroa.15.01166 = phi ptr [ undef, %2843 ], [ %.sroa.15.01167, %.body.i.i.i.i.i208 ]
+  %.sroa.0378.01205 = phi ptr [ undef, %2843 ], [ %.sroa.0378.01206, %.body.i.i.i.i.i208 ]
+  %.sroa.15.01164 = phi ptr [ undef, %2843 ], [ %.sroa.15.01165, %.body.i.i.i.i.i208 ]
   %2866 = phi ptr [ %.phi.trans.insert.i204, %2843 ], [ %2756, %.body.i.i.i.i.i208 ]
   %2867 = phi ptr [ %2330, %2843 ], [ %2757, %.body.i.i.i.i.i208 ]
   %2868 = phi ptr [ %.phi.trans.insert477.i.i, %2843 ], [ %2758, %.body.i.i.i.i.i208 ]
@@ -43886,8 +43886,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i.i.i210:                                   ; preds = %2873, %2741
   %2895 = phi ptr [ %2314, %2873 ], [ %2742, %2741 ]
   %2896 = phi ptr [ %2313, %2873 ], [ %2743, %2741 ]
-  %.sroa.0378.01205 = phi ptr [ undef, %2873 ], [ %.sroa.0378.01206, %2741 ]
-  %.sroa.15.01164 = phi ptr [ undef, %2873 ], [ %.sroa.15.01165, %2741 ]
+  %.sroa.0378.01203 = phi ptr [ undef, %2873 ], [ %.sroa.0378.01204, %2741 ]
+  %.sroa.15.01162 = phi ptr [ undef, %2873 ], [ %.sroa.15.01163, %2741 ]
   %2897 = phi ptr [ %.phi.trans.insert.i204, %2873 ], [ %2744, %2741 ]
   %2898 = phi ptr [ %2330, %2873 ], [ %2745, %2741 ]
   %2899 = phi ptr [ %.phi.trans.insert477.i.i, %2873 ], [ %2746, %2741 ]
@@ -43963,8 +43963,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2913:                                             ; preds = %.body56.i.i, %2919
   %2914 = phi ptr [ %2846, %2919 ], [ %2926, %.body56.i.i ]
   %2915 = phi ptr [ %2847, %2919 ], [ %2927, %.body56.i.i ]
-  %.sroa.0378.01202 = phi ptr [ %.sroa.0378.01169, %2919 ], [ %.sroa.0378.01203, %.body56.i.i ]
-  %.sroa.15.01161 = phi ptr [ %.sroa.15.01128, %2919 ], [ %.sroa.15.01162, %.body56.i.i ]
+  %.sroa.0378.01200 = phi ptr [ %.sroa.0378.01167, %2919 ], [ %.sroa.0378.01201, %.body56.i.i ]
+  %.sroa.15.01159 = phi ptr [ %.sroa.15.01126, %2919 ], [ %.sroa.15.01160, %.body56.i.i ]
   %2916 = phi ptr [ %2848, %2919 ], [ %2928, %.body56.i.i ]
   %2917 = phi ptr [ %2849, %2919 ], [ %2929, %.body56.i.i ]
   %.sroa.0.1672.i.i = phi ptr [ %.sroa.0.1679.i.i, %2919 ], [ %.sroa.0.1673.i.i, %.body56.i.i ]
@@ -44000,8 +44000,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body56.i.i:                                      ; preds = %2904, %.body8.i.i.i
   %2926 = phi ptr [ %2314, %2904 ], [ %2709, %.body8.i.i.i ]
   %2927 = phi ptr [ %2313, %2904 ], [ %2710, %.body8.i.i.i ]
-  %.sroa.0378.01203 = phi ptr [ undef, %2904 ], [ %.sroa.0378.01204, %.body8.i.i.i ]
-  %.sroa.15.01162 = phi ptr [ undef, %2904 ], [ %.sroa.15.01163, %.body8.i.i.i ]
+  %.sroa.0378.01201 = phi ptr [ undef, %2904 ], [ %.sroa.0378.01202, %.body8.i.i.i ]
+  %.sroa.15.01160 = phi ptr [ undef, %2904 ], [ %.sroa.15.01161, %.body8.i.i.i ]
   %2928 = phi ptr [ %.phi.trans.insert.i204, %2904 ], [ %2711, %.body8.i.i.i ]
   %2929 = phi ptr [ %2330, %2904 ], [ %2712, %.body8.i.i.i ]
   %2930 = phi ptr [ %2708, %2904 ], [ %2714, %.body8.i.i.i ]
@@ -44041,8 +44041,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 2942:                                             ; preds = %2921, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i"
   %2943 = phi ptr [ %2643, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %2846, %2921 ]
   %2944 = phi ptr [ %2644, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %2847, %2921 ]
-  %.sroa.0378.01168 = phi ptr [ %.sroa.0378.01176, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %.sroa.0378.01169, %2921 ]
-  %.sroa.15.01127 = phi ptr [ %.sroa.15.01135, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %.sroa.15.01128, %2921 ]
+  %.sroa.0378.01166 = phi ptr [ %.sroa.0378.01174, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %.sroa.0378.01167, %2921 ]
+  %.sroa.15.01125 = phi ptr [ %.sroa.15.01133, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %.sroa.15.01126, %2921 ]
   %2945 = phi ptr [ %2645, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %2848, %2921 ]
   %2946 = phi ptr [ %2646, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %2849, %2921 ]
   %.sroa.11191.sroa.0.3.i.i = phi i8 [ %.sroa.11191.sroa.0.2522.i.i, %"_ZN4core3ptr83drop_in_place$LT$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$17h1d25f884313bce04E.exit.i.i" ], [ %.sroa.11191.sroa.0.0.extract.trunc250.i.i, %2921 ]
@@ -44083,8 +44083,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i213:                                       ; preds = %2940, %.body45.i.i
   %2949 = phi ptr [ %2314, %2940 ], [ %2694, %.body45.i.i ]
   %2950 = phi ptr [ %2313, %2940 ], [ %2695, %.body45.i.i ]
-  %.sroa.0378.01190 = phi ptr [ undef, %2940 ], [ %.sroa.0378.01191, %.body45.i.i ]
-  %.sroa.15.01149 = phi ptr [ undef, %2940 ], [ %.sroa.15.01150, %.body45.i.i ]
+  %.sroa.0378.01188 = phi ptr [ undef, %2940 ], [ %.sroa.0378.01189, %.body45.i.i ]
+  %.sroa.15.01147 = phi ptr [ undef, %2940 ], [ %.sroa.15.01148, %.body45.i.i ]
   %2951 = phi ptr [ %2330, %2940 ], [ %2697, %.body45.i.i ]
   %.pn2.i = phi { ptr, i32 } [ %2941, %2940 ], [ %.pn29.i.i, %.body45.i.i ]
   invoke fastcc void @"_ZN4core3ptr233drop_in_place$LT$async_tungstenite..async_tls..client_async_tls_with_connector_and_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17hac5f23ba8434b6c6E"(ptr noundef nonnull align 8 %2951) #47
@@ -44389,8 +44389,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 
 .body248:                                         ; preds = %2954, %2324
   %2995 = phi ptr [ %2313, %2954 ], [ %2326, %2324 ]
-  %.sroa.0378.01188 = phi ptr [ undef, %2954 ], [ %.sroa.0378.01189, %2324 ]
-  %.sroa.15.01147 = phi ptr [ undef, %2954 ], [ %.sroa.15.01148, %2324 ]
+  %.sroa.0378.01186 = phi ptr [ undef, %2954 ], [ %.sroa.0378.01187, %2324 ]
+  %.sroa.15.01145 = phi ptr [ undef, %2954 ], [ %.sroa.15.01146, %2324 ]
   %.pn46 = phi { ptr, i32 } [ %2955, %2954 ], [ %.pn4.i, %2324 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.26)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.27)
@@ -44410,18 +44410,18 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1131.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.15.i.i)
   %2998 = getelementptr inbounds nuw i8, ptr %1, i64 2776
-  switch i8 %.pre975, label %default.unreachable1123 [
+  switch i8 %.pre975, label %default.unreachable1121 [
     i8 0, label %.thread.i301
     i8 1, label %3009
     i8 2, label %3010
     i8 3, label %3011
   ]
 
-.thread.i301:                                     ; preds = %.thread1209, %2996
-  %2999 = phi ptr [ %2267, %.thread1209 ], [ %2998, %2996 ]
-  %3000 = phi ptr [ %2266, %.thread1209 ], [ %2997, %2996 ]
-  %.sroa.0378.11234 = phi ptr [ %.sroa.11398.0.ph, %.thread1209 ], [ undef, %2996 ]
-  %.sroa.15.11218 = phi ptr [ %.sroa.13399.0.ph, %.thread1209 ], [ undef, %2996 ]
+.thread.i301:                                     ; preds = %.thread1207, %2996
+  %2999 = phi ptr [ %2267, %.thread1207 ], [ %2998, %2996 ]
+  %3000 = phi ptr [ %2266, %.thread1207 ], [ %2997, %2996 ]
+  %.sroa.0378.11232 = phi ptr [ %.sroa.11398.0.ph, %.thread1207 ], [ undef, %2996 ]
+  %.sroa.15.11216 = phi ptr [ %.sroa.13399.0.ph, %.thread1207 ], [ undef, %2996 ]
   %3001 = getelementptr inbounds nuw i8, ptr %1, i64 744
   %3002 = load ptr, ptr %3001, align 8, !noalias !9129, !nonnull !5, !align !447, !noundef !5
   %3003 = getelementptr inbounds nuw i8, ptr %1, i64 752
@@ -44444,8 +44444,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 3006:                                             ; preds = %.body.i274, %3192
   %3007 = phi ptr [ %3133, %3192 ], [ %3194, %.body.i274 ]
   %3008 = phi ptr [ %3134, %3192 ], [ %3195, %.body.i274 ]
-  %.sroa.0378.11237 = phi ptr [ %.sroa.0378.11228, %3192 ], [ %.sroa.0378.11238, %.body.i274 ]
-  %.sroa.15.11221 = phi ptr [ %.sroa.15.11212, %3192 ], [ %.sroa.15.11222, %.body.i274 ]
+  %.sroa.0378.11235 = phi ptr [ %.sroa.0378.11226, %3192 ], [ %.sroa.0378.11236, %.body.i274 ]
+  %.sroa.15.11219 = phi ptr [ %.sroa.15.11210, %3192 ], [ %.sroa.15.11220, %.body.i274 ]
   %.pn4.i276 = phi { ptr, i32 } [ %3193, %3192 ], [ %.pn2.i275, %.body.i274 ]
   store i8 2, ptr %3007, align 8, !noalias !9129
   br label %.body306
@@ -44471,7 +44471,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.340.i.sroa.8.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.541.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.13.i.i)
-  switch i8 %.pre.i263, label %default.unreachable1123 [
+  switch i8 %.pre.i263, label %default.unreachable1121 [
     i8 0, label %..thread.i.i298_crit_edge
     i8 1, label %3028
     i8 2, label %3029
@@ -44488,8 +44488,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body7.i.i:                                       ; preds = %.body.i.i271, %.body.i.i.i.i286, %3017
   %3013 = phi ptr [ %3182, %.body.i.i271 ], [ %3133, %3017 ], [ %3133, %.body.i.i.i.i286 ]
   %3014 = phi ptr [ %3183, %.body.i.i271 ], [ %3134, %3017 ], [ %3134, %.body.i.i.i.i286 ]
-  %.sroa.0378.11239 = phi ptr [ %.sroa.0378.11240, %.body.i.i271 ], [ %.sroa.0378.11228, %3017 ], [ %.sroa.0378.11228, %.body.i.i.i.i286 ]
-  %.sroa.15.11223 = phi ptr [ %.sroa.15.11224, %.body.i.i271 ], [ %.sroa.15.11212, %3017 ], [ %.sroa.15.11212, %.body.i.i.i.i286 ]
+  %.sroa.0378.11237 = phi ptr [ %.sroa.0378.11238, %.body.i.i271 ], [ %.sroa.0378.11226, %3017 ], [ %.sroa.0378.11226, %.body.i.i.i.i286 ]
+  %.sroa.15.11221 = phi ptr [ %.sroa.15.11222, %.body.i.i271 ], [ %.sroa.15.11210, %3017 ], [ %.sroa.15.11210, %.body.i.i.i.i286 ]
   %3015 = phi ptr [ %3184, %.body.i.i271 ], [ %3135, %3017 ], [ %3135, %.body.i.i.i.i286 ]
   %3016 = phi ptr [ %3185, %.body.i.i271 ], [ %3136, %3017 ], [ %3136, %.body.i.i.i.i286 ]
   %.pn2.i.i273 = phi { ptr, i32 } [ %.pn.i.i272, %.body.i.i271 ], [ %3018, %3017 ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i286 ]
@@ -44505,8 +44505,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .thread.i.i298:                                   ; preds = %..thread.i.i298_crit_edge, %.thread.i301
   %3019 = phi ptr [ %2999, %.thread.i301 ], [ %2998, %..thread.i.i298_crit_edge ]
   %3020 = phi ptr [ %3000, %.thread.i301 ], [ %2997, %..thread.i.i298_crit_edge ]
-  %.sroa.0378.11233 = phi ptr [ %.sroa.0378.11234, %.thread.i301 ], [ undef, %..thread.i.i298_crit_edge ]
-  %.sroa.15.11217 = phi ptr [ %.sroa.15.11218, %.thread.i301 ], [ undef, %..thread.i.i298_crit_edge ]
+  %.sroa.0378.11231 = phi ptr [ %.sroa.0378.11232, %.thread.i301 ], [ undef, %..thread.i.i298_crit_edge ]
+  %.sroa.15.11215 = phi ptr [ %.sroa.15.11216, %.thread.i301 ], [ undef, %..thread.i.i298_crit_edge ]
   %3021 = phi ptr [ %3004, %.thread.i301 ], [ %.pre979, %..thread.i.i298_crit_edge ]
   %3022 = phi ptr [ %3002, %.thread.i301 ], [ %.pre977, %..thread.i.i298_crit_edge ]
   %3023 = phi ptr [ %.sroa.10.0..sroa_idx.i305, %.thread.i301 ], [ %.phi.trans.insert.i262, %..thread.i.i298_crit_edge ]
@@ -44554,7 +44554,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1046.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.914.i.sroa.11.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.1015.i.i.i)
-  switch i8 %.pre.i.i265, label %default.unreachable1123 [
+  switch i8 %.pre.i.i265, label %default.unreachable1121 [
     i8 0, label %..thread.i.i_crit_edge.i
     i8 1, label %3048
     i8 2, label %3049
@@ -44571,8 +44571,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .thread.i.i.i295:                                 ; preds = %..thread.i.i_crit_edge.i, %.thread.i.i298
   %3032 = phi ptr [ %3019, %.thread.i.i298 ], [ %2998, %..thread.i.i_crit_edge.i ]
   %3033 = phi ptr [ %3020, %.thread.i.i298 ], [ %2997, %..thread.i.i_crit_edge.i ]
-  %.sroa.0378.11232 = phi ptr [ %.sroa.0378.11233, %.thread.i.i298 ], [ undef, %..thread.i.i_crit_edge.i ]
-  %.sroa.15.11216 = phi ptr [ %.sroa.15.11217, %.thread.i.i298 ], [ undef, %..thread.i.i_crit_edge.i ]
+  %.sroa.0378.11230 = phi ptr [ %.sroa.0378.11231, %.thread.i.i298 ], [ undef, %..thread.i.i_crit_edge.i ]
+  %.sroa.15.11214 = phi ptr [ %.sroa.15.11215, %.thread.i.i298 ], [ undef, %..thread.i.i_crit_edge.i ]
   %3034 = phi ptr [ %3023, %.thread.i.i298 ], [ %.phi.trans.insert.i262, %..thread.i.i_crit_edge.i ]
   %3035 = phi ptr [ %3024, %.thread.i.i298 ], [ %3012, %..thread.i.i_crit_edge.i ]
   %3036 = phi ptr [ %3021, %.thread.i.i298 ], [ %.pre62.i, %..thread.i.i_crit_edge.i ]
@@ -44596,8 +44596,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 3041:                                             ; preds = %.body.i.i.i268, %3141
   %3042 = phi ptr [ %3133, %3141 ], [ %3149, %.body.i.i.i268 ]
   %3043 = phi ptr [ %3134, %3141 ], [ %3150, %.body.i.i.i268 ]
-  %.sroa.0378.11241 = phi ptr [ %.sroa.0378.11228, %3141 ], [ %.sroa.0378.11242, %.body.i.i.i268 ]
-  %.sroa.15.11225 = phi ptr [ %.sroa.15.11212, %3141 ], [ %.sroa.15.11226, %.body.i.i.i268 ]
+  %.sroa.0378.11239 = phi ptr [ %.sroa.0378.11226, %3141 ], [ %.sroa.0378.11240, %.body.i.i.i268 ]
+  %.sroa.15.11223 = phi ptr [ %.sroa.15.11210, %3141 ], [ %.sroa.15.11224, %.body.i.i.i268 ]
   %3044 = phi ptr [ %3135, %3141 ], [ %3151, %.body.i.i.i268 ]
   %3045 = phi ptr [ %3136, %3141 ], [ %3152, %.body.i.i.i268 ]
   %3046 = phi ptr [ %3137, %3141 ], [ %3153, %.body.i.i.i268 ]
@@ -44628,7 +44628,7 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.5.i.i.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.321.i.i.sroa.16.i.i)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.4.i.i.i.i)
-  switch i8 %.pre.i.i.i267, label %default.unreachable1123 [
+  switch i8 %.pre.i.i.i267, label %default.unreachable1121 [
     i8 0, label %._crit_edge.i.i293
     i8 1, label %3074
     i8 2, label %3075
@@ -44646,8 +44646,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 "_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i": ; preds = %3128, %3121, %3108, %3086, %3060
   %3052 = phi ptr [ %3077, %3060 ], [ %3077, %3108 ], [ %3077, %3086 ], [ %3112, %3128 ], [ %3112, %3121 ]
   %3053 = phi ptr [ %3078, %3060 ], [ %3078, %3108 ], [ %3078, %3086 ], [ %3113, %3128 ], [ %3113, %3121 ]
-  %.sroa.0378.11243 = phi ptr [ %.sroa.0378.11230, %3060 ], [ %.sroa.0378.11230, %3108 ], [ %.sroa.0378.11230, %3086 ], [ %.sroa.0378.11229, %3128 ], [ %.sroa.0378.11229, %3121 ]
-  %.sroa.15.11227 = phi ptr [ %.sroa.15.11214, %3060 ], [ %.sroa.15.11214, %3108 ], [ %.sroa.15.11214, %3086 ], [ %.sroa.15.11213, %3128 ], [ %.sroa.15.11213, %3121 ]
+  %.sroa.0378.11241 = phi ptr [ %.sroa.0378.11228, %3060 ], [ %.sroa.0378.11228, %3108 ], [ %.sroa.0378.11228, %3086 ], [ %.sroa.0378.11227, %3128 ], [ %.sroa.0378.11227, %3121 ]
+  %.sroa.15.11225 = phi ptr [ %.sroa.15.11212, %3060 ], [ %.sroa.15.11212, %3108 ], [ %.sroa.15.11212, %3086 ], [ %.sroa.15.11211, %3128 ], [ %.sroa.15.11211, %3121 ]
   %3054 = phi ptr [ %3079, %3060 ], [ %3079, %3108 ], [ %3079, %3086 ], [ %3114, %3128 ], [ %3114, %3121 ]
   %3055 = phi ptr [ %3080, %3060 ], [ %3080, %3108 ], [ %3080, %3086 ], [ %3115, %3128 ], [ %3115, %3121 ]
   %3056 = phi ptr [ %3081, %3060 ], [ %3081, %3108 ], [ %3081, %3086 ], [ %3116, %3128 ], [ %3116, %3121 ]
@@ -44666,8 +44666,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 3062:                                             ; preds = %._crit_edge.i.i293, %.thread.i.i.i295
   %3063 = phi ptr [ %3032, %.thread.i.i.i295 ], [ %2998, %._crit_edge.i.i293 ]
   %3064 = phi ptr [ %3033, %.thread.i.i.i295 ], [ %2997, %._crit_edge.i.i293 ]
-  %.sroa.0378.11231 = phi ptr [ %.sroa.0378.11232, %.thread.i.i.i295 ], [ undef, %._crit_edge.i.i293 ]
-  %.sroa.15.11215 = phi ptr [ %.sroa.15.11216, %.thread.i.i.i295 ], [ undef, %._crit_edge.i.i293 ]
+  %.sroa.0378.11229 = phi ptr [ %.sroa.0378.11230, %.thread.i.i.i295 ], [ undef, %._crit_edge.i.i293 ]
+  %.sroa.15.11213 = phi ptr [ %.sroa.15.11214, %.thread.i.i.i295 ], [ undef, %._crit_edge.i.i293 ]
   %3065 = phi ptr [ %3034, %.thread.i.i.i295 ], [ %.phi.trans.insert.i262, %._crit_edge.i.i293 ]
   %3066 = phi ptr [ %3035, %.thread.i.i.i295 ], [ %3012, %._crit_edge.i.i293 ]
   %3067 = phi ptr [ %3038, %.thread.i.i.i295 ], [ %.phi.trans.insert.i.i264, %._crit_edge.i.i293 ]
@@ -44701,8 +44701,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 3076:                                             ; preds = %3062, %3050
   %3077 = phi ptr [ %2998, %3050 ], [ %3063, %3062 ]
   %3078 = phi ptr [ %2997, %3050 ], [ %3064, %3062 ]
-  %.sroa.0378.11230 = phi ptr [ undef, %3050 ], [ %.sroa.0378.11231, %3062 ]
-  %.sroa.15.11214 = phi ptr [ undef, %3050 ], [ %.sroa.15.11215, %3062 ]
+  %.sroa.0378.11228 = phi ptr [ undef, %3050 ], [ %.sroa.0378.11229, %3062 ]
+  %.sroa.15.11212 = phi ptr [ undef, %3050 ], [ %.sroa.15.11213, %3062 ]
   %3079 = phi ptr [ %.phi.trans.insert.i262, %3050 ], [ %3065, %3062 ]
   %3080 = phi ptr [ %3012, %3050 ], [ %3066, %3062 ]
   %3081 = phi ptr [ %.phi.trans.insert.i.i264, %3050 ], [ %3067, %3062 ]
@@ -44936,8 +44936,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 3111:                                             ; preds = %3104, %3050
   %3112 = phi ptr [ %2998, %3050 ], [ %3077, %3104 ]
   %3113 = phi ptr [ %2997, %3050 ], [ %3078, %3104 ]
-  %.sroa.0378.11229 = phi ptr [ undef, %3050 ], [ %.sroa.0378.11230, %3104 ]
-  %.sroa.15.11213 = phi ptr [ undef, %3050 ], [ %.sroa.15.11214, %3104 ]
+  %.sroa.0378.11227 = phi ptr [ undef, %3050 ], [ %.sroa.0378.11228, %3104 ]
+  %.sroa.15.11211 = phi ptr [ undef, %3050 ], [ %.sroa.15.11212, %3104 ]
   %3114 = phi ptr [ %.phi.trans.insert.i262, %3050 ], [ %3079, %3104 ]
   %3115 = phi ptr [ %3012, %3050 ], [ %3080, %3104 ]
   %3116 = phi ptr [ %.phi.trans.insert.i.i264, %3050 ], [ %3081, %3104 ]
@@ -45023,8 +45023,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 3132:                                             ; preds = %3126, %3106, %3103
   %3133 = phi ptr [ %3077, %3106 ], [ %3112, %3126 ], [ %3077, %3103 ]
   %3134 = phi ptr [ %3078, %3106 ], [ %3113, %3126 ], [ %3078, %3103 ]
-  %.sroa.0378.11228 = phi ptr [ %.sroa.0378.11230, %3106 ], [ %.sroa.0378.11229, %3126 ], [ %.sroa.0378.11230, %3103 ]
-  %.sroa.15.11212 = phi ptr [ %.sroa.15.11214, %3106 ], [ %.sroa.15.11213, %3126 ], [ %.sroa.15.11214, %3103 ]
+  %.sroa.0378.11226 = phi ptr [ %.sroa.0378.11228, %3106 ], [ %.sroa.0378.11227, %3126 ], [ %.sroa.0378.11228, %3103 ]
+  %.sroa.15.11210 = phi ptr [ %.sroa.15.11212, %3106 ], [ %.sroa.15.11211, %3126 ], [ %.sroa.15.11212, %3103 ]
   %3135 = phi ptr [ %3079, %3106 ], [ %3114, %3126 ], [ %3079, %3103 ]
   %3136 = phi ptr [ %3080, %3106 ], [ %3115, %3126 ], [ %3080, %3103 ]
   %3137 = phi ptr [ %3081, %3106 ], [ %3116, %3126 ], [ %3081, %3103 ]
@@ -45085,8 +45085,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i.i.i268:                                   ; preds = %3130, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i"
   %3149 = phi ptr [ %2998, %3130 ], [ %3052, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
   %3150 = phi ptr [ %2997, %3130 ], [ %3053, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
-  %.sroa.0378.11242 = phi ptr [ undef, %3130 ], [ %.sroa.0378.11243, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
-  %.sroa.15.11226 = phi ptr [ undef, %3130 ], [ %.sroa.15.11227, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
+  %.sroa.0378.11240 = phi ptr [ undef, %3130 ], [ %.sroa.0378.11241, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
+  %.sroa.15.11224 = phi ptr [ undef, %3130 ], [ %.sroa.15.11225, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
   %3151 = phi ptr [ %.phi.trans.insert.i262, %3130 ], [ %3054, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
   %3152 = phi ptr [ %3012, %3130 ], [ %3055, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
   %3153 = phi ptr [ %.phi.trans.insert.i.i264, %3130 ], [ %3056, %"_ZN4core3ptr358drop_in_place$LT$async_tungstenite..handshake..StartedHandshakeFuture$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$$GT$17hd2efead212dbe93dE.exit13.i.i.i.i" ]
@@ -45254,8 +45254,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i.i271:                                     ; preds = %3156, %3041
   %3182 = phi ptr [ %2998, %3156 ], [ %3042, %3041 ]
   %3183 = phi ptr [ %2997, %3156 ], [ %3043, %3041 ]
-  %.sroa.0378.11240 = phi ptr [ undef, %3156 ], [ %.sroa.0378.11241, %3041 ]
-  %.sroa.15.11224 = phi ptr [ undef, %3156 ], [ %.sroa.15.11225, %3041 ]
+  %.sroa.0378.11238 = phi ptr [ undef, %3156 ], [ %.sroa.0378.11239, %3041 ]
+  %.sroa.15.11222 = phi ptr [ undef, %3156 ], [ %.sroa.15.11223, %3041 ]
   %3184 = phi ptr [ %.phi.trans.insert.i262, %3156 ], [ %3044, %3041 ]
   %3185 = phi ptr [ %3012, %3156 ], [ %3045, %3041 ]
   %3186 = phi ptr [ %3031, %3156 ], [ %3047, %3041 ]
@@ -45309,8 +45309,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 .body.i274:                                       ; preds = %3189, %.body7.i.i
   %3194 = phi ptr [ %2998, %3189 ], [ %3013, %.body7.i.i ]
   %3195 = phi ptr [ %2997, %3189 ], [ %3014, %.body7.i.i ]
-  %.sroa.0378.11238 = phi ptr [ undef, %3189 ], [ %.sroa.0378.11239, %.body7.i.i ]
-  %.sroa.15.11222 = phi ptr [ undef, %3189 ], [ %.sroa.15.11223, %.body7.i.i ]
+  %.sroa.0378.11236 = phi ptr [ undef, %3189 ], [ %.sroa.0378.11237, %.body7.i.i ]
+  %.sroa.15.11220 = phi ptr [ undef, %3189 ], [ %.sroa.15.11221, %.body7.i.i ]
   %3196 = phi ptr [ %3012, %3189 ], [ %3016, %.body7.i.i ]
   %.pn2.i275 = phi { ptr, i32 } [ %3190, %3189 ], [ %.pn2.i.i273, %.body7.i.i ]
   invoke fastcc void @"_ZN4core3ptr204drop_in_place$LT$async_tungstenite..client_async_with_config$LT$http..request..Request$LT$$LP$$RP$$GT$$C$alloc..boxed..Box$LT$dyn$u20$client..socks..AsyncReadWrite$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h29f4d3e82476025fE"(ptr noundef nonnull align 8 %3196) #47
@@ -45618,11 +45618,11 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   br i1 %3247, label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit323", label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit323.sink.split"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit321.sink.split": ; preds = %3233, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit148", %3282
-  %.sink1247 = phi i64 [ %3285, %3282 ], [ %3302, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit148" ], [ %3236, %3233 ]
+  %.sink1245 = phi i64 [ %3285, %3282 ], [ %3302, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit148" ], [ %3236, %3233 ]
   %.pn96.ph = phi { ptr, i32 } [ %3283, %3282 ], [ %.pn91.pn, %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit148" ], [ %3234, %3233 ]
   %3248 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3249 = load ptr, ptr %3248, align 8, !noalias !5, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %3249, i64 noundef %.sink1247, i64 noundef 1) #39, !noalias !5
+  call void @__rust_dealloc(ptr noundef nonnull %3249, i64 noundef %.sink1245, i64 noundef 1) #39, !noalias !5
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit321"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit321": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit321.sink.split", %"_ZN4core3ptr63drop_in_place$LT$core..option..Option$LT$http..uri..Uri$GT$$GT$17h59a2a4fce4ef9f85E.exit148", %3282, %3233
@@ -45631,14 +45631,14 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
   resume { ptr, i32 } %.pn96
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit323.sink.split": ; preds = %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit", %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331"
-  %.sink1250 = phi i64 [ %3295, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331" ], [ %3246, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit" ]
+  %.sink1248 = phi i64 [ %3295, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331" ], [ %3246, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit" ]
   %.sroa.0815.6.ph = phi ptr [ null, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331" ], [ %.sroa.0815.5, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit" ]
   %.sroa.14818.6.ph = phi i8 [ %.sroa.14818.1, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331" ], [ %.sroa.14818.5, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit" ]
   %.sroa.25826.6.ph = phi ptr [ %.sroa.25826.1, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331" ], [ %.sroa.25826.5, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit" ]
   %.sroa.32.1.ph = phi i64 [ undef, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331" ], [ %.sroa.32.0, %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit" ]
   %3250 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %3251 = load ptr, ptr %3250, align 8, !noalias !5, !nonnull !5, !noundef !5
-  call void @__rust_dealloc(ptr noundef nonnull %3251, i64 noundef %.sink1250, i64 noundef 1) #39, !noalias !5
+  call void @__rust_dealloc(ptr noundef nonnull %3251, i64 noundef %.sink1248, i64 noundef 1) #39, !noalias !5
   br label %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit323"
 
 "_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit323": ; preds = %"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17h54f638d256f5f959E.exit323.sink.split", %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit331", %"_ZN4core3ptr40drop_in_place$LT$client..Credentials$GT$17he829f538022b5537E.exit"
@@ -45768,8 +45768,8 @@ _ZN3log13__private_api3log17hd70f482f348a79bbE.exit: ; preds = %2087
 
 .body306:                                         ; preds = %3199, %3006
   %3297 = phi ptr [ %2997, %3199 ], [ %3008, %3006 ]
-  %.sroa.0378.11236 = phi ptr [ undef, %3199 ], [ %.sroa.0378.11237, %3006 ]
-  %.sroa.15.11220 = phi ptr [ undef, %3199 ], [ %.sroa.15.11221, %3006 ]
+  %.sroa.0378.11234 = phi ptr [ undef, %3199 ], [ %.sroa.0378.11235, %3006 ]
+  %.sroa.15.11218 = phi ptr [ undef, %3199 ], [ %.sroa.15.11219, %3006 ]
   %.pn57 = phi { ptr, i32 } [ %3200, %3199 ], [ %.pn4.i276, %3006 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.26658)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.27659)

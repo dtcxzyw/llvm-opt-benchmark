@@ -1403,7 +1403,7 @@ _ZNSt6vectorIS_IdSaIdEESaIS1_EE17_S_check_init_lenEmRKS2_.exit.i.thread: ; preds
   %146 = getelementptr inbounds nuw i8, ptr %143, i64 %142
   %147 = getelementptr inbounds nuw i8, ptr %11, i64 8
   store ptr %146, ptr %147, align 8, !tbaa !138
-  %148 = icmp samesign ugt i64 %138, 384307168202282325
+  %148 = icmp samesign ugt i64 %137, 384307168202282324
   br i1 %148, label %149, label %_ZNSt16allocator_traitsISaISt6vectorIdSaIdEEEE8allocateERS3_m.exit.i.i.i.i
 
 149:                                              ; preds = %.noexc296

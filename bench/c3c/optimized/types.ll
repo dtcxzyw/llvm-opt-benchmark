@@ -5109,7 +5109,7 @@ type_flatten.exit34:                              ; preds = %type_flatten.exit, 
   %.029 = phi ptr [ %33, %31 ], [ %6, %type_flatten.exit ]
   %.028 = phi ptr [ %35, %31 ], [ %19, %type_flatten.exit ]
   %36 = icmp eq ptr %.029, %.028
-  br i1 %36, label %74, label %37
+  br i1 %36, label %73, label %37
 
 37:                                               ; preds = %type_flatten.exit34
   %38 = getelementptr inbounds nuw i8, ptr %.029, i64 8
@@ -5119,7 +5119,7 @@ type_flatten.exit34:                              ; preds = %type_flatten.exit, 
   %42 = load ptr, ptr @type_char, align 8
   %43 = icmp eq ptr %.028, %42
   %or.cond = select i1 %41, i1 %43, i1 false
-  br i1 %or.cond, label %74, label %44
+  br i1 %or.cond, label %73, label %44
 
 44:                                               ; preds = %37
   %45 = icmp eq ptr %.029, %42
@@ -5129,11 +5129,11 @@ type_flatten.exit34:                              ; preds = %type_flatten.exit, 
   %47 = getelementptr inbounds nuw i8, ptr %.028, i64 8
   %48 = load ptr, ptr %47, align 8
   %49 = icmp eq ptr %48, %40
-  br i1 %49, label %74, label %50
+  br i1 %49, label %73, label %50
 
 50:                                               ; preds = %46, %44
   %51 = load i32, ptr %.029, align 8
-  switch i32 %51, label %73 [
+  switch i32 %51, label %72 [
     i32 23, label %52
     i32 26, label %56
     i32 37, label %60
@@ -5155,49 +5155,48 @@ type_flatten.exit34:                              ; preds = %type_flatten.exit, 
 52:                                               ; preds = %50
   %53 = load i32, ptr %.028, align 8
   %.not = icmp eq i32 %53, 23
-  br i1 %.not, label %54, label %74
+  br i1 %.not, label %54, label %73
 
 54:                                               ; preds = %52
   %55 = tail call i32 @type_is_pointer_equivalent(ptr noundef %0, ptr noundef nonnull %.029, ptr noundef nonnull %.028, i1 noundef zeroext %3)
-  br label %74
+  br label %73
 
 56:                                               ; preds = %50
-  br i1 %3, label %57, label %74
+  br i1 %3, label %57, label %73
 
 57:                                               ; preds = %56
   %58 = tail call zeroext i1 @type_is_structurally_equivalent(ptr noundef nonnull %.029, ptr noundef %.028)
   %59 = zext i1 %58 to i32
-  br label %74
+  br label %73
 
 60:                                               ; preds = %50, %50, %50, %50
   %61 = tail call fastcc i32 @type_array_is_equivalent(ptr noundef %0, ptr noundef nonnull %.029, ptr noundef %.028, i1 noundef zeroext %3)
-  br label %74
+  br label %73
 
 62:                                               ; preds = %50, %50, %50, %50, %50, %50, %50, %50, %50, %50
   %63 = load i32, ptr %.028, align 8
   %64 = icmp eq i32 %51, %63
-  br i1 %64, label %74, label %65
+  br i1 %64, label %73, label %65
 
 65:                                               ; preds = %62
-  %66 = add nsw i32 %51, -3
-  %67 = icmp samesign ult i32 %66, 5
-  br i1 %67, label %68, label %type_is_matching_int.exit
+  %66 = icmp samesign ult i32 %51, 8
+  br i1 %66, label %67, label %type_is_matching_int.exit
 
-68:                                               ; preds = %65
-  %69 = add nuw nsw i32 %51, 5
-  %70 = icmp eq i32 %69, %63
-  br i1 %70, label %74, label %73
+67:                                               ; preds = %65
+  %68 = add nuw nsw i32 %51, 5
+  %69 = icmp eq i32 %68, %63
+  br i1 %69, label %73, label %72
 
 type_is_matching_int.exit:                        ; preds = %65
-  %71 = add i32 %63, 5
-  %72 = icmp eq i32 %71, %51
-  br i1 %72, label %74, label %73
+  %70 = add i32 %63, 5
+  %71 = icmp eq i32 %70, %51
+  br i1 %71, label %73, label %72
 
-73:                                               ; preds = %68, %type_is_matching_int.exit, %50
-  br label %74
+72:                                               ; preds = %67, %type_is_matching_int.exit, %50
+  br label %73
 
-74:                                               ; preds = %62, %68, %type_is_matching_int.exit, %56, %52, %46, %37, %type_flatten.exit34, %73, %60, %57, %54
-  %.0 = phi i32 [ 0, %73 ], [ %55, %54 ], [ %59, %57 ], [ %61, %60 ], [ 1, %type_flatten.exit34 ], [ 1, %37 ], [ 1, %46 ], [ 0, %52 ], [ 0, %56 ], [ 2, %type_is_matching_int.exit ], [ 2, %68 ], [ 2, %62 ]
+73:                                               ; preds = %62, %67, %type_is_matching_int.exit, %56, %52, %46, %37, %type_flatten.exit34, %72, %60, %57, %54
+  %.0 = phi i32 [ 0, %72 ], [ %55, %54 ], [ %59, %57 ], [ %61, %60 ], [ 1, %type_flatten.exit34 ], [ 1, %37 ], [ 1, %46 ], [ 0, %52 ], [ 0, %56 ], [ 2, %type_is_matching_int.exit ], [ 2, %67 ], [ 2, %62 ]
   ret i32 %.0
 }
 

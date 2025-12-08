@@ -816,7 +816,7 @@ define void @av_memcpy_backptr(ptr noundef captures(none) %0, i32 noundef %1, i3
   store i32 %39, ptr %.0.lcssa.i65, align 1, !tbaa !8
   %53 = getelementptr inbounds nuw i8, ptr %.0.lcssa.i65, i64 4
   %54 = add nsw i32 %.031.lcssa.i, -4
-  %55 = icmp samesign ugt i32 %54, 3
+  %55 = icmp samesign ugt i32 %.031.lcssa.i, 7
   br i1 %55, label %56, label %.thread.i
 
 56:                                               ; preds = %52

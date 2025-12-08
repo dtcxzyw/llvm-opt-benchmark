@@ -1530,15 +1530,15 @@ _ZN6icu_7713UnicodeString6appendEDs.exit327:      ; preds = %612
 630:                                              ; preds = %623
   %631 = add i8 %.0151411, 2
   %632 = shl nuw nsw i32 %620, 10
-  %633 = add nsw i32 %632, -56613888
-  %634 = add nuw nsw i32 %633, %627
-  %635 = icmp samesign ugt i32 %634, 1048575
+  %633 = add nuw nsw i32 %632, %627
+  %634 = add nsw i32 %633, -56613888
+  %635 = icmp samesign ugt i32 %633, 57662463
   br i1 %635, label %636, label %643
 
 636:                                              ; preds = %630
   %637 = lshr i32 %634, 20
   %638 = trunc nuw nsw i32 %637 to i8
-  %639 = icmp samesign ult i32 %634, 10485760
+  %639 = icmp samesign ult i32 %633, 67099648
   %640 = or disjoint i8 %638, 48
   %narrow.i328 = add nuw nsw i8 %638, 87
   %.v.i329 = select i1 %639, i8 %640, i8 %narrow.i328

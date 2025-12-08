@@ -5712,7 +5712,7 @@ _ZNSt6vectorIN2cv5aruco15MarkerCandidateESaIS2_EE9push_backERKS2_.exit: ; preds 
 
 .loopexit:                                        ; preds = %559, %547
   %indvars.iv.next = add nsw i32 %indvars.iv691, -1
-  %561 = icmp samesign ugt i64 %indvars.iv.next498692, 1
+  %561 = icmp sgt i64 %indvars.iv.next498692.in, 2
   br i1 %561, label %.lr.ph460, label %._crit_edge466, !llvm.loop !214
 
 ._crit_edge466:                                   ; preds = %.loopexit, %.lr.ph465, %._crit_edge457

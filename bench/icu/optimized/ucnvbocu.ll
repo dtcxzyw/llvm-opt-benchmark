@@ -2005,7 +2005,7 @@ define internal fastcc noundef range(i32 33554432, 0) i32 @_ZL8packDiffi(i32 nou
 81:                                               ; preds = %76, %74
   %82 = phi i32 [ %75, %74 ], [ %80, %76 ]
   %83 = shl nsw i32 %82, 8
-  %84 = icmp samesign ugt i32 %58, 1180979
+  %84 = icmp samesign ugt i32 %0, 1368639
   br i1 %84, label %85, label %87
 
 85:                                               ; preds = %81

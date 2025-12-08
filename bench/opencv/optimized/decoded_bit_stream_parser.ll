@@ -1135,7 +1135,7 @@ _ZN5zxing12ErrorHandlerD2Ev.exit125:              ; preds = %119, %_ZNKSt7__cxx1
   %150 = getelementptr inbounds nuw i8, ptr %149, i64 2
   store i8 %147, ptr %150, align 1, !tbaa !20
   %151 = add nsw i32 %.0203, -3
-  %152 = icmp samesign ugt i32 %151, 2
+  %152 = icmp sgt i32 %.0203, 5
   br i1 %152, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !54
 
 ._crit_edge.loopexit:                             ; preds = %129

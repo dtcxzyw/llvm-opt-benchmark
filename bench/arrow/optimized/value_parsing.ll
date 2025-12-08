@@ -5415,11 +5415,11 @@ _ZN5arrow4util17CastSecondsToUnitENS_8TimeUnit4typeEl.exit95.i: ; preds = %304, 
   ]
 
 312:                                              ; preds = %309
-  %313 = icmp samesign ugt i64 %311, 3
+  %313 = icmp samesign ugt i64 %.062.i, 23
   br i1 %313, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, label %316, !prof !107
 
 314:                                              ; preds = %309
-  %315 = icmp samesign ugt i64 %311, 6
+  %315 = icmp samesign ugt i64 %.062.i, 26
   br i1 %315, label %_ZN5arrow8internal6detailL15ParseSubSecondsEPKcmNS_8TimeUnit4typeEPj.exit.thread.i, label %316, !prof !107
 
 316:                                              ; preds = %314, %312, %309

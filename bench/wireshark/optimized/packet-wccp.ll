@@ -2150,11 +2150,11 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
 
 ._crit_edge:                                      ; preds = %30
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %38 = icmp samesign ult i32 %.173, 4
+  %38 = icmp slt i32 %.173109, 16
   br i1 %38, label %39, label %41
 
 39:                                               ; preds = %._crit_edge
-  %40 = or disjoint i32 %.173109, -16
+  %40 = add nsw i32 %.173109, -16
   br label %dissect_wccp2_hash_buckets_assignment_element.exit.thread
 
 41:                                               ; preds = %._crit_edge.thread, %._crit_edge
@@ -2177,7 +2177,7 @@ define internal i32 @dissect_wccp2_assignment_info(ptr noundef %0, i32 noundef %
   br i1 %47, label %.lr.ph116, label %.lr.ph.i._crit_edge
 
 .lr.ph.i:                                         ; preds = %.lr.ph116
-  %48 = icmp sgt i32 %.04518.i113, 7
+  %48 = icmp samesign ugt i32 %.04518.i113, 7
   br i1 %48, label %.lr.ph116, label %.lr.ph.i._crit_edge, !llvm.loop !20
 
 .lr.ph.i._crit_edge:                              ; preds = %.lr.ph.i, %.lr.ph.i.preheader
@@ -2533,7 +2533,7 @@ define internal i32 @dissect_wccp2_alternate_assignment_info(ptr noundef %0, i32
   br label %29
 
 29:                                               ; preds = %27, %25
-  %30 = icmp samesign ult i32 %19, 8
+  %30 = icmp samesign ult i32 %2, 12
   br i1 %30, label %.thread, label %32
 
 .thread:                                          ; preds = %29
@@ -3269,7 +3269,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
   %29 = tail call ptr @proto_tree_add_bitmask(ptr noundef %4, ptr noundef %0, i32 noundef %23, i32 noundef %27, i32 noundef %28, ptr noundef nonnull @dissect_wccp2_web_cache_identity_element.flag_fields, i32 noundef 0)
   %30 = add nsw i32 %2, -8
   %31 = add i32 %1, 8
-  switch i16 %26, label %default.unreachable69 [
+  switch i16 %26, label %default.unreachable68 [
     i16 0, label %32
     i16 1, label %34
     i16 2, label %36
@@ -3291,7 +3291,7 @@ define internal fastcc i32 @dissect_wccp2_web_cache_identity_element(ptr noundef
 
 39:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  %40 = icmp samesign ult i32 %30, 4
+  %40 = icmp samesign ult i32 %2, 12
   br i1 %40, label %41, label %43
 
 41:                                               ; preds = %39
@@ -3416,7 +3416,7 @@ dissect_wccp2_extended_assignment_data_element.exit: ; preds = %41, %65, %68, %7
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %101
 
-default.unreachable69:                            ; preds = %22
+default.unreachable68:                            ; preds = %22
   unreachable
 
 101:                                              ; preds = %dissect_wccp2_extended_assignment_data_element.exit, %36, %34, %32, %9

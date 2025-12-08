@@ -7304,8 +7304,8 @@ define internal noundef i64 @lazy_init_iterator(i64 noundef %0, i64 noundef %1, 
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %13 = sext i32 %2 to i64
   %14 = add nsw i64 %13, 1
-  %.not = icmp eq i32 %2, 2147483647
-  br i1 %.not, label %15, label %rb_long2int_inline.exit
+  %.not.i.not = icmp eq i32 %2, 2147483647
+  br i1 %.not.i.not, label %15, label %rb_long2int_inline.exit
 
 15:                                               ; preds = %12
   tail call void @rb_out_of_int(i64 noundef %14) #20

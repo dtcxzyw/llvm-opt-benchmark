@@ -458,7 +458,7 @@ thread-pre-split:                                 ; preds = %166
 192:                                              ; preds = %176, %183
   %.sroa.10.3 = phi i32 [ %.sroa.10.0.lcssa, %176 ], [ %191, %183 ]
   %.sroa.047.3 = phi i32 [ %.sroa.047.0.lcssa, %176 ], [ %.sroa.4.0.extract.trunc, %183 ]
-  %193 = icmp samesign ugt i32 %177, 23
+  %193 = icmp samesign ugt i32 %174, 80
   br i1 %193, label %194, label %205
 
 194:                                              ; preds = %192

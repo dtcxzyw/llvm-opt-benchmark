@@ -5085,7 +5085,7 @@ _ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.
 42:                                               ; preds = %_ZN9hashbrown3raw11TableLayout20calculate_layout_for17hb3a027330886b1b5E.exit.i.i
   %43 = getelementptr inbounds nuw i8, ptr %29, i64 %21
   %44 = add nsw i64 %.sroa.4.0.i.ph7.i, -1
-  %45 = icmp samesign ult i64 %44, 8
+  %45 = icmp samesign ult i64 %.sroa.4.0.i.ph7.i, 9
   %46 = lshr i64 %.sroa.4.0.i.ph7.i, 3
   %47 = mul nuw nsw i64 %46, 7
   %.sroa.04.0.i.i = select i1 %45, i64 %44, i64 %47

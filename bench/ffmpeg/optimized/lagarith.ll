@@ -1490,7 +1490,7 @@ lag_decode_line.exit:                             ; preds = %355
   br i1 %499, label %.lr.ph214, label %.loopexit
 
 .lr.ph214:                                        ; preds = %.preheader173
-  %500 = icmp samesign ult i32 %497, 2
+  %500 = icmp samesign ult i8 %18, 6
   %.not88.i = icmp eq i32 %497, 3
   %501 = sext i32 %2 to i64
   %502 = getelementptr inbounds nuw i8, ptr %0, i64 52

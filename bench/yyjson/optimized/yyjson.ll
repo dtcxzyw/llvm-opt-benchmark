@@ -9437,8 +9437,8 @@ read_inf_or_nan.exit841.thread:                   ; preds = %263, %288, %289, %2
 
 890:                                              ; preds = %887
   %891 = icmp eq i64 %490, 1844674407370955161
-  %892 = icmp samesign ult i64 %888, 6
-  %or.cond5.i428 = select i1 %891, i1 %892, i1 false
+  %892 = icmp ult i8 %492, 54
+  %or.cond5.i428 = and i1 %891, %892
   br i1 %or.cond5.i428, label %893, label %909
 
 893:                                              ; preds = %890, %887
@@ -16167,8 +16167,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %3591, %3616, %3617,
 
 4218:                                             ; preds = %4215
   %4219 = icmp eq i64 %3818, 1844674407370955161
-  %4220 = icmp samesign ult i64 %4216, 6
-  %or.cond5.i533 = select i1 %4219, i1 %4220, i1 false
+  %4220 = icmp ult i8 %3820, 54
+  %or.cond5.i533 = and i1 %4219, %4220
   br i1 %or.cond5.i533, label %4221, label %4237
 
 4221:                                             ; preds = %4218, %4215
@@ -19667,8 +19667,8 @@ read_inf_or_nan.exit855.thread:                   ; preds = %5201, %5226, %5227,
 
 5828:                                             ; preds = %5825
   %5829 = icmp eq i64 %5428, 1844674407370955161
-  %5830 = icmp samesign ult i64 %5826, 6
-  %or.cond5.i = select i1 %5829, i1 %5830, i1 false
+  %5830 = icmp ult i8 %5430, 54
+  %or.cond5.i = and i1 %5829, %5830
   br i1 %or.cond5.i, label %5831, label %5847
 
 5831:                                             ; preds = %5828, %5825
@@ -26167,8 +26167,8 @@ read_inf_or_nan.exit848.thread:                   ; preds = %8451, %8476, %8477,
 
 9078:                                             ; preds = %9075
   %9079 = icmp eq i64 %8678, 1844674407370955161
-  %9080 = icmp samesign ult i64 %9076, 6
-  %or.cond5.i323 = select i1 %9079, i1 %9080, i1 false
+  %9080 = icmp ult i8 %8680, 54
+  %or.cond5.i323 = and i1 %9079, %9080
   br i1 %or.cond5.i323, label %9081, label %9097
 
 9081:                                             ; preds = %9078, %9075
@@ -29737,8 +29737,8 @@ read_inf_or_nan.exit.thread:                      ; preds = %44, %69, %70, %73, 
 
 667:                                              ; preds = %664
   %668 = icmp eq i64 %271, 1844674407370955161
-  %669 = icmp samesign ult i64 %665, 6
-  %or.cond5.i = select i1 %668, i1 %669, i1 false
+  %669 = icmp ult i8 %273, 54
+  %or.cond5.i = and i1 %668, %669
   br i1 %or.cond5.i, label %670, label %682
 
 670:                                              ; preds = %667, %664
@@ -34043,8 +34043,8 @@ read_inf_or_nan.exit:                             ; preds = %read_inf.exit, %63
 
 652:                                              ; preds = %649
   %653 = icmp eq i64 %255, 1844674407370955161
-  %654 = icmp samesign ult i64 %650, 6
-  %or.cond5.i = select i1 %653, i1 %654, i1 false
+  %654 = icmp ult i8 %257, 54
+  %or.cond5.i = and i1 %653, %654
   br i1 %or.cond5.i, label %655, label %668
 
 655:                                              ; preds = %652, %649

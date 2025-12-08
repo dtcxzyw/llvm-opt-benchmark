@@ -1094,7 +1094,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5C__autoadjust__ageout__cycle_epoc
   %84 = sext i32 %83 to i64
   %85 = getelementptr inbounds i32, ptr %17, i64 %84
   store i32 %22, ptr %85, align 4, !tbaa !37
-  %86 = icmp samesign ugt i32 %33, 9
+  %86 = icmp samesign ugt i32 %26, 10
   br i1 %86, label %87, label %91
 
 87:                                               ; preds = %70

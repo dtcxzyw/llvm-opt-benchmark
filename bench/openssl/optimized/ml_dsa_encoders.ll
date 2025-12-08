@@ -842,247 +842,245 @@ define range(i32 0, 2) i32 @ossl_ml_dsa_sk_decode(ptr noundef %0, ptr noundef %1
 33:                                               ; preds = %30
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 32
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %34, ptr noundef nonnull align 1 dereferenceable(32) %1, i64 32, i1 false)
-  %35 = and i64 %2, 9223372036854775776
-  %36 = icmp eq i64 %35, 32
-  br i1 %36, label %PACKET_buf_init.exit.thread, label %37
+  %35 = icmp slt i64 %2, 64
+  br i1 %35, label %PACKET_buf_init.exit.thread, label %36
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 128
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %39, ptr noundef nonnull align 1 dereferenceable(32) %38, i64 32, i1 false)
-  %40 = and i64 %2, 9223372036854775744
-  %41 = icmp eq i64 %40, 64
-  br i1 %41, label %PACKET_buf_init.exit.thread, label %PACKET_copy_bytes.exit65
+36:                                               ; preds = %33
+  %37 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 128
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %38, ptr noundef nonnull align 1 dereferenceable(32) %37, i64 32, i1 false)
+  %39 = icmp slt i64 %2, 128
+  br i1 %39, label %PACKET_buf_init.exit.thread, label %PACKET_copy_bytes.exit65
 
-PACKET_copy_bytes.exit65:                         ; preds = %37
-  %42 = getelementptr inbounds nuw i8, ptr %1, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %42, i64 64, i1 false)
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  store ptr %43, ptr %5, align 8, !tbaa !48
-  %44 = add nsw i64 %2, -128
-  store i64 %44, ptr %31, align 8, !tbaa !50
+PACKET_copy_bytes.exit65:                         ; preds = %36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 64
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(64) %4, ptr noundef nonnull align 1 dereferenceable(64) %40, i64 64, i1 false)
+  %41 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  store ptr %41, ptr %5, align 8, !tbaa !48
+  %42 = add nsw i64 %2, -128
+  store i64 %42, ptr %31, align 8, !tbaa !50
   %.not85 = icmp eq i64 %11, 0
   br i1 %.not85, label %.preheader76, label %.lr.ph
 
 .lr.ph:                                           ; preds = %PACKET_copy_bytes.exit65
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 240
-  br label %49
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 240
+  br label %47
 
-46:                                               ; preds = %49
-  %47 = add nuw i64 %.04179, 1
-  %exitcond.not = icmp eq i64 %47, %11
-  br i1 %exitcond.not, label %.preheader76, label %49, !llvm.loop !51
+44:                                               ; preds = %47
+  %45 = add nuw i64 %.04179, 1
+  %exitcond.not = icmp eq i64 %45, %11
+  br i1 %exitcond.not, label %.preheader76, label %47, !llvm.loop !51
 
-.preheader76:                                     ; preds = %46, %PACKET_copy_bytes.exit65
+.preheader76:                                     ; preds = %44, %PACKET_copy_bytes.exit65
   %.not86 = icmp eq i64 %9, 0
   br i1 %.not86, label %._crit_edge, label %.lr.ph81
 
 .lr.ph81:                                         ; preds = %.preheader76
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 224
-  br label %57
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 224
+  br label %55
 
-49:                                               ; preds = %.lr.ph, %46
-  %.04179 = phi i64 [ 0, %.lr.ph ], [ %47, %46 ]
-  %50 = load ptr, ptr %45, align 8, !tbaa !38
-  %51 = getelementptr inbounds nuw %struct.poly_st, ptr %50, i64 %.04179
-  %52 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %51, ptr noundef nonnull %5) #9, !callees !52
-  %.not58 = icmp eq i32 %52, 0
-  br i1 %.not58, label %poly_decode_signed_two_to_power_12.exit.thread, label %46
+47:                                               ; preds = %.lr.ph, %44
+  %.04179 = phi i64 [ 0, %.lr.ph ], [ %45, %44 ]
+  %48 = load ptr, ptr %43, align 8, !tbaa !38
+  %49 = getelementptr inbounds nuw %struct.poly_st, ptr %48, i64 %.04179
+  %50 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %49, ptr noundef nonnull %5) #9, !callees !52
+  %.not58 = icmp eq i32 %50, 0
+  br i1 %.not58, label %poly_decode_signed_two_to_power_12.exit.thread, label %44
 
-53:                                               ; preds = %57
-  %54 = add nuw i64 %.180, 1
-  %exitcond90.not = icmp eq i64 %54, %9
-  br i1 %exitcond90.not, label %.lr.ph84, label %57, !llvm.loop !53
+51:                                               ; preds = %55
+  %52 = add nuw i64 %.180, 1
+  %exitcond90.not = icmp eq i64 %52, %9
+  br i1 %exitcond90.not, label %.lr.ph84, label %55, !llvm.loop !53
 
-.lr.ph84:                                         ; preds = %53
+.lr.ph84:                                         ; preds = %51
   %.promoted82 = load i64, ptr %31, align 8
-  %55 = getelementptr inbounds nuw i8, ptr %0, i64 208
-  %56 = load ptr, ptr %55, align 8, !tbaa !35
-  br label %61
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 208
+  %54 = load ptr, ptr %53, align 8, !tbaa !35
+  br label %59
 
-57:                                               ; preds = %.lr.ph81, %53
-  %.180 = phi i64 [ 0, %.lr.ph81 ], [ %54, %53 ]
-  %58 = load ptr, ptr %48, align 8, !tbaa !41
-  %59 = getelementptr inbounds nuw %struct.poly_st, ptr %58, i64 %.180
-  %60 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %59, ptr noundef nonnull %5) #9, !callees !52
-  %.not57 = icmp eq i32 %60, 0
-  br i1 %.not57, label %poly_decode_signed_two_to_power_12.exit.thread, label %53
+55:                                               ; preds = %.lr.ph81, %51
+  %.180 = phi i64 [ 0, %.lr.ph81 ], [ %52, %51 ]
+  %56 = load ptr, ptr %46, align 8, !tbaa !41
+  %57 = getelementptr inbounds nuw %struct.poly_st, ptr %56, i64 %.180
+  %58 = call i32 %poly_decode_signed_4.poly_decode_signed_2(ptr noundef %57, ptr noundef nonnull %5) #9, !callees !52
+  %.not57 = icmp eq i32 %58, 0
+  br i1 %.not57, label %poly_decode_signed_two_to_power_12.exit.thread, label %51
 
-61:                                               ; preds = %.lr.ph84, %poly_decode_signed_two_to_power_12.exit
-  %.283 = phi i64 [ 0, %.lr.ph84 ], [ %168, %poly_decode_signed_two_to_power_12.exit ]
-  %62 = phi i64 [ %.promoted82, %.lr.ph84 ], [ %70, %poly_decode_signed_two_to_power_12.exit ]
-  %63 = getelementptr inbounds nuw %struct.poly_st, ptr %56, i64 %.283
+59:                                               ; preds = %.lr.ph84, %poly_decode_signed_two_to_power_12.exit
+  %.283 = phi i64 [ 0, %.lr.ph84 ], [ %166, %poly_decode_signed_two_to_power_12.exit ]
+  %60 = phi i64 [ %.promoted82, %.lr.ph84 ], [ %68, %poly_decode_signed_two_to_power_12.exit ]
+  %61 = getelementptr inbounds nuw %struct.poly_st, ptr %54, i64 %.283
   %.promoted = load ptr, ptr %5, align 8
-  br label %64
+  br label %62
 
-64:                                               ; preds = %68, %61
-  %65 = phi ptr [ %.promoted, %61 ], [ %69, %68 ]
-  %66 = phi i64 [ %62, %61 ], [ %70, %68 ]
-  %.01647.i = phi ptr [ %63, %61 ], [ %166, %68 ]
-  %.01846.i = phi i32 [ 0, %61 ], [ %167, %68 ]
-  %67 = icmp ult i64 %66, 13
-  br i1 %67, label %poly_decode_signed_two_to_power_12.exit.thread, label %68
+62:                                               ; preds = %66, %59
+  %63 = phi ptr [ %.promoted, %59 ], [ %67, %66 ]
+  %64 = phi i64 [ %60, %59 ], [ %68, %66 ]
+  %.01647.i = phi ptr [ %61, %59 ], [ %164, %66 ]
+  %.01846.i = phi i32 [ 0, %59 ], [ %165, %66 ]
+  %65 = icmp ult i64 %64, 13
+  br i1 %65, label %poly_decode_signed_two_to_power_12.exit.thread, label %66
 
-68:                                               ; preds = %64
-  %69 = getelementptr inbounds nuw i8, ptr %65, i64 13
-  store ptr %69, ptr %5, align 8, !tbaa !48
-  %70 = add i64 %66, -13
-  store i64 %70, ptr %31, align 8, !tbaa !50
-  %.0.copyload.i.i = load i64, ptr %65, align 1
-  %71 = getelementptr inbounds nuw i8, ptr %65, i64 8
-  %.0.copyload.i20.i = load i32, ptr %71, align 1
-  %72 = getelementptr inbounds nuw i8, ptr %65, i64 12
-  %73 = load i8, ptr %72, align 1, !tbaa !23
-  %74 = zext i8 %73 to i32
-  %75 = trunc i64 %.0.copyload.i.i to i32
-  %76 = and i32 %75, 8191
-  %77 = sub nuw nsw i32 8384513, %76
-  %78 = sub nsw i32 4096, %76
-  %.neg.i.i.i.i.i = ashr i32 %78, 31
-  %79 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !42
-  %80 = and i32 %79, %77
-  %81 = xor i32 %.neg.i.i.i.i.i, -1
-  %82 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %81) #10, !srcloc !42
-  %83 = and i32 %82, %78
-  %84 = or i32 %83, %80
-  %85 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 4
-  store i32 %84, ptr %.01647.i, align 4, !tbaa !21
-  %86 = lshr i32 %75, 13
-  %87 = and i32 %86, 8191
-  %88 = sub nuw nsw i32 8384513, %87
-  %89 = sub nsw i32 4096, %87
-  %.neg.i.i.i.i21.i = ashr i32 %89, 31
-  %90 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21.i) #10, !srcloc !42
-  %91 = and i32 %90, %88
-  %92 = xor i32 %.neg.i.i.i.i21.i, -1
-  %93 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %92) #10, !srcloc !42
-  %94 = and i32 %93, %89
-  %95 = or i32 %94, %91
-  %96 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 8
-  store i32 %95, ptr %85, align 4, !tbaa !21
-  %97 = lshr i64 %.0.copyload.i.i, 26
-  %98 = trunc i64 %97 to i32
-  %99 = and i32 %98, 8191
-  %100 = sub nuw nsw i32 8384513, %99
-  %101 = sub nsw i32 4096, %99
-  %.neg.i.i.i.i22.i = ashr i32 %101, 31
-  %102 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22.i) #10, !srcloc !42
-  %103 = and i32 %102, %100
-  %104 = xor i32 %.neg.i.i.i.i22.i, -1
-  %105 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %104) #10, !srcloc !42
-  %106 = and i32 %105, %101
-  %107 = or i32 %106, %103
-  %108 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 12
-  store i32 %107, ptr %96, align 4, !tbaa !21
-  %109 = lshr i64 %.0.copyload.i.i, 39
-  %110 = trunc nuw nsw i64 %109 to i32
-  %111 = and i32 %110, 8191
-  %112 = sub nuw nsw i32 8384513, %111
-  %113 = sub nsw i32 4096, %111
-  %.neg.i.i.i.i23.i = ashr i32 %113, 31
-  %114 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23.i) #10, !srcloc !42
-  %115 = and i32 %114, %112
-  %116 = xor i32 %.neg.i.i.i.i23.i, -1
-  %117 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %116) #10, !srcloc !42
-  %118 = and i32 %117, %113
-  %119 = or i32 %118, %115
-  %120 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 16
-  store i32 %119, ptr %108, align 4, !tbaa !21
-  %121 = lshr i64 %.0.copyload.i.i, 52
-  %122 = shl i32 %.0.copyload.i20.i, 12
-  %123 = and i32 %122, 4096
-  %124 = trunc nuw nsw i64 %121 to i32
-  %125 = or disjoint i32 %123, %124
-  %126 = sub nuw nsw i32 8384513, %125
-  %127 = sub nsw i32 4096, %125
-  %.neg.i.i.i.i24.i = ashr i32 %127, 31
-  %128 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24.i) #10, !srcloc !42
-  %129 = and i32 %128, %126
-  %130 = xor i32 %.neg.i.i.i.i24.i, -1
-  %131 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %130) #10, !srcloc !42
-  %132 = and i32 %131, %127
-  %133 = or i32 %132, %129
-  %134 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 20
-  store i32 %133, ptr %120, align 4, !tbaa !21
-  %135 = lshr i32 %.0.copyload.i20.i, 1
-  %136 = and i32 %135, 8191
-  %137 = sub nuw nsw i32 8384513, %136
-  %138 = sub nsw i32 4096, %136
-  %.neg.i.i.i.i25.i = ashr i32 %138, 31
-  %139 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25.i) #10, !srcloc !42
-  %140 = and i32 %139, %137
-  %141 = xor i32 %.neg.i.i.i.i25.i, -1
-  %142 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %141) #10, !srcloc !42
-  %143 = and i32 %142, %138
-  %144 = or i32 %143, %140
-  %145 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 24
-  store i32 %144, ptr %134, align 4, !tbaa !21
-  %146 = lshr i32 %.0.copyload.i20.i, 14
-  %147 = and i32 %146, 8191
-  %148 = sub nuw nsw i32 8384513, %147
-  %149 = sub nsw i32 4096, %147
-  %.neg.i.i.i.i26.i = ashr i32 %149, 31
-  %150 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26.i) #10, !srcloc !42
-  %151 = and i32 %150, %148
-  %152 = xor i32 %.neg.i.i.i.i26.i, -1
-  %153 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %152) #10, !srcloc !42
-  %154 = and i32 %153, %149
-  %155 = or i32 %154, %151
-  %156 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 28
-  store i32 %155, ptr %145, align 4, !tbaa !21
-  %157 = call i32 @llvm.fshl.i32(i32 %74, i32 %.0.copyload.i20.i, i32 5)
-  %158 = sub nuw nsw i32 8384513, %157
-  %159 = sub nsw i32 4096, %157
-  %.neg.i.i.i.i27.i = ashr i32 %159, 31
-  %160 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27.i) #10, !srcloc !42
-  %161 = and i32 %160, %158
-  %162 = xor i32 %.neg.i.i.i.i27.i, -1
-  %163 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %162) #10, !srcloc !42
-  %164 = and i32 %163, %159
-  %165 = or i32 %164, %161
-  %166 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 32
-  store i32 %165, ptr %156, align 4, !tbaa !21
-  %167 = add nuw nsw i32 %.01846.i, 1
-  %exitcond.not.i = icmp eq i32 %167, 32
-  br i1 %exitcond.not.i, label %poly_decode_signed_two_to_power_12.exit, label %64, !llvm.loop !54
+66:                                               ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %63, i64 13
+  store ptr %67, ptr %5, align 8, !tbaa !48
+  %68 = add i64 %64, -13
+  store i64 %68, ptr %31, align 8, !tbaa !50
+  %.0.copyload.i.i = load i64, ptr %63, align 1
+  %69 = getelementptr inbounds nuw i8, ptr %63, i64 8
+  %.0.copyload.i20.i = load i32, ptr %69, align 1
+  %70 = getelementptr inbounds nuw i8, ptr %63, i64 12
+  %71 = load i8, ptr %70, align 1, !tbaa !23
+  %72 = zext i8 %71 to i32
+  %73 = trunc i64 %.0.copyload.i.i to i32
+  %74 = and i32 %73, 8191
+  %75 = sub nuw nsw i32 8384513, %74
+  %76 = sub nsw i32 4096, %74
+  %.neg.i.i.i.i.i = ashr i32 %76, 31
+  %77 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i.i) #10, !srcloc !42
+  %78 = and i32 %77, %75
+  %79 = xor i32 %.neg.i.i.i.i.i, -1
+  %80 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %79) #10, !srcloc !42
+  %81 = and i32 %80, %76
+  %82 = or i32 %81, %78
+  %83 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 4
+  store i32 %82, ptr %.01647.i, align 4, !tbaa !21
+  %84 = lshr i32 %73, 13
+  %85 = and i32 %84, 8191
+  %86 = sub nuw nsw i32 8384513, %85
+  %87 = sub nsw i32 4096, %85
+  %.neg.i.i.i.i21.i = ashr i32 %87, 31
+  %88 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i21.i) #10, !srcloc !42
+  %89 = and i32 %88, %86
+  %90 = xor i32 %.neg.i.i.i.i21.i, -1
+  %91 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %90) #10, !srcloc !42
+  %92 = and i32 %91, %87
+  %93 = or i32 %92, %89
+  %94 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 8
+  store i32 %93, ptr %83, align 4, !tbaa !21
+  %95 = lshr i64 %.0.copyload.i.i, 26
+  %96 = trunc i64 %95 to i32
+  %97 = and i32 %96, 8191
+  %98 = sub nuw nsw i32 8384513, %97
+  %99 = sub nsw i32 4096, %97
+  %.neg.i.i.i.i22.i = ashr i32 %99, 31
+  %100 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i22.i) #10, !srcloc !42
+  %101 = and i32 %100, %98
+  %102 = xor i32 %.neg.i.i.i.i22.i, -1
+  %103 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %102) #10, !srcloc !42
+  %104 = and i32 %103, %99
+  %105 = or i32 %104, %101
+  %106 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 12
+  store i32 %105, ptr %94, align 4, !tbaa !21
+  %107 = lshr i64 %.0.copyload.i.i, 39
+  %108 = trunc nuw nsw i64 %107 to i32
+  %109 = and i32 %108, 8191
+  %110 = sub nuw nsw i32 8384513, %109
+  %111 = sub nsw i32 4096, %109
+  %.neg.i.i.i.i23.i = ashr i32 %111, 31
+  %112 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i23.i) #10, !srcloc !42
+  %113 = and i32 %112, %110
+  %114 = xor i32 %.neg.i.i.i.i23.i, -1
+  %115 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %114) #10, !srcloc !42
+  %116 = and i32 %115, %111
+  %117 = or i32 %116, %113
+  %118 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 16
+  store i32 %117, ptr %106, align 4, !tbaa !21
+  %119 = lshr i64 %.0.copyload.i.i, 52
+  %120 = shl i32 %.0.copyload.i20.i, 12
+  %121 = and i32 %120, 4096
+  %122 = trunc nuw nsw i64 %119 to i32
+  %123 = or disjoint i32 %121, %122
+  %124 = sub nuw nsw i32 8384513, %123
+  %125 = sub nsw i32 4096, %123
+  %.neg.i.i.i.i24.i = ashr i32 %125, 31
+  %126 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i24.i) #10, !srcloc !42
+  %127 = and i32 %126, %124
+  %128 = xor i32 %.neg.i.i.i.i24.i, -1
+  %129 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %128) #10, !srcloc !42
+  %130 = and i32 %129, %125
+  %131 = or i32 %130, %127
+  %132 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 20
+  store i32 %131, ptr %118, align 4, !tbaa !21
+  %133 = lshr i32 %.0.copyload.i20.i, 1
+  %134 = and i32 %133, 8191
+  %135 = sub nuw nsw i32 8384513, %134
+  %136 = sub nsw i32 4096, %134
+  %.neg.i.i.i.i25.i = ashr i32 %136, 31
+  %137 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i25.i) #10, !srcloc !42
+  %138 = and i32 %137, %135
+  %139 = xor i32 %.neg.i.i.i.i25.i, -1
+  %140 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %139) #10, !srcloc !42
+  %141 = and i32 %140, %136
+  %142 = or i32 %141, %138
+  %143 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 24
+  store i32 %142, ptr %132, align 4, !tbaa !21
+  %144 = lshr i32 %.0.copyload.i20.i, 14
+  %145 = and i32 %144, 8191
+  %146 = sub nuw nsw i32 8384513, %145
+  %147 = sub nsw i32 4096, %145
+  %.neg.i.i.i.i26.i = ashr i32 %147, 31
+  %148 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i26.i) #10, !srcloc !42
+  %149 = and i32 %148, %146
+  %150 = xor i32 %.neg.i.i.i.i26.i, -1
+  %151 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %150) #10, !srcloc !42
+  %152 = and i32 %151, %147
+  %153 = or i32 %152, %149
+  %154 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 28
+  store i32 %153, ptr %143, align 4, !tbaa !21
+  %155 = call i32 @llvm.fshl.i32(i32 %72, i32 %.0.copyload.i20.i, i32 5)
+  %156 = sub nuw nsw i32 8384513, %155
+  %157 = sub nsw i32 4096, %155
+  %.neg.i.i.i.i27.i = ashr i32 %157, 31
+  %158 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 1) %.neg.i.i.i.i27.i) #10, !srcloc !42
+  %159 = and i32 %158, %156
+  %160 = xor i32 %.neg.i.i.i.i27.i, -1
+  %161 = call i32 asm "", "=r,0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 -1, 2) %160) #10, !srcloc !42
+  %162 = and i32 %161, %157
+  %163 = or i32 %162, %159
+  %164 = getelementptr inbounds nuw i8, ptr %.01647.i, i64 32
+  store i32 %163, ptr %154, align 4, !tbaa !21
+  %165 = add nuw nsw i32 %.01846.i, 1
+  %exitcond.not.i = icmp eq i32 %165, 32
+  br i1 %exitcond.not.i, label %poly_decode_signed_two_to_power_12.exit, label %62, !llvm.loop !54
 
-poly_decode_signed_two_to_power_12.exit:          ; preds = %68
-  %168 = add nuw i64 %.283, 1
-  %exitcond91.not = icmp eq i64 %168, %9
-  br i1 %exitcond91.not, label %._crit_edge, label %61, !llvm.loop !55
+poly_decode_signed_two_to_power_12.exit:          ; preds = %66
+  %166 = add nuw i64 %.283, 1
+  %exitcond91.not = icmp eq i64 %166, %9
+  br i1 %exitcond91.not, label %._crit_edge, label %59, !llvm.loop !55
 
 ._crit_edge:                                      ; preds = %poly_decode_signed_two_to_power_12.exit, %.preheader76
   %.val = load i64, ptr %31, align 8, !tbaa !50
   %.not53 = icmp eq i64 %.val, 0
-  br i1 %.not53, label %169, label %poly_decode_signed_two_to_power_12.exit.thread
+  br i1 %.not53, label %167, label %poly_decode_signed_two_to_power_12.exit.thread
 
-169:                                              ; preds = %._crit_edge
-  %170 = load ptr, ptr %14, align 8, !tbaa !28
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %172, label %175
+167:                                              ; preds = %._crit_edge
+  %168 = load ptr, ptr %14, align 8, !tbaa !28
+  %169 = icmp eq ptr %168, null
+  br i1 %169, label %170, label %173
 
-172:                                              ; preds = %169
-  %173 = call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 807) #9
-  store ptr %173, ptr %14, align 8, !tbaa !28
-  %174 = icmp eq ptr %173, null
-  br i1 %174, label %poly_decode_signed_two_to_power_12.exit.thread, label %175
+170:                                              ; preds = %167
+  %171 = call noalias ptr @CRYPTO_memdup(ptr noundef nonnull %1, i64 noundef %2, ptr noundef nonnull @.str, i32 noundef 807) #9
+  store ptr %171, ptr %14, align 8, !tbaa !28
+  %172 = icmp eq ptr %171, null
+  br i1 %172, label %poly_decode_signed_two_to_power_12.exit.thread, label %173
 
-175:                                              ; preds = %172, %169
-  %176 = call i32 @ossl_ml_dsa_key_public_from_private(ptr noundef nonnull %0) #9
-  %.not54 = icmp eq i32 %176, 0
-  br i1 %.not54, label %poly_decode_signed_two_to_power_12.exit.thread, label %177
+173:                                              ; preds = %170, %167
+  %174 = call i32 @ossl_ml_dsa_key_public_from_private(ptr noundef nonnull %0) #9
+  %.not54 = icmp eq i32 %174, 0
+  br i1 %.not54, label %poly_decode_signed_two_to_power_12.exit.thread, label %175
 
-177:                                              ; preds = %175
-  %178 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %4, ptr noundef nonnull dereferenceable(64) %178, i64 64)
+175:                                              ; preds = %173
+  %176 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %bcmp = call i32 @bcmp(ptr noundef nonnull dereferenceable(64) %4, ptr noundef nonnull dereferenceable(64) %176, i64 64)
   %.not55 = icmp eq i32 %bcmp, 0
   br i1 %.not55, label %PACKET_buf_init.exit.thread, label %poly_decode_signed_two_to_power_12.exit.thread
 
-poly_decode_signed_two_to_power_12.exit.thread:   ; preds = %49, %57, %64, %175, %177, %172, %._crit_edge
+poly_decode_signed_two_to_power_12.exit.thread:   ; preds = %47, %55, %62, %173, %175, %170, %._crit_edge
   br label %PACKET_buf_init.exit.thread
 
-PACKET_buf_init.exit.thread:                      ; preds = %37, %33, %30, %25, %177, %23, %19, %16, %3, %poly_decode_signed_two_to_power_12.exit.thread
-  %.0 = phi i32 [ 0, %poly_decode_signed_two_to_power_12.exit.thread ], [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ 0, %23 ], [ 1, %177 ], [ 0, %25 ], [ 0, %30 ], [ 0, %33 ], [ 0, %37 ]
+PACKET_buf_init.exit.thread:                      ; preds = %36, %33, %30, %25, %175, %23, %19, %16, %3, %poly_decode_signed_two_to_power_12.exit.thread
+  %.0 = phi i32 [ 0, %poly_decode_signed_two_to_power_12.exit.thread ], [ 0, %3 ], [ 0, %16 ], [ 0, %19 ], [ 0, %23 ], [ 1, %175 ], [ 0, %25 ], [ 0, %30 ], [ 0, %33 ], [ 0, %36 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.0

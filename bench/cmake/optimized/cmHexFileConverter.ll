@@ -175,12 +175,12 @@ define dso_local noundef zeroext i1 @_ZN18cmHexFileConverter10TryConvertERKNSt7_
 .split.us:                                        ; preds = %23
   br i1 %.not.us62, label %.split54.us, label %.lr.ph
 
-_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77: ; preds = %51, %51, %51, %51, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us
+_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76: ; preds = %51, %51, %51, %51, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us
   %33 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef nonnull %13)
   %.not.us = icmp eq ptr %33, null
   br i1 %.not.us, label %.split54.us, label %.lr.ph, !llvm.loop !9
 
-.lr.ph:                                           ; preds = %.split.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77
+.lr.ph:                                           ; preds = %.split.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76
   %34 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #9
   %35 = trunc i64 %34 to i32
   %36 = add i64 %34, 4294967295
@@ -225,10 +225,10 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %47, %42
 51:                                               ; preds = %_ZL11ChompStrlenPKc.exit.i.us
   %52 = load i8, ptr %28, align 1, !tbaa !4
   switch i8 %52, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge [
-    i8 53, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77
-    i8 55, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77
-    i8 56, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77
-    i8 57, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77
+    i8 53, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76
+    i8 55, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76
+    i8 56, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76
+    i8 57, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76
     i8 49, label %55
     i8 50, label %54
     i8 51, label %53
@@ -271,9 +271,9 @@ _ZL11ChompStrlenPKc.exit.i.us:                    ; preds = %47, %42
   store i32 0, ptr %8, align 4, !tbaa !10
   %68 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %6, ptr noundef nonnull @.str.2, ptr noundef nonnull %8) #10
   %.not.i.i.us = icmp eq i32 %68, 1
-  br i1 %.not.i.i.us, label %69, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread79
+  br i1 %.not.i.i.us, label %69, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread78
 
-_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread79: ; preds = %63
+_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread78: ; preds = %63
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
@@ -296,20 +296,20 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us: ; preds = %69, %55
   %74 = icmp eq i64 %73, %.016.lcssa.i.i.us
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %74, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge, !llvm.loop !9
+  br i1 %74, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge, !llvm.loop !9
 
-_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge: ; preds = %51, %_ZL11ChompStrlenPKc.exit.i.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread79
+_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge: ; preds = %51, %_ZL11ChompStrlenPKc.exit.i.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread78
   br label %.split54.us, !llvm.loop !9
 
 .split.us55:                                      ; preds = %23
   br i1 %.not.us62, label %.split54.us, label %.lr.ph65
 
-_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83: ; preds = %95, %95, %95, %95, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58
+_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82: ; preds = %95, %95, %95, %95, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58
   %75 = call ptr @fgets(ptr noundef nonnull %9, i32 noundef 1024, ptr noundef nonnull %13)
   %.not.us57 = icmp eq ptr %75, null
   br i1 %.not.us57, label %.split54.us, label %.lr.ph65, !llvm.loop !9
 
-.lr.ph65:                                         ; preds = %.split.us55, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83
+.lr.ph65:                                         ; preds = %.split.us55, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82
   %76 = call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %9) #9
   %77 = trunc i64 %76 to i32
   %78 = add i64 %76, 4294967295
@@ -359,22 +359,22 @@ _ZL11ChompStrlenPKc.exit.i28.us:                  ; preds = %89, %84
   switch i8 %96, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge [
     i8 48, label %97
     i8 49, label %97
-    i8 50, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83
-    i8 51, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83
-    i8 52, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83
-    i8 53, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83
+    i8 50, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82
+    i8 51, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82
+    i8 52, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82
+    i8 53, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82
   ]
 
 97:                                               ; preds = %95, %95
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %26, align 1, !tbaa !4
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  %98 = add nsw i32 %.1.i.i29.us, -12
-  %99 = icmp ult i32 %98, -10
-  br i1 %99, label %.lr.ph.i.i38.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58
+  %98 = icmp samesign ugt i32 %.1.i.i29.us, 11
+  br i1 %98, label %.lr.ph.i.i38.us, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58
 
 .lr.ph.i.i38.us:                                  ; preds = %97
-  %100 = lshr i32 %98, 1
+  %99 = add nsw i32 %.1.i.i29.us, -12
+  %100 = lshr i32 %99, 1
   %101 = add nuw nsw i32 %100, 1
   %wide.trip.count.i.i39.us = zext nneg i32 %101 to i64
   br label %102
@@ -392,9 +392,9 @@ _ZL11ChompStrlenPKc.exit.i28.us:                  ; preds = %89, %84
   store i32 0, ptr %5, align 4, !tbaa !10
   %107 = call i32 (ptr, ptr, ...) @__isoc99_sscanf(ptr noundef nonnull %3, ptr noundef nonnull @.str.2, ptr noundef nonnull %5) #10
   %.not.i.i42.us = icmp eq i32 %107, 1
-  br i1 %.not.i.i42.us, label %108, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread85
+  br i1 %.not.i.i42.us, label %108, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread84
 
-_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread85: ; preds = %102
+_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread84: ; preds = %102
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -417,13 +417,13 @@ _ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58: ; preds = %108, %97
   %113 = icmp eq i64 %112, %.016.lcssa.i.i35.us
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br i1 %113, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge, !llvm.loop !9
+  br i1 %113, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82, label %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge, !llvm.loop !9
 
-_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge: ; preds = %95, %_ZL11ChompStrlenPKc.exit.i28.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread85
+_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge: ; preds = %95, %_ZL11ChompStrlenPKc.exit.i28.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread84
   br label %.split54.us, !llvm.loop !9
 
-.split54.us:                                      ; preds = %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge, %.split.us55, %.split.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge
-  %.us-phi = phi i1 [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge ], [ false, %.split.us ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge ], [ false, %.split.us55 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread77 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread83 ]
+.split54.us:                                      ; preds = %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge, %.split.us55, %.split.us, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge
+  %.us-phi = phi i1 [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us..split54.us_crit_edge ], [ false, %.split.us ], [ false, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58..split54.split.us_crit_edge ], [ false, %.split.us55 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us.thread76 ], [ true, %_ZL23ConvertMotorolaSrecLinePKcP8_IO_FILE.exit.us58.thread82 ]
   %114 = call i32 @fclose(ptr noundef nonnull %13)
   %115 = call i32 @fclose(ptr noundef nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

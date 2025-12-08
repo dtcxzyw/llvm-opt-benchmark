@@ -3198,7 +3198,7 @@ _ZNSt5dequeIPN7rocksdb10BufferInfoESaIS2_EE9pop_frontEv.exit.i: ; preds = %40, %
   br i1 %107, label %108, label %114
 
 108:                                              ; preds = %100
-  %109 = icmp samesign ult i64 %106, 64
+  %109 = icmp slt i64 %105, 63
   br i1 %109, label %110, label %112
 
 110:                                              ; preds = %108
@@ -4092,7 +4092,7 @@ _ZN7rocksdb6StatusC2EOS0_.exit.thread105:         ; preds = %_ZN7rocksdb10Buffer
   br i1 %140, label %141, label %147
 
 141:                                              ; preds = %133
-  %142 = icmp samesign ult i64 %139, 64
+  %142 = icmp slt i64 %138, 63
   br i1 %142, label %143, label %145
 
 143:                                              ; preds = %141

@@ -834,7 +834,7 @@ if.then27:                                        ; preds = %while.end
   %sub40 = add nsw i32 %toGo.0.lcssa, -16
   call void @llvm.lifetime.start.p0(ptr nonnull %result.i50)
   store volatile i64 0, ptr %result.i50, align 8
-  %cmp.i51 = icmp samesign ugt i32 %sub40, 3
+  %cmp.i51 = icmp samesign ugt i32 %toGo.0.lcssa, 19
   br i1 %cmp.i51, label %if.then.i67, label %if.end.i52
 
 if.then.i67:                                      ; preds = %if.then27
@@ -899,7 +899,7 @@ cond.false:                                       ; preds = %if.then46
   %sub56 = add nsw i32 %toGo.0.lcssa, -8
   call void @llvm.lifetime.start.p0(ptr nonnull %result.i76)
   store volatile i64 0, ptr %result.i76, align 8
-  %cmp.i77 = icmp samesign ugt i32 %sub56, 3
+  %cmp.i77 = icmp samesign ugt i32 %toGo.0.lcssa, 11
   br i1 %cmp.i77, label %if.then.i93, label %if.end.i78
 
 if.then.i93:                                      ; preds = %cond.false

@@ -30031,7 +30031,7 @@ dissect_ht_info_ie_1_0.exit.i:                    ; preds = %389, %386, %384
   br label %dissect_vendor_ie_wpawme.exit
 
 501:                                              ; preds = %45
-  %502 = icmp samesign ult i32 %52, 4
+  %502 = icmp samesign ult i32 %38, 7
   br i1 %502, label %503, label %507
 
 503:                                              ; preds = %501
@@ -30112,7 +30112,7 @@ dissect_ht_info_ie_1_0.exit.i:                    ; preds = %389, %386, %384
   br label %dissect_vendor_ie_wpawme.exit
 
 550:                                              ; preds = %45
-  %551 = icmp samesign ult i32 %52, 4
+  %551 = icmp samesign ult i32 %38, 7
   br i1 %551, label %552, label %556
 
 552:                                              ; preds = %550
@@ -30340,7 +30340,7 @@ dissect_vendor_ie_aruba.exit:                     ; preds = %590, %597, %600
 688:                                              ; preds = %45
   call void @llvm.lifetime.start.p0(ptr nonnull %34)
   call void @llvm.lifetime.start.p0(ptr nonnull %35)
-  %689 = icmp samesign ugt i32 %52, 1
+  %689 = icmp samesign ugt i32 %38, 4
   br i1 %689, label %.lr.ph.i167, label %dissect_vendor_ie_meru.exit
 
 .lr.ph.i167:                                      ; preds = %688, %705

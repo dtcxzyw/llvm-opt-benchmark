@@ -901,9 +901,9 @@ phpdbg_clean.exit:                                ; preds = %17, %21
 
 .lr.ph309:                                        ; preds = %51
   %54 = ptrtoint ptr %.0210 to i64
-  br label %.loopexit449
+  br label %.loopexit448
 
-.loopexit449:                                     ; preds = %.preheader277, %.lr.ph309
+.loopexit448:                                     ; preds = %.preheader277, %.lr.ph309
   %indvars.iv = phi i64 [ 0, %.lr.ph309 ], [ %indvars.iv.next, %.preheader277 ]
   %.0198307 = phi ptr [ %40, %.lr.ph309 ], [ %.4202, %.preheader277 ]
   %.1204306 = phi ptr [ %.0203, %.lr.ph309 ], [ %160, %.preheader277 ]
@@ -915,7 +915,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   %60 = icmp eq i8 %59, 60
   br i1 %60, label %.preheader276, label %95
 
-.preheader276:                                    ; preds = %.loopexit449
+.preheader276:                                    ; preds = %.loopexit448
   %61 = trunc nuw nsw i64 %indvars.iv to i32
   br label %62
 
@@ -1009,7 +1009,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   %94 = call i32 (i32, i32, ptr, ...) @phpdbg_print(i32 noundef 1, i32 noundef %93, ptr noundef nonnull @.str.91, ptr noundef %58) #26
   br label %149
 
-95:                                               ; preds = %.loopexit449
+95:                                               ; preds = %.loopexit448
   %96 = icmp samesign ugt i64 %indvars.iv, 3
   %97 = trunc nuw nsw i64 %indvars.iv to i32
   %98 = call range(i32 1, 32) i32 @llvm.ctpop.i32(i32 %97)
@@ -1188,7 +1188,7 @@ phpdbg_clean.exit:                                ; preds = %17, %21
   %.15 = phi ptr [ %160, %.preheader277 ], [ %.12.lcssa, %152 ]
   %160 = getelementptr inbounds nuw i8, ptr %.15, i64 1
   %161 = load i8, ptr %160, align 1, !tbaa !76
-  switch i8 %161, label %.loopexit449 [
+  switch i8 %161, label %.loopexit448 [
     i8 32, label %.preheader277
     i8 0, label %.loopexit279.loopexit
   ]

@@ -3246,11 +3246,11 @@ define internal void @dissect_pcep_xro_obj(ptr noundef %0, ptr noundef %1, ptr n
   %18 = tail call ptr @proto_item_add_subtree(ptr noundef %16, i32 noundef %17)
   %19 = load i32, ptr @hf_pcep_xro_flags_f, align 4
   %20 = tail call ptr @proto_tree_add_item(ptr noundef %18, i32 noundef %19, ptr noundef %2, i32 noundef %15, i32 noundef 2, i32 noundef 0)
-  %21 = add nsw i32 %4, -8
-  %22 = icmp samesign ult i32 %21, 2
-  br i1 %22, label %25, label %.preheader
+  %21 = icmp samesign ult i32 %4, 10
+  br i1 %21, label %25, label %.lr.ph
 
-.preheader:                                       ; preds = %11
+.lr.ph:                                           ; preds = %11
+  %22 = add nsw i32 %4, -8
   %23 = add i32 %3, 4
   %24 = getelementptr inbounds nuw i8, ptr %1, i64 408
   br label %27
@@ -3259,9 +3259,9 @@ define internal void @dissect_pcep_xro_obj(ptr noundef %0, ptr noundef %1, ptr n
   %26 = tail call ptr (ptr, ptr, ptr, ptr, ...) @expert_add_info_format(ptr noundef %1, ptr noundef %0, ptr noundef nonnull @ei_pcep_subobject_bad_length, ptr noundef nonnull @.str.1386)
   br label %.loopexit
 
-27:                                               ; preds = %.preheader, %dissect_subobj_pksv6.exit
-  %.0101 = phi i32 [ %21, %.preheader ], [ %82, %dissect_subobj_pksv6.exit ]
-  %.091100 = phi i32 [ %23, %.preheader ], [ %81, %dissect_subobj_pksv6.exit ]
+27:                                               ; preds = %.lr.ph, %dissect_subobj_pksv6.exit
+  %.0101 = phi i32 [ %22, %.lr.ph ], [ %82, %dissect_subobj_pksv6.exit ]
+  %.091100 = phi i32 [ %23, %.lr.ph ], [ %81, %dissect_subobj_pksv6.exit ]
   %28 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %.091100)
   %29 = add i32 %.091100, 1
   %30 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %2, i32 noundef %29)

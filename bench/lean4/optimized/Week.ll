@@ -2596,7 +2596,7 @@ define ptr @initialize_Std_Time_Date_Unit_Week(i8 noundef zeroext %0, ptr nounde
   %.val = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val, -16777216
   %10 = icmp eq i32 %.mask.i, 16777216
-  br i1 %10, label %486, label %11
+  br i1 %10, label %482, label %11
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !5
@@ -2622,7 +2622,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val10 = load i32, ptr %19, align 4
   %.mask.i11 = and i32 %.val10, -16777216
   %20 = icmp eq i32 %.mask.i11, 16777216
-  br i1 %20, label %486, label %21
+  br i1 %20, label %482, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
   %22 = load i32, ptr %18, align 4, !tbaa !5
@@ -2770,881 +2770,877 @@ _init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit: ; preds = %61, %66,
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %78, i1 true)
   %85 = select i1 %84, i64 %.p.i.i, i64 0
   %.0.i.i24 = add nsw i64 %85, %83
-  %86 = add nsw i64 %.0.i.i24, 2147483648
-  %87 = icmp samesign ult i64 %86, 4294967296
-  br i1 %87, label %88, label %93, !prof !10
+  %86 = icmp slt i64 %.0.i.i24, 2147483648
+  br i1 %86, label %87, label %92, !prof !10
 
-88:                                               ; preds = %80
-  %89 = shl nsw i64 %.0.i.i24, 1
-  %90 = and i64 %89, 8589934590
-  %91 = or disjoint i64 %90, 1
-  %92 = inttoptr i64 %91 to ptr
+87:                                               ; preds = %80
+  %88 = shl nsw i64 %.0.i.i24, 1
+  %89 = and i64 %88, 8589934590
+  %90 = or disjoint i64 %89, 1
+  %91 = inttoptr i64 %90 to ptr
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
 
-93:                                               ; preds = %80
-  %94 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i24) #5
+92:                                               ; preds = %80
+  %93 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i24) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
 
 .critedge.i.i25:                                  ; preds = %73, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__4.exit
-  %95 = tail call ptr @lean_int_big_emod(ptr noundef %69, ptr noundef %70) #5
+  %94 = tail call ptr @lean_int_big_emod(ptr noundef %69, ptr noundef %70) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit: ; preds = %76, %88, %93, %.critedge.i.i25
-  %.1.i.i = phi ptr [ %95, %.critedge.i.i25 ], [ %69, %76 ], [ %92, %88 ], [ %94, %93 ]
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit: ; preds = %76, %87, %92, %.critedge.i.i25
+  %.1.i.i = phi ptr [ %94, %.critedge.i.i25 ], [ %69, %76 ], [ %91, %87 ], [ %93, %92 ]
   store ptr %.1.i.i, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #5
-  %96 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
-  %97 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
-  %98 = ptrtoint ptr %96 to i64
-  %99 = and i64 %98, 1
-  %.not.i.i26 = icmp eq i64 %99, 0
-  br i1 %.not.i.i26, label %.critedge.i.i29, label %100, !prof !13
+  %95 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
+  %96 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
+  %97 = ptrtoint ptr %95 to i64
+  %98 = and i64 %97, 1
+  %.not.i.i26 = icmp eq i64 %98, 0
+  br i1 %.not.i.i26, label %.critedge.i.i29, label %99, !prof !13
 
-100:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
-  %101 = ptrtoint ptr %97 to i64
-  %102 = and i64 %101, 1
-  %.not7.i.i27 = icmp eq i64 %102, 0
-  br i1 %.not7.i.i27, label %.critedge.i.i29, label %103, !prof !13
+99:                                               ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
+  %100 = ptrtoint ptr %96 to i64
+  %101 = and i64 %100, 1
+  %.not7.i.i27 = icmp eq i64 %101, 0
+  br i1 %.not7.i.i27, label %.critedge.i.i29, label %102, !prof !13
 
-103:                                              ; preds = %100
-  %104 = shl i64 %98, 31
-  %105 = ashr i64 %104, 32
-  %106 = shl i64 %101, 31
-  %107 = ashr i64 %106, 32
-  %108 = add nsw i64 %107, %105
-  %109 = add nsw i64 %108, 2147483648
-  %110 = icmp ult i64 %109, 4294967296
-  br i1 %110, label %111, label %116, !prof !10
+102:                                              ; preds = %99
+  %103 = shl i64 %97, 31
+  %104 = ashr i64 %103, 32
+  %105 = shl i64 %100, 31
+  %106 = ashr i64 %105, 32
+  %107 = add nsw i64 %106, %104
+  %108 = add nsw i64 %107, 2147483648
+  %109 = icmp ult i64 %108, 4294967296
+  br i1 %109, label %110, label %115, !prof !10
 
-111:                                              ; preds = %103
-  %112 = shl nsw i64 %108, 1
-  %113 = and i64 %112, 8589934590
-  %114 = or disjoint i64 %113, 1
-  %115 = inttoptr i64 %114 to ptr
+110:                                              ; preds = %102
+  %111 = shl nsw i64 %107, 1
+  %112 = and i64 %111, 8589934590
+  %113 = or disjoint i64 %112, 1
+  %114 = inttoptr i64 %113 to ptr
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
 
-116:                                              ; preds = %103
-  %117 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %108) #5
+115:                                              ; preds = %102
+  %116 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %107) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
 
-.critedge.i.i29:                                  ; preds = %100, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
-  %118 = tail call ptr @lean_int_big_add(ptr noundef %96, ptr noundef %97) #5
+.critedge.i.i29:                                  ; preds = %99, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__6.exit
+  %117 = tail call ptr @lean_int_big_add(ptr noundef %95, ptr noundef %96) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit: ; preds = %111, %116, %.critedge.i.i29
-  %.0.i.i28 = phi ptr [ %118, %.critedge.i.i29 ], [ %115, %111 ], [ %117, %116 ]
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit: ; preds = %110, %115, %.critedge.i.i29
+  %.0.i.i28 = phi ptr [ %117, %.critedge.i.i29 ], [ %114, %110 ], [ %116, %115 ]
   store ptr %.0.i.i28, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i28) #5
-  %119 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
-  %120 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
-  %121 = ptrtoint ptr %119 to i64
-  %122 = and i64 %121, 1
-  %.not.i.i30 = icmp eq i64 %122, 0
-  br i1 %.not.i.i30, label %.critedge.i.i35, label %123, !prof !13
+  %118 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
+  %119 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
+  %120 = ptrtoint ptr %118 to i64
+  %121 = and i64 %120, 1
+  %.not.i.i30 = icmp eq i64 %121, 0
+  br i1 %.not.i.i30, label %.critedge.i.i35, label %122, !prof !13
 
-123:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
-  %124 = ptrtoint ptr %120 to i64
-  %125 = and i64 %124, 1
-  %.not21.i.i31 = icmp eq i64 %125, 0
-  br i1 %.not21.i.i31, label %.critedge.i.i35, label %126, !prof !13
+122:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
+  %123 = ptrtoint ptr %119 to i64
+  %124 = and i64 %123, 1
+  %.not21.i.i31 = icmp eq i64 %124, 0
+  br i1 %.not21.i.i31, label %.critedge.i.i35, label %125, !prof !13
 
-126:                                              ; preds = %123
-  %127 = shl i64 %124, 31
-  %128 = ashr i64 %127, 32
-  %129 = icmp eq i64 %128, 0
-  br i1 %129, label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit, label %130
+125:                                              ; preds = %122
+  %126 = shl i64 %123, 31
+  %127 = ashr i64 %126, 32
+  %128 = icmp eq i64 %127, 0
+  br i1 %128, label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit, label %129
 
-130:                                              ; preds = %126
-  %131 = shl i64 %121, 31
-  %132 = ashr i64 %131, 32
-  %133 = srem i64 %132, %128
-  %134 = icmp slt i64 %133, 0
-  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %128, i1 true)
-  %135 = select i1 %134, i64 %.p.i.i32, i64 0
-  %.0.i.i33 = add nsw i64 %135, %133
-  %136 = add nsw i64 %.0.i.i33, 2147483648
-  %137 = icmp samesign ult i64 %136, 4294967296
-  br i1 %137, label %138, label %143, !prof !10
+129:                                              ; preds = %125
+  %130 = shl i64 %120, 31
+  %131 = ashr i64 %130, 32
+  %132 = srem i64 %131, %127
+  %133 = icmp slt i64 %132, 0
+  %.p.i.i32 = tail call i64 @llvm.abs.i64(i64 %127, i1 true)
+  %134 = select i1 %133, i64 %.p.i.i32, i64 0
+  %.0.i.i33 = add nsw i64 %134, %132
+  %135 = icmp slt i64 %.0.i.i33, 2147483648
+  br i1 %135, label %136, label %141, !prof !10
 
-138:                                              ; preds = %130
-  %139 = shl nsw i64 %.0.i.i33, 1
-  %140 = and i64 %139, 8589934590
-  %141 = or disjoint i64 %140, 1
-  %142 = inttoptr i64 %141 to ptr
+136:                                              ; preds = %129
+  %137 = shl nsw i64 %.0.i.i33, 1
+  %138 = and i64 %137, 8589934590
+  %139 = or disjoint i64 %138, 1
+  %140 = inttoptr i64 %139 to ptr
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
 
-143:                                              ; preds = %130
-  %144 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i33) #5
+141:                                              ; preds = %129
+  %142 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i33) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
 
-.critedge.i.i35:                                  ; preds = %123, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
-  %145 = tail call ptr @lean_int_big_emod(ptr noundef %119, ptr noundef %120) #5
+.critedge.i.i35:                                  ; preds = %122, %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__7.exit
+  %143 = tail call ptr @lean_int_big_emod(ptr noundef %118, ptr noundef %119) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit: ; preds = %126, %138, %143, %.critedge.i.i35
-  %.1.i.i34 = phi ptr [ %145, %.critedge.i.i35 ], [ %119, %126 ], [ %142, %138 ], [ %144, %143 ]
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit: ; preds = %125, %136, %141, %.critedge.i.i35
+  %.1.i.i34 = phi ptr [ %143, %.critedge.i.i35 ], [ %118, %125 ], [ %140, %136 ], [ %142, %141 ]
   store ptr %.1.i.i34, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i34) #5
-  %146 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
-  %147 = ptrtoint ptr %146 to i64
-  %148 = and i64 %147, 1
-  %.not.i.i36 = icmp eq i64 %148, 0
-  br i1 %.not.i.i36, label %.critedge.i.i39, label %149, !prof !13
+  %144 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
+  %145 = ptrtoint ptr %144 to i64
+  %146 = and i64 %145, 1
+  %.not.i.i36 = icmp eq i64 %146, 0
+  br i1 %.not.i.i36, label %.critedge.i.i39, label %147, !prof !13
 
-149:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
-  %150 = shl i64 %147, 31
-  %151 = ashr i64 %150, 32
-  %152 = add nsw i64 %151, 1
-  %153 = icmp slt i64 %151, 2147483647
-  br i1 %153, label %154, label %159, !prof !10
+147:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
+  %148 = shl i64 %145, 31
+  %149 = ashr i64 %148, 32
+  %150 = add nsw i64 %149, 1
+  %151 = icmp slt i64 %149, 2147483647
+  br i1 %151, label %152, label %157, !prof !10
 
-154:                                              ; preds = %149
-  %155 = shl nsw i64 %152, 1
-  %156 = and i64 %155, 8589934590
-  %157 = or disjoint i64 %156, 1
-  %158 = inttoptr i64 %157 to ptr
+152:                                              ; preds = %147
+  %153 = shl nsw i64 %150, 1
+  %154 = and i64 %153, 8589934590
+  %155 = or disjoint i64 %154, 1
+  %156 = inttoptr i64 %155 to ptr
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
 
-159:                                              ; preds = %149
-  %160 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %152) #5
+157:                                              ; preds = %147
+  %158 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %150) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
 
 .critedge.i.i39:                                  ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__8.exit
-  %161 = tail call ptr @lean_int_big_add(ptr noundef %146, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
+  %159 = tail call ptr @lean_int_big_add(ptr noundef %144, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
 
-_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit: ; preds = %154, %159, %.critedge.i.i39
-  %.0.i.i38 = phi ptr [ %161, %.critedge.i.i39 ], [ %158, %154 ], [ %160, %159 ]
+_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit: ; preds = %152, %157, %.critedge.i.i39
+  %.0.i.i38 = phi ptr [ %159, %.critedge.i.i39 ], [ %156, %152 ], [ %158, %157 ]
   store ptr %.0.i.i38, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i38) #5
-  %162 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
-  store ptr %162, ptr @l_Std_Time_Week_instInhabitedOrdinal, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %162) #5
+  %160 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
+  store ptr %160, ptr @l_Std_Time_Week_instInhabitedOrdinal, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %160) #5
   tail call void @lean_inc_heartbeat() #5
-  %163 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %164 = icmp eq ptr %163, null
-  br i1 %164, label %165, label %_init_l_Std_Time_Week_instOrdOrdinal___closed__1.exit
+  %161 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %162 = icmp eq ptr %161, null
+  br i1 %162, label %163, label %_init_l_Std_Time_Week_instOrdOrdinal___closed__1.exit
 
-165:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
+163:                                              ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOrdOrdinal___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instInhabitedOrdinal___closed__9.exit
-  %166 = getelementptr inbounds nuw i8, ptr %163, i64 4
-  store i32 1, ptr %163, align 4, !tbaa !5
-  store i32 -184549352, ptr %166, align 4
-  %167 = getelementptr inbounds nuw i8, ptr %163, i64 8
-  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %167, align 8, !tbaa !11
-  %168 = getelementptr inbounds nuw i8, ptr %163, i64 16
-  store i16 1, ptr %168, align 8, !tbaa !15
-  %169 = getelementptr inbounds nuw i8, ptr %163, i64 18
-  store i16 0, ptr %169, align 2, !tbaa !15
-  store ptr %163, ptr @l_Std_Time_Week_instOrdOrdinal___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %163) #5
-  %170 = load ptr, ptr @l_Std_Time_Week_instOrdOrdinal___closed__1, align 8, !tbaa !11
+  %164 = getelementptr inbounds nuw i8, ptr %161, i64 4
+  store i32 1, ptr %161, align 4, !tbaa !5
+  store i32 -184549352, ptr %164, align 4
+  %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
+  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %165, align 8, !tbaa !11
+  %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
+  store i16 1, ptr %166, align 8, !tbaa !15
+  %167 = getelementptr inbounds nuw i8, ptr %161, i64 18
+  store i16 0, ptr %167, align 2, !tbaa !15
+  store ptr %161, ptr @l_Std_Time_Week_instOrdOrdinal___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %161) #5
+  %168 = load ptr, ptr @l_Std_Time_Week_instOrdOrdinal___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %171 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %172 = icmp eq ptr %171, null
-  br i1 %172, label %173, label %_init_l_Std_Time_Week_instOrdOrdinal___closed__2.exit
+  %169 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %170 = icmp eq ptr %169, null
+  br i1 %170, label %171, label %_init_l_Std_Time_Week_instOrdOrdinal___closed__2.exit
 
-173:                                              ; preds = %_init_l_Std_Time_Week_instOrdOrdinal___closed__1.exit
+171:                                              ; preds = %_init_l_Std_Time_Week_instOrdOrdinal___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOrdOrdinal___closed__2.exit: ; preds = %_init_l_Std_Time_Week_instOrdOrdinal___closed__1.exit
-  %174 = getelementptr inbounds nuw i8, ptr %171, i64 4
-  store i32 1, ptr %171, align 4, !tbaa !5
-  store i32 -184549344, ptr %174, align 4
-  %175 = getelementptr inbounds nuw i8, ptr %171, i64 8
-  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %175, align 8, !tbaa !11
-  %176 = getelementptr inbounds nuw i8, ptr %171, i64 16
-  store i16 3, ptr %176, align 8, !tbaa !15
-  %177 = getelementptr inbounds nuw i8, ptr %171, i64 18
-  store i16 1, ptr %177, align 2, !tbaa !15
-  %178 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  store ptr %170, ptr %178, align 8, !tbaa !11
-  store ptr %171, ptr @l_Std_Time_Week_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %171) #5
-  %179 = load ptr, ptr @l_Std_Time_Week_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  store ptr %179, ptr @l_Std_Time_Week_instOrdOrdinal, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %179) #5
+  %172 = getelementptr inbounds nuw i8, ptr %169, i64 4
+  store i32 1, ptr %169, align 4, !tbaa !5
+  store i32 -184549344, ptr %172, align 4
+  %173 = getelementptr inbounds nuw i8, ptr %169, i64 8
+  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %173, align 8, !tbaa !11
+  %174 = getelementptr inbounds nuw i8, ptr %169, i64 16
+  store i16 3, ptr %174, align 8, !tbaa !15
+  %175 = getelementptr inbounds nuw i8, ptr %169, i64 18
+  store i16 1, ptr %175, align 2, !tbaa !15
+  %176 = getelementptr inbounds nuw i8, ptr %169, i64 24
+  store ptr %168, ptr %176, align 8, !tbaa !11
+  store ptr %169, ptr @l_Std_Time_Week_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %169) #5
+  %177 = load ptr, ptr @l_Std_Time_Week_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  store ptr %177, ptr @l_Std_Time_Week_instOrdOrdinal, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %177) #5
   tail call void @lean_inc_heartbeat() #5
-  %180 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %181 = icmp eq ptr %180, null
-  br i1 %181, label %182, label %_init_l_Std_Time_Week_instOffsetRepr___closed__1.exit
+  %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %179 = icmp eq ptr %178, null
+  br i1 %179, label %180, label %_init_l_Std_Time_Week_instOffsetRepr___closed__1.exit
 
-182:                                              ; preds = %_init_l_Std_Time_Week_instOrdOrdinal___closed__2.exit
+180:                                              ; preds = %_init_l_Std_Time_Week_instOrdOrdinal___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOffsetRepr___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instOrdOrdinal___closed__2.exit
-  %183 = getelementptr inbounds nuw i8, ptr %180, i64 4
-  store i32 1, ptr %180, align 4, !tbaa !5
-  store i32 -184549352, ptr %183, align 4
-  %184 = getelementptr inbounds nuw i8, ptr %180, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %184, align 8, !tbaa !11
-  %185 = getelementptr inbounds nuw i8, ptr %180, i64 16
-  store i16 2, ptr %185, align 8, !tbaa !15
-  %186 = getelementptr inbounds nuw i8, ptr %180, i64 18
-  store i16 0, ptr %186, align 2, !tbaa !15
-  store ptr %180, ptr @l_Std_Time_Week_instOffsetRepr___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %180) #5
-  %187 = load ptr, ptr @l_Std_Time_Week_instOffsetRepr___closed__1, align 8, !tbaa !11
-  store ptr %187, ptr @l_Std_Time_Week_instOffsetRepr, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %187) #5
+  %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
+  store i32 1, ptr %178, align 4, !tbaa !5
+  store i32 -184549352, ptr %181, align 4
+  %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %182, align 8, !tbaa !11
+  %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
+  store i16 2, ptr %183, align 8, !tbaa !15
+  %184 = getelementptr inbounds nuw i8, ptr %178, i64 18
+  store i16 0, ptr %184, align 2, !tbaa !15
+  store ptr %178, ptr @l_Std_Time_Week_instOffsetRepr___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %178) #5
+  %185 = load ptr, ptr @l_Std_Time_Week_instOffsetRepr___closed__1, align 8, !tbaa !11
+  store ptr %185, ptr @l_Std_Time_Week_instOffsetRepr, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %185) #5
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Week_instOffsetInhabited, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   tail call void @lean_inc_heartbeat() #5
-  %188 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %189 = icmp eq ptr %188, null
-  br i1 %189, label %190, label %_init_l_Std_Time_Week_instOffsetAdd___closed__1.exit
+  %186 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %187 = icmp eq ptr %186, null
+  br i1 %187, label %188, label %_init_l_Std_Time_Week_instOffsetAdd___closed__1.exit
 
-190:                                              ; preds = %_init_l_Std_Time_Week_instOffsetRepr___closed__1.exit
+188:                                              ; preds = %_init_l_Std_Time_Week_instOffsetRepr___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOffsetAdd___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instOffsetRepr___closed__1.exit
-  %191 = getelementptr inbounds nuw i8, ptr %188, i64 4
-  store i32 1, ptr %188, align 4, !tbaa !5
-  store i32 -184549352, ptr %191, align 4
-  %192 = getelementptr inbounds nuw i8, ptr %188, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %192, align 8, !tbaa !11
-  %193 = getelementptr inbounds nuw i8, ptr %188, i64 16
-  store i16 2, ptr %193, align 8, !tbaa !15
-  %194 = getelementptr inbounds nuw i8, ptr %188, i64 18
-  store i16 0, ptr %194, align 2, !tbaa !15
-  store ptr %188, ptr @l_Std_Time_Week_instOffsetAdd___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %188) #5
-  %195 = load ptr, ptr @l_Std_Time_Week_instOffsetAdd___closed__1, align 8, !tbaa !11
-  store ptr %195, ptr @l_Std_Time_Week_instOffsetAdd, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %195) #5
+  %189 = getelementptr inbounds nuw i8, ptr %186, i64 4
+  store i32 1, ptr %186, align 4, !tbaa !5
+  store i32 -184549352, ptr %189, align 4
+  %190 = getelementptr inbounds nuw i8, ptr %186, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %190, align 8, !tbaa !11
+  %191 = getelementptr inbounds nuw i8, ptr %186, i64 16
+  store i16 2, ptr %191, align 8, !tbaa !15
+  %192 = getelementptr inbounds nuw i8, ptr %186, i64 18
+  store i16 0, ptr %192, align 2, !tbaa !15
+  store ptr %186, ptr @l_Std_Time_Week_instOffsetAdd___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %186) #5
+  %193 = load ptr, ptr @l_Std_Time_Week_instOffsetAdd___closed__1, align 8, !tbaa !11
+  store ptr %193, ptr @l_Std_Time_Week_instOffsetAdd, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %193) #5
   tail call void @lean_inc_heartbeat() #5
-  %196 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %197 = icmp eq ptr %196, null
-  br i1 %197, label %198, label %_init_l_Std_Time_Week_instOffsetSub___closed__1.exit
+  %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %195 = icmp eq ptr %194, null
+  br i1 %195, label %196, label %_init_l_Std_Time_Week_instOffsetSub___closed__1.exit
 
-198:                                              ; preds = %_init_l_Std_Time_Week_instOffsetAdd___closed__1.exit
+196:                                              ; preds = %_init_l_Std_Time_Week_instOffsetAdd___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOffsetSub___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instOffsetAdd___closed__1.exit
-  %199 = getelementptr inbounds nuw i8, ptr %196, i64 4
-  store i32 1, ptr %196, align 4, !tbaa !5
-  store i32 -184549352, ptr %199, align 4
-  %200 = getelementptr inbounds nuw i8, ptr %196, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %200, align 8, !tbaa !11
-  %201 = getelementptr inbounds nuw i8, ptr %196, i64 16
-  store i16 2, ptr %201, align 8, !tbaa !15
-  %202 = getelementptr inbounds nuw i8, ptr %196, i64 18
-  store i16 0, ptr %202, align 2, !tbaa !15
-  store ptr %196, ptr @l_Std_Time_Week_instOffsetSub___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %196) #5
-  %203 = load ptr, ptr @l_Std_Time_Week_instOffsetSub___closed__1, align 8, !tbaa !11
-  store ptr %203, ptr @l_Std_Time_Week_instOffsetSub, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %203) #5
+  %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
+  store i32 1, ptr %194, align 4, !tbaa !5
+  store i32 -184549352, ptr %197, align 4
+  %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %198, align 8, !tbaa !11
+  %199 = getelementptr inbounds nuw i8, ptr %194, i64 16
+  store i16 2, ptr %199, align 8, !tbaa !15
+  %200 = getelementptr inbounds nuw i8, ptr %194, i64 18
+  store i16 0, ptr %200, align 2, !tbaa !15
+  store ptr %194, ptr @l_Std_Time_Week_instOffsetSub___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %194) #5
+  %201 = load ptr, ptr @l_Std_Time_Week_instOffsetSub___closed__1, align 8, !tbaa !11
+  store ptr %201, ptr @l_Std_Time_Week_instOffsetSub, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %201) #5
   tail call void @lean_inc_heartbeat() #5
-  %204 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %205 = icmp eq ptr %204, null
-  br i1 %205, label %206, label %_init_l_Std_Time_Week_instOffsetNeg___closed__1.exit
+  %202 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %203 = icmp eq ptr %202, null
+  br i1 %203, label %204, label %_init_l_Std_Time_Week_instOffsetNeg___closed__1.exit
 
-206:                                              ; preds = %_init_l_Std_Time_Week_instOffsetSub___closed__1.exit
+204:                                              ; preds = %_init_l_Std_Time_Week_instOffsetSub___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOffsetNeg___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instOffsetSub___closed__1.exit
-  %207 = getelementptr inbounds nuw i8, ptr %204, i64 4
-  store i32 1, ptr %204, align 4, !tbaa !5
-  store i32 -184549352, ptr %207, align 4
-  %208 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %208, align 8, !tbaa !11
-  %209 = getelementptr inbounds nuw i8, ptr %204, i64 16
-  store i16 1, ptr %209, align 8, !tbaa !15
-  %210 = getelementptr inbounds nuw i8, ptr %204, i64 18
-  store i16 0, ptr %210, align 2, !tbaa !15
-  store ptr %204, ptr @l_Std_Time_Week_instOffsetNeg___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %204) #5
-  %211 = load ptr, ptr @l_Std_Time_Week_instOffsetNeg___closed__1, align 8, !tbaa !11
-  store ptr %211, ptr @l_Std_Time_Week_instOffsetNeg, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %211) #5
+  %205 = getelementptr inbounds nuw i8, ptr %202, i64 4
+  store i32 1, ptr %202, align 4, !tbaa !5
+  store i32 -184549352, ptr %205, align 4
+  %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %206, align 8, !tbaa !11
+  %207 = getelementptr inbounds nuw i8, ptr %202, i64 16
+  store i16 1, ptr %207, align 8, !tbaa !15
+  %208 = getelementptr inbounds nuw i8, ptr %202, i64 18
+  store i16 0, ptr %208, align 2, !tbaa !15
+  store ptr %202, ptr @l_Std_Time_Week_instOffsetNeg___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %202) #5
+  %209 = load ptr, ptr @l_Std_Time_Week_instOffsetNeg___closed__1, align 8, !tbaa !11
+  store ptr %209, ptr @l_Std_Time_Week_instOffsetNeg, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %209) #5
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Week_instOffsetLE, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Week_instOffsetLT, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #5
   tail call void @lean_inc_heartbeat() #5
-  %212 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %213 = icmp eq ptr %212, null
-  br i1 %213, label %214, label %_init_l_Std_Time_Week_instOffsetToString___closed__1.exit
+  %210 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %211 = icmp eq ptr %210, null
+  br i1 %211, label %212, label %_init_l_Std_Time_Week_instOffsetToString___closed__1.exit
 
-214:                                              ; preds = %_init_l_Std_Time_Week_instOffsetNeg___closed__1.exit
+212:                                              ; preds = %_init_l_Std_Time_Week_instOffsetNeg___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOffsetToString___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instOffsetNeg___closed__1.exit
-  %215 = getelementptr inbounds nuw i8, ptr %212, i64 4
-  store i32 1, ptr %212, align 4, !tbaa !5
-  store i32 -184549352, ptr %215, align 4
-  %216 = getelementptr inbounds nuw i8, ptr %212, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %216, align 8, !tbaa !11
-  %217 = getelementptr inbounds nuw i8, ptr %212, i64 16
-  store i16 1, ptr %217, align 8, !tbaa !15
-  %218 = getelementptr inbounds nuw i8, ptr %212, i64 18
-  store i16 0, ptr %218, align 2, !tbaa !15
-  store ptr %212, ptr @l_Std_Time_Week_instOffsetToString___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %212) #5
-  %219 = load ptr, ptr @l_Std_Time_Week_instOffsetToString___closed__1, align 8, !tbaa !11
-  store ptr %219, ptr @l_Std_Time_Week_instOffsetToString, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %219) #5
+  %213 = getelementptr inbounds nuw i8, ptr %210, i64 4
+  store i32 1, ptr %210, align 4, !tbaa !5
+  store i32 -184549352, ptr %213, align 4
+  %214 = getelementptr inbounds nuw i8, ptr %210, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %214, align 8, !tbaa !11
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 16
+  store i16 1, ptr %215, align 8, !tbaa !15
+  %216 = getelementptr inbounds nuw i8, ptr %210, i64 18
+  store i16 0, ptr %216, align 2, !tbaa !15
+  store ptr %210, ptr @l_Std_Time_Week_instOffsetToString___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %210) #5
+  %217 = load ptr, ptr @l_Std_Time_Week_instOffsetToString___closed__1, align 8, !tbaa !11
+  store ptr %217, ptr @l_Std_Time_Week_instOffsetToString, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %217) #5
   tail call void @lean_inc_heartbeat() #5
-  %220 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %221 = icmp eq ptr %220, null
-  br i1 %221, label %222, label %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
+  %218 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %219 = icmp eq ptr %218, null
+  br i1 %219, label %220, label %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
 
-222:                                              ; preds = %_init_l_Std_Time_Week_instOffsetToString___closed__1.exit
+220:                                              ; preds = %_init_l_Std_Time_Week_instOffsetToString___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l_Std_Time_Week_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Time_Week_instOffsetToString___closed__1.exit
-  %223 = getelementptr inbounds nuw i8, ptr %220, i64 4
-  store i32 1, ptr %220, align 4, !tbaa !5
-  store i32 -184549352, ptr %223, align 4
-  %224 = getelementptr inbounds nuw i8, ptr %220, i64 8
-  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %224, align 8, !tbaa !11
-  %225 = getelementptr inbounds nuw i8, ptr %220, i64 16
-  store i16 2, ptr %225, align 8, !tbaa !15
-  %226 = getelementptr inbounds nuw i8, ptr %220, i64 18
-  store i16 0, ptr %226, align 2, !tbaa !15
-  store ptr %220, ptr @l_Std_Time_Week_instOrdOffset___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %220) #5
-  %227 = load ptr, ptr @l_Std_Time_Week_instOrdOffset___closed__1, align 8, !tbaa !11
-  store ptr %227, ptr @l_Std_Time_Week_instOrdOffset, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %227) #5
-  %228 = load ptr, ptr @l_Std_Time_Week_instOrdinalRepr___closed__1, align 8, !tbaa !11
-  store ptr %228, ptr @l_Std_Time_Week_Ordinal_instOfMonthRepr, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %228) #5
+  %221 = getelementptr inbounds nuw i8, ptr %218, i64 4
+  store i32 1, ptr %218, align 4, !tbaa !5
+  store i32 -184549352, ptr %221, align 4
+  %222 = getelementptr inbounds nuw i8, ptr %218, i64 8
+  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %222, align 8, !tbaa !11
+  %223 = getelementptr inbounds nuw i8, ptr %218, i64 16
+  store i16 2, ptr %223, align 8, !tbaa !15
+  %224 = getelementptr inbounds nuw i8, ptr %218, i64 18
+  store i16 0, ptr %224, align 2, !tbaa !15
+  store ptr %218, ptr @l_Std_Time_Week_instOrdOffset___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %218) #5
+  %225 = load ptr, ptr @l_Std_Time_Week_instOrdOffset___closed__1, align 8, !tbaa !11
+  store ptr %225, ptr @l_Std_Time_Week_instOrdOffset, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %225) #5
+  %226 = load ptr, ptr @l_Std_Time_Week_instOrdinalRepr___closed__1, align 8, !tbaa !11
+  store ptr %226, ptr @l_Std_Time_Week_Ordinal_instOfMonthRepr, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %226) #5
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 11 to ptr)) #5
   store ptr inttoptr (i64 13 to ptr), ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 13 to ptr)) #5
-  %229 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__2, align 8, !tbaa !11
-  %230 = ptrtoint ptr %229 to i64
-  %231 = and i64 %230, 1
-  %.not.i.i44 = icmp eq i64 %231, 0
-  br i1 %.not.i.i44, label %.critedge.i.i47, label %232, !prof !13
+  %227 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__2, align 8, !tbaa !11
+  %228 = ptrtoint ptr %227 to i64
+  %229 = and i64 %228, 1
+  %.not.i.i44 = icmp eq i64 %229, 0
+  br i1 %.not.i.i44, label %.critedge.i.i47, label %230, !prof !13
 
-232:                                              ; preds = %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
-  %233 = shl i64 %230, 31
-  %234 = ashr i64 %233, 32
-  %235 = add nsw i64 %234, -1
-  %236 = add nsw i64 %234, 2147483647
-  %237 = icmp ult i64 %236, 4294967296
-  br i1 %237, label %238, label %243, !prof !10
+230:                                              ; preds = %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
+  %231 = shl i64 %228, 31
+  %232 = ashr i64 %231, 32
+  %233 = add nsw i64 %232, -1
+  %234 = add nsw i64 %232, 2147483647
+  %235 = icmp ult i64 %234, 4294967296
+  br i1 %235, label %236, label %241, !prof !10
 
-238:                                              ; preds = %232
-  %239 = shl nsw i64 %235, 1
-  %240 = and i64 %239, 8589934590
-  %241 = or disjoint i64 %240, 1
-  %242 = inttoptr i64 %241 to ptr
+236:                                              ; preds = %230
+  %237 = shl nsw i64 %233, 1
+  %238 = and i64 %237, 8589934590
+  %239 = or disjoint i64 %238, 1
+  %240 = inttoptr i64 %239 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
 
-243:                                              ; preds = %232
-  %244 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %235) #5
+241:                                              ; preds = %230
+  %242 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %233) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
 
 .critedge.i.i47:                                  ; preds = %_init_l_Std_Time_Week_instOrdOffset___closed__1.exit
-  %245 = tail call ptr @lean_int_big_sub(ptr noundef %229, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
+  %243 = tail call ptr @lean_int_big_sub(ptr noundef %227, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit: ; preds = %238, %243, %.critedge.i.i47
-  %.0.i.i46 = phi ptr [ %245, %.critedge.i.i47 ], [ %242, %238 ], [ %244, %243 ]
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit: ; preds = %236, %241, %.critedge.i.i47
+  %.0.i.i46 = phi ptr [ %243, %.critedge.i.i47 ], [ %240, %236 ], [ %242, %241 ]
   store ptr %.0.i.i46, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i46) #5
-  %246 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3, align 8, !tbaa !11
-  %247 = ptrtoint ptr %246 to i64
-  %248 = and i64 %247, 1
-  %.not.i.i48 = icmp eq i64 %248, 0
-  br i1 %.not.i.i48, label %.critedge.i.i51, label %249, !prof !13
+  %244 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3, align 8, !tbaa !11
+  %245 = ptrtoint ptr %244 to i64
+  %246 = and i64 %245, 1
+  %.not.i.i48 = icmp eq i64 %246, 0
+  br i1 %.not.i.i48, label %.critedge.i.i51, label %247, !prof !13
 
-249:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
-  %250 = shl i64 %247, 31
-  %251 = ashr i64 %250, 32
-  %252 = add nsw i64 %251, 1
-  %253 = icmp slt i64 %251, 2147483647
-  br i1 %253, label %254, label %259, !prof !10
+247:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
+  %248 = shl i64 %245, 31
+  %249 = ashr i64 %248, 32
+  %250 = add nsw i64 %249, 1
+  %251 = icmp slt i64 %249, 2147483647
+  br i1 %251, label %252, label %257, !prof !10
 
-254:                                              ; preds = %249
-  %255 = shl nsw i64 %252, 1
-  %256 = and i64 %255, 8589934590
-  %257 = or disjoint i64 %256, 1
-  %258 = inttoptr i64 %257 to ptr
+252:                                              ; preds = %247
+  %253 = shl nsw i64 %250, 1
+  %254 = and i64 %253, 8589934590
+  %255 = or disjoint i64 %254, 1
+  %256 = inttoptr i64 %255 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
 
-259:                                              ; preds = %249
-  %260 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %252) #5
+257:                                              ; preds = %247
+  %258 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %250) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
 
 .critedge.i.i51:                                  ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__3.exit
-  %261 = tail call ptr @lean_int_big_add(ptr noundef %246, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
+  %259 = tail call ptr @lean_int_big_add(ptr noundef %244, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit: ; preds = %254, %259, %.critedge.i.i51
-  %.0.i.i50 = phi ptr [ %261, %.critedge.i.i51 ], [ %258, %254 ], [ %260, %259 ]
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit: ; preds = %252, %257, %.critedge.i.i51
+  %.0.i.i50 = phi ptr [ %259, %.critedge.i.i51 ], [ %256, %252 ], [ %258, %257 ]
   store ptr %.0.i.i50, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i50) #5
-  %262 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
-  %263 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
-  %264 = ptrtoint ptr %262 to i64
-  %265 = and i64 %264, 1
-  %.not.i.i52 = icmp eq i64 %265, 0
-  br i1 %.not.i.i52, label %.critedge.i.i57, label %266, !prof !13
+  %260 = load ptr, ptr @l_Std_Time_Week_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
+  %261 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
+  %262 = ptrtoint ptr %260 to i64
+  %263 = and i64 %262, 1
+  %.not.i.i52 = icmp eq i64 %263, 0
+  br i1 %.not.i.i52, label %.critedge.i.i57, label %264, !prof !13
 
-266:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
-  %267 = ptrtoint ptr %263 to i64
-  %268 = and i64 %267, 1
-  %.not21.i.i53 = icmp eq i64 %268, 0
-  br i1 %.not21.i.i53, label %.critedge.i.i57, label %269, !prof !13
+264:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
+  %265 = ptrtoint ptr %261 to i64
+  %266 = and i64 %265, 1
+  %.not21.i.i53 = icmp eq i64 %266, 0
+  br i1 %.not21.i.i53, label %.critedge.i.i57, label %267, !prof !13
 
-269:                                              ; preds = %266
-  %270 = shl i64 %267, 31
-  %271 = ashr i64 %270, 32
-  %272 = icmp eq i64 %271, 0
-  br i1 %272, label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit, label %273
+267:                                              ; preds = %264
+  %268 = shl i64 %265, 31
+  %269 = ashr i64 %268, 32
+  %270 = icmp eq i64 %269, 0
+  br i1 %270, label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit, label %271
 
-273:                                              ; preds = %269
-  %274 = shl i64 %264, 31
-  %275 = ashr i64 %274, 32
-  %276 = srem i64 %275, %271
-  %277 = icmp slt i64 %276, 0
-  %.p.i.i54 = tail call i64 @llvm.abs.i64(i64 %271, i1 true)
-  %278 = select i1 %277, i64 %.p.i.i54, i64 0
-  %.0.i.i55 = add nsw i64 %278, %276
-  %279 = add nsw i64 %.0.i.i55, 2147483648
-  %280 = icmp samesign ult i64 %279, 4294967296
-  br i1 %280, label %281, label %286, !prof !10
+271:                                              ; preds = %267
+  %272 = shl i64 %262, 31
+  %273 = ashr i64 %272, 32
+  %274 = srem i64 %273, %269
+  %275 = icmp slt i64 %274, 0
+  %.p.i.i54 = tail call i64 @llvm.abs.i64(i64 %269, i1 true)
+  %276 = select i1 %275, i64 %.p.i.i54, i64 0
+  %.0.i.i55 = add nsw i64 %276, %274
+  %277 = icmp slt i64 %.0.i.i55, 2147483648
+  br i1 %277, label %278, label %283, !prof !10
 
-281:                                              ; preds = %273
-  %282 = shl nsw i64 %.0.i.i55, 1
-  %283 = and i64 %282, 8589934590
-  %284 = or disjoint i64 %283, 1
-  %285 = inttoptr i64 %284 to ptr
+278:                                              ; preds = %271
+  %279 = shl nsw i64 %.0.i.i55, 1
+  %280 = and i64 %279, 8589934590
+  %281 = or disjoint i64 %280, 1
+  %282 = inttoptr i64 %281 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
 
-286:                                              ; preds = %273
-  %287 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i55) #5
+283:                                              ; preds = %271
+  %284 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i55) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
 
-.critedge.i.i57:                                  ; preds = %266, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
-  %288 = tail call ptr @lean_int_big_emod(ptr noundef %262, ptr noundef %263) #5
+.critedge.i.i57:                                  ; preds = %264, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4.exit
+  %285 = tail call ptr @lean_int_big_emod(ptr noundef %260, ptr noundef %261) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit: ; preds = %269, %281, %286, %.critedge.i.i57
-  %.1.i.i56 = phi ptr [ %288, %.critedge.i.i57 ], [ %262, %269 ], [ %285, %281 ], [ %287, %286 ]
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit: ; preds = %267, %278, %283, %.critedge.i.i57
+  %.1.i.i56 = phi ptr [ %285, %.critedge.i.i57 ], [ %260, %267 ], [ %282, %278 ], [ %284, %283 ]
   store ptr %.1.i.i56, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i56) #5
-  %289 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5, align 8, !tbaa !11
-  %290 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
-  %291 = ptrtoint ptr %289 to i64
+  %286 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5, align 8, !tbaa !11
+  %287 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
+  %288 = ptrtoint ptr %286 to i64
+  %289 = and i64 %288, 1
+  %.not.i.i58 = icmp eq i64 %289, 0
+  br i1 %.not.i.i58, label %.critedge.i.i61, label %290, !prof !13
+
+290:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
+  %291 = ptrtoint ptr %287 to i64
   %292 = and i64 %291, 1
-  %.not.i.i58 = icmp eq i64 %292, 0
-  br i1 %.not.i.i58, label %.critedge.i.i61, label %293, !prof !13
+  %.not7.i.i59 = icmp eq i64 %292, 0
+  br i1 %.not7.i.i59, label %.critedge.i.i61, label %293, !prof !13
 
-293:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
-  %294 = ptrtoint ptr %290 to i64
-  %295 = and i64 %294, 1
-  %.not7.i.i59 = icmp eq i64 %295, 0
-  br i1 %.not7.i.i59, label %.critedge.i.i61, label %296, !prof !13
+293:                                              ; preds = %290
+  %294 = shl i64 %288, 31
+  %295 = ashr i64 %294, 32
+  %296 = shl i64 %291, 31
+  %297 = ashr i64 %296, 32
+  %298 = add nsw i64 %297, %295
+  %299 = add nsw i64 %298, 2147483648
+  %300 = icmp ult i64 %299, 4294967296
+  br i1 %300, label %301, label %306, !prof !10
 
-296:                                              ; preds = %293
-  %297 = shl i64 %291, 31
-  %298 = ashr i64 %297, 32
-  %299 = shl i64 %294, 31
-  %300 = ashr i64 %299, 32
-  %301 = add nsw i64 %300, %298
-  %302 = add nsw i64 %301, 2147483648
-  %303 = icmp ult i64 %302, 4294967296
-  br i1 %303, label %304, label %309, !prof !10
-
-304:                                              ; preds = %296
-  %305 = shl nsw i64 %301, 1
-  %306 = and i64 %305, 8589934590
-  %307 = or disjoint i64 %306, 1
-  %308 = inttoptr i64 %307 to ptr
+301:                                              ; preds = %293
+  %302 = shl nsw i64 %298, 1
+  %303 = and i64 %302, 8589934590
+  %304 = or disjoint i64 %303, 1
+  %305 = inttoptr i64 %304 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
 
-309:                                              ; preds = %296
-  %310 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %301) #5
+306:                                              ; preds = %293
+  %307 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %298) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
 
-.critedge.i.i61:                                  ; preds = %293, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
-  %311 = tail call ptr @lean_int_big_add(ptr noundef %289, ptr noundef %290) #5
+.critedge.i.i61:                                  ; preds = %290, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__5.exit
+  %308 = tail call ptr @lean_int_big_add(ptr noundef %286, ptr noundef %287) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit: ; preds = %304, %309, %.critedge.i.i61
-  %.0.i.i60 = phi ptr [ %311, %.critedge.i.i61 ], [ %308, %304 ], [ %310, %309 ]
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit: ; preds = %301, %306, %.critedge.i.i61
+  %.0.i.i60 = phi ptr [ %308, %.critedge.i.i61 ], [ %305, %301 ], [ %307, %306 ]
   store ptr %.0.i.i60, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i60) #5
-  %312 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6, align 8, !tbaa !11
-  %313 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
-  %314 = ptrtoint ptr %312 to i64
+  %309 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6, align 8, !tbaa !11
+  %310 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__4, align 8, !tbaa !11
+  %311 = ptrtoint ptr %309 to i64
+  %312 = and i64 %311, 1
+  %.not.i.i62 = icmp eq i64 %312, 0
+  br i1 %.not.i.i62, label %.critedge.i.i67, label %313, !prof !13
+
+313:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
+  %314 = ptrtoint ptr %310 to i64
   %315 = and i64 %314, 1
-  %.not.i.i62 = icmp eq i64 %315, 0
-  br i1 %.not.i.i62, label %.critedge.i.i67, label %316, !prof !13
+  %.not21.i.i63 = icmp eq i64 %315, 0
+  br i1 %.not21.i.i63, label %.critedge.i.i67, label %316, !prof !13
 
-316:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
-  %317 = ptrtoint ptr %313 to i64
-  %318 = and i64 %317, 1
-  %.not21.i.i63 = icmp eq i64 %318, 0
-  br i1 %.not21.i.i63, label %.critedge.i.i67, label %319, !prof !13
+316:                                              ; preds = %313
+  %317 = shl i64 %314, 31
+  %318 = ashr i64 %317, 32
+  %319 = icmp eq i64 %318, 0
+  br i1 %319, label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit, label %320
 
-319:                                              ; preds = %316
-  %320 = shl i64 %317, 31
-  %321 = ashr i64 %320, 32
-  %322 = icmp eq i64 %321, 0
-  br i1 %322, label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit, label %323
+320:                                              ; preds = %316
+  %321 = shl i64 %311, 31
+  %322 = ashr i64 %321, 32
+  %323 = srem i64 %322, %318
+  %324 = icmp slt i64 %323, 0
+  %.p.i.i64 = tail call i64 @llvm.abs.i64(i64 %318, i1 true)
+  %325 = select i1 %324, i64 %.p.i.i64, i64 0
+  %.0.i.i65 = add nsw i64 %325, %323
+  %326 = icmp slt i64 %.0.i.i65, 2147483648
+  br i1 %326, label %327, label %332, !prof !10
 
-323:                                              ; preds = %319
-  %324 = shl i64 %314, 31
-  %325 = ashr i64 %324, 32
-  %326 = srem i64 %325, %321
-  %327 = icmp slt i64 %326, 0
-  %.p.i.i64 = tail call i64 @llvm.abs.i64(i64 %321, i1 true)
-  %328 = select i1 %327, i64 %.p.i.i64, i64 0
-  %.0.i.i65 = add nsw i64 %328, %326
-  %329 = add nsw i64 %.0.i.i65, 2147483648
-  %330 = icmp samesign ult i64 %329, 4294967296
-  br i1 %330, label %331, label %336, !prof !10
-
-331:                                              ; preds = %323
-  %332 = shl nsw i64 %.0.i.i65, 1
-  %333 = and i64 %332, 8589934590
-  %334 = or disjoint i64 %333, 1
-  %335 = inttoptr i64 %334 to ptr
+327:                                              ; preds = %320
+  %328 = shl nsw i64 %.0.i.i65, 1
+  %329 = and i64 %328, 8589934590
+  %330 = or disjoint i64 %329, 1
+  %331 = inttoptr i64 %330 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
 
-336:                                              ; preds = %323
-  %337 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i65) #5
+332:                                              ; preds = %320
+  %333 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i65) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
 
-.critedge.i.i67:                                  ; preds = %316, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
-  %338 = tail call ptr @lean_int_big_emod(ptr noundef %312, ptr noundef %313) #5
+.critedge.i.i67:                                  ; preds = %313, %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__6.exit
+  %334 = tail call ptr @lean_int_big_emod(ptr noundef %309, ptr noundef %310) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit: ; preds = %319, %331, %336, %.critedge.i.i67
-  %.1.i.i66 = phi ptr [ %338, %.critedge.i.i67 ], [ %312, %319 ], [ %335, %331 ], [ %337, %336 ]
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit: ; preds = %316, %327, %332, %.critedge.i.i67
+  %.1.i.i66 = phi ptr [ %334, %.critedge.i.i67 ], [ %309, %316 ], [ %331, %327 ], [ %333, %332 ]
   store ptr %.1.i.i66, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i66) #5
-  %339 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7, align 8, !tbaa !11
-  %340 = ptrtoint ptr %339 to i64
-  %341 = and i64 %340, 1
-  %.not.i.i68 = icmp eq i64 %341, 0
-  br i1 %.not.i.i68, label %.critedge.i.i71, label %342, !prof !13
+  %335 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7, align 8, !tbaa !11
+  %336 = ptrtoint ptr %335 to i64
+  %337 = and i64 %336, 1
+  %.not.i.i68 = icmp eq i64 %337, 0
+  br i1 %.not.i.i68, label %.critedge.i.i71, label %338, !prof !13
 
-342:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
-  %343 = shl i64 %340, 31
-  %344 = ashr i64 %343, 32
-  %345 = add nsw i64 %344, 1
-  %346 = icmp slt i64 %344, 2147483647
-  br i1 %346, label %347, label %352, !prof !10
+338:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
+  %339 = shl i64 %336, 31
+  %340 = ashr i64 %339, 32
+  %341 = add nsw i64 %340, 1
+  %342 = icmp slt i64 %340, 2147483647
+  br i1 %342, label %343, label %348, !prof !10
 
-347:                                              ; preds = %342
-  %348 = shl nsw i64 %345, 1
-  %349 = and i64 %348, 8589934590
-  %350 = or disjoint i64 %349, 1
-  %351 = inttoptr i64 %350 to ptr
+343:                                              ; preds = %338
+  %344 = shl nsw i64 %341, 1
+  %345 = and i64 %344, 8589934590
+  %346 = or disjoint i64 %345, 1
+  %347 = inttoptr i64 %346 to ptr
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
 
-352:                                              ; preds = %342
-  %353 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %345) #5
+348:                                              ; preds = %338
+  %349 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %341) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
 
 .critedge.i.i71:                                  ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__7.exit
-  %354 = tail call ptr @lean_int_big_add(ptr noundef %339, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
+  %350 = tail call ptr @lean_int_big_add(ptr noundef %335, ptr noundef nonnull inttoptr (i64 3 to ptr)) #5
   br label %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
 
-_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit: ; preds = %347, %352, %.critedge.i.i71
-  %.0.i.i70 = phi ptr [ %354, %.critedge.i.i71 ], [ %351, %347 ], [ %353, %352 ]
+_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit: ; preds = %343, %348, %.critedge.i.i71
+  %.0.i.i70 = phi ptr [ %350, %.critedge.i.i71 ], [ %347, %343 ], [ %349, %348 ]
   store ptr %.0.i.i70, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i70) #5
-  %355 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8, align 8, !tbaa !11
-  store ptr %355, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth, align 8, !tbaa !11
+  %351 = load ptr, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8, align 8, !tbaa !11
+  store ptr %351, ptr @l_Std_Time_Week_Ordinal_instInhabitedOfMonth, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %351) #5
+  %352 = load ptr, ptr @l_Std_Time_Week_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  store ptr %352, ptr @l_Std_Time_Week_Ordinal_instOrdOfMonth, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %352) #5
+  %353 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #5
+  store ptr %353, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %353) #5
+  %354 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.1, i64 noundef 6, i64 noundef 6) #5
+  store ptr %354, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %354) #5
+  %355 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 6, i64 noundef 6) #5
+  store ptr %355, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %355) #5
-  %356 = load ptr, ptr @l_Std_Time_Week_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  store ptr %356, ptr @l_Std_Time_Week_Ordinal_instOrdOfMonth, align 8, !tbaa !11
+  %356 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 9, i64 noundef 9) #5
+  store ptr %356, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__4, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %356) #5
-  %357 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 4, i64 noundef 4) #5
-  store ptr %357, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %357) #5
-  %358 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.1, i64 noundef 6, i64 noundef 6) #5
-  store ptr %358, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %358) #5
-  %359 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 6, i64 noundef 6) #5
-  store ptr %359, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %359) #5
-  %360 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 9, i64 noundef 9) #5
-  store ptr %360, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__4, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %360) #5
-  %361 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
-  %362 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
-  %363 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
-  %364 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__4, align 8, !tbaa !11
-  %365 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %361, ptr noundef %362, ptr noundef %363, ptr noundef %364) #5
-  store ptr %365, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__5, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %365) #5
-  %366 = tail call ptr @lean_alloc_object(i64 noundef 24) #5
-  store i32 1, ptr %366, align 4, !tbaa !5
-  %367 = getelementptr inbounds nuw i8, ptr %366, i64 4
-  %368 = load i32, ptr %367, align 4
-  %369 = and i32 %368, 65535
-  %370 = or disjoint i32 %369, -167772160
-  store i32 %370, ptr %367, align 4
-  %371 = getelementptr inbounds nuw i8, ptr %366, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %371, i8 0, i64 16, i1 false)
-  store ptr %366, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %366) #5
-  %372 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.4, i64 noundef 18, i64 noundef 18) #5
-  store ptr %372, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__7, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %372) #5
-  %373 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
-  %374 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
-  %375 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
-  %376 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__7, align 8, !tbaa !11
-  %377 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %373, ptr noundef %374, ptr noundef %375, ptr noundef %376) #5
-  store ptr %377, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__8, align 8, !tbaa !11
+  %357 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
+  %358 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
+  %359 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
+  %360 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__4, align 8, !tbaa !11
+  %361 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %357, ptr noundef %358, ptr noundef %359, ptr noundef %360) #5
+  store ptr %361, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__5, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %361) #5
+  %362 = tail call ptr @lean_alloc_object(i64 noundef 24) #5
+  store i32 1, ptr %362, align 4, !tbaa !5
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 4
+  %364 = load i32, ptr %363, align 4
+  %365 = and i32 %364, 65535
+  %366 = or disjoint i32 %365, -167772160
+  store i32 %366, ptr %363, align 4
+  %367 = getelementptr inbounds nuw i8, ptr %362, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %367, i8 0, i64 16, i1 false)
+  store ptr %362, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %362) #5
+  %368 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.4, i64 noundef 18, i64 noundef 18) #5
+  store ptr %368, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__7, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %368) #5
+  %369 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
+  %370 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
+  %371 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
+  %372 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__7, align 8, !tbaa !11
+  %373 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %369, ptr noundef %370, ptr noundef %371, ptr noundef %372) #5
+  store ptr %373, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__8, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %373) #5
+  %374 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.5, i64 noundef 4, i64 noundef 4) #5
+  store ptr %374, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__9, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %374) #5
+  %375 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__9, align 8, !tbaa !11
+  %376 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %375) #5
+  store ptr %376, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__10, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %376) #5
+  %377 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 6, i64 noundef 6) #5
+  store ptr %377, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__11, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %377) #5
-  %378 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.5, i64 noundef 4, i64 noundef 4) #5
-  store ptr %378, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__9, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %378) #5
-  %379 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__9, align 8, !tbaa !11
-  %380 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %379) #5
-  store ptr %380, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__10, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %380) #5
-  %381 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 6, i64 noundef 6) #5
-  store ptr %381, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__11, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %381) #5
-  %382 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
-  %383 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
-  %384 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
-  %385 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__11, align 8, !tbaa !11
-  %386 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %382, ptr noundef %383, ptr noundef %384, ptr noundef %385) #5
-  store ptr %386, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__12, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %386) #5
-  %387 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__11, align 8, !tbaa !11
+  %378 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
+  %379 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
+  %380 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
+  %381 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__11, align 8, !tbaa !11
+  %382 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %378, ptr noundef %379, ptr noundef %380, ptr noundef %381) #5
+  store ptr %382, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__12, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %382) #5
+  %383 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__11, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %388 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %389 = icmp eq ptr %388, null
-  br i1 %389, label %390, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13.exit
+  %384 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %385 = icmp eq ptr %384, null
+  br i1 %385, label %386, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13.exit
 
-390:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
+386:                                              ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13.exit: ; preds = %_init_l_Std_Time_Week_Ordinal_instInhabitedOfMonth___closed__8.exit
-  %391 = getelementptr inbounds nuw i8, ptr %388, i64 4
-  store i32 1, ptr %388, align 4, !tbaa !5
-  store i32 33685528, ptr %391, align 4
-  %392 = getelementptr inbounds nuw i8, ptr %388, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %392, align 8, !tbaa !11
-  %393 = getelementptr inbounds nuw i8, ptr %388, i64 16
-  store ptr %387, ptr %393, align 8, !tbaa !11
-  store ptr %388, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %388) #5
-  %394 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
-  %395 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13, align 8, !tbaa !11
-  %396 = tail call ptr @lean_array_push(ptr noundef %394, ptr noundef %395) #5
-  store ptr %396, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__14, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %396) #5
-  %397 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 9, i64 noundef 9) #5
-  store ptr %397, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__15, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %397) #5
-  %398 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
-  %399 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
-  %400 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
-  %401 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__15, align 8, !tbaa !11
-  %402 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %398, ptr noundef %399, ptr noundef %400, ptr noundef %401) #5
-  store ptr %402, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__16, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %402) #5
-  %403 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__10, align 8, !tbaa !11
-  %404 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  %387 = getelementptr inbounds nuw i8, ptr %384, i64 4
+  store i32 1, ptr %384, align 4, !tbaa !5
+  store i32 33685528, ptr %387, align 4
+  %388 = getelementptr inbounds nuw i8, ptr %384, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %388, align 8, !tbaa !11
+  %389 = getelementptr inbounds nuw i8, ptr %384, i64 16
+  store ptr %383, ptr %389, align 8, !tbaa !11
+  store ptr %384, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %384) #5
+  %390 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  %391 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13, align 8, !tbaa !11
+  %392 = tail call ptr @lean_array_push(ptr noundef %390, ptr noundef %391) #5
+  store ptr %392, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__14, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %392) #5
+  %393 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 9, i64 noundef 9) #5
+  store ptr %393, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__15, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %393) #5
+  %394 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__1, align 8, !tbaa !11
+  %395 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__2, align 8, !tbaa !11
+  %396 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__3, align 8, !tbaa !11
+  %397 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__15, align 8, !tbaa !11
+  %398 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %394, ptr noundef %395, ptr noundef %396, ptr noundef %397) #5
+  store ptr %398, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__16, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %398) #5
+  %399 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__10, align 8, !tbaa !11
+  %400 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %405 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %406 = icmp eq ptr %405, null
-  br i1 %406, label %407, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17.exit
+  %401 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %402 = icmp eq ptr %401, null
+  br i1 %402, label %403, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17.exit
 
-407:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13.exit
+403:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__13.exit
-  %408 = getelementptr inbounds nuw i8, ptr %405, i64 4
-  store i32 1, ptr %405, align 4, !tbaa !5
-  store i32 16973856, ptr %408, align 4
-  %409 = getelementptr inbounds nuw i8, ptr %405, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %409, align 8, !tbaa !11
-  %410 = getelementptr inbounds nuw i8, ptr %405, i64 16
-  store ptr %403, ptr %410, align 8, !tbaa !11
-  %411 = getelementptr inbounds nuw i8, ptr %405, i64 24
-  store ptr %404, ptr %411, align 8, !tbaa !11
-  store ptr %405, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %405) #5
-  %412 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
-  %413 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17, align 8, !tbaa !11
-  %414 = tail call ptr @lean_array_push(ptr noundef %412, ptr noundef %413) #5
-  store ptr %414, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__18, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %414) #5
-  %415 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__16, align 8, !tbaa !11
-  %416 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__18, align 8, !tbaa !11
+  %404 = getelementptr inbounds nuw i8, ptr %401, i64 4
+  store i32 1, ptr %401, align 4, !tbaa !5
+  store i32 16973856, ptr %404, align 4
+  %405 = getelementptr inbounds nuw i8, ptr %401, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %405, align 8, !tbaa !11
+  %406 = getelementptr inbounds nuw i8, ptr %401, i64 16
+  store ptr %399, ptr %406, align 8, !tbaa !11
+  %407 = getelementptr inbounds nuw i8, ptr %401, i64 24
+  store ptr %400, ptr %407, align 8, !tbaa !11
+  store ptr %401, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %401) #5
+  %408 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  %409 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17, align 8, !tbaa !11
+  %410 = tail call ptr @lean_array_push(ptr noundef %408, ptr noundef %409) #5
+  store ptr %410, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__18, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %410) #5
+  %411 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__16, align 8, !tbaa !11
+  %412 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__18, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %417 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %418 = icmp eq ptr %417, null
-  br i1 %418, label %419, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19.exit
+  %413 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %414 = icmp eq ptr %413, null
+  br i1 %414, label %415, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19.exit
 
-419:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17.exit
+415:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__17.exit
-  %420 = getelementptr inbounds nuw i8, ptr %417, i64 4
-  store i32 1, ptr %417, align 4, !tbaa !5
-  store i32 16973856, ptr %420, align 4
-  %421 = getelementptr inbounds nuw i8, ptr %417, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %421, align 8, !tbaa !11
-  %422 = getelementptr inbounds nuw i8, ptr %417, i64 16
-  store ptr %415, ptr %422, align 8, !tbaa !11
-  %423 = getelementptr inbounds nuw i8, ptr %417, i64 24
-  store ptr %416, ptr %423, align 8, !tbaa !11
-  store ptr %417, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %417) #5
-  %424 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__14, align 8, !tbaa !11
-  %425 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19, align 8, !tbaa !11
-  %426 = tail call ptr @lean_array_push(ptr noundef %424, ptr noundef %425) #5
-  store ptr %426, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__20, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %426) #5
-  %427 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__12, align 8, !tbaa !11
-  %428 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__20, align 8, !tbaa !11
+  %416 = getelementptr inbounds nuw i8, ptr %413, i64 4
+  store i32 1, ptr %413, align 4, !tbaa !5
+  store i32 16973856, ptr %416, align 4
+  %417 = getelementptr inbounds nuw i8, ptr %413, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %417, align 8, !tbaa !11
+  %418 = getelementptr inbounds nuw i8, ptr %413, i64 16
+  store ptr %411, ptr %418, align 8, !tbaa !11
+  %419 = getelementptr inbounds nuw i8, ptr %413, i64 24
+  store ptr %412, ptr %419, align 8, !tbaa !11
+  store ptr %413, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %413) #5
+  %420 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__14, align 8, !tbaa !11
+  %421 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19, align 8, !tbaa !11
+  %422 = tail call ptr @lean_array_push(ptr noundef %420, ptr noundef %421) #5
+  store ptr %422, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__20, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %422) #5
+  %423 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__12, align 8, !tbaa !11
+  %424 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__20, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %429 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %430 = icmp eq ptr %429, null
-  br i1 %430, label %431, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21.exit
+  %425 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %426 = icmp eq ptr %425, null
+  br i1 %426, label %427, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21.exit
 
-431:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19.exit
+427:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__19.exit
-  %432 = getelementptr inbounds nuw i8, ptr %429, i64 4
-  store i32 1, ptr %429, align 4, !tbaa !5
-  store i32 16973856, ptr %432, align 4
-  %433 = getelementptr inbounds nuw i8, ptr %429, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %433, align 8, !tbaa !11
-  %434 = getelementptr inbounds nuw i8, ptr %429, i64 16
-  store ptr %427, ptr %434, align 8, !tbaa !11
-  %435 = getelementptr inbounds nuw i8, ptr %429, i64 24
-  store ptr %428, ptr %435, align 8, !tbaa !11
-  store ptr %429, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %429) #5
-  %436 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
-  %437 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21, align 8, !tbaa !11
-  %438 = tail call ptr @lean_array_push(ptr noundef %436, ptr noundef %437) #5
-  store ptr %438, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__22, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %438) #5
-  %439 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__10, align 8, !tbaa !11
-  %440 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__22, align 8, !tbaa !11
+  %428 = getelementptr inbounds nuw i8, ptr %425, i64 4
+  store i32 1, ptr %425, align 4, !tbaa !5
+  store i32 16973856, ptr %428, align 4
+  %429 = getelementptr inbounds nuw i8, ptr %425, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %429, align 8, !tbaa !11
+  %430 = getelementptr inbounds nuw i8, ptr %425, i64 16
+  store ptr %423, ptr %430, align 8, !tbaa !11
+  %431 = getelementptr inbounds nuw i8, ptr %425, i64 24
+  store ptr %424, ptr %431, align 8, !tbaa !11
+  store ptr %425, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %425) #5
+  %432 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  %433 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21, align 8, !tbaa !11
+  %434 = tail call ptr @lean_array_push(ptr noundef %432, ptr noundef %433) #5
+  store ptr %434, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__22, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %434) #5
+  %435 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__10, align 8, !tbaa !11
+  %436 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__22, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %441 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %442 = icmp eq ptr %441, null
-  br i1 %442, label %443, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23.exit
+  %437 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %438 = icmp eq ptr %437, null
+  br i1 %438, label %439, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23.exit
 
-443:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21.exit
+439:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__21.exit
-  %444 = getelementptr inbounds nuw i8, ptr %441, i64 4
-  store i32 1, ptr %441, align 4, !tbaa !5
-  store i32 16973856, ptr %444, align 4
-  %445 = getelementptr inbounds nuw i8, ptr %441, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %445, align 8, !tbaa !11
-  %446 = getelementptr inbounds nuw i8, ptr %441, i64 16
-  store ptr %439, ptr %446, align 8, !tbaa !11
-  %447 = getelementptr inbounds nuw i8, ptr %441, i64 24
-  store ptr %440, ptr %447, align 8, !tbaa !11
-  store ptr %441, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %441) #5
-  %448 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
-  %449 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23, align 8, !tbaa !11
-  %450 = tail call ptr @lean_array_push(ptr noundef %448, ptr noundef %449) #5
-  store ptr %450, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__24, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %450) #5
-  %451 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__8, align 8, !tbaa !11
-  %452 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__24, align 8, !tbaa !11
+  %440 = getelementptr inbounds nuw i8, ptr %437, i64 4
+  store i32 1, ptr %437, align 4, !tbaa !5
+  store i32 16973856, ptr %440, align 4
+  %441 = getelementptr inbounds nuw i8, ptr %437, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %441, align 8, !tbaa !11
+  %442 = getelementptr inbounds nuw i8, ptr %437, i64 16
+  store ptr %435, ptr %442, align 8, !tbaa !11
+  %443 = getelementptr inbounds nuw i8, ptr %437, i64 24
+  store ptr %436, ptr %443, align 8, !tbaa !11
+  store ptr %437, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %437) #5
+  %444 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  %445 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23, align 8, !tbaa !11
+  %446 = tail call ptr @lean_array_push(ptr noundef %444, ptr noundef %445) #5
+  store ptr %446, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__24, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %446) #5
+  %447 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__8, align 8, !tbaa !11
+  %448 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__24, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %453 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %454 = icmp eq ptr %453, null
-  br i1 %454, label %455, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25.exit
+  %449 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %450 = icmp eq ptr %449, null
+  br i1 %450, label %451, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25.exit
 
-455:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23.exit
+451:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__23.exit
-  %456 = getelementptr inbounds nuw i8, ptr %453, i64 4
-  store i32 1, ptr %453, align 4, !tbaa !5
-  store i32 16973856, ptr %456, align 4
-  %457 = getelementptr inbounds nuw i8, ptr %453, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %457, align 8, !tbaa !11
-  %458 = getelementptr inbounds nuw i8, ptr %453, i64 16
-  store ptr %451, ptr %458, align 8, !tbaa !11
-  %459 = getelementptr inbounds nuw i8, ptr %453, i64 24
-  store ptr %452, ptr %459, align 8, !tbaa !11
-  store ptr %453, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %453) #5
-  %460 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
-  %461 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25, align 8, !tbaa !11
-  %462 = tail call ptr @lean_array_push(ptr noundef %460, ptr noundef %461) #5
-  store ptr %462, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__26, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %462) #5
-  %463 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__5, align 8, !tbaa !11
-  %464 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__26, align 8, !tbaa !11
+  %452 = getelementptr inbounds nuw i8, ptr %449, i64 4
+  store i32 1, ptr %449, align 4, !tbaa !5
+  store i32 16973856, ptr %452, align 4
+  %453 = getelementptr inbounds nuw i8, ptr %449, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %453, align 8, !tbaa !11
+  %454 = getelementptr inbounds nuw i8, ptr %449, i64 16
+  store ptr %447, ptr %454, align 8, !tbaa !11
+  %455 = getelementptr inbounds nuw i8, ptr %449, i64 24
+  store ptr %448, ptr %455, align 8, !tbaa !11
+  store ptr %449, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %449) #5
+  %456 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__6, align 8, !tbaa !11
+  %457 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25, align 8, !tbaa !11
+  %458 = tail call ptr @lean_array_push(ptr noundef %456, ptr noundef %457) #5
+  store ptr %458, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__26, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %458) #5
+  %459 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__5, align 8, !tbaa !11
+  %460 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__26, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #5
-  %465 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
-  %466 = icmp eq ptr %465, null
-  br i1 %466, label %467, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit
+  %461 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #5
+  %462 = icmp eq ptr %461, null
+  br i1 %462, label %463, label %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit
 
-467:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25.exit
+463:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__25.exit
-  %468 = getelementptr inbounds nuw i8, ptr %465, i64 4
-  store i32 1, ptr %465, align 4, !tbaa !5
-  store i32 16973856, ptr %468, align 4
-  %469 = getelementptr inbounds nuw i8, ptr %465, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %469, align 8, !tbaa !11
-  %470 = getelementptr inbounds nuw i8, ptr %465, i64 16
-  store ptr %463, ptr %470, align 8, !tbaa !11
-  %471 = getelementptr inbounds nuw i8, ptr %465, i64 24
-  store ptr %464, ptr %471, align 8, !tbaa !11
-  store ptr %465, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %465) #5
-  %472 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27, align 8, !tbaa !11
-  store ptr %472, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345_, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %472) #5
+  %464 = getelementptr inbounds nuw i8, ptr %461, i64 4
+  store i32 1, ptr %461, align 4, !tbaa !5
+  store i32 16973856, ptr %464, align 4
+  %465 = getelementptr inbounds nuw i8, ptr %461, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %465, align 8, !tbaa !11
+  %466 = getelementptr inbounds nuw i8, ptr %461, i64 16
+  store ptr %459, ptr %466, align 8, !tbaa !11
+  %467 = getelementptr inbounds nuw i8, ptr %461, i64 24
+  store ptr %460, ptr %467, align 8, !tbaa !11
+  store ptr %461, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %461) #5
+  %468 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27, align 8, !tbaa !11
+  store ptr %468, ptr @l___auto____x40_Std_Time_Date_Unit_Week___hyg_345_, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %468) #5
   store ptr inttoptr (i64 1209600001 to ptr), ptr @l_Std_Time_Week_Offset_toMilliseconds___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1209600001 to ptr)) #5
-  %473 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.8) #5
-  %474 = ptrtoint ptr %473 to i64
-  %475 = and i64 %474, 1
-  %.not.i.i72 = icmp eq i64 %475, 0
-  %476 = icmp ult ptr %473, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i = or i1 %476, %.not.i.i72
-  br i1 %or.cond.i.i, label %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit, label %477
+  %469 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.8) #5
+  %470 = ptrtoint ptr %469 to i64
+  %471 = and i64 %470, 1
+  %.not.i.i72 = icmp eq i64 %471, 0
+  %472 = icmp ult ptr %469, inttoptr (i64 4294967296 to ptr)
+  %or.cond.i.i = or i1 %472, %.not.i.i72
+  br i1 %or.cond.i.i, label %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit, label %473
 
-477:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit
-  %478 = lshr i64 %474, 1
-  %479 = tail call ptr @lean_big_size_t_to_int(i64 noundef %478) #5
+473:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit
+  %474 = lshr i64 %470, 1
+  %475 = tail call ptr @lean_big_size_t_to_int(i64 noundef %474) #5
   br label %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit
 
-_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit, %477
-  %.1.i.i73 = phi ptr [ %479, %477 ], [ %473, %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit ]
+_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit, %473
+  %.1.i.i73 = phi ptr [ %475, %473 ], [ %469, %_init_l___auto____x40_Std_Time_Date_Unit_Week___hyg_345____closed__27.exit ]
   store ptr %.1.i.i73, ptr @l_Std_Time_Week_Offset_toNanoseconds___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i73) #5
   store ptr inttoptr (i64 1209601 to ptr), ptr @l_Std_Time_Week_Offset_toSeconds___closed__1, align 8, !tbaa !11
@@ -3656,26 +3652,26 @@ _init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l_
   store ptr inttoptr (i64 15 to ptr), ptr @l_Std_Time_Week_Offset_toDays___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 15 to ptr)) #5
   tail call void @lean_inc_heartbeat() #5
-  %480 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
-  %481 = icmp eq ptr %480, null
-  br i1 %481, label %482, label %.sink.split
+  %476 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #5
+  %477 = icmp eq ptr %476, null
+  br i1 %477, label %478, label %.sink.split
 
-482:                                              ; preds = %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit
+478:                                              ; preds = %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #6
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit, %3
-  %.sink103 = phi ptr [ %4, %3 ], [ %480, %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit ]
-  %483 = getelementptr inbounds nuw i8, ptr %.sink103, i64 4
+  %.sink103 = phi ptr [ %4, %3 ], [ %476, %_init_l_Std_Time_Week_Offset_toNanoseconds___closed__1.exit ]
+  %479 = getelementptr inbounds nuw i8, ptr %.sink103, i64 4
   store i32 1, ptr %.sink103, align 4, !tbaa !5
-  store i32 131096, ptr %483, align 4
-  %484 = getelementptr inbounds nuw i8, ptr %.sink103, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %484, align 8, !tbaa !11
-  %485 = getelementptr inbounds nuw i8, ptr %.sink103, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %485, align 8, !tbaa !11
-  br label %486
+  store i32 131096, ptr %479, align 4
+  %480 = getelementptr inbounds nuw i8, ptr %.sink103, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %480, align 8, !tbaa !11
+  %481 = getelementptr inbounds nuw i8, ptr %.sink103, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %481, align 8, !tbaa !11
+  br label %482
 
-486:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
+482:                                              ; preds = %.sink.split, %lean_dec_ref.exit, %7
   %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %.sink103, %.sink.split ]
   ret ptr %.0
 }

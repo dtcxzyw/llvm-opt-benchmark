@@ -12825,17 +12825,17 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   store i32 %39, ptr %47, align 8
   %55 = getelementptr inbounds nuw i8, ptr %1, i64 644
   store i32 %46, ptr %55, align 4
-  %56 = add nsw i64 %3, -8
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  %57 = getelementptr inbounds nuw i8, ptr %7, i64 1530
-  store i8 0, ptr %57, align 2
-  %58 = icmp samesign ugt i64 %56, 3
-  br i1 %58, label %59, label %.loopexit.preheader
+  %56 = getelementptr inbounds nuw i8, ptr %7, i64 1530
+  store i8 0, ptr %56, align 2
+  %57 = icmp samesign ugt i64 %3, 11
+  br i1 %57, label %58, label %.loopexit.preheader
 
 .loopexit.preheader:                              ; preds = %172, %54
   br label %.loopexit
 
-59:                                               ; preds = %54
+58:                                               ; preds = %54
+  %59 = add nsw i64 %3, -8
   %60 = getelementptr i8, ptr %2, i64 8
   %61 = getelementptr inbounds nuw i8, ptr %6, i64 9
   %62 = zext i1 %40 to i8
@@ -12856,9 +12856,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   %77 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %78
 
-78:                                               ; preds = %172, %59
-  %79 = phi i64 [ %56, %59 ], [ %173, %172 ]
-  %80 = phi ptr [ %60, %59 ], [ %174, %172 ]
+78:                                               ; preds = %172, %58
+  %79 = phi i64 [ %59, %58 ], [ %173, %172 ]
+  %80 = phi ptr [ %60, %58 ], [ %174, %172 ]
   %81 = load i8, ptr %80, align 1
   %82 = zext i8 %81 to i32
   %83 = lshr i32 %82, 5
@@ -12866,7 +12866,7 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   %85 = lshr i32 %82, 4
   %86 = and i32 %85, 1
   %87 = icmp eq i32 %86, 0
-  switch i32 %84, label %default.unreachable31 [
+  switch i32 %84, label %default.unreachable30 [
     i32 1, label %88
     i32 2, label %94
     i32 3, label %100
@@ -12877,9 +12877,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   br i1 %87, label %92, label %89
 
 89:                                               ; preds = %88
-  %90 = load i8, ptr %57, align 2
+  %90 = load i8, ptr %56, align 2
   %91 = or i8 %90, 6
-  store i8 %91, ptr %57, align 2
+  store i8 %91, ptr %56, align 2
   br label %92
 
 92:                                               ; preds = %89, %88
@@ -12894,9 +12894,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   br i1 %87, label %98, label %95
 
 95:                                               ; preds = %94
-  %96 = load i8, ptr %57, align 2
+  %96 = load i8, ptr %56, align 2
   %97 = or i8 %96, 48
-  store i8 %97, ptr %57, align 2
+  store i8 %97, ptr %56, align 2
   br label %98
 
 98:                                               ; preds = %95, %94
@@ -12911,9 +12911,9 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   br i1 %87, label %104, label %101
 
 101:                                              ; preds = %100
-  %102 = load i8, ptr %57, align 2
+  %102 = load i8, ptr %56, align 2
   %103 = or i8 %102, -64
-  store i8 %103, ptr %57, align 2
+  store i8 %103, ptr %56, align 2
   br label %104
 
 104:                                              ; preds = %101, %100
@@ -12924,16 +12924,16 @@ define internal fastcc noundef zeroext i1 @ieee80211_sta_wmm_params(ptr noundef 
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 2 dereferenceable(3) %63, ptr noundef nonnull align 1 dereferenceable(3) %64, i64 3, i1 false)
   br label %112
 
-default.unreachable31:                            ; preds = %78
+default.unreachable30:                            ; preds = %78
   unreachable
 
 106:                                              ; preds = %78
   br i1 %87, label %110, label %107
 
 107:                                              ; preds = %106
-  %108 = load i8, ptr %57, align 2
+  %108 = load i8, ptr %56, align 2
   %109 = or i8 %108, 9
-  store i8 %109, ptr %57, align 2
+  store i8 %109, ptr %56, align 2
   br label %110
 
 110:                                              ; preds = %107, %106

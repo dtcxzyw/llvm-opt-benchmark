@@ -2407,191 +2407,187 @@ put_bits32.exit:
   %.sroa.0.1 = select i1 %.not8, i32 %23, i32 %26
   %28 = shl nuw nsw i32 %.sroa.0.1, 1
   %29 = or disjoint i32 %28, 1
-  %30 = add nsw i32 %.sroa.41.1, -1
-  %31 = getelementptr inbounds nuw i8, ptr %.24.val, i64 32
-  %32 = load i32, ptr %31, align 8, !tbaa !77
-  %33 = icmp samesign ugt i32 %30, 22
-  br i1 %33, label %put_bits.exit50, label %put_bits.exit50.thread
+  %30 = getelementptr inbounds nuw i8, ptr %.24.val, i64 32
+  %31 = load i32, ptr %30, align 8, !tbaa !77
+  %32 = icmp samesign ugt i32 %.sroa.41.1, 23
+  br i1 %32, label %put_bits.exit50, label %put_bits.exit50.thread
 
 put_bits.exit50.thread:                           ; preds = %put_bits32.exit
+  %33 = add nsw i32 %.sroa.41.1, -1
   %.ptr96 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %34 = shl i32 %29, %30
+  %34 = shl i32 %29, %33
   %35 = sub nuw nsw i32 23, %.sroa.41.1
-  %36 = lshr i32 %32, %35
+  %36 = lshr i32 %31, %35
   %37 = or i32 %34, %36
   %38 = tail call i32 @llvm.bswap.i32(i32 %37)
   store i32 %38, ptr %.ptr96, align 1, !tbaa !62
   %39 = add nuw nsw i32 %.sroa.41.1, 9
-  br label %44
+  br label %43
 
 put_bits.exit50:                                  ; preds = %put_bits32.exit
   %40 = shl i32 %29, 22
-  %41 = or i32 %40, %32
+  %41 = or i32 %40, %31
   %42 = add nsw i32 %.sroa.41.1, -23
-  %43 = icmp samesign ugt i32 %42, 1
-  br i1 %43, label %44, label %48
+  %.not123 = icmp eq i32 %.sroa.41.1, 24
+  br i1 %.not123, label %47, label %43
 
-44:                                               ; preds = %put_bits.exit50.thread, %put_bits.exit50
+43:                                               ; preds = %put_bits.exit50.thread, %put_bits.exit50
   %.0.i.i49103 = phi i32 [ %39, %put_bits.exit50.thread ], [ %42, %put_bits.exit50 ]
-  %.026.i.i48102 = phi i32 [ %32, %put_bits.exit50.thread ], [ %41, %put_bits.exit50 ]
+  %.026.i.i48102 = phi i32 [ %31, %put_bits.exit50.thread ], [ %41, %put_bits.exit50 ]
   %.sroa.80.24.idx101 = phi i64 [ 12, %put_bits.exit50.thread ], [ 8, %put_bits.exit50 ]
-  %45 = shl i32 %.026.i.i48102, 1
-  %46 = or disjoint i32 %45, 1
-  %47 = add nsw i32 %.0.i.i49103, -1
+  %44 = shl i32 %.026.i.i48102, 1
+  %45 = or disjoint i32 %44, 1
+  %46 = add nsw i32 %.0.i.i49103, -1
   br label %put_bits.exit54
 
-48:                                               ; preds = %put_bits.exit50
+47:                                               ; preds = %put_bits.exit50
   %.sroa.80.24.ptr = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %49 = shl i32 %41, %42
-  %50 = sub nsw i32 24, %.sroa.41.1
-  %51 = lshr i32 1, %50
-  %52 = or i32 %51, %49
-  %53 = tail call i32 @llvm.bswap.i32(i32 %52)
-  store i32 %53, ptr %.sroa.80.24.ptr, align 1, !tbaa !62
+  %48 = shl i32 %41, 1
+  %49 = or disjoint i32 %48, 1
+  %50 = tail call i32 @llvm.bswap.i32(i32 %49)
+  store i32 %50, ptr %.sroa.80.24.ptr, align 1, !tbaa !62
   br label %put_bits.exit54
 
-put_bits.exit54:                                  ; preds = %48, %44
-  %.sroa.80.26.idx = phi i64 [ %.sroa.80.24.idx101, %44 ], [ 12, %48 ]
-  %.026.i.i52 = phi i32 [ %46, %44 ], [ 1, %48 ]
-  %.0.i.i53 = phi i32 [ %47, %44 ], [ 32, %48 ]
+put_bits.exit54:                                  ; preds = %47, %43
+  %.sroa.80.26.idx = phi i64 [ %.sroa.80.24.idx101, %43 ], [ 12, %47 ]
+  %.026.i.i52 = phi i32 [ %45, %43 ], [ 1, %47 ]
+  %.0.i.i53 = phi i32 [ %46, %43 ], [ 32, %47 ]
   %.sroa.80.26.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.80.26.idx
-  %54 = load i32, ptr %2, align 4, !tbaa !29
-  %.not9 = icmp eq i32 %54, 0
-  br i1 %.not9, label %put_bits.exit66, label %55
+  %51 = load i32, ptr %2, align 4, !tbaa !29
+  %.not9 = icmp eq i32 %51, 0
+  br i1 %.not9, label %put_bits.exit66, label %52
 
-55:                                               ; preds = %put_bits.exit54
-  %56 = icmp samesign ugt i32 %.0.i.i53, 1
-  br i1 %56, label %put_bits.exit58, label %57
+52:                                               ; preds = %put_bits.exit54
+  %53 = icmp samesign ugt i32 %.0.i.i53, 1
+  br i1 %53, label %put_bits.exit58, label %54
 
-57:                                               ; preds = %55
+54:                                               ; preds = %52
   %notsub = add nsw i64 %.sroa.80.26.idx, -129
-  %58 = icmp ult i64 %notsub, -4
-  br i1 %58, label %59, label %65
+  %55 = icmp ult i64 %notsub, -4
+  br i1 %55, label %56, label %60
 
-59:                                               ; preds = %57
-  %60 = shl i32 %.026.i.i52, %.0.i.i53
-  %61 = sub nuw nsw i32 1, %.0.i.i53
-  %62 = lshr i32 1, %61
-  %63 = or i32 %62, %60
-  %64 = tail call i32 @llvm.bswap.i32(i32 %63)
-  store i32 %64, ptr %.sroa.80.26.ptr, align 1, !tbaa !62
+56:                                               ; preds = %54
+  %57 = shl i32 %.026.i.i52, 1
+  %58 = or disjoint i32 %57, 1
+  %59 = tail call i32 @llvm.bswap.i32(i32 %58)
+  store i32 %59, ptr %.sroa.80.26.ptr, align 1, !tbaa !62
   %.sroa.80.26.add = add nuw nsw i64 %.sroa.80.26.idx, 4
   br label %put_bits.exit66.thread
 
-65:                                               ; preds = %57
+60:                                               ; preds = %54
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.50) #8
   br label %put_bits.exit66.thread
 
-put_bits.exit58:                                  ; preds = %55
-  %66 = shl i32 %.026.i.i52, 1
-  %67 = or disjoint i32 %66, 1
-  %68 = add nsw i32 %.0.i.i53, -1
+put_bits.exit58:                                  ; preds = %52
+  %61 = shl i32 %.026.i.i52, 1
+  %62 = or disjoint i32 %61, 1
+  %63 = add nsw i32 %.0.i.i53, -1
   %.sroa.80.28.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.80.26.idx
-  %69 = icmp samesign ugt i32 %68, 5
-  br i1 %69, label %put_bits.exit62, label %70
+  %64 = icmp sgt i32 %.0.i.i53, 6
+  br i1 %64, label %put_bits.exit62, label %65
 
-70:                                               ; preds = %put_bits.exit58
-  %notsub123 = add nsw i64 %.sroa.80.26.idx, -129
-  %71 = icmp ult i64 %notsub123, -4
-  br i1 %71, label %72, label %78
+65:                                               ; preds = %put_bits.exit58
+  %notsub124 = add nsw i64 %.sroa.80.26.idx, -129
+  %66 = icmp ult i64 %notsub124, -4
+  br i1 %66, label %67, label %73
 
-72:                                               ; preds = %70
-  %73 = shl i32 %67, %68
-  %74 = sub nsw i32 6, %.0.i.i53
-  %75 = lshr i32 31, %74
-  %76 = or i32 %75, %73
-  %77 = tail call i32 @llvm.bswap.i32(i32 %76)
-  store i32 %77, ptr %.sroa.80.28.ptr, align 1, !tbaa !62
+67:                                               ; preds = %65
+  %68 = shl i32 %62, %63
+  %69 = sub nsw i32 6, %.0.i.i53
+  %70 = lshr i32 31, %69
+  %71 = or i32 %70, %68
+  %72 = tail call i32 @llvm.bswap.i32(i32 %71)
+  store i32 %72, ptr %.sroa.80.28.ptr, align 1, !tbaa !62
   %.sroa.80.28.add = add nuw nsw i64 %.sroa.80.26.idx, 4
   br label %put_bits.exit62.thread
 
-78:                                               ; preds = %70
+73:                                               ; preds = %65
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.50) #8
   br label %put_bits.exit62.thread
 
-put_bits.exit62.thread:                           ; preds = %72, %78
-  %.sroa.80.29.idx = phi i64 [ %.sroa.80.28.add, %72 ], [ %.sroa.80.26.idx, %78 ]
-  %79 = add nuw nsw i32 %.0.i.i53, 26
+put_bits.exit62.thread:                           ; preds = %67, %73
+  %.sroa.80.29.idx = phi i64 [ %.sroa.80.28.add, %67 ], [ %.sroa.80.26.idx, %73 ]
+  %74 = add nsw i32 %.0.i.i53, 26
   br label %put_bits.exit66.thread
 
 put_bits.exit62:                                  ; preds = %put_bits.exit58
-  %80 = shl i32 %67, 5
-  %81 = or disjoint i32 %80, 31
-  %82 = add nsw i32 %.0.i.i53, -6
+  %75 = shl i32 %62, 5
+  %76 = or disjoint i32 %75, 31
+  %77 = add nsw i32 %.0.i.i53, -6
   %.sroa.80.30.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.80.26.idx
-  %83 = icmp samesign ugt i32 %82, 3
-  br i1 %83, label %put_bits.exit66.thread, label %86
+  %78 = icmp sgt i32 %.0.i.i53, 9
+  br i1 %78, label %put_bits.exit66.thread, label %81
 
-put_bits.exit66.thread:                           ; preds = %59, %65, %put_bits.exit62.thread, %put_bits.exit62
-  %.0.i.i61117 = phi i32 [ %79, %put_bits.exit62.thread ], [ %82, %put_bits.exit62 ], [ 27, %65 ], [ 27, %59 ]
-  %.026.i.i60116 = phi i32 [ 31, %put_bits.exit62.thread ], [ %81, %put_bits.exit62 ], [ 63, %65 ], [ 63, %59 ]
-  %.sroa.80.30.idx115 = phi i64 [ %.sroa.80.29.idx, %put_bits.exit62.thread ], [ %.sroa.80.26.idx, %put_bits.exit62 ], [ %.sroa.80.26.idx, %65 ], [ %.sroa.80.26.add, %59 ]
-  %84 = shl i32 %.026.i.i60116, 3
-  %85 = add nsw i32 %.0.i.i61117, -3
+put_bits.exit66.thread:                           ; preds = %56, %60, %put_bits.exit62.thread, %put_bits.exit62
+  %.0.i.i61117 = phi i32 [ %74, %put_bits.exit62.thread ], [ %77, %put_bits.exit62 ], [ 27, %60 ], [ 27, %56 ]
+  %.026.i.i60116 = phi i32 [ 31, %put_bits.exit62.thread ], [ %76, %put_bits.exit62 ], [ 63, %60 ], [ 63, %56 ]
+  %.sroa.80.30.idx115 = phi i64 [ %.sroa.80.29.idx, %put_bits.exit62.thread ], [ %.sroa.80.26.idx, %put_bits.exit62 ], [ %.sroa.80.26.idx, %60 ], [ %.sroa.80.26.add, %56 ]
+  %79 = shl i32 %.026.i.i60116, 3
+  %80 = add nsw i32 %.0.i.i61117, -3
   br label %.lr.ph.i
 
-86:                                               ; preds = %put_bits.exit62
-  %notsub124 = add nsw i64 %.sroa.80.26.idx, -129
-  %87 = icmp ult i64 %notsub124, -4
-  br i1 %87, label %88, label %91
+81:                                               ; preds = %put_bits.exit62
+  %notsub125 = add nsw i64 %.sroa.80.26.idx, -129
+  %82 = icmp ult i64 %notsub125, -4
+  br i1 %82, label %83, label %86
 
-88:                                               ; preds = %86
-  %89 = shl i32 %81, %82
-  %90 = tail call i32 @llvm.bswap.i32(i32 %89)
-  store i32 %90, ptr %.sroa.80.30.ptr, align 1, !tbaa !62
+83:                                               ; preds = %81
+  %84 = shl i32 %76, %77
+  %85 = tail call i32 @llvm.bswap.i32(i32 %84)
+  store i32 %85, ptr %.sroa.80.30.ptr, align 1, !tbaa !62
   %.sroa.80.30.add = add nuw nsw i64 %.sroa.80.26.idx, 4
-  br label %92
+  br label %87
 
-91:                                               ; preds = %86
+86:                                               ; preds = %81
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 16, ptr noundef nonnull @.str.50) #8
-  br label %92
+  br label %87
 
-92:                                               ; preds = %91, %88
-  %.sroa.80.31.idx = phi i64 [ %.sroa.80.30.add, %88 ], [ %.sroa.80.26.idx, %91 ]
-  %93 = add nuw nsw i32 %.0.i.i53, 23
+87:                                               ; preds = %86, %83
+  %.sroa.80.31.idx = phi i64 [ %.sroa.80.30.add, %83 ], [ %.sroa.80.26.idx, %86 ]
+  %88 = add nuw nsw i32 %.0.i.i53, 23
   br label %put_bits.exit66
 
-put_bits.exit66:                                  ; preds = %92, %put_bits.exit54
-  %.sroa.80.33.idx = phi i64 [ %.sroa.80.26.idx, %put_bits.exit54 ], [ %.sroa.80.31.idx, %92 ]
-  %.sroa.41.2 = phi i32 [ %.0.i.i53, %put_bits.exit54 ], [ %93, %92 ]
-  %.sroa.0.2 = phi i32 [ %.026.i.i52, %put_bits.exit54 ], [ 0, %92 ]
-  %94 = icmp samesign ult i32 %.sroa.41.2, 32
-  br i1 %94, label %.lr.ph.i, label %flush_put_bits.exit
+put_bits.exit66:                                  ; preds = %87, %put_bits.exit54
+  %.sroa.80.33.idx = phi i64 [ %.sroa.80.26.idx, %put_bits.exit54 ], [ %.sroa.80.31.idx, %87 ]
+  %.sroa.41.2 = phi i32 [ %.0.i.i53, %put_bits.exit54 ], [ %88, %87 ]
+  %.sroa.0.2 = phi i32 [ %.026.i.i52, %put_bits.exit54 ], [ 0, %87 ]
+  %89 = icmp samesign ult i32 %.sroa.41.2, 32
+  br i1 %89, label %.lr.ph.i, label %flush_put_bits.exit
 
 .lr.ph.i:                                         ; preds = %put_bits.exit66.thread, %put_bits.exit66
-  %.sroa.0.289 = phi i32 [ %84, %put_bits.exit66.thread ], [ %.sroa.0.2, %put_bits.exit66 ]
-  %.sroa.41.288 = phi i32 [ %85, %put_bits.exit66.thread ], [ %.sroa.41.2, %put_bits.exit66 ]
+  %.sroa.0.289 = phi i32 [ %79, %put_bits.exit66.thread ], [ %.sroa.0.2, %put_bits.exit66 ]
+  %.sroa.41.288 = phi i32 [ %80, %put_bits.exit66.thread ], [ %.sroa.41.2, %put_bits.exit66 ]
   %.sroa.80.3387.idx = phi i64 [ %.sroa.80.30.idx115, %put_bits.exit66.thread ], [ %.sroa.80.33.idx, %put_bits.exit66 ]
-  %95 = shl i32 %.sroa.0.289, %.sroa.41.288
-  br label %96
+  %90 = shl i32 %.sroa.0.289, %.sroa.41.288
+  br label %91
 
-96:                                               ; preds = %99, %.lr.ph.i
-  %.sroa.80.34.idx = phi i64 [ %.sroa.80.3387.idx, %.lr.ph.i ], [ %.sroa.80.34.add, %99 ]
-  %.sroa.41.3 = phi i32 [ %.sroa.41.288, %.lr.ph.i ], [ %103, %99 ]
-  %.sroa.0.3 = phi i32 [ %95, %.lr.ph.i ], [ %102, %99 ]
-  %97 = icmp slt i64 %.sroa.80.34.idx, 128
-  br i1 %97, label %99, label %98
+91:                                               ; preds = %94, %.lr.ph.i
+  %.sroa.80.34.idx = phi i64 [ %.sroa.80.3387.idx, %.lr.ph.i ], [ %.sroa.80.34.add, %94 ]
+  %.sroa.41.3 = phi i32 [ %.sroa.41.288, %.lr.ph.i ], [ %98, %94 ]
+  %.sroa.0.3 = phi i32 [ %90, %.lr.ph.i ], [ %97, %94 ]
+  %92 = icmp slt i64 %.sroa.80.34.idx, 128
+  br i1 %92, label %94, label %93
 
-98:                                               ; preds = %96
+93:                                               ; preds = %91
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef null, i32 noundef 0, ptr noundef nonnull @.str.35, ptr noundef nonnull @.str.51, ptr noundef nonnull @.str.52, i32 noundef 150) #8
   tail call void @abort() #10
   unreachable
 
-99:                                               ; preds = %96
+94:                                               ; preds = %91
   %.sroa.80.34.ptr = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.80.34.idx
-  %100 = lshr i32 %.sroa.0.3, 24
-  %101 = trunc nuw i32 %100 to i8
+  %95 = lshr i32 %.sroa.0.3, 24
+  %96 = trunc nuw i32 %95 to i8
   %.sroa.80.34.add = add nuw nsw i64 %.sroa.80.34.idx, 1
-  store i8 %101, ptr %.sroa.80.34.ptr, align 1, !tbaa !62
-  %102 = shl i32 %.sroa.0.3, 8
-  %103 = add nsw i32 %.sroa.41.3, 8
-  %104 = icmp slt i32 %.sroa.41.3, 24
-  br i1 %104, label %96, label %flush_put_bits.exit, !llvm.loop !120
+  store i8 %96, ptr %.sroa.80.34.ptr, align 1, !tbaa !62
+  %97 = shl i32 %.sroa.0.3, 8
+  %98 = add nsw i32 %.sroa.41.3, 8
+  %99 = icmp slt i32 %.sroa.41.3, 24
+  br i1 %99, label %91, label %flush_put_bits.exit, !llvm.loop !120
 
-flush_put_bits.exit:                              ; preds = %99, %put_bits.exit66
-  %.sroa.80.33.idx.pn = phi i64 [ %.sroa.80.33.idx, %put_bits.exit66 ], [ %.sroa.80.34.add, %99 ]
-  %105 = trunc i64 %.sroa.80.33.idx.pn to i32
-  ret i32 %105
+flush_put_bits.exit:                              ; preds = %94, %put_bits.exit66
+  %.sroa.80.33.idx.pn = phi i64 [ %.sroa.80.33.idx, %put_bits.exit66 ], [ %.sroa.80.34.add, %94 ]
+  %100 = trunc i64 %.sroa.80.33.idx.pn to i32
+  ret i32 %100
 }
 
 ; Function Attrs: nounwind uwtable
@@ -2919,7 +2915,7 @@ put_bits.exit234:                                 ; preds = %137
   %147 = getelementptr inbounds nuw i8, ptr %101, i64 12
   %148 = load i32, ptr %147, align 4, !tbaa !65
   %149 = sdiv i32 %148, 128
-  %150 = icmp samesign ugt i32 %146, 13
+  %150 = icmp sgt i32 %134, 14
   br i1 %150, label %151, label %156
 
 151:                                              ; preds = %put_bits.exit234.thread, %put_bits.exit234
@@ -2988,7 +2984,7 @@ put_bits.exit242:                                 ; preds = %167
   %179 = getelementptr inbounds nuw i8, ptr %101, i64 12
   %180 = load i32, ptr %179, align 4, !tbaa !65
   %181 = sdiv i32 %180, 1024
-  %182 = icmp samesign ugt i32 %178, 13
+  %182 = icmp sgt i32 %134, 14
   br i1 %182, label %183, label %188
 
 183:                                              ; preds = %put_bits.exit242.thread, %put_bits.exit242

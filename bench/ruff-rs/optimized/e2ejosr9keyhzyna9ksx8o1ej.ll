@@ -23732,7 +23732,7 @@ _ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit.i.i: ; preds = %.l
   br i1 %84, label %.backedge.i.i, label %._crit_edge.loopexit.i.i
 
 _ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit15.i.i: ; preds = %.lr.ph.i.i
-  %85 = icmp samesign ugt i8 %79, 2
+  %85 = icmp samesign ugt i8 %.val8.i.i, 6
   br i1 %85, label %.backedge.i.i, label %._crit_edge.loopexit.i.i
 
 .backedge.i.i:                                    ; preds = %_ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit15.i.i, %83
@@ -35292,7 +35292,7 @@ _ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit.i: ; preds = %14
   br i1 %40, label %.backedge.i, label %._crit_edge.loopexit.i
 
 _ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit15.i: ; preds = %.lr.ph.i
-  %41 = icmp samesign ugt i8 %35, 2
+  %41 = icmp samesign ugt i8 %.val8.i, 6
   br i1 %41, label %.backedge.i, label %._crit_edge.loopexit.i
 
 .backedge.i:                                      ; preds = %_ZN4core3ops8function5FnMut8call_mut17hc8214024f3a716c9E.exit15.i, %39

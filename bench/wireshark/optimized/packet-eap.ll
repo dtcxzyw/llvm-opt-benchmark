@@ -2018,13 +2018,13 @@ switch.lookup573:                                 ; preds = %377
 392:                                              ; preds = %158, %158
   %393 = load i32, ptr @hf_eap_aka_subtype, align 4
   %394 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %393, ptr noundef %0, i32 noundef 5, i32 noundef 1, i32 noundef 0)
-  %395 = icmp samesign ult i32 %159, 3
+  %395 = icmp ult i16 %104, 8
   br i1 %395, label %dissect_eap_aka.exit, label %396
 
 396:                                              ; preds = %392
   %397 = load i32, ptr @hf_eap_aka_reserved, align 4
   %398 = call ptr @proto_tree_add_item(ptr noundef %109, i32 noundef %397, ptr noundef %0, i32 noundef 6, i32 noundef 2, i32 noundef 0)
-  %399 = icmp samesign ugt i32 %159, 4
+  %399 = icmp ugt i16 %104, 9
   br i1 %399, label %.lr.ph.preheader.i, label %dissect_eap_aka.exit
 
 .lr.ph.preheader.i:                               ; preds = %396

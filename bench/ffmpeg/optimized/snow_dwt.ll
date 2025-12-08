@@ -309,14 +309,14 @@ avpriv_mirror.exit70.i.us:                        ; preds = %avpriv_mirror.exit.
   %19 = mul nsw i32 %12, -4
   %20 = sext i32 %19 to i64
   %21 = getelementptr inbounds i32, ptr %0, i64 %20
-  %22 = icmp samesign ult i32 %13, -3
+  %22 = icmp slt i32 %11, -2
   br i1 %22, label %.lr.ph131.i.us, label %avpriv_mirror.exit76.i.us
 
 avpriv_mirror.exit76.i.us:                        ; preds = %avpriv_mirror.exit70.i.us
   %23 = mul nsw i32 %12, -3
   %24 = sext i32 %23 to i64
   %25 = getelementptr inbounds i32, ptr %0, i64 %24
-  %26 = icmp eq i32 %13, -3
+  %26 = icmp eq i32 %11, -2
   br i1 %26, label %.lr.ph134.i.us, label %.lr.ph147.i.us
 
 .lr.ph.i.us:                                      ; preds = %.preheader125.i.us
@@ -2180,7 +2180,7 @@ avpriv_mirror.exit27.i.us.i:                      ; preds = %avpriv_mirror.exit3
   %24 = getelementptr inbounds i16, ptr %0, i64 %23
   %25 = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %24, ptr %25, align 8, !tbaa !40
-  %26 = icmp samesign ult i32 %16, -2
+  %26 = icmp slt i32 %14, -1
   br i1 %26, label %.lr.ph42.i.us.i, label %avpriv_mirror.exit21.i.us.i
 
 avpriv_mirror.exit21.i.us.i:                      ; preds = %avpriv_mirror.exit27.i.us.i

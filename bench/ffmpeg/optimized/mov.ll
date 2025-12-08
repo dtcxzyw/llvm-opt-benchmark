@@ -9677,7 +9677,7 @@ define internal range(i32 -2147483648, 1) i32 @mov_read_hdlr(ptr noundef capture
   br i1 %52, label %53, label %77
 
 53:                                               ; preds = %47
-  %54 = icmp samesign ugt i64 %51, 2147483647
+  %54 = icmp samesign ugt i64 %3, 2147483671
   br i1 %54, label %77, label %55
 
 55:                                               ; preds = %53

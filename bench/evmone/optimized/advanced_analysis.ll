@@ -82,7 +82,7 @@ _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE7reserveEm.exit: ; preds = %
   store ptr %25, ptr %12, align 8, !tbaa !22
   %26 = add nsw i64 %2, 1
   %27 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %28 = icmp samesign ugt i64 %26, 288230376151711743
+  %28 = icmp sgt i64 %2, 288230376151711742
   br i1 %28, label %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE7reserveEm.exit.thread, label %29
 
 _ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE7reserveEm.exit.thread: ; preds = %11, %_ZNSt6vectorIN6evmone8advanced11InstructionESaIS2_EE7reserveEm.exit

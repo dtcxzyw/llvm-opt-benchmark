@@ -2761,7 +2761,7 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
   %12 = add nsw i64 %.02638.i, -1
   %13 = getelementptr inbounds nuw i8, ptr %.02239.i, i64 1
   %14 = load i8, ptr %13, align 1, !tbaa !4
-  %15 = icmp samesign ugt i64 %12, 8
+  %15 = icmp samesign ugt i64 %.02638.i, 9
   br i1 %15, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !90
 
 ._crit_edge.i:                                    ; preds = %11, %4
@@ -2842,9 +2842,9 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
   %.176.i.i = phi i64 [ %47, %45 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %49, %45 ], [ %.14694.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %48, %45 ], [ %.14893.i.i, %.preheader.i.i ]
-  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
-  %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %38 = icmp samesign ult i32 %.03977.i.i, 8
+  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i64
+  %.03977.i.i = add nuw nsw i64 %.03977.in.i.i, 4294967248
+  %38 = icmp samesign ult i8 %.03977.in.in.i.i, 56
   %39 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %38, i1 %39, i1 false
   br i1 %or.cond.i.i, label %40, label %.critedge4.i.i
@@ -2855,14 +2855,14 @@ define internal fastcc i64 @tar_atol(ptr noundef nonnull readonly captures(none)
 
 42:                                               ; preds = %40
   %43 = icmp ne i64 %.176.i.i, %.04196.i.i
-  %44 = zext nneg i32 %.03977.i.i to i64
+  %44 = and i64 %.03977.i.i, 4294967295
   %.not52.i.i = icmp samesign ugt i64 %.04097.i.i, %44
   %or.cond54.i.i = select i1 %43, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %45, label %tar_atol256.exit
 
 45:                                               ; preds = %42
   %46 = shl nsw i64 %.176.i.i, 3
-  %47 = or disjoint i64 %46, %44
+  %47 = add nsw i64 %44, %46
   %48 = getelementptr inbounds nuw i8, ptr %.24974.i.i, i64 1
   %49 = add i64 %.275.i.i, -1
   %.039.in.in.i.i = load i8, ptr %48, align 1, !tbaa !4
@@ -4717,9 +4717,9 @@ tar_flush_unconsumed.exit:                        ; preds = %16, %13
   %.176.i.i = phi i64 [ %39, %37 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %41, %37 ], [ %.14694.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %40, %37 ], [ %.14893.i.i, %.preheader.i.i ]
-  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
-  %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %30 = icmp samesign ult i32 %.03977.i.i, 10
+  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i64
+  %.03977.i.i = add nuw nsw i64 %.03977.in.i.i, 4294967248
+  %30 = icmp samesign ult i8 %.03977.in.in.i.i, 58
   %31 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %30, i1 %31, i1 false
   br i1 %or.cond.i.i, label %32, label %.critedge4.i.i
@@ -4730,14 +4730,14 @@ tar_flush_unconsumed.exit:                        ; preds = %16, %13
 
 34:                                               ; preds = %32
   %35 = icmp ne i64 %.176.i.i, 922337203685477580
-  %36 = zext nneg i32 %.03977.i.i to i64
+  %36 = and i64 %.03977.i.i, 4294967295
   %.not52.i.i = icmp samesign ugt i64 %.04097.i.i, %36
   %or.cond54.i.i = select i1 %35, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %37, label %tar_atol10.exit
 
 37:                                               ; preds = %34
   %38 = mul nsw i64 %.176.i.i, 10
-  %39 = add nsw i64 %38, %36
+  %39 = add nsw i64 %36, %38
   %40 = getelementptr inbounds nuw i8, ptr %.24974.i.i, i64 1
   %41 = add i64 %.275.i.i, -1
   %.039.in.in.i.i = load i8, ptr %40, align 1, !tbaa !4
@@ -4866,9 +4866,9 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
   %.176.i.i = phi i64 [ %36, %34 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %38, %34 ], [ %.14694.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %37, %34 ], [ %.14893.i.i, %.preheader.i.i ]
-  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
-  %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %27 = icmp samesign ult i32 %.03977.i.i, 10
+  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i64
+  %.03977.i.i = add nuw nsw i64 %.03977.in.i.i, 4294967248
+  %27 = icmp samesign ult i8 %.03977.in.in.i.i, 58
   %28 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %27, i1 %28, i1 false
   br i1 %or.cond.i.i, label %29, label %.critedge4.i.i
@@ -4879,14 +4879,14 @@ define internal fastcc range(i32 -30, 1) i32 @gnu_sparse_01_parse(ptr noundef %0
 
 31:                                               ; preds = %29
   %32 = icmp ne i64 %.176.i.i, 922337203685477580
-  %33 = zext nneg i32 %.03977.i.i to i64
+  %33 = and i64 %.03977.i.i, 4294967295
   %.not52.i.i = icmp samesign ugt i64 %.04097.i.i, %33
   %or.cond54.i.i = select i1 %32, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %34, label %tar_atol10.exit
 
 34:                                               ; preds = %31
   %35 = mul nsw i64 %.176.i.i, 10
-  %36 = add nsw i64 %35, %33
+  %36 = add nsw i64 %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %.24974.i.i, i64 1
   %38 = add i64 %.275.i.i, -1
   %.039.in.in.i.i = load i8, ptr %37, align 1, !tbaa !4
@@ -4948,9 +4948,9 @@ tar_atol10.exit:                                  ; preds = %29, %31, %.critedge
   %.176.i.i53 = phi i64 [ %59, %57 ], [ 0, %.preheader.i.i41 ]
   %.275.i.i54 = phi i64 [ %61, %57 ], [ %.14694.i.i45, %.preheader.i.i41 ]
   %.24974.i.i55 = phi ptr [ %60, %57 ], [ %.14893.i.i46, %.preheader.i.i41 ]
-  %.03977.in.i.i56 = zext nneg i8 %.03977.in.in.i.i52 to i32
-  %.03977.i.i57 = add nsw i32 %.03977.in.i.i56, -48
-  %50 = icmp samesign ult i32 %.03977.i.i57, 10
+  %.03977.in.i.i56 = zext nneg i8 %.03977.in.in.i.i52 to i64
+  %.03977.i.i57 = add nuw nsw i64 %.03977.in.i.i56, 4294967248
+  %50 = icmp samesign ult i8 %.03977.in.in.i.i52, 58
   %51 = icmp ne i64 %.275.i.i54, 0
   %or.cond.i.i58 = select i1 %50, i1 %51, i1 false
   br i1 %or.cond.i.i58, label %52, label %.critedge4.i.i47
@@ -4961,14 +4961,14 @@ tar_atol10.exit:                                  ; preds = %29, %31, %.critedge
 
 54:                                               ; preds = %52
   %55 = icmp ne i64 %.176.i.i53, 922337203685477580
-  %56 = zext nneg i32 %.03977.i.i57 to i64
+  %56 = and i64 %.03977.i.i57, 4294967295
   %.not52.i.i59 = icmp samesign ugt i64 %.04097.i.i43, %56
   %or.cond54.i.i60 = select i1 %55, i1 true, i1 %.not52.i.i59
   br i1 %or.cond54.i.i60, label %57, label %tar_atol10.exit64
 
 57:                                               ; preds = %54
   %58 = mul nsw i64 %.176.i.i53, 10
-  %59 = add nsw i64 %58, %56
+  %59 = add nsw i64 %56, %58
   %60 = getelementptr inbounds nuw i8, ptr %.24974.i.i55, i64 1
   %61 = add i64 %.275.i.i54, -1
   %.039.in.in.i.i61 = load i8, ptr %60, align 1, !tbaa !4
@@ -5095,8 +5095,8 @@ define internal fastcc range(i32 -30, 1) i32 @pax_attribute_read_time(ptr nounde
 
 27:                                               ; preds = %25
   %28 = icmp eq i64 %.03857.i, 922337203685477580
-  %29 = icmp samesign ugt i8 %24, 7
-  %or.cond49.i = select i1 %28, i1 %29, i1 false
+  %29 = icmp samesign ugt i8 %23, 55
+  %or.cond49.i = and i1 %28, %29
   br i1 %or.cond49.i, label %36, label %select.unfold.i
 
 select.unfold.i:                                  ; preds = %27
@@ -5631,9 +5631,9 @@ define internal fastcc range(i32 -30, 1) i32 @pax_attribute_SUN_holesdata(ptr no
   %.176.i.i = phi i64 [ %36, %34 ], [ 0, %.preheader.i.i ]
   %.275.i.i = phi i64 [ %38, %34 ], [ %.14694.i.i, %.preheader.i.i ]
   %.24974.i.i = phi ptr [ %37, %34 ], [ %.14893.i.i, %.preheader.i.i ]
-  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i32
-  %.03977.i.i = add nsw i32 %.03977.in.i.i, -48
-  %27 = icmp samesign ult i32 %.03977.i.i, 10
+  %.03977.in.i.i = zext nneg i8 %.03977.in.in.i.i to i64
+  %.03977.i.i = add nuw nsw i64 %.03977.in.i.i, 4294967248
+  %27 = icmp samesign ult i8 %.03977.in.in.i.i, 58
   %28 = icmp ne i64 %.275.i.i, 0
   %or.cond.i.i = select i1 %27, i1 %28, i1 false
   br i1 %or.cond.i.i, label %29, label %.critedge4.i.i
@@ -5644,14 +5644,14 @@ define internal fastcc range(i32 -30, 1) i32 @pax_attribute_SUN_holesdata(ptr no
 
 31:                                               ; preds = %29
   %32 = icmp ne i64 %.176.i.i, 922337203685477580
-  %33 = zext nneg i32 %.03977.i.i to i64
+  %33 = and i64 %.03977.i.i, 4294967295
   %.not52.i.i = icmp samesign ugt i64 %.04097.i.i, %33
   %or.cond54.i.i = select i1 %32, i1 true, i1 %.not52.i.i
   br i1 %or.cond54.i.i, label %34, label %tar_atol10.exit
 
 34:                                               ; preds = %31
   %35 = mul nsw i64 %.176.i.i, 10
-  %36 = add nsw i64 %35, %33
+  %36 = add nsw i64 %33, %35
   %37 = getelementptr inbounds nuw i8, ptr %.24974.i.i, i64 1
   %38 = add i64 %.275.i.i, -1
   %.039.in.in.i.i = load i8, ptr %37, align 1, !tbaa !4
@@ -6333,8 +6333,8 @@ readline.exit:                                    ; preds = %26, %40
 
 71:                                               ; preds = %68
   %72 = icmp eq i64 %.0234479, 922337203685477580
-  %73 = icmp samesign ugt i8 %narrow, 7
-  %or.cond28 = select i1 %72, i1 %73, i1 false
+  %73 = icmp samesign ugt i8 %66, 55
+  %or.cond28 = and i1 %72, %73
   br i1 %or.cond28, label %77, label %74
 
 74:                                               ; preds = %71

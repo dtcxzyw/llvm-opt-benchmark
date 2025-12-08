@@ -37400,7 +37400,7 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser10alloc_nodeEv.exit.i68.i: ; preds = %2
 291:                                              ; preds = %287
   %292 = add nsw i64 %288, 2
   store i64 %292, ptr %282, align 8, !tbaa !367
-  %293 = icmp samesign ugt i64 %292, 1024
+  %293 = icmp sgt i64 %288, 1022
   br i1 %293, label %_ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.thread88.sink.split, label %294
 
 294:                                              ; preds = %291
@@ -37527,7 +37527,7 @@ _ZN4pugi4impl12_GLOBAL__N_112xpath_parser24parse_primary_expressionEv.exit.threa
 343:                                              ; preds = %331
   %344 = add nsw i64 %318, 2
   store i64 %344, ptr %315, align 8, !tbaa !367
-  %345 = icmp samesign ugt i64 %344, 1024
+  %345 = icmp sgt i64 %318, 1022
   br i1 %345, label %346, label %356
 
 346:                                              ; preds = %343
@@ -41374,7 +41374,7 @@ _ZN4pugi4impl12_GLOBAL__N_115xpath_allocator8allocateEm.exit.i: ; preds = %363, 
 412:                                              ; preds = %.lr.ph
   %413 = add nsw i64 %399, 2
   store i64 %413, ptr %396, align 8, !tbaa !367
-  %414 = icmp samesign ugt i64 %413, 1024
+  %414 = icmp sgt i64 %399, 1022
   br i1 %414, label %415, label %425
 
 415:                                              ; preds = %412

@@ -84,7 +84,7 @@ _ZN5Eigen15PlainObjectBaseINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEEE6resizeEl.exit: 
   br i1 %28, label %29, label %.sink.split.i.i30
 
 29:                                               ; preds = %27
-  %30 = icmp samesign ugt i64 %24, 4611686018427387903
+  %30 = icmp samesign ugt i64 %23, 4611686018427387902
   br i1 %30, label %31, label %_ZN5Eigen8internal23check_size_for_overflowIiEEvm.exit.i.i.i32
 
 31:                                               ; preds = %29

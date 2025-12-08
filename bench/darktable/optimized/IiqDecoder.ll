@@ -732,7 +732,7 @@ _ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %2
   tail call void @llvm.assume(i1 %14)
   %15 = getelementptr inbounds nuw i8, ptr %13, i64 8
   %16 = zext nneg i32 %12 to i64
-  %.not.i.i = icmp samesign ult i32 %12, 4
+  %.not.i.i = icmp samesign ult i32 %9, 12
   br i1 %.not.i.i, label %17, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit
 
 17:                                               ; preds = %_ZNK8rawspeed6Buffer10getSubViewEj.exit
@@ -740,7 +740,7 @@ _ZNK8rawspeed6Buffer10getSubViewEj.exit:          ; preds = %2
   unreachable
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZNK8rawspeed6Buffer10getSubViewEj.exit
-  %.not.i.i77 = icmp samesign ult i32 %12, 8
+  %.not.i.i77 = icmp samesign ult i32 %9, 16
   br i1 %.not.i.i77, label %18, label %_ZN8rawspeed10ByteStream9skipBytesEj.exit78
 
 18:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
@@ -748,7 +748,7 @@ _ZN8rawspeed10ByteStream9skipBytesEj.exit:        ; preds = %_ZNK8rawspeed6Buffe
   unreachable
 
 _ZN8rawspeed10ByteStream9skipBytesEj.exit78:      ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit
-  %.not.i.i.i.i.i.i = icmp samesign ult i32 %12, 12
+  %.not.i.i.i.i.i.i = icmp samesign ult i32 %9, 20
   br i1 %.not.i.i.i.i.i.i, label %19, label %_ZN8rawspeed10ByteStream6getU32Ev.exit
 
 19:                                               ; preds = %_ZN8rawspeed10ByteStream9skipBytesEj.exit78

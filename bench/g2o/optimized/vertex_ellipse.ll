@@ -1252,7 +1252,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIfLi2E
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %21 = load <4 x float>, ptr %20, align 1, !tbaa !48
   %22 = fmul <4 x float> %21, %21
-  %23 = icmp samesign ugt i64 %7, 15
+  %23 = icmp samesign ugt i64 %6, 16
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19

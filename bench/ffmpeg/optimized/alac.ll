@@ -706,7 +706,7 @@ define internal i32 @alac_decode_frame(ptr noundef %0, ptr noundef %1, ptr nound
   %301 = getelementptr inbounds nuw i8, ptr %66, i64 72
   %302 = getelementptr inbounds nuw i8, ptr %66, i64 110
   %303 = getelementptr i8, ptr %66, i64 36
-  %304 = icmp ult i32 %101, 27
+  %304 = icmp slt i32 %101, 27
   %305 = add nsw i32 %101, -17
   %306 = sub nuw nsw i32 49, %101
   %307 = getelementptr inbounds nuw i8, ptr %66, i64 8

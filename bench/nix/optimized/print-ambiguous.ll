@@ -521,8 +521,7 @@ _ZNSt6vectorIPKN3nix4AttrESaIS3_EED2Ev.exit:      ; preds = %._crit_edge132, %12
   br i1 %or.cond, label %.critedge2, label %_ZNK3nix5Value8listSizeEv.exit.thread
 
 _ZNK3nix5Value8listSizeEv.exit.thread:            ; preds = %156
-  %.off.i = add nsw i32 %30, -7
-  %switch.i = icmp samesign ult i32 %.off.i, 2
+  %switch.i = icmp samesign ult i32 %30, 9
   %160 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %161 = load ptr, ptr %160, align 8
   %162 = select i1 %switch.i, ptr %158, ptr %161

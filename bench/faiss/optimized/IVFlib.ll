@@ -4404,8 +4404,8 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %41 = call i64 @llvm.umin.i64(i64 %40, i64 %39)
   store i64 %41, ptr %11, align 8, !tbaa !41
   %42 = load i64, ptr %10, align 8, !tbaa !41
-  %.not149 = icmp ugt i64 %42, %41
-  br i1 %.not149, label %._crit_edge121, label %.lr.ph120
+  %.not145 = icmp ugt i64 %42, %41
+  br i1 %.not145, label %._crit_edge121, label %.lr.ph120
 
 .lr.ph120:                                        ; preds = %38
   %43 = sext i32 %35 to i64
@@ -4447,7 +4447,7 @@ _ZNSt6vectorIfSaIfEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPfmfET_
   %69 = zext i8 %61 to i64
   %70 = and i64 %59, 2147483647
   %71 = add nsw i32 %60, -8
-  %72 = icmp samesign ugt i32 %71, 8
+  %72 = icmp samesign ugt i32 %60, 16
   br i1 %72, label %.lr.ph.i.preheader, label %._crit_edge.i
 
 .lr.ph.i.preheader:                               ; preds = %68
@@ -4572,7 +4572,7 @@ _ZN5faiss15BitstringReader4readEi.exit:           ; preds = %62, %._crit_edge.i
   %indvars.iv.next.i62 = add nuw nsw i64 %indvars.iv.i58, 8
   %128 = add nsw i32 %.02732.i61, -8
   %.024.i63 = add nuw nsw i64 %.02435.i59, 1
-  %129 = icmp samesign ugt i32 %128, 8
+  %129 = icmp sgt i32 %.02732.i61, 16
   br i1 %129, label %.lr.ph.i57, label %._crit_edge.loopexit.i64, !llvm.loop !166
 
 ._crit_edge.loopexit.i64:                         ; preds = %.lr.ph.i57

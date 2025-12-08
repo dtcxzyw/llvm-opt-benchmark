@@ -710,7 +710,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5HG__hdr_deserialize(ptr noundef n
   %38 = getelementptr inbounds nuw i8, ptr %1, i64 5
   %39 = icmp ugt ptr %38, %6
   %40 = icmp samesign ult i64 %2, 8
-  %or.cond72 = or i1 %39, %40
+  %or.cond72 = or i1 %40, %39
   br i1 %or.cond72, label %41, label %45
 
 41:                                               ; preds = %37

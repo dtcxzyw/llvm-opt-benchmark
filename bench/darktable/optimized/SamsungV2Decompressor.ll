@@ -704,7 +704,7 @@ _ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentia
   %139 = and i32 %.sroa.72201.11, 3
   %140 = icmp eq i32 %139, 0
   tail call void @llvm.assume(i1 %140), !noalias !125
-  %.not.i.i51 = icmp samesign ult i32 %132, 12
+  %.not.i.i51 = icmp samesign ult i32 %130, 14
   br i1 %.not.i.i51, label %141, label %_ZN8rawspeed11BitStreamerINS_16BitStreamerMSB32ENS_39BitStreamerForwardSequentialReplenisherIS1_EEE7getBitsEi.exit61
 
 141:                                              ; preds = %138

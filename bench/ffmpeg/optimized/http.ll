@@ -2655,25 +2655,24 @@ define internal range(i32 -2147483648, 1) i32 @http_proxy_open(ptr noundef initi
   br label %ff_http_averror.exit
 
 77:                                               ; preds = %72
-  %78 = add nsw i32 %55, -400
-  %or.cond.i = icmp samesign ult i32 %78, 100
+  %or.cond.i = icmp samesign ult i32 %55, 500
   %spec.select54 = select i1 %or.cond.i, i32 -1482175736, i32 -1482175992
   br label %ff_http_averror.exit
 
 ff_http_averror.exit:                             ; preds = %59, %61, %50, %39, %77, %76, %75, %74, %73, %72
   %.043 = phi i32 [ -825242872, %73 ], [ -858797304, %74 ], [ -875574520, %75 ], [ -959591672, %76 ], [ -808465656, %72 ], [ %spec.select54, %77 ], [ -1482175736, %59 ], [ -1482175736, %61 ], [ %52, %50 ], [ %48, %39 ]
-  %79 = load ptr, ptr %11, align 8, !tbaa !4
-  %80 = getelementptr inbounds nuw i8, ptr %79, i64 8
-  %81 = load ptr, ptr %80, align 8, !tbaa !37
-  %.not.i = icmp eq ptr %81, null
-  br i1 %.not.i, label %http_proxy_close.exit, label %82
+  %78 = load ptr, ptr %11, align 8, !tbaa !4
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load ptr, ptr %79, align 8, !tbaa !37
+  %.not.i = icmp eq ptr %80, null
+  br i1 %.not.i, label %http_proxy_close.exit, label %81
 
-82:                                               ; preds = %ff_http_averror.exit
-  %83 = call i32 @ffurl_closep(ptr noundef nonnull %80) #16
+81:                                               ; preds = %ff_http_averror.exit
+  %82 = call i32 @ffurl_closep(ptr noundef nonnull %79) #16
   br label %http_proxy_close.exit
 
-http_proxy_close.exit:                            ; preds = %64, %3, %82, %ff_http_averror.exit, %70
-  %.0 = phi i32 [ 0, %70 ], [ %.043, %ff_http_averror.exit ], [ %.043, %82 ], [ %29, %3 ], [ %68, %64 ]
+http_proxy_close.exit:                            ; preds = %64, %3, %81, %ff_http_averror.exit, %70
+  %.0 = phi i32 [ 0, %70 ], [ %.043, %ff_http_averror.exit ], [ %.043, %81 ], [ %29, %3 ], [ %68, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)

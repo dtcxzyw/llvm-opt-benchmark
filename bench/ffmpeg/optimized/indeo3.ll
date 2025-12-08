@@ -2359,7 +2359,7 @@ copy_block4.exit:                                 ; preds = %.preheader56, %.pre
   %.056.i352 = add nsw i32 %.056.i352.in, -1
   store i64 %276, ptr %.07.i351, align 8, !tbaa !40
   %280 = getelementptr inbounds i8, ptr %.07.i351, i64 %33
-  %281 = icmp samesign ugt i32 %.056.i352, 1
+  %281 = icmp sgt i32 %.056.i352.in, 2
   br i1 %281, label %279, label %fill_64.exit353, !llvm.loop !99
 
 fill_64.exit353:                                  ; preds = %279

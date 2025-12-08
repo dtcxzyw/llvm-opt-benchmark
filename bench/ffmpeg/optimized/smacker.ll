@@ -1482,9 +1482,9 @@ define internal range(i32 5, 2) i32 @smka_decode_frame(ptr noundef %0, ptr nound
 
 20:                                               ; preds = %16
   %21 = getelementptr inbounds nuw i8, ptr %11, i64 4
-  %22 = add nsw i32 %13, -4
-  %or.cond.i = icmp samesign ugt i32 %22, 268435455
-  %23 = shl nuw nsw i32 %22, 3
+  %or.cond.i = icmp samesign ugt i32 %13, 268435459
+  %22 = shl i32 %13, 3
+  %23 = add i32 %22, -32
   %24 = select i1 %or.cond.i, i32 -8, i32 %23
   %or.cond.i.i = icmp ugt i32 %24, 2147483134
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %24

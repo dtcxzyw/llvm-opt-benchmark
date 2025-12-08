@@ -1058,7 +1058,7 @@ index_get_field_name.exit:                        ; preds = %140, %148
   store i32 %174, ptr %8, align 4
   %175 = zext nneg i8 %164 to i32
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %12, i8 noundef 0, i64 noundef 16, i1 noundef false) #9
-  %176 = icmp samesign ugt i32 %174, 16
+  %176 = icmp samesign ugt i32 %161, 17
   br i1 %176, label %180, label %.preheader.i
 
 .preheader.i:                                     ; preds = %172

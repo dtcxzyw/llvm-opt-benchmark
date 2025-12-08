@@ -1423,7 +1423,7 @@ define internal fastcc noundef range(i32 -5, 1) i32 @getreg32(ptr noundef %0, i3
 118:                                              ; preds = %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3, %3
   %119 = add nsw i32 %1, -252
   %120 = lshr i32 %119, 2
-  %121 = icmp samesign ult i32 %119, 16
+  %121 = icmp samesign ult i32 %1, 268
   br i1 %121, label %122, label %135
 
 122:                                              ; preds = %118

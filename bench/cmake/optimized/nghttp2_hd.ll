@@ -1033,7 +1033,7 @@ value_eq.exit.us.us.i.i.i:                        ; preds = %129
   %137 = load ptr, ptr %117, align 8, !tbaa !90
   %bcmp.i.i28.us.us.i.i.i = call i32 @bcmp(ptr readonly %136, ptr readonly %137, i64 %132)
   %.not32.us.us.i.i.i = icmp eq i32 %bcmp.i.i28.us.us.i.i.i, 0
-  br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread147.i, label %name_eq.exit.thread.us.us.i.i.i
+  br i1 %.not32.us.us.i.i.i, label %search_hd_table.exit.thread145.i, label %name_eq.exit.thread.us.us.i.i.i
 
 name_eq.exit.thread.us.us.i.i.i:                  ; preds = %value_eq.exit.us.us.i.i.i, %129, %name_eq.exit.us.us.i.i.i, %123, %120, %.lr.ph.split.us.split.us.i.i.i
   %.2.us.us.i.i.i = phi ptr [ %.036.us.us.i.i.i, %.lr.ph.split.us.split.us.i.i.i ], [ %.036.us.us.i.i.i, %120 ], [ %spec.select.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %name_eq.exit.us.us.i.i.i ], [ %.036.us.us.i.i.i, %123 ], [ %spec.select.i.i.i, %129 ]
@@ -1103,7 +1103,7 @@ value_eq.exit.us48.i.i.i:                         ; preds = %153
   %161 = load ptr, ptr %117, align 8, !tbaa !90
   %bcmp.i.i28.us49.i.i.i = call i32 @bcmp(ptr readonly %160, ptr readonly %161, i64 %156)
   %.not32.us50.i.i.i = icmp eq i32 %bcmp.i.i28.us49.i.i.i, 0
-  br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread147.i, label %name_eq.exit.thread.us51.i.i.i
+  br i1 %.not32.us50.i.i.i, label %search_hd_table.exit.thread145.i, label %name_eq.exit.thread.us51.i.i.i
 
 name_eq.exit.thread.us51.i.i.i:                   ; preds = %value_eq.exit.us48.i.i.i, %153, %.lr.ph.split.split.us.i.i.i
   %.2.us52.i.i.i = phi ptr [ %.036.us43.i.i.i, %.lr.ph.split.split.us.i.i.i ], [ %spec.select65.i.i.i, %value_eq.exit.us48.i.i.i ], [ %spec.select65.i.i.i, %153 ]
@@ -1171,7 +1171,7 @@ hd_map_find.exit.i.i:                             ; preds = %name_eq.exit.thread
   %188 = icmp eq ptr %.1.i.i.i, null
   br i1 %188, label %search_hd_table.exit.thread.thread104.i, label %search_hd_table.exit.i
 
-search_hd_table.exit.thread147.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
+search_hd_table.exit.thread145.i:                 ; preds = %value_eq.exit.us48.i.i.i, %value_eq.exit.us.us.i.i.i
   %.1.i3134.i.ph.i = phi ptr [ %.01937.us.us.i.i.i, %value_eq.exit.us.us.i.i.i ], [ %.01937.us42.i.i.i, %value_eq.exit.us48.i.i.i ]
   %189 = load i32, ptr %65, align 8, !tbaa !43
   %190 = getelementptr inbounds nuw i8, ptr %.1.i3134.i.ph.i, i64 72
@@ -1192,15 +1192,15 @@ search_hd_table.exit.i:                           ; preds = %187
   %202 = zext i32 %201 to i64
   br label %search_hd_table.exit.thread.i
 
-search_hd_table.exit.thread93.i:                  ; preds = %181, %search_hd_table.exit.thread147.i
-  %.sroa.024.0.i99.i = phi i64 [ %195, %search_hd_table.exit.thread147.i ], [ %indvars.iv.i.i.i, %181 ]
+search_hd_table.exit.thread93.i:                  ; preds = %181, %search_hd_table.exit.thread145.i
+  %.sroa.024.0.i99.i = phi i64 [ %195, %search_hd_table.exit.thread145.i ], [ %indvars.iv.i.i.i, %181 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %203 = icmp slt i64 %.sroa.024.0.i99.i, 126
   br i1 %203, label %211, label %204
 
 204:                                              ; preds = %search_hd_table.exit.thread93.i
   %205 = add nsw i64 %.sroa.024.0.i99.i, -126
-  %206 = icmp samesign ugt i64 %205, 127
+  %206 = icmp samesign ugt i64 %.sroa.024.0.i99.i, 253
   br i1 %206, label %.lr.ph.i.i78.i, label %215
 
 .lr.ph.i.i78.i:                                   ; preds = %204, %.lr.ph.i.i78.i
@@ -1246,7 +1246,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br label %._crit_edge.i.i.i
 
 ._crit_edge.i.i.i:                                ; preds = %._crit_edge.i.i.loopexit.i, %215
-  %.011.i131626.i.i = phi i64 [ 2, %215 ], [ %220, %._crit_edge.i.i.loopexit.i ]
+  %.011.i131624.i.i = phi i64 [ 2, %215 ], [ %220, %._crit_edge.i.i.loopexit.i ]
   %.025.lcssa.i.i.i = phi i64 [ %205, %215 ], [ %218, %._crit_edge.i.i.loopexit.i ]
   %.024.lcssa.i.i.i = phi ptr [ %.02428.i.i.i, %215 ], [ %.024.i.i.i, %._crit_edge.i.i.loopexit.i ]
   %221 = trunc nuw nsw i64 %.025.lcssa.i.i.i to i8
@@ -1254,7 +1254,7 @@ count_encoded_length.exit.i.i:                    ; preds = %.lr.ph.i.i78.i
   br label %encode_length.exit.i.i
 
 encode_length.exit.i.i:                           ; preds = %._crit_edge.i.i.i, %211
-  %.011.i1315.i.i = phi i64 [ 1, %211 ], [ %.011.i131626.i.i, %._crit_edge.i.i.i ]
+  %.011.i1315.i.i = phi i64 [ 1, %211 ], [ %.011.i131624.i.i, %._crit_edge.i.i.i ]
   %222 = call i32 @nghttp2_bufs_add(ptr noundef %1, ptr noundef nonnull %5, i64 noundef %.011.i1315.i.i) #13
   br label %emit_indexed_block.exit.i
 
@@ -2154,7 +2154,7 @@ hd_inflate_read_len.exit283:                      ; preds = %decode_length.exit.
   br i1 %135, label %187, label %.thread352
 
 187:                                              ; preds = %185
-  %188 = icmp samesign ugt i64 %186, 60
+  %188 = icmp ugt i32 %.01421.i280, 61
   br i1 %188, label %189, label %198
 
 189:                                              ; preds = %187

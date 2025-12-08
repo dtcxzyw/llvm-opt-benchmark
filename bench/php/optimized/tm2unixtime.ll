@@ -744,7 +744,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
 .lr.ph59.preheader.i:                             ; preds = %.critedge52.i
   store i64 %177, ptr %121, align 8, !tbaa !4
   store i64 %166, ptr %71, align 8, !tbaa !4
-  %179 = icmp samesign ult i64 %166, 13
+  %179 = icmp slt i64 %163, 14
   br i1 %179, label %.lr.ph72.preheader, label %do_range_limit_days.exit
 
 .lr.ph72.preheader:                               ; preds = %158, %.lr.ph59.preheader.i
@@ -756,23 +756,23 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   %182 = load i32, ptr %181, align 4, !tbaa !12
   %183 = sext i32 %182 to i64
   %184 = icmp sgt i64 %.lcssa6882139, %183
-  br i1 %184, label %.lr.ph155, label %do_range_limit_days.exit.loopexit
+  br i1 %184, label %.lr.ph157, label %do_range_limit_days.exit.loopexit
 
-.lr.ph72:                                         ; preds = %.lr.ph155
+.lr.ph72:                                         ; preds = %.lr.ph157
   %185 = getelementptr inbounds i32, ptr %159, i64 %191
   %186 = load i32, ptr %185, align 4, !tbaa !12
   %187 = sext i32 %186 to i64
   %188 = icmp sgt i64 %190, %187
-  br i1 %188, label %.lr.ph155, label %do_range_limit_days.exit.loopexit.loopexit
+  br i1 %188, label %.lr.ph157, label %do_range_limit_days.exit.loopexit.loopexit
 
-.lr.ph155:                                        ; preds = %.lr.ph72.preheader, %.lr.ph72
+.lr.ph157:                                        ; preds = %.lr.ph72.preheader, %.lr.ph72
   %189 = phi i64 [ %187, %.lr.ph72 ], [ %183, %.lr.ph72.preheader ]
-  %.lcssa6881154 = phi i64 [ %190, %.lr.ph72 ], [ %.lcssa6882139, %.lr.ph72.preheader ]
-  %.lcssa7091153 = phi i64 [ %191, %.lr.ph72 ], [ %.lcssa7092138, %.lr.ph72.preheader ]
-  %190 = sub i64 %.lcssa6881154, %189
-  %191 = add nsw i64 %.lcssa7091153, 1
+  %.lcssa6881156 = phi i64 [ %190, %.lr.ph72 ], [ %.lcssa6882139, %.lr.ph72.preheader ]
+  %.lcssa7091155 = phi i64 [ %191, %.lr.ph72 ], [ %.lcssa7092138, %.lr.ph72.preheader ]
+  %190 = sub i64 %.lcssa6881156, %189
+  %191 = add nsw i64 %.lcssa7091155, 1
   %192 = icmp sgt i64 %190, 0
-  %193 = icmp slt i64 %.lcssa7091153, 12
+  %193 = icmp slt i64 %.lcssa7091155, 12
   %or.cond103 = and i1 %192, %193
   br i1 %or.cond103, label %.lr.ph72, label %do_range_limit_days.exit.loopexit.loopexit
 
@@ -781,7 +781,7 @@ do_range_limit.exit.i:                            ; preds = %144, %141
   store i64 0, ptr %71, align 8, !tbaa !4
   br label %do_range_limit_days.exit
 
-do_range_limit_days.exit.loopexit.loopexit:       ; preds = %.lr.ph72, %.lr.ph155
+do_range_limit_days.exit.loopexit.loopexit:       ; preds = %.lr.ph72, %.lr.ph157
   store i64 %190, ptr %121, align 8, !tbaa !4
   store i64 %191, ptr %71, align 8, !tbaa !4
   br label %do_range_limit_days.exit.loopexit

@@ -4139,7 +4139,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   br i1 %or.cond57, label %73, label %.critedge40
 
 63:                                               ; preds = %52
-  %64 = icmp samesign ult i32 %56, 128
+  %64 = icmp samesign ult i32 %55, 56614016
   br i1 %64, label %65, label %67
 
 65:                                               ; preds = %63
@@ -4148,7 +4148,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   br label %96
 
 67:                                               ; preds = %63
-  %68 = icmp samesign ult i32 %56, 2048
+  %68 = icmp samesign ult i32 %55, 56615936
   br i1 %68, label %69, label %.thread49
 
 69:                                               ; preds = %67
@@ -4159,7 +4159,7 @@ define noundef zeroext i1 @_ZN4base8internal10JSONParser11DecodeUTF16EPNSt7__cxx
   br label %91
 
 73:                                               ; preds = %59
-  %74 = icmp samesign ult i32 %56, 65536
+  %74 = icmp samesign ult i32 %55, 56679424
   br i1 %74, label %.thread49, label %78
 
 .thread49:                                        ; preds = %67, %73

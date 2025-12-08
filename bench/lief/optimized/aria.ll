@@ -92,7 +92,7 @@ define hidden range(i32 -92, 1) i32 @mbedtls_aria_setkey_enc(ptr noundef writeon
   %29 = zext nneg i32 %25 to i64
   %30 = getelementptr inbounds nuw [4 x i32], ptr @__const.mbedtls_aria_setkey_enc.rc, i64 %29
   call fastcc void @aria_fo_xor(ptr noundef %12, ptr noundef %4, ptr noundef %30, ptr noundef %12)
-  %31 = icmp samesign ult i32 %24, 128
+  %31 = icmp samesign ult i32 %2, 256
   %32 = add nuw nsw i32 %25, 1
   %33 = select i1 %31, i32 %32, i32 0
   %34 = getelementptr inbounds nuw i8, ptr %4, i64 32

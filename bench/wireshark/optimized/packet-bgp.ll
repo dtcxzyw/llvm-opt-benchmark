@@ -9244,7 +9244,7 @@ decode_link_state_attribute_flex_algo_subtlv.exit: ; preds = %248, %287, %.prehe
   %318 = tail call ptr @proto_tree_add_item(ptr noundef %307, i32 noundef %316, ptr noundef %1, i32 noundef %317, i32 noundef 1, i32 noundef 0)
   %319 = add nsw i32 %.014021532, -2
   %320 = add i32 %.113931533, 2
-  %321 = icmp samesign ugt i32 %319, 1
+  %321 = icmp samesign ugt i32 %.014021532, 3
   br i1 %321, label %.lr.ph1534, label %.loopexit, !llvm.loop !45
 
 322:                                              ; preds = %5

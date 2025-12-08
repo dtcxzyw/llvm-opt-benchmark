@@ -31,8 +31,8 @@ define internal range(i32 0, 52) i32 @annexb_probe(ptr noundef readonly captures
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %evc_get_nalu_type.exit.thread
-  %.048 = phi i32 [ %28, %evc_get_nalu_type.exit.thread ], [ %3, %.lr.ph.preheader ]
-  %.03047 = phi ptr [ %27, %evc_get_nalu_type.exit.thread ], [ %6, %.lr.ph.preheader ]
+  %.048 = phi i32 [ %27, %evc_get_nalu_type.exit.thread ], [ %3, %.lr.ph.preheader ]
+  %.03047 = phi ptr [ %26, %evc_get_nalu_type.exit.thread ], [ %6, %.lr.ph.preheader ]
   %.03146 = phi i32 [ %.1, %evc_get_nalu_type.exit.thread ], [ 0, %.lr.ph.preheader ]
   %.03245 = phi i32 [ %.133, %evc_get_nalu_type.exit.thread ], [ 0, %.lr.ph.preheader ]
   %.03444 = phi i32 [ %.135, %evc_get_nalu_type.exit.thread ], [ 0, %.lr.ph.preheader ]
@@ -50,67 +50,67 @@ define internal range(i32 0, 52) i32 @annexb_probe(ptr noundef readonly captures
   br i1 %13, label %._crit_edge, label %14
 
 14:                                               ; preds = %10
-  %15 = icmp samesign ugt i32 %12, 1
-  br i1 %15, label %16, label %evc_get_nalu_type.exit.thread
+  %.not = icmp eq i32 %.048, 5
+  br i1 %.not, label %evc_get_nalu_type.exit.thread, label %15
 
-16:                                               ; preds = %14
-  %17 = load i8, ptr %11, align 1, !tbaa !12
-  %.not.i = icmp sgt i8 %17, -1
+15:                                               ; preds = %14
+  %16 = load i8, ptr %11, align 1, !tbaa !12
+  %.not.i = icmp sgt i8 %16, -1
   br i1 %.not.i, label %evc_get_nalu_type.exit, label %evc_get_nalu_type.exit.thread
 
-evc_get_nalu_type.exit:                           ; preds = %16
-  %18 = lshr i8 %17, 1
-  switch i8 %18, label %evc_get_nalu_type.exit.thread [
-    i8 25, label %19
-    i8 26, label %21
-    i8 2, label %23
-    i8 1, label %25
+evc_get_nalu_type.exit:                           ; preds = %15
+  %17 = lshr i8 %16, 1
+  switch i8 %17, label %evc_get_nalu_type.exit.thread [
+    i8 25, label %18
+    i8 26, label %20
+    i8 2, label %22
+    i8 1, label %24
   ]
 
-19:                                               ; preds = %evc_get_nalu_type.exit
-  %20 = add nsw i32 %.03643, 1
+18:                                               ; preds = %evc_get_nalu_type.exit
+  %19 = add nsw i32 %.03643, 1
   br label %evc_get_nalu_type.exit.thread
 
-21:                                               ; preds = %evc_get_nalu_type.exit
-  %22 = add nsw i32 %.03444, 1
+20:                                               ; preds = %evc_get_nalu_type.exit
+  %21 = add nsw i32 %.03444, 1
   br label %evc_get_nalu_type.exit.thread
 
-23:                                               ; preds = %evc_get_nalu_type.exit
-  %24 = add nsw i32 %.03245, 1
+22:                                               ; preds = %evc_get_nalu_type.exit
+  %23 = add nsw i32 %.03245, 1
   br label %evc_get_nalu_type.exit.thread
 
-25:                                               ; preds = %evc_get_nalu_type.exit
-  %26 = add nsw i32 %.03146, 1
+24:                                               ; preds = %evc_get_nalu_type.exit
+  %25 = add nsw i32 %.03146, 1
   br label %evc_get_nalu_type.exit.thread
 
-evc_get_nalu_type.exit.thread:                    ; preds = %14, %16, %evc_get_nalu_type.exit, %21, %25, %23, %19
-  %.137 = phi i32 [ %20, %19 ], [ %.03643, %21 ], [ %.03643, %23 ], [ %.03643, %25 ], [ %.03643, %evc_get_nalu_type.exit ], [ %.03643, %16 ], [ %.03643, %14 ]
-  %.135 = phi i32 [ %.03444, %19 ], [ %22, %21 ], [ %.03444, %23 ], [ %.03444, %25 ], [ %.03444, %evc_get_nalu_type.exit ], [ %.03444, %16 ], [ %.03444, %14 ]
-  %.133 = phi i32 [ %.03245, %19 ], [ %.03245, %21 ], [ %24, %23 ], [ %.03245, %25 ], [ %.03245, %evc_get_nalu_type.exit ], [ %.03245, %16 ], [ %.03245, %14 ]
-  %.1 = phi i32 [ %.03146, %19 ], [ %.03146, %21 ], [ %.03146, %23 ], [ %26, %25 ], [ %.03146, %evc_get_nalu_type.exit ], [ %.03146, %16 ], [ %.03146, %14 ]
-  %27 = getelementptr inbounds nuw i8, ptr %11, i64 %8
-  %28 = sub nsw i32 %12, %7
-  %29 = icmp sgt i32 %28, 4
-  br i1 %29, label %.lr.ph, label %._crit_edge, !llvm.loop !13
+evc_get_nalu_type.exit.thread:                    ; preds = %14, %15, %evc_get_nalu_type.exit, %20, %24, %22, %18
+  %.137 = phi i32 [ %19, %18 ], [ %.03643, %20 ], [ %.03643, %22 ], [ %.03643, %24 ], [ %.03643, %evc_get_nalu_type.exit ], [ %.03643, %15 ], [ %.03643, %14 ]
+  %.135 = phi i32 [ %.03444, %18 ], [ %21, %20 ], [ %.03444, %22 ], [ %.03444, %24 ], [ %.03444, %evc_get_nalu_type.exit ], [ %.03444, %15 ], [ %.03444, %14 ]
+  %.133 = phi i32 [ %.03245, %18 ], [ %.03245, %20 ], [ %23, %22 ], [ %.03245, %24 ], [ %.03245, %evc_get_nalu_type.exit ], [ %.03245, %15 ], [ %.03245, %14 ]
+  %.1 = phi i32 [ %.03146, %18 ], [ %.03146, %20 ], [ %.03146, %22 ], [ %25, %24 ], [ %.03146, %evc_get_nalu_type.exit ], [ %.03146, %15 ], [ %.03146, %14 ]
+  %26 = getelementptr inbounds nuw i8, ptr %11, i64 %8
+  %27 = sub nsw i32 %12, %7
+  %28 = icmp sgt i32 %27, 4
+  br i1 %28, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %evc_get_nalu_type.exit.thread, %.lr.ph, %10
   %.036.lcssa.ph = phi i32 [ %.137, %evc_get_nalu_type.exit.thread ], [ %.03643, %.lr.ph ], [ %.03643, %10 ]
   %.034.lcssa.ph = phi i32 [ %.135, %evc_get_nalu_type.exit.thread ], [ %.03444, %.lr.ph ], [ %.03444, %10 ]
   %.032.lcssa.ph = phi i32 [ %.133, %evc_get_nalu_type.exit.thread ], [ %.03245, %.lr.ph ], [ %.03245, %10 ]
   %.031.lcssa.ph = phi i32 [ %.1, %evc_get_nalu_type.exit.thread ], [ %.03146, %.lr.ph ], [ %.03146, %10 ]
-  %30 = icmp eq i32 %.036.lcssa.ph, 0
-  %31 = icmp eq i32 %.034.lcssa.ph, 0
-  %.not71 = select i1 %30, i1 true, i1 %31
-  %32 = icmp eq i32 %.032.lcssa.ph, 0
-  %33 = icmp slt i32 %.031.lcssa.ph, 4
-  %.not73 = select i1 %32, i1 %33, i1 false
-  %brmerge = select i1 %.not71, i1 true, i1 %.not73
-  br i1 %brmerge, label %._crit_edge.thread, label %34
+  %29 = icmp eq i32 %.036.lcssa.ph, 0
+  %30 = icmp eq i32 %.034.lcssa.ph, 0
+  %.not72 = select i1 %29, i1 true, i1 %30
+  %31 = icmp eq i32 %.032.lcssa.ph, 0
+  %32 = icmp slt i32 %.031.lcssa.ph, 4
+  %.not75 = select i1 %31, i1 %32, i1 false
+  %brmerge = select i1 %.not72, i1 true, i1 %.not75
+  br i1 %brmerge, label %._crit_edge.thread, label %33
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %1
-  br label %34
+  br label %33
 
-34:                                               ; preds = %._crit_edge, %._crit_edge.thread
+33:                                               ; preds = %._crit_edge, %._crit_edge.thread
   %.038 = phi i32 [ 0, %._crit_edge.thread ], [ 51, %._crit_edge ]
   ret i32 %.038
 }

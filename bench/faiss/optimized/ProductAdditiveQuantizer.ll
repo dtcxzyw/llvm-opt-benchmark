@@ -2257,8 +2257,8 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_cod
   %18 = call i64 @llvm.umin.i64(i64 %17, i64 %15)
   store i64 %18, ptr %10, align 8, !tbaa !4
   %19 = load i64, ptr %9, align 8, !tbaa !4
-  %.not44 = icmp ugt i64 %19, %18
-  br i1 %.not44, label %._crit_edge29, label %.lr.ph28
+  %.not43 = icmp ugt i64 %19, %18
+  br i1 %.not43, label %._crit_edge29, label %.lr.ph28
 
 .lr.ph28:                                         ; preds = %14
   %20 = load ptr, ptr %3, align 8, !tbaa !87
@@ -2338,7 +2338,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer22compute_unpacked_cod
   %indvars.iv.next.i.us = add nuw nsw i64 %indvars.iv.i.us, 8
   %62 = add nsw i32 %.02732.i.us, -8
   %.024.i.us = add nuw nsw i64 %.02435.i.us, 1
-  %63 = icmp samesign ugt i32 %62, 8
+  %63 = icmp sgt i32 %.02732.i.us, 16
   br i1 %63, label %.lr.ph.i.us, label %._crit_edge.loopexit.i.us, !llvm.loop !92
 
 ._crit_edge.loopexit.i.us:                        ; preds = %.lr.ph.i.us
@@ -2570,8 +2570,8 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %16 = call i64 @llvm.umin.i64(i64 %15, i64 %13)
   store i64 %16, ptr %8, align 8, !tbaa !4
   %17 = load i64, ptr %7, align 8, !tbaa !4
-  %.not86 = icmp ugt i64 %17, %16
-  br i1 %.not86, label %._crit_edge64, label %.lr.ph63
+  %.not85 = icmp ugt i64 %17, %16
+  br i1 %.not85, label %._crit_edge64, label %.lr.ph63
 
 .lr.ph63:                                         ; preds = %12
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 16
@@ -2701,7 +2701,7 @@ define internal void @_ZNK5faiss24ProductAdditiveQuantizer6decodeEPKhPfm.omp_out
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 8
   %87 = add nsw i32 %.02732.i, -8
   %.024.i = add nuw nsw i64 %.02435.i, 1
-  %88 = icmp samesign ugt i32 %87, 8
+  %88 = icmp sgt i32 %.02732.i, 16
   br i1 %88, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !92
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i

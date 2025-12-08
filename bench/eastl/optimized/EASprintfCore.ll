@@ -992,18 +992,16 @@ if.then.i.i.i:                                    ; preds = %if.then.i
   br i1 %cmp211.i.i.i, label %land.rhs.i.i.i.preheader, label %while.end.i.i.i
 
 land.rhs.i.i.i.preheader:                         ; preds = %if.then.i.i.i
-  %narrow322 = add nsw i32 %93, -1
-  %94 = icmp samesign ugt i32 %narrow322, 5
+  %94 = icmp sgt i32 %93, 6
   br i1 %94, label %while.end.i.i.i, label %while.end.i.i.loopexit.split.loop.exit29.i
 
 while.end.i.i.loopexit.split.loop.exit29.i:       ; preds = %land.rhs.i.i.i.preheader
-  %95 = zext nneg i32 %narrow322 to i64
-  %96 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 %95
-  %incdec.ptr.i.i.ptr.le.i = getelementptr inbounds nuw i8, ptr %96, i64 1
+  %95 = zext nneg i32 %93 to i64
+  %96 = getelementptr i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 %95
   br label %while.end.i.i.i
 
 while.end.i.i.i:                                  ; preds = %land.rhs.i.i.i.preheader, %while.end.i.i.loopexit.split.loop.exit29.i, %if.then.i.i.i
-  %pBufferCurrent.0.lcssa.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i ], [ %incdec.ptr.i.i.ptr.le.i, %while.end.i.i.loopexit.split.loop.exit29.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i.preheader ]
+  %pBufferCurrent.0.lcssa.i.i.i = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i ], [ %96, %while.end.i.i.loopexit.split.loop.exit29.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i.preheader ]
   %sub.ptr.lhs.cast.i.i.i = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i to i64
   %97 = trunc i64 %sub.ptr.lhs.cast.i.i.i to i32
   %98 = sub i32 %97, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E to i32)
@@ -1092,18 +1090,16 @@ if.then.i.i.i134:                                 ; preds = %if.then.i131
   br i1 %cmp211.i.i.i136, label %land.rhs.i.i.i143.preheader, label %while.end.i.i.i137
 
 land.rhs.i.i.i143.preheader:                      ; preds = %if.then.i.i.i134
-  %narrow320 = add nsw i32 %104, -1
-  %105 = icmp samesign ugt i32 %narrow320, 5
+  %105 = icmp sgt i32 %104, 6
   br i1 %105, label %while.end.i.i.i137, label %while.end.i.i.loopexit.split.loop.exit6.i
 
 while.end.i.i.loopexit.split.loop.exit6.i:        ; preds = %land.rhs.i.i.i143.preheader
-  %106 = zext nneg i32 %narrow320 to i64
-  %107 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 %106
-  %incdec.ptr.i.i.ptr.le.i149 = getelementptr inbounds nuw i8, ptr %107, i64 1
+  %106 = zext nneg i32 %104 to i64
+  %107 = getelementptr i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 %106
   br label %while.end.i.i.i137
 
 while.end.i.i.i137:                               ; preds = %land.rhs.i.i.i143.preheader, %while.end.i.i.loopexit.split.loop.exit6.i, %if.then.i.i.i134
-  %pBufferCurrent.0.lcssa.i.i.i138 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i134 ], [ %incdec.ptr.i.i.ptr.le.i149, %while.end.i.i.loopexit.split.loop.exit6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i143.preheader ]
+  %pBufferCurrent.0.lcssa.i.i.i138 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i134 ], [ %107, %while.end.i.i.loopexit.split.loop.exit6.i ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i143.preheader ]
   %sub.ptr.lhs.cast.i.i.i139 = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i138 to i64
   %108 = trunc i64 %sub.ptr.lhs.cast.i.i.i139 to i32
   %109 = sub i32 %108, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E to i32)
@@ -1160,18 +1156,16 @@ if.then.i.i.i158:                                 ; preds = %if.then.i155
   br i1 %cmp211.i.i.i160, label %land.rhs.i.i.i167.preheader, label %while.end.i.i.i161
 
 land.rhs.i.i.i167.preheader:                      ; preds = %if.then.i.i.i158
-  %narrow = add nsw i32 %114, -1
-  %115 = icmp samesign ugt i32 %narrow, 5
+  %115 = icmp sgt i32 %114, 6
   br i1 %115, label %while.end.i.i.i161, label %while.end.i.i.loopexit.split.loop.exit6.i173
 
 while.end.i.i.loopexit.split.loop.exit6.i173:     ; preds = %land.rhs.i.i.i167.preheader
-  %116 = zext nneg i32 %narrow to i64
-  %117 = getelementptr inbounds nuw i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 %116
-  %incdec.ptr.i.i.ptr.le.i174 = getelementptr inbounds nuw i8, ptr %117, i64 1
+  %116 = zext nneg i32 %114 to i64
+  %117 = getelementptr i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 %116
   br label %while.end.i.i.i161
 
 while.end.i.i.i161:                               ; preds = %land.rhs.i.i.i167.preheader, %while.end.i.i.loopexit.split.loop.exit6.i173, %if.then.i.i.i158
-  %pBufferCurrent.0.lcssa.i.i.i162 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i158 ], [ %incdec.ptr.i.i.ptr.le.i174, %while.end.i.i.loopexit.split.loop.exit6.i173 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i167.preheader ]
+  %pBufferCurrent.0.lcssa.i.i.i162 = phi ptr [ @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, %if.then.i.i.i158 ], [ %117, %while.end.i.i.loopexit.split.loop.exit6.i173 ], [ getelementptr inbounds nuw (i8, ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E, i64 6), %land.rhs.i.i.i167.preheader ]
   %sub.ptr.lhs.cast.i.i.i163 = ptrtoint ptr %pBufferCurrent.0.lcssa.i.i.i162 to i64
   %118 = trunc i64 %sub.ptr.lhs.cast.i.i.i163 to i32
   %119 = sub i32 %118, ptrtoint (ptr @_ZN2EA4StdC12SprintfLocalL12kStringNull8E to i32)
@@ -6355,8 +6349,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp62.not, label %while.end, label %while.body, !llvm.loop !108
 
 while.end:                                        ; preds = %while.body
-  %cmp66.not = icmp samesign ult i64 %pCurrent.0.add, -4
-  br i1 %cmp66.not, label %if.end69, label %if.then67
+  %cmp66.not.not = icmp eq i64 %pCurrent.0.idx141, -2
+  br i1 %cmp66.not.not, label %if.then67, label %if.end69
 
 if.then67:                                        ; preds = %EContinuation.thread, %EContinuation, %while.end
   %pCurrent.0.idx.lcssa190 = phi i64 [ %pCurrent.0.add, %while.end ], [ -2, %EContinuation ], [ -2, %EContinuation.thread ]
@@ -8333,8 +8327,8 @@ while.body:                                       ; preds = %while.body.preheade
   br i1 %cmp62.not, label %while.end, label %while.body, !llvm.loop !142
 
 while.end:                                        ; preds = %while.body
-  %cmp65.not = icmp samesign ult i64 %pCurrent.0.add, -8
-  br i1 %cmp65.not, label %if.end68, label %if.then66
+  %cmp65.not.not = icmp eq i64 %pCurrent.0.idx141, -4
+  br i1 %cmp65.not.not, label %if.then66, label %if.end68
 
 if.then66:                                        ; preds = %EContinuation.thread, %EContinuation, %while.end
   %pCurrent.0.idx.lcssa190 = phi i64 [ %pCurrent.0.add, %while.end ], [ -4, %EContinuation ], [ -4, %EContinuation.thread ]

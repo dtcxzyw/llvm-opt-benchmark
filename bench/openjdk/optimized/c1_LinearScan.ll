@@ -23307,7 +23307,7 @@ _ZN17EdgeMoveOptimizer20operations_differentEP6LIR_OpS1_.exit: ; preds = %148, %
   %172 = load ptr, ptr %171, align 8
   %173 = getelementptr inbounds ptr, ptr %170, i64 %indvars.iv.i.i30
   store ptr %172, ptr %173, align 8
-  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.next.i.i31, 1
+  %.not.not.i.i = icmp samesign ugt i64 %indvars.iv.i.i30, 2
   br i1 %.not.not.i.i, label %169, label %._crit_edge.loopexit.i.i, !llvm.loop !136
 
 ._crit_edge.loopexit.i.i:                         ; preds = %169

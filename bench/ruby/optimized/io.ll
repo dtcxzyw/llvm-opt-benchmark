@@ -11484,94 +11484,94 @@ define internal i64 @rb_io_s_popen(i32 noundef %0, ptr noundef readonly captures
 
 12:                                               ; preds = %5
   %13 = add nsw i32 %0, -1
-  %14 = icmp samesign ugt i32 %13, 1
-  br i1 %14, label %.thread, label %.thread34
+  %.not = icmp eq i32 %0, 2
+  br i1 %.not, label %.thread34, label %.thread
 
 .thread:                                          ; preds = %5, %12
   %.030 = phi i32 [ %13, %12 ], [ %0, %5 ]
-  %15 = load i64, ptr %1, align 8, !tbaa !23
-  %16 = tail call i64 @rb_check_hash_type(i64 noundef %15) #28
-  %17 = icmp eq i64 %16, 4
-  br i1 %17, label %.thread31, label %18
+  %14 = load i64, ptr %1, align 8, !tbaa !23
+  %15 = tail call i64 @rb_check_hash_type(i64 noundef %14) #28
+  %16 = icmp eq i64 %15, 4
+  br i1 %16, label %.thread31, label %17
 
-18:                                               ; preds = %.thread
-  %19 = add nsw i32 %.030, -1
-  %20 = getelementptr i8, ptr %1, i64 8
+17:                                               ; preds = %.thread
+  %18 = add nsw i32 %.030, -1
+  %19 = getelementptr i8, ptr %1, i64 8
   br label %.thread31
 
-.thread31:                                        ; preds = %3, %18, %.thread
-  %.02128 = phi i64 [ %10, %.thread ], [ %10, %18 ], [ 4, %3 ]
-  %.023 = phi ptr [ %1, %.thread ], [ %20, %18 ], [ %1, %3 ]
-  %.020 = phi i64 [ 4, %.thread ], [ %16, %18 ], [ 4, %3 ]
-  %.1 = phi i32 [ %.030, %.thread ], [ %19, %18 ], [ %0, %3 ]
-  switch i32 %.1, label %46 [
-    i32 2, label %21
+.thread31:                                        ; preds = %3, %17, %.thread
+  %.02128 = phi i64 [ %10, %.thread ], [ %10, %17 ], [ 4, %3 ]
+  %.023 = phi ptr [ %1, %.thread ], [ %19, %17 ], [ %1, %3 ]
+  %.020 = phi i64 [ 4, %.thread ], [ %15, %17 ], [ 4, %3 ]
+  %.1 = phi i32 [ %.030, %.thread ], [ %18, %17 ], [ %0, %3 ]
+  switch i32 %.1, label %45 [
+    i32 2, label %20
     i32 1, label %.thread34
   ]
 
-21:                                               ; preds = %.thread31
-  %22 = getelementptr i8, ptr %.023, i64 8
-  %23 = load i64, ptr %22, align 8, !tbaa !23
+20:                                               ; preds = %.thread31
+  %21 = getelementptr i8, ptr %.023, i64 8
+  %22 = load i64, ptr %21, align 8, !tbaa !23
   br label %.thread34
 
-.thread34:                                        ; preds = %12, %21, %.thread31
-  %.02041 = phi i64 [ %.020, %21 ], [ %.020, %.thread31 ], [ 4, %12 ]
-  %.02340 = phi ptr [ %.023, %21 ], [ %.023, %.thread31 ], [ %1, %12 ]
-  %.0212839 = phi i64 [ %.02128, %21 ], [ %.02128, %.thread31 ], [ %10, %12 ]
-  %.022 = phi i64 [ %23, %21 ], [ 4, %.thread31 ], [ 4, %12 ]
-  %24 = load i64, ptr %.02340, align 8, !tbaa !23
-  %25 = tail call i64 @rb_io_popen(i64 noundef %24, i64 noundef %.022, i64 noundef %.02041, i64 noundef %.0212839)
-  %26 = icmp eq i64 %25, 4
-  br i1 %26, label %27, label %35
+.thread34:                                        ; preds = %12, %20, %.thread31
+  %.02041 = phi i64 [ %.020, %20 ], [ %.020, %.thread31 ], [ 4, %12 ]
+  %.02340 = phi ptr [ %.023, %20 ], [ %.023, %.thread31 ], [ %1, %12 ]
+  %.0212839 = phi i64 [ %.02128, %20 ], [ %.02128, %.thread31 ], [ %10, %12 ]
+  %.022 = phi i64 [ %22, %20 ], [ 4, %.thread31 ], [ 4, %12 ]
+  %23 = load i64, ptr %.02340, align 8, !tbaa !23
+  %24 = tail call i64 @rb_io_popen(i64 noundef %23, i64 noundef %.022, i64 noundef %.02041, i64 noundef %.0212839)
+  %25 = icmp eq i64 %24, 4
+  br i1 %25, label %26, label %34
 
-27:                                               ; preds = %.thread34
-  %28 = tail call i32 @rb_block_given_p() #28
-  %.not7.i = icmp eq i32 %28, 0
-  br i1 %.not7.i, label %popen_finish.exit, label %29
+26:                                               ; preds = %.thread34
+  %27 = tail call i32 @rb_block_given_p() #28
+  %.not7.i = icmp eq i32 %27, 0
+  br i1 %.not7.i, label %popen_finish.exit, label %28
 
-29:                                               ; preds = %27
-  %30 = tail call i64 @rb_protect(ptr noundef nonnull @rb_yield, i64 noundef 4, ptr noundef null) #28
-  %31 = tail call i64 @rb_ractor_stdout() #28
-  %32 = tail call i64 @rb_io_flush(i64 noundef %31)
-  %33 = tail call i64 @rb_ractor_stderr() #28
-  %34 = tail call i64 @rb_io_flush(i64 noundef %33)
+28:                                               ; preds = %26
+  %29 = tail call i64 @rb_protect(ptr noundef nonnull @rb_yield, i64 noundef 4, ptr noundef null) #28
+  %30 = tail call i64 @rb_ractor_stdout() #28
+  %31 = tail call i64 @rb_io_flush(i64 noundef %30)
+  %32 = tail call i64 @rb_ractor_stderr() #28
+  %33 = tail call i64 @rb_io_flush(i64 noundef %32)
   tail call void @_exit(i32 noundef 0) #30
   unreachable
 
-35:                                               ; preds = %.thread34
-  %36 = inttoptr i64 %25 to ptr
-  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
-  store i64 %2, ptr %37, align 8, !tbaa !23
-  %38 = icmp eq i64 %2, 0
-  %39 = and i64 %2, 7
-  %40 = icmp ne i64 %39, 0
-  %41 = or i1 %38, %40
-  br i1 %41, label %RBASIC_SET_CLASS.exit.i, label %42
+34:                                               ; preds = %.thread34
+  %35 = inttoptr i64 %24 to ptr
+  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
+  store i64 %2, ptr %36, align 8, !tbaa !23
+  %37 = icmp eq i64 %2, 0
+  %38 = and i64 %2, 7
+  %39 = icmp ne i64 %38, 0
+  %40 = or i1 %37, %39
+  br i1 %40, label %RBASIC_SET_CLASS.exit.i, label %41
 
-42:                                               ; preds = %35
-  tail call void @rb_gc_writebarrier(i64 noundef %25, i64 noundef %2) #28
+41:                                               ; preds = %34
+  tail call void @rb_gc_writebarrier(i64 noundef %24, i64 noundef %2) #28
   br label %RBASIC_SET_CLASS.exit.i
 
-RBASIC_SET_CLASS.exit.i:                          ; preds = %42, %35
-  %43 = tail call i32 @rb_block_given_p() #28
-  %.not.i = icmp eq i32 %43, 0
-  br i1 %.not.i, label %popen_finish.exit, label %44
+RBASIC_SET_CLASS.exit.i:                          ; preds = %41, %34
+  %42 = tail call i32 @rb_block_given_p() #28
+  %.not.i = icmp eq i32 %42, 0
+  br i1 %.not.i, label %popen_finish.exit, label %43
 
-44:                                               ; preds = %RBASIC_SET_CLASS.exit.i
-  %45 = tail call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef %25, ptr noundef nonnull @pipe_close, i64 noundef %25) #28
+43:                                               ; preds = %RBASIC_SET_CLASS.exit.i
+  %44 = tail call i64 @rb_ensure(ptr noundef nonnull @rb_yield, i64 noundef %24, ptr noundef nonnull @pipe_close, i64 noundef %24) #28
   br label %popen_finish.exit
 
-popen_finish.exit:                                ; preds = %27, %RBASIC_SET_CLASS.exit.i, %44
-  %.0.i = phi i64 [ %45, %44 ], [ 4, %27 ], [ %25, %RBASIC_SET_CLASS.exit.i ]
+popen_finish.exit:                                ; preds = %26, %RBASIC_SET_CLASS.exit.i, %43
+  %.0.i = phi i64 [ %44, %43 ], [ 4, %26 ], [ %24, %RBASIC_SET_CLASS.exit.i ]
   ret i64 %.0.i
 
-46:                                               ; preds = %.thread31
-  %47 = icmp ne i64 %.02128, 4
-  %48 = zext i1 %47 to i32
-  %49 = add i32 %.1, %48
-  %50 = select i1 %47, i32 2, i32 1
-  %51 = select i1 %47, i32 3, i32 2
-  tail call void @rb_error_arity(i32 noundef %49, i32 noundef %50, i32 noundef %51) #30
+45:                                               ; preds = %.thread31
+  %46 = icmp ne i64 %.02128, 4
+  %47 = zext i1 %46 to i32
+  %48 = add i32 %.1, %47
+  %49 = select i1 %46, i32 2, i32 1
+  %50 = select i1 %46, i32 3, i32 2
+  tail call void @rb_error_arity(i32 noundef %48, i32 noundef %49, i32 noundef %50) #30
   unreachable
 }
 

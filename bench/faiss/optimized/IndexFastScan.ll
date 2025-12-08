@@ -3339,7 +3339,7 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %96 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %97 = icmp samesign ugt i32 %96, 8
+  %97 = icmp sgt i32 %.02732.i.i, 16
   br i1 %97, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !87
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -3420,7 +3420,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %8
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i57.i, 8
   %136 = add nsw i32 %.02732.i60.i, -8
   %.024.i62.i = add nuw nsw i64 %.02435.i58.i, 1
-  %137 = icmp samesign ugt i32 %136, 8
+  %137 = icmp sgt i32 %.02732.i60.i, 16
   br i1 %137, label %.lr.ph.i56.i, label %._crit_edge.loopexit.i63.i, !llvm.loop !87
 
 ._crit_edge.loopexit.i63.i:                       ; preds = %.lr.ph.i56.i
@@ -8849,7 +8849,7 @@ _ZN5faiss12heap_heapifyINS_4CMinIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 8
   %96 = add nsw i32 %.02732.i.i, -8
   %.024.i.i = add nuw nsw i64 %.02435.i.i, 1
-  %97 = icmp samesign ugt i32 %96, 8
+  %97 = icmp sgt i32 %.02732.i.i, 16
   br i1 %97, label %.lr.ph.i.i, label %._crit_edge.loopexit.i.i, !llvm.loop !87
 
 ._crit_edge.loopexit.i.i:                         ; preds = %.lr.ph.i.i
@@ -8930,7 +8930,7 @@ _ZN5faiss15BitstringReader4readEi.exit.i:         ; preds = %._crit_edge.i.i, %8
   %indvars.iv.next.i61.i = add nuw nsw i64 %indvars.iv.i57.i, 8
   %136 = add nsw i32 %.02732.i60.i, -8
   %.024.i62.i = add nuw nsw i64 %.02435.i58.i, 1
-  %137 = icmp samesign ugt i32 %136, 8
+  %137 = icmp sgt i32 %.02732.i60.i, 16
   br i1 %137, label %.lr.ph.i56.i, label %._crit_edge.loopexit.i63.i, !llvm.loop !87
 
 ._crit_edge.loopexit.i63.i:                       ; preds = %.lr.ph.i56.i

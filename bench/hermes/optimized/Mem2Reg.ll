@@ -4388,7 +4388,7 @@ if.then.i.i41.i:                                  ; preds = %while.body.i354
   %sub.ptr.div.i = lshr exact i64 %sub.ptr.sub.i, 4
   %sub.i.i1125 = add nsw i64 %sub.ptr.div.i, -1
   %div.i.i2529 = lshr i64 %sub.i.i1125, 1
-  %cmp25.i.i = icmp samesign ugt i64 %sub.ptr.sub.i, 32
+  %cmp25.i.i = icmp ugt i32 %478, 3
   br i1 %cmp25.i.i, label %while.body.i.i, label %while.end.i.i
 
 while.body.i.i:                                   ; preds = %if.then.i.i41.i, %while.body.i.i

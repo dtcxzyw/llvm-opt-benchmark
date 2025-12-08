@@ -18217,8 +18217,7 @@ define dso_local { i64, i64 } @_ZNK5clang6driver9ToolChain22getSupportedSanitize
 _ZNK4llvm6Triple9isAArch64Ei.exit:                ; preds = %1, %10, %5
   %.sroa.063.2 = phi i64 [ %.sroa.063.0, %5 ], [ %.sroa.063.0, %10 ], [ 7025455980921487360, %1 ]
   %12 = or i64 %.sroa.063.2, 288230376151711744
-  %.off.i.i49 = add nsw i32 %3, -3
-  %switch.i.i50 = icmp samesign ult i32 %.off.i.i49, 3
+  %switch.i.i50 = icmp samesign ult i32 %3, 6
   br i1 %switch.i.i50, label %_ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge, label %_ZN5clang13SanitizerMaskoRERKS0_.exit55
 
 _ZN5clang13SanitizerMaskoRERKS0_.exit48._ZN5clang13SanitizerMaskoRERKS0_.exit48.thread_crit_edge: ; preds = %_ZNK4llvm6Triple9isAArch64Ei.exit
@@ -21400,16 +21399,13 @@ define linkonce_odr hidden void @_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_
   %9 = ptrtoint ptr %6 to i64
   %10 = sub i64 %8, %9
   %11 = ashr exact i64 %10, 4
-  %or.cond.i = icmp slt i64 %11, 1
-  br i1 %or.cond.i, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %_ZN4llvm12PowerOf2CeilEm.exit
+  %12 = add nsw i64 %11, -2147483649
+  %or.cond = icmp ult i64 %12, -2147483648
+  br i1 %or.cond, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %13
 
-_ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
-  %12 = add nsw i64 %11, -1
-  %13 = icmp samesign ugt i64 %12, 2147483647
-  br i1 %13, label %_ZN4llvm12PowerOf2CeilEm.exit.thread, label %14
-
-14:                                               ; preds = %_ZN4llvm12PowerOf2CeilEm.exit
-  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %12, i1 false)
+13:                                               ; preds = %3
+  %14 = add nsw i64 %11, -1
+  %15 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %14, i1 false)
   %16 = sub nuw nsw i64 64, %15
   %17 = shl nuw nsw i64 1, %16
   %18 = trunc nuw i64 %17 to i32
@@ -21446,8 +21442,8 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %.not5.i.i.i.i = icmp eq i32 %41, 0
   br i1 %.not5.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit, label %.lr.ph.i.i.i.i
 
-.lr.ph.i.i.i.i:                                   ; preds = %14, %.lr.ph.i.i.i.i
-  %.06.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %38, %14 ]
+.lr.ph.i.i.i.i:                                   ; preds = %13, %.lr.ph.i.i.i.i
+  %.06.i.i.i.i = phi ptr [ %44, %.lr.ph.i.i.i.i ], [ %38, %13 ]
   store ptr inttoptr (i64 -1 to ptr), ptr %.06.i.i.i.i, align 8, !tbaa !137
   %.sroa.4.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %.06.i.i.i.i, i64 8
   store i64 0, ptr %.sroa.4.0..sroa_idx.i.i.i.i, align 8, !tbaa !17
@@ -21455,11 +21451,11 @@ _ZN4llvm12PowerOf2CeilEm.exit:                    ; preds = %3
   %.not.i.i.i.i = icmp eq ptr %44, %43
   br i1 %.not.i.i.i.i, label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit, label %.lr.ph.i.i.i.i, !llvm.loop !712
 
-_ZN4llvm12PowerOf2CeilEm.exit.thread:             ; preds = %3, %_ZN4llvm12PowerOf2CeilEm.exit
+_ZN4llvm12PowerOf2CeilEm.exit.thread:             ; preds = %3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %0, i8 0, i64 20, i1 false)
   br label %_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit
 
-_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit: ; preds = %.lr.ph.i.i.i.i, %14, %_ZN4llvm12PowerOf2CeilEm.exit.thread
+_ZN4llvm6detail12DenseSetImplINS_9StringRefENS_8DenseMapIS2_NS0_13DenseSetEmptyENS_12DenseMapInfoIS2_vEENS0_12DenseSetPairIS2_EEEES6_EC2Ej.exit: ; preds = %.lr.ph.i.i.i.i, %13, %_ZN4llvm12PowerOf2CeilEm.exit.thread
   %45 = load ptr, ptr %1, align 8, !tbaa !301
   %46 = load ptr, ptr %2, align 8, !tbaa !301
   %.not5.i = icmp eq ptr %45, %46

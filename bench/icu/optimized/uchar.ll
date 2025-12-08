@@ -2077,8 +2077,8 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %14, %7
-  %.sink76 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
-  %24 = zext nneg i32 %.sink76 to i64
+  %.sink75 = phi i32 [ %11, %7 ], [ %23, %14 ], [ %4, %3 ]
+  %24 = zext nneg i32 %.sink75 to i64
   %25 = getelementptr inbounds nuw i16, ptr @_ZL15propsTrie_index, i64 %24
   %26 = load i16, ptr %25, align 2, !tbaa !3
   %27 = zext i16 %26 to i32
@@ -2156,7 +2156,7 @@ define double @u_getNumericValue_77(i32 noundef %0) local_unnamed_addr #0 {
   %.05964 = phi i32 [ %74, %.lr.ph ], [ %70, %66 ]
   %73 = fmul double %.05865, 1.000000e+04
   %74 = add nsw i32 %.05964, -4
-  %75 = icmp samesign ugt i32 %74, 3
+  %75 = icmp samesign ugt i32 %.05964, 7
   br i1 %75, label %.lr.ph, label %._crit_edge, !llvm.loop !13
 
 ._crit_edge:                                      ; preds = %.lr.ph, %66

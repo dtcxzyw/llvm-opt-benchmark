@@ -3419,7 +3419,7 @@ define ptr @initialize_Std_Time_Date_Unit_Day(i8 noundef zeroext %0, ptr noundef
   %.val = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val, -16777216
   %10 = icmp eq i32 %.mask.i, 16777216
-  br i1 %10, label %349, label %11
+  br i1 %10, label %347, label %11
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !5
@@ -3567,635 +3567,633 @@ _init_l_Std_Time_Day_instInhabitedOrdinal___closed__4.exit: ; preds = %51, %56, 
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %68, i1 true)
   %75 = select i1 %74, i64 %.p.i.i, i64 0
   %.0.i.i16 = add nsw i64 %75, %73
-  %76 = add nsw i64 %.0.i.i16, 2147483648
-  %77 = icmp samesign ult i64 %76, 4294967296
-  br i1 %77, label %78, label %83, !prof !10
+  %76 = icmp slt i64 %.0.i.i16, 2147483648
+  br i1 %76, label %77, label %82, !prof !10
 
-78:                                               ; preds = %70
-  %79 = shl nsw i64 %.0.i.i16, 1
-  %80 = and i64 %79, 8589934590
-  %81 = or disjoint i64 %80, 1
-  %82 = inttoptr i64 %81 to ptr
+77:                                               ; preds = %70
+  %78 = shl nsw i64 %.0.i.i16, 1
+  %79 = and i64 %78, 8589934590
+  %80 = or disjoint i64 %79, 1
+  %81 = inttoptr i64 %80 to ptr
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
 
-83:                                               ; preds = %70
-  %84 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i16) #6
+82:                                               ; preds = %70
+  %83 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i16) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
 
 .critedge.i.i17:                                  ; preds = %63, %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__4.exit
-  %85 = tail call ptr @lean_int_big_emod(ptr noundef %59, ptr noundef %60) #6
+  %84 = tail call ptr @lean_int_big_emod(ptr noundef %59, ptr noundef %60) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
 
-_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit: ; preds = %66, %78, %83, %.critedge.i.i17
-  %.1.i.i = phi ptr [ %85, %.critedge.i.i17 ], [ %59, %66 ], [ %82, %78 ], [ %84, %83 ]
+_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit: ; preds = %66, %77, %82, %.critedge.i.i17
+  %.1.i.i = phi ptr [ %84, %.critedge.i.i17 ], [ %59, %66 ], [ %81, %77 ], [ %83, %82 ]
   store ptr %.1.i.i, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #6
-  %86 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
-  %87 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
-  %88 = ptrtoint ptr %86 to i64
-  %89 = and i64 %88, 1
-  %.not.i.i18 = icmp eq i64 %89, 0
-  br i1 %.not.i.i18, label %.critedge.i.i21, label %90, !prof !13
+  %85 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__6, align 8, !tbaa !11
+  %86 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
+  %87 = ptrtoint ptr %85 to i64
+  %88 = and i64 %87, 1
+  %.not.i.i18 = icmp eq i64 %88, 0
+  br i1 %.not.i.i18, label %.critedge.i.i21, label %89, !prof !13
 
-90:                                               ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
-  %91 = ptrtoint ptr %87 to i64
-  %92 = and i64 %91, 1
-  %.not7.i.i19 = icmp eq i64 %92, 0
-  br i1 %.not7.i.i19, label %.critedge.i.i21, label %93, !prof !13
+89:                                               ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
+  %90 = ptrtoint ptr %86 to i64
+  %91 = and i64 %90, 1
+  %.not7.i.i19 = icmp eq i64 %91, 0
+  br i1 %.not7.i.i19, label %.critedge.i.i21, label %92, !prof !13
 
-93:                                               ; preds = %90
-  %94 = shl i64 %88, 31
-  %95 = ashr i64 %94, 32
-  %96 = shl i64 %91, 31
-  %97 = ashr i64 %96, 32
-  %98 = add nsw i64 %97, %95
-  %99 = add nsw i64 %98, 2147483648
-  %100 = icmp ult i64 %99, 4294967296
-  br i1 %100, label %101, label %106, !prof !10
+92:                                               ; preds = %89
+  %93 = shl i64 %87, 31
+  %94 = ashr i64 %93, 32
+  %95 = shl i64 %90, 31
+  %96 = ashr i64 %95, 32
+  %97 = add nsw i64 %96, %94
+  %98 = add nsw i64 %97, 2147483648
+  %99 = icmp ult i64 %98, 4294967296
+  br i1 %99, label %100, label %105, !prof !10
 
-101:                                              ; preds = %93
-  %102 = shl nsw i64 %98, 1
-  %103 = and i64 %102, 8589934590
-  %104 = or disjoint i64 %103, 1
-  %105 = inttoptr i64 %104 to ptr
+100:                                              ; preds = %92
+  %101 = shl nsw i64 %97, 1
+  %102 = and i64 %101, 8589934590
+  %103 = or disjoint i64 %102, 1
+  %104 = inttoptr i64 %103 to ptr
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
 
-106:                                              ; preds = %93
-  %107 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %98) #6
+105:                                              ; preds = %92
+  %106 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %97) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
 
-.critedge.i.i21:                                  ; preds = %90, %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
-  %108 = tail call ptr @lean_int_big_add(ptr noundef %86, ptr noundef %87) #6
+.critedge.i.i21:                                  ; preds = %89, %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__6.exit
+  %107 = tail call ptr @lean_int_big_add(ptr noundef %85, ptr noundef %86) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
 
-_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit: ; preds = %101, %106, %.critedge.i.i21
-  %.0.i.i20 = phi ptr [ %108, %.critedge.i.i21 ], [ %105, %101 ], [ %107, %106 ]
+_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit: ; preds = %100, %105, %.critedge.i.i21
+  %.0.i.i20 = phi ptr [ %107, %.critedge.i.i21 ], [ %104, %100 ], [ %106, %105 ]
   store ptr %.0.i.i20, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i20) #6
-  %109 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
-  %110 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
-  %111 = ptrtoint ptr %109 to i64
-  %112 = and i64 %111, 1
-  %.not.i.i22 = icmp eq i64 %112, 0
-  br i1 %.not.i.i22, label %.critedge.i.i27, label %113, !prof !13
+  %108 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
+  %109 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
+  %110 = ptrtoint ptr %108 to i64
+  %111 = and i64 %110, 1
+  %.not.i.i22 = icmp eq i64 %111, 0
+  br i1 %.not.i.i22, label %.critedge.i.i27, label %112, !prof !13
 
-113:                                              ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
-  %114 = ptrtoint ptr %110 to i64
-  %115 = and i64 %114, 1
-  %.not21.i.i23 = icmp eq i64 %115, 0
-  br i1 %.not21.i.i23, label %.critedge.i.i27, label %116, !prof !13
+112:                                              ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
+  %113 = ptrtoint ptr %109 to i64
+  %114 = and i64 %113, 1
+  %.not21.i.i23 = icmp eq i64 %114, 0
+  br i1 %.not21.i.i23, label %.critedge.i.i27, label %115, !prof !13
 
-116:                                              ; preds = %113
-  %117 = shl i64 %114, 31
-  %118 = ashr i64 %117, 32
-  %119 = icmp eq i64 %118, 0
-  br i1 %119, label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit, label %120
+115:                                              ; preds = %112
+  %116 = shl i64 %113, 31
+  %117 = ashr i64 %116, 32
+  %118 = icmp eq i64 %117, 0
+  br i1 %118, label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit, label %119
 
-120:                                              ; preds = %116
-  %121 = shl i64 %111, 31
-  %122 = ashr i64 %121, 32
-  %123 = srem i64 %122, %118
-  %124 = icmp slt i64 %123, 0
-  %.p.i.i24 = tail call i64 @llvm.abs.i64(i64 %118, i1 true)
-  %125 = select i1 %124, i64 %.p.i.i24, i64 0
-  %.0.i.i25 = add nsw i64 %125, %123
-  %126 = add nsw i64 %.0.i.i25, 2147483648
-  %127 = icmp samesign ult i64 %126, 4294967296
-  br i1 %127, label %128, label %133, !prof !10
+119:                                              ; preds = %115
+  %120 = shl i64 %110, 31
+  %121 = ashr i64 %120, 32
+  %122 = srem i64 %121, %117
+  %123 = icmp slt i64 %122, 0
+  %.p.i.i24 = tail call i64 @llvm.abs.i64(i64 %117, i1 true)
+  %124 = select i1 %123, i64 %.p.i.i24, i64 0
+  %.0.i.i25 = add nsw i64 %124, %122
+  %125 = icmp slt i64 %.0.i.i25, 2147483648
+  br i1 %125, label %126, label %131, !prof !10
 
-128:                                              ; preds = %120
-  %129 = shl nsw i64 %.0.i.i25, 1
-  %130 = and i64 %129, 8589934590
-  %131 = or disjoint i64 %130, 1
-  %132 = inttoptr i64 %131 to ptr
+126:                                              ; preds = %119
+  %127 = shl nsw i64 %.0.i.i25, 1
+  %128 = and i64 %127, 8589934590
+  %129 = or disjoint i64 %128, 1
+  %130 = inttoptr i64 %129 to ptr
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit
 
-133:                                              ; preds = %120
-  %134 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i25) #6
+131:                                              ; preds = %119
+  %132 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %.0.i.i25) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit
 
-.critedge.i.i27:                                  ; preds = %113, %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
-  %135 = tail call ptr @lean_int_big_emod(ptr noundef %109, ptr noundef %110) #6
+.critedge.i.i27:                                  ; preds = %112, %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__7.exit
+  %133 = tail call ptr @lean_int_big_emod(ptr noundef %108, ptr noundef %109) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit
 
-_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit: ; preds = %116, %128, %133, %.critedge.i.i27
-  %.1.i.i26 = phi ptr [ %135, %.critedge.i.i27 ], [ %109, %116 ], [ %132, %128 ], [ %134, %133 ]
+_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit: ; preds = %115, %126, %131, %.critedge.i.i27
+  %.1.i.i26 = phi ptr [ %133, %.critedge.i.i27 ], [ %108, %115 ], [ %130, %126 ], [ %132, %131 ]
   store ptr %.1.i.i26, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i26) #6
-  %136 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
-  %137 = ptrtoint ptr %136 to i64
-  %138 = and i64 %137, 1
-  %.not.i.i28 = icmp eq i64 %138, 0
-  br i1 %.not.i.i28, label %.critedge.i.i31, label %139, !prof !13
+  %134 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
+  %135 = ptrtoint ptr %134 to i64
+  %136 = and i64 %135, 1
+  %.not.i.i28 = icmp eq i64 %136, 0
+  br i1 %.not.i.i28, label %.critedge.i.i31, label %137, !prof !13
 
-139:                                              ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit
-  %140 = shl i64 %137, 31
-  %141 = ashr i64 %140, 32
-  %142 = add nsw i64 %141, 1
-  %143 = icmp slt i64 %141, 2147483647
-  br i1 %143, label %144, label %149, !prof !10
+137:                                              ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit
+  %138 = shl i64 %135, 31
+  %139 = ashr i64 %138, 32
+  %140 = add nsw i64 %139, 1
+  %141 = icmp slt i64 %139, 2147483647
+  br i1 %141, label %142, label %147, !prof !10
 
-144:                                              ; preds = %139
-  %145 = shl nsw i64 %142, 1
-  %146 = and i64 %145, 8589934590
-  %147 = or disjoint i64 %146, 1
-  %148 = inttoptr i64 %147 to ptr
+142:                                              ; preds = %137
+  %143 = shl nsw i64 %140, 1
+  %144 = and i64 %143, 8589934590
+  %145 = or disjoint i64 %144, 1
+  %146 = inttoptr i64 %145 to ptr
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit
 
-149:                                              ; preds = %139
-  %150 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %142) #6
+147:                                              ; preds = %137
+  %148 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4611686016279904256, 4611686018427387905) %140) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit
 
 .critedge.i.i31:                                  ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__8.exit
-  %151 = tail call ptr @lean_int_big_add(ptr noundef %136, ptr noundef nonnull inttoptr (i64 3 to ptr)) #6
+  %149 = tail call ptr @lean_int_big_add(ptr noundef %134, ptr noundef nonnull inttoptr (i64 3 to ptr)) #6
   br label %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit
 
-_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit: ; preds = %144, %149, %.critedge.i.i31
-  %.0.i.i30 = phi ptr [ %151, %.critedge.i.i31 ], [ %148, %144 ], [ %150, %149 ]
+_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit: ; preds = %142, %147, %.critedge.i.i31
+  %.0.i.i30 = phi ptr [ %149, %.critedge.i.i31 ], [ %146, %142 ], [ %148, %147 ]
   store ptr %.0.i.i30, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i30) #6
-  %152 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
-  store ptr %152, ptr @l_Std_Time_Day_instInhabitedOrdinal, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %152) #6
+  %150 = load ptr, ptr @l_Std_Time_Day_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
+  store ptr %150, ptr @l_Std_Time_Day_instInhabitedOrdinal, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %150) #6
   tail call void @lean_inc_heartbeat() #6
-  %153 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %154 = icmp eq ptr %153, null
-  br i1 %154, label %155, label %_init_l_Std_Time_Day_instOrdOrdinal___closed__1.exit
+  %151 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %152 = icmp eq ptr %151, null
+  br i1 %152, label %153, label %_init_l_Std_Time_Day_instOrdOrdinal___closed__1.exit
 
-155:                                              ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit
+153:                                              ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOrdOrdinal___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instInhabitedOrdinal___closed__9.exit
-  %156 = getelementptr inbounds nuw i8, ptr %153, i64 4
-  store i32 1, ptr %153, align 4, !tbaa !5
-  store i32 -184549352, ptr %156, align 4
-  %157 = getelementptr inbounds nuw i8, ptr %153, i64 8
-  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %157, align 8, !tbaa !11
-  %158 = getelementptr inbounds nuw i8, ptr %153, i64 16
-  store i16 1, ptr %158, align 8, !tbaa !15
-  %159 = getelementptr inbounds nuw i8, ptr %153, i64 18
-  store i16 0, ptr %159, align 2, !tbaa !15
-  store ptr %153, ptr @l_Std_Time_Day_instOrdOrdinal___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %153) #6
-  %160 = load ptr, ptr @l_Std_Time_Day_instOrdOrdinal___closed__1, align 8, !tbaa !11
+  %154 = getelementptr inbounds nuw i8, ptr %151, i64 4
+  store i32 1, ptr %151, align 4, !tbaa !5
+  store i32 -184549352, ptr %154, align 4
+  %155 = getelementptr inbounds nuw i8, ptr %151, i64 8
+  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %155, align 8, !tbaa !11
+  %156 = getelementptr inbounds nuw i8, ptr %151, i64 16
+  store i16 1, ptr %156, align 8, !tbaa !15
+  %157 = getelementptr inbounds nuw i8, ptr %151, i64 18
+  store i16 0, ptr %157, align 2, !tbaa !15
+  store ptr %151, ptr @l_Std_Time_Day_instOrdOrdinal___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %151) #6
+  %158 = load ptr, ptr @l_Std_Time_Day_instOrdOrdinal___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %161 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %162 = icmp eq ptr %161, null
-  br i1 %162, label %163, label %_init_l_Std_Time_Day_instOrdOrdinal___closed__2.exit
+  %159 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %160 = icmp eq ptr %159, null
+  br i1 %160, label %161, label %_init_l_Std_Time_Day_instOrdOrdinal___closed__2.exit
 
-163:                                              ; preds = %_init_l_Std_Time_Day_instOrdOrdinal___closed__1.exit
+161:                                              ; preds = %_init_l_Std_Time_Day_instOrdOrdinal___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOrdOrdinal___closed__2.exit: ; preds = %_init_l_Std_Time_Day_instOrdOrdinal___closed__1.exit
-  %164 = getelementptr inbounds nuw i8, ptr %161, i64 4
-  store i32 1, ptr %161, align 4, !tbaa !5
-  store i32 -184549344, ptr %164, align 4
-  %165 = getelementptr inbounds nuw i8, ptr %161, i64 8
-  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %165, align 8, !tbaa !11
-  %166 = getelementptr inbounds nuw i8, ptr %161, i64 16
-  store i16 3, ptr %166, align 8, !tbaa !15
-  %167 = getelementptr inbounds nuw i8, ptr %161, i64 18
-  store i16 1, ptr %167, align 2, !tbaa !15
-  %168 = getelementptr inbounds nuw i8, ptr %161, i64 24
-  store ptr %160, ptr %168, align 8, !tbaa !11
-  store ptr %161, ptr @l_Std_Time_Day_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %161) #6
-  %169 = load ptr, ptr @l_Std_Time_Day_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  store ptr %169, ptr @l_Std_Time_Day_instOrdOrdinal, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %169) #6
+  %162 = getelementptr inbounds nuw i8, ptr %159, i64 4
+  store i32 1, ptr %159, align 4, !tbaa !5
+  store i32 -184549344, ptr %162, align 4
+  %163 = getelementptr inbounds nuw i8, ptr %159, i64 8
+  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %163, align 8, !tbaa !11
+  %164 = getelementptr inbounds nuw i8, ptr %159, i64 16
+  store i16 3, ptr %164, align 8, !tbaa !15
+  %165 = getelementptr inbounds nuw i8, ptr %159, i64 18
+  store i16 1, ptr %165, align 2, !tbaa !15
+  %166 = getelementptr inbounds nuw i8, ptr %159, i64 24
+  store ptr %158, ptr %166, align 8, !tbaa !11
+  store ptr %159, ptr @l_Std_Time_Day_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %159) #6
+  %167 = load ptr, ptr @l_Std_Time_Day_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  store ptr %167, ptr @l_Std_Time_Day_instOrdOrdinal, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %167) #6
   tail call void @lean_inc_heartbeat() #6
-  %170 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %171 = icmp eq ptr %170, null
-  br i1 %171, label %172, label %_init_l_Std_Time_Day_instOffsetRepr___closed__1.exit
+  %168 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %169 = icmp eq ptr %168, null
+  br i1 %169, label %170, label %_init_l_Std_Time_Day_instOffsetRepr___closed__1.exit
 
-172:                                              ; preds = %_init_l_Std_Time_Day_instOrdOrdinal___closed__2.exit
+170:                                              ; preds = %_init_l_Std_Time_Day_instOrdOrdinal___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOffsetRepr___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instOrdOrdinal___closed__2.exit
-  %173 = getelementptr inbounds nuw i8, ptr %170, i64 4
-  store i32 1, ptr %170, align 4, !tbaa !5
-  store i32 -184549352, ptr %173, align 4
-  %174 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %174, align 8, !tbaa !11
-  %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
-  store i16 2, ptr %175, align 8, !tbaa !15
-  %176 = getelementptr inbounds nuw i8, ptr %170, i64 18
-  store i16 0, ptr %176, align 2, !tbaa !15
-  store ptr %170, ptr @l_Std_Time_Day_instOffsetRepr___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %170) #6
-  %177 = load ptr, ptr @l_Std_Time_Day_instOffsetRepr___closed__1, align 8, !tbaa !11
-  store ptr %177, ptr @l_Std_Time_Day_instOffsetRepr, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %177) #6
+  %171 = getelementptr inbounds nuw i8, ptr %168, i64 4
+  store i32 1, ptr %168, align 4, !tbaa !5
+  store i32 -184549352, ptr %171, align 4
+  %172 = getelementptr inbounds nuw i8, ptr %168, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %172, align 8, !tbaa !11
+  %173 = getelementptr inbounds nuw i8, ptr %168, i64 16
+  store i16 2, ptr %173, align 8, !tbaa !15
+  %174 = getelementptr inbounds nuw i8, ptr %168, i64 18
+  store i16 0, ptr %174, align 2, !tbaa !15
+  store ptr %168, ptr @l_Std_Time_Day_instOffsetRepr___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %168) #6
+  %175 = load ptr, ptr @l_Std_Time_Day_instOffsetRepr___closed__1, align 8, !tbaa !11
+  store ptr %175, ptr @l_Std_Time_Day_instOffsetRepr, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %175) #6
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Day_instOffsetInhabited___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Day_instOffsetInhabited, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   tail call void @lean_inc_heartbeat() #6
-  %178 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %179 = icmp eq ptr %178, null
-  br i1 %179, label %180, label %_init_l_Std_Time_Day_instOffsetAdd___closed__1.exit
+  %176 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %177 = icmp eq ptr %176, null
+  br i1 %177, label %178, label %_init_l_Std_Time_Day_instOffsetAdd___closed__1.exit
 
-180:                                              ; preds = %_init_l_Std_Time_Day_instOffsetRepr___closed__1.exit
+178:                                              ; preds = %_init_l_Std_Time_Day_instOffsetRepr___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOffsetAdd___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instOffsetRepr___closed__1.exit
-  %181 = getelementptr inbounds nuw i8, ptr %178, i64 4
-  store i32 1, ptr %178, align 4, !tbaa !5
-  store i32 -184549352, ptr %181, align 4
-  %182 = getelementptr inbounds nuw i8, ptr %178, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %182, align 8, !tbaa !11
-  %183 = getelementptr inbounds nuw i8, ptr %178, i64 16
-  store i16 2, ptr %183, align 8, !tbaa !15
-  %184 = getelementptr inbounds nuw i8, ptr %178, i64 18
-  store i16 0, ptr %184, align 2, !tbaa !15
-  store ptr %178, ptr @l_Std_Time_Day_instOffsetAdd___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %178) #6
-  %185 = load ptr, ptr @l_Std_Time_Day_instOffsetAdd___closed__1, align 8, !tbaa !11
-  store ptr %185, ptr @l_Std_Time_Day_instOffsetAdd, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %185) #6
+  %179 = getelementptr inbounds nuw i8, ptr %176, i64 4
+  store i32 1, ptr %176, align 4, !tbaa !5
+  store i32 -184549352, ptr %179, align 4
+  %180 = getelementptr inbounds nuw i8, ptr %176, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %180, align 8, !tbaa !11
+  %181 = getelementptr inbounds nuw i8, ptr %176, i64 16
+  store i16 2, ptr %181, align 8, !tbaa !15
+  %182 = getelementptr inbounds nuw i8, ptr %176, i64 18
+  store i16 0, ptr %182, align 2, !tbaa !15
+  store ptr %176, ptr @l_Std_Time_Day_instOffsetAdd___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %176) #6
+  %183 = load ptr, ptr @l_Std_Time_Day_instOffsetAdd___closed__1, align 8, !tbaa !11
+  store ptr %183, ptr @l_Std_Time_Day_instOffsetAdd, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %183) #6
   tail call void @lean_inc_heartbeat() #6
-  %186 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %187 = icmp eq ptr %186, null
-  br i1 %187, label %188, label %_init_l_Std_Time_Day_instOffsetSub___closed__1.exit
+  %184 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %185 = icmp eq ptr %184, null
+  br i1 %185, label %186, label %_init_l_Std_Time_Day_instOffsetSub___closed__1.exit
 
-188:                                              ; preds = %_init_l_Std_Time_Day_instOffsetAdd___closed__1.exit
+186:                                              ; preds = %_init_l_Std_Time_Day_instOffsetAdd___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOffsetSub___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instOffsetAdd___closed__1.exit
-  %189 = getelementptr inbounds nuw i8, ptr %186, i64 4
-  store i32 1, ptr %186, align 4, !tbaa !5
-  store i32 -184549352, ptr %189, align 4
-  %190 = getelementptr inbounds nuw i8, ptr %186, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %190, align 8, !tbaa !11
-  %191 = getelementptr inbounds nuw i8, ptr %186, i64 16
-  store i16 2, ptr %191, align 8, !tbaa !15
-  %192 = getelementptr inbounds nuw i8, ptr %186, i64 18
-  store i16 0, ptr %192, align 2, !tbaa !15
-  store ptr %186, ptr @l_Std_Time_Day_instOffsetSub___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %186) #6
-  %193 = load ptr, ptr @l_Std_Time_Day_instOffsetSub___closed__1, align 8, !tbaa !11
-  store ptr %193, ptr @l_Std_Time_Day_instOffsetSub, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %193) #6
+  %187 = getelementptr inbounds nuw i8, ptr %184, i64 4
+  store i32 1, ptr %184, align 4, !tbaa !5
+  store i32 -184549352, ptr %187, align 4
+  %188 = getelementptr inbounds nuw i8, ptr %184, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %188, align 8, !tbaa !11
+  %189 = getelementptr inbounds nuw i8, ptr %184, i64 16
+  store i16 2, ptr %189, align 8, !tbaa !15
+  %190 = getelementptr inbounds nuw i8, ptr %184, i64 18
+  store i16 0, ptr %190, align 2, !tbaa !15
+  store ptr %184, ptr @l_Std_Time_Day_instOffsetSub___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %184) #6
+  %191 = load ptr, ptr @l_Std_Time_Day_instOffsetSub___closed__1, align 8, !tbaa !11
+  store ptr %191, ptr @l_Std_Time_Day_instOffsetSub, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %191) #6
   tail call void @lean_inc_heartbeat() #6
-  %194 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %195 = icmp eq ptr %194, null
-  br i1 %195, label %196, label %_init_l_Std_Time_Day_instOffsetNeg___closed__1.exit
+  %192 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %193 = icmp eq ptr %192, null
+  br i1 %193, label %194, label %_init_l_Std_Time_Day_instOffsetNeg___closed__1.exit
 
-196:                                              ; preds = %_init_l_Std_Time_Day_instOffsetSub___closed__1.exit
+194:                                              ; preds = %_init_l_Std_Time_Day_instOffsetSub___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOffsetNeg___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instOffsetSub___closed__1.exit
-  %197 = getelementptr inbounds nuw i8, ptr %194, i64 4
-  store i32 1, ptr %194, align 4, !tbaa !5
-  store i32 -184549352, ptr %197, align 4
-  %198 = getelementptr inbounds nuw i8, ptr %194, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %198, align 8, !tbaa !11
-  %199 = getelementptr inbounds nuw i8, ptr %194, i64 16
-  store i16 1, ptr %199, align 8, !tbaa !15
-  %200 = getelementptr inbounds nuw i8, ptr %194, i64 18
-  store i16 0, ptr %200, align 2, !tbaa !15
-  store ptr %194, ptr @l_Std_Time_Day_instOffsetNeg___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %194) #6
-  %201 = load ptr, ptr @l_Std_Time_Day_instOffsetNeg___closed__1, align 8, !tbaa !11
-  store ptr %201, ptr @l_Std_Time_Day_instOffsetNeg, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %201) #6
+  %195 = getelementptr inbounds nuw i8, ptr %192, i64 4
+  store i32 1, ptr %192, align 4, !tbaa !5
+  store i32 -184549352, ptr %195, align 4
+  %196 = getelementptr inbounds nuw i8, ptr %192, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %196, align 8, !tbaa !11
+  %197 = getelementptr inbounds nuw i8, ptr %192, i64 16
+  store i16 1, ptr %197, align 8, !tbaa !15
+  %198 = getelementptr inbounds nuw i8, ptr %192, i64 18
+  store i16 0, ptr %198, align 2, !tbaa !15
+  store ptr %192, ptr @l_Std_Time_Day_instOffsetNeg___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %192) #6
+  %199 = load ptr, ptr @l_Std_Time_Day_instOffsetNeg___closed__1, align 8, !tbaa !11
+  store ptr %199, ptr @l_Std_Time_Day_instOffsetNeg, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %199) #6
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Day_instOffsetLE, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Day_instOffsetLT, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #6
   tail call void @lean_inc_heartbeat() #6
-  %202 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %203 = icmp eq ptr %202, null
-  br i1 %203, label %204, label %_init_l_Std_Time_Day_instOffsetToString___closed__1.exit
+  %200 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %201 = icmp eq ptr %200, null
+  br i1 %201, label %202, label %_init_l_Std_Time_Day_instOffsetToString___closed__1.exit
 
-204:                                              ; preds = %_init_l_Std_Time_Day_instOffsetNeg___closed__1.exit
+202:                                              ; preds = %_init_l_Std_Time_Day_instOffsetNeg___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOffsetToString___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instOffsetNeg___closed__1.exit
-  %205 = getelementptr inbounds nuw i8, ptr %202, i64 4
-  store i32 1, ptr %202, align 4, !tbaa !5
-  store i32 -184549352, ptr %205, align 4
-  %206 = getelementptr inbounds nuw i8, ptr %202, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %206, align 8, !tbaa !11
-  %207 = getelementptr inbounds nuw i8, ptr %202, i64 16
-  store i16 1, ptr %207, align 8, !tbaa !15
-  %208 = getelementptr inbounds nuw i8, ptr %202, i64 18
-  store i16 0, ptr %208, align 2, !tbaa !15
-  store ptr %202, ptr @l_Std_Time_Day_instOffsetToString___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %202) #6
-  %209 = load ptr, ptr @l_Std_Time_Day_instOffsetToString___closed__1, align 8, !tbaa !11
-  store ptr %209, ptr @l_Std_Time_Day_instOffsetToString, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %209) #6
+  %203 = getelementptr inbounds nuw i8, ptr %200, i64 4
+  store i32 1, ptr %200, align 4, !tbaa !5
+  store i32 -184549352, ptr %203, align 4
+  %204 = getelementptr inbounds nuw i8, ptr %200, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %204, align 8, !tbaa !11
+  %205 = getelementptr inbounds nuw i8, ptr %200, i64 16
+  store i16 1, ptr %205, align 8, !tbaa !15
+  %206 = getelementptr inbounds nuw i8, ptr %200, i64 18
+  store i16 0, ptr %206, align 2, !tbaa !15
+  store ptr %200, ptr @l_Std_Time_Day_instOffsetToString___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %200) #6
+  %207 = load ptr, ptr @l_Std_Time_Day_instOffsetToString___closed__1, align 8, !tbaa !11
+  store ptr %207, ptr @l_Std_Time_Day_instOffsetToString, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %207) #6
   tail call void @lean_inc_heartbeat() #6
-  %210 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %211 = icmp eq ptr %210, null
-  br i1 %211, label %212, label %_init_l_Std_Time_Day_instOrdOffset___closed__1.exit
+  %208 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %209 = icmp eq ptr %208, null
+  br i1 %209, label %210, label %_init_l_Std_Time_Day_instOrdOffset___closed__1.exit
 
-212:                                              ; preds = %_init_l_Std_Time_Day_instOffsetToString___closed__1.exit
+210:                                              ; preds = %_init_l_Std_Time_Day_instOffsetToString___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l_Std_Time_Day_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Time_Day_instOffsetToString___closed__1.exit
-  %213 = getelementptr inbounds nuw i8, ptr %210, i64 4
-  store i32 1, ptr %210, align 4, !tbaa !5
-  store i32 -184549352, ptr %213, align 4
-  %214 = getelementptr inbounds nuw i8, ptr %210, i64 8
-  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %214, align 8, !tbaa !11
-  %215 = getelementptr inbounds nuw i8, ptr %210, i64 16
-  store i16 2, ptr %215, align 8, !tbaa !15
-  %216 = getelementptr inbounds nuw i8, ptr %210, i64 18
-  store i16 0, ptr %216, align 2, !tbaa !15
-  store ptr %210, ptr @l_Std_Time_Day_instOrdOffset___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %210) #6
-  %217 = load ptr, ptr @l_Std_Time_Day_instOrdOffset___closed__1, align 8, !tbaa !11
-  store ptr %217, ptr @l_Std_Time_Day_instOrdOffset, align 8, !tbaa !11
+  %211 = getelementptr inbounds nuw i8, ptr %208, i64 4
+  store i32 1, ptr %208, align 4, !tbaa !5
+  store i32 -184549352, ptr %211, align 4
+  %212 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %212, align 8, !tbaa !11
+  %213 = getelementptr inbounds nuw i8, ptr %208, i64 16
+  store i16 2, ptr %213, align 8, !tbaa !15
+  %214 = getelementptr inbounds nuw i8, ptr %208, i64 18
+  store i16 0, ptr %214, align 2, !tbaa !15
+  store ptr %208, ptr @l_Std_Time_Day_instOrdOffset___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %208) #6
+  %215 = load ptr, ptr @l_Std_Time_Day_instOrdOffset___closed__1, align 8, !tbaa !11
+  store ptr %215, ptr @l_Std_Time_Day_instOrdOffset, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %215) #6
+  %216 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 1, i64 noundef 1) #6
+  store ptr %216, ptr @l_Std_Time_Day_Ordinal_instToStringOfYear___rarg___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %216) #6
+  %217 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.1, i64 noundef 4, i64 noundef 4) #6
+  store ptr %217, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %217) #6
-  %218 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str, i64 noundef 1, i64 noundef 1) #6
-  store ptr %218, ptr @l_Std_Time_Day_Ordinal_instToStringOfYear___rarg___closed__1, align 8, !tbaa !11
+  %218 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 6, i64 noundef 6) #6
+  store ptr %218, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %218) #6
-  %219 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.1, i64 noundef 4, i64 noundef 4) #6
-  store ptr %219, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
+  %219 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 6, i64 noundef 6) #6
+  store ptr %219, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %219) #6
-  %220 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.2, i64 noundef 6, i64 noundef 6) #6
-  store ptr %220, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
+  %220 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.4, i64 noundef 9, i64 noundef 9) #6
+  store ptr %220, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__4, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %220) #6
-  %221 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.3, i64 noundef 6, i64 noundef 6) #6
-  store ptr %221, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %221) #6
-  %222 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.4, i64 noundef 9, i64 noundef 9) #6
-  store ptr %222, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__4, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %222) #6
-  %223 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
-  %224 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
-  %225 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
-  %226 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__4, align 8, !tbaa !11
-  %227 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %223, ptr noundef %224, ptr noundef %225, ptr noundef %226) #6
-  store ptr %227, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__5, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %227) #6
-  %228 = tail call ptr @lean_alloc_object(i64 noundef 24) #6
-  store i32 1, ptr %228, align 4, !tbaa !5
-  %229 = getelementptr inbounds nuw i8, ptr %228, i64 4
-  %230 = load i32, ptr %229, align 4
-  %231 = and i32 %230, 65535
-  %232 = or disjoint i32 %231, -167772160
-  store i32 %232, ptr %229, align 4
-  %233 = getelementptr inbounds nuw i8, ptr %228, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %233, i8 0, i64 16, i1 false)
-  store ptr %228, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %228) #6
-  %234 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.5, i64 noundef 18, i64 noundef 18) #6
-  store ptr %234, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__7, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %234) #6
-  %235 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
-  %236 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
-  %237 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
-  %238 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__7, align 8, !tbaa !11
-  %239 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %235, ptr noundef %236, ptr noundef %237, ptr noundef %238) #6
-  store ptr %239, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__8, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %239) #6
-  %240 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 4, i64 noundef 4) #6
-  store ptr %240, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__9, align 8, !tbaa !11
+  %221 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
+  %222 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
+  %223 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
+  %224 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__4, align 8, !tbaa !11
+  %225 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %221, ptr noundef %222, ptr noundef %223, ptr noundef %224) #6
+  store ptr %225, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__5, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %225) #6
+  %226 = tail call ptr @lean_alloc_object(i64 noundef 24) #6
+  store i32 1, ptr %226, align 4, !tbaa !5
+  %227 = getelementptr inbounds nuw i8, ptr %226, i64 4
+  %228 = load i32, ptr %227, align 4
+  %229 = and i32 %228, 65535
+  %230 = or disjoint i32 %229, -167772160
+  store i32 %230, ptr %227, align 4
+  %231 = getelementptr inbounds nuw i8, ptr %226, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %231, i8 0, i64 16, i1 false)
+  store ptr %226, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %226) #6
+  %232 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.5, i64 noundef 18, i64 noundef 18) #6
+  store ptr %232, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__7, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %232) #6
+  %233 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
+  %234 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
+  %235 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
+  %236 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__7, align 8, !tbaa !11
+  %237 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %233, ptr noundef %234, ptr noundef %235, ptr noundef %236) #6
+  store ptr %237, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__8, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %237) #6
+  %238 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.6, i64 noundef 4, i64 noundef 4) #6
+  store ptr %238, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__9, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %238) #6
+  %239 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__9, align 8, !tbaa !11
+  %240 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %239) #6
+  store ptr %240, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__10, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %240) #6
-  %241 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__9, align 8, !tbaa !11
-  %242 = tail call ptr @l_Lean_Name_str___override(ptr noundef nonnull inttoptr (i64 1 to ptr), ptr noundef %241) #6
-  store ptr %242, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__10, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %242) #6
-  %243 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 6, i64 noundef 6) #6
-  store ptr %243, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__11, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %243) #6
-  %244 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
-  %245 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
-  %246 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
+  %241 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.7, i64 noundef 6, i64 noundef 6) #6
+  store ptr %241, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__11, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %241) #6
+  %242 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
+  %243 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
+  %244 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
+  %245 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__11, align 8, !tbaa !11
+  %246 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %242, ptr noundef %243, ptr noundef %244, ptr noundef %245) #6
+  store ptr %246, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__12, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %246) #6
   %247 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__11, align 8, !tbaa !11
-  %248 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %244, ptr noundef %245, ptr noundef %246, ptr noundef %247) #6
-  store ptr %248, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__12, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %248) #6
-  %249 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__11, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %250 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %251 = icmp eq ptr %250, null
-  br i1 %251, label %252, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13.exit
+  %248 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %249 = icmp eq ptr %248, null
+  br i1 %249, label %250, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13.exit
 
-252:                                              ; preds = %_init_l_Std_Time_Day_instOrdOffset___closed__1.exit
+250:                                              ; preds = %_init_l_Std_Time_Day_instOrdOffset___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13.exit: ; preds = %_init_l_Std_Time_Day_instOrdOffset___closed__1.exit
-  %253 = getelementptr inbounds nuw i8, ptr %250, i64 4
-  store i32 1, ptr %250, align 4, !tbaa !5
-  store i32 33685528, ptr %253, align 4
-  %254 = getelementptr inbounds nuw i8, ptr %250, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %254, align 8, !tbaa !11
-  %255 = getelementptr inbounds nuw i8, ptr %250, i64 16
-  store ptr %249, ptr %255, align 8, !tbaa !11
-  store ptr %250, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %250) #6
-  %256 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
-  %257 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13, align 8, !tbaa !11
-  %258 = tail call ptr @lean_array_push(ptr noundef %256, ptr noundef %257) #6
-  store ptr %258, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__14, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %258) #6
-  %259 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.8, i64 noundef 9, i64 noundef 9) #6
-  store ptr %259, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__15, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %259) #6
-  %260 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
-  %261 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
-  %262 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
-  %263 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__15, align 8, !tbaa !11
-  %264 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %260, ptr noundef %261, ptr noundef %262, ptr noundef %263) #6
-  store ptr %264, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__16, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %264) #6
-  %265 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__10, align 8, !tbaa !11
-  %266 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  %251 = getelementptr inbounds nuw i8, ptr %248, i64 4
+  store i32 1, ptr %248, align 4, !tbaa !5
+  store i32 33685528, ptr %251, align 4
+  %252 = getelementptr inbounds nuw i8, ptr %248, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %252, align 8, !tbaa !11
+  %253 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  store ptr %247, ptr %253, align 8, !tbaa !11
+  store ptr %248, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %248) #6
+  %254 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  %255 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13, align 8, !tbaa !11
+  %256 = tail call ptr @lean_array_push(ptr noundef %254, ptr noundef %255) #6
+  store ptr %256, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__14, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %256) #6
+  %257 = tail call ptr @lean_mk_string_unchecked(ptr noundef nonnull @.str.8, i64 noundef 9, i64 noundef 9) #6
+  store ptr %257, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__15, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %257) #6
+  %258 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__1, align 8, !tbaa !11
+  %259 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__2, align 8, !tbaa !11
+  %260 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__3, align 8, !tbaa !11
+  %261 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__15, align 8, !tbaa !11
+  %262 = tail call ptr @l_Lean_Name_mkStr4(ptr noundef %258, ptr noundef %259, ptr noundef %260, ptr noundef %261) #6
+  store ptr %262, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__16, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %262) #6
+  %263 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__10, align 8, !tbaa !11
+  %264 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %267 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %268 = icmp eq ptr %267, null
-  br i1 %268, label %269, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17.exit
+  %265 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %266 = icmp eq ptr %265, null
+  br i1 %266, label %267, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17.exit
 
-269:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13.exit
+267:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__13.exit
-  %270 = getelementptr inbounds nuw i8, ptr %267, i64 4
-  store i32 1, ptr %267, align 4, !tbaa !5
-  store i32 16973856, ptr %270, align 4
-  %271 = getelementptr inbounds nuw i8, ptr %267, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %271, align 8, !tbaa !11
-  %272 = getelementptr inbounds nuw i8, ptr %267, i64 16
-  store ptr %265, ptr %272, align 8, !tbaa !11
-  %273 = getelementptr inbounds nuw i8, ptr %267, i64 24
-  store ptr %266, ptr %273, align 8, !tbaa !11
-  store ptr %267, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %267) #6
-  %274 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
-  %275 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17, align 8, !tbaa !11
-  %276 = tail call ptr @lean_array_push(ptr noundef %274, ptr noundef %275) #6
-  store ptr %276, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__18, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %276) #6
-  %277 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__16, align 8, !tbaa !11
-  %278 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__18, align 8, !tbaa !11
+  %268 = getelementptr inbounds nuw i8, ptr %265, i64 4
+  store i32 1, ptr %265, align 4, !tbaa !5
+  store i32 16973856, ptr %268, align 4
+  %269 = getelementptr inbounds nuw i8, ptr %265, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %269, align 8, !tbaa !11
+  %270 = getelementptr inbounds nuw i8, ptr %265, i64 16
+  store ptr %263, ptr %270, align 8, !tbaa !11
+  %271 = getelementptr inbounds nuw i8, ptr %265, i64 24
+  store ptr %264, ptr %271, align 8, !tbaa !11
+  store ptr %265, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %265) #6
+  %272 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  %273 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17, align 8, !tbaa !11
+  %274 = tail call ptr @lean_array_push(ptr noundef %272, ptr noundef %273) #6
+  store ptr %274, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__18, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %274) #6
+  %275 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__16, align 8, !tbaa !11
+  %276 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__18, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %279 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %280 = icmp eq ptr %279, null
-  br i1 %280, label %281, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19.exit
+  %277 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %278 = icmp eq ptr %277, null
+  br i1 %278, label %279, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19.exit
 
-281:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17.exit
+279:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__17.exit
-  %282 = getelementptr inbounds nuw i8, ptr %279, i64 4
-  store i32 1, ptr %279, align 4, !tbaa !5
-  store i32 16973856, ptr %282, align 4
-  %283 = getelementptr inbounds nuw i8, ptr %279, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %283, align 8, !tbaa !11
-  %284 = getelementptr inbounds nuw i8, ptr %279, i64 16
-  store ptr %277, ptr %284, align 8, !tbaa !11
-  %285 = getelementptr inbounds nuw i8, ptr %279, i64 24
-  store ptr %278, ptr %285, align 8, !tbaa !11
-  store ptr %279, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %279) #6
-  %286 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__14, align 8, !tbaa !11
-  %287 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19, align 8, !tbaa !11
-  %288 = tail call ptr @lean_array_push(ptr noundef %286, ptr noundef %287) #6
-  store ptr %288, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__20, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %288) #6
-  %289 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__12, align 8, !tbaa !11
-  %290 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__20, align 8, !tbaa !11
+  %280 = getelementptr inbounds nuw i8, ptr %277, i64 4
+  store i32 1, ptr %277, align 4, !tbaa !5
+  store i32 16973856, ptr %280, align 4
+  %281 = getelementptr inbounds nuw i8, ptr %277, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %281, align 8, !tbaa !11
+  %282 = getelementptr inbounds nuw i8, ptr %277, i64 16
+  store ptr %275, ptr %282, align 8, !tbaa !11
+  %283 = getelementptr inbounds nuw i8, ptr %277, i64 24
+  store ptr %276, ptr %283, align 8, !tbaa !11
+  store ptr %277, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %277) #6
+  %284 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__14, align 8, !tbaa !11
+  %285 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19, align 8, !tbaa !11
+  %286 = tail call ptr @lean_array_push(ptr noundef %284, ptr noundef %285) #6
+  store ptr %286, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__20, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %286) #6
+  %287 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__12, align 8, !tbaa !11
+  %288 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__20, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %291 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %292 = icmp eq ptr %291, null
-  br i1 %292, label %293, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21.exit
+  %289 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %290 = icmp eq ptr %289, null
+  br i1 %290, label %291, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21.exit
 
-293:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19.exit
+291:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__19.exit
-  %294 = getelementptr inbounds nuw i8, ptr %291, i64 4
-  store i32 1, ptr %291, align 4, !tbaa !5
-  store i32 16973856, ptr %294, align 4
-  %295 = getelementptr inbounds nuw i8, ptr %291, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %295, align 8, !tbaa !11
-  %296 = getelementptr inbounds nuw i8, ptr %291, i64 16
-  store ptr %289, ptr %296, align 8, !tbaa !11
-  %297 = getelementptr inbounds nuw i8, ptr %291, i64 24
-  store ptr %290, ptr %297, align 8, !tbaa !11
-  store ptr %291, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %291) #6
-  %298 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
-  %299 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21, align 8, !tbaa !11
-  %300 = tail call ptr @lean_array_push(ptr noundef %298, ptr noundef %299) #6
-  store ptr %300, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__22, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %300) #6
-  %301 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__10, align 8, !tbaa !11
-  %302 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__22, align 8, !tbaa !11
+  %292 = getelementptr inbounds nuw i8, ptr %289, i64 4
+  store i32 1, ptr %289, align 4, !tbaa !5
+  store i32 16973856, ptr %292, align 4
+  %293 = getelementptr inbounds nuw i8, ptr %289, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %293, align 8, !tbaa !11
+  %294 = getelementptr inbounds nuw i8, ptr %289, i64 16
+  store ptr %287, ptr %294, align 8, !tbaa !11
+  %295 = getelementptr inbounds nuw i8, ptr %289, i64 24
+  store ptr %288, ptr %295, align 8, !tbaa !11
+  store ptr %289, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %289) #6
+  %296 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  %297 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21, align 8, !tbaa !11
+  %298 = tail call ptr @lean_array_push(ptr noundef %296, ptr noundef %297) #6
+  store ptr %298, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__22, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %298) #6
+  %299 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__10, align 8, !tbaa !11
+  %300 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__22, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %303 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %304 = icmp eq ptr %303, null
-  br i1 %304, label %305, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23.exit
+  %301 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %302 = icmp eq ptr %301, null
+  br i1 %302, label %303, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23.exit
 
-305:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21.exit
+303:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__21.exit
-  %306 = getelementptr inbounds nuw i8, ptr %303, i64 4
-  store i32 1, ptr %303, align 4, !tbaa !5
-  store i32 16973856, ptr %306, align 4
-  %307 = getelementptr inbounds nuw i8, ptr %303, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %307, align 8, !tbaa !11
-  %308 = getelementptr inbounds nuw i8, ptr %303, i64 16
-  store ptr %301, ptr %308, align 8, !tbaa !11
-  %309 = getelementptr inbounds nuw i8, ptr %303, i64 24
-  store ptr %302, ptr %309, align 8, !tbaa !11
-  store ptr %303, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %303) #6
-  %310 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
-  %311 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23, align 8, !tbaa !11
-  %312 = tail call ptr @lean_array_push(ptr noundef %310, ptr noundef %311) #6
-  store ptr %312, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__24, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %312) #6
-  %313 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__8, align 8, !tbaa !11
-  %314 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__24, align 8, !tbaa !11
+  %304 = getelementptr inbounds nuw i8, ptr %301, i64 4
+  store i32 1, ptr %301, align 4, !tbaa !5
+  store i32 16973856, ptr %304, align 4
+  %305 = getelementptr inbounds nuw i8, ptr %301, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %305, align 8, !tbaa !11
+  %306 = getelementptr inbounds nuw i8, ptr %301, i64 16
+  store ptr %299, ptr %306, align 8, !tbaa !11
+  %307 = getelementptr inbounds nuw i8, ptr %301, i64 24
+  store ptr %300, ptr %307, align 8, !tbaa !11
+  store ptr %301, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %301) #6
+  %308 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  %309 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23, align 8, !tbaa !11
+  %310 = tail call ptr @lean_array_push(ptr noundef %308, ptr noundef %309) #6
+  store ptr %310, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__24, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %310) #6
+  %311 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__8, align 8, !tbaa !11
+  %312 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__24, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %315 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %316 = icmp eq ptr %315, null
-  br i1 %316, label %317, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25.exit
+  %313 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %314 = icmp eq ptr %313, null
+  br i1 %314, label %315, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25.exit
 
-317:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23.exit
+315:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__23.exit
-  %318 = getelementptr inbounds nuw i8, ptr %315, i64 4
-  store i32 1, ptr %315, align 4, !tbaa !5
-  store i32 16973856, ptr %318, align 4
-  %319 = getelementptr inbounds nuw i8, ptr %315, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %319, align 8, !tbaa !11
-  %320 = getelementptr inbounds nuw i8, ptr %315, i64 16
-  store ptr %313, ptr %320, align 8, !tbaa !11
-  %321 = getelementptr inbounds nuw i8, ptr %315, i64 24
-  store ptr %314, ptr %321, align 8, !tbaa !11
-  store ptr %315, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %315) #6
-  %322 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
-  %323 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25, align 8, !tbaa !11
-  %324 = tail call ptr @lean_array_push(ptr noundef %322, ptr noundef %323) #6
-  store ptr %324, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__26, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %324) #6
-  %325 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__5, align 8, !tbaa !11
-  %326 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__26, align 8, !tbaa !11
+  %316 = getelementptr inbounds nuw i8, ptr %313, i64 4
+  store i32 1, ptr %313, align 4, !tbaa !5
+  store i32 16973856, ptr %316, align 4
+  %317 = getelementptr inbounds nuw i8, ptr %313, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %317, align 8, !tbaa !11
+  %318 = getelementptr inbounds nuw i8, ptr %313, i64 16
+  store ptr %311, ptr %318, align 8, !tbaa !11
+  %319 = getelementptr inbounds nuw i8, ptr %313, i64 24
+  store ptr %312, ptr %319, align 8, !tbaa !11
+  store ptr %313, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %313) #6
+  %320 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__6, align 8, !tbaa !11
+  %321 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25, align 8, !tbaa !11
+  %322 = tail call ptr @lean_array_push(ptr noundef %320, ptr noundef %321) #6
+  store ptr %322, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__26, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %322) #6
+  %323 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__5, align 8, !tbaa !11
+  %324 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__26, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #6
-  %327 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
-  %328 = icmp eq ptr %327, null
-  br i1 %328, label %329, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit
+  %325 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #6
+  %326 = icmp eq ptr %325, null
+  br i1 %326, label %327, label %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit
 
-329:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25.exit
+327:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 _init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__25.exit
-  %330 = getelementptr inbounds nuw i8, ptr %327, i64 4
-  store i32 1, ptr %327, align 4, !tbaa !5
-  store i32 16973856, ptr %330, align 4
-  %331 = getelementptr inbounds nuw i8, ptr %327, i64 8
-  store ptr inttoptr (i64 5 to ptr), ptr %331, align 8, !tbaa !11
-  %332 = getelementptr inbounds nuw i8, ptr %327, i64 16
-  store ptr %325, ptr %332, align 8, !tbaa !11
-  %333 = getelementptr inbounds nuw i8, ptr %327, i64 24
-  store ptr %326, ptr %333, align 8, !tbaa !11
-  store ptr %327, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %327) #6
-  %334 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27, align 8, !tbaa !11
-  store ptr %334, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426_, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %334) #6
-  %335 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27, align 8, !tbaa !11
-  store ptr %335, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_576_, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %335) #6
-  %336 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.9) #6
-  %337 = ptrtoint ptr %336 to i64
-  %338 = and i64 %337, 1
-  %.not.i.i32 = icmp eq i64 %338, 0
-  %339 = icmp ult ptr %336, inttoptr (i64 4294967296 to ptr)
-  %or.cond.i.i = or i1 %339, %.not.i.i32
-  br i1 %or.cond.i.i, label %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit, label %340
+  %328 = getelementptr inbounds nuw i8, ptr %325, i64 4
+  store i32 1, ptr %325, align 4, !tbaa !5
+  store i32 16973856, ptr %328, align 4
+  %329 = getelementptr inbounds nuw i8, ptr %325, i64 8
+  store ptr inttoptr (i64 5 to ptr), ptr %329, align 8, !tbaa !11
+  %330 = getelementptr inbounds nuw i8, ptr %325, i64 16
+  store ptr %323, ptr %330, align 8, !tbaa !11
+  %331 = getelementptr inbounds nuw i8, ptr %325, i64 24
+  store ptr %324, ptr %331, align 8, !tbaa !11
+  store ptr %325, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %325) #6
+  %332 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27, align 8, !tbaa !11
+  store ptr %332, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426_, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %332) #6
+  %333 = load ptr, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27, align 8, !tbaa !11
+  store ptr %333, ptr @l___auto____x40_Std_Time_Date_Unit_Day___hyg_576_, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %333) #6
+  %334 = tail call ptr @lean_cstr_to_nat(ptr noundef nonnull @.str.9) #6
+  %335 = ptrtoint ptr %334 to i64
+  %336 = and i64 %335, 1
+  %.not.i.i32 = icmp eq i64 %336, 0
+  %337 = icmp ult ptr %334, inttoptr (i64 4294967296 to ptr)
+  %or.cond.i.i = or i1 %337, %.not.i.i32
+  br i1 %or.cond.i.i, label %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit, label %338
 
-340:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit
-  %341 = lshr i64 %337, 1
-  %342 = tail call ptr @lean_big_size_t_to_int(i64 noundef %341) #6
+338:                                              ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit
+  %339 = lshr i64 %335, 1
+  %340 = tail call ptr @lean_big_size_t_to_int(i64 noundef %339) #6
   br label %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit
 
-_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit, %340
-  %.1.i.i33 = phi ptr [ %342, %340 ], [ %336, %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit ]
+_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit, %338
+  %.1.i.i33 = phi ptr [ %340, %338 ], [ %334, %_init_l___auto____x40_Std_Time_Date_Unit_Day___hyg_426____closed__27.exit ]
   store ptr %.1.i.i33, ptr @l_Std_Time_Day_Offset_toNanoseconds___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i33) #6
   store ptr inttoptr (i64 172800001 to ptr), ptr @l_Std_Time_Day_Offset_toMilliseconds___closed__1, align 8, !tbaa !11
@@ -4207,26 +4205,26 @@ _init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit: ; preds = %_init_l__
   store ptr inttoptr (i64 49 to ptr), ptr @l_Std_Time_Day_Offset_toHours___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 49 to ptr)) #6
   tail call void @lean_inc_heartbeat() #6
-  %343 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
-  %344 = icmp eq ptr %343, null
-  br i1 %344, label %345, label %.sink.split
+  %341 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #6
+  %342 = icmp eq ptr %341, null
+  br i1 %342, label %343, label %.sink.split
 
-345:                                              ; preds = %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit
+343:                                              ; preds = %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #7
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit, %3
-  %.sink59 = phi ptr [ %4, %3 ], [ %343, %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit ]
-  %346 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
+  %.sink59 = phi ptr [ %4, %3 ], [ %341, %_init_l_Std_Time_Day_Offset_toNanoseconds___closed__1.exit ]
+  %344 = getelementptr inbounds nuw i8, ptr %.sink59, i64 4
   store i32 1, ptr %.sink59, align 4, !tbaa !5
-  store i32 131096, ptr %346, align 4
-  %347 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %347, align 8, !tbaa !11
-  %348 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %348, align 8, !tbaa !11
-  br label %349
+  store i32 131096, ptr %344, align 4
+  %345 = getelementptr inbounds nuw i8, ptr %.sink59, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %345, align 8, !tbaa !11
+  %346 = getelementptr inbounds nuw i8, ptr %.sink59, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %346, align 8, !tbaa !11
+  br label %347
 
-349:                                              ; preds = %.sink.split, %7
+347:                                              ; preds = %.sink.split, %7
   %.0 = phi ptr [ %8, %7 ], [ %.sink59, %.sink.split ]
   ret ptr %.0
 }

@@ -14990,7 +14990,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %104 = getelementptr i8, ptr %0, i64 %103
   store i8 32, ptr %104, align 1
   %105 = add nsw i32 %.025.i99.i, -1
-  %106 = icmp samesign ugt i32 %105, 1
+  %106 = icmp samesign ugt i32 %.025.i99.i, 2
   br i1 %106, label %.lr.ph.i98.i, label %._crit_edge.i91.i, !llvm.loop !209
 
 ._crit_edge.i91.i:                                ; preds = %.lr.ph.i98.i, %100
@@ -15031,7 +15031,7 @@ lemon_addtext.exit._crit_edge.i:                  ; preds = %lemon_addtext.exit.
   %121 = getelementptr i8, ptr %0, i64 %120
   store i8 32, ptr %121, align 1
   %122 = add nsw i32 %.025.i111.i, -1
-  %123 = icmp samesign ugt i32 %122, 1
+  %123 = icmp samesign ugt i32 %.025.i111.i, 2
   br i1 %123, label %.lr.ph.i110.i, label %._crit_edge.i103.i, !llvm.loop !209
 
 ._crit_edge.i103.i:                               ; preds = %.lr.ph.i110.i, %117

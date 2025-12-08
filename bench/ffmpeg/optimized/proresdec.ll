@@ -327,7 +327,7 @@ define internal i32 @decode_frame(ptr noundef %0, ptr noundef %1, ptr noundef wr
   br i1 %.not94.i, label %129, label %122
 
 122:                                              ; preds = %102
-  %123 = icmp samesign ult i32 %20, 84
+  %123 = icmp samesign ult i32 %10, 92
   br i1 %123, label %124, label %125
 
 124:                                              ; preds = %122

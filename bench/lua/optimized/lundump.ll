@@ -1980,7 +1980,7 @@ loadSize.exit76:                                  ; preds = %52
 
 70:                                               ; preds = %loadSize.exit
   %71 = add nsw i64 %33, -2
-  %72 = icmp samesign ult i64 %71, 41
+  %72 = icmp samesign ult i64 %33, 43
   br i1 %72, label %73, label %90
 
 73:                                               ; preds = %70

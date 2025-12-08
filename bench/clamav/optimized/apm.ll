@@ -133,7 +133,7 @@ fmap_readn.exit.thread:                           ; preds = %12, %9, %fmap_readn
 
 fmap_readn.exit137:                               ; preds = %31
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %3, ptr nonnull align 1 %35, i64 %spec.select.i134, i1 false)
-  %.not73 = icmp samesign ugt i64 %32, 135
+  %.not73 = icmp sgt i64 %22, 647
   br i1 %.not73, label %36, label %fmap_readn.exit137.thread
 
 fmap_readn.exit137.thread:                        ; preds = %31, %30, %fmap_readn.exit137

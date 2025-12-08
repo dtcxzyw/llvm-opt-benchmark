@@ -2610,7 +2610,7 @@ define internal fastcc range(i32 0, 2) i32 @client_hello_select_server_ctx(ptr n
 26:                                               ; preds = %23
   %27 = add nsw i64 %21, -1
   store i64 %27, ptr %5, align 8, !tbaa !29
-  %28 = icmp samesign ult i64 %27, 3
+  %28 = icmp samesign ult i64 %21, 4
   br i1 %28, label %54, label %29
 
 29:                                               ; preds = %26
@@ -2649,8 +2649,8 @@ define internal fastcc range(i32 0, 2) i32 @client_hello_select_server_ctx(ptr n
   %51 = call i32 @strncmp(ptr noundef nonnull dereferenceable(1) %34, ptr noundef nonnull dereferenceable(8) @.str.36, i64 noundef 7) #11
   %52 = icmp ne i32 %51, 0
   %.not24 = icmp eq i32 %2, 0
-  %or.cond28 = and i1 %52, %.not24
-  br i1 %or.cond28, label %54, label %.sink.split
+  %or.cond27 = and i1 %52, %.not24
+  br i1 %or.cond27, label %54, label %.sink.split
 
 .critedge:                                        ; preds = %40
   %.not24.old = icmp eq i32 %2, 0

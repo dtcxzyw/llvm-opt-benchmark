@@ -635,12 +635,12 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchIL
   %.sroa.5.0..sroa_idx.i3010 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %54, i64 8
   %154 = getelementptr inbounds nuw i8, ptr %57, i64 24
-  %.8..8..8..8..sroa_idx12357 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %.16..16..16..16..sroa_idx12358 = getelementptr inbounds nuw i8, ptr %7, i64 16
-  %.24..24..24..24..sroa_idx12359 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %.8..8..8..8..sroa_idx12354 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %.16..16..16..16..sroa_idx12355 = getelementptr inbounds nuw i8, ptr %11, i64 16
-  %.24..24..24..24..sroa_idx12356 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %.8..8..8..8..sroa_idx12355 = getelementptr inbounds nuw i8, ptr %7, i64 8
+  %.16..16..16..16..sroa_idx12356 = getelementptr inbounds nuw i8, ptr %7, i64 16
+  %.24..24..24..24..sroa_idx12357 = getelementptr inbounds nuw i8, ptr %7, i64 24
+  %.8..8..8..8..sroa_idx12352 = getelementptr inbounds nuw i8, ptr %11, i64 8
+  %.16..16..16..16..sroa_idx12353 = getelementptr inbounds nuw i8, ptr %11, i64 16
+  %.24..24..24..24..sroa_idx12354 = getelementptr inbounds nuw i8, ptr %11, i64 24
   %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 8
   %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 16
   %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %32, i64 24
@@ -2422,13 +2422,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 867:                                              ; preds = %826
-  %868 = add nsw i64 %824, -128
-  %869 = icmp samesign ult i64 %868, 64
-  br i1 %869, label %870, label %877
+  %868 = icmp samesign ult i64 %824, 192
+  br i1 %868, label %869, label %877
 
-870:                                              ; preds = %867
-  %871 = shl i64 %827, %868
-  %872 = shl i64 %829, %868
+869:                                              ; preds = %867
+  %870 = add nsw i64 %824, -128
+  %871 = shl i64 %827, %870
+  %872 = shl i64 %829, %870
   %873 = lshr i64 %827, 1
   %874 = sub nuw nsw i64 191, %824
   %875 = lshr i64 %873, %874
@@ -2440,11 +2440,11 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   %879 = shl i64 %827, %878
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
-_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %877, %870, %852, %833, %823, %816
-  %.sroa.0.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %834, %833 ], [ 0, %852 ], [ 0, %877 ], [ 0, %870 ]
-  %.sroa.7.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %839, %833 ], [ %854, %852 ], [ 0, %877 ], [ 0, %870 ]
-  %.sroa.8.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %851, %833 ], [ %863, %852 ], [ 0, %877 ], [ %871, %870 ]
-  %.sroa.10.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %850, %833 ], [ %866, %852 ], [ %879, %877 ], [ %876, %870 ]
+_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %877, %869, %852, %833, %823, %816
+  %.sroa.0.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %834, %833 ], [ 0, %852 ], [ 0, %877 ], [ 0, %869 ]
+  %.sroa.7.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %839, %833 ], [ %854, %852 ], [ 0, %877 ], [ 0, %869 ]
+  %.sroa.8.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %851, %833 ], [ %863, %852 ], [ 0, %877 ], [ %871, %869 ]
+  %.sroa.10.0.i.i = phi i64 [ 0, %816 ], [ 0, %823 ], [ %850, %833 ], [ %866, %852 ], [ %879, %877 ], [ %876, %869 ]
   store i64 %.sroa.0.0.i.i, ptr %817, align 32
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -56
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8
@@ -2556,17 +2556,17 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 942:                                              ; preds = %901
-  %943 = add nsw i64 %899, -128
-  %944 = icmp samesign ult i64 %943, 64
-  br i1 %944, label %945, label %952
+  %943 = icmp samesign ult i64 %899, 192
+  br i1 %943, label %944, label %952
 
-945:                                              ; preds = %942
-  %946 = lshr i64 %903, %943
+944:                                              ; preds = %942
+  %945 = add nsw i64 %899, -128
+  %946 = lshr i64 %903, %945
   %947 = shl i64 %905, 1
   %948 = sub nuw nsw i64 191, %899
   %949 = shl i64 %947, %948
   %950 = or i64 %949, %946
-  %951 = lshr i64 %905, %943
+  %951 = lshr i64 %905, %945
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 952:                                              ; preds = %942
@@ -2574,11 +2574,11 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   %954 = lshr i64 %905, %953
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
-_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %952, %945, %927, %909, %898, %891
-  %.sroa.0.0.i.i3164 = phi i64 [ 0, %891 ], [ 0, %898 ], [ %924, %909 ], [ %941, %927 ], [ %950, %945 ], [ %954, %952 ]
-  %.sroa.7.0.i.i3165 = phi i64 [ 0, %891 ], [ 0, %898 ], [ %926, %909 ], [ %939, %927 ], [ %951, %945 ], [ 0, %952 ]
-  %.sroa.9.0.i.i = phi i64 [ 0, %891 ], [ 0, %898 ], [ %914, %909 ], [ %929, %927 ], [ 0, %945 ], [ 0, %952 ]
-  %.sroa.11.0.i.i = phi i64 [ 0, %891 ], [ 0, %898 ], [ %915, %909 ], [ 0, %927 ], [ 0, %945 ], [ 0, %952 ]
+_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %952, %944, %927, %909, %898, %891
+  %.sroa.0.0.i.i3164 = phi i64 [ 0, %891 ], [ 0, %898 ], [ %924, %909 ], [ %941, %927 ], [ %950, %944 ], [ %954, %952 ]
+  %.sroa.7.0.i.i3165 = phi i64 [ 0, %891 ], [ 0, %898 ], [ %926, %909 ], [ %939, %927 ], [ %951, %944 ], [ 0, %952 ]
+  %.sroa.9.0.i.i = phi i64 [ 0, %891 ], [ 0, %898 ], [ %914, %909 ], [ %929, %927 ], [ 0, %944 ], [ 0, %952 ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %891 ], [ 0, %898 ], [ %915, %909 ], [ 0, %927 ], [ 0, %944 ], [ 0, %952 ]
   store i64 %.sroa.0.0.i.i3164, ptr %892, align 32
   %.sroa.7.0..sroa_idx.i.i3166 = getelementptr inbounds i8, ptr %.sroa.345.0, i64 -56
   store i64 %.sroa.7.0.i.i3165, ptr %.sroa.7.0..sroa_idx.i.i3166, align 8
@@ -7595,9 +7595,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3708:     ; preds = %3011, %_ZNK6evmone8
   %3026 = getelementptr i8, ptr %3003, i64 %3023
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %11, ptr align 1 %3026, i64 %3025, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i12.pre.i = load i64, ptr %11, align 16, !noalias !504
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx12354, align 8, !noalias !504
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx12355, align 16, !noalias !504
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx12356, align 8, !noalias !504
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx12352, align 8, !noalias !504
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx12353, align 16, !noalias !504
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx12354, align 8, !noalias !504
   %3027 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i)
   %3028 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i)
   %3029 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i)
@@ -8706,9 +8706,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3818:     ; preds = %3488, %3479
   %3504 = getelementptr i8, ptr %3503, i64 %3500
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %7, ptr align 1 %3504, i64 %3502, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i.pre.i = load i64, ptr %7, align 16, !noalias !541
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3826 = load i64, ptr %.8..8..8..8..sroa_idx12357, align 8, !noalias !541
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3828 = load i64, ptr %.16..16..16..16..sroa_idx12358, align 16, !noalias !541
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3830 = load i64, ptr %.24..24..24..24..sroa_idx12359, align 8, !noalias !541
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3826 = load i64, ptr %.8..8..8..8..sroa_idx12355, align 8, !noalias !541
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3828 = load i64, ptr %.16..16..16..16..sroa_idx12356, align 16, !noalias !541
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3830 = load i64, ptr %.24..24..24..24..sroa_idx12357, align 8, !noalias !541
   %3505 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i3830)
   %3506 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i3828)
   %3507 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i3826)
@@ -9287,15 +9287,15 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_114dispatch_
   %.sroa.5.0..sroa_idx.i2493 = getelementptr inbounds nuw i8, ptr %50, i64 8
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %51, i64 8
   %149 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %.8..8..8..8..sroa_idx10728 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %.16..16..16..16..sroa_idx10729 = getelementptr inbounds nuw i8, ptr %8, i64 16
-  %.24..24..24..24..sroa_idx10730 = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.8..8..8..8..sroa_idx10726 = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.16..16..16..16..sroa_idx10727 = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.24..24..24..24..sroa_idx10728 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 8
   %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 16
   %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %.8..8..8..8..sroa_idx10731 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %.16..16..16..16..sroa_idx10732 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %.24..24..24..24..sroa_idx10733 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %.8..8..8..8..sroa_idx10729 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %.16..16..16..16..sroa_idx10730 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %.24..24..24..24..sroa_idx10731 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %.backedge
 
 150:                                              ; preds = %.backedge
@@ -10874,13 +10874,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   br label %878
 
 865:                                              ; preds = %824
-  %866 = add nsw i64 %822, -128
-  %867 = icmp samesign ult i64 %866, 64
-  br i1 %867, label %868, label %875
+  %866 = icmp samesign ult i64 %822, 192
+  br i1 %866, label %867, label %875
 
-868:                                              ; preds = %865
-  %869 = shl i64 %825, %866
-  %870 = shl i64 %827, %866
+867:                                              ; preds = %865
+  %868 = add nsw i64 %822, -128
+  %869 = shl i64 %825, %868
+  %870 = shl i64 %827, %868
   %871 = lshr i64 %825, 1
   %872 = sub nuw nsw i64 191, %822
   %873 = lshr i64 %871, %872
@@ -10892,11 +10892,11 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   %877 = shl i64 %825, %876
   br label %878
 
-878:                                              ; preds = %814, %821, %831, %850, %868, %875
-  %.sroa.0.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %832, %831 ], [ 0, %850 ], [ 0, %875 ], [ 0, %868 ]
-  %.sroa.7.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %837, %831 ], [ %852, %850 ], [ 0, %875 ], [ 0, %868 ]
-  %.sroa.8.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %849, %831 ], [ %861, %850 ], [ 0, %875 ], [ %869, %868 ]
-  %.sroa.10.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %848, %831 ], [ %864, %850 ], [ %877, %875 ], [ %874, %868 ]
+878:                                              ; preds = %814, %821, %831, %850, %867, %875
+  %.sroa.0.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %832, %831 ], [ 0, %850 ], [ 0, %875 ], [ 0, %867 ]
+  %.sroa.7.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %837, %831 ], [ %852, %850 ], [ 0, %875 ], [ 0, %867 ]
+  %.sroa.8.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %849, %831 ], [ %861, %850 ], [ 0, %875 ], [ %869, %867 ]
+  %.sroa.10.0.i.i = phi i64 [ 0, %814 ], [ 0, %821 ], [ %848, %831 ], [ %864, %850 ], [ %877, %875 ], [ %874, %867 ]
   store i64 %.sroa.0.0.i.i, ptr %815, align 32
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -56
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8
@@ -11008,17 +11008,17 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   br label %954
 
 941:                                              ; preds = %900
-  %942 = add nsw i64 %898, -128
-  %943 = icmp samesign ult i64 %942, 64
-  br i1 %943, label %944, label %951
+  %942 = icmp samesign ult i64 %898, 192
+  br i1 %942, label %943, label %951
 
-944:                                              ; preds = %941
-  %945 = lshr i64 %902, %942
+943:                                              ; preds = %941
+  %944 = add nsw i64 %898, -128
+  %945 = lshr i64 %902, %944
   %946 = shl i64 %904, 1
   %947 = sub nuw nsw i64 191, %898
   %948 = shl i64 %946, %947
   %949 = or i64 %948, %945
-  %950 = lshr i64 %904, %942
+  %950 = lshr i64 %904, %944
   br label %954
 
 951:                                              ; preds = %941
@@ -11026,11 +11026,11 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   %953 = lshr i64 %904, %952
   br label %954
 
-954:                                              ; preds = %890, %897, %908, %926, %944, %951
-  %.sroa.0.0.i.i2647 = phi i64 [ 0, %890 ], [ 0, %897 ], [ %923, %908 ], [ %940, %926 ], [ %949, %944 ], [ %953, %951 ]
-  %.sroa.7.0.i.i2648 = phi i64 [ 0, %890 ], [ 0, %897 ], [ %925, %908 ], [ %938, %926 ], [ %950, %944 ], [ 0, %951 ]
-  %.sroa.9.0.i.i = phi i64 [ 0, %890 ], [ 0, %897 ], [ %913, %908 ], [ %928, %926 ], [ 0, %944 ], [ 0, %951 ]
-  %.sroa.11.0.i.i = phi i64 [ 0, %890 ], [ 0, %897 ], [ %914, %908 ], [ 0, %926 ], [ 0, %944 ], [ 0, %951 ]
+954:                                              ; preds = %890, %897, %908, %926, %943, %951
+  %.sroa.0.0.i.i2647 = phi i64 [ 0, %890 ], [ 0, %897 ], [ %923, %908 ], [ %940, %926 ], [ %949, %943 ], [ %953, %951 ]
+  %.sroa.7.0.i.i2648 = phi i64 [ 0, %890 ], [ 0, %897 ], [ %925, %908 ], [ %938, %926 ], [ %950, %943 ], [ 0, %951 ]
+  %.sroa.9.0.i.i = phi i64 [ 0, %890 ], [ 0, %897 ], [ %913, %908 ], [ %928, %926 ], [ 0, %943 ], [ 0, %951 ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %890 ], [ 0, %897 ], [ %914, %908 ], [ 0, %926 ], [ 0, %943 ], [ 0, %951 ]
   store i64 %.sroa.0.0.i.i2647, ptr %891, align 32
   %.sroa.7.0..sroa_idx.i.i2649 = getelementptr inbounds i8, ptr %.sroa.512.0, i64 -56
   store i64 %.sroa.7.0.i.i2648, ptr %.sroa.7.0..sroa_idx.i.i2649, align 8
@@ -16051,9 +16051,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3191:     ; preds = %3124, %_ZNK6evmone8
   %3139 = getelementptr i8, ptr %3116, i64 %3136
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %8, ptr align 1 %3139, i64 %3138, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i12.pre.i = load i64, ptr %8, align 16, !noalias !850
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx10728, align 8, !noalias !850
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx10729, align 16, !noalias !850
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx10730, align 8, !noalias !850
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx10726, align 8, !noalias !850
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx10727, align 16, !noalias !850
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx10728, align 8, !noalias !850
   %3140 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i)
   %3141 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i)
   %3142 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i)
@@ -17078,9 +17078,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3291:     ; preds = %3579, %3570
   %3595 = getelementptr i8, ptr %3594, i64 %3591
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %5, ptr align 1 %3595, i64 %3593, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i.pre.i = load i64, ptr %5, align 16, !noalias !878
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3299 = load i64, ptr %.8..8..8..8..sroa_idx10731, align 8, !noalias !878
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3301 = load i64, ptr %.16..16..16..16..sroa_idx10732, align 16, !noalias !878
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3303 = load i64, ptr %.24..24..24..24..sroa_idx10733, align 8, !noalias !878
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3299 = load i64, ptr %.8..8..8..8..sroa_idx10729, align 8, !noalias !878
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3301 = load i64, ptr %.16..16..16..16..sroa_idx10730, align 16, !noalias !878
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3303 = load i64, ptr %.24..24..24..24..sroa_idx10731, align 8, !noalias !878
   %3596 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i3303)
   %3597 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i3301)
   %3598 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i3299)
@@ -17588,12 +17588,12 @@ define internal fastcc noundef i64 @_ZN6evmone8baseline12_GLOBAL__N_18dispatchIL
   %.sroa.5.0..sroa_idx.i2999 = getelementptr inbounds nuw i8, ptr %52, i64 8
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %53, i64 8
   %151 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %.8..8..8..8..sroa_idx8486 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  %.16..16..16..16..sroa_idx8487 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %.24..24..24..24..sroa_idx8488 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  %.8..8..8..8..sroa_idx8483 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %.16..16..16..16..sroa_idx8484 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.24..24..24..24..sroa_idx8485 = getelementptr inbounds nuw i8, ptr %10, i64 24
+  %.8..8..8..8..sroa_idx8484 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %.16..16..16..16..sroa_idx8485 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  %.24..24..24..24..sroa_idx8486 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  %.8..8..8..8..sroa_idx8481 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %.16..16..16..16..sroa_idx8482 = getelementptr inbounds nuw i8, ptr %10, i64 16
+  %.24..24..24..24..sroa_idx8483 = getelementptr inbounds nuw i8, ptr %10, i64 24
   %.8..8..8..8..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 8
   %.16..16..16..16..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 16
   %.24..24..24..24..sroa_idx = getelementptr inbounds nuw i8, ptr %31, i64 24
@@ -19347,13 +19347,13 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 847:                                              ; preds = %806
-  %848 = add nsw i64 %804, -128
-  %849 = icmp samesign ult i64 %848, 64
-  br i1 %849, label %850, label %857
+  %848 = icmp samesign ult i64 %804, 192
+  br i1 %848, label %849, label %857
 
-850:                                              ; preds = %847
-  %851 = shl i64 %807, %848
-  %852 = shl i64 %809, %848
+849:                                              ; preds = %847
+  %850 = add nsw i64 %804, -128
+  %851 = shl i64 %807, %850
+  %852 = shl i64 %809, %850
   %853 = lshr i64 %807, 1
   %854 = sub nuw nsw i64 191, %804
   %855 = lshr i64 %853, %854
@@ -19365,11 +19365,11 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arr
   %859 = shl i64 %807, %858
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
-_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %857, %850, %832, %813, %803, %796
-  %.sroa.0.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %814, %813 ], [ 0, %832 ], [ 0, %857 ], [ 0, %850 ]
-  %.sroa.7.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %819, %813 ], [ %834, %832 ], [ 0, %857 ], [ 0, %850 ]
-  %.sroa.8.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %831, %813 ], [ %843, %832 ], [ 0, %857 ], [ %851, %850 ]
-  %.sroa.10.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %830, %813 ], [ %846, %832 ], [ %859, %857 ], [ %856, %850 ]
+_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE27EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %857, %849, %832, %813, %803, %796
+  %.sroa.0.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %814, %813 ], [ 0, %832 ], [ 0, %857 ], [ 0, %849 ]
+  %.sroa.7.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %819, %813 ], [ %834, %832 ], [ 0, %857 ], [ 0, %849 ]
+  %.sroa.8.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %831, %813 ], [ %843, %832 ], [ 0, %857 ], [ %851, %849 ]
+  %.sroa.10.0.i.i = phi i64 [ 0, %796 ], [ 0, %803 ], [ %830, %813 ], [ %846, %832 ], [ %859, %857 ], [ %856, %849 ]
   store i64 %.sroa.0.0.i.i, ptr %797, align 32
   %.sroa.7.0..sroa_idx.i.i = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -56
   store i64 %.sroa.7.0.i.i, ptr %.sroa.7.0..sroa_idx.i.i, align 8
@@ -19481,17 +19481,17 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 922:                                              ; preds = %881
-  %923 = add nsw i64 %879, -128
-  %924 = icmp samesign ult i64 %923, 64
-  br i1 %924, label %925, label %932
+  %923 = icmp samesign ult i64 %879, 192
+  br i1 %923, label %924, label %932
 
-925:                                              ; preds = %922
-  %926 = lshr i64 %883, %923
+924:                                              ; preds = %922
+  %925 = add nsw i64 %879, -128
+  %926 = lshr i64 %883, %925
   %927 = shl i64 %885, 1
   %928 = sub nuw nsw i64 191, %879
   %929 = shl i64 %927, %928
   %930 = or i64 %929, %926
-  %931 = lshr i64 %885, %923
+  %931 = lshr i64 %885, %925
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
 932:                                              ; preds = %922
@@ -19499,11 +19499,11 @@ _ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arr
   %934 = lshr i64 %885, %933
   br label %_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit
 
-_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %932, %925, %907, %889, %878, %871
-  %.sroa.0.0.i.i3153 = phi i64 [ 0, %871 ], [ 0, %878 ], [ %904, %889 ], [ %921, %907 ], [ %930, %925 ], [ %934, %932 ]
-  %.sroa.7.0.i.i3154 = phi i64 [ 0, %871 ], [ 0, %878 ], [ %906, %889 ], [ %919, %907 ], [ %931, %925 ], [ 0, %932 ]
-  %.sroa.9.0.i.i = phi i64 [ 0, %871 ], [ 0, %878 ], [ %894, %889 ], [ %909, %907 ], [ 0, %925 ], [ 0, %932 ]
-  %.sroa.11.0.i.i = phi i64 [ 0, %871 ], [ 0, %878 ], [ %895, %889 ], [ 0, %907 ], [ 0, %925 ], [ 0, %932 ]
+_ZN6evmone8baseline12_GLOBAL__N_16invokeILNS_6OpcodeE28EEENS1_8PositionERKSt5arrayIsLm256EEPKN4intx4uintILj256EEES4_RlRNS_14ExecutionStateE.exit: ; preds = %932, %924, %907, %889, %878, %871
+  %.sroa.0.0.i.i3153 = phi i64 [ 0, %871 ], [ 0, %878 ], [ %904, %889 ], [ %921, %907 ], [ %930, %924 ], [ %934, %932 ]
+  %.sroa.7.0.i.i3154 = phi i64 [ 0, %871 ], [ 0, %878 ], [ %906, %889 ], [ %919, %907 ], [ %931, %924 ], [ 0, %932 ]
+  %.sroa.9.0.i.i = phi i64 [ 0, %871 ], [ 0, %878 ], [ %894, %889 ], [ %909, %907 ], [ 0, %924 ], [ 0, %932 ]
+  %.sroa.11.0.i.i = phi i64 [ 0, %871 ], [ 0, %878 ], [ %895, %889 ], [ 0, %907 ], [ 0, %924 ], [ 0, %932 ]
   store i64 %.sroa.0.0.i.i3153, ptr %872, align 32
   %.sroa.7.0..sroa_idx.i.i3155 = getelementptr inbounds i8, ptr %.sroa.344.0, i64 -56
   store i64 %.sroa.7.0.i.i3154, ptr %.sroa.7.0..sroa_idx.i.i3155, align 8
@@ -24521,9 +24521,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3697:     ; preds = %2992, %_ZNK6evmone8
   %3007 = getelementptr i8, ptr %2984, i64 %3004
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %10, ptr align 1 %3007, i64 %3006, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i12.pre.i = load i64, ptr %10, align 16, !noalias !1047
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx8483, align 8, !noalias !1047
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx8484, align 16, !noalias !1047
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx8485, align 8, !noalias !1047
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i = load i64, ptr %.8..8..8..8..sroa_idx8481, align 8, !noalias !1047
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i = load i64, ptr %.16..16..16..16..sroa_idx8482, align 16, !noalias !1047
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i = load i64, ptr %.24..24..24..24..sroa_idx8483, align 8, !noalias !1047
   %3008 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i)
   %3009 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i)
   %3010 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i)
@@ -25632,9 +25632,9 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit.i3807:     ; preds = %3469, %3460
   %3485 = getelementptr i8, ptr %3484, i64 %3481
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 16 %6, ptr align 1 %3485, i64 %3483, i1 false), !tbaa !17
   %.0..0..0..0..sroa.0.0.copyload.i.pre.i = load i64, ptr %6, align 16, !noalias !1054
-  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3815 = load i64, ptr %.8..8..8..8..sroa_idx8486, align 8, !noalias !1054
-  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3817 = load i64, ptr %.16..16..16..16..sroa_idx8487, align 16, !noalias !1054
-  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3819 = load i64, ptr %.24..24..24..24..sroa_idx8488, align 8, !noalias !1054
+  %.8..8..8..8..sroa.4.0.copyload.i.pre.i3815 = load i64, ptr %.8..8..8..8..sroa_idx8484, align 8, !noalias !1054
+  %.16..16..16..16..sroa.5.0.copyload.i.pre.i3817 = load i64, ptr %.16..16..16..16..sroa_idx8485, align 16, !noalias !1054
+  %.24..24..24..24..sroa.6.0.copyload.i.pre.i3819 = load i64, ptr %.24..24..24..24..sroa_idx8486, align 8, !noalias !1054
   %3486 = call i64 @llvm.bswap.i64(i64 %.24..24..24..24..sroa.6.0.copyload.i.pre.i3819)
   %3487 = call i64 @llvm.bswap.i64(i64 %.16..16..16..16..sroa.5.0.copyload.i.pre.i3817)
   %3488 = call i64 @llvm.bswap.i64(i64 %.8..8..8..8..sroa.4.0.copyload.i.pre.i3815)
@@ -28459,24 +28459,24 @@ _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %42
   %45 = shl nuw i64 1, %39
   %46 = add nsw i64 %39, -64
   %47 = shl nuw i64 1, %46
-  %.sroa.08.0.i5262.i = select i1 %44, i64 %45, i64 0
-  %.sroa.49.0.i5460.i = select i1 %44, i64 0, i64 %47
-  store i64 %.sroa.08.0.i5262.i, ptr %0, align 8, !tbaa !3, !alias.scope !1215
+  %.sroa.08.0.i5161.i = select i1 %44, i64 %45, i64 0
+  %.sroa.49.0.i5359.i = select i1 %44, i64 0, i64 %47
+  store i64 %.sroa.08.0.i5161.i, ptr %0, align 8, !tbaa !3, !alias.scope !1215
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.49.0.i5460.i, ptr %48, align 8, !tbaa !3, !alias.scope !1215
+  store i64 %.sroa.49.0.i5359.i, ptr %48, align 8, !tbaa !3, !alias.scope !1215
   %49 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %49, i8 0, i64 16, i1 false)
   br label %_ZN4intxlsERKNS_4uintILj256EEES3_.exit
 
 _ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %42
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %51 = add nsw i64 %39, -128
-  %52 = icmp samesign ult i64 %51, 64
-  %53 = shl nuw i64 1, %51
+  %51 = icmp samesign ult i64 %39, 192
+  %52 = add nsw i64 %39, -128
+  %53 = shl nuw i64 1, %52
   %54 = add nsw i64 %39, -192
   %55 = shl nuw i64 1, %54
-  %.sroa.08.0.i33.i = select i1 %52, i64 %53, i64 0
-  %.sroa.49.0.i34.i = select i1 %52, i64 0, i64 %55
+  %.sroa.08.0.i33.i = select i1 %51, i64 %53, i64 0
+  %.sroa.49.0.i34.i = select i1 %51, i64 0, i64 %55
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, i8 0, i64 16, i1 false), !alias.scope !1215
   store i64 %.sroa.08.0.i33.i, ptr %56, align 8, !tbaa !3, !alias.scope !1215
@@ -28945,31 +28945,31 @@ _ZN4intxltERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZNK4intx4uintILj25
   br label %_ZN4intxrsENS_4uintILj128EEEm.exit30.i
 
 _ZN4intxrsENS_4uintILj128EEEm.exit30.i:           ; preds = %76, %58
-  %.sroa.08.0.i5262.i10 = phi i64 [ %63, %58 ], [ %78, %76 ]
-  %.sroa.4.0.i5460.i = phi i64 [ %64, %58 ], [ 0, %76 ]
+  %.sroa.08.0.i5161.i10 = phi i64 [ %63, %58 ], [ %78, %76 ]
+  %.sroa.4.0.i5359.i = phi i64 [ %64, %58 ], [ 0, %76 ]
   %.sroa.08.0.i26.i11 = phi i64 [ %73, %58 ], [ %90, %76 ]
   %.sroa.4.0.i27.i = phi i64 [ %75, %58 ], [ %88, %76 ]
   store i64 %.sroa.08.0.i26.i11, ptr %5, align 8, !tbaa !3, !alias.scope !1243
   %91 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.i27.i, ptr %91, align 8, !tbaa !3, !alias.scope !1243
   %92 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  store i64 %.sroa.08.0.i5262.i10, ptr %92, align 8, !tbaa !3, !alias.scope !1243
+  store i64 %.sroa.08.0.i5161.i10, ptr %92, align 8, !tbaa !3, !alias.scope !1243
   %93 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  store i64 %.sroa.4.0.i5460.i, ptr %93, align 8, !tbaa !3, !alias.scope !1243
+  store i64 %.sroa.4.0.i5359.i, ptr %93, align 8, !tbaa !3, !alias.scope !1243
   br label %_ZN4intxrsERKNS_4uintILj256EEES3_.exit
 
 94:                                               ; preds = %52
-  %95 = add nsw i64 %49, -128
-  %96 = icmp samesign ult i64 %95, 64
-  br i1 %96, label %97, label %104
+  %95 = icmp samesign ult i64 %49, 192
+  br i1 %95, label %96, label %104
 
-97:                                               ; preds = %94
-  %98 = lshr i64 %54, %95
+96:                                               ; preds = %94
+  %97 = add nsw i64 %49, -128
+  %98 = lshr i64 %54, %97
   %99 = shl i64 %10, 1
   %100 = sub nuw nsw i64 191, %49
   %101 = shl i64 %99, %100
   %102 = or i64 %98, %101
-  %103 = lshr i64 %10, %95
+  %103 = lshr i64 %10, %97
   br label %_ZN4intxrsENS_4uintILj128EEEm.exit37.i
 
 104:                                              ; preds = %94
@@ -28977,9 +28977,9 @@ _ZN4intxrsENS_4uintILj128EEEm.exit30.i:           ; preds = %76, %58
   %106 = lshr i64 %10, %105
   br label %_ZN4intxrsENS_4uintILj128EEEm.exit37.i
 
-_ZN4intxrsENS_4uintILj128EEEm.exit37.i:           ; preds = %104, %97
-  %.sroa.08.0.i33.i9 = phi i64 [ %102, %97 ], [ %106, %104 ]
-  %.sroa.4.0.i34.i = phi i64 [ %103, %97 ], [ 0, %104 ]
+_ZN4intxrsENS_4uintILj128EEEm.exit37.i:           ; preds = %104, %96
+  %.sroa.08.0.i33.i9 = phi i64 [ %102, %96 ], [ %106, %104 ]
+  %.sroa.4.0.i34.i = phi i64 [ %103, %96 ], [ 0, %104 ]
   store i64 %.sroa.08.0.i33.i9, ptr %5, align 8, !tbaa !3, !alias.scope !1243
   %107 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 %.sroa.4.0.i34.i, ptr %107, align 8, !tbaa !3, !alias.scope !1243
@@ -29047,13 +29047,13 @@ _ZN4intxrsERKNS_4uintILj256EEES3_.exit:           ; preds = %_ZN4intxrsENS_4uint
   br label %_ZN4intxlsENS_4uintILj128EEEm.exit30.i
 
 _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %137, %118
-  %.sroa.08.0.i5262.i = phi i64 [ %119, %118 ], [ 0, %137 ]
-  %.sroa.49.0.i5460.i = phi i64 [ %124, %118 ], [ %139, %137 ]
+  %.sroa.08.0.i5161.i = phi i64 [ %119, %118 ], [ 0, %137 ]
+  %.sroa.49.0.i5359.i = phi i64 [ %124, %118 ], [ %139, %137 ]
   %.sroa.08.0.i26.i = phi i64 [ %136, %118 ], [ %148, %137 ]
   %.sroa.49.0.i27.i = phi i64 [ %135, %118 ], [ %151, %137 ]
-  store i64 %.sroa.08.0.i5262.i, ptr %6, align 8, !tbaa !3, !alias.scope !1246
+  store i64 %.sroa.08.0.i5161.i, ptr %6, align 8, !tbaa !3, !alias.scope !1246
   %152 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store i64 %.sroa.49.0.i5460.i, ptr %152, align 8, !tbaa !3, !alias.scope !1246
+  store i64 %.sroa.49.0.i5359.i, ptr %152, align 8, !tbaa !3, !alias.scope !1246
   %153 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %.sroa.08.0.i26.i, ptr %153, align 8, !tbaa !3, !alias.scope !1246
   %154 = getelementptr inbounds nuw i8, ptr %6, i64 24
@@ -29061,13 +29061,13 @@ _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %137, %118
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
 155:                                              ; preds = %111
-  %156 = add nsw i64 %40, -128
-  %157 = icmp samesign ult i64 %156, 64
-  br i1 %157, label %158, label %165
+  %156 = icmp samesign ult i64 %40, 192
+  br i1 %156, label %157, label %165
 
-158:                                              ; preds = %155
-  %159 = shl i64 %112, %156
-  %160 = shl i64 %114, %156
+157:                                              ; preds = %155
+  %158 = add nsw i64 %40, -128
+  %159 = shl i64 %112, %158
+  %160 = shl i64 %114, %158
   %161 = lshr i64 %112, 1
   %162 = sub nuw nsw i64 191, %40
   %163 = lshr i64 %161, %162
@@ -29079,9 +29079,9 @@ _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %137, %118
   %167 = shl i64 %112, %166
   br label %_ZN4intxlsENS_4uintILj128EEEm.exit37.i
 
-_ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %165, %158
-  %.sroa.08.0.i33.i = phi i64 [ %159, %158 ], [ 0, %165 ]
-  %.sroa.49.0.i34.i = phi i64 [ %164, %158 ], [ %167, %165 ]
+_ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %165, %157
+  %.sroa.08.0.i33.i = phi i64 [ %159, %157 ], [ 0, %165 ]
+  %.sroa.49.0.i34.i = phi i64 [ %164, %157 ], [ %167, %165 ]
   %168 = getelementptr inbounds nuw i8, ptr %6, i64 16
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %6, i8 0, i64 16, i1 false), !alias.scope !1246
   store i64 %.sroa.08.0.i33.i, ptr %168, align 8, !tbaa !3, !alias.scope !1246

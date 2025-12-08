@@ -228,7 +228,7 @@ define noundef i32 @_ZN5folly6detail20avx512_crc32c_v8s3x4EPKhmj(ptr noundef %0,
   %157 = or disjoint i64 %155, %156
   %158 = lshr i64 %.025.i, 1
   %159 = add nsw i64 %158, -16
-  %160 = icmp samesign ugt i64 %159, 191
+  %160 = icmp ugt i64 %.025.i, 415
   br i1 %160, label %.lr.ph.i, label %._crit_edge.loopexit.i, !llvm.loop !15
 
 ._crit_edge.loopexit.i:                           ; preds = %.lr.ph.i
@@ -322,7 +322,7 @@ _ZN5folly6detailL6xnmodpEm.exit:                  ; preds = %.lr.ph36.i, %.prehe
   %221 = or disjoint i64 %219, %220
   %222 = lshr i64 %.025.i265, 1
   %223 = add nsw i64 %222, -16
-  %224 = icmp samesign ugt i64 %223, 191
+  %224 = icmp ugt i64 %.025.i265, 415
   br i1 %224, label %.lr.ph.i264, label %._crit_edge.loopexit.i267, !llvm.loop !15
 
 ._crit_edge.loopexit.i267:                        ; preds = %.lr.ph.i264
@@ -382,7 +382,7 @@ _ZN5folly6detailL6xnmodpEm.exit268:               ; preds = %.lr.ph36.i259, %.pr
   %251 = or disjoint i64 %249, %250
   %252 = lshr i64 %.025.i286, 1
   %253 = add nsw i64 %252, -16
-  %254 = icmp samesign ugt i64 %253, 191
+  %254 = icmp ugt i64 %.025.i286, 415
   br i1 %254, label %.lr.ph.i285, label %._crit_edge.loopexit.i288, !llvm.loop !15
 
 ._crit_edge.loopexit.i288:                        ; preds = %.lr.ph.i285

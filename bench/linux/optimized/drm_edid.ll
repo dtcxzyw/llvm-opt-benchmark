@@ -13370,7 +13370,7 @@ define internal void @do_established_modes(ptr noundef readonly captures(none) %
   %23 = phi i32 [ %18, %16 ], [ %131, %.thread7 ]
   %24 = sub nsw i64 %19, %22
   %25 = add nsw i64 %24, 7
-  %26 = icmp samesign ugt i64 %25, 43
+  %26 = icmp sgt i64 %24, 36
   br i1 %26, label %134, label %27
 
 27:                                               ; preds = %21

@@ -13803,7 +13803,7 @@ define internal fastcc noundef i32 @_ZN12_GLOBAL__N_115AArch64FastISel10emitIntE
   ]
 
 13:                                               ; preds = %12
-  %switch.i = icmp samesign ult i16 %.off, 2
+  %switch.i = icmp samesign ult i16 %3, 7
   br i1 %switch.i, label %.thread.i, label %14
 
 14:                                               ; preds = %13

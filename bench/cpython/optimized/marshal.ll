@@ -6940,7 +6940,7 @@ r_long.exit.thread:                               ; preds = %1, %r_long.exit
   %39 = load i8, ptr %38, align 1, !tbaa !103
   %40 = icmp eq i8 %39, 4
   %41 = load ptr, ptr %2, align 8, !tbaa !146
-  %.not7686.i = icmp samesign ugt i64 %31, 1
+  %.not7686.i = icmp sgt i32 %30, 0
   br i1 %40, label %42, label %74
 
 42:                                               ; preds = %37

@@ -2036,7 +2036,7 @@ define internal fastcc noundef range(i32 -12, 1) i32 @split_block(ptr noundef re
   unreachable
 
 14:                                               ; preds = %11
-  %15 = icmp samesign ugt i32 %6, 51
+  %15 = icmp samesign ugt i32 %5, 52
   br i1 %15, label %16, label %17, !prof !7
 
 16:                                               ; preds = %14

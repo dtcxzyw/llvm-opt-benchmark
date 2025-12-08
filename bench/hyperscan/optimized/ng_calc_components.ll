@@ -11546,7 +11546,7 @@ define linkonce_odr hidden void @_ZSt22__final_insertion_sortISt15_Deque_iterato
   br i1 %48, label %49, label %55
 
 49:                                               ; preds = %36
-  %50 = icmp samesign ult i64 %47, 32
+  %50 = icmp slt i64 %46, 16
   br i1 %50, label %51, label %53
 
 51:                                               ; preds = %49
@@ -11591,7 +11591,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_grap
   br i1 %74, label %75, label %81
 
 75:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEERS8_PS8_El.exit
-  %76 = icmp samesign ult i64 %73, 32
+  %76 = icmp slt i64 %72, 16
   br i1 %76, label %77, label %79
 
 77:                                               ; preds = %75
@@ -12005,7 +12005,7 @@ _ZStplRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_grap
   br i1 %67, label %68, label %74
 
 68:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEERS8_PS8_El.exit
-  %69 = icmp samesign ult i64 %66, 32
+  %69 = icmp slt i64 %41, 31
   br i1 %69, label %70, label %72
 
 70:                                               ; preds = %68
@@ -12102,7 +12102,7 @@ _ZStmiRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_grap
   br i1 %119, label %120, label %126
 
 120:                                              ; preds = %_ZStmiRKSt15_Deque_iteratorIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_8NGHolderENS0_19NFAGraphVertexPropsENS0_17NFAGraphEdgePropsEEEEERS8_PS8_El.exit
-  %121 = icmp samesign ult i64 %118, 32
+  %121 = icmp slt i64 %117, 31
   br i1 %121, label %122, label %124
 
 122:                                              ; preds = %120
@@ -13183,7 +13183,7 @@ define linkonce_odr hidden void @_ZSt16__insertion_sortISt15_Deque_iteratorIN3ue
   br i1 %23, label %24, label %30
 
 24:                                               ; preds = %11
-  %25 = icmp samesign ult i64 %22, 32
+  %25 = icmp slt i64 %21, 31
   br i1 %25, label %26, label %28
 
 26:                                               ; preds = %24
@@ -13274,7 +13274,7 @@ _ZNK9__gnu_cxx5__ops15_Iter_less_iterclISt15_Deque_iteratorIN3ue212graph_detail1
   br i1 %68, label %69, label %75
 
 69:                                               ; preds = %59
-  %70 = icmp samesign ult i64 %67, 32
+  %70 = icmp slt i64 %66, 31
   br i1 %70, label %71, label %73
 
 71:                                               ; preds = %69

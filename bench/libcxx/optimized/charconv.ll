@@ -3958,7 +3958,7 @@ define linkonce_odr hidden { i64, i32 } @_ZN24__llvm_libc_common_utils8internal2
   %.072.i = phi i32 [ %56, %.lr.ph73.i ], [ 23, %.critedge2 ]
   call void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal10left_shiftEj(ptr noundef nonnull align 4 dereferenceable(809) %4, i32 noundef 4)
   %56 = add nsw i32 %.072.i, -4
-  %57 = icmp samesign ugt i32 %56, 4
+  %57 = icmp samesign ugt i32 %.072.i, 8
   br i1 %57, label %.lr.ph73.i, label %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit, !llvm.loop !72
 
 _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit: ; preds = %.lr.ph73.i
@@ -6121,7 +6121,7 @@ define linkonce_odr hidden void @_ZN24__llvm_libc_common_utils8internal25simple_
   %.072.i = phi i32 [ %63, %.lr.ph73.i ], [ 52, %.critedge2 ]
   call void @_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal10left_shiftEj(ptr noundef nonnull align 4 dereferenceable(809) %5, i32 noundef 4)
   %63 = add nsw i32 %.072.i, -4
-  %64 = icmp samesign ugt i32 %63, 4
+  %64 = icmp samesign ugt i32 %.072.i, 8
   br i1 %64, label %.lr.ph73.i, label %_ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit, !llvm.loop !72
 
 _ZN24__llvm_libc_common_utils8internal20HighPrecisionDecimal5shiftEi.exit: ; preds = %.lr.ph73.i

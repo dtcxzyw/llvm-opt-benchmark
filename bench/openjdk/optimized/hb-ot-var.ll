@@ -1828,7 +1828,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
 
 13:                                               ; preds = %4
   %.not47 = icmp eq i32 %11, 0
-  br i1 %.not47, label %159, label %14
+  br i1 %.not47, label %158, label %14
 
 14:                                               ; preds = %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1854,7 +1854,7 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %35 = or disjoint i16 %31, %34
   %36 = sext i16 %35 to i32
   %37 = add nsw i32 %26, %36
-  br label %159
+  br label %158
 
 38:                                               ; preds = %4
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -1884,137 +1884,137 @@ define linkonce_odr hidden noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noundef
   %60 = or disjoint i16 %56, %59
   %61 = sext i16 %60 to i32
   %62 = add nsw i32 %51, %61
-  br label %159
+  br label %158
 
 63:                                               ; preds = %38
   %64 = add nsw i32 %11, -1
-  %65 = icmp samesign ugt i32 %64, 1
-  br i1 %65, label %.lr.ph.preheader, label %.critedge
+  %.not63 = icmp eq i32 %11, 2
+  br i1 %.not63, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %63
   %wide.trip.count = zext nneg i32 %64 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %75
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %75 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %74
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %74 ]
   %gep = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %41, i64 %indvars.iv
-  %66 = load i8, ptr %gep, align 1
-  %67 = zext i8 %66 to i16
-  %68 = shl nuw i16 %67, 8
-  %69 = getelementptr inbounds nuw i8, ptr %gep, i64 1
-  %70 = load i8, ptr %69, align 1
-  %71 = zext i8 %70 to i16
-  %72 = or disjoint i16 %68, %71
-  %73 = sext i16 %72 to i32
-  %74 = icmp sgt i32 %1, %73
-  br i1 %74, label %75, label %.critedge.loopexit.split.loop.exit61
+  %65 = load i8, ptr %gep, align 1
+  %66 = zext i8 %65 to i16
+  %67 = shl nuw i16 %66, 8
+  %68 = getelementptr inbounds nuw i8, ptr %gep, i64 1
+  %69 = load i8, ptr %68, align 1
+  %70 = zext i8 %69 to i16
+  %71 = or disjoint i16 %67, %70
+  %72 = sext i16 %71 to i32
+  %73 = icmp sgt i32 %1, %72
+  br i1 %73, label %74, label %.critedge.loopexit.split.loop.exit61
 
-75:                                               ; preds = %.lr.ph
+74:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !20
 
 .critedge.loopexit.split.loop.exit61:             ; preds = %.lr.ph
-  %76 = trunc nuw i64 %indvars.iv to i32
+  %75 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %75, %.critedge.loopexit.split.loop.exit61, %63
-  %.044.lcssa = phi i32 [ 1, %63 ], [ %76, %.critedge.loopexit.split.loop.exit61 ], [ %64, %75 ]
-  %77 = zext i32 %.044.lcssa to i64
-  %78 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %77
-  %79 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %78, i64 %40
-  %80 = load i8, ptr %79, align 1
-  %81 = zext i8 %80 to i16
-  %82 = shl nuw i16 %81, 8
-  %83 = getelementptr inbounds nuw i8, ptr %79, i64 1
-  %84 = load i8, ptr %83, align 1
-  %85 = zext i8 %84 to i16
-  %86 = or disjoint i16 %82, %85
-  %87 = sext i16 %86 to i32
-  %.not46 = icmp slt i32 %1, %87
-  br i1 %.not46, label %101, label %88
+.critedge:                                        ; preds = %74, %.critedge.loopexit.split.loop.exit61, %63
+  %.044.lcssa = phi i32 [ 1, %63 ], [ %75, %.critedge.loopexit.split.loop.exit61 ], [ %64, %74 ]
+  %76 = zext i32 %.044.lcssa to i64
+  %77 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %76
+  %78 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %77, i64 %40
+  %79 = load i8, ptr %78, align 1
+  %80 = zext i8 %79 to i16
+  %81 = shl nuw i16 %80, 8
+  %82 = getelementptr inbounds nuw i8, ptr %78, i64 1
+  %83 = load i8, ptr %82, align 1
+  %84 = zext i8 %83 to i16
+  %85 = or disjoint i16 %81, %84
+  %86 = sext i16 %85 to i32
+  %.not46 = icmp slt i32 %1, %86
+  br i1 %.not46, label %100, label %87
 
-88:                                               ; preds = %.critedge
-  %89 = sub i32 %1, %87
-  %90 = zext i32 %3 to i64
-  %91 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %78, i64 %90
-  %92 = load i8, ptr %91, align 1
-  %93 = zext i8 %92 to i16
-  %94 = shl nuw i16 %93, 8
-  %95 = getelementptr inbounds nuw i8, ptr %91, i64 1
-  %96 = load i8, ptr %95, align 1
-  %97 = zext i8 %96 to i16
-  %98 = or disjoint i16 %94, %97
-  %99 = sext i16 %98 to i32
-  %100 = add nsw i32 %89, %99
-  br label %159
+87:                                               ; preds = %.critedge
+  %88 = sub i32 %1, %86
+  %89 = zext i32 %3 to i64
+  %90 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %77, i64 %89
+  %91 = load i8, ptr %90, align 1
+  %92 = zext i8 %91 to i16
+  %93 = shl nuw i16 %92, 8
+  %94 = getelementptr inbounds nuw i8, ptr %90, i64 1
+  %95 = load i8, ptr %94, align 1
+  %96 = zext i8 %95 to i16
+  %97 = or disjoint i16 %93, %96
+  %98 = sext i16 %97 to i32
+  %99 = add nsw i32 %88, %98
+  br label %158
 
-101:                                              ; preds = %.critedge
-  %102 = add i32 %.044.lcssa, -1
-  %103 = zext i32 %102 to i64
-  %104 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %103
-  %105 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %104, i64 %40
-  %106 = load i8, ptr %105, align 1
-  %107 = zext i8 %106 to i16
-  %108 = shl nuw i16 %107, 8
-  %109 = getelementptr inbounds nuw i8, ptr %105, i64 1
-  %110 = load i8, ptr %109, align 1
-  %111 = zext i8 %110 to i16
-  %112 = or disjoint i16 %108, %111
-  %113 = icmp eq i16 %112, %86
-  br i1 %113, label %114, label %125
+100:                                              ; preds = %.critedge
+  %101 = add i32 %.044.lcssa, -1
+  %102 = zext i32 %101 to i64
+  %103 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %39, i64 %102
+  %104 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %103, i64 %40
+  %105 = load i8, ptr %104, align 1
+  %106 = zext i8 %105 to i16
+  %107 = shl nuw i16 %106, 8
+  %108 = getelementptr inbounds nuw i8, ptr %104, i64 1
+  %109 = load i8, ptr %108, align 1
+  %110 = zext i8 %109 to i16
+  %111 = or disjoint i16 %107, %110
+  %112 = icmp eq i16 %111, %85
+  br i1 %112, label %113, label %124
 
-114:                                              ; preds = %101
-  %115 = zext i32 %3 to i64
-  %116 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %104, i64 %115
-  %117 = load i8, ptr %116, align 1
-  %118 = zext i8 %117 to i16
-  %119 = shl nuw i16 %118, 8
-  %120 = getelementptr inbounds nuw i8, ptr %116, i64 1
-  %121 = load i8, ptr %120, align 1
-  %122 = zext i8 %121 to i16
-  %123 = or disjoint i16 %119, %122
-  %124 = sext i16 %123 to i32
-  br label %159
+113:                                              ; preds = %100
+  %114 = zext i32 %3 to i64
+  %115 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %103, i64 %114
+  %116 = load i8, ptr %115, align 1
+  %117 = zext i8 %116 to i16
+  %118 = shl nuw i16 %117, 8
+  %119 = getelementptr inbounds nuw i8, ptr %115, i64 1
+  %120 = load i8, ptr %119, align 1
+  %121 = zext i8 %120 to i16
+  %122 = or disjoint i16 %118, %121
+  %123 = sext i16 %122 to i32
+  br label %158
 
-125:                                              ; preds = %101
-  %126 = sext i16 %112 to i32
-  %127 = sub nsw i32 %87, %126
-  %128 = zext i32 %3 to i64
-  %129 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %104, i64 %128
-  %130 = load i8, ptr %129, align 1
-  %131 = zext i8 %130 to i16
-  %132 = shl nuw i16 %131, 8
-  %133 = getelementptr inbounds nuw i8, ptr %129, i64 1
-  %134 = load i8, ptr %133, align 1
-  %135 = zext i8 %134 to i16
-  %136 = or disjoint i16 %132, %135
-  %137 = sitofp i16 %136 to float
-  %138 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %78, i64 %128
-  %139 = load i8, ptr %138, align 1
-  %140 = zext i8 %139 to i16
-  %141 = shl nuw i16 %140, 8
-  %142 = getelementptr inbounds nuw i8, ptr %138, i64 1
-  %143 = load i8, ptr %142, align 1
-  %144 = zext i8 %143 to i16
-  %145 = or disjoint i16 %141, %144
-  %146 = sext i16 %145 to i32
-  %147 = sext i16 %136 to i32
-  %148 = sub nsw i32 %146, %147
-  %149 = sitofp i32 %148 to float
-  %150 = sub nsw i32 %1, %126
-  %151 = sitofp i32 %150 to float
-  %152 = fmul float %151, %149
-  %153 = sitofp i32 %127 to float
-  %154 = fdiv float %152, %153
-  %155 = fadd float %154, %137
-  %156 = fadd float %155, 5.000000e-01
-  %157 = tail call noundef float @llvm.floor.f32(float %156)
-  %158 = fptosi float %157 to i32
-  br label %159
+124:                                              ; preds = %100
+  %125 = sext i16 %111 to i32
+  %126 = sub nsw i32 %86, %125
+  %127 = zext i32 %3 to i64
+  %128 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %103, i64 %127
+  %129 = load i8, ptr %128, align 1
+  %130 = zext i8 %129 to i16
+  %131 = shl nuw i16 %130, 8
+  %132 = getelementptr inbounds nuw i8, ptr %128, i64 1
+  %133 = load i8, ptr %132, align 1
+  %134 = zext i8 %133 to i16
+  %135 = or disjoint i16 %131, %134
+  %136 = sitofp i16 %135 to float
+  %137 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %77, i64 %127
+  %138 = load i8, ptr %137, align 1
+  %139 = zext i8 %138 to i16
+  %140 = shl nuw i16 %139, 8
+  %141 = getelementptr inbounds nuw i8, ptr %137, i64 1
+  %142 = load i8, ptr %141, align 1
+  %143 = zext i8 %142 to i16
+  %144 = or disjoint i16 %140, %143
+  %145 = sext i16 %144 to i32
+  %146 = sext i16 %135 to i32
+  %147 = sub nsw i32 %145, %146
+  %148 = sitofp i32 %147 to float
+  %149 = sub nsw i32 %1, %125
+  %150 = sitofp i32 %149 to float
+  %151 = fmul float %150, %148
+  %152 = sitofp i32 %126 to float
+  %153 = fdiv float %151, %152
+  %154 = fadd float %153, %136
+  %155 = fadd float %154, 5.000000e-01
+  %156 = tail call noundef float @llvm.floor.f32(float %155)
+  %157 = fptosi float %156 to i32
+  br label %158
 
-159:                                              ; preds = %13, %125, %114, %88, %50, %14
-  %.0 = phi i32 [ %37, %14 ], [ %62, %50 ], [ %100, %88 ], [ %124, %114 ], [ %158, %125 ], [ %1, %13 ]
+158:                                              ; preds = %13, %124, %113, %87, %50, %14
+  %.0 = phi i32 [ %37, %14 ], [ %62, %50 ], [ %99, %87 ], [ %123, %113 ], [ %157, %124 ], [ %1, %13 ]
   ret i32 %.0
 }
 

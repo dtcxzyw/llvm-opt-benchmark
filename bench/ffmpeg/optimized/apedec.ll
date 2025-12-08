@@ -372,9 +372,9 @@ define internal i32 @ape_decode_frame(ptr noundef %0, ptr noundef %1, ptr nounde
 
 63:                                               ; preds = %33
   %64 = getelementptr inbounds nuw i8, ptr %8, i64 7512
-  %gepdiff = add nsw i32 %spec.select, -8
-  %or.cond.i = icmp samesign ugt i32 %gepdiff, 268435455
-  %65 = shl nuw nsw i32 %gepdiff, 3
+  %or.cond.i = icmp samesign ugt i32 %spec.select, 268435463
+  %gepdiff = shl i32 %spec.select, 3
+  %65 = add i32 %gepdiff, -64
   %66 = select i1 %or.cond.i, i32 -8, i32 %65
   %or.cond.i.i = icmp ugt i32 %66, 2147483134
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %66

@@ -541,7 +541,7 @@ ffshgetc.exit297:                                 ; preds = %ffshgetc.exit297.lo
 221:                                              ; preds = %217
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
   call void @llvm.va_copy.p0(ptr nonnull %36, ptr nonnull %2)
-  %222 = icmp samesign ugt i32 %215, 1
+  %222 = icmp ugt i8 %117, 49
   %.promoted.i = load i32, ptr %36, align 16
   br i1 %222, label %.lr.ph.i, label %._crit_edge.i299
 

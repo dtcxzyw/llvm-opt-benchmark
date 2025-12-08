@@ -2996,7 +2996,7 @@ define void @Res6_PrintSolutionPla(ptr noundef readonly captures(none) %0, i32 n
 .lr.ph:                                           ; preds = %3
   %9 = getelementptr i8, ptr %0, i64 8
   %10 = add nsw i32 %1, 1
-  %11 = icmp samesign ult i32 %10, 28
+  %11 = icmp slt i32 %1, 27
   %12 = icmp sgt i32 %1, 26
   %wide.trip.count = zext nneg i32 %5 to i64
   br label %13

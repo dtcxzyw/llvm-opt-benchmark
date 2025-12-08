@@ -1352,21 +1352,21 @@ _ZN4intxlsENS_4uintILj128EEEm.exit30.i:           ; preds = %55
   %58 = shl nuw i64 1, %52
   %59 = add nsw i64 %.017, -65
   %60 = shl nuw i64 1, %59
-  %.sroa.08.0.i5262.i = select i1 %57, i64 %58, i64 0
-  %.sroa.49.0.i5460.i = select i1 %57, i64 0, i64 %60
-  store i64 %.sroa.08.0.i5262.i, ptr %8, align 8, !tbaa !9, !alias.scope !93
-  store i64 %.sroa.49.0.i5460.i, ptr %50, align 8, !tbaa !9, !alias.scope !93
+  %.sroa.08.0.i5161.i = select i1 %57, i64 %58, i64 0
+  %.sroa.49.0.i5359.i = select i1 %57, i64 0, i64 %60
+  store i64 %.sroa.08.0.i5161.i, ptr %8, align 8, !tbaa !9, !alias.scope !93
+  store i64 %.sroa.49.0.i5359.i, ptr %50, align 8, !tbaa !9, !alias.scope !93
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %48, i8 0, i64 16, i1 false)
   br label %_ZN4intxlsERKNS_4uintILj256EEEm.exit
 
 _ZN4intxlsENS_4uintILj128EEEm.exit37.i:           ; preds = %55
-  %61 = add nsw i64 %.017, -129
-  %62 = icmp samesign ult i64 %61, 64
-  %63 = shl nuw i64 1, %61
+  %61 = icmp samesign ult i64 %.017, 193
+  %62 = add nsw i64 %.017, -129
+  %63 = shl nuw i64 1, %62
   %64 = add nsw i64 %.017, -193
   %65 = shl nuw i64 1, %64
-  %.sroa.08.0.i33.i = select i1 %62, i64 %63, i64 0
-  %.sroa.49.0.i34.i = select i1 %62, i64 0, i64 %65
+  %.sroa.08.0.i33.i = select i1 %61, i64 %63, i64 0
+  %.sroa.49.0.i34.i = select i1 %61, i64 0, i64 %65
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %8, i8 0, i64 16, i1 false), !alias.scope !93
   store i64 %.sroa.08.0.i33.i, ptr %48, align 8, !tbaa !9, !alias.scope !93
   store i64 %.sroa.49.0.i34.i, ptr %49, align 8, !tbaa !9, !alias.scope !93

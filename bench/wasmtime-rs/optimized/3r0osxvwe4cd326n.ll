@@ -36965,8 +36965,7 @@ default.unreachable7.i5:                          ; preds = %21
   br label %_ZN8wasmtime7runtime5types8HeapType7matches17h180b062b45974c97E.exit6
 
 23:                                               ; preds = %21
-  %.off.i3 = add nsw i64 %3, -1
-  %switch.i4 = icmp samesign ult i64 %.off.i3, 3
+  %switch.i4 = icmp samesign ult i64 %3, 4
   br label %_ZN8wasmtime7runtime5types8HeapType7matches17h180b062b45974c97E.exit6
 
 .thread12:                                        ; preds = %11, %21

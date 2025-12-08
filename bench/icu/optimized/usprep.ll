@@ -892,7 +892,7 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %104, %109, %111
   %118 = load i32, ptr %117, align 4
   %119 = select i1 %114, i32 %118, i32 %116
   %.not218274 = icmp sgt i32 %119, 0
-  br i1 %.not218274, label %.lr.ph, label %.thread329
+  br i1 %.not218274, label %.lr.ph, label %.thread327
 
 .lr.ph:                                           ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit
   %120 = getelementptr inbounds nuw i8, ptr %0, i64 96
@@ -932,9 +932,9 @@ _ZNK6icu_7713UnicodeString9getBufferEv.exit:      ; preds = %104, %109, %111
 139:                                              ; preds = %132
   %140 = add nsw i32 %.0151281, 2
   %141 = shl nuw nsw i32 %129, 10
-  %142 = add nsw i32 %141, -56613888
-  %143 = add nuw nsw i32 %142, %136
-  %144 = icmp samesign ult i32 %143, 1114112
+  %142 = add nuw nsw i32 %141, %136
+  %143 = add nsw i32 %142, -56613888
+  %144 = icmp samesign ult i32 %142, 57728000
   br i1 %144, label %160, label %200
 
 .thread:                                          ; preds = %132, %124
@@ -1129,7 +1129,7 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
   %243 = getelementptr inbounds nuw i8, ptr %0, i64 126
   %244 = load i8, ptr %243, align 2, !tbaa !32
   %.not219 = icmp eq i8 %244, 0
-  br i1 %.not219, label %.thread329, label %245
+  br i1 %.not219, label %.thread327, label %245
 
 245:                                              ; preds = %._crit_edge
   %246 = call i32 @llvm.smax.i32(i32 %.2161, i32 %.2156)
@@ -1143,7 +1143,7 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
   br label %261
 
 251:                                              ; preds = %245
-  br i1 %242, label %252, label %.thread329
+  br i1 %242, label %252, label %.thread327
 
 252:                                              ; preds = %251
   switch i32 %.2174, label %.invoke [
@@ -1153,8 +1153,8 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
 
 253:                                              ; preds = %252, %252
   switch i32 %.2179, label %.invoke [
-    i32 13, label %.thread329
-    i32 1, label %.thread329
+    i32 13, label %.thread327
+    i32 1, label %.thread327
   ]
 
 .invoke:                                          ; preds = %252, %253, %245
@@ -1163,17 +1163,17 @@ uprv_syntaxError_77.exit:                         ; preds = %237, %.thread243, %
   invoke void @uprv_syntaxError_77(ptr noundef nonnull %.0.i, i32 noundef %254, i32 noundef %119, ptr noundef %6)
           to label %.thread253 unwind label %249
 
-.thread329:                                       ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %253, %253, %251, %._crit_edge
+.thread327:                                       ; preds = %_ZNK6icu_7713UnicodeString9getBufferEv.exit, %253, %253, %251, %._crit_edge
   store ptr %3, ptr %12, align 8, !tbaa !54
   %255 = invoke noundef i32 @_ZNK6icu_7713UnicodeString7extractENS_9Char16PtrEiR10UErrorCode(ptr noundef nonnull align 8 dereferenceable(64) %10, ptr noundef nonnull %12, i32 noundef %4, ptr noundef nonnull align 4 dereferenceable(4) %7)
           to label %256 unwind label %258
 
-256:                                              ; preds = %.thread329
+256:                                              ; preds = %.thread327
   %257 = load ptr, ptr %12, align 8, !tbaa !54
   call void asm sideeffect "", "rm,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr %257) #18, !srcloc !57
   br label %.thread253
 
-258:                                              ; preds = %.thread329
+258:                                              ; preds = %.thread327
   %259 = landingpad { ptr, i32 }
           cleanup
   %260 = load ptr, ptr %12, align 8, !tbaa !54
@@ -1264,9 +1264,9 @@ define internal fastcc noundef i32 @_ZL10usprep_mapPK18UStringPrepProfilePKDsiPD
 35:                                               ; preds = %28
   %36 = add nsw i32 %.0112149, 2
   %37 = shl nuw nsw i32 %25, 10
-  %38 = add nsw i32 %37, -56613888
-  %39 = add nuw nsw i32 %38, %32
-  %40 = icmp samesign ult i32 %39, 1114112
+  %38 = add nuw nsw i32 %37, %32
+  %39 = add nsw i32 %38, -56613888
+  %40 = icmp samesign ult i32 %38, 57728000
   br i1 %40, label %56, label %93
 
 .thread:                                          ; preds = %28, %20
@@ -1439,15 +1439,15 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   %.not125 = icmp sle i32 %139, %137
   %.pre = load i32, ptr %15, align 4, !tbaa !25
   %140 = icmp sgt i32 %.pre, %137
-  %or.cond179 = select i1 %.not125, i1 %140, i1 false
-  br i1 %or.cond179, label %.lr.ph, label %141
+  %or.cond177 = select i1 %.not125, i1 %140, i1 false
+  br i1 %or.cond177, label %.lr.ph, label %141
 
 141:                                              ; preds = %138
   %.not126 = icmp sle i32 %.pre, %137
   %.pre161 = load i32, ptr %16, align 4, !tbaa !25
   %142 = icmp sgt i32 %.pre161, %137
-  %or.cond180 = select i1 %.not126, i1 %142, i1 false
-  br i1 %or.cond180, label %.lr.ph, label %143
+  %or.cond178 = select i1 %.not126, i1 %142, i1 false
+  br i1 %or.cond178, label %.lr.ph, label %143
 
 143:                                              ; preds = %141
   %.not127 = icmp sgt i32 %.pre161, %137
@@ -1469,9 +1469,9 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
   br i1 %.not153, label %.loopexit, label %.lr.ph, !llvm.loop !58
 
 .lr.ph:                                           ; preds = %141, %138, %144, %147
-  %.098176 = phi i64 [ %153, %147 ], [ 3, %144 ], [ 1, %138 ], [ 2, %141 ]
-  %.099175 = phi i32 [ %149, %147 ], [ %137, %144 ], [ %137, %138 ], [ %137, %141 ]
-  %154 = sext i32 %.099175 to i64
+  %.098174 = phi i64 [ %153, %147 ], [ 3, %144 ], [ 1, %138 ], [ 2, %141 ]
+  %.099173 = phi i32 [ %149, %147 ], [ %137, %144 ], [ %137, %138 ], [ %137, %141 ]
+  %154 = sext i32 %.099173 to i64
   %155 = sext i32 %.0105150 to i64
   br label %156, !llvm.loop !58
 
@@ -1493,7 +1493,7 @@ _ZL9getValuestRsRa.exit:                          ; preds = %96, %101, %103, %.s
 164:                                              ; preds = %158, %156
   %indvars.iv.next157 = add nsw i64 %indvars.iv156, 1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %.098176
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %.098174
   br i1 %exitcond.not, label %..loopexit_crit_edge, label %156, !llvm.loop !59
 
 .thread139:                                       ; preds = %136

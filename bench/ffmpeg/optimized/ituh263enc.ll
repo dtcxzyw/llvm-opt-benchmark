@@ -6300,7 +6300,7 @@ define internal fastcc void @init_mv_penalty_and_fcode() unnamed_addr #7 {
   br label %31
 
 23:                                               ; preds = %11
-  %.not.i = icmp samesign ult i32 %15, 2097152
+  %.not.i = icmp slt i32 %14, 2097151
   %spec.select.i.v = select i1 %.not.i, i32 5, i32 21
   %spec.select.i = lshr i32 %15, %spec.select.i.v
   %spec.select12.i = select i1 %.not.i, i8 0, i8 16

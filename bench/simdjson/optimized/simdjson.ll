@@ -40604,136 +40604,137 @@ thread-pre-split:                                 ; preds = %20
   tail call void @_ZN8simdjson8internal19decimal_right_shiftERNS0_7decimalEj(ptr noundef nonnull align 4 dereferenceable(780) %0, i32 noundef %spec.store.select)
   %51 = add nuw nsw i32 %spec.store.select, %.593
   %52 = icmp samesign ult i32 %51, -1022
-  br i1 %52, label %.lr.ph94, label %._crit_edge, !llvm.loop !391
+  br i1 %52, label %.lr.ph94, label %._crit_edge.thread, !llvm.loop !391
 
-._crit_edge:                                      ; preds = %.lr.ph94, %.thread68
-  %.5.lcssa = phi i32 [ %48, %.thread68 ], [ %51, %.lr.ph94 ]
-  %53 = add nsw i32 %.5.lcssa, 1023
-  %.not = icmp samesign ult i32 %53, 2047
-  br i1 %.not, label %54, label %.thread63
+._crit_edge:                                      ; preds = %.thread68
+  %.not = icmp slt i32 %.2.lcssa.ph, 1025
+  br i1 %.not, label %._crit_edge.thread, label %.thread63
 
-54:                                               ; preds = %._crit_edge
+._crit_edge.thread:                               ; preds = %.lr.ph94, %._crit_edge
+  %.5.lcssa112 = phi i32 [ %48, %._crit_edge ], [ %51, %.lr.ph94 ]
   tail call void @_ZN8simdjson8internal18decimal_left_shiftERNS0_7decimalEj(ptr noundef nonnull align 4 dereferenceable(780) %0, i32 noundef 53)
-  %55 = load i32, ptr %0, align 4, !tbaa !13
-  %56 = icmp eq i32 %55, 0
-  br i1 %56, label %.thread76, label %57
+  %53 = load i32, ptr %0, align 4, !tbaa !13
+  %54 = icmp eq i32 %53, 0
+  br i1 %54, label %.thread76, label %55
 
-57:                                               ; preds = %54
-  %58 = load i32, ptr %5, align 4, !tbaa !16
-  %59 = icmp slt i32 %58, 0
-  br i1 %59, label %.thread76, label %60
+55:                                               ; preds = %._crit_edge.thread
+  %56 = load i32, ptr %5, align 4, !tbaa !16
+  %57 = icmp slt i32 %56, 0
+  br i1 %57, label %.thread76, label %58
 
-60:                                               ; preds = %57
-  %61 = icmp samesign ugt i32 %58, 18
-  br i1 %61, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, label %.preheader.i
+58:                                               ; preds = %55
+  %59 = icmp samesign ugt i32 %56, 18
+  br i1 %59, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, label %.preheader.i
 
-.preheader.i:                                     ; preds = %60
-  %.not42.i = icmp eq i32 %58, 0
+.preheader.i:                                     ; preds = %58
+  %.not42.i = icmp eq i32 %56, 0
   br i1 %.not42.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %.preheader.i
-  %62 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %63 = zext i32 %55 to i64
-  %wide.trip.count.i = zext nneg i32 %58 to i64
-  br label %65
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %61 = zext i32 %53 to i64
+  %wide.trip.count.i = zext nneg i32 %56 to i64
+  br label %63
 
-._crit_edge.i:                                    ; preds = %72, %.preheader.i
-  %.028.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %74, %72 ]
-  %64 = icmp ult i32 %58, %55
-  br i1 %64, label %75, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
+._crit_edge.i:                                    ; preds = %70, %.preheader.i
+  %.028.lcssa.i = phi i64 [ 0, %.preheader.i ], [ %72, %70 ]
+  %62 = icmp ult i32 %56, %53
+  br i1 %62, label %73, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
 
-65:                                               ; preds = %72, %.lr.ph.i
-  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %72 ]
-  %.02840.i = phi i64 [ 0, %.lr.ph.i ], [ %74, %72 ]
-  %66 = mul i64 %.02840.i, 10
-  %67 = icmp samesign ult i64 %indvars.iv.i, %63
-  br i1 %67, label %68, label %72
+63:                                               ; preds = %70, %.lr.ph.i
+  %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %70 ]
+  %.02840.i = phi i64 [ 0, %.lr.ph.i ], [ %72, %70 ]
+  %64 = mul i64 %.02840.i, 10
+  %65 = icmp samesign ult i64 %indvars.iv.i, %61
+  br i1 %65, label %66, label %70
 
-68:                                               ; preds = %65
-  %69 = getelementptr inbounds nuw i8, ptr %62, i64 %indvars.iv.i
-  %70 = load i8, ptr %69, align 1, !tbaa !4
-  %71 = zext i8 %70 to i64
-  br label %72
+66:                                               ; preds = %63
+  %67 = getelementptr inbounds nuw i8, ptr %60, i64 %indvars.iv.i
+  %68 = load i8, ptr %67, align 1, !tbaa !4
+  %69 = zext i8 %68 to i64
+  br label %70
 
-72:                                               ; preds = %68, %65
-  %73 = phi i64 [ %71, %68 ], [ 0, %65 ]
-  %74 = add i64 %73, %66
+70:                                               ; preds = %66, %63
+  %71 = phi i64 [ %69, %66 ], [ 0, %63 ]
+  %72 = add i64 %71, %64
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %._crit_edge.i, label %65, !llvm.loop !34
+  br i1 %exitcond.not.i, label %._crit_edge.i, label %63, !llvm.loop !34
 
-75:                                               ; preds = %._crit_edge.i
-  %76 = getelementptr inbounds nuw i8, ptr %0, i64 10
-  %77 = zext nneg i32 %58 to i64
-  %78 = getelementptr inbounds nuw i8, ptr %76, i64 %77
-  %79 = load i8, ptr %78, align 1, !tbaa !4
-  %.fr.i = freeze i8 %79
-  %80 = icmp eq i8 %.fr.i, 5
-  %81 = add nuw nsw i32 %58, 1
-  %82 = icmp eq i32 %81, %55
-  %or.cond.i = select i1 %80, i1 %82, i1 false
-  br i1 %or.cond.i, label %83, label %92
+73:                                               ; preds = %._crit_edge.i
+  %74 = getelementptr inbounds nuw i8, ptr %0, i64 10
+  %75 = zext nneg i32 %56 to i64
+  %76 = getelementptr inbounds nuw i8, ptr %74, i64 %75
+  %77 = load i8, ptr %76, align 1, !tbaa !4
+  %.fr.i = freeze i8 %77
+  %78 = icmp eq i8 %.fr.i, 5
+  %79 = add nuw nsw i32 %56, 1
+  %80 = icmp eq i32 %79, %53
+  %or.cond.i = select i1 %78, i1 %80, i1 false
+  br i1 %or.cond.i, label %81, label %90
 
-83:                                               ; preds = %75
-  %84 = getelementptr inbounds nuw i8, ptr %0, i64 9
-  %85 = load i8, ptr %84, align 1, !tbaa !17, !range !35, !noundef !36
-  %86 = trunc nuw i8 %85 to i1
-  br i1 %86, label %.thread35.i, label %87
+81:                                               ; preds = %73
+  %82 = getelementptr inbounds nuw i8, ptr %0, i64 9
+  %83 = load i8, ptr %82, align 1, !tbaa !17, !range !35, !noundef !36
+  %84 = trunc nuw i8 %83 to i1
+  br i1 %84, label %.thread35.i, label %85
 
-87:                                               ; preds = %83
-  br i1 %.not42.i, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit, label %88
+85:                                               ; preds = %81
+  br i1 %.not42.i, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit, label %86
 
-88:                                               ; preds = %87
-  %89 = getelementptr i8, ptr %78, i64 -1
-  %90 = load i8, ptr %89, align 1, !tbaa !4
-  %.fr39.i = freeze i8 %90
-  %91 = trunc i8 %.fr39.i to i1
+86:                                               ; preds = %85
+  %87 = getelementptr i8, ptr %76, i64 -1
+  %88 = load i8, ptr %87, align 1, !tbaa !4
+  %.fr39.i = freeze i8 %88
+  %89 = trunc i8 %.fr39.i to i1
+  br i1 %89, label %.thread35.i, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
+
+90:                                               ; preds = %73
+  %91 = icmp ugt i8 %.fr.i, 4
   br i1 %91, label %.thread35.i, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
 
-92:                                               ; preds = %75
-  %93 = icmp ugt i8 %.fr.i, 4
-  br i1 %93, label %.thread35.i, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
-
-.thread35.i:                                      ; preds = %92, %88, %83
-  %94 = add i64 %.028.lcssa.i, 1
+.thread35.i:                                      ; preds = %90, %86, %81
+  %92 = add i64 %.028.lcssa.i, 1
   br label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
 
-_ZN8simdjson8internal5roundERNS0_7decimalE.exit:  ; preds = %._crit_edge.i, %87, %88, %92, %.thread35.i
-  %.029.i = phi i64 [ %94, %.thread35.i ], [ %.028.lcssa.i, %92 ], [ %.028.lcssa.i, %88 ], [ %.028.lcssa.i, %._crit_edge.i ], [ %.028.lcssa.i, %87 ]
-  %95 = icmp ugt i64 %.029.i, 9007199254740991
-  br i1 %95, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, label %97
+.thread76:                                        ; preds = %._crit_edge.thread, %55
+  %93 = add nsw i32 %.5.lcssa112, 1023
+  br label %100
 
-_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74: ; preds = %60, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
+_ZN8simdjson8internal5roundERNS0_7decimalE.exit:  ; preds = %._crit_edge.i, %85, %86, %90, %.thread35.i
+  %.029.i = phi i64 [ %92, %.thread35.i ], [ %.028.lcssa.i, %90 ], [ %.028.lcssa.i, %86 ], [ %.028.lcssa.i, %._crit_edge.i ], [ %.028.lcssa.i, %85 ]
+  %94 = icmp ugt i64 %.029.i, 9007199254740991
+  br i1 %94, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, label %97
+
+_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74: ; preds = %58, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
   tail call void @_ZN8simdjson8internal19decimal_right_shiftERNS0_7decimalEj(ptr noundef nonnull align 4 dereferenceable(780) %0, i32 noundef 1)
-  %.not54 = icmp slt i32 %.5.lcssa, 1023
-  br i1 %.not54, label %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74._crit_edge, label %.thread63
-
-_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74._crit_edge: ; preds = %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74
+  %95 = add nsw i32 %.5.lcssa112, 1
   %96 = tail call noundef i64 @_ZN8simdjson8internal5roundERNS0_7decimalE(ptr noundef nonnull align 4 dereferenceable(780) %0)
-  %.pre = add nsw i32 %.5.lcssa, 1024
-  br label %97
+  %.not54.not = icmp eq i32 %.5.lcssa112, 1023
+  br i1 %.not54.not, label %.thread63, label %97
 
-97:                                               ; preds = %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74._crit_edge, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
-  %.pre-phi = phi i32 [ %.pre, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74._crit_edge ], [ %53, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit ]
-  %.0 = phi i64 [ %96, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74._crit_edge ], [ %.029.i, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit ]
-  %98 = icmp ult i64 %.0, 4503599627370496
-  br i1 %98, label %.thread76, label %101
+97:                                               ; preds = %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit
+  %.6 = phi i32 [ %95, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74 ], [ %.5.lcssa112, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit ]
+  %.0 = phi i64 [ %96, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74 ], [ %.029.i, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit ]
+  %98 = add nsw i32 %.6, 1023
+  %99 = icmp ult i64 %.0, 4503599627370496
+  br i1 %99, label %100, label %103
 
-.thread76:                                        ; preds = %57, %54, %97
-  %99 = phi i32 [ %.pre-phi, %97 ], [ %53, %54 ], [ %53, %57 ]
-  %.081 = phi i64 [ %.0, %97 ], [ 0, %54 ], [ 0, %57 ]
-  %100 = add nsw i32 %99, -1
-  br label %101
+100:                                              ; preds = %.thread76, %97
+  %101 = phi i32 [ %93, %.thread76 ], [ %98, %97 ]
+  %.081 = phi i64 [ 0, %.thread76 ], [ %.0, %97 ]
+  %102 = add nsw i32 %101, -1
+  br label %103
 
-101:                                              ; preds = %.thread76, %97
-  %.080 = phi i64 [ %.081, %.thread76 ], [ %.0, %97 ]
-  %.sroa.8.6 = phi i32 [ %100, %.thread76 ], [ %.pre-phi, %97 ]
-  %102 = and i64 %.080, 4503599627370495
+103:                                              ; preds = %100, %97
+  %.080 = phi i64 [ %.081, %100 ], [ %.0, %97 ]
+  %.sroa.8.6 = phi i32 [ %102, %100 ], [ %98, %97 ]
+  %104 = and i64 %.080, 4503599627370495
   br label %.thread63
 
-.thread63:                                        ; preds = %20, %42, %101, %._crit_edge, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, %8, %4, %1
-  %.sroa.8.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 2047, %8 ], [ %.sroa.8.6, %101 ], [ 2047, %._crit_edge ], [ 2047, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74 ], [ 255, %42 ], [ 0, %20 ]
-  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 0, %4 ], [ 0, %8 ], [ %102, %101 ], [ 0, %._crit_edge ], [ 0, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74 ], [ 0, %42 ], [ 0, %20 ]
+.thread63:                                        ; preds = %20, %42, %103, %._crit_edge, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74, %8, %4, %1
+  %.sroa.8.0 = phi i32 [ 0, %1 ], [ 0, %4 ], [ 2047, %8 ], [ %.sroa.8.6, %103 ], [ 2047, %._crit_edge ], [ 2047, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74 ], [ 255, %42 ], [ 0, %20 ]
+  %.sroa.0.0 = phi i64 [ 0, %1 ], [ 0, %4 ], [ 0, %8 ], [ %104, %103 ], [ 0, %._crit_edge ], [ 0, %_ZN8simdjson8internal5roundERNS0_7decimalE.exit.thread74 ], [ 0, %42 ], [ 0, %20 ]
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0.0, 0
   %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.8.0, 1
   ret { i64, i32 } %.fca.1.insert

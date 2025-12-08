@@ -3310,7 +3310,7 @@ ssh_decrypt_chacha20.exit243.i:                   ; preds = %77
   %153 = load i8, ptr %152, align 1
   %154 = add i8 %153, 1
   store i8 %154, ptr %152, align 1
-  %155 = icmp samesign ugt i64 %indvars.iv.next.i, 4
+  %155 = icmp samesign ugt i64 %indvars.iv.i, 5
   %156 = icmp eq i8 %154, 0
   %or.cond242.i = select i1 %155, i1 %156, i1 false
   br i1 %or.cond242.i, label %.preheader.i, label %.critedge.i, !llvm.loop !17

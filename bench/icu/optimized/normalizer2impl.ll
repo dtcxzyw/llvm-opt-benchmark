@@ -2215,9 +2215,9 @@ define void @_ZNK6icu_7715Normalizer2Impl17addPropertyStartsEPK9USetAdderR10UErr
   %6 = load ptr, ptr %5, align 8, !tbaa !45
   %7 = call i32 @ucptrie_getRange_77(ptr noundef %6, i32 noundef 0, i32 noundef 1, i32 noundef 1, ptr noundef null, ptr noundef null, ptr noundef nonnull %4)
   %8 = icmp sgt i32 %7, -1
-  br i1 %8, label %.lr.ph45, label %.preheader
+  br i1 %8, label %.lr.ph46, label %.preheader
 
-.lr.ph45:                                         ; preds = %3
+.lr.ph46:                                         ; preds = %3
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 26
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 30
@@ -2229,13 +2229,13 @@ define void @_ZNK6icu_7715Normalizer2Impl17addPropertyStartsEPK9USetAdderR10UErr
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 8
   br label %78
 
-15:                                               ; preds = %.lr.ph45, %.loopexit
-  %16 = phi i32 [ %7, %.lr.ph45 ], [ %73, %.loopexit ]
-  %.02744 = phi i32 [ 0, %.lr.ph45 ], [ %71, %.loopexit ]
+15:                                               ; preds = %.lr.ph46, %.loopexit
+  %16 = phi i32 [ %7, %.lr.ph46 ], [ %73, %.loopexit ]
+  %.02745 = phi i32 [ 0, %.lr.ph46 ], [ %71, %.loopexit ]
   %17 = load ptr, ptr %9, align 8, !tbaa !75
   %18 = load ptr, ptr %1, align 8, !tbaa !78
-  call void %17(ptr noundef %18, i32 noundef %.02744)
-  %.not = icmp eq i32 %.02744, %16
+  call void %17(ptr noundef %18, i32 noundef %.02745)
+  %.not = icmp eq i32 %.02745, %16
   br i1 %.not, label %.loopexit, label %19
 
 19:                                               ; preds = %15
@@ -2254,22 +2254,22 @@ define void @_ZNK6icu_7715Normalizer2Impl17addPropertyStartsEPK9USetAdderR10UErr
 27:                                               ; preds = %19
   %28 = load i16, ptr %12, align 8, !tbaa !61
   %29 = zext i16 %28 to i32
-  %30 = icmp slt i32 %.02744, %29
+  %30 = icmp slt i32 %.02745, %29
   br i1 %30, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit, label %31
 
 31:                                               ; preds = %27
-  %32 = icmp samesign ult i32 %.02744, 65536
+  %32 = icmp samesign ult i32 %.02745, 65536
   br i1 %32, label %33, label %45
 
 33:                                               ; preds = %31
   %34 = load ptr, ptr %13, align 8, !tbaa !73
-  %35 = lshr i32 %.02744, 8
+  %35 = lshr i32 %.02745, 8
   %36 = zext nneg i32 %35 to i64
   %37 = getelementptr inbounds nuw i8, ptr %34, i64 %36
   %38 = load i8, ptr %37, align 1, !tbaa !25
   %39 = icmp eq i8 %38, 0
   %40 = zext i8 %38 to i32
-  %41 = lshr i32 %.02744, 5
+  %41 = lshr i32 %.02745, 5
   %42 = and i32 %41, 7
   %43 = shl nuw nsw i32 1, %42
   %44 = and i32 %43, %40
@@ -2278,25 +2278,25 @@ define void @_ZNK6icu_7715Normalizer2Impl17addPropertyStartsEPK9USetAdderR10UErr
   br i1 %.not.i36, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit, label %45
 
 45:                                               ; preds = %33, %31
-  %46 = call noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.02744)
+  %46 = call noundef zeroext i16 @_ZNK6icu_7715Normalizer2Impl20getFCD16FromNormDataEi(ptr noundef nonnull align 8 dereferenceable(80) %0, i32 noundef %.02745)
   br label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit
 
 _ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit:     ; preds = %27, %33, %45
   %.0.i = phi i16 [ %46, %45 ], [ 0, %27 ], [ 0, %33 ]
-  %.not34.not42 = icmp slt i32 %.02744, %16
+  %.not34.not42 = icmp slt i32 %.02745, %16
   br i1 %.not34.not42, label %.lr.ph, label %.loopexit
 
 .lr.ph:                                           ; preds = %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit, %70
-  %.in = phi i32 [ %47, %70 ], [ %.02744, %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit ]
+  %.144 = phi i32 [ %47, %70 ], [ %.02745, %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit ]
   %.02843 = phi i16 [ %.129, %70 ], [ %.0.i, %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit ]
-  %47 = add nuw nsw i32 %.in, 1
+  %47 = add nuw nsw i32 %.144, 1
   %48 = load i16, ptr %12, align 8, !tbaa !61
   %49 = zext i16 %48 to i32
   %50 = icmp slt i32 %47, %49
   br i1 %50, label %_ZNK6icu_7715Normalizer2Impl8getFCD16Ei.exit40, label %51
 
 51:                                               ; preds = %.lr.ph
-  %52 = icmp ult i32 %.in, 65535
+  %52 = icmp slt i32 %.144, 65535
   br i1 %52, label %53, label %65
 
 53:                                               ; preds = %51

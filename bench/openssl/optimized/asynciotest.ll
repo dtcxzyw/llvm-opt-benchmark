@@ -403,7 +403,7 @@ define internal i32 @async_write(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %11 = load i32, ptr %10, align 4, !tbaa !19
   %.not = icmp eq i32 %11, 0
-  br i1 %.not, label %149, label %12
+  br i1 %.not, label %145, label %12
 
 12:                                               ; preds = %8
   store i32 0, ptr %10, align 4, !tbaa !19
@@ -417,10 +417,10 @@ define internal i32 @async_write(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   %17 = getelementptr inbounds nuw i8, ptr %4, i64 5
   br label %18
 
-18:                                               ; preds = %135, %13
-  %.sroa.0147.0 = phi ptr [ %1, %13 ], [ %42, %135 ]
-  %.sroa.11.0 = phi i64 [ %14, %13 ], [ %43, %135 ]
-  %.241 = phi i64 [ 0, %13 ], [ %127, %135 ]
+18:                                               ; preds = %131, %13
+  %.sroa.0147.0 = phi ptr [ %1, %13 ], [ %42, %131 ]
+  %.sroa.11.0 = phi i64 [ %14, %13 ], [ %43, %131 ]
+  %.241 = phi i64 [ 0, %13 ], [ %123, %131 ]
   %.not51 = icmp eq i64 %.sroa.11.0, 0
   br i1 %.not51, label %.thread281, label %19
 
@@ -472,198 +472,193 @@ define internal i32 @async_write(ptr noundef %0, ptr noundef %1, i32 noundef %2)
   br i1 %48, label %49, label %.thread
 
 49:                                               ; preds = %46
-  %50 = icmp samesign ult i64 %37, 4
-  %51 = and i64 %37, 65534
-  %52 = icmp eq i64 %51, 4
-  %or.cond291 = or i1 %50, %52
-  br i1 %or.cond291, label %PACKET_get_1.exit76.thread, label %53
+  %50 = icmp samesign ult i64 %37, 6
+  br i1 %50, label %PACKET_get_1.exit76.thread, label %51
 
-53:                                               ; preds = %49
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 9
-  %55 = load i8, ptr %54, align 1, !tbaa !22
-  %56 = zext i8 %55 to i32
-  %57 = shl nuw nsw i32 %56, 8
-  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 10
-  %59 = load i8, ptr %58, align 1, !tbaa !22
-  %60 = zext i8 %59 to i32
-  %61 = or disjoint i32 %57, %60
-  %62 = add nsw i64 %37, -6
-  %or.cond292 = icmp samesign ult i64 %62, 33
-  br i1 %or.cond292, label %PACKET_get_1.exit76.thread, label %63
+51:                                               ; preds = %49
+  %52 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 9
+  %53 = load i8, ptr %52, align 1, !tbaa !22
+  %54 = zext i8 %53 to i32
+  %55 = shl nuw nsw i32 %54, 8
+  %56 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 10
+  %57 = load i8, ptr %56, align 1, !tbaa !22
+  %58 = zext i8 %57 to i32
+  %59 = or disjoint i32 %55, %58
+  %or.cond291 = icmp samesign ult i64 %37, 39
+  br i1 %or.cond291, label %PACKET_get_1.exit76.thread, label %60
 
-63:                                               ; preds = %53
-  %64 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 43
-  %65 = load i8, ptr %64, align 1, !tbaa !22
-  %66 = add nsw i64 %37, -39
-  %67 = zext i8 %65 to i64
-  %68 = icmp samesign ult i64 %66, %67
+60:                                               ; preds = %51
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 43
+  %62 = load i8, ptr %61, align 1, !tbaa !22
+  %63 = add nsw i64 %37, -39
+  %64 = zext i8 %62 to i64
+  %65 = icmp samesign ult i64 %63, %64
+  br i1 %65, label %PACKET_get_1.exit76.thread, label %66
+
+66:                                               ; preds = %60
+  %67 = sub nuw nsw i64 %63, %64
+  %68 = icmp samesign ult i64 %67, 3
   br i1 %68, label %PACKET_get_1.exit76.thread, label %69
 
-69:                                               ; preds = %63
-  %70 = sub nuw nsw i64 %66, %67
-  %71 = icmp samesign ult i64 %70, 3
+69:                                               ; preds = %66
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 %64
+  %71 = icmp samesign ult i64 %67, 5
   br i1 %71, label %PACKET_get_1.exit76.thread, label %72
 
 72:                                               ; preds = %69
-  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0147.0, i64 %67
-  %74 = add nsw i64 %70, -3
-  %75 = icmp samesign ult i64 %74, 2
-  br i1 %75, label %PACKET_get_1.exit76.thread, label %76
-
-76:                                               ; preds = %72
-  %77 = getelementptr inbounds nuw i8, ptr %73, i64 47
+  %73 = getelementptr inbounds nuw i8, ptr %70, i64 47
+  %74 = load i8, ptr %73, align 1, !tbaa !22
+  %75 = zext i8 %74 to i64
+  %76 = shl nuw nsw i64 %75, 8
+  %77 = getelementptr inbounds nuw i8, ptr %70, i64 48
   %78 = load i8, ptr %77, align 1, !tbaa !22
   %79 = zext i8 %78 to i64
-  %80 = shl nuw nsw i64 %79, 8
-  %81 = getelementptr inbounds nuw i8, ptr %73, i64 48
-  %82 = load i8, ptr %81, align 1, !tbaa !22
-  %83 = zext i8 %82 to i64
-  %84 = or disjoint i64 %80, %83
-  %85 = add nsw i64 %70, -5
-  %86 = icmp samesign ult i64 %85, %84
-  br i1 %86, label %PACKET_get_1.exit76.thread, label %PACKET_get_length_prefixed_2.exit103
+  %80 = or disjoint i64 %76, %79
+  %81 = add nsw i64 %67, -5
+  %82 = icmp samesign ult i64 %81, %80
+  br i1 %82, label %PACKET_get_1.exit76.thread, label %PACKET_get_length_prefixed_2.exit103
 
-PACKET_get_length_prefixed_2.exit103:             ; preds = %76
-  %87 = getelementptr inbounds nuw i8, ptr %73, i64 49
+PACKET_get_length_prefixed_2.exit103:             ; preds = %72
+  %83 = getelementptr inbounds nuw i8, ptr %70, i64 49
   br label %.critedge.outer
 
-.critedge.outer:                                  ; preds = %116, %PACKET_get_length_prefixed_2.exit103
-  %.sroa.7.3.ph = phi i64 [ %112, %116 ], [ %84, %PACKET_get_length_prefixed_2.exit103 ]
-  %.sroa.0129.3.ph = phi ptr [ %111, %116 ], [ %87, %PACKET_get_length_prefixed_2.exit103 ]
-  %.1157.ph = phi i32 [ %123, %116 ], [ %61, %PACKET_get_length_prefixed_2.exit103 ]
+.critedge.outer:                                  ; preds = %112, %PACKET_get_length_prefixed_2.exit103
+  %.sroa.7.3.ph = phi i64 [ %108, %112 ], [ %80, %PACKET_get_length_prefixed_2.exit103 ]
+  %.sroa.0129.3.ph = phi ptr [ %107, %112 ], [ %83, %PACKET_get_length_prefixed_2.exit103 ]
+  %.1157.ph = phi i32 [ %119, %112 ], [ %59, %PACKET_get_length_prefixed_2.exit103 ]
   br label %.critedge
 
-.critedge:                                        ; preds = %.critedge.outer, %109
-  %.sroa.7.3 = phi i64 [ %112, %109 ], [ %.sroa.7.3.ph, %.critedge.outer ]
-  %.sroa.0129.3 = phi ptr [ %111, %109 ], [ %.sroa.0129.3.ph, %.critedge.outer ]
-  switch i64 %.sroa.7.3, label %88 [
+.critedge:                                        ; preds = %.critedge.outer, %105
+  %.sroa.7.3 = phi i64 [ %108, %105 ], [ %.sroa.7.3.ph, %.critedge.outer ]
+  %.sroa.0129.3 = phi ptr [ %107, %105 ], [ %.sroa.0129.3.ph, %.critedge.outer ]
+  switch i64 %.sroa.7.3, label %84 [
     i64 0, label %.thread.loopexit
     i64 1, label %PACKET_get_1.exit76.thread
   ]
 
-88:                                               ; preds = %.critedge
-  %89 = load i8, ptr %.sroa.0129.3, align 1, !tbaa !22
+84:                                               ; preds = %.critedge
+  %85 = load i8, ptr %.sroa.0129.3, align 1, !tbaa !22
+  %86 = zext i8 %85 to i32
+  %87 = shl nuw nsw i32 %86, 8
+  %88 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 1
+  %89 = load i8, ptr %88, align 1, !tbaa !22
   %90 = zext i8 %89 to i32
-  %91 = shl nuw nsw i32 %90, 8
-  %92 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 1
-  %93 = load i8, ptr %92, align 1, !tbaa !22
-  %94 = zext i8 %93 to i32
-  %95 = or disjoint i32 %91, %94
-  %96 = and i64 %.sroa.7.3, -2
-  %97 = icmp eq i64 %96, 2
-  br i1 %97, label %PACKET_get_1.exit76.thread, label %98, !llvm.loop !23
+  %91 = or disjoint i32 %87, %90
+  %92 = and i64 %.sroa.7.3, -2
+  %93 = icmp eq i64 %92, 2
+  br i1 %93, label %PACKET_get_1.exit76.thread, label %94, !llvm.loop !23
 
-98:                                               ; preds = %88
-  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 2
+94:                                               ; preds = %84
+  %95 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 2
+  %96 = load i8, ptr %95, align 1, !tbaa !22
+  %97 = zext i8 %96 to i64
+  %98 = shl nuw nsw i64 %97, 8
+  %99 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 3
   %100 = load i8, ptr %99, align 1, !tbaa !22
   %101 = zext i8 %100 to i64
-  %102 = shl nuw nsw i64 %101, 8
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 3
-  %104 = load i8, ptr %103, align 1, !tbaa !22
-  %105 = zext i8 %104 to i64
-  %106 = or disjoint i64 %102, %105
-  %107 = add i64 %.sroa.7.3, -4
-  %108 = icmp ult i64 %107, %106
-  br i1 %108, label %PACKET_get_1.exit76.thread, label %109, !llvm.loop !23
+  %102 = or disjoint i64 %98, %101
+  %103 = add i64 %.sroa.7.3, -4
+  %104 = icmp ult i64 %103, %102
+  br i1 %104, label %PACKET_get_1.exit76.thread, label %105, !llvm.loop !23
 
-109:                                              ; preds = %98
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 4
-  %111 = getelementptr inbounds nuw i8, ptr %110, i64 %106
-  %112 = sub nuw i64 %107, %106
-  %113 = icmp eq i32 %95, 43
-  br i1 %113, label %114, label %.critedge
+105:                                              ; preds = %94
+  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 4
+  %107 = getelementptr inbounds nuw i8, ptr %106, i64 %102
+  %108 = sub nuw i64 %103, %102
+  %109 = icmp eq i32 %91, 43
+  br i1 %109, label %110, label %.critedge
 
-114:                                              ; preds = %109
-  %115 = icmp samesign ult i64 %106, 2
-  br i1 %115, label %PACKET_get_1.exit76.thread, label %116, !llvm.loop !23
+110:                                              ; preds = %105
+  %111 = icmp samesign ult i64 %102, 2
+  br i1 %111, label %PACKET_get_1.exit76.thread, label %112, !llvm.loop !23
 
-116:                                              ; preds = %114
-  %117 = load i8, ptr %110, align 1, !tbaa !22
+112:                                              ; preds = %110
+  %113 = load i8, ptr %106, align 1, !tbaa !22
+  %114 = zext i8 %113 to i32
+  %115 = shl nuw nsw i32 %114, 8
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 5
+  %117 = load i8, ptr %116, align 1, !tbaa !22
   %118 = zext i8 %117 to i32
-  %119 = shl nuw nsw i32 %118, 8
-  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0129.3, i64 5
-  %121 = load i8, ptr %120, align 1, !tbaa !22
-  %122 = zext i8 %121 to i32
-  %123 = or disjoint i32 %119, %122
-  %.not68 = icmp eq i64 %106, 2
+  %119 = or disjoint i32 %115, %118
+  %.not68 = icmp eq i64 %102, 2
   br i1 %.not68, label %.critedge.outer, label %PACKET_get_1.exit76.thread, !llvm.loop !23
 
 .thread.loopexit:                                 ; preds = %.critedge
-  %124 = icmp eq i32 %.1157.ph, 772
+  %120 = icmp eq i32 %.1157.ph, 772
   br label %.thread
 
 .thread:                                          ; preds = %.thread.loopexit, %40, %46
-  %or.cond = phi i1 [ false, %46 ], [ false, %40 ], [ %124, %.thread.loopexit ]
-  %125 = add i64 %.241, 5
-  %126 = add i64 %125, %33
-  %127 = add i64 %126, %36
-  br label %128
+  %or.cond = phi i1 [ false, %46 ], [ false, %40 ], [ %120, %.thread.loopexit ]
+  %121 = add i64 %.241, 5
+  %122 = add i64 %121, %33
+  %123 = add i64 %122, %36
+  br label %124
 
-128:                                              ; preds = %129, %.thread
-  %.sroa.6145.2 = phi i64 [ %37, %.thread ], [ %132, %129 ]
-  %.sroa.0144.2 = phi ptr [ %41, %.thread ], [ %131, %129 ]
+124:                                              ; preds = %125, %.thread
+  %.sroa.6145.2 = phi i64 [ %37, %.thread ], [ %128, %125 ]
+  %.sroa.0144.2 = phi ptr [ %41, %.thread ], [ %127, %125 ]
   %.not.i.i116 = icmp eq i64 %.sroa.6145.2, 0
-  br i1 %.not.i.i116, label %135, label %129
+  br i1 %.not.i.i116, label %131, label %125
 
-129:                                              ; preds = %128
-  %130 = load i8, ptr %.sroa.0144.2, align 1, !tbaa !22
-  %131 = getelementptr inbounds nuw i8, ptr %.sroa.0144.2, i64 1
-  %132 = add nsw i64 %.sroa.6145.2, -1
+125:                                              ; preds = %124
+  %126 = load i8, ptr %.sroa.0144.2, align 1, !tbaa !22
+  %127 = getelementptr inbounds nuw i8, ptr %.sroa.0144.2, i64 1
+  %128 = add nsw i64 %.sroa.6145.2, -1
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %4, ptr noundef nonnull align 1 dereferenceable(6) @__const.async_write.smallrec, i64 5, i1 false)
   store i8 %20, ptr %4, align 1, !tbaa !22
   store i8 %23, ptr %15, align 1, !tbaa !22
   store i8 %26, ptr %16, align 1, !tbaa !22
-  store i8 %130, ptr %17, align 1, !tbaa !22
-  %133 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 6) #6
-  %134 = icmp sgt i32 %133, 0
+  store i8 %126, ptr %17, align 1, !tbaa !22
+  %129 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef nonnull %4, i32 noundef 6) #6
+  %130 = icmp sgt i32 %129, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %134, label %128, label %PACKET_get_1.exit76.thread, !llvm.loop !24
+  br i1 %130, label %124, label %PACKET_get_1.exit76.thread, !llvm.loop !24
 
-135:                                              ; preds = %128
-  %136 = icmp eq i8 %20, 20
-  %or.cond289 = select i1 %136, i1 true, i1 %or.cond
-  br i1 %or.cond289, label %137, label %18
+131:                                              ; preds = %124
+  %132 = icmp eq i8 %20, 20
+  %or.cond289 = select i1 %132, i1 true, i1 %or.cond
+  br i1 %or.cond289, label %133, label %18
 
-137:                                              ; preds = %135
+133:                                              ; preds = %131
   store i1 false, ptr @fragment, align 4
   br label %.thread281
 
-.thread281:                                       ; preds = %18, %137, %12
-  %.039 = phi i64 [ 0, %12 ], [ %127, %137 ], [ %.241, %18 ]
-  %138 = trunc i64 %.039 to i32
-  %139 = icmp sgt i32 %2, %138
-  br i1 %139, label %140, label %.thread285
+.thread281:                                       ; preds = %18, %133, %12
+  %.039 = phi i64 [ 0, %12 ], [ %123, %133 ], [ %.241, %18 ]
+  %134 = trunc i64 %.039 to i32
+  %135 = icmp sgt i32 %2, %134
+  br i1 %135, label %136, label %.thread285
 
-140:                                              ; preds = %.thread281
-  %141 = getelementptr inbounds nuw i8, ptr %1, i64 %.039
-  %142 = sub i32 %2, %138
-  %143 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef %141, i32 noundef %142) #6
-  %144 = icmp slt i32 %143, 1
-  br i1 %144, label %.thread285, label %147
+136:                                              ; preds = %.thread281
+  %137 = getelementptr inbounds nuw i8, ptr %1, i64 %.039
+  %138 = sub i32 %2, %134
+  %139 = call i32 @BIO_write(ptr noundef nonnull %5, ptr noundef %137, i32 noundef %138) #6
+  %140 = icmp slt i32 %139, 1
+  br i1 %140, label %.thread285, label %143
 
-.thread285:                                       ; preds = %.thread281, %140
-  %.046288 = phi i32 [ %143, %140 ], [ 0, %.thread281 ]
-  %145 = call i32 @BIO_test_flags(ptr noundef nonnull %5, i32 noundef 2) #6
-  %.not69 = icmp eq i32 %145, 0
-  br i1 %.not69, label %147, label %146
+.thread285:                                       ; preds = %.thread281, %136
+  %.046288 = phi i32 [ %139, %136 ], [ 0, %.thread281 ]
+  %141 = call i32 @BIO_test_flags(ptr noundef nonnull %5, i32 noundef 2) #6
+  %.not69 = icmp eq i32 %141, 0
+  br i1 %.not69, label %143, label %142
 
-146:                                              ; preds = %.thread285
+142:                                              ; preds = %.thread285
   call void @BIO_set_flags(ptr noundef %0, i32 noundef 10) #6
   br label %PACKET_get_1.exit76.thread
 
-147:                                              ; preds = %.thread285, %140
-  %.046287 = phi i32 [ %.046288, %.thread285 ], [ %143, %140 ]
-  %148 = add i32 %.046287, %138
+143:                                              ; preds = %.thread285, %136
+  %.046287 = phi i32 [ %.046288, %.thread285 ], [ %139, %136 ]
+  %144 = add i32 %.046287, %134
   br label %PACKET_get_1.exit76.thread
 
-149:                                              ; preds = %8
+145:                                              ; preds = %8
   store i32 1, ptr %10, align 4, !tbaa !19
   tail call void @BIO_set_flags(ptr noundef %0, i32 noundef 10) #6
   br label %PACKET_get_1.exit76.thread
 
-PACKET_get_1.exit76.thread:                       ; preds = %76, %72, %69, %63, %53, %49, %45, %29, %24, %21, %19, %.critedge, %98, %88, %114, %116, %129, %149, %147, %146, %3
-  %.035 = phi i32 [ 0, %3 ], [ %.046288, %146 ], [ %148, %147 ], [ 0, %149 ], [ -1, %129 ], [ -1, %116 ], [ -1, %114 ], [ -1, %88 ], [ -1, %98 ], [ -1, %.critedge ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %45 ], [ -1, %49 ], [ -1, %53 ], [ -1, %63 ], [ -1, %69 ], [ -1, %72 ], [ -1, %76 ]
+PACKET_get_1.exit76.thread:                       ; preds = %49, %72, %69, %66, %60, %51, %45, %29, %24, %21, %19, %.critedge, %94, %84, %110, %112, %125, %145, %143, %142, %3
+  %.035 = phi i32 [ 0, %3 ], [ %.046288, %142 ], [ %144, %143 ], [ 0, %145 ], [ -1, %125 ], [ -1, %112 ], [ -1, %110 ], [ -1, %84 ], [ -1, %94 ], [ -1, %.critedge ], [ -1, %19 ], [ -1, %21 ], [ -1, %24 ], [ -1, %29 ], [ -1, %45 ], [ -1, %51 ], [ -1, %60 ], [ -1, %66 ], [ -1, %69 ], [ -1, %72 ], [ -1, %49 ]
   ret i32 %.035
 }
 

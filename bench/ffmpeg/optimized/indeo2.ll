@@ -71,10 +71,10 @@ define internal range(i32 49, 0) i32 @ir2_decode_frame(ptr noundef %0, ptr nound
   store i32 %22, ptr %23, align 8, !tbaa !38
   %24 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %25 = getelementptr inbounds nuw i8, ptr %8, i64 48
-  %26 = add nsw i32 %10, -48
-  %27 = icmp samesign ugt i32 %26, 268435455
-  %28 = shl nuw nsw i32 %26, 3
-  %29 = select i1 %27, i32 -8, i32 %28
+  %26 = icmp samesign ugt i32 %10, 268435503
+  %27 = shl i32 %10, 3
+  %28 = add i32 %27, -384
+  %29 = select i1 %26, i32 -8, i32 %28
   %or.cond.i.i = icmp ugt i32 %29, 2147483134
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %29
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %25

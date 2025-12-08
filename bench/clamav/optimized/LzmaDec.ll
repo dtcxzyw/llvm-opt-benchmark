@@ -2238,14 +2238,14 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %.5817.i = phi i32 [ %596, %597 ], [ %607, %602 ]
   store i16 %.sink1173.i, ptr %581, align 2, !tbaa !30
   %609 = add nsw i32 %.5817.i, -64
-  %610 = icmp samesign ugt i32 %609, 3
+  %610 = icmp samesign ugt i32 %.5817.i, 67
   br i1 %610, label %611, label %.thread1047.i
 
 611:                                              ; preds = %608
   %612 = lshr i32 %609, 1
   %613 = and i32 %.5817.i, 1
   %614 = or disjoint i32 %613, 2
-  %615 = icmp samesign ult i32 %609, 14
+  %615 = icmp samesign ult i32 %.5817.i, 78
   br i1 %615, label %616, label %658
 
 616:                                              ; preds = %611
@@ -2771,8 +2771,8 @@ define internal fastcc range(i32 0, 2) i32 @LzmaDec_DecodeReal2(ptr noundef capt
   %879 = icmp ult ptr %878, %2
   %.pre69 = load i32, ptr %21, align 4, !tbaa !13
   %880 = icmp ult i32 %.pre69, 274
-  %or.cond142 = select i1 %879, i1 %880, i1 false
-  br i1 %or.cond142, label %22, label %.critedge
+  %or.cond140 = select i1 %879, i1 %880, i1 false
+  br i1 %or.cond140, label %22, label %.critedge
 
 .critedge:                                        ; preds = %877, %..critedge_crit_edge
   %881 = phi i32 [ %.pre68, %..critedge_crit_edge ], [ %.pre69, %877 ]

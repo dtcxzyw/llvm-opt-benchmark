@@ -2459,7 +2459,7 @@ _ZN4llvm9PrintableD2Ev.exit11:                    ; preds = %_ZN4llvmlsERNS_11ra
 
 65:                                               ; preds = %52
   %66 = add nsw i32 %2, -1073741824
-  %67 = icmp samesign ult i32 %66, 65536
+  %67 = icmp samesign ult i32 %2, 1073807360
   %.str..str.1 = select i1 %67, ptr @.str, ptr @.str.1
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %69 = load ptr, ptr %68, align 8, !tbaa !188

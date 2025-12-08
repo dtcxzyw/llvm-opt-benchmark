@@ -6283,7 +6283,7 @@ ReadOneElem.exit45.us.i:                          ; preds = %93, %91
   br i1 %46, label %95, label %ReadOneElem.exit50.us.i
 
 95:                                               ; preds = %ReadOneElem.exit45.us.i
-  %96 = icmp samesign ult i32 %85, 8
+  %96 = icmp samesign ult i32 %.063.us.i, 32
   br i1 %96, label %.thread99, label %97
 
 97:                                               ; preds = %95

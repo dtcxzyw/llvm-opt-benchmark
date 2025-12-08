@@ -267,11 +267,11 @@ _ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.e
   unreachable
 
 _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE.exit.i: ; preds = %_ZN9hashbrown3raw5inner11TableLayout20calculate_layout_for17hdfdfbd0c19a5dc35E.exit.i.i.i
-  %76 = add nsw i64 %.sroa.6.09.ph18.i.i, -1
-  %77 = icmp samesign ult i64 %.sroa.6.09.ph18.i.i, 9
+  %76 = icmp samesign ult i64 %.sroa.6.09.ph18.i.i, 9
+  %77 = add nsw i64 %.sroa.6.09.ph18.i.i, -1
   %78 = lshr i64 %.sroa.6.09.ph18.i.i, 3
   %79 = mul nuw nsw i64 %78, 7
-  %.0.i.i.i = select i1 %77, i64 %76, i64 %79
+  %.0.i.i.i = select i1 %76, i64 %77, i64 %79
   %80 = getelementptr inbounds i8, ptr %67, i64 %59
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %80, i8 -1, i64 %60, i1 false), !noalias !21
   store ptr %11, ptr %9, align 8, !noalias !17
@@ -282,7 +282,7 @@ _ZN9hashbrown3raw5inner13RawTableInner20full_buckets_indices17h5723d79da7bb3e3aE
   %.sroa.6.0..sroa_idx.i.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %80, ptr %.sroa.6.0..sroa_idx.i.i, align 8, !noalias !17
   %.sroa.6.i.i.sroa.4.0..sroa.6.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 32
-  store i64 %76, ptr %.sroa.6.i.i.sroa.4.0..sroa.6.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !17
+  store i64 %77, ptr %.sroa.6.i.i.sroa.4.0..sroa.6.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !17
   %.sroa.6.i.i.sroa.5.0..sroa.6.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 40
   store i64 %.0.i.i.i, ptr %.sroa.6.i.i.sroa.5.0..sroa.6.0..sroa_idx.i.i.sroa_idx, align 8, !noalias !17
   %.sroa.6.i.i.sroa.6.0..sroa.6.0..sroa_idx.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %9, i64 48
@@ -400,7 +400,7 @@ _ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit: ; preds = %105
   %123 = getelementptr inbounds { { { i64, [3 x i64] } }, i64, {} }, ptr %2, i64 %.val5.i
   %124 = getelementptr inbounds nuw i8, ptr %123, i64 32
   %125 = load i64, ptr %124, align 8, !noalias !41, !noundef !7
-  %.sroa.0.05.i.i = and i64 %76, %125
+  %.sroa.0.05.i.i = and i64 %77, %125
   %126 = getelementptr inbounds nuw i8, ptr %80, i64 %.sroa.0.05.i.i
   %.0.copyload.i46.i.i = load <16 x i8>, ptr %126, align 1, !noalias !53
   %127 = icmp slt <16 x i8> %.0.copyload.i46.i.i, zeroinitializer
@@ -414,7 +414,7 @@ _ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit: ; preds = %105
   %129 = tail call range(i16 0, 17) i16 @llvm.cttz.i16(i16 %.lcssa.i.i, i1 true)
   %130 = zext nneg i16 %129 to i64
   %131 = add nuw nsw i64 %.sroa.0.0.lcssa.i.i, %130
-  %132 = and i64 %131, %76
+  %132 = and i64 %131, %77
   %133 = getelementptr inbounds nuw i8, ptr %80, i64 %132
   %134 = load i8, ptr %133, align 1, !noundef !7
   %135 = icmp sgt i8 %134, -1
@@ -435,7 +435,7 @@ _ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit: ; preds = %105
   %.sroa.7.08.i.i = phi i64 [ %143, %.lr.ph.i.i ], [ 0, %122 ]
   %143 = add i64 %.sroa.7.08.i.i, 16
   %144 = add i64 %143, %.sroa.0.09.i.i
-  %.sroa.0.0.i.i12 = and i64 %144, %76
+  %.sroa.0.0.i.i12 = and i64 %144, %77
   %145 = getelementptr inbounds nuw i8, ptr %80, i64 %.sroa.0.0.i.i12
   %.0.copyload.i4.i.i = load <16 x i8>, ptr %145, align 1, !noalias !53
   %146 = icmp slt <16 x i8> %.0.copyload.i4.i.i, zeroinitializer
@@ -449,7 +449,7 @@ _ZN4core3ptr19swap_nonoverlapping17hce9a2d4637d138dfE.exit: ; preds = %105
   %150 = lshr i64 %125, 57
   %151 = trunc nuw nsw i64 %150 to i8
   %152 = add nsw i64 %.0.i.i.i11, -16
-  %153 = and i64 %152, %76
+  %153 = and i64 %152, %77
   store i8 %151, ptr %149, align 1
   %154 = getelementptr i8, ptr %80, i64 %153
   %155 = getelementptr i8, ptr %154, i64 16

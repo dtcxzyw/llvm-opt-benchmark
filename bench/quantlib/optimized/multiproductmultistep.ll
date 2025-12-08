@@ -281,7 +281,7 @@ invoke.cont33:                                    ; preds = %call5.i.i.i.i2.i.i.
   %_M_finish.i.i7.i = getelementptr inbounds nuw i8, ptr %evolutionTimes, i64 8
   store ptr %add.ptr.i.i.i.i.i.i.i, ptr %_M_finish.i.i7.i, align 8, !tbaa !10
   call void @llvm.lifetime.start.p0(ptr nonnull %relevanceRates)
-  %cmp.i.i35 = icmp samesign ugt i64 %sub, 576460752303423487
+  %cmp.i.i35 = icmp samesign ugt i64 %sub.ptr.div.i, 576460752303423488
   br i1 %cmp.i.i35, label %if.then.i.i40, label %for.inc.preheader.i.i.i.i.i
 
 if.then.i.i40:                                    ; preds = %invoke.cont33

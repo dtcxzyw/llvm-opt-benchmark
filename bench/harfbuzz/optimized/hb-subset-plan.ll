@@ -20785,7 +20785,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noun
 
 9:                                                ; preds = %4
   %.not48 = icmp eq i16 %5, 0
-  br i1 %.not48, label %100, label %10
+  br i1 %.not48, label %99, label %10
 
 10:                                               ; preds = %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -20801,7 +20801,7 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noun
   %21 = tail call noundef i16 @llvm.bswap.i16(i16 %20)
   %22 = sext i16 %21 to i32
   %23 = add nsw i32 %17, %22
-  br label %100
+  br label %99
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 2
@@ -20821,102 +20821,102 @@ define linkonce_odr dso_local noundef i32 @_ZNK2OT11SegmentMaps3mapEijj(ptr noun
   %36 = tail call noundef i16 @llvm.bswap.i16(i16 %35)
   %37 = sext i16 %36 to i32
   %38 = add nsw i32 %32, %37
-  br label %100
+  br label %99
 
 39:                                               ; preds = %24
   %40 = add nsw i32 %7, -1
-  %41 = icmp samesign ugt i32 %40, 1
-  br i1 %41, label %.lr.ph.preheader, label %.critedge
+  %.not62 = icmp eq i16 %5, 512
+  br i1 %.not62, label %.critedge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %39
   %wide.trip.count = zext nneg i32 %40 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %46
-  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %46 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %45
+  %indvars.iv = phi i64 [ 1, %.lr.ph.preheader ], [ %indvars.iv.next, %45 ]
   %gep = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %27, i64 %indvars.iv
-  %42 = load i16, ptr %gep, align 1, !tbaa !458
-  %43 = tail call noundef i16 @llvm.bswap.i16(i16 %42)
-  %44 = sext i16 %43 to i32
-  %45 = icmp sgt i32 %1, %44
-  br i1 %45, label %46, label %.critedge.loopexit.split.loop.exit60
+  %41 = load i16, ptr %gep, align 1, !tbaa !458
+  %42 = tail call noundef i16 @llvm.bswap.i16(i16 %41)
+  %43 = sext i16 %42 to i32
+  %44 = icmp sgt i32 %1, %43
+  br i1 %44, label %45, label %.critedge.loopexit.split.loop.exit60
 
-46:                                               ; preds = %.lr.ph
+45:                                               ; preds = %.lr.ph
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.critedge, label %.lr.ph, !llvm.loop !584
 
 .critedge.loopexit.split.loop.exit60:             ; preds = %.lr.ph
-  %47 = trunc nuw i64 %indvars.iv to i32
+  %46 = trunc nuw i64 %indvars.iv to i32
   br label %.critedge
 
-.critedge:                                        ; preds = %46, %.critedge.loopexit.split.loop.exit60, %39
-  %.044.lcssa = phi i32 [ 1, %39 ], [ %47, %.critedge.loopexit.split.loop.exit60 ], [ %40, %46 ]
-  %48 = zext i32 %.044.lcssa to i64
-  %49 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %25, i64 %48
-  %50 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %49, i64 %26
-  %51 = load i16, ptr %50, align 1, !tbaa !458
-  %52 = tail call noundef i16 @llvm.bswap.i16(i16 %51)
-  %53 = sext i16 %52 to i32
-  %.not47 = icmp slt i32 %1, %53
-  br i1 %.not47, label %62, label %54
+.critedge:                                        ; preds = %45, %.critedge.loopexit.split.loop.exit60, %39
+  %.044.lcssa = phi i32 [ 1, %39 ], [ %46, %.critedge.loopexit.split.loop.exit60 ], [ %40, %45 ]
+  %47 = zext i32 %.044.lcssa to i64
+  %48 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %25, i64 %47
+  %49 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %48, i64 %26
+  %50 = load i16, ptr %49, align 1, !tbaa !458
+  %51 = tail call noundef i16 @llvm.bswap.i16(i16 %50)
+  %52 = sext i16 %51 to i32
+  %.not47 = icmp slt i32 %1, %52
+  br i1 %.not47, label %61, label %53
 
-54:                                               ; preds = %.critedge
-  %55 = sub i32 %1, %53
-  %56 = zext i32 %3 to i64
-  %57 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %49, i64 %56
-  %58 = load i16, ptr %57, align 1, !tbaa !458
-  %59 = tail call noundef i16 @llvm.bswap.i16(i16 %58)
-  %60 = sext i16 %59 to i32
-  %61 = add nsw i32 %55, %60
-  br label %100
+53:                                               ; preds = %.critedge
+  %54 = sub i32 %1, %52
+  %55 = zext i32 %3 to i64
+  %56 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %48, i64 %55
+  %57 = load i16, ptr %56, align 1, !tbaa !458
+  %58 = tail call noundef i16 @llvm.bswap.i16(i16 %57)
+  %59 = sext i16 %58 to i32
+  %60 = add nsw i32 %54, %59
+  br label %99
 
-62:                                               ; preds = %.critedge
-  %63 = add i32 %.044.lcssa, -1
-  %64 = zext i32 %63 to i64
-  %65 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %25, i64 %64
-  %66 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %65, i64 %26
-  %67 = load i16, ptr %66, align 1, !tbaa !458
-  %68 = icmp eq i16 %67, %51
-  br i1 %68, label %69, label %75, !prof !33
+61:                                               ; preds = %.critedge
+  %62 = add i32 %.044.lcssa, -1
+  %63 = zext i32 %62 to i64
+  %64 = getelementptr inbounds nuw %"struct.OT::AxisValueMap", ptr %25, i64 %63
+  %65 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %64, i64 %26
+  %66 = load i16, ptr %65, align 1, !tbaa !458
+  %67 = icmp eq i16 %66, %50
+  br i1 %67, label %68, label %74, !prof !33
 
-69:                                               ; preds = %62
-  %70 = zext i32 %3 to i64
-  %71 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %65, i64 %70
-  %72 = load i16, ptr %71, align 1, !tbaa !458
-  %73 = tail call noundef i16 @llvm.bswap.i16(i16 %72)
-  %74 = sext i16 %73 to i32
-  br label %100
+68:                                               ; preds = %61
+  %69 = zext i32 %3 to i64
+  %70 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %64, i64 %69
+  %71 = load i16, ptr %70, align 1, !tbaa !458
+  %72 = tail call noundef i16 @llvm.bswap.i16(i16 %71)
+  %73 = sext i16 %72 to i32
+  br label %99
 
-75:                                               ; preds = %62
-  %76 = tail call noundef i16 @llvm.bswap.i16(i16 %67)
-  %77 = sext i16 %76 to i32
-  %78 = sub nsw i32 %53, %77
-  %79 = zext i32 %3 to i64
-  %80 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %65, i64 %79
-  %81 = load i16, ptr %80, align 1, !tbaa !458
-  %82 = tail call noundef i16 @llvm.bswap.i16(i16 %81)
-  %83 = sitofp i16 %82 to float
-  %84 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %49, i64 %79
-  %85 = load i16, ptr %84, align 1, !tbaa !458
-  %86 = tail call noundef i16 @llvm.bswap.i16(i16 %85)
-  %87 = sext i16 %86 to i32
-  %88 = sext i16 %82 to i32
-  %89 = sub nsw i32 %87, %88
-  %90 = sitofp i32 %89 to float
-  %91 = sub nsw i32 %1, %77
-  %92 = sitofp i32 %91 to float
-  %93 = fmul float %92, %90
-  %94 = sitofp i32 %78 to float
-  %95 = fdiv float %93, %94
-  %96 = fadd float %95, %83
-  %97 = fadd float %96, 5.000000e-01
-  %98 = tail call noundef float @llvm.floor.f32(float %97)
-  %99 = fptosi float %98 to i32
-  br label %100
+74:                                               ; preds = %61
+  %75 = tail call noundef i16 @llvm.bswap.i16(i16 %66)
+  %76 = sext i16 %75 to i32
+  %77 = sub nsw i32 %52, %76
+  %78 = zext i32 %3 to i64
+  %79 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %64, i64 %78
+  %80 = load i16, ptr %79, align 1, !tbaa !458
+  %81 = tail call noundef i16 @llvm.bswap.i16(i16 %80)
+  %82 = sitofp i16 %81 to float
+  %83 = getelementptr inbounds nuw %"struct.OT::HBFixed", ptr %48, i64 %78
+  %84 = load i16, ptr %83, align 1, !tbaa !458
+  %85 = tail call noundef i16 @llvm.bswap.i16(i16 %84)
+  %86 = sext i16 %85 to i32
+  %87 = sext i16 %81 to i32
+  %88 = sub nsw i32 %86, %87
+  %89 = sitofp i32 %88 to float
+  %90 = sub nsw i32 %1, %76
+  %91 = sitofp i32 %90 to float
+  %92 = fmul float %91, %89
+  %93 = sitofp i32 %77 to float
+  %94 = fdiv float %92, %93
+  %95 = fadd float %94, %82
+  %96 = fadd float %95, 5.000000e-01
+  %97 = tail call noundef float @llvm.floor.f32(float %96)
+  %98 = fptosi float %97 to i32
+  br label %99
 
-100:                                              ; preds = %54, %69, %75, %9, %31, %10
-  %.0 = phi i32 [ %23, %10 ], [ %38, %31 ], [ %1, %9 ], [ %61, %54 ], [ %74, %69 ], [ %99, %75 ]
+99:                                               ; preds = %53, %68, %74, %9, %31, %10
+  %.0 = phi i32 [ %23, %10 ], [ %38, %31 ], [ %1, %9 ], [ %60, %53 ], [ %73, %68 ], [ %98, %74 ]
   ret i32 %.0
 }
 

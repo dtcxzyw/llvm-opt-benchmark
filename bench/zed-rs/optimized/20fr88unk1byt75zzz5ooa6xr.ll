@@ -51509,7 +51509,7 @@ _ZN9workspace10pane_group9PaneGroup21bounding_box_for_pane17h9292b38ea10fd427E.e
   %16 = trunc nuw i32 %.pre to i1
   br i1 %16, label %18, label %_ZN9workspace10pane_group9PaneGroup21bounding_box_for_pane17h9292b38ea10fd427E.exit.thread
 
-17:                                               ; preds = %85
+17:                                               ; preds = %83
   unreachable
 
 _ZN9workspace10pane_group9PaneGroup21bounding_box_for_pane17h9292b38ea10fd427E.exit.thread: ; preds = %4, %_ZN9workspace10pane_group9PaneGroup21bounding_box_for_pane17h9292b38ea10fd427E.exit
@@ -51595,7 +51595,7 @@ _ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit: ; pr
   %55 = trunc nuw i32 %.pre21 to i1
   br i1 %55, label %57, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-56:                                               ; preds = %113, %_ZN9workspace10pane_group9PaneGroup21bounding_box_for_pane17h9292b38ea10fd427E.exit.thread
+56:                                               ; preds = %111, %_ZN9workspace10pane_group9PaneGroup21bounding_box_for_pane17h9292b38ea10fd427E.exit.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret void
 
@@ -51611,117 +51611,115 @@ _ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit: ; pr
   %61 = fadd float %.sroa.013.0.copyload, %28
   store float %61, ptr %8, align 4, !noalias !11188
   %62 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %58, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !8816
-  %63 = add nsw i8 %62, -3
-  %switch.i5.i = icmp samesign ult i8 %63, -2
+  %switch.i5.i = icmp slt i8 %62, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !11188
-  br i1 %switch.i5.i, label %64, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  br i1 %switch.i5.i, label %63, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-64:                                               ; preds = %60
-  %65 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %66 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %65, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.3.0..sroa_idx), !range !8816
-  %switch.i6.i = icmp ult i8 %66, 2
+63:                                               ; preds = %60
+  %64 = getelementptr inbounds nuw i8, ptr %9, i64 8
+  %65 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %64, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %.sroa.3.0..sroa_idx), !range !8816
+  %switch.i6.i = icmp ult i8 %65, 2
   br i1 %switch.i6.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %64
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !11188
-  %67 = load float, ptr %.sroa.3.0..sroa_idx, align 4, !alias.scope !11190, !noalias !11193, !noundef !5
-  %68 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %69 = load float, ptr %68, align 4, !alias.scope !11194, !noalias !11193, !noundef !5
-  %70 = fadd float %67, %69
-  store float %70, ptr %7, align 4, !noalias !11188
-  %71 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %65, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !8816
-  %72 = add nsw i8 %71, -3
-  %switch.i7.i = icmp samesign ult i8 %72, -2
+  %66 = load float, ptr %.sroa.3.0..sroa_idx, align 4, !alias.scope !11190, !noalias !11193, !noundef !5
+  %67 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %68 = load float, ptr %67, align 4, !alias.scope !11194, !noalias !11193, !noundef !5
+  %69 = fadd float %66, %68
+  store float %69, ptr %7, align 4, !noalias !11188
+  %70 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %64, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !8816
+  %switch.i7.i = icmp slt i8 %70, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !11188
-  br i1 %switch.i7.i, label %82, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  br i1 %switch.i7.i, label %80, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread": ; preds = %_ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit.thread, %60, %57, %64, %_ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread": ; preds = %_ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit.thread, %60, %57, %63, %_ZN9workspace4pane4Pane24pixel_position_of_cursor17hcda892118944238bE.exit, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
   call void @llvm.experimental.noalias.scope.decl(metadata !11197)
-  %73 = load float, ptr %11, align 4, !alias.scope !11200, !noundef !5
+  %71 = load float, ptr %11, align 4, !alias.scope !11200, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !11197
-  %74 = load float, ptr %.sroa.45.0..sroa_idx, align 4, !alias.scope !11203, !noundef !5
-  store float %74, ptr %6, align 4, !noalias !11197
-  %75 = call noundef float @"_ZN63_$LT$gpui..geometry..Pixels$u20$as$u20$gpui..geometry..Half$GT$4half17h47e74e3836549954E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !11197
-  %76 = fadd float %73, %75
-  %77 = load float, ptr %.sroa.3.0..sroa_idx, align 4, !alias.scope !11206, !noundef !5
+  %72 = load float, ptr %.sroa.45.0..sroa_idx, align 4, !alias.scope !11203, !noundef !5
+  store float %72, ptr %6, align 4, !noalias !11197
+  %73 = call noundef float @"_ZN63_$LT$gpui..geometry..Pixels$u20$as$u20$gpui..geometry..Half$GT$4half17h47e74e3836549954E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %6), !noalias !11197
+  %74 = fadd float %71, %73
+  %75 = load float, ptr %.sroa.3.0..sroa_idx, align 4, !alias.scope !11206, !noundef !5
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11197
-  %78 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %79 = load float, ptr %78, align 4, !alias.scope !11209, !noundef !5
-  store float %79, ptr %5, align 4, !noalias !11197
-  %80 = call noundef float @"_ZN63_$LT$gpui..geometry..Pixels$u20$as$u20$gpui..geometry..Half$GT$4half17h47e74e3836549954E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !11197
-  %81 = fadd float %77, %80
+  %76 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %77 = load float, ptr %76, align 4, !alias.scope !11209, !noundef !5
+  store float %77, ptr %5, align 4, !noalias !11197
+  %78 = call noundef float @"_ZN63_$LT$gpui..geometry..Pixels$u20$as$u20$gpui..geometry..Half$GT$4half17h47e74e3836549954E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %5), !noalias !11197
+  %79 = fadd float %75, %78
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !11197
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !11197
-  br label %85
+  br label %83
 
-82:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
-  %83 = load float, ptr %58, align 4, !noundef !5
-  %84 = load float, ptr %65, align 4, !noundef !5
-  br label %85
+80:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
+  %81 = load float, ptr %58, align 4, !noundef !5
+  %82 = load float, ptr %64, align 4, !noundef !5
+  br label %83
 
-85:                                               ; preds = %82, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
-  %.sroa.07.0 = phi float [ %83, %82 ], [ %76, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread" ]
-  %.sroa.4.0 = phi float [ %84, %82 ], [ %81, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread" ]
+83:                                               ; preds = %80, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  %.sroa.07.0 = phi float [ %81, %80 ], [ %74, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread" ]
+  %.sroa.4.0 = phi float [ %82, %80 ], [ %79, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread" ]
   switch i8 %2, label %17 [
-    i8 0, label %86
-    i8 1, label %89
-    i8 2, label %96
-    i8 3, label %99
+    i8 0, label %84
+    i8 1, label %87
+    i8 2, label %94
+    i8 3, label %97
   ]
 
-86:                                               ; preds = %85
-  %87 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
-  %88 = fsub float %.sroa.514.0.copyload, %87
-  br label %105
+84:                                               ; preds = %83
+  %85 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
+  %86 = fsub float %.sroa.514.0.copyload, %85
+  br label %103
 
-89:                                               ; preds = %85
-  %90 = load float, ptr %.sroa.3.0..sroa_idx, align 4, !alias.scope !11212, !noundef !5
-  %91 = getelementptr inbounds nuw i8, ptr %11, i64 12
-  %92 = load float, ptr %91, align 4, !alias.scope !11217, !noundef !5
-  %93 = fadd float %90, %92
-  %94 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
-  %95 = fadd float %93, %94
-  br label %105
+87:                                               ; preds = %83
+  %88 = load float, ptr %.sroa.3.0..sroa_idx, align 4, !alias.scope !11212, !noundef !5
+  %89 = getelementptr inbounds nuw i8, ptr %11, i64 12
+  %90 = load float, ptr %89, align 4, !alias.scope !11217, !noundef !5
+  %91 = fadd float %88, %90
+  %92 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
+  %93 = fadd float %91, %92
+  br label %103
 
-96:                                               ; preds = %85
-  %97 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
-  %98 = fsub float %.sroa.013.0.copyload, %97
-  br label %105
+94:                                               ; preds = %83
+  %95 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
+  %96 = fsub float %.sroa.013.0.copyload, %95
+  br label %103
 
-99:                                               ; preds = %85
-  %100 = load float, ptr %11, align 4, !alias.scope !11220, !noundef !5
-  %101 = load float, ptr %.sroa.45.0..sroa_idx, align 4, !alias.scope !11225, !noundef !5
+97:                                               ; preds = %83
+  %98 = load float, ptr %11, align 4, !alias.scope !11220, !noundef !5
+  %99 = load float, ptr %.sroa.45.0..sroa_idx, align 4, !alias.scope !11225, !noundef !5
+  %100 = fadd float %98, %99
+  %101 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
   %102 = fadd float %100, %101
-  %103 = call noundef float @"_ZN73_$LT$gpui..geometry..Pixels$u20$as$u20$core..convert..From$LT$f32$GT$$GT$4from17h3d5f8e1d87717cb0E"(float noundef 4.000000e+00)
-  %104 = fadd float %102, %103
-  br label %105
+  br label %103
 
-105:                                              ; preds = %99, %96, %89, %86
-  %.sroa.012.0 = phi float [ %.sroa.07.0, %86 ], [ %.sroa.07.0, %89 ], [ %98, %96 ], [ %104, %99 ]
-  %.sroa.5.0 = phi float [ %88, %86 ], [ %95, %89 ], [ %.sroa.4.0, %96 ], [ %.sroa.4.0, %99 ]
-  %106 = load i64, ptr %12, align 8, !range !75, !alias.scope !11228, !noundef !5
-  %107 = icmp eq i64 %106, -9223372036854775808
-  br i1 %107, label %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread, label %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit
+103:                                              ; preds = %97, %94, %87, %84
+  %.sroa.012.0 = phi float [ %.sroa.07.0, %84 ], [ %.sroa.07.0, %87 ], [ %96, %94 ], [ %102, %97 ]
+  %.sroa.5.0 = phi float [ %86, %84 ], [ %93, %87 ], [ %.sroa.4.0, %94 ], [ %.sroa.4.0, %97 ]
+  %104 = load i64, ptr %12, align 8, !range !75, !alias.scope !11228, !noundef !5
+  %105 = icmp eq i64 %104, -9223372036854775808
+  br i1 %105, label %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread, label %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit
 
-_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread: ; preds = %105
-  %108 = getelementptr inbounds nuw i8, ptr %1, i64 776
-  br label %112
+_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread: ; preds = %103
+  %106 = getelementptr inbounds nuw i8, ptr %1, i64 776
+  br label %110
 
-_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit: ; preds = %105
-  %109 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pane_group8PaneAxis22pane_at_pixel_position17h98cff1a5eb09f18aE.llvm.4784060810856971783(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, float noundef %.sroa.012.0, float noundef %.sroa.5.0)
-  %110 = icmp eq ptr %109, null
-  br i1 %110, label %111, label %112
+_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit: ; preds = %103
+  %107 = call noundef align 8 dereferenceable_or_null(32) ptr @_ZN9workspace10pane_group8PaneAxis22pane_at_pixel_position17h98cff1a5eb09f18aE.llvm.4784060810856971783(ptr noalias noundef nonnull readonly align 8 dereferenceable(48) %12, float noundef %.sroa.012.0, float noundef %.sroa.5.0)
+  %108 = icmp eq ptr %107, null
+  br i1 %108, label %109, label %110
 
-111:                                              ; preds = %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit
+109:                                              ; preds = %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit
   store i32 0, ptr %0, align 8
-  br label %113
+  br label %111
 
-112:                                              ; preds = %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread, %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit
-  %.sroa.0.0.i1720 = phi ptr [ %108, %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread ], [ %109, %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit ]
+110:                                              ; preds = %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread, %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit
+  %.sroa.0.0.i1720 = phi ptr [ %106, %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit.thread ], [ %107, %_ZN9workspace10pane_group9PaneGroup22pane_at_pixel_position17h0f97943235afc5d0E.exit ]
   call void @"_ZN70_$LT$gpui..app..entity_map..AnyModel$u20$as$u20$core..clone..Clone$GT$5clone17h13db8591b4f63891E"(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.0.0.i1720)
-  br label %113
+  br label %111
 
-113:                                              ; preds = %112, %111
+111:                                              ; preds = %110, %109
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %56
 }
@@ -75281,287 +75279,277 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
   %38 = fadd float %35, %37
   store float %38, ptr %16, align 4, !noalias !16752
   %39 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %16), !range !8816
-  %40 = add nsw i8 %39, -3
-  %switch.i5.i = icmp samesign ult i8 %40, -2
+  %switch.i5.i = icmp slt i8 %39, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %16), !noalias !16752
-  br i1 %switch.i5.i, label %41, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  br i1 %switch.i5.i, label %40, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-41:                                               ; preds = %34
-  %42 = getelementptr inbounds nuw i8, ptr %24, i64 4
-  %43 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %42), !range !8816
-  %switch.i6.i = icmp ult i8 %43, 2
+40:                                               ; preds = %34
+  %41 = getelementptr inbounds nuw i8, ptr %24, i64 4
+  %42 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %41), !range !8816
+  %switch.i6.i = icmp ult i8 %42, 2
   br i1 %switch.i6.i, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %41
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit": ; preds = %40
   call void @llvm.lifetime.start.p0(ptr nonnull %15), !noalias !16752
-  %44 = load float, ptr %42, align 4, !alias.scope !16761, !noalias !16757, !noundef !5
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 12
-  %46 = load float, ptr %45, align 4, !alias.scope !16764, !noalias !16757, !noundef !5
-  %47 = fadd float %44, %46
-  store float %47, ptr %15, align 4, !noalias !16752
-  %48 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15), !range !8816
-  %49 = add nsw i8 %48, -3
-  %switch.i7.i = icmp samesign ult i8 %49, -2
+  %43 = load float, ptr %41, align 4, !alias.scope !16761, !noalias !16757, !noundef !5
+  %44 = getelementptr inbounds nuw i8, ptr %24, i64 12
+  %45 = load float, ptr %44, align 4, !alias.scope !16764, !noalias !16757, !noundef !5
+  %46 = fadd float %43, %45
+  store float %46, ptr %15, align 4, !noalias !16752
+  %47 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %15), !range !8816
+  %switch.i7.i = icmp slt i8 %47, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15), !noalias !16752
-  br i1 %switch.i7.i, label %152, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+  br i1 %switch.i7.i, label %142, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread": ; preds = %34, %6, %41, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
-  %50 = call noundef float @"_ZN75_$LT$gpui..geometry..Pixels$u20$as$u20$core..ops..arith..Mul$LT$f32$GT$$GT$3mul17hd1f4104377b72232E"(float noundef %2, float noundef 1.500000e+00)
-  %51 = call noundef float @"_ZN75_$LT$gpui..geometry..Pixels$u20$as$u20$core..ops..arith..Mul$LT$f32$GT$$GT$3mul17hd1f4104377b72232E"(float noundef %2, float noundef 1.500000e+00)
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread": ; preds = %34, %6, %40, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
+  %48 = call noundef float @"_ZN75_$LT$gpui..geometry..Pixels$u20$as$u20$core..ops..arith..Mul$LT$f32$GT$$GT$3mul17hd1f4104377b72232E"(float noundef %2, float noundef 1.500000e+00)
+  %49 = call noundef float @"_ZN75_$LT$gpui..geometry..Pixels$u20$as$u20$core..ops..arith..Mul$LT$f32$GT$$GT$3mul17hd1f4104377b72232E"(float noundef %2, float noundef 1.500000e+00)
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %52 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-  %53 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-  store float %52, ptr %23, align 4
-  %54 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store float %53, ptr %54, align 4
-  %55 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  store float %50, ptr %55, align 4
-  %56 = getelementptr inbounds nuw i8, ptr %23, i64 12
-  store float %51, ptr %56, align 4
-  %57 = trunc i32 %5 to i1
-  br i1 %57, label %73, label %58
+  %50 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+  %51 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+  store float %50, ptr %23, align 4
+  %52 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store float %51, ptr %52, align 4
+  %53 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store float %48, ptr %53, align 4
+  %54 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store float %49, ptr %54, align 4
+  %55 = trunc i32 %5 to i1
+  br i1 %55, label %69, label %56
 
-58:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+56:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
   call void @llvm.experimental.noalias.scope.decl(metadata !16767)
-  %59 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %23), !range !8816
-  %switch.i.i40 = icmp ult i8 %59, 2
-  br i1 %switch.i.i40, label %60, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
+  %57 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %23), !range !8816
+  %switch.i.i40 = icmp ult i8 %57, 2
+  br i1 %switch.i.i40, label %58, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
 
-60:                                               ; preds = %58
+58:                                               ; preds = %56
   call void @llvm.lifetime.start.p0(ptr nonnull %14), !noalias !16770
-  %61 = load float, ptr %23, align 4, !alias.scope !16772, !noalias !16775, !noundef !5
-  %62 = load float, ptr %55, align 4, !alias.scope !16776, !noalias !16775, !noundef !5
-  %63 = fadd float %61, %62
-  store float %63, ptr %14, align 4, !noalias !16770
-  %64 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14), !range !8816
-  %65 = add nsw i8 %64, -3
-  %switch.i5.i42 = icmp samesign ult i8 %65, -2
+  %59 = load float, ptr %23, align 4, !alias.scope !16772, !noalias !16775, !noundef !5
+  %60 = load float, ptr %53, align 4, !alias.scope !16776, !noalias !16775, !noundef !5
+  %61 = fadd float %59, %60
+  store float %61, ptr %14, align 4, !noalias !16770
+  %62 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %14), !range !8816
+  %switch.i5.i42 = icmp slt i8 %62, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !16770
-  br i1 %switch.i5.i42, label %66, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
+  br i1 %switch.i5.i42, label %63, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
 
-66:                                               ; preds = %60
-  %67 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %54), !range !8816
-  %switch.i6.i43 = icmp ult i8 %67, 2
+63:                                               ; preds = %58
+  %64 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %52), !range !8816
+  %switch.i6.i43 = icmp ult i8 %64, 2
   br i1 %switch.i6.i43, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45": ; preds = %66
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45": ; preds = %63
   call void @llvm.lifetime.start.p0(ptr nonnull %13), !noalias !16770
-  %68 = load float, ptr %54, align 4, !alias.scope !16779, !noalias !16775, !noundef !5
-  %69 = load float, ptr %56, align 4, !alias.scope !16782, !noalias !16775, !noundef !5
-  %70 = fadd float %68, %69
-  store float %70, ptr %13, align 4, !noalias !16770
-  %71 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13), !range !8816
-  %72 = add nsw i8 %71, -3
-  %switch.i7.i44 = icmp samesign ult i8 %72, -2
+  %65 = load float, ptr %52, align 4, !alias.scope !16779, !noalias !16775, !noundef !5
+  %66 = load float, ptr %54, align 4, !alias.scope !16782, !noalias !16775, !noundef !5
+  %67 = fadd float %65, %66
+  store float %67, ptr %13, align 4, !noalias !16770
+  %68 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %13), !range !8816
+  %switch.i7.i44 = icmp slt i8 %68, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !16770
   br i1 %switch.i7.i44, label %.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
 
-73:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
+69:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %74 = fsub float %3, %50
-  %75 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-  store float %74, ptr %22, align 4
-  %76 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store float %75, ptr %76, align 4
-  %77 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store float %50, ptr %77, align 4
-  %78 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store float %51, ptr %78, align 4
+  %70 = fsub float %3, %48
+  %71 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+  store float %70, ptr %22, align 4
+  %72 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store float %71, ptr %72, align 4
+  %73 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store float %48, ptr %73, align 4
+  %74 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  store float %49, ptr %74, align 4
   br label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread": ; preds = %60, %58, %66, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45"
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread": ; preds = %58, %56, %63, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45"
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %79 = fsub float %3, %50
-  %80 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-  store float %79, ptr %22, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %22, i64 4
-  store float %80, ptr %81, align 4
-  %82 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  store float %50, ptr %82, align 4
-  %83 = getelementptr inbounds nuw i8, ptr %22, i64 12
-  store float %51, ptr %83, align 4
+  %75 = fsub float %3, %48
+  %76 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+  store float %75, ptr %22, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %22, i64 4
+  store float %76, ptr %77, align 4
+  %78 = getelementptr inbounds nuw i8, ptr %22, i64 8
+  store float %48, ptr %78, align 4
+  %79 = getelementptr inbounds nuw i8, ptr %22, i64 12
+  store float %49, ptr %79, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !16785)
-  %84 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %22), !range !8816
-  %switch.i.i46 = icmp ult i8 %84, 2
-  br i1 %switch.i.i46, label %85, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
+  %80 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %22), !range !8816
+  %switch.i.i46 = icmp ult i8 %80, 2
+  br i1 %switch.i.i46, label %81, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
-85:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
+81:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %12), !noalias !16788
-  %86 = fadd float %79, %50
-  store float %86, ptr %12, align 4, !noalias !16788
-  %87 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12), !range !8816
-  %88 = add nsw i8 %87, -3
-  %switch.i5.i48 = icmp samesign ult i8 %88, -2
+  %82 = fadd float %75, %48
+  store float %82, ptr %12, align 4, !noalias !16788
+  %83 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %12), !range !8816
+  %switch.i5.i48 = icmp slt i8 %83, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %12), !noalias !16788
-  br i1 %switch.i5.i48, label %89, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
+  br i1 %switch.i5.i48, label %84, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
-89:                                               ; preds = %85
-  %90 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %81), !range !8816
-  %switch.i6.i49 = icmp ult i8 %90, 2
+84:                                               ; preds = %81
+  %85 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %77), !range !8816
+  %switch.i6.i49 = icmp ult i8 %85, 2
   br i1 %switch.i6.i49, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51": ; preds = %89
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51": ; preds = %84
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !16788
-  %91 = load float, ptr %81, align 4, !alias.scope !16790, !noalias !16793, !noundef !5
-  %92 = load float, ptr %83, align 4, !alias.scope !16794, !noalias !16793, !noundef !5
-  %93 = fadd float %91, %92
-  store float %93, ptr %11, align 4, !noalias !16788
-  %94 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11), !range !8816
-  %95 = add nsw i8 %94, -3
-  %switch.i7.i50 = icmp samesign ult i8 %95, -2
+  %86 = load float, ptr %77, align 4, !alias.scope !16790, !noalias !16793, !noundef !5
+  %87 = load float, ptr %79, align 4, !alias.scope !16794, !noalias !16793, !noundef !5
+  %88 = fadd float %86, %87
+  store float %88, ptr %11, align 4, !noalias !16788
+  %89 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %11), !range !8816
+  %switch.i7.i50 = icmp slt i8 %89, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !16788
   br i1 %switch.i7.i50, label %.sink.split.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread": ; preds = %85, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread", %89, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51", %73
-  %96 = phi float [ %74, %73 ], [ %79, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51" ], [ %79, %89 ], [ %79, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread" ], [ %79, %85 ]
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread": ; preds = %81, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread", %84, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51", %69
+  %90 = phi float [ %70, %69 ], [ %75, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51" ], [ %75, %84 ], [ %75, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45.thread" ], [ %75, %81 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %97 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
-  %98 = fsub float %4, %51
-  store float %97, ptr %21, align 4
-  %99 = getelementptr inbounds nuw i8, ptr %21, i64 4
-  store float %98, ptr %99, align 4
-  %100 = getelementptr inbounds nuw i8, ptr %21, i64 8
-  store float %50, ptr %100, align 4
-  %101 = getelementptr inbounds nuw i8, ptr %21, i64 12
-  store float %51, ptr %101, align 4
-  %102 = and i32 %5, 16777216
-  %.not = icmp eq i32 %102, 0
-  br i1 %.not, label %103, label %116
+  %91 = call noundef float @_ZN4gpui8geometry2px17hc2071f8910430f8bE(float noundef 0.000000e+00)
+  %92 = fsub float %4, %49
+  store float %91, ptr %21, align 4
+  %93 = getelementptr inbounds nuw i8, ptr %21, i64 4
+  store float %92, ptr %93, align 4
+  %94 = getelementptr inbounds nuw i8, ptr %21, i64 8
+  store float %48, ptr %94, align 4
+  %95 = getelementptr inbounds nuw i8, ptr %21, i64 12
+  store float %49, ptr %95, align 4
+  %96 = and i32 %5, 16777216
+  %.not = icmp eq i32 %96, 0
+  br i1 %.not, label %97, label %108
 
-103:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
+97:                                               ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
   call void @llvm.experimental.noalias.scope.decl(metadata !16797)
-  %104 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %21), !range !8816
-  %switch.i.i52 = icmp ult i8 %104, 2
-  br i1 %switch.i.i52, label %105, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
+  %98 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %21), !range !8816
+  %switch.i.i52 = icmp ult i8 %98, 2
+  br i1 %switch.i.i52, label %99, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
 
-105:                                              ; preds = %103
+99:                                               ; preds = %97
   call void @llvm.lifetime.start.p0(ptr nonnull %10), !noalias !16800
-  %106 = fadd float %97, %50
-  store float %106, ptr %10, align 4, !noalias !16800
-  %107 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10), !range !8816
-  %108 = add nsw i8 %107, -3
-  %switch.i5.i54 = icmp samesign ult i8 %108, -2
+  %100 = fadd float %91, %48
+  store float %100, ptr %10, align 4, !noalias !16800
+  %101 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %10), !range !8816
+  %switch.i5.i54 = icmp slt i8 %101, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !16800
-  br i1 %switch.i5.i54, label %109, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
+  br i1 %switch.i5.i54, label %102, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
 
-109:                                              ; preds = %105
-  %110 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %99), !range !8816
-  %switch.i6.i55 = icmp ult i8 %110, 2
+102:                                              ; preds = %99
+  %103 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %93), !range !8816
+  %switch.i6.i55 = icmp ult i8 %103, 2
   br i1 %switch.i6.i55, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57": ; preds = %109
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57": ; preds = %102
   call void @llvm.lifetime.start.p0(ptr nonnull %9), !noalias !16800
-  %111 = load float, ptr %99, align 4, !alias.scope !16802, !noalias !16805, !noundef !5
-  %112 = load float, ptr %101, align 4, !alias.scope !16806, !noalias !16805, !noundef !5
-  %113 = fadd float %111, %112
-  store float %113, ptr %9, align 4, !noalias !16800
-  %114 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9), !range !8816
-  %115 = add nsw i8 %114, -3
-  %switch.i7.i56 = icmp samesign ult i8 %115, -2
+  %104 = load float, ptr %93, align 4, !alias.scope !16802, !noalias !16805, !noundef !5
+  %105 = load float, ptr %95, align 4, !alias.scope !16806, !noalias !16805, !noundef !5
+  %106 = fadd float %104, %105
+  store float %106, ptr %9, align 4, !noalias !16800
+  %107 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %9), !range !8816
+  %switch.i7.i56 = icmp slt i8 %107, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !16800
   br i1 %switch.i7.i56, label %.sink.split.sink.split.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
 
-116:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
+108:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit51.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store float %96, ptr %20, align 4
-  %117 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store float %98, ptr %117, align 4
-  %118 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store float %50, ptr %118, align 4
-  %119 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store float %51, ptr %119, align 4
+  store float %90, ptr %20, align 4
+  %109 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store float %92, ptr %109, align 4
+  %110 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store float %48, ptr %110, align 4
+  %111 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  store float %49, ptr %111, align 4
   br label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread": ; preds = %105, %103, %109, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57"
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread": ; preds = %99, %97, %102, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57"
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  store float %96, ptr %20, align 4
-  %120 = getelementptr inbounds nuw i8, ptr %20, i64 4
-  store float %98, ptr %120, align 4
-  %121 = getelementptr inbounds nuw i8, ptr %20, i64 8
-  store float %50, ptr %121, align 4
-  %122 = getelementptr inbounds nuw i8, ptr %20, i64 12
-  store float %51, ptr %122, align 4
+  store float %90, ptr %20, align 4
+  %112 = getelementptr inbounds nuw i8, ptr %20, i64 4
+  store float %92, ptr %112, align 4
+  %113 = getelementptr inbounds nuw i8, ptr %20, i64 8
+  store float %48, ptr %113, align 4
+  %114 = getelementptr inbounds nuw i8, ptr %20, i64 12
+  store float %49, ptr %114, align 4
   call void @llvm.experimental.noalias.scope.decl(metadata !16809)
-  %123 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %20), !range !8816
-  %switch.i.i58 = icmp ult i8 %123, 2
-  br i1 %switch.i.i58, label %124, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
+  %115 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(16) %20), !range !8816
+  %switch.i.i58 = icmp ult i8 %115, 2
+  br i1 %switch.i.i58, label %116, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 
-124:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
+116:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread"
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !16812
-  %125 = fadd float %96, %50
-  store float %125, ptr %8, align 4, !noalias !16812
-  %126 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !8816
-  %127 = add nsw i8 %126, -3
-  %switch.i5.i60 = icmp samesign ult i8 %127, -2
+  %117 = fadd float %90, %48
+  store float %117, ptr %8, align 4, !noalias !16812
+  %118 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(8) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %8), !range !8816
+  %switch.i5.i60 = icmp slt i8 %118, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !16812
-  br i1 %switch.i5.i60, label %128, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
+  br i1 %switch.i5.i60, label %119, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 
-128:                                              ; preds = %124
-  %129 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %120), !range !8816
-  %switch.i6.i61 = icmp ult i8 %129, 2
+119:                                              ; preds = %116
+  %120 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %112), !range !8816
+  %switch.i6.i61 = icmp ult i8 %120, 2
   br i1 %switch.i6.i61, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63", label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63": ; preds = %128
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63": ; preds = %119
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !16812
-  %130 = load float, ptr %120, align 4, !alias.scope !16814, !noalias !16817, !noundef !5
-  %131 = load float, ptr %122, align 4, !alias.scope !16818, !noalias !16817, !noundef !5
-  %132 = fadd float %130, %131
-  store float %132, ptr %7, align 4, !noalias !16812
-  %133 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !8816
-  %134 = add nsw i8 %133, -3
-  %switch.i7.i62 = icmp samesign ult i8 %134, -2
+  %121 = load float, ptr %112, align 4, !alias.scope !16814, !noalias !16817, !noundef !5
+  %122 = load float, ptr %114, align 4, !alias.scope !16818, !noalias !16817, !noundef !5
+  %123 = fadd float %121, %122
+  store float %123, ptr %7, align 4, !noalias !16812
+  %124 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %7), !range !8816
+  %switch.i7.i62 = icmp slt i8 %124, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !16812
   br i1 %switch.i7.i62, label %.sink.split.sink.split.sink.split.sink.split, label %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
 
-"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread": ; preds = %124, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread", %128, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63", %116
-  br i1 %57, label %137, label %135
+"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread": ; preds = %116, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit57.thread", %119, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63", %108
+  br i1 %55, label %127, label %125
 
-135:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
-  %136 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25), !range !8816
-  %cond = icmp eq i8 %136, -1
-  br i1 %cond, label %.sink.split.sink.split.sink.split.sink.split, label %137
+125:                                              ; preds = %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
+  %126 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25), !range !8816
+  %cond = icmp eq i8 %126, -1
+  br i1 %cond, label %.sink.split.sink.split.sink.split.sink.split, label %127
 
-137:                                              ; preds = %135, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
-  br i1 %.not, label %138, label %142
+127:                                              ; preds = %125, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63.thread"
+  br i1 %.not, label %128, label %132
 
-138:                                              ; preds = %137
+128:                                              ; preds = %127
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %139 = load float, ptr %25, align 4, !noundef !5
-  %140 = fsub float %4, %139
-  store float %140, ptr %19, align 4
-  %141 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %19), !range !8816
-  %cond37 = icmp eq i8 %141, 1
+  %129 = load float, ptr %25, align 4, !noundef !5
+  %130 = fsub float %4, %129
+  store float %130, ptr %19, align 4
+  %131 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %27, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %19), !range !8816
+  %cond37 = icmp eq i8 %131, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
-  br i1 %cond37, label %.sink.split.sink.split.sink.split.sink.split, label %142
+  br i1 %cond37, label %.sink.split.sink.split.sink.split.sink.split, label %132
 
-142:                                              ; preds = %138, %137
-  %143 = and i32 %5, 256
-  %.not35 = icmp eq i32 %143, 0
-  br i1 %.not35, label %144, label %146
+132:                                              ; preds = %128, %127
+  %133 = and i32 %5, 256
+  %.not35 = icmp eq i32 %133, 0
+  br i1 %.not35, label %134, label %136
 
-144:                                              ; preds = %142
-  %145 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25), !range !8816
-  %cond38 = icmp eq i8 %145, -1
-  br i1 %cond38, label %.sink.split.sink.split.sink.split.sink.split, label %146
+134:                                              ; preds = %132
+  %135 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %25), !range !8816
+  %cond38 = icmp eq i8 %135, -1
+  br i1 %cond38, label %.sink.split.sink.split.sink.split.sink.split, label %136
 
-146:                                              ; preds = %144, %142
-  %147 = and i32 %5, 65536
-  %.not36 = icmp eq i32 %147, 0
-  br i1 %.not36, label %148, label %.sink.split.sink.split.sink.split.sink.split
+136:                                              ; preds = %134, %132
+  %137 = and i32 %5, 65536
+  %.not36 = icmp eq i32 %137, 0
+  br i1 %.not36, label %138, label %.sink.split.sink.split.sink.split.sink.split
 
-148:                                              ; preds = %146
+138:                                              ; preds = %136
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %149 = load float, ptr %25, align 4, !noundef !5
-  %150 = fsub float %3, %149
-  store float %150, ptr %18, align 4
-  %151 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %18), !range !8816
-  %cond39 = icmp eq i8 %151, 1
+  %139 = load float, ptr %25, align 4, !noundef !5
+  %140 = fsub float %3, %139
+  store float %140, ptr %18, align 4
+  %141 = call noundef i8 @"_ZN64_$LT$gpui..geometry..Pixels$u20$as$u20$core..cmp..PartialOrd$GT$11partial_cmp17h7b99ed966161c563E"(ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %26, ptr noalias noundef nonnull readonly align 4 dereferenceable(4) %18), !range !8816
+  %cond39 = icmp eq i8 %141, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   %. = select i1 %cond39, i8 2, i8 8
   br label %.sink.split.sink.split.sink.split.sink.split
 
-.sink.split.sink.split.sink.split.sink.split:     ; preds = %146, %135, %144, %148, %138, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63"
-  %.sroa.03.4.ph.ph.ph.ph = phi i8 [ 3, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63" ], [ 0, %135 ], [ 6, %144 ], [ 8, %146 ], [ %., %148 ], [ 4, %138 ]
+.sink.split.sink.split.sink.split.sink.split:     ; preds = %136, %125, %134, %138, %128, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63"
+  %.sroa.03.4.ph.ph.ph.ph = phi i8 [ 3, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit63" ], [ 0, %125 ], [ 6, %134 ], [ 8, %136 ], [ %., %138 ], [ 4, %128 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %.sink.split.sink.split.sink.split
 
@@ -75578,9 +75566,9 @@ define noundef range(i8 0, 9) i8 @_ZN9workspace11resize_edge17h2a27f10d6531fa23E
 .sink.split:                                      ; preds = %.sink.split.sink.split, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45"
   %.sroa.03.4.ph = phi i8 [ 7, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit45" ], [ %.sroa.03.4.ph.ph, %.sink.split.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %152
+  br label %142
 
-152:                                              ; preds = %.sink.split, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
+142:                                              ; preds = %.sink.split, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit"
   %.sroa.03.4 = phi i8 [ 8, %"_ZN4gpui8geometry15Bounds$LT$T$GT$8contains17ha0f566d81dc45a72E.exit" ], [ %.sroa.03.4.ph, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   ret i8 %.sroa.03.4

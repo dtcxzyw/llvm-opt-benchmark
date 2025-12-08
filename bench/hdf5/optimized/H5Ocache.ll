@@ -1490,7 +1490,7 @@ define internal fastcc range(i32 -1, 1) i32 @H5O__prefix_deserialize(ptr noundef
 73:                                               ; preds = %71
   %74 = icmp ugt ptr %63, %5
   %75 = icmp samesign ult i64 %1, 22
-  %or.cond308 = or i1 %74, %75
+  %or.cond308 = or i1 %75, %74
   br i1 %or.cond308, label %92, label %.thread
 
 .thread:                                          ; preds = %73

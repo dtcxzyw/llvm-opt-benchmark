@@ -87694,7 +87694,7 @@ select.unfold.us:                                 ; preds = %.split.split.split.
 
 40:                                               ; preds = %.split57.us
   %41 = add nsw i64 %.02746.us53, -4
-  %42 = icmp samesign ult i64 %25, 3
+  %42 = icmp slt i64 %.02746.us53, 4
   br i1 %42, label %43, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h205f938a744d1e18E.exit"
 
 43:                                               ; preds = %40

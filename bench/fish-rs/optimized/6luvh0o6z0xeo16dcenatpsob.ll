@@ -10432,7 +10432,7 @@ define void @_ZN4fish5wutil9wrealpath17hc0be23cd15e53965E(ptr dead_on_unwind noa
   store i64 %25, ptr %16, align 8
   %36 = icmp samesign ult i64 %25, %21
   tail call void @llvm.assume(i1 %36)
-  %37 = icmp samesign ugt i64 %25, 1
+  %37 = icmp samesign ugt i64 %24, 2
   br i1 %37, label %23, label %._crit_edge
 
 38:                                               ; preds = %._crit_edge

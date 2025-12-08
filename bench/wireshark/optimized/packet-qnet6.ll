@@ -3193,7 +3193,7 @@ define internal fastcc range(i32 -1, 1) i32 @dissect_qnet6_kif_cred(ptr noundef 
   %81 = add i32 %80, 4
   store i32 %81, ptr %2, align 4
   %82 = add nuw i32 %.13, 4
-  %83 = icmp samesign ugt i32 %.11152, 4
+  %83 = icmp sgt i32 %.11152.in, 8
   br i1 %83, label %.lr.ph, label %._crit_edge, !llvm.loop !12
 
 ._crit_edge:                                      ; preds = %.lr.ph, %72, %73

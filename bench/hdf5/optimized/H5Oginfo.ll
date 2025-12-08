@@ -112,7 +112,7 @@ define internal ptr @H5O__ginfo_decode(ptr readnone captures(none) %0, ptr readn
 58:                                               ; preds = %51
   %59 = icmp ugt ptr %44, %8
   %60 = icmp samesign ult i64 %4, 6
-  %or.cond77 = or i1 %59, %60
+  %or.cond77 = or i1 %60, %59
   br i1 %or.cond77, label %61, label %65
 
 61:                                               ; preds = %58

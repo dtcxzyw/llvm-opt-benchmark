@@ -1598,7 +1598,7 @@ ctr64_inc.exit:                                   ; preds = %116
   br i1 %.not138, label %164, label %168
 
 164:                                              ; preds = %161
-  %165 = icmp samesign ult i32 %162, 16
+  %165 = icmp samesign ult i32 %159, 24
   br i1 %165, label %.thread, label %166
 
 166:                                              ; preds = %164

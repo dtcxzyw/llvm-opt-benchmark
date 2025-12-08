@@ -7870,7 +7870,7 @@ _ZN19brotli_decompressor6decode25ReadCodeLengthCodeLengths17h18e248fba769cd59E.e
 251:                                              ; preds = %245
   %252 = add nsw i32 %247, -14
   %253 = zext nneg i32 %252 to i64
-  %254 = icmp samesign ult i32 %252, 33
+  %254 = icmp ult i16 %246, 47
   br i1 %254, label %258, label %261
 
 255:                                              ; preds = %245

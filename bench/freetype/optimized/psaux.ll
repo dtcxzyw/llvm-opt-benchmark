@@ -11411,7 +11411,7 @@ cf2_initGlobalRegionBuffer.exit:                  ; preds = %cf2_initGlobalRegio
 715:                                              ; preds = %713
   %716 = add nsw i32 %.01034, -1
   %717 = zext nneg i32 %716 to i64
-  %.not.i1451 = icmp samesign ult i32 %716, 17
+  %.not.i1451 = icmp slt i32 %.01034, 18
   br i1 %.not.i1451, label %cf2_arrstack_getPointer.exit1455, label %718
 
 718:                                              ; preds = %715

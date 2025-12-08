@@ -2112,7 +2112,7 @@ for.body.i.i.i.i.i.i.i460:                        ; preds = %for.body.i.i.i.i.i.
   %142 = load ptr, ptr %incdec.ptr2.i.i.i.i.i.i.i, align 8
   store ptr %142, ptr %result.addr.08.i.i.i.i.i.i.i, align 8
   store ptr %.pre.i459, ptr %incdec.ptr2.i.i.i.i.i.i.i, align 8
-  %cmp.i.i.i.i.i.i.i461 = icmp samesign ugt i64 %n.09.i.i.i.i.i.i.i, 1
+  %cmp.i.i.i.i.i.i.i461 = icmp samesign ugt i64 %n.09.i.i.i.i.i.i.in.i, 2
   br i1 %cmp.i.i.i.i.i.i.i461, label %for.body.i.i.i.i.i.i.i460, label %for.body.i.i.preheader.i.i.i, !llvm.loop !39
 
 for.body.i.i.preheader.i.i.i:                     ; preds = %for.body.i.i.i.i.i.i.i460, %while.body.i450

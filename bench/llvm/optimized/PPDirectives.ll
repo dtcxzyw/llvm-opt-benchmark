@@ -6378,7 +6378,7 @@ _ZNK4llvm9StringRef11starts_withES0_.exit29.thread.i: ; preds = %_ZNK4llvm9Strin
 _ZNK4llvm9StringRef11starts_withES0_.exit.thread.i: ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.i
   %80 = getelementptr inbounds nuw i8, ptr %72, i64 18
   %81 = add nsw i64 %75, -2
-  %.not.i33.i = icmp samesign ult i64 %81, 2
+  %.not.i33.i = icmp samesign ult i64 %75, 4
   br i1 %.not.i33.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.thread21.i, label %_ZNK4llvm9StringRef9ends_withES0_.exit.i
 
 _ZNK4llvm9StringRef9ends_withES0_.exit.i:         ; preds = %_ZNK4llvm9StringRef11starts_withES0_.exit.thread.i
@@ -6683,24 +6683,24 @@ _ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread: ; pred
   %217 = load ptr, ptr %216, align 8, !tbaa !39, !noalias !573
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %14, ptr noundef nonnull align 8 dereferenceable(15248) %217, i32 %.sroa.0.0.copyload.i, i32 noundef 1373) #18
   %218 = load i16, ptr %25, align 8, !tbaa !36
-  %switch.tableidx257 = add i16 %218, -1
-  %219 = icmp ult i16 %switch.tableidx257, 19
-  br i1 %219, label %switch.hole_check258, label %220
+  %switch.tableidx255 = add i16 %218, -1
+  %219 = icmp ult i16 %switch.tableidx255, 19
+  br i1 %219, label %switch.hole_check256, label %220
 
-220:                                              ; preds = %switch.hole_check258, %_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread
+220:                                              ; preds = %switch.hole_check256, %_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread
   %221 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %222 = load ptr, ptr %221, align 8, !tbaa !277
   %223 = ptrtoint ptr %222 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit100
 
-switch.hole_check258:                             ; preds = %_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread
-  %switch.maskindex259 = zext nneg i16 %switch.tableidx257 to i32
-  %switch.shifted260 = lshr i32 524225, %switch.maskindex259
-  %switch.lobit261 = trunc i32 %switch.shifted260 to i1
-  br i1 %switch.lobit261, label %_ZNK5clang5Token17getIdentifierInfoEv.exit100, label %220
+switch.hole_check256:                             ; preds = %_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit.thread
+  %switch.maskindex257 = zext nneg i16 %switch.tableidx255 to i32
+  %switch.shifted258 = lshr i32 524225, %switch.maskindex257
+  %switch.lobit259 = trunc i32 %switch.shifted258 to i1
+  br i1 %switch.lobit259, label %_ZNK5clang5Token17getIdentifierInfoEv.exit100, label %220
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit100:    ; preds = %switch.hole_check258, %220
-  %.0.i99 = phi i64 [ %223, %220 ], [ 0, %switch.hole_check258 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit100:    ; preds = %switch.hole_check256, %220
+  %.0.i99 = phi i64 [ %223, %220 ], [ 0, %switch.hole_check256 ]
   %224 = load ptr, ptr %14, align 8, !tbaa !275
   %.not.i158 = icmp eq ptr %224, null
   br i1 %.not.i158, label %225, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
@@ -6876,23 +6876,23 @@ _ZN5clang17DiagnosticBuilderD2Ev.exit107:         ; preds = %_ZNSt7__cxx1112basi
 
 302:                                              ; preds = %._crit_edge, %180
   %303 = phi i16 [ %.pre, %._crit_edge ], [ %.pre210, %180 ]
-  %switch.tableidx262 = add i16 %303, -1
-  %304 = icmp ult i16 %switch.tableidx262, 19
-  br i1 %304, label %switch.hole_check263, label %305
+  %switch.tableidx260 = add i16 %303, -1
+  %304 = icmp ult i16 %switch.tableidx260, 19
+  br i1 %304, label %switch.hole_check261, label %305
 
-305:                                              ; preds = %switch.hole_check263, %302
+305:                                              ; preds = %switch.hole_check261, %302
   %306 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %307 = load ptr, ptr %306, align 8, !tbaa !277
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit109
 
-switch.hole_check263:                             ; preds = %302
-  %switch.maskindex264 = zext nneg i16 %switch.tableidx262 to i32
-  %switch.shifted265 = lshr i32 524225, %switch.maskindex264
-  %switch.lobit266 = trunc i32 %switch.shifted265 to i1
-  br i1 %switch.lobit266, label %_ZNK5clang5Token17getIdentifierInfoEv.exit109, label %305
+switch.hole_check261:                             ; preds = %302
+  %switch.maskindex262 = zext nneg i16 %switch.tableidx260 to i32
+  %switch.shifted263 = lshr i32 524225, %switch.maskindex262
+  %switch.lobit264 = trunc i32 %switch.shifted263 to i1
+  br i1 %switch.lobit264, label %_ZNK5clang5Token17getIdentifierInfoEv.exit109, label %305
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit109:    ; preds = %switch.hole_check263, %305
-  %.0.i108 = phi ptr [ %307, %305 ], [ null, %switch.hole_check263 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit109:    ; preds = %switch.hole_check261, %305
+  %.0.i108 = phi ptr [ %307, %305 ], [ null, %switch.hole_check261 ]
   %308 = load i64, ptr %.0.i108, align 8
   %309 = and i64 %308, 33554432
   %.not.i110 = icmp eq i64 %309, 0
@@ -7155,23 +7155,23 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i136: ; preds = %
   %433 = load ptr, ptr %372, align 8, !tbaa !39, !noalias !586
   call void @_ZN5clang17DiagnosticBuilderC1EPNS_17DiagnosticsEngineENS_14SourceLocationEj(ptr noundef nonnull align 8 dereferenceable(66) %18, ptr noundef nonnull align 8 dereferenceable(15248) %433, i32 %.sroa.0.0.copyload.i141, i32 noundef 1244) #18
   %434 = load i16, ptr %25, align 8, !tbaa !36
-  %switch.tableidx267 = add i16 %434, -1
-  %435 = icmp ult i16 %switch.tableidx267, 19
-  br i1 %435, label %switch.hole_check268, label %436
+  %switch.tableidx265 = add i16 %434, -1
+  %435 = icmp ult i16 %switch.tableidx265, 19
+  br i1 %435, label %switch.hole_check266, label %436
 
-436:                                              ; preds = %switch.hole_check268, %432
+436:                                              ; preds = %switch.hole_check266, %432
   %437 = load ptr, ptr %328, align 8, !tbaa !277
   %438 = ptrtoint ptr %437 to i64
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit143
 
-switch.hole_check268:                             ; preds = %432
-  %switch.maskindex269 = zext nneg i16 %switch.tableidx267 to i32
-  %switch.shifted270 = lshr i32 524225, %switch.maskindex269
-  %switch.lobit271 = trunc i32 %switch.shifted270 to i1
-  br i1 %switch.lobit271, label %_ZNK5clang5Token17getIdentifierInfoEv.exit143, label %436
+switch.hole_check266:                             ; preds = %432
+  %switch.maskindex267 = zext nneg i16 %switch.tableidx265 to i32
+  %switch.shifted268 = lshr i32 524225, %switch.maskindex267
+  %switch.lobit269 = trunc i32 %switch.shifted268 to i1
+  br i1 %switch.lobit269, label %_ZNK5clang5Token17getIdentifierInfoEv.exit143, label %436
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit143:    ; preds = %switch.hole_check268, %436
-  %.0.i142 = phi i64 [ %438, %436 ], [ 0, %switch.hole_check268 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit143:    ; preds = %switch.hole_check266, %436
+  %.0.i142 = phi i64 [ %438, %436 ], [ 0, %switch.hole_check266 ]
   call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(66) %18, i64 noundef %.0.i142, i32 noundef 5)
   call void @_ZN5clang17DiagnosticBuilderD2Ev(ptr noundef nonnull align 8 dereferenceable(66) %18) #18
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
@@ -7251,23 +7251,23 @@ _ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang14SourceLocationENS_6detail13De
 
 _ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5eraseERKS3_.exit: ; preds = %.lr.ph.i.i.i, %_ZNK5clang5Token17getIdentifierInfoEv.exit109, %_ZN4llvm12DenseMapBaseINS_13SmallDenseMapIN5clang14SourceLocationENS_6detail13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS4_12DenseSetPairIS3_EEEES3_S5_S7_S9_E6doFindIS3_EEPS9_RKT_.exit.i.i, %443, %_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit122.thread189, %_ZN5clang17DiagnosticBuilderD2Ev.exit140, %_ZN5clang12Preprocessor12getMacroInfoEPKNS_14IdentifierInfoE.exit122
   %476 = load i16, ptr %25, align 8, !tbaa !36
-  %switch.tableidx272 = add i16 %476, -1
-  %477 = icmp ult i16 %switch.tableidx272, 19
-  br i1 %477, label %switch.hole_check273, label %478
+  %switch.tableidx270 = add i16 %476, -1
+  %477 = icmp ult i16 %switch.tableidx270, 19
+  br i1 %477, label %switch.hole_check271, label %478
 
-478:                                              ; preds = %switch.hole_check273, %_ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5eraseERKS3_.exit
+478:                                              ; preds = %switch.hole_check271, %_ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5eraseERKS3_.exit
   %479 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %480 = load ptr, ptr %479, align 8, !tbaa !277
   br label %_ZNK5clang5Token17getIdentifierInfoEv.exit147
 
-switch.hole_check273:                             ; preds = %_ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5eraseERKS3_.exit
-  %switch.maskindex274 = zext nneg i16 %switch.tableidx272 to i32
-  %switch.shifted275 = lshr i32 524225, %switch.maskindex274
-  %switch.lobit276 = trunc i32 %switch.shifted275 to i1
-  br i1 %switch.lobit276, label %_ZNK5clang5Token17getIdentifierInfoEv.exit147, label %478
+switch.hole_check271:                             ; preds = %_ZN4llvm6detail12DenseSetImplIN5clang14SourceLocationENS_13SmallDenseMapIS3_NS0_13DenseSetEmptyELj32ENS_12DenseMapInfoIS3_vEENS0_12DenseSetPairIS3_EEEES7_E5eraseERKS3_.exit
+  %switch.maskindex272 = zext nneg i16 %switch.tableidx270 to i32
+  %switch.shifted273 = lshr i32 524225, %switch.maskindex272
+  %switch.lobit274 = trunc i32 %switch.shifted273 to i1
+  br i1 %switch.lobit274, label %_ZNK5clang5Token17getIdentifierInfoEv.exit147, label %478
 
-_ZNK5clang5Token17getIdentifierInfoEv.exit147:    ; preds = %switch.hole_check273, %478
-  %.0.i146 = phi ptr [ %480, %478 ], [ null, %switch.hole_check273 ]
+_ZNK5clang5Token17getIdentifierInfoEv.exit147:    ; preds = %switch.hole_check271, %478
+  %.0.i146 = phi ptr [ %480, %478 ], [ null, %switch.hole_check271 ]
   %.sroa.0.0.copyload.i.i148 = load i32, ptr %44, align 8, !tbaa !28
   %481 = getelementptr inbounds nuw i8, ptr %0, i64 128
   %482 = getelementptr inbounds nuw i8, ptr %0, i64 208

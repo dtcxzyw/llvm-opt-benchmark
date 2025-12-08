@@ -2432,7 +2432,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   ]
 
 98:                                               ; preds = %92
-  %99 = icmp samesign ult i32 %90, 8
+  %99 = icmp ult i16 %85, 12
   %100 = load i32, ptr @hf_isakmp_sa_situation, align 4
   br i1 %99, label %101, label %105
 
@@ -2458,7 +2458,7 @@ define internal fastcc void @dissect_payloads(ptr noundef %0, ptr noundef %1, i3
   br label %dissect_sa.exit
 
 117:                                              ; preds = %92
-  %118 = icmp samesign ult i32 %90, 12
+  %118 = icmp ult i16 %85, 16
   %119 = load i32, ptr @hf_isakmp_sa_situation, align 4
   br i1 %118, label %120, label %124
 
@@ -3303,7 +3303,7 @@ dissect_cert.exit:                                ; preds = %508, %510, %520, %5
 552:                                              ; preds = %537
   %553 = load i32, ptr @hf_isakmp_certreq_type_v2, align 4
   %554 = call ptr @proto_tree_add_item(ptr noundef %84, i32 noundef %553, ptr noundef %0, i32 noundef %89, i32 noundef 1, i32 noundef 0)
-  %555 = icmp samesign ugt i32 %90, 1
+  %555 = icmp ugt i16 %85, 5
   br i1 %555, label %.preheader.preheader.i, label %dissect_certreq.exit
 
 .preheader.preheader.i:                           ; preds = %552
@@ -3770,20 +3770,20 @@ dissect_resp_lifetime_ipsec_attribute.exit.i:     ; preds = %679, %660
 
 782:                                              ; preds = %.lr.ph340.i
   %783 = load i32, ptr %24, align 4
-  %switch.tableidx487 = add i32 %783, -1
-  %784 = icmp ult i32 %switch.tableidx487, 5
-  br i1 %784, label %switch.lookup488, label %789
+  %switch.tableidx486 = add i32 %783, -1
+  %784 = icmp ult i32 %switch.tableidx486, 5
+  br i1 %784, label %switch.lookup487, label %789
 
-switch.lookup488:                                 ; preds = %782
-  %785 = zext nneg i32 %switch.tableidx487 to i64
-  %switch.gep489 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_payloads.1, i64 %785
-  %switch.load490 = load ptr, ptr %switch.gep489, align 8
+switch.lookup487:                                 ; preds = %782
+  %785 = zext nneg i32 %switch.tableidx486 to i64
+  %switch.gep488 = getelementptr inbounds nuw ptr, ptr @switch.table.dissect_payloads.1, i64 %785
+  %switch.load489 = load ptr, ptr %switch.gep488, align 8
   %786 = load ptr, ptr %26, align 8
-  %787 = load i32, ptr %switch.load490, align 4
+  %787 = load i32, ptr %switch.load489, align 4
   %788 = call ptr @proto_tree_add_item(ptr noundef %786, i32 noundef %787, ptr noundef %0, i32 noundef %776, i32 noundef %777, i32 noundef 0)
   br label %789
 
-789:                                              ; preds = %782, %switch.lookup488
+789:                                              ; preds = %782, %switch.lookup487
   %.pre352.i = add i32 %776, %777
   br label %dissect_rohc_attribute.exit.i
 
@@ -3981,7 +3981,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
   %902 = load i32, ptr @hf_isakmp_vid_string, align 4
   %903 = call ptr @proto_tree_add_string(ptr noundef %84, i32 noundef %902, ptr noundef %0, i32 noundef %89, i32 noundef range(i32 -4, 65532) %90, ptr noundef %899)
   call void (ptr, ptr, ...) @proto_item_append_text(ptr noundef %84, ptr noundef nonnull @.str.912, ptr noundef %899)
-  %904 = icmp samesign ugt i32 %90, 23
+  %904 = icmp ugt i16 %85, 27
   br i1 %904, label %905, label %924
 
 905:                                              ; preds = %896
@@ -4009,7 +4009,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
   br label %.thread.i
 
 924:                                              ; preds = %896
-  %925 = icmp samesign ugt i32 %90, 13
+  %925 = icmp samesign ugt i16 %85, 17
   br i1 %925, label %.thread.i, label %958
 
 .thread.i:                                        ; preds = %924, %907, %905
@@ -4036,7 +4036,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
 
 939:                                              ; preds = %927, %.thread.i
   %.1.i171 = phi i32 [ %938, %927 ], [ %.088.i, %.thread.i ]
-  %940 = icmp samesign ugt i32 %90, 15
+  %940 = icmp ugt i16 %85, 19
   br i1 %940, label %941, label %.thread98.i
 
 941:                                              ; preds = %939
@@ -4053,7 +4053,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
 
 948:                                              ; preds = %943, %941
   %.2.i = phi i32 [ %947, %943 ], [ %.1.i171, %941 ]
-  %949 = icmp samesign ugt i32 %90, 18
+  %949 = icmp ugt i16 %85, 22
   br i1 %949, label %950, label %.thread98.i
 
 950:                                              ; preds = %948
@@ -4070,7 +4070,7 @@ dissect_rohc_attribute.exit.i:                    ; preds = %789, %779
   br label %.thread98.i
 
 958:                                              ; preds = %924
-  %959 = icmp samesign ugt i32 %90, 11
+  %959 = icmp samesign ugt i16 %85, 15
   br i1 %959, label %.thread98.i, label %dissect_sa.exit
 
 .thread98.i:                                      ; preds = %958, %952, %950, %948, %939
@@ -5062,7 +5062,7 @@ dissect_ts.exit.i:                                ; preds = %.sink.split.i.i185,
 
 1481:                                             ; preds = %88
   %1482 = call ptr @proto_tree_get_parent(ptr noundef %84)
-  %1483 = icmp samesign ult i32 %90, 4
+  %1483 = icmp ult i16 %85, 8
   br i1 %1483, label %dissect_sa.exit, label %1484
 
 1484:                                             ; preds = %1481

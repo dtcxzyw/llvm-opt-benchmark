@@ -4007,7 +4007,7 @@ _ZNSt6vectorIPcSaIS0_EEC2EmRKS0_RKS1_.exit:       ; preds = %.noexc173, %_ZNSt6v
 335:                                              ; preds = %_ZNSt6vectorIPcSaIS0_EEC2EmRKS0_RKS1_.exit
   store ptr %334, ptr %.sroa.0227.0, align 8, !tbaa !146
   store i8 0, ptr %334, align 1, !tbaa !23
-  %336 = icmp samesign ugt i64 %325, 1
+  %336 = icmp sgt i64 %324, 0
   br i1 %336, label %.lr.ph, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %349, %335

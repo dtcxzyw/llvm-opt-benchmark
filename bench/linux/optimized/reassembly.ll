@@ -375,7 +375,7 @@ define internal i32 @ip6frag_key_hashfn(ptr noundef readonly captures(none) %0, 
   %42 = add i32 %37, %38
   %43 = add nsw i32 %10, -3
   %44 = getelementptr i8, ptr %9, i64 12
-  %45 = icmp samesign ugt i32 %43, 3
+  %45 = icmp samesign ugt i32 %10, 6
   br i1 %45, label %5, label %46, !llvm.loop !15
 
 46:                                               ; preds = %5
@@ -455,7 +455,7 @@ define internal i32 @ip6frag_obj_hashfn(ptr noundef readonly captures(none) %0, 
   %43 = add i32 %38, %39
   %44 = add nsw i32 %11, -3
   %45 = getelementptr i8, ptr %10, i64 12
-  %46 = icmp samesign ugt i32 %44, 3
+  %46 = icmp samesign ugt i32 %11, 6
   br i1 %46, label %6, label %47, !llvm.loop !15
 
 47:                                               ; preds = %6

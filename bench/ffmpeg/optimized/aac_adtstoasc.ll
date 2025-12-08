@@ -1099,9 +1099,9 @@ put_bits.exit98:                                  ; preds = %449, %457, %438
   br label %put_bits.exit102
 
 put_bits.exit102:                                 ; preds = %485, %493, %474
-  %.sink189 = phi i32 [ -3, %474 ], [ 29, %493 ], [ 29, %485 ]
+  %.sink187 = phi i32 [ -3, %474 ], [ 29, %493 ], [ 29, %485 ]
   %.026.i.i100 = phi i32 [ %476, %474 ], [ %470, %493 ], [ %470, %485 ]
-  %494 = add nsw i32 %458, %.sink189
+  %494 = add nsw i32 %458, %.sink187
   store i32 %.026.i.i100, ptr %0, align 8, !tbaa !43
   store i32 %494, ptr %8, align 4, !tbaa !42
   br label %495
@@ -1171,13 +1171,13 @@ put_bits.exit102:                                 ; preds = %485, %493, %474
   br label %put_bits.exit106
 
 put_bits.exit106:                                 ; preds = %530, %538, %520
-  %.sink190 = phi i32 [ -16, %520 ], [ 16, %538 ], [ 16, %530 ]
+  %.sink188 = phi i32 [ -16, %520 ], [ 16, %538 ], [ 16, %530 ]
   %.026.i.i104 = phi i32 [ %522, %520 ], [ %516, %538 ], [ %516, %530 ]
-  %539 = add nsw i32 %504, %.sink190
+  %539 = add nsw i32 %504, %.sink188
   store i32 %.026.i.i104, ptr %0, align 8, !tbaa !43
   store i32 %539, ptr %8, align 4, !tbaa !42
   %540 = add nsw i32 %.0123, -16
-  %541 = icmp samesign ugt i32 %540, 16
+  %541 = icmp sgt i32 %.0123, 32
   br i1 %541, label %503, label %._crit_edge, !llvm.loop !46
 
 ._crit_edge:                                      ; preds = %put_bits.exit106, %495
@@ -1239,8 +1239,8 @@ put_bits.exit106:                                 ; preds = %530, %538, %520
   br label %580
 
 580:                                              ; preds = %579, %571
-  %reass.sub = sub nsw i32 %.pr, %.0.lcssa
-  %581 = add nsw i32 %reass.sub, 32
+  %reass.sub = sub i32 %.pr, %.0.lcssa
+  %581 = add i32 %reass.sub, 32
   br label %put_bits.exit110
 
 put_bits.exit110:                                 ; preds = %559, %580
@@ -1357,9 +1357,9 @@ align_get_bits.exit:                              ; preds = %align_put_bits.exit
   br label %put_bits.exit114
 
 put_bits.exit114:                                 ; preds = %634, %642, %623
-  %.sink191 = phi i32 [ -8, %623 ], [ 24, %642 ], [ 24, %634 ]
+  %.sink189 = phi i32 [ -8, %623 ], [ 24, %642 ], [ 24, %634 ]
   %.026.i.i112 = phi i32 [ %625, %623 ], [ %619, %642 ], [ %619, %634 ]
-  %643 = add nsw i32 %.0.i.i.i, %.sink191
+  %643 = add nsw i32 %.0.i.i.i, %.sink189
   store i32 %.026.i.i112, ptr %0, align 8, !tbaa !43
   store i32 %643, ptr %8, align 4, !tbaa !42
   %.not127 = icmp eq i32 %619, 0
@@ -1421,9 +1421,9 @@ put_bits.exit114:                                 ; preds = %634, %642, %623
   br label %put_bits.exit118
 
 put_bits.exit118:                                 ; preds = %672, %680, %662
-  %.sink192 = phi i32 [ -8, %662 ], [ 24, %680 ], [ 24, %672 ]
+  %.sink190 = phi i32 [ -8, %662 ], [ 24, %680 ], [ 24, %672 ]
   %.026.i.i116 = phi i32 [ %664, %662 ], [ %658, %680 ], [ %658, %672 ]
-  %681 = add nsw i32 %646, %.sink192
+  %681 = add nsw i32 %646, %.sink190
   store i32 %.026.i.i116, ptr %0, align 8, !tbaa !43
   store i32 %681, ptr %8, align 4, !tbaa !42
   %682 = add nsw i32 %.050124, -1

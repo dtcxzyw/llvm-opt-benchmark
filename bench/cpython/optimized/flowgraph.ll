@@ -6020,7 +6020,7 @@ basicblock_next_instr.exit.i66.i.i:               ; preds = %.loopexit142.i.i
   %308 = getelementptr %struct._PyCfgInstruction, ptr %304, i64 %307
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %305, ptr noundef nonnull align 8 dereferenceable(40) %308, i64 40, i1 false), !tbaa.struct !45
   %indvars.iv.next.i74.i.i = add nsw i64 %indvars.iv.i72.i.i, -1
-  %309 = icmp samesign ugt i64 %indvars.iv.next.i74.i.i, 1
+  %309 = icmp samesign ugt i64 %indvars.iv.i72.i.i, 2
   %310 = trunc nsw i64 %indvars.iv.i72.i.i to i32
   br i1 %309, label %.lr.ph.i71.i.i, label %.loopexit141.i.i, !llvm.loop !142
 

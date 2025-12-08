@@ -1327,11 +1327,11 @@ bytestream2_get_le32.exit:                        ; preds = %37
   %63 = getelementptr inbounds nuw i8, ptr %9, i64 16
   br label %64
 
-64:                                               ; preds = %59, %92
-  %.049107 = phi i32 [ 0, %59 ], [ %96, %92 ]
-  %.1106 = phi i32 [ 0, %59 ], [ %98, %92 ]
-  %.074105 = phi i32 [ %21, %59 ], [ %97, %92 ]
-  %.sroa.072.0104 = phi ptr [ %16, %59 ], [ %.sroa.072.1, %92 ]
+64:                                               ; preds = %59, %93
+  %.049107 = phi i32 [ 0, %59 ], [ %97, %93 ]
+  %.1106 = phi i32 [ 0, %59 ], [ %99, %93 ]
+  %.074105 = phi i32 [ %21, %59 ], [ %98, %93 ]
+  %.sroa.072.0104 = phi ptr [ %16, %59 ], [ %.sroa.072.1, %93 ]
   %65 = ptrtoint ptr %.sroa.072.0104 to i64
   %66 = sub i64 %30, %65
   %67 = icmp slt i64 %66, 4
@@ -1378,48 +1378,49 @@ check_slice_size.exit:                            ; preds = %82, %77
   %83 = zext i32 %.074105 to i64
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 %83
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 16
-  %or.cond.i = icmp samesign ugt i32 %81, 268435455
-  %86 = shl nuw nsw i32 %81, 3
-  %87 = select i1 %or.cond.i, i32 -8, i32 %86
-  %or.cond.i.i = icmp ugt i32 %87, 2147483134
-  %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %87
+  %or.cond.i = icmp samesign ugt i32 %.0.i58, 268435471
+  %86 = shl i32 %.0.i58, 3
+  %87 = add i32 %86, -128
+  %88 = select i1 %or.cond.i, i32 -8, i32 %87
+  %or.cond.i.i = icmp ugt i32 %88, 2147483134
+  %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %88
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %85
-  %88 = lshr exact i32 %.018.i.i, 3
+  %89 = lshr exact i32 %.018.i.i, 3
   store ptr %.017.i.i, ptr %9, align 8, !tbaa !56
   store i32 %.018.i.i, ptr %60, align 4, !tbaa !58
-  %89 = add nuw nsw i32 %.018.i.i, 8
-  store i32 %89, ptr %61, align 8, !tbaa !59
-  %90 = zext nneg i32 %88 to i64
-  %91 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %90
-  store ptr %91, ptr %62, align 8, !tbaa !60
+  %90 = add nuw nsw i32 %.018.i.i, 8
+  store i32 %90, ptr %61, align 8, !tbaa !59
+  %91 = zext nneg i32 %89 to i64
+  %92 = getelementptr inbounds nuw i8, ptr %.017.i.i, i64 %91
+  store ptr %92, ptr %62, align 8, !tbaa !60
   store i32 0, ptr %63, align 8, !tbaa !61
-  br i1 %or.cond.i.i, label %load_buffer.exit.thread, label %92
+  br i1 %or.cond.i.i, label %load_buffer.exit.thread, label %93
 
-92:                                               ; preds = %check_slice_size.exit
-  %93 = load i32, ptr %24, align 4, !tbaa !31
-  %94 = sub nsw i32 %93, %.049107
-  %95 = call i32 %4(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %.049107, i32 noundef %94, ptr noundef nonnull %10) #11
-  %96 = add nsw i32 %95, %.049107
-  %97 = add i32 %.0.i58, %.074105
-  %98 = add nuw nsw i32 %.1106, 1
-  %exitcond117.not = icmp eq i32 %98, %18
-  br i1 %exitcond117.not, label %99, label %64, !llvm.loop !62
+93:                                               ; preds = %check_slice_size.exit
+  %94 = load i32, ptr %24, align 4, !tbaa !31
+  %95 = sub nsw i32 %94, %.049107
+  %96 = call i32 %4(ptr noundef nonnull %9, ptr noundef %1, i32 noundef %.049107, i32 noundef %95, ptr noundef nonnull %10) #11
+  %97 = add nsw i32 %96, %.049107
+  %98 = add i32 %.0.i58, %.074105
+  %99 = add nuw nsw i32 %.1106, 1
+  %exitcond117.not = icmp eq i32 %99, %18
+  br i1 %exitcond117.not, label %100, label %64, !llvm.loop !62
 
-99:                                               ; preds = %92
-  %100 = load i32, ptr %24, align 4, !tbaa !31
-  %.not = icmp eq i32 %100, %96
-  br i1 %.not, label %102, label %101
+100:                                              ; preds = %93
+  %101 = load i32, ptr %24, align 4, !tbaa !31
+  %.not = icmp eq i32 %101, %97
+  br i1 %.not, label %103, label %102
 
-101:                                              ; preds = %99
+102:                                              ; preds = %100
   call void (ptr, ptr, ...) @avpriv_request_sample(ptr noundef nonnull %0, ptr noundef nonnull @.str.4) #11
-  br label %102
+  br label %103
 
-102:                                              ; preds = %101, %99
+103:                                              ; preds = %102, %100
   call fastcc void @do_vflip(ptr noundef nonnull %0, ptr noundef %1, i32 noundef %7)
   br label %load_buffer.exit.thread
 
-load_buffer.exit.thread:                          ; preds = %37, %bytestream2_get_le32.exit, %check_slice_size.exit, %76, %73, %26, %bytestream2_get_le16.exit.i.thread, %55, %47, %102
-  %.051 = phi i32 [ 0, %102 ], [ -1094995529, %47 ], [ %57, %55 ], [ -1163346256, %26 ], [ -1094995529, %bytestream2_get_le16.exit.i.thread ], [ -1094995529, %73 ], [ -1094995529, %76 ], [ -1094995529, %check_slice_size.exit ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %37 ]
+load_buffer.exit.thread:                          ; preds = %37, %bytestream2_get_le32.exit, %check_slice_size.exit, %76, %73, %26, %bytestream2_get_le16.exit.i.thread, %55, %47, %103
+  %.051 = phi i32 [ 0, %103 ], [ -1094995529, %47 ], [ %57, %55 ], [ -1163346256, %26 ], [ -1094995529, %bytestream2_get_le16.exit.i.thread ], [ -1094995529, %73 ], [ -1094995529, %76 ], [ -1094995529, %check_slice_size.exit ], [ -1094995529, %bytestream2_get_le32.exit ], [ -1094995529, %37 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   ret i32 %.051

@@ -133,7 +133,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %41 = shl nuw nsw i64 %40, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %39, i64 %41, i1 false), !tbaa !15
   %42 = add nsw i32 %8, -3
-  %43 = icmp samesign ult i32 %42, 3
+  %43 = icmp slt i32 %8, 6
   br i1 %43, label %.lr.ph125.preheader, label %._crit_edge
 
 .lr.ph125.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader
@@ -571,7 +571,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %41 = shl nuw nsw i64 %40, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %39, i64 %41, i1 false), !tbaa !15
   %42 = add nsw i32 %8, -4
-  %43 = icmp samesign ult i32 %42, 4
+  %43 = icmp slt i32 %8, 8
   br i1 %43, label %.lr.ph252.preheader, label %._crit_edge
 
 .lr.ph252.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader
@@ -843,7 +843,7 @@ nist_cp_bn.exit:                                  ; preds = %33, %28
   %41 = shl nuw nsw i64 %40, 3
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %5, ptr align 8 %39, i64 %41, i1 false), !tbaa !15
   %42 = add nsw i32 %8, -6
-  %43 = icmp samesign ult i32 %42, 6
+  %43 = icmp slt i32 %8, 12
   br i1 %43, label %.lr.ph292.preheader, label %._crit_edge
 
 .lr.ph292.preheader:                              ; preds = %nist_cp_bn.exit, %.preheader

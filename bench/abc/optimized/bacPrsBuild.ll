@@ -955,7 +955,7 @@ Bac_ObjAlloc.exit594:                             ; preds = %.Vec_IntGrow.exit10
   %187 = sext i32 %185 to i64
   %188 = getelementptr inbounds i32, ptr %184, i64 %187
   store i32 -1, ptr %188, align 4, !tbaa !11
-  %189 = icmp samesign ugt i32 %.0.in11.i, 1
+  %189 = icmp samesign ugt i32 %.0.in11.i.in, 2
   br i1 %189, label %.lr.ph.i, label %._crit_edge.i, !llvm.loop !49
 
 ._crit_edge.i:                                    ; preds = %Bac_ObjAlloc.exit594, %Psr_ManNtk.exit.thread
@@ -2002,7 +2002,7 @@ Bac_ObjAlloc.exit654:                             ; preds = %.Vec_IntGrow.exit10
   %642 = sext i32 %640 to i64
   %643 = getelementptr inbounds i32, ptr %639, i64 %642
   store i32 -1, ptr %643, align 4, !tbaa !11
-  %644 = icmp samesign ugt i32 %.0.in11.i474, 1
+  %644 = icmp samesign ugt i32 %.0.in11.i474.in, 2
   br i1 %644, label %.lr.ph.i473, label %._crit_edge.i469, !llvm.loop !49
 
 ._crit_edge.i469:                                 ; preds = %Bac_ObjAlloc.exit654, %585

@@ -7936,8 +7936,7 @@ _ZNK4llvm11ConstantInt5isOneEv.exit:              ; preds = %675, %678
   br label %.critedge
 
 809:                                              ; preds = %2, %2, %2, %2
-  %.off = add nsw i32 %30, -14395
-  %switch = icmp samesign ult i32 %.off, 2
+  %switch = icmp samesign ult i32 %30, 14397
   %810 = getelementptr inbounds nuw i8, ptr %0, i64 176
   %811 = load ptr, ptr %810, align 8, !tbaa !202
   %812 = getelementptr inbounds nuw i8, ptr %811, i64 320

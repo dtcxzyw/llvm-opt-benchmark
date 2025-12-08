@@ -149,7 +149,7 @@ define hidden noundef i32 @main(i32 noundef %0, ptr noundef readonly captures(no
   br i1 %46, label %47, label %208
 
 47:                                               ; preds = %38
-  %48 = icmp samesign ult i32 %43, 3
+  %48 = icmp samesign ult i32 %0, 5
   br i1 %48, label %49, label %51
 
 49:                                               ; preds = %47
@@ -623,7 +623,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 211:                                              ; preds = %208
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %212 = icmp samesign ult i32 %43, 2
+  %212 = icmp samesign ult i32 %0, 4
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %211

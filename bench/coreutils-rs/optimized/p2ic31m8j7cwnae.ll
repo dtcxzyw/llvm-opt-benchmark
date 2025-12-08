@@ -4447,7 +4447,7 @@ _ZN8uu_shred9wipe_name17h521bc825616f2f61E.exit.i: ; preds = %600, %.noexc300
   %709 = getelementptr inbounds nuw i8, ptr %.sroa.44.08.i.i, i64 3
   %710 = add nsw i64 %.sroa.7.09.i.i, -3
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %.sroa.44.08.i.i, ptr noundef nonnull readonly align 1 dereferenceable(3) %308, i64 3, i1 false), !noalias !1151
-  %711 = icmp samesign ult i64 %710, 3
+  %711 = icmp samesign ult i64 %.sroa.7.09.i.i, 6
   br i1 %711, label %.loopexit50.i, label %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$15copy_from_slice17h2546588ea23afc3cE.exit.i.i"
 
 _ZN8uu_shred11BytesWriter14from_pass_type17hf621a172995e6c4fE.exit.i: ; preds = %.loopexit50.i, %.noexc315

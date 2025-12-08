@@ -13392,7 +13392,7 @@ _ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.
 
 .critedge:                                        ; preds = %14, %_ZNK4llvm18TargetLoweringBase11isTypeLegalENS_3EVTE.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %42 = icmp samesign ugt i64 %indvars.iv.next, 2
+  %42 = icmp sgt i64 %indvars.iv, 3
   br i1 %42, label %14, label %.loopexit, !llvm.loop !871
 
 .loopexit:                                        ; preds = %.critedge, %_ZNK4llvm17RegisterClassInfo21getNumAllocatableRegsEPKNS_19TargetRegisterClassE.exit

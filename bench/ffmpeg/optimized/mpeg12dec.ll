@@ -3380,9 +3380,9 @@ switch.early.test.i:                              ; preds = %1337
 
 1422:                                             ; preds = %1417
   %1423 = getelementptr inbounds nuw i8, ptr %194, i64 2
-  %1424 = add nsw i32 %197, -2
-  %or.cond.i.i.i385 = icmp samesign ugt i32 %1424, 268435455
-  %1425 = shl nuw nsw i32 %1424, 3
+  %or.cond.i.i.i385 = icmp samesign ugt i32 %197, 268435457
+  %1424 = shl nuw i32 %197, 3
+  %1425 = add i32 %1424, -16
   %1426 = select i1 %or.cond.i.i.i385, i32 -8, i32 %1425
   %or.cond.i.i.i.i = icmp ugt i32 %1426, 2147483134
   br i1 %or.cond.i.i.i.i, label %slice_end.exit, label %1427

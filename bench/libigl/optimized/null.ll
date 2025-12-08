@@ -5800,7 +5800,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1
   %340 = shl nsw i64 %339, 1
   %.not.i.i.i.i.i104 = icmp ult i64 %293, 3
   %341 = icmp sgt i64 %293, 4
-  %342 = icmp samesign ugt i64 %298, 7
+  %342 = icmp sgt i64 %293, 8
   %343 = icmp sgt i64 %340, %338
   %344 = icmp slt i64 %340, %298
   br label %345
@@ -6124,7 +6124,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
   %93 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %94 = load <2 x double>, ptr %93, align 1, !tbaa !30
   %95 = fmul <2 x double> %92, %94
-  %96 = icmp samesign ugt i64 %37, 7
+  %96 = icmp samesign ugt i64 %18, 8
   br i1 %96, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %90
@@ -6404,7 +6404,7 @@ define linkonce_odr dso_local void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6Ma
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1, !tbaa !30
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp samesign ugt i64 %7, 7
+  %23 = icmp samesign ugt i64 %6, 8
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19
@@ -8080,7 +8080,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIdLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
   %93 = getelementptr inbounds nuw i8, ptr %38, i64 24
   %94 = load <2 x double>, ptr %93, align 1, !tbaa !30
   %95 = fmul <2 x double> %92, %94
-  %96 = icmp samesign ugt i64 %37, 7
+  %96 = icmp samesign ugt i64 %18, 8
   br i1 %96, label %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i.i.i.i:                ; preds = %.lr.ph.i.i.i.i.i.i.i.i.i.i.i, %90
@@ -21868,7 +21868,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIfLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1
   %.off.i.i.i.i.i105 = add i64 %320, 2
   %.not.i.i.i.i.i106 = icmp ult i64 %.off.i.i.i.i.i105, 7
   %368 = icmp sgt i64 %320, 8
-  %369 = icmp samesign ugt i64 %325, 15
+  %369 = icmp sgt i64 %320, 16
   %370 = icmp sgt i64 %367, %365
   %371 = icmp slt i64 %367, %325
   %372 = icmp sgt i64 %320, 2
@@ -22208,7 +22208,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
   %94 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %95 = load <4 x float>, ptr %94, align 1, !tbaa !30
   %96 = fmul <4 x float> %93, %95
-  %97 = icmp samesign ugt i64 %37, 15
+  %97 = icmp samesign ugt i64 %18, 16
   br i1 %97, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %91
@@ -22444,7 +22444,7 @@ define linkonce_odr dso_local void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6Ma
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 20
   %21 = load <4 x float>, ptr %20, align 1, !tbaa !30
   %22 = fmul <4 x float> %21, %21
-  %23 = icmp samesign ugt i64 %7, 15
+  %23 = icmp samesign ugt i64 %6, 16
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19
@@ -24180,7 +24180,7 @@ _ZN5Eigen9DenseBaseINS_3MapINS_6MatrixIfLi1ELin1ELi1ELi1ELin1EEELi0ENS_6StrideIL
   %94 = getelementptr inbounds nuw i8, ptr %38, i64 20
   %95 = load <4 x float>, ptr %94, align 1, !tbaa !30
   %96 = fmul <4 x float> %93, %95
-  %97 = icmp samesign ugt i64 %37, 15
+  %97 = icmp samesign ugt i64 %18, 16
   br i1 %97, label %.lr.ph.i.i.i.i.i.i.i.i, label %._crit_edge.i.i.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i.i.i:                      ; preds = %.lr.ph.i.i.i.i.i.i.i.i, %91

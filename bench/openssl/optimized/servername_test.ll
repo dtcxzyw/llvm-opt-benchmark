@@ -356,329 +356,328 @@ PACKET_buf_init.exit.thread:                      ; preds = %6
   br label %PACKET_forward.exit.thread
 
 PACKET_forward.exit31:                            ; preds = %PACKET_buf_init.exit
-  %12 = add nsw i64 %4, -5
-  %13 = icmp samesign ugt i64 %12, 3
-  %.0.i30 = zext i1 %13 to i32
-  %14 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.18, i32 noundef %.0.i30) #5
-  %.not5 = icmp eq i32 %14, 0
+  %12 = icmp samesign ugt i64 %4, 8
+  %.0.i30 = zext i1 %12 to i32
+  %13 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 60, ptr noundef nonnull @.str.18, i32 noundef %.0.i30) #5
+  %.not5 = icmp eq i32 %13, 0
   br i1 %.not5, label %PACKET_forward.exit.thread, label %PACKET_forward.exit34
 
 PACKET_forward.exit34:                            ; preds = %PACKET_forward.exit31
-  %15 = add nsw i64 %4, -9
-  %.sroa.18.2 = select i1 %13, i64 %15, i64 %12
-  %.sroa.079.2.v = select i1 %13, i64 9, i64 5
+  %.sroa.18.2.v = select i1 %12, i64 -9, i64 -5
+  %.sroa.18.2 = add nsw i64 %.sroa.18.2.v, %4
+  %.sroa.079.2.v = select i1 %12, i64 9, i64 5
   %.sroa.079.2 = getelementptr inbounds nuw i8, ptr %7, i64 %.sroa.079.2.v
-  %16 = icmp ugt i64 %.sroa.18.2, 33
-  %17 = add nsw i64 %.sroa.18.2, -34
-  %.sroa.079.3.idx = select i1 %16, i64 34, i64 0
+  %14 = icmp samesign ugt i64 %.sroa.18.2, 33
+  %15 = add nsw i64 %.sroa.18.2, -34
+  %.sroa.079.3.idx = select i1 %14, i64 34, i64 0
   %.sroa.079.3 = getelementptr inbounds nuw i8, ptr %.sroa.079.2, i64 %.sroa.079.3.idx
-  %.sroa.18.3 = select i1 %16, i64 %17, i64 %.sroa.18.2
-  %.0.i33 = zext i1 %16 to i32
-  %18 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.19, i32 noundef %.0.i33) #5
-  %.not6 = icmp eq i32 %18, 0
-  br i1 %.not6, label %PACKET_forward.exit.thread, label %19
+  %.sroa.18.3 = select i1 %14, i64 %15, i64 %.sroa.18.2
+  %.0.i33 = zext i1 %14 to i32
+  %16 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 63, ptr noundef nonnull @.str.19, i32 noundef %.0.i33) #5
+  %.not6 = icmp eq i32 %16, 0
+  br i1 %.not6, label %PACKET_forward.exit.thread, label %17
 
-19:                                               ; preds = %PACKET_forward.exit34
+17:                                               ; preds = %PACKET_forward.exit34
   %.not.i.i.i = icmp eq i64 %.sroa.18.3, 0
-  br i1 %.not.i.i.i, label %PACKET_get_length_prefixed_1.exit.thread, label %20
+  br i1 %.not.i.i.i, label %PACKET_get_length_prefixed_1.exit.thread, label %18
 
-20:                                               ; preds = %19
-  %21 = load i8, ptr %.sroa.079.3, align 1, !tbaa !14
-  %22 = add nsw i64 %.sroa.18.3, -1
-  %23 = zext i8 %21 to i64
-  %24 = icmp samesign ult i64 %22, %23
-  br i1 %24, label %PACKET_get_length_prefixed_1.exit, label %25
+18:                                               ; preds = %17
+  %19 = load i8, ptr %.sroa.079.3, align 1, !tbaa !14
+  %20 = add nsw i64 %.sroa.18.3, -1
+  %21 = zext i8 %19 to i64
+  %22 = icmp samesign ult i64 %20, %21
+  br i1 %22, label %PACKET_get_length_prefixed_1.exit, label %23
 
-25:                                               ; preds = %20
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.079.3, i64 1
-  %27 = getelementptr inbounds nuw i8, ptr %26, i64 %23
-  %28 = sub nuw nsw i64 %22, %23
+23:                                               ; preds = %18
+  %24 = getelementptr inbounds nuw i8, ptr %.sroa.079.3, i64 1
+  %25 = getelementptr inbounds nuw i8, ptr %24, i64 %21
+  %26 = sub nuw nsw i64 %20, %21
   br label %PACKET_get_length_prefixed_1.exit
 
-PACKET_get_length_prefixed_1.exit:                ; preds = %20, %25
-  %.sroa.079.4 = phi ptr [ %.sroa.079.3, %20 ], [ %27, %25 ]
-  %.sroa.18.4 = phi i64 [ %.sroa.18.3, %20 ], [ %28, %25 ]
-  %.sroa.076.1 = phi ptr [ null, %20 ], [ %26, %25 ]
-  %.sroa.11.1 = phi i64 [ 0, %20 ], [ %23, %25 ]
-  %.0.i35 = phi i32 [ 0, %20 ], [ 1, %25 ]
-  %29 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef %.0.i35) #5
-  %.not7 = icmp eq i32 %29, 0
-  br i1 %.not7, label %PACKET_forward.exit.thread, label %31
+PACKET_get_length_prefixed_1.exit:                ; preds = %18, %23
+  %.sroa.079.4 = phi ptr [ %.sroa.079.3, %18 ], [ %25, %23 ]
+  %.sroa.18.4 = phi i64 [ %.sroa.18.3, %18 ], [ %26, %23 ]
+  %.sroa.076.1 = phi ptr [ null, %18 ], [ %24, %23 ]
+  %.sroa.11.1 = phi i64 [ 0, %18 ], [ %21, %23 ]
+  %.0.i35 = phi i32 [ 0, %18 ], [ 1, %23 ]
+  %27 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef %.0.i35) #5
+  %.not7 = icmp eq i32 %27, 0
+  br i1 %.not7, label %PACKET_forward.exit.thread, label %29
 
-PACKET_get_length_prefixed_1.exit.thread:         ; preds = %19
-  %30 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef 0) #5
-  %.not7119 = icmp eq i32 %30, 0
+PACKET_get_length_prefixed_1.exit.thread:         ; preds = %17
+  %28 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 65, ptr noundef nonnull @.str.20, i32 noundef 0) #5
+  %.not7119 = icmp eq i32 %28, 0
   br i1 %.not7119, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit.thread
 
-31:                                               ; preds = %PACKET_get_length_prefixed_1.exit
-  %32 = icmp samesign ult i64 %.sroa.18.4, 2
-  br i1 %32, label %PACKET_get_length_prefixed_2.exit, label %33
+29:                                               ; preds = %PACKET_get_length_prefixed_1.exit
+  %30 = icmp samesign ult i64 %.sroa.18.4, 2
+  br i1 %30, label %PACKET_get_length_prefixed_2.exit, label %31
 
-33:                                               ; preds = %31
-  %34 = load i8, ptr %.sroa.079.4, align 1, !tbaa !14
-  %35 = zext i8 %34 to i64
-  %36 = shl nuw nsw i64 %35, 8
-  %37 = getelementptr inbounds nuw i8, ptr %.sroa.079.4, i64 1
-  %38 = load i8, ptr %37, align 1, !tbaa !14
-  %39 = zext i8 %38 to i64
-  %40 = or disjoint i64 %36, %39
-  %41 = add nsw i64 %.sroa.18.4, -2
-  %42 = icmp samesign ult i64 %41, %40
-  br i1 %42, label %PACKET_get_length_prefixed_2.exit, label %43
+31:                                               ; preds = %29
+  %32 = load i8, ptr %.sroa.079.4, align 1, !tbaa !14
+  %33 = zext i8 %32 to i64
+  %34 = shl nuw nsw i64 %33, 8
+  %35 = getelementptr inbounds nuw i8, ptr %.sroa.079.4, i64 1
+  %36 = load i8, ptr %35, align 1, !tbaa !14
+  %37 = zext i8 %36 to i64
+  %38 = or disjoint i64 %34, %37
+  %39 = add nsw i64 %.sroa.18.4, -2
+  %40 = icmp samesign ult i64 %39, %38
+  br i1 %40, label %PACKET_get_length_prefixed_2.exit, label %41
 
-43:                                               ; preds = %33
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.079.4, i64 2
-  %45 = getelementptr inbounds nuw i8, ptr %44, i64 %40
-  %46 = sub nuw nsw i64 %41, %40
+41:                                               ; preds = %31
+  %42 = getelementptr inbounds nuw i8, ptr %.sroa.079.4, i64 2
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 %38
+  %44 = sub nuw nsw i64 %39, %38
   br label %PACKET_get_length_prefixed_2.exit
 
-PACKET_get_length_prefixed_2.exit:                ; preds = %31, %33, %43
-  %.sroa.079.5 = phi ptr [ %.sroa.079.4, %31 ], [ %.sroa.079.4, %33 ], [ %45, %43 ]
-  %.sroa.18.5 = phi i64 [ %.sroa.18.4, %31 ], [ %.sroa.18.4, %33 ], [ %46, %43 ]
-  %.sroa.076.2 = phi ptr [ %.sroa.076.1, %31 ], [ %.sroa.076.1, %33 ], [ %44, %43 ]
-  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %31 ], [ %.sroa.11.1, %33 ], [ %40, %43 ]
-  %.0.i39 = phi i32 [ 0, %31 ], [ 0, %33 ], [ 1, %43 ]
-  %47 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef %.0.i39) #5
-  %.not8 = icmp eq i32 %47, 0
-  br i1 %.not8, label %PACKET_forward.exit.thread, label %49
+PACKET_get_length_prefixed_2.exit:                ; preds = %29, %31, %41
+  %.sroa.079.5 = phi ptr [ %.sroa.079.4, %29 ], [ %.sroa.079.4, %31 ], [ %43, %41 ]
+  %.sroa.18.5 = phi i64 [ %.sroa.18.4, %29 ], [ %.sroa.18.4, %31 ], [ %44, %41 ]
+  %.sroa.076.2 = phi ptr [ %.sroa.076.1, %29 ], [ %.sroa.076.1, %31 ], [ %42, %41 ]
+  %.sroa.11.2 = phi i64 [ %.sroa.11.1, %29 ], [ %.sroa.11.1, %31 ], [ %38, %41 ]
+  %.0.i39 = phi i32 [ 0, %29 ], [ 0, %31 ], [ 1, %41 ]
+  %45 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef %.0.i39) #5
+  %.not8 = icmp eq i32 %45, 0
+  br i1 %.not8, label %PACKET_forward.exit.thread, label %47
 
 PACKET_get_length_prefixed_2.exit.thread:         ; preds = %PACKET_get_length_prefixed_1.exit.thread
-  %48 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef 0) #5
-  %.not8133 = icmp eq i32 %48, 0
+  %46 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 67, ptr noundef nonnull @.str.21, i32 noundef 0) #5
+  %.not8133 = icmp eq i32 %46, 0
   br i1 %.not8133, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_1.exit45
 
-49:                                               ; preds = %PACKET_get_length_prefixed_2.exit
+47:                                               ; preds = %PACKET_get_length_prefixed_2.exit
   %.not.i.i.i42 = icmp eq i64 %.sroa.18.5, 0
-  br i1 %.not.i.i.i42, label %PACKET_get_length_prefixed_1.exit45, label %50
+  br i1 %.not.i.i.i42, label %PACKET_get_length_prefixed_1.exit45, label %48
 
-50:                                               ; preds = %49
-  %51 = load i8, ptr %.sroa.079.5, align 1, !tbaa !14
-  %52 = add nsw i64 %.sroa.18.5, -1
-  %53 = zext i8 %51 to i64
-  %54 = icmp samesign ult i64 %52, %53
-  br i1 %54, label %PACKET_get_length_prefixed_1.exit45, label %55
+48:                                               ; preds = %47
+  %49 = load i8, ptr %.sroa.079.5, align 1, !tbaa !14
+  %50 = add nsw i64 %.sroa.18.5, -1
+  %51 = zext i8 %49 to i64
+  %52 = icmp samesign ult i64 %50, %51
+  br i1 %52, label %PACKET_get_length_prefixed_1.exit45, label %53
 
-55:                                               ; preds = %50
-  %56 = getelementptr inbounds nuw i8, ptr %.sroa.079.5, i64 1
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 %53
-  %58 = sub nuw nsw i64 %52, %53
+53:                                               ; preds = %48
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.079.5, i64 1
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 %51
+  %56 = sub nuw nsw i64 %50, %51
   br label %PACKET_get_length_prefixed_1.exit45
 
-PACKET_get_length_prefixed_1.exit45:              ; preds = %PACKET_get_length_prefixed_2.exit.thread, %49, %50, %55
-  %.sroa.079.6 = phi ptr [ %.sroa.079.5, %49 ], [ %.sroa.079.5, %50 ], [ %57, %55 ], [ %.sroa.079.3, %PACKET_get_length_prefixed_2.exit.thread ]
-  %.sroa.18.6 = phi i64 [ 0, %49 ], [ %.sroa.18.5, %50 ], [ %58, %55 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
-  %.sroa.076.3 = phi ptr [ %.sroa.076.2, %49 ], [ %.sroa.076.2, %50 ], [ %56, %55 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
-  %.sroa.11.3 = phi i64 [ %.sroa.11.2, %49 ], [ %.sroa.11.2, %50 ], [ %53, %55 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
-  %.0.i44 = phi i32 [ 0, %49 ], [ 0, %50 ], [ 1, %55 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
-  %59 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.20, i32 noundef %.0.i44) #5
-  %.not9 = icmp eq i32 %59, 0
-  br i1 %.not9, label %PACKET_forward.exit.thread, label %60
+PACKET_get_length_prefixed_1.exit45:              ; preds = %PACKET_get_length_prefixed_2.exit.thread, %47, %48, %53
+  %.sroa.079.6 = phi ptr [ %.sroa.079.5, %47 ], [ %.sroa.079.5, %48 ], [ %55, %53 ], [ %.sroa.079.3, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.sroa.18.6 = phi i64 [ 0, %47 ], [ %.sroa.18.5, %48 ], [ %56, %53 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.sroa.076.3 = phi ptr [ %.sroa.076.2, %47 ], [ %.sroa.076.2, %48 ], [ %54, %53 ], [ null, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.sroa.11.3 = phi i64 [ %.sroa.11.2, %47 ], [ %.sroa.11.2, %48 ], [ %51, %53 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %.0.i44 = phi i32 [ 0, %47 ], [ 0, %48 ], [ 1, %53 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ]
+  %57 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 69, ptr noundef nonnull @.str.20, i32 noundef %.0.i44) #5
+  %.not9 = icmp eq i32 %57, 0
+  br i1 %.not9, label %PACKET_forward.exit.thread, label %58
 
-60:                                               ; preds = %PACKET_get_length_prefixed_1.exit45
-  %61 = icmp samesign ult i64 %.sroa.18.6, 2
-  br i1 %61, label %PACKET_as_length_prefixed_2.exit, label %62
+58:                                               ; preds = %PACKET_get_length_prefixed_1.exit45
+  %59 = icmp samesign ult i64 %.sroa.18.6, 2
+  br i1 %59, label %PACKET_as_length_prefixed_2.exit, label %60
 
-62:                                               ; preds = %60
-  %63 = load i8, ptr %.sroa.079.6, align 1, !tbaa !14
-  %64 = zext i8 %63 to i64
-  %65 = shl nuw nsw i64 %64, 8
-  %66 = getelementptr inbounds nuw i8, ptr %.sroa.079.6, i64 1
-  %67 = load i8, ptr %66, align 1, !tbaa !14
-  %68 = zext i8 %67 to i64
-  %69 = or disjoint i64 %65, %68
-  %70 = add nsw i64 %.sroa.18.6, -2
-  %.not5.i = icmp eq i64 %70, %69
-  br i1 %.not5.i, label %71, label %PACKET_as_length_prefixed_2.exit
+60:                                               ; preds = %58
+  %61 = load i8, ptr %.sroa.079.6, align 1, !tbaa !14
+  %62 = zext i8 %61 to i64
+  %63 = shl nuw nsw i64 %62, 8
+  %64 = getelementptr inbounds nuw i8, ptr %.sroa.079.6, i64 1
+  %65 = load i8, ptr %64, align 1, !tbaa !14
+  %66 = zext i8 %65 to i64
+  %67 = or disjoint i64 %63, %66
+  %68 = add nsw i64 %.sroa.18.6, -2
+  %.not5.i = icmp eq i64 %68, %67
+  br i1 %.not5.i, label %69, label %PACKET_as_length_prefixed_2.exit
 
-71:                                               ; preds = %62
-  %72 = getelementptr inbounds nuw i8, ptr %.sroa.079.6, i64 2
+69:                                               ; preds = %60
+  %70 = getelementptr inbounds nuw i8, ptr %.sroa.079.6, i64 2
   br label %PACKET_as_length_prefixed_2.exit
 
-PACKET_as_length_prefixed_2.exit:                 ; preds = %60, %62, %71
-  %.sroa.076.4 = phi ptr [ %.sroa.076.3, %60 ], [ %72, %71 ], [ %.sroa.076.3, %62 ]
-  %.sroa.11.4 = phi i64 [ %.sroa.11.3, %60 ], [ %69, %71 ], [ %.sroa.11.3, %62 ]
-  %.0.i49 = phi i32 [ 0, %60 ], [ 1, %71 ], [ 0, %62 ]
-  %73 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.22, i32 noundef %.0.i49) #5
-  %.not10 = icmp eq i32 %73, 0
+PACKET_as_length_prefixed_2.exit:                 ; preds = %58, %60, %69
+  %.sroa.076.4 = phi ptr [ %.sroa.076.3, %58 ], [ %70, %69 ], [ %.sroa.076.3, %60 ]
+  %.sroa.11.4 = phi i64 [ %.sroa.11.3, %58 ], [ %67, %69 ], [ %.sroa.11.3, %60 ]
+  %.0.i49 = phi i32 [ 0, %58 ], [ 1, %69 ], [ 0, %60 ]
+  %71 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 71, ptr noundef nonnull @.str.22, i32 noundef %.0.i49) #5
+  %.not10 = icmp eq i32 %71, 0
   br i1 %.not10, label %PACKET_forward.exit.thread, label %.preheader
 
-.preheader:                                       ; preds = %PACKET_as_length_prefixed_2.exit, %102
-  %.sroa.076.0 = phi ptr [ %.sroa.076.6, %102 ], [ %.sroa.076.4, %PACKET_as_length_prefixed_2.exit ]
-  %.sroa.11.0 = phi i64 [ %.sroa.11.6, %102 ], [ %.sroa.11.4, %PACKET_as_length_prefixed_2.exit ]
-  %.sroa.074.0 = phi ptr [ %.sroa.074.1, %102 ], [ null, %PACKET_as_length_prefixed_2.exit ]
-  %.sroa.675.0 = phi i64 [ %.sroa.675.1, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
-  %.088 = phi i32 [ %.1151156, %102 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
+.preheader:                                       ; preds = %PACKET_as_length_prefixed_2.exit, %100
+  %.sroa.076.0 = phi ptr [ %.sroa.076.6, %100 ], [ %.sroa.076.4, %PACKET_as_length_prefixed_2.exit ]
+  %.sroa.11.0 = phi i64 [ %.sroa.11.6, %100 ], [ %.sroa.11.4, %PACKET_as_length_prefixed_2.exit ]
+  %.sroa.074.0 = phi ptr [ %.sroa.074.1, %100 ], [ null, %PACKET_as_length_prefixed_2.exit ]
+  %.sroa.675.0 = phi i64 [ %.sroa.675.1, %100 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
+  %.088 = phi i32 [ %.1151156, %100 ], [ 0, %PACKET_as_length_prefixed_2.exit ]
   switch i64 %.sroa.11.0, label %PACKET_get_net_2.exit [
     i64 0, label %PACKET_forward.exit.thread
     i64 1, label %PACKET_get_net_2.exit.thread
   ]
 
 PACKET_get_net_2.exit:                            ; preds = %.preheader
-  %74 = load i8, ptr %.sroa.076.0, align 1, !tbaa !14
-  %75 = zext i8 %74 to i32
-  %76 = shl nuw nsw i32 %75, 8
-  %77 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 1
-  %78 = load i8, ptr %77, align 1, !tbaa !14
-  %79 = zext i8 %78 to i32
-  %80 = or disjoint i32 %76, %79
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 2
-  %82 = add i64 %.sroa.11.0, -2
-  %83 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 1) #5
-  %.not12 = icmp eq i32 %83, 0
-  br i1 %.not12, label %PACKET_forward.exit.thread, label %85
+  %72 = load i8, ptr %.sroa.076.0, align 1, !tbaa !14
+  %73 = zext i8 %72 to i32
+  %74 = shl nuw nsw i32 %73, 8
+  %75 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 1
+  %76 = load i8, ptr %75, align 1, !tbaa !14
+  %77 = zext i8 %76 to i32
+  %78 = or disjoint i32 %74, %77
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 2
+  %80 = add i64 %.sroa.11.0, -2
+  %81 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 1) #5
+  %.not12 = icmp eq i32 %81, 0
+  br i1 %.not12, label %PACKET_forward.exit.thread, label %83
 
 PACKET_get_net_2.exit.thread:                     ; preds = %.preheader
-  %84 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 0) #5
-  %.not12148 = icmp eq i32 %84, 0
+  %82 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 76, ptr noundef nonnull @.str.23, i32 noundef 0) #5
+  %.not12148 = icmp eq i32 %82, 0
   br i1 %.not12148, label %PACKET_forward.exit.thread, label %PACKET_get_length_prefixed_2.exit55
 
-85:                                               ; preds = %PACKET_get_net_2.exit
-  %86 = icmp ult i64 %82, 2
-  br i1 %86, label %PACKET_get_length_prefixed_2.exit55, label %87
+83:                                               ; preds = %PACKET_get_net_2.exit
+  %84 = icmp ult i64 %80, 2
+  br i1 %84, label %PACKET_get_length_prefixed_2.exit55, label %85
 
-87:                                               ; preds = %85
-  %88 = load i8, ptr %81, align 1, !tbaa !14
-  %89 = zext i8 %88 to i64
-  %90 = shl nuw nsw i64 %89, 8
-  %91 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 3
-  %92 = load i8, ptr %91, align 1, !tbaa !14
-  %93 = zext i8 %92 to i64
-  %94 = or disjoint i64 %90, %93
-  %95 = add i64 %.sroa.11.0, -4
-  %96 = icmp ult i64 %95, %94
-  br i1 %96, label %PACKET_get_length_prefixed_2.exit55, label %97
+85:                                               ; preds = %83
+  %86 = load i8, ptr %79, align 1, !tbaa !14
+  %87 = zext i8 %86 to i64
+  %88 = shl nuw nsw i64 %87, 8
+  %89 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 3
+  %90 = load i8, ptr %89, align 1, !tbaa !14
+  %91 = zext i8 %90 to i64
+  %92 = or disjoint i64 %88, %91
+  %93 = add i64 %.sroa.11.0, -4
+  %94 = icmp ult i64 %93, %92
+  br i1 %94, label %PACKET_get_length_prefixed_2.exit55, label %95
 
-97:                                               ; preds = %87
-  %98 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 4
-  %99 = getelementptr inbounds nuw i8, ptr %98, i64 %94
-  %100 = sub nuw i64 %95, %94
+95:                                               ; preds = %85
+  %96 = getelementptr inbounds nuw i8, ptr %.sroa.076.0, i64 4
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 %92
+  %98 = sub nuw i64 %93, %92
   br label %PACKET_get_length_prefixed_2.exit55
 
-PACKET_get_length_prefixed_2.exit55:              ; preds = %PACKET_get_net_2.exit.thread, %85, %87, %97
-  %.1151156 = phi i32 [ %80, %85 ], [ %80, %87 ], [ %80, %97 ], [ %.088, %PACKET_get_net_2.exit.thread ]
-  %.sroa.076.6 = phi ptr [ %81, %85 ], [ %81, %87 ], [ %99, %97 ], [ %.sroa.076.0, %PACKET_get_net_2.exit.thread ]
-  %.sroa.11.6 = phi i64 [ %82, %85 ], [ %82, %87 ], [ %100, %97 ], [ 1, %PACKET_get_net_2.exit.thread ]
-  %.sroa.074.1 = phi ptr [ %.sroa.074.0, %85 ], [ %.sroa.074.0, %87 ], [ %98, %97 ], [ %.sroa.074.0, %PACKET_get_net_2.exit.thread ]
-  %.sroa.675.1 = phi i64 [ %.sroa.675.0, %85 ], [ %.sroa.675.0, %87 ], [ %94, %97 ], [ %.sroa.675.0, %PACKET_get_net_2.exit.thread ]
-  %.0.i54 = phi i32 [ 0, %85 ], [ 0, %87 ], [ 1, %97 ], [ 0, %PACKET_get_net_2.exit.thread ]
-  %101 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @.str.24, i32 noundef %.0.i54) #5
-  %.not13 = icmp eq i32 %101, 0
-  br i1 %.not13, label %PACKET_forward.exit.thread, label %102
+PACKET_get_length_prefixed_2.exit55:              ; preds = %PACKET_get_net_2.exit.thread, %83, %85, %95
+  %.1151156 = phi i32 [ %78, %83 ], [ %78, %85 ], [ %78, %95 ], [ %.088, %PACKET_get_net_2.exit.thread ]
+  %.sroa.076.6 = phi ptr [ %79, %83 ], [ %79, %85 ], [ %97, %95 ], [ %.sroa.076.0, %PACKET_get_net_2.exit.thread ]
+  %.sroa.11.6 = phi i64 [ %80, %83 ], [ %80, %85 ], [ %98, %95 ], [ 1, %PACKET_get_net_2.exit.thread ]
+  %.sroa.074.1 = phi ptr [ %.sroa.074.0, %83 ], [ %.sroa.074.0, %85 ], [ %96, %95 ], [ %.sroa.074.0, %PACKET_get_net_2.exit.thread ]
+  %.sroa.675.1 = phi i64 [ %.sroa.675.0, %83 ], [ %.sroa.675.0, %85 ], [ %92, %95 ], [ %.sroa.675.0, %PACKET_get_net_2.exit.thread ]
+  %.0.i54 = phi i32 [ 0, %83 ], [ 0, %85 ], [ 1, %95 ], [ 0, %PACKET_get_net_2.exit.thread ]
+  %99 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 77, ptr noundef nonnull @.str.24, i32 noundef %.0.i54) #5
+  %.not13 = icmp eq i32 %99, 0
+  br i1 %.not13, label %PACKET_forward.exit.thread, label %100
 
-102:                                              ; preds = %PACKET_get_length_prefixed_2.exit55
-  %103 = icmp eq i32 %.1151156, 0
-  br i1 %103, label %104, label %.preheader, !llvm.loop !15
+100:                                              ; preds = %PACKET_get_length_prefixed_2.exit55
+  %101 = icmp eq i32 %.1151156, 0
+  br i1 %101, label %102, label %.preheader, !llvm.loop !15
+
+102:                                              ; preds = %100
+  %103 = icmp ult i64 %.sroa.675.1, 2
+  br i1 %103, label %PACKET_get_length_prefixed_2.exit60, label %104
 
 104:                                              ; preds = %102
-  %105 = icmp ult i64 %.sroa.675.1, 2
-  br i1 %105, label %PACKET_get_length_prefixed_2.exit60, label %106
+  %105 = load i8, ptr %.sroa.074.1, align 1, !tbaa !14
+  %106 = zext i8 %105 to i64
+  %107 = shl nuw nsw i64 %106, 8
+  %108 = getelementptr inbounds nuw i8, ptr %.sroa.074.1, i64 1
+  %109 = load i8, ptr %108, align 1, !tbaa !14
+  %110 = zext i8 %109 to i64
+  %111 = or disjoint i64 %107, %110
+  %112 = add nsw i64 %.sroa.675.1, -2
+  %113 = icmp ult i64 %112, %111
+  br i1 %113, label %PACKET_get_length_prefixed_2.exit60, label %114
 
-106:                                              ; preds = %104
-  %107 = load i8, ptr %.sroa.074.1, align 1, !tbaa !14
-  %108 = zext i8 %107 to i64
-  %109 = shl nuw nsw i64 %108, 8
-  %110 = getelementptr inbounds nuw i8, ptr %.sroa.074.1, i64 1
-  %111 = load i8, ptr %110, align 1, !tbaa !14
-  %112 = zext i8 %111 to i64
-  %113 = or disjoint i64 %109, %112
-  %114 = add nsw i64 %.sroa.675.1, -2
-  %115 = icmp ult i64 %114, %113
-  br i1 %115, label %PACKET_get_length_prefixed_2.exit60, label %116
-
-116:                                              ; preds = %106
-  %117 = getelementptr inbounds nuw i8, ptr %.sroa.074.1, i64 2
+114:                                              ; preds = %104
+  %115 = getelementptr inbounds nuw i8, ptr %.sroa.074.1, i64 2
   br label %PACKET_get_length_prefixed_2.exit60
 
-PACKET_get_length_prefixed_2.exit60:              ; preds = %104, %106, %116
-  %.sroa.071.0 = phi ptr [ null, %104 ], [ null, %106 ], [ %117, %116 ]
-  %.sroa.8.0 = phi i64 [ 0, %104 ], [ 0, %106 ], [ %113, %116 ]
-  %.0.i59 = phi i32 [ 0, %104 ], [ 0, %106 ], [ 1, %116 ]
-  %118 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @.str.25, i32 noundef %.0.i59) #5
-  %.not14 = icmp eq i32 %118, 0
-  br i1 %.not14, label %PACKET_forward.exit.thread, label %119
+PACKET_get_length_prefixed_2.exit60:              ; preds = %102, %104, %114
+  %.sroa.071.0 = phi ptr [ null, %102 ], [ null, %104 ], [ %115, %114 ]
+  %.sroa.8.0 = phi i64 [ 0, %102 ], [ 0, %104 ], [ %111, %114 ]
+  %.0.i59 = phi i32 [ 0, %102 ], [ 0, %104 ], [ 1, %114 ]
+  %116 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 80, ptr noundef nonnull @.str.25, i32 noundef %.0.i59) #5
+  %.not14 = icmp eq i32 %116, 0
+  br i1 %.not14, label %PACKET_forward.exit.thread, label %117
 
-119:                                              ; preds = %PACKET_get_length_prefixed_2.exit60
-  %120 = trunc nuw nsw i64 %.sroa.8.0 to i32
-  %121 = call i32 @test_uint_ne(ptr noundef nonnull @.str, i32 noundef 81, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.11, i32 noundef %120, i32 noundef 0) #5
-  %.not15 = icmp eq i32 %121, 0
-  br i1 %.not15, label %PACKET_forward.exit.thread, label %122
+117:                                              ; preds = %PACKET_get_length_prefixed_2.exit60
+  %118 = trunc nuw nsw i64 %.sroa.8.0 to i32
+  %119 = call i32 @test_uint_ne(ptr noundef nonnull @.str, i32 noundef 81, ptr noundef nonnull @.str.26, ptr noundef nonnull @.str.11, i32 noundef %118, i32 noundef 0) #5
+  %.not15 = icmp eq i32 %119, 0
+  br i1 %.not15, label %PACKET_forward.exit.thread, label %120
 
-122:                                              ; preds = %119
+120:                                              ; preds = %117
   %.not.i.i = icmp eq i64 %.sroa.8.0, 0
-  br i1 %.not.i.i, label %PACKET_get_1.exit, label %123
+  br i1 %.not.i.i, label %PACKET_get_1.exit, label %121
 
-123:                                              ; preds = %122
-  %124 = load i8, ptr %.sroa.071.0, align 1, !tbaa !14
-  %125 = zext i8 %124 to i32
-  %126 = getelementptr inbounds nuw i8, ptr %.sroa.071.0, i64 1
-  %127 = add nsw i64 %.sroa.8.0, -1
+121:                                              ; preds = %120
+  %122 = load i8, ptr %.sroa.071.0, align 1, !tbaa !14
+  %123 = zext i8 %122 to i32
+  %124 = getelementptr inbounds nuw i8, ptr %.sroa.071.0, i64 1
+  %125 = add nsw i64 %.sroa.8.0, -1
   br label %PACKET_get_1.exit
 
-PACKET_get_1.exit:                                ; preds = %122, %123
-  %.sroa.071.1 = phi ptr [ %.sroa.071.0, %122 ], [ %126, %123 ]
-  %.sroa.8.1 = phi i64 [ 0, %122 ], [ %127, %123 ]
-  %.089 = phi i32 [ 0, %122 ], [ %125, %123 ]
-  %.0.i62 = phi i32 [ 0, %122 ], [ 1, %123 ]
-  %128 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @.str.27, i32 noundef %.0.i62) #5
-  %.not16 = icmp eq i32 %128, 0
-  br i1 %.not16, label %PACKET_forward.exit.thread, label %129
+PACKET_get_1.exit:                                ; preds = %120, %121
+  %.sroa.071.1 = phi ptr [ %.sroa.071.0, %120 ], [ %124, %121 ]
+  %.sroa.8.1 = phi i64 [ 0, %120 ], [ %125, %121 ]
+  %.089 = phi i32 [ 0, %120 ], [ %123, %121 ]
+  %.0.i62 = phi i32 [ 0, %120 ], [ 1, %121 ]
+  %126 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 82, ptr noundef nonnull @.str.27, i32 noundef %.0.i62) #5
+  %.not16 = icmp eq i32 %126, 0
+  br i1 %.not16, label %PACKET_forward.exit.thread, label %127
 
-129:                                              ; preds = %PACKET_get_1.exit
-  %130 = call i32 @test_uint_eq(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %.089, i32 noundef 0) #5
-  %.not17 = icmp eq i32 %130, 0
-  br i1 %.not17, label %PACKET_forward.exit.thread, label %131
+127:                                              ; preds = %PACKET_get_1.exit
+  %128 = call i32 @test_uint_eq(ptr noundef nonnull @.str, i32 noundef 83, ptr noundef nonnull @.str.28, ptr noundef nonnull @.str.29, i32 noundef %.089, i32 noundef 0) #5
+  %.not17 = icmp eq i32 %128, 0
+  br i1 %.not17, label %PACKET_forward.exit.thread, label %129
+
+129:                                              ; preds = %127
+  %130 = icmp samesign ult i64 %.sroa.8.1, 2
+  br i1 %130, label %PACKET_get_length_prefixed_2.exit67, label %131
 
 131:                                              ; preds = %129
-  %132 = icmp samesign ult i64 %.sroa.8.1, 2
-  br i1 %132, label %PACKET_get_length_prefixed_2.exit67, label %133
+  %132 = load i8, ptr %.sroa.071.1, align 1, !tbaa !14
+  %133 = zext i8 %132 to i64
+  %134 = shl nuw nsw i64 %133, 8
+  %135 = getelementptr inbounds nuw i8, ptr %.sroa.071.1, i64 1
+  %136 = load i8, ptr %135, align 1, !tbaa !14
+  %137 = zext i8 %136 to i64
+  %138 = or disjoint i64 %134, %137
+  %139 = add nsw i64 %.sroa.8.1, -2
+  %140 = icmp samesign ult i64 %139, %138
+  br i1 %140, label %PACKET_get_length_prefixed_2.exit67, label %141
 
-133:                                              ; preds = %131
-  %134 = load i8, ptr %.sroa.071.1, align 1, !tbaa !14
-  %135 = zext i8 %134 to i64
-  %136 = shl nuw nsw i64 %135, 8
-  %137 = getelementptr inbounds nuw i8, ptr %.sroa.071.1, i64 1
-  %138 = load i8, ptr %137, align 1, !tbaa !14
-  %139 = zext i8 %138 to i64
-  %140 = or disjoint i64 %136, %139
-  %141 = add nsw i64 %.sroa.8.1, -2
-  %142 = icmp samesign ult i64 %141, %140
-  br i1 %142, label %PACKET_get_length_prefixed_2.exit67, label %143
-
-143:                                              ; preds = %133
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.071.1, i64 2
+141:                                              ; preds = %131
+  %142 = getelementptr inbounds nuw i8, ptr %.sroa.071.1, i64 2
   br label %PACKET_get_length_prefixed_2.exit67
 
-PACKET_get_length_prefixed_2.exit67:              ; preds = %131, %133, %143
-  %.sroa.0.0 = phi ptr [ null, %131 ], [ null, %133 ], [ %144, %143 ]
-  %.sroa.6.0 = phi i64 [ 0, %131 ], [ 0, %133 ], [ %140, %143 ]
-  %.0.i66 = phi i32 [ 0, %131 ], [ 0, %133 ], [ 1, %143 ]
-  %145 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.30, i32 noundef %.0.i66) #5
-  %.not18 = icmp eq i32 %145, 0
-  br i1 %.not18, label %PACKET_forward.exit.thread, label %146
+PACKET_get_length_prefixed_2.exit67:              ; preds = %129, %131, %141
+  %.sroa.0.0 = phi ptr [ null, %129 ], [ null, %131 ], [ %142, %141 ]
+  %.sroa.6.0 = phi i64 [ 0, %129 ], [ 0, %131 ], [ %138, %141 ]
+  %.0.i66 = phi i32 [ 0, %129 ], [ 0, %131 ], [ 1, %141 ]
+  %143 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 84, ptr noundef nonnull @.str.30, i32 noundef %.0.i66) #5
+  %.not18 = icmp eq i32 %143, 0
+  br i1 %.not18, label %PACKET_forward.exit.thread, label %144
 
-146:                                              ; preds = %PACKET_get_length_prefixed_2.exit67
-  %147 = trunc nuw nsw i64 %.sroa.6.0 to i32
-  %148 = call i32 @test_uint_le(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %147, i32 noundef 255) #5
-  %.not19 = icmp eq i32 %148, 0
-  br i1 %.not19, label %PACKET_forward.exit.thread, label %149
+144:                                              ; preds = %PACKET_get_length_prefixed_2.exit67
+  %145 = trunc nuw nsw i64 %.sroa.6.0 to i32
+  %146 = call i32 @test_uint_le(ptr noundef nonnull @.str, i32 noundef 85, ptr noundef nonnull @.str.31, ptr noundef nonnull @.str.32, i32 noundef %145, i32 noundef 255) #5
+  %.not19 = icmp eq i32 %146, 0
+  br i1 %.not19, label %PACKET_forward.exit.thread, label %147
 
-149:                                              ; preds = %146
-  %150 = call ptr @memchr(ptr noundef readonly %.sroa.0.0, i32 noundef 0, i64 noundef %.sroa.6.0) #6
-  %151 = icmp ne ptr %150, null
-  %152 = zext i1 %151 to i32
-  %153 = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @.str.33, i32 noundef %152) #5
-  %.not20 = icmp eq i32 %153, 0
-  br i1 %.not20, label %PACKET_forward.exit.thread, label %154
+147:                                              ; preds = %144
+  %148 = call ptr @memchr(ptr noundef readonly %.sroa.0.0, i32 noundef 0, i64 noundef %.sroa.6.0) #6
+  %149 = icmp ne ptr %148, null
+  %150 = zext i1 %149 to i32
+  %151 = call i32 @test_false(ptr noundef nonnull @.str, i32 noundef 86, ptr noundef nonnull @.str.33, i32 noundef %150) #5
+  %.not20 = icmp eq i32 %151, 0
+  br i1 %.not20, label %PACKET_forward.exit.thread, label %152
 
-154:                                              ; preds = %149
-  %155 = call fastcc i32 @PACKET_strndup(ptr %.sroa.0.0, i64 %.sroa.6.0, ptr noundef %1)
-  %156 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.34, i32 noundef %155) #5
-  %.not21 = icmp ne i32 %156, 0
+152:                                              ; preds = %147
+  %153 = call fastcc i32 @PACKET_strndup(ptr %.sroa.0.0, i64 %.sroa.6.0, ptr noundef %1)
+  %154 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 87, ptr noundef nonnull @.str.34, i32 noundef %153) #5
+  %.not21 = icmp ne i32 %154, 0
   %spec.select = zext i1 %.not21 to i32
   br label %PACKET_forward.exit.thread
 
-PACKET_forward.exit.thread:                       ; preds = %.preheader, %PACKET_get_net_2.exit, %PACKET_get_length_prefixed_2.exit55, %PACKET_get_net_2.exit.thread, %PACKET_get_length_prefixed_2.exit.thread, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_buf_init.exit.thread, %154, %PACKET_get_length_prefixed_2.exit60, %119, %PACKET_get_1.exit, %129, %PACKET_get_length_prefixed_2.exit67, %146, %149, %2, %PACKET_buf_init.exit, %PACKET_forward.exit31, %PACKET_forward.exit34, %PACKET_get_length_prefixed_1.exit, %PACKET_get_length_prefixed_2.exit, %PACKET_get_length_prefixed_1.exit45, %PACKET_as_length_prefixed_2.exit
-  %.0 = phi i32 [ 0, %149 ], [ 0, %146 ], [ 0, %PACKET_get_length_prefixed_2.exit67 ], [ 0, %129 ], [ 0, %PACKET_get_1.exit ], [ 0, %119 ], [ 0, %PACKET_get_length_prefixed_2.exit60 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit45 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit34 ], [ 0, %PACKET_forward.exit31 ], [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ %spec.select, %154 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit55 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %.preheader ]
+PACKET_forward.exit.thread:                       ; preds = %.preheader, %PACKET_get_net_2.exit, %PACKET_get_length_prefixed_2.exit55, %PACKET_get_net_2.exit.thread, %PACKET_get_length_prefixed_2.exit.thread, %PACKET_get_length_prefixed_1.exit.thread, %PACKET_buf_init.exit.thread, %152, %PACKET_get_length_prefixed_2.exit60, %117, %PACKET_get_1.exit, %127, %PACKET_get_length_prefixed_2.exit67, %144, %147, %2, %PACKET_buf_init.exit, %PACKET_forward.exit31, %PACKET_forward.exit34, %PACKET_get_length_prefixed_1.exit, %PACKET_get_length_prefixed_2.exit, %PACKET_get_length_prefixed_1.exit45, %PACKET_as_length_prefixed_2.exit
+  %.0 = phi i32 [ 0, %147 ], [ 0, %144 ], [ 0, %PACKET_get_length_prefixed_2.exit67 ], [ 0, %127 ], [ 0, %PACKET_get_1.exit ], [ 0, %117 ], [ 0, %PACKET_get_length_prefixed_2.exit60 ], [ 0, %PACKET_as_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit45 ], [ 0, %PACKET_get_length_prefixed_2.exit ], [ 0, %PACKET_get_length_prefixed_1.exit ], [ 0, %PACKET_forward.exit34 ], [ 0, %PACKET_forward.exit31 ], [ 0, %PACKET_buf_init.exit ], [ 0, %2 ], [ %spec.select, %152 ], [ 0, %PACKET_buf_init.exit.thread ], [ 0, %PACKET_get_length_prefixed_1.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit.thread ], [ 0, %PACKET_get_net_2.exit.thread ], [ 0, %PACKET_get_length_prefixed_2.exit55 ], [ 0, %PACKET_get_net_2.exit ], [ 0, %.preheader ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

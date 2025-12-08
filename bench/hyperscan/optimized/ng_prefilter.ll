@@ -2850,7 +2850,7 @@ _ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE9push_backERKS2_.exit.i: ; p
   br i1 %1162, label %1163, label %1169
 
 1163:                                             ; preds = %_ZNSt5dequeIN3ue212_GLOBAL__N_110RegionInfoESaIS2_EE9push_backERKS2_.exit.i
-  %1164 = icmp ult i64 %1160, 4
+  %1164 = icmp samesign ult i64 %1159, 544
   br i1 %1164, label %1165, label %1167
 
 1165:                                             ; preds = %1163

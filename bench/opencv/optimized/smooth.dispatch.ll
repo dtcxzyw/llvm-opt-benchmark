@@ -1947,7 +1947,7 @@ _ZNSt6vectorIN2cv10softdoubleESaIS1_EE13_M_assign_auxIPS1_EEvT_S6_St20forward_it
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(1088) %scevgep.i, i8 0, i64 1088, i1 false), !tbaa !85
   store ptr %scevgep.i, ptr %26, align 8, !tbaa !203
   %233 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %.not.i.i = icmp samesign ugt i32 %229, 271
+  %.not.i.i = icmp sgt i32 %2, 272
   store i64 %232, ptr %233, align 8, !tbaa !205
   br i1 %.not.i.i, label %234, label %237
 

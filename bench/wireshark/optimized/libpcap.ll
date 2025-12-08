@@ -536,16 +536,16 @@ define internal fastcc noundef zeroext i1 @libpcap_try_variants(ptr noundef read
   %20 = getelementptr inbounds nuw i8, ptr %6, i64 12
   br label %21
 
-21:                                               ; preds = %5, %207
-  %.03394 = phi i64 [ 0, %5 ], [ %208, %207 ]
+21:                                               ; preds = %5, %206
+  %.03394 = phi i64 [ 0, %5 ], [ %207, %206 ]
   %22 = getelementptr i32, ptr %1, i64 %.03394
   %23 = load i32, ptr %22, align 4
   %24 = icmp eq i32 %23, 4
   br label %25
 
-25:                                               ; preds = %190, %21
-  %.013109.i = phi i32 [ 0, %21 ], [ %191, %190 ]
-  %.0108.i = phi i32 [ 0, %21 ], [ %.7.i, %190 ]
+25:                                               ; preds = %189, %21
+  %.013109.i = phi i32 [ 0, %21 ], [ %190, %189 ]
+  %.0108.i = phi i32 [ 0, %21 ], [ %.7.i, %189 ]
   %26 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -558,7 +558,7 @@ define internal fastcc noundef zeroext i1 @libpcap_try_variants(ptr noundef read
 
 29:                                               ; preds = %25
   %30 = load i32, ptr %3, align 4
-  switch i32 %30, label %192 [
+  switch i32 %30, label %191 [
     i32 0, label %.thread47.sink.split.i
     i32 -12, label %31
   ]
@@ -586,7 +586,7 @@ define internal fastcc noundef zeroext i1 @libpcap_try_variants(ptr noundef read
 42:                                               ; preds = %39
   %43 = load i32, ptr %3, align 4
   %44 = icmp eq i32 %43, -12
-  br i1 %44, label %45, label %192
+  br i1 %44, label %45, label %191
 
 45:                                               ; preds = %42
   %46 = add i32 %.0108.i, 1
@@ -615,7 +615,7 @@ thread-pre-split.i.i:                             ; preds = %51, %47
 58:                                               ; preds = %thread-pre-split.i.i
   %59 = load i32, ptr %3, align 4
   %60 = icmp eq i32 %59, -12
-  br i1 %60, label %61, label %192
+  br i1 %60, label %61, label %191
 
 61:                                               ; preds = %58
   %62 = add i32 %spec.select.i, 1
@@ -651,7 +651,7 @@ thread-pre-split.i.i:                             ; preds = %51, %47
 79:                                               ; preds = %68
   %80 = load i32, ptr %3, align 4
   %81 = icmp eq i32 %80, -12
-  br i1 %81, label %82, label %192
+  br i1 %81, label %82, label %191
 
 82:                                               ; preds = %79
   %83 = add i32 %.4.i, 1
@@ -677,14 +677,14 @@ thread-pre-split143.i.i:                          ; preds = %88, %84
   %94 = icmp ugt i32 %93, %90
   %95 = zext i1 %94 to i32
   %.6.i = add i32 %spec.select57.i, %95
-  switch i32 %23, label %179 [
-    i32 0, label %180
-    i32 2, label %180
-    i32 1, label %180
+  switch i32 %23, label %178 [
+    i32 0, label %179
+    i32 2, label %179
+    i32 1, label %179
     i32 3, label %96
     i32 5, label %96
     i32 4, label %96
-    i32 6, label %157
+    i32 6, label %156
   ]
 
 96:                                               ; preds = %thread-pre-split143.i.i, %thread-pre-split143.i.i, %thread-pre-split143.i.i
@@ -695,7 +695,7 @@ thread-pre-split143.i.i:                          ; preds = %88, %84
 99:                                               ; preds = %96
   %100 = load i32, ptr %3, align 4
   %101 = icmp eq i32 %100, -12
-  br i1 %101, label %102, label %192
+  br i1 %101, label %102, label %191
 
 102:                                              ; preds = %99
   %103 = add i32 %.6.i, 1
@@ -724,7 +724,7 @@ thread-pre-split145.i.i:                          ; preds = %108, %104
 115:                                              ; preds = %thread-pre-split145.i.i
   %116 = load i32, ptr %3, align 4
   %117 = icmp eq i32 %116, -12
-  br i1 %117, label %118, label %192
+  br i1 %117, label %118, label %191
 
 118:                                              ; preds = %115
   %119 = add i32 %spec.select58.i, 1
@@ -745,162 +745,161 @@ thread-pre-split147.i.i:                          ; preds = %124, %120
   %125 = phi i16 [ %rev.i.i, %124 ], [ %123, %120 ]
   %.fr.i.i = freeze i16 %125
   %126 = icmp ugt i16 %.fr.i.i, 1535
-  br i1 %126, label %130, label %switch.early.test.i.i
+  br i1 %126, label %129, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %thread-pre-split147.i.i
   switch i16 %.fr.i.i, label %127 [
-    i16 1024, label %130
-    i16 512, label %130
-    i16 96, label %130
-    i16 0, label %130
+    i16 1024, label %129
+    i16 512, label %129
+    i16 96, label %129
+    i16 0, label %129
   ]
 
 127:                                              ; preds = %switch.early.test.i.i
-  %128 = add nsw i16 %.fr.i.i, -24
-  %or.cond14.i.i = icmp ult i16 %128, -23
-  %129 = zext i1 %or.cond14.i.i to i32
-  %spec.select59.i = add i32 %spec.select58.i, %129
-  br label %130
+  %or.cond14.i.i = icmp samesign ugt i16 %.fr.i.i, 23
+  %128 = zext i1 %or.cond14.i.i to i32
+  %spec.select59.i = add i32 %spec.select58.i, %128
+  br label %129
 
-130:                                              ; preds = %127, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %thread-pre-split147.i.i
+129:                                              ; preds = %127, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %thread-pre-split147.i.i
   %.9.i = phi i32 [ %spec.select58.i, %thread-pre-split147.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select58.i, %switch.early.test.i.i ], [ %spec.select59.i, %127 ]
-  %131 = load ptr, ptr %0, align 8
-  %132 = call zeroext i1 @wtap_read_bytes(ptr noundef %131, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %3, ptr noundef %4)
-  br i1 %132, label %138, label %133
+  %130 = load ptr, ptr %0, align 8
+  %131 = call zeroext i1 @wtap_read_bytes(ptr noundef %130, ptr noundef nonnull %9, i32 noundef 1, ptr noundef %3, ptr noundef %4)
+  br i1 %131, label %137, label %132
 
-133:                                              ; preds = %130
-  %134 = load i32, ptr %3, align 4
-  %135 = icmp eq i32 %134, -12
-  br i1 %135, label %136, label %192
+132:                                              ; preds = %129
+  %133 = load i32, ptr %3, align 4
+  %134 = icmp eq i32 %133, -12
+  br i1 %134, label %135, label %191
 
-136:                                              ; preds = %133
-  %137 = add i32 %.9.i, 1
+135:                                              ; preds = %132
+  %136 = add i32 %.9.i, 1
   br label %.thread47.sink.split.i
 
-138:                                              ; preds = %130
-  %139 = load i8, ptr %9, align 1
-  %140 = icmp ugt i8 %139, 4
-  %141 = zext i1 %140 to i32
-  %spec.select60.i = add i32 %.9.i, %141
-  %142 = load ptr, ptr %0, align 8
-  br i1 %24, label %143, label %150
+137:                                              ; preds = %129
+  %138 = load i8, ptr %9, align 1
+  %139 = icmp ugt i8 %138, 4
+  %140 = zext i1 %139 to i32
+  %spec.select60.i = add i32 %.9.i, %140
+  %141 = load ptr, ptr %0, align 8
+  br i1 %24, label %142, label %149
 
-143:                                              ; preds = %138
-  %144 = call zeroext i1 @wtap_read_bytes(ptr noundef %142, ptr noundef null, i32 noundef 5, ptr noundef %3, ptr noundef %4)
-  br i1 %144, label %180, label %145
+142:                                              ; preds = %137
+  %143 = call zeroext i1 @wtap_read_bytes(ptr noundef %141, ptr noundef null, i32 noundef 5, ptr noundef %3, ptr noundef %4)
+  br i1 %143, label %179, label %144
 
-145:                                              ; preds = %143
-  %146 = load i32, ptr %3, align 4
-  %147 = icmp eq i32 %146, -12
-  br i1 %147, label %148, label %192
+144:                                              ; preds = %142
+  %145 = load i32, ptr %3, align 4
+  %146 = icmp eq i32 %145, -12
+  br i1 %146, label %147, label %191
 
-148:                                              ; preds = %145
-  %149 = add i32 %spec.select60.i, 1
+147:                                              ; preds = %144
+  %148 = add i32 %spec.select60.i, 1
   br label %.thread47.sink.split.i
 
-150:                                              ; preds = %138
-  %151 = call zeroext i1 @wtap_read_bytes(ptr noundef %142, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4)
-  br i1 %151, label %180, label %152
+149:                                              ; preds = %137
+  %150 = call zeroext i1 @wtap_read_bytes(ptr noundef %141, ptr noundef null, i32 noundef 1, ptr noundef %3, ptr noundef %4)
+  br i1 %150, label %179, label %151
 
-152:                                              ; preds = %150
-  %153 = load i32, ptr %3, align 4
-  %154 = icmp eq i32 %153, -12
-  br i1 %154, label %155, label %192
+151:                                              ; preds = %149
+  %152 = load i32, ptr %3, align 4
+  %153 = icmp eq i32 %152, -12
+  br i1 %153, label %154, label %191
 
-155:                                              ; preds = %152
-  %156 = add i32 %spec.select60.i, 1
+154:                                              ; preds = %151
+  %155 = add i32 %spec.select60.i, 1
   br label %.thread47.sink.split.i
 
-157:                                              ; preds = %thread-pre-split143.i.i
-  %158 = load ptr, ptr %0, align 8
-  %159 = call zeroext i1 @wtap_read_bytes(ptr noundef %158, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %3, ptr noundef %4)
-  br i1 %159, label %165, label %160
+156:                                              ; preds = %thread-pre-split143.i.i
+  %157 = load ptr, ptr %0, align 8
+  %158 = call zeroext i1 @wtap_read_bytes(ptr noundef %157, ptr noundef nonnull %10, i32 noundef 4, ptr noundef %3, ptr noundef %4)
+  br i1 %158, label %164, label %159
 
-160:                                              ; preds = %157
-  %161 = load i32, ptr %3, align 4
-  %162 = icmp eq i32 %161, -12
-  br i1 %162, label %163, label %192
+159:                                              ; preds = %156
+  %160 = load i32, ptr %3, align 4
+  %161 = icmp eq i32 %160, -12
+  br i1 %161, label %162, label %191
 
-163:                                              ; preds = %160
-  %164 = add i32 %.6.i, 1
+162:                                              ; preds = %159
+  %163 = add i32 %.6.i, 1
   br label %.thread47.sink.split.i
 
-165:                                              ; preds = %157
-  %166 = load i32, ptr %10, align 4
-  %167 = and i32 %166, 268370160
-  %168 = icmp eq i32 %167, 264175616
-  br i1 %168, label %169, label %177
+164:                                              ; preds = %156
+  %165 = load i32, ptr %10, align 4
+  %166 = and i32 %165, 268370160
+  %167 = icmp eq i32 %166, 264175616
+  br i1 %167, label %168, label %176
 
-169:                                              ; preds = %165
-  %170 = and i32 %166, -268435456
-  switch i32 %170, label %177 [
-    i32 -1879048192, label %171
-    i32 -1342177280, label %171
+168:                                              ; preds = %164
+  %169 = and i32 %165, -268435456
+  switch i32 %169, label %176 [
+    i32 -1879048192, label %170
+    i32 -1342177280, label %170
   ]
 
-171:                                              ; preds = %169, %169
-  %172 = trunc i32 %166 to i16
-  %trunc.i.i = and i16 %172, -4096
-  switch i16 %trunc.i.i, label %177 [
-    i16 -20480, label %173
-    i16 -12288, label %173
+170:                                              ; preds = %168, %168
+  %171 = trunc i32 %165 to i16
+  %trunc.i.i = and i16 %171, -4096
+  switch i16 %trunc.i.i, label %176 [
+    i16 -20480, label %172
+    i16 -12288, label %172
   ]
 
-173:                                              ; preds = %171, %171
-  %174 = and i32 %166, 3840
-  switch i32 %174, label %177 [
-    i32 1536, label %175
-    i32 2304, label %175
+172:                                              ; preds = %170, %170
+  %173 = and i32 %165, 3840
+  switch i32 %173, label %176 [
+    i32 1536, label %174
+    i32 2304, label %174
   ]
 
-175:                                              ; preds = %173, %173
-  %176 = and i32 %166, 15
-  %.off.i.i = add nsw i32 %176, -1
+174:                                              ; preds = %172, %172
+  %175 = and i32 %165, 15
+  %.off.i.i = add nsw i32 %175, -1
   %switch.i.i = icmp ult i32 %.off.i.i, 2
-  br i1 %switch.i.i, label %180, label %177
+  br i1 %switch.i.i, label %179, label %176
 
-177:                                              ; preds = %175, %173, %171, %169, %165
-  %178 = add i32 %.6.i, 1
-  br label %180
+176:                                              ; preds = %174, %172, %170, %168, %164
+  %177 = add i32 %.6.i, 1
+  br label %179
 
-179:                                              ; preds = %thread-pre-split143.i.i
+178:                                              ; preds = %thread-pre-split143.i.i
   call void (ptr, i32, ptr, i64, ptr, ptr, ...) @ws_log_fatal_full(ptr noundef nonnull @.str.4, i32 noundef 7, ptr noundef nonnull @.str.5, i64 noundef 1244, ptr noundef nonnull @__func__.libpcap_try_record, ptr noundef nonnull @.str.6) #9
   unreachable
 
-180:                                              ; preds = %177, %175, %150, %143, %thread-pre-split143.i.i, %thread-pre-split143.i.i, %thread-pre-split143.i.i
-  %.7.i = phi i32 [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %spec.select60.i, %143 ], [ %spec.select60.i, %150 ], [ %178, %177 ], [ %.6.i, %175 ]
-  br i1 %.not.i.i, label %.thread47.sink.split.i, label %181
+179:                                              ; preds = %176, %174, %149, %142, %thread-pre-split143.i.i, %thread-pre-split143.i.i, %thread-pre-split143.i.i
+  %.7.i = phi i32 [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %.6.i, %thread-pre-split143.i.i ], [ %spec.select60.i, %142 ], [ %spec.select60.i, %149 ], [ %177, %176 ], [ %.6.i, %174 ]
+  br i1 %.not.i.i, label %.thread47.sink.split.i, label %180
 
-181:                                              ; preds = %180
-  %182 = load ptr, ptr %0, align 8
-  %183 = load i32, ptr %17, align 4
-  %184 = call zeroext i1 @wtap_read_bytes(ptr noundef %182, ptr noundef null, i32 noundef %183, ptr noundef %3, ptr noundef %4)
-  br i1 %184, label %190, label %185
+180:                                              ; preds = %179
+  %181 = load ptr, ptr %0, align 8
+  %182 = load i32, ptr %17, align 4
+  %183 = call zeroext i1 @wtap_read_bytes(ptr noundef %181, ptr noundef null, i32 noundef %182, ptr noundef %3, ptr noundef %4)
+  br i1 %183, label %189, label %184
 
-185:                                              ; preds = %181
-  %186 = load i32, ptr %3, align 4
-  %187 = icmp eq i32 %186, -12
-  br i1 %187, label %188, label %192
+184:                                              ; preds = %180
+  %185 = load i32, ptr %3, align 4
+  %186 = icmp eq i32 %185, -12
+  br i1 %186, label %187, label %191
 
-188:                                              ; preds = %185
-  %189 = add i32 %.7.i, 1
+187:                                              ; preds = %184
+  %188 = add i32 %.7.i, 1
   br label %.thread47.sink.split.i
 
-190:                                              ; preds = %181
+189:                                              ; preds = %180
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %191 = add nuw nsw i32 %.013109.i, 1
-  %exitcond.not.i = icmp eq i32 %191, 3
+  %190 = add nuw nsw i32 %.013109.i, 1
+  %exitcond.not.i = icmp eq i32 %190, 3
   br i1 %exitcond.not.i, label %libpcap_try_variant.exit, label %25, !llvm.loop !16
 
-192:                                              ; preds = %185, %160, %152, %145, %133, %115, %99, %79, %58, %42, %29
+191:                                              ; preds = %184, %159, %151, %144, %132, %115, %99, %79, %58, %42, %29
   br label %.thread47.sink.split.i
 
-.thread47.sink.split.i:                           ; preds = %180, %192, %188, %163, %155, %148, %136, %118, %102, %82, %61, %45, %31, %29
-  %.ph.i = phi i32 [ -1, %192 ], [ %32, %31 ], [ %.0108.i, %29 ], [ %46, %45 ], [ %62, %61 ], [ %83, %82 ], [ %164, %163 ], [ %103, %102 ], [ %119, %118 ], [ %137, %136 ], [ %156, %155 ], [ %149, %148 ], [ %189, %188 ], [ %.7.i, %180 ]
+.thread47.sink.split.i:                           ; preds = %179, %191, %187, %162, %154, %147, %135, %118, %102, %82, %61, %45, %31, %29
+  %.ph.i = phi i32 [ -1, %191 ], [ %32, %31 ], [ %.0108.i, %29 ], [ %46, %45 ], [ %62, %61 ], [ %83, %82 ], [ %163, %162 ], [ %103, %102 ], [ %119, %118 ], [ %136, %135 ], [ %155, %154 ], [ %148, %147 ], [ %188, %187 ], [ %.7.i, %179 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -908,65 +907,65 @@ switch.early.test.i.i:                            ; preds = %thread-pre-split147
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %libpcap_try_variant.exit
 
-libpcap_try_variant.exit:                         ; preds = %190, %.thread47.sink.split.i
-  %193 = phi i32 [ %.ph.i, %.thread47.sink.split.i ], [ %.7.i, %190 ]
-  %194 = getelementptr i32, ptr %11, i64 %.03394
-  store i32 %193, ptr %194, align 4
-  switch i32 %193, label %203 [
+libpcap_try_variant.exit:                         ; preds = %189, %.thread47.sink.split.i
+  %192 = phi i32 [ %.ph.i, %.thread47.sink.split.i ], [ %.7.i, %189 ]
+  %193 = getelementptr i32, ptr %11, i64 %.03394
+  store i32 %192, ptr %193, align 4
+  switch i32 %192, label %202 [
     i32 -1, label %.loopexit
-    i32 0, label %195
+    i32 0, label %194
   ]
 
-195:                                              ; preds = %libpcap_try_variant.exit
-  %196 = load ptr, ptr %0, align 8
-  %197 = call i64 @file_seek(ptr noundef %196, i64 noundef %15, i32 noundef 0, ptr noundef %3)
-  %198 = icmp eq i64 %197, -1
-  br i1 %198, label %.loopexit, label %199
+194:                                              ; preds = %libpcap_try_variant.exit
+  %195 = load ptr, ptr %0, align 8
+  %196 = call i64 @file_seek(ptr noundef %195, i64 noundef %15, i32 noundef 0, ptr noundef %3)
+  %197 = icmp eq i64 %196, -1
+  br i1 %197, label %.loopexit, label %198
 
-199:                                              ; preds = %195
-  %200 = getelementptr i32, ptr %1, i64 %.03394
-  %201 = load i32, ptr %200, align 4
-  %202 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  store i32 %201, ptr %202, align 4
+198:                                              ; preds = %194
+  %199 = getelementptr i32, ptr %1, i64 %.03394
+  %200 = load i32, ptr %199, align 4
+  %201 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  store i32 %200, ptr %201, align 4
   br label %.loopexit
 
-203:                                              ; preds = %libpcap_try_variant.exit
-  %204 = load ptr, ptr %0, align 8
-  %205 = call i64 @file_seek(ptr noundef %204, i64 noundef %15, i32 noundef 0, ptr noundef %3)
-  %206 = icmp eq i64 %205, -1
-  br i1 %206, label %.loopexit, label %207
+202:                                              ; preds = %libpcap_try_variant.exit
+  %203 = load ptr, ptr %0, align 8
+  %204 = call i64 @file_seek(ptr noundef %203, i64 noundef %15, i32 noundef 0, ptr noundef %3)
+  %205 = icmp eq i64 %204, -1
+  br i1 %205, label %.loopexit, label %206
 
-207:                                              ; preds = %203
-  %208 = add nuw nsw i64 %.03394, 1
-  %exitcond.not = icmp eq i64 %208, %2
+206:                                              ; preds = %202
+  %207 = add nuw nsw i64 %.03394, 1
+  %exitcond.not = icmp eq i64 %207, %2
   br i1 %exitcond.not, label %.preheader, label %21, !llvm.loop !18
 
-.preheader:                                       ; preds = %207
-  %209 = getelementptr inbounds nuw i8, ptr %13, i64 12
-  br label %210
+.preheader:                                       ; preds = %206
+  %208 = getelementptr inbounds nuw i8, ptr %13, i64 12
+  br label %209
 
-210:                                              ; preds = %.preheader, %217
-  %.097 = phi i64 [ 0, %.preheader ], [ %218, %217 ]
-  %.03596 = phi i32 [ 2147483647, %.preheader ], [ %.136, %217 ]
-  %211 = getelementptr i32, ptr %11, i64 %.097
-  %212 = load i32, ptr %211, align 4
-  %213 = icmp slt i32 %212, %.03596
-  br i1 %213, label %214, label %217
+209:                                              ; preds = %.preheader, %216
+  %.097 = phi i64 [ 0, %.preheader ], [ %217, %216 ]
+  %.03596 = phi i32 [ 2147483647, %.preheader ], [ %.136, %216 ]
+  %210 = getelementptr i32, ptr %11, i64 %.097
+  %211 = load i32, ptr %210, align 4
+  %212 = icmp slt i32 %211, %.03596
+  br i1 %212, label %213, label %216
 
-214:                                              ; preds = %210
-  %215 = getelementptr i32, ptr %1, i64 %.097
-  %216 = load i32, ptr %215, align 4
-  store i32 %216, ptr %209, align 4
-  br label %217
+213:                                              ; preds = %209
+  %214 = getelementptr i32, ptr %1, i64 %.097
+  %215 = load i32, ptr %214, align 4
+  store i32 %215, ptr %208, align 4
+  br label %216
 
-217:                                              ; preds = %210, %214
-  %.136 = phi i32 [ %212, %214 ], [ %.03596, %210 ]
-  %218 = add nuw nsw i64 %.097, 1
-  %exitcond151.not = icmp eq i64 %218, %2
-  br i1 %exitcond151.not, label %.loopexit, label %210, !llvm.loop !19
+216:                                              ; preds = %209, %213
+  %.136 = phi i32 [ %211, %213 ], [ %.03596, %209 ]
+  %217 = add nuw nsw i64 %.097, 1
+  %exitcond151.not = icmp eq i64 %217, %2
+  br i1 %exitcond151.not, label %.loopexit, label %209, !llvm.loop !19
 
-.loopexit:                                        ; preds = %libpcap_try_variant.exit, %203, %217, %195, %199
-  %.1 = phi i1 [ false, %195 ], [ true, %199 ], [ true, %217 ], [ false, %203 ], [ false, %libpcap_try_variant.exit ]
+.loopexit:                                        ; preds = %libpcap_try_variant.exit, %202, %216, %194, %198
+  %.1 = phi i1 [ false, %194 ], [ true, %198 ], [ true, %216 ], [ false, %202 ], [ false, %libpcap_try_variant.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   ret i1 %.1
 }

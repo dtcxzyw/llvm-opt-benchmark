@@ -178389,8 +178389,7 @@ _ZL15EvaluateIntegerPKN5clang4ExprERN4llvm6APSIntERN12_GLOBAL__N_18EvalInfoE.exi
   store i8 0, ptr %155, align 1, !tbaa !637
   call void @llvm.lifetime.start.p0(ptr nonnull %156)
   store i8 0, ptr %156, align 1, !tbaa !637
-  %.off = add nsw i32 %2, -116
-  %switch = icmp samesign ult i32 %.off, 5
+  %switch = icmp samesign ult i32 %2, 121
   br i1 %switch, label %2641, label %2658
 
 2641:                                             ; preds = %2638

@@ -5884,7 +5884,7 @@ dissect_80211_information_elements.exit.i:        ; preds = %1169, %1167
   %1194 = call ptr @proto_tree_add_item(ptr noundef %1191, i32 noundef %1193, ptr noundef %0, i32 noundef %.0171.i, i32 noundef 6, i32 noundef 0)
   %1195 = add i32 %.0171.i, 6
   %1196 = add nsw i32 %.02.i274, -6
-  %1197 = icmp samesign ugt i32 %1196, 5
+  %1197 = icmp samesign ugt i32 %.02.i274, 11
   br i1 %1197, label %.lr.ph.i273, label %dissect_ap_metric_query.exit, !llvm.loop !58
 
 dissect_ap_metric_query.exit:                     ; preds = %.lr.ph.i273, %1186
@@ -5992,7 +5992,7 @@ dissect_ap_metric_query.exit:                     ; preds = %.lr.ph.i273, %1186
   %1269 = add i32 %.03.i266, 19
   %1270 = add i8 %.0472.i, 1
   %1271 = add nsw i32 %.0481.i, -19
-  %1272 = icmp samesign ugt i32 %1271, 18
+  %1272 = icmp samesign ugt i32 %.0481.i, 37
   br i1 %1272, label %.lr.ph.i265, label %dissect_associated_sta_link_metrics.exit, !llvm.loop !59
 
 dissect_associated_sta_link_metrics.exit:         ; preds = %.lr.ph.i265, %1240
@@ -7183,7 +7183,7 @@ dissect_ap_wf6_capabilities.exit:                 ; preds = %1850, %1797
   %2033 = add i32 %.03.i, 2
   %2034 = add i8 %.0382.i, 1
   %2035 = add nsw i32 %.0391.i, -2
-  %2036 = icmp samesign ugt i32 %2035, 1
+  %2036 = icmp samesign ugt i32 %.0391.i, 3
   br i1 %2036, label %.lr.ph.i145, label %dissect_associated_wf6_sta_status_report.exit, !llvm.loop !81
 
 dissect_associated_wf6_sta_status_report.exit:    ; preds = %.lr.ph.i145, %2011

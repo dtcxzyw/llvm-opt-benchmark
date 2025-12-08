@@ -345,10 +345,10 @@ define internal range(i32 0, 2) i32 @ecp_nistz256_points_mul(ptr noundef %0, ptr
   br i1 %44, label %.lr.ph133.preheader, label %._crit_edge
 
 .lr.ph133.preheader:                              ; preds = %31, %.preheader
-  %.079.lcssa157 = phi i32 [ %43, %.preheader ], [ 0, %31 ]
-  %45 = zext nneg i32 %.079.lcssa157 to i64
+  %.079.lcssa156 = phi i32 [ %43, %.preheader ], [ 0, %31 ]
+  %45 = zext nneg i32 %.079.lcssa156 to i64
   %scevgep = getelementptr i8, ptr %13, i64 %45
-  %narrow = sub nuw nsw i32 33, %.079.lcssa157
+  %narrow = sub nuw nsw i32 33, %.079.lcssa156
   %46 = zext nneg i32 %narrow to i64
   call void @llvm.memset.p0.i64(ptr align 1 %scevgep, i8 0, i64 %46, i1 false), !tbaa !23
   br label %._crit_edge
@@ -736,7 +736,7 @@ ecp_nistz256_bignum_to_field_elem.exit.thread.i:  ; preds = %196, %188, %._crit_
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
   call void @ecp_nistz256_point_double(ptr noundef nonnull %spec.store.select, ptr noundef nonnull %spec.store.select) #7
-  %285 = icmp samesign ugt i32 %284, 4
+  %285 = icmp samesign ugt i32 %.0121178.i, 9
   br i1 %285, label %239, label %286, !llvm.loop !28
 
 286:                                              ; preds = %283

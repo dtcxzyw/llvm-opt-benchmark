@@ -1425,7 +1425,7 @@ get_bits_long.exit241.i:                          ; preds = %253, %249
 298:                                              ; preds = %282
   %299 = shl nuw nsw i32 %297, 2
   %300 = add nsw i32 %299, -3
-  %301 = icmp samesign ugt i32 %300, 241
+  %301 = icmp samesign ugt i32 %297, 61
   br i1 %301, label %.critedge.i, label %303
 
 .critedge.i:                                      ; preds = %298
@@ -3666,9 +3666,9 @@ parse_subframe_audio.exit.thread:                 ; preds = %1252, %.lr.ph214.i,
   br i1 %1590, label %.lr.ph167, label %._crit_edge
 
 .lr.ph167:                                        ; preds = %1587, %.preheader
-  %.054.lcssa349 = phi i32 [ %.053, %.preheader ], [ 0, %1587 ]
+  %.054.lcssa347 = phi i32 [ %.053, %.preheader ], [ 0, %1587 ]
   %1591 = getelementptr inbounds [32 x ptr], ptr %612, i64 %indvars.iv229
-  %1592 = zext nneg i32 %.054.lcssa349 to i64
+  %1592 = zext nneg i32 %.054.lcssa347 to i64
   br label %1607
 
 1593:                                             ; preds = %.lr.ph165, %1593

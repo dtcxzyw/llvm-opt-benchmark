@@ -3539,37 +3539,37 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.not32.i = icmp eq i8 %206, 0
   br i1 %.not32.i, label %_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %204, %216
-  %207 = phi i8 [ %220, %216 ], [ %206, %204 ]
-  %.02133.i = phi ptr [ %219, %216 ], [ %205, %204 ]
-  %208 = phi i32 [ %218, %216 ], [ 0, %204 ]
-  %209 = add i8 %207, -58
-  %or.cond.i = icmp ult i8 %209, -10
-  %210 = icmp ugt i32 %208, 429496729
-  %or.cond40.i = select i1 %or.cond.i, i1 true, i1 %210
-  br i1 %or.cond40.i, label %.loopexit, label %211
+.lr.ph.i:                                         ; preds = %204, %215
+  %207 = phi i8 [ %220, %215 ], [ %206, %204 ]
+  %.02133.i = phi ptr [ %219, %215 ], [ %205, %204 ]
+  %208 = phi i32 [ %218, %215 ], [ 0, %204 ]
+  %209 = zext i8 %207 to i32
+  %210 = add i8 %207, -58
+  %or.cond.i = icmp ult i8 %210, -10
+  %211 = icmp ugt i32 %208, 429496729
+  %or.cond40.i = select i1 %or.cond.i, i1 true, i1 %211
+  br i1 %or.cond40.i, label %.loopexit, label %212
 
-211:                                              ; preds = %.lr.ph.i
-  %212 = zext nneg i8 %207 to i32
-  %213 = add nsw i32 %212, -48
-  %214 = icmp ne i32 %208, 429496729
-  %215 = icmp samesign ult i32 %213, 6
-  %or.cond4.not.i = select i1 %214, i1 true, i1 %215
-  br i1 %or.cond4.not.i, label %216, label %.loopexit
+212:                                              ; preds = %.lr.ph.i
+  %213 = icmp ne i32 %208, 429496729
+  %214 = icmp samesign ult i8 %207, 54
+  %or.cond4.not.i = or i1 %214, %213
+  br i1 %or.cond4.not.i, label %215, label %.loopexit
 
-216:                                              ; preds = %211
+215:                                              ; preds = %212
+  %216 = add nsw i32 %209, -48
   %217 = mul nuw i32 %208, 10
-  %218 = add i32 %217, %213
+  %218 = add i32 %216, %217
   store i32 %218, ptr %9, align 4, !tbaa !54
   %219 = getelementptr inbounds nuw i8, ptr %.02133.i, i64 1
   %220 = load i8, ptr %219, align 1, !tbaa !15
   %.not.i51 = icmp eq i8 %220, 0
   br i1 %.not.i51, label %_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit, label %.lr.ph.i, !llvm.loop !142
 
-_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit: ; preds = %216, %204
+_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit: ; preds = %215, %204
   br label %_ZNSt3setISt4pairIjjESt4lessIS1_ESaIS1_EE6insertERKS1_.exit, !llvm.loop !121
 
-.loopexit:                                        ; preds = %211, %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
+.loopexit:                                        ; preds = %212, %.lr.ph.i, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit.thread
   %221 = call i64 @sysconf(i32 noundef 84) #32
   %222 = trunc i64 %221 to i32
   %223 = call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %222, i32 0)
@@ -3653,40 +3653,40 @@ _ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__c
   %.not32.i54 = icmp eq i8 %241, 0
   br i1 %.not32.i54, label %_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit62, label %.lr.ph.i55
 
-.lr.ph.i55:                                       ; preds = %239, %251
-  %242 = phi i8 [ %255, %251 ], [ %241, %239 ]
-  %.02133.i56 = phi ptr [ %254, %251 ], [ %240, %239 ]
-  %243 = phi i32 [ %253, %251 ], [ 0, %239 ]
-  %244 = add i8 %242, -58
-  %or.cond.i57 = icmp ult i8 %244, -10
-  %245 = icmp ugt i32 %243, 429496729
-  %or.cond40.i58 = select i1 %or.cond.i57, i1 true, i1 %245
-  br i1 %or.cond40.i58, label %.loopexit103, label %246
+.lr.ph.i55:                                       ; preds = %239, %250
+  %242 = phi i8 [ %255, %250 ], [ %241, %239 ]
+  %.02133.i56 = phi ptr [ %254, %250 ], [ %240, %239 ]
+  %243 = phi i32 [ %253, %250 ], [ 0, %239 ]
+  %244 = zext i8 %242 to i32
+  %245 = add i8 %242, -58
+  %or.cond.i57 = icmp ult i8 %245, -10
+  %246 = icmp ugt i32 %243, 429496729
+  %or.cond40.i58 = select i1 %or.cond.i57, i1 true, i1 %246
+  br i1 %or.cond40.i58, label %.loopexit103, label %247
 
-246:                                              ; preds = %.lr.ph.i55
-  %247 = zext nneg i8 %242 to i32
-  %248 = add nsw i32 %247, -48
-  %249 = icmp ne i32 %243, 429496729
-  %250 = icmp samesign ult i32 %248, 6
-  %or.cond4.not.i59 = select i1 %249, i1 true, i1 %250
-  br i1 %or.cond4.not.i59, label %251, label %.loopexit103
+247:                                              ; preds = %.lr.ph.i55
+  %248 = icmp ne i32 %243, 429496729
+  %249 = icmp samesign ult i8 %242, 54
+  %or.cond4.not.i59 = or i1 %249, %248
+  br i1 %or.cond4.not.i59, label %250, label %.loopexit103
 
-251:                                              ; preds = %246
+250:                                              ; preds = %247
+  %251 = add nsw i32 %244, -48
   %252 = mul nuw i32 %243, 10
-  %253 = add i32 %252, %248
+  %253 = add i32 %251, %252
   store i32 %253, ptr %26, align 4, !tbaa !54
   %254 = getelementptr inbounds nuw i8, ptr %.02133.i56, i64 1
   %255 = load i8, ptr %254, align 1, !tbaa !15
   %.not.i61 = icmp eq i8 %255, 0
   br i1 %.not.i61, label %_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit62, label %.lr.ph.i55, !llvm.loop !142
 
-.loopexit103:                                     ; preds = %246, %.lr.ph.i55, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit53.thread
+.loopexit103:                                     ; preds = %247, %.lr.ph.i55, %_ZSteqIcEN9__gnu_cxx11__enable_ifIXsr9__is_charIT_EE7__valueEbE6__typeERKNSt7__cxx1112basic_stringIS2_St11char_traitsIS2_ESaIS2_EEESC_.exit53.thread
   %256 = call i64 @sysconf(i32 noundef 84) #32
   %257 = trunc i64 %256 to i32
   %258 = call noundef range(i32 0, -2147483648) i32 @llvm.smax.i32(i32 %257, i32 0)
   br label %_ZNSt3setISt4pairIjjESt4lessIS1_ESaIS1_EE6insertERKS1_.exit
 
-_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit62: ; preds = %251, %239
+_ZN5boost13thread_detail18string_to_unsignedERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERj.exit62: ; preds = %250, %239
   %259 = invoke { ptr, i8 } @_ZNSt8_Rb_treeISt4pairIjjES1_St9_IdentityIS1_ESt4lessIS1_ESaIS1_EE16_M_insert_uniqueIRKS1_EES0_ISt17_Rb_tree_iteratorIS1_EbEOT_(ptr noundef nonnull align 8 dereferenceable(48) %8, ptr noundef nonnull align 4 dereferenceable(8) %9)
           to label %_ZNSt3setISt4pairIjjESt4lessIS1_ESaIS1_EE6insertERKS1_.exit unwind label %228
 

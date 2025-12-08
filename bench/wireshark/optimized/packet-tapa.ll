@@ -284,7 +284,7 @@ test_tapa_discover.exit:                          ; preds = %8
 
 84:                                               ; preds = %41, %41
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %85 = icmp samesign ugt i32 %21, 3
+  %85 = icmp ugt i16 %19, 7
   br i1 %85, label %.lr.ph.i.i, label %dissect_tapa_discover_unknown_new_tlv.exit.i
 
 .lr.ph.i.i:                                       ; preds = %84

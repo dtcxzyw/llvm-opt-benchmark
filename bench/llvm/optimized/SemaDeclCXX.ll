@@ -76156,7 +76156,7 @@ define internal fastcc noundef zeroext i1 @_ZL25checkTrivialSubobjectCallRN5clan
   %38 = trunc i64 %37 to i32
   %39 = and i32 %38, 7
   %not. = xor i1 %7, true
-  switch i32 %4, label %190 [
+  switch i32 %4, label %189 [
     i32 4, label %.thread76.i
     i32 0, label %40
     i32 5, label %103
@@ -76414,1695 +76414,1694 @@ _ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exi
   %179 = inttoptr i64 %177 to ptr
   %spec.select373 = select i1 %7, ptr %179, ptr null
   %180 = icmp eq i32 %6, 1
-  %181 = add nsw i32 %4, -1
-  %or.cond.i = icmp samesign ult i32 %181, 2
+  %or.cond.i = icmp samesign ult i32 %4, 3
   %or.cond52.i = and i1 %or.cond.i, %180
-  %182 = getelementptr inbounds nuw i8, ptr %179, i64 82
-  %183 = load i32, ptr %182, align 2
-  br i1 %or.cond52.i, label %184, label %187
+  %181 = getelementptr inbounds nuw i8, ptr %179, i64 82
+  %182 = load i32, ptr %181, align 2
+  br i1 %or.cond52.i, label %183, label %186
 
-184:                                              ; preds = %178
-  %185 = and i32 %183, 256
-  %186 = icmp ne i32 %185, 0
+183:                                              ; preds = %178
+  %184 = and i32 %182, 256
+  %185 = icmp ne i32 %184, 0
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit
 
-187:                                              ; preds = %178
-  %188 = and i32 %183, 128
-  %189 = icmp ne i32 %188, 0
+186:                                              ; preds = %178
+  %187 = and i32 %182, 128
+  %188 = icmp ne i32 %187, 0
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit
 
-190:                                              ; preds = %35
+189:                                              ; preds = %35
   unreachable
 
-_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit: ; preds = %70, %75, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i, %63, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i, %114, %133, %176, %184, %187
-  %.2 = phi ptr [ null, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ null, %114 ], [ %134, %133 ], [ null, %176 ], [ %spec.select373, %184 ], [ %spec.select373, %187 ], [ null, %63 ], [ %.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ %.sroa.069.083.i, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ %.sroa.069.083.i, %75 ], [ null, %70 ]
-  %.0.i = phi i1 [ %58, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ %121, %114 ], [ false, %133 ], [ false, %176 ], [ %186, %184 ], [ %189, %187 ], [ false, %63 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ false, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ false, %75 ], [ false, %70 ]
+_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit: ; preds = %70, %75, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i, %63, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i, %114, %133, %176, %183, %186
+  %.2 = phi ptr [ null, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ null, %114 ], [ %134, %133 ], [ null, %176 ], [ %spec.select373, %183 ], [ %spec.select373, %186 ], [ null, %63 ], [ %.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ %.sroa.069.083.i, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ %.sroa.069.083.i, %75 ], [ null, %70 ]
+  %.0.i = phi i1 [ %58, %_ZNK5clang13CXXRecordDecl28hasTrivialDefaultConstructorEv.exit.i ], [ %121, %114 ], [ false, %133 ], [ false, %176 ], [ %185, %183 ], [ %188, %186 ], [ false, %63 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i ], [ false, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.i ], [ false, %75 ], [ false, %70 ]
   %brmerge = or i1 %.0.i, %not.
-  br i1 %brmerge, label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread, label %191
+  br i1 %brmerge, label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread, label %190
 
-191:                                              ; preds = %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit
-  %192 = zext i1 %3 to i64
-  %spec.select = or i64 %2, %192
-  %193 = icmp eq ptr %.2, null
-  %194 = icmp eq i32 %4, 0
-  %or.cond = and i1 %194, %193
-  br i1 %or.cond, label %195, label %413
+190:                                              ; preds = %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit
+  %191 = zext i1 %3 to i64
+  %spec.select = or i64 %2, %191
+  %192 = icmp eq ptr %.2, null
+  %193 = icmp eq i32 %4, 0
+  %or.cond = and i1 %193, %192
+  br i1 %or.cond, label %194, label %412
 
-195:                                              ; preds = %191
+194:                                              ; preds = %190
   call void @llvm.lifetime.start.p0(ptr nonnull %24)
-  %196 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %196, i32 %1, i32 noundef 5823, i1 noundef zeroext false) #28
-  %197 = getelementptr inbounds nuw i8, ptr %24, i64 120
-  %198 = load i8, ptr %197, align 8, !tbaa !1066, !range !36, !noundef !37
-  %199 = trunc nuw i8 %198 to i1
-  br i1 %199, label %200, label %255
+  %195 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %24, ptr noundef nonnull align 8 dereferenceable(8) %195, i32 %1, i32 noundef 5823, i1 noundef zeroext false) #28
+  %196 = getelementptr inbounds nuw i8, ptr %24, i64 120
+  %197 = load i8, ptr %196, align 8, !tbaa !1066, !range !36, !noundef !37
+  %198 = trunc nuw i8 %197 to i1
+  br i1 %198, label %199, label %254
 
-200:                                              ; preds = %195
-  %201 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %202 = zext nneg i32 %5 to i64
-  %203 = load ptr, ptr %201, align 8, !tbaa !1184
-  %.not.i146 = icmp eq ptr %203, null
-  br i1 %.not.i146, label %204, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
+199:                                              ; preds = %194
+  %200 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %201 = zext nneg i32 %5 to i64
+  %202 = load ptr, ptr %200, align 8, !tbaa !1184
+  %.not.i146 = icmp eq ptr %202, null
+  br i1 %.not.i146, label %203, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
 
-204:                                              ; preds = %200
-  %205 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %206 = load ptr, ptr %205, align 8, !tbaa !1188
-  %207 = getelementptr inbounds nuw i8, ptr %206, i64 14976
-  %208 = load i32, ptr %207, align 8, !tbaa !1189
-  %209 = icmp eq i32 %208, 0
-  br i1 %209, label %210, label %224
+203:                                              ; preds = %199
+  %204 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %205 = load ptr, ptr %204, align 8, !tbaa !1188
+  %206 = getelementptr inbounds nuw i8, ptr %205, i64 14976
+  %207 = load i32, ptr %206, align 8, !tbaa !1189
+  %208 = icmp eq i32 %207, 0
+  br i1 %208, label %209, label %223
 
-210:                                              ; preds = %204
-  %211 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
-  store i8 0, ptr %211, align 8, !tbaa !1190
-  br label %212
+209:                                              ; preds = %203
+  %210 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
+  store i8 0, ptr %210, align 8, !tbaa !1190
+  br label %211
 
-212:                                              ; preds = %212, %210
-  %.idx.i.i.i.i = phi i64 [ 96, %210 ], [ %.add.i.i.i.i, %212 ]
-  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %211, i64 %.idx.i.i.i.i
-  %213 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 16
-  store ptr %213, ptr %.ptr.i.i.i.i, align 8, !tbaa !1202
-  %214 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
-  store i64 0, ptr %214, align 8, !tbaa !1203
-  store i8 0, ptr %213, align 8, !tbaa !21
+211:                                              ; preds = %211, %209
+  %.idx.i.i.i.i = phi i64 [ 96, %209 ], [ %.add.i.i.i.i, %211 ]
+  %.ptr.i.i.i.i = getelementptr inbounds nuw i8, ptr %210, i64 %.idx.i.i.i.i
+  %212 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 16
+  store ptr %212, ptr %.ptr.i.i.i.i, align 8, !tbaa !1202
+  %213 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i, i64 8
+  store i64 0, ptr %213, align 8, !tbaa !1203
+  store i8 0, ptr %212, align 8, !tbaa !21
   %.add.i.i.i.i = add nuw nsw i64 %.idx.i.i.i.i, 32
-  %215 = icmp eq i64 %.add.i.i.i.i, 416
-  br i1 %215, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %212
+  %214 = icmp eq i64 %.add.i.i.i.i, 416
+  br i1 %214, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i, label %211
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %212
-  %216 = getelementptr inbounds nuw i8, ptr %211, i64 416
-  %217 = getelementptr inbounds nuw i8, ptr %211, i64 432
-  store ptr %217, ptr %216, align 8, !tbaa !29
-  %218 = getelementptr inbounds nuw i8, ptr %211, i64 424
-  store i32 0, ptr %218, align 8, !tbaa !30
-  %219 = getelementptr inbounds nuw i8, ptr %211, i64 428
-  store i32 8, ptr %219, align 4, !tbaa !47
-  %220 = getelementptr inbounds nuw i8, ptr %211, i64 528
-  %221 = getelementptr inbounds nuw i8, ptr %211, i64 544
-  store ptr %221, ptr %220, align 8, !tbaa !29
-  %222 = getelementptr inbounds nuw i8, ptr %211, i64 536
-  store i32 0, ptr %222, align 8, !tbaa !30
-  %223 = getelementptr inbounds nuw i8, ptr %211, i64 540
-  store i32 6, ptr %223, align 4, !tbaa !47
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i:      ; preds = %211
+  %215 = getelementptr inbounds nuw i8, ptr %210, i64 416
+  %216 = getelementptr inbounds nuw i8, ptr %210, i64 432
+  store ptr %216, ptr %215, align 8, !tbaa !29
+  %217 = getelementptr inbounds nuw i8, ptr %210, i64 424
+  store i32 0, ptr %217, align 8, !tbaa !30
+  %218 = getelementptr inbounds nuw i8, ptr %210, i64 428
+  store i32 8, ptr %218, align 4, !tbaa !47
+  %219 = getelementptr inbounds nuw i8, ptr %210, i64 528
+  %220 = getelementptr inbounds nuw i8, ptr %210, i64 544
+  store ptr %220, ptr %219, align 8, !tbaa !29
+  %221 = getelementptr inbounds nuw i8, ptr %210, i64 536
+  store i32 0, ptr %221, align 8, !tbaa !30
+  %222 = getelementptr inbounds nuw i8, ptr %210, i64 540
+  store i32 6, ptr %222, align 4, !tbaa !47
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
 
-224:                                              ; preds = %204
-  %225 = getelementptr inbounds nuw i8, ptr %206, i64 14848
-  %226 = add i32 %208, -1
-  store i32 %226, ptr %207, align 8, !tbaa !1189
-  %227 = zext i32 %226 to i64
-  %228 = getelementptr inbounds nuw ptr, ptr %225, i64 %227
-  %229 = load ptr, ptr %228, align 8, !tbaa !1204
-  store i8 0, ptr %229, align 8, !tbaa !1190
-  %230 = getelementptr inbounds nuw i8, ptr %229, i64 424
-  store i32 0, ptr %230, align 8, !tbaa !30
-  %231 = getelementptr inbounds nuw i8, ptr %229, i64 528
-  %232 = load ptr, ptr %231, align 8, !tbaa !29
-  %233 = getelementptr inbounds nuw i8, ptr %229, i64 536
-  %234 = load i32, ptr %233, align 8, !tbaa !30
-  %.not4.i.i.i.i.i = icmp eq i32 %234, 0
+223:                                              ; preds = %203
+  %224 = getelementptr inbounds nuw i8, ptr %205, i64 14848
+  %225 = add i32 %207, -1
+  store i32 %225, ptr %206, align 8, !tbaa !1189
+  %226 = zext i32 %225 to i64
+  %227 = getelementptr inbounds nuw ptr, ptr %224, i64 %226
+  %228 = load ptr, ptr %227, align 8, !tbaa !1204
+  store i8 0, ptr %228, align 8, !tbaa !1190
+  %229 = getelementptr inbounds nuw i8, ptr %228, i64 424
+  store i32 0, ptr %229, align 8, !tbaa !30
+  %230 = getelementptr inbounds nuw i8, ptr %228, i64 528
+  %231 = load ptr, ptr %230, align 8, !tbaa !29
+  %232 = getelementptr inbounds nuw i8, ptr %228, i64 536
+  %233 = load i32, ptr %232, align 8, !tbaa !30
+  %.not4.i.i.i.i.i = icmp eq i32 %233, 0
   br i1 %.not4.i.i.i.i.i, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, label %.lr.ph.i.preheader.i.i.i.i
 
-.lr.ph.i.preheader.i.i.i.i:                       ; preds = %224
-  %235 = zext i32 %234 to i64
-  %.idx.i7.i.i.i = shl nuw nsw i64 %235, 6
-  %236 = getelementptr inbounds nuw i8, ptr %232, i64 %.idx.i7.i.i.i
+.lr.ph.i.preheader.i.i.i.i:                       ; preds = %223
+  %234 = zext i32 %233 to i64
+  %.idx.i7.i.i.i = shl nuw nsw i64 %234, 6
+  %235 = getelementptr inbounds nuw i8, ptr %231, i64 %.idx.i7.i.i.i
   br label %.lr.ph.i.i.i.i.i147
 
 .lr.ph.i.i.i.i.i147:                              ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %.lr.ph.i.preheader.i.i.i.i
-  %.05.i.i.i.i.i = phi ptr [ %237, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i ], [ %236, %.lr.ph.i.preheader.i.i.i.i ]
-  %237 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -64
-  %238 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -40
-  %239 = load ptr, ptr %238, align 8, !tbaa !1205
-  %240 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -24
-  %241 = icmp eq ptr %239, %240
-  br i1 %241, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
+  %.05.i.i.i.i.i = phi ptr [ %236, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i ], [ %235, %.lr.ph.i.preheader.i.i.i.i ]
+  %236 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -64
+  %237 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -40
+  %238 = load ptr, ptr %237, align 8, !tbaa !1205
+  %239 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i, i64 -24
+  %240 = icmp eq ptr %238, %239
+  br i1 %240, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i: ; preds = %.lr.ph.i.i.i.i.i147
-  %242 = load i64, ptr %240, align 8, !tbaa !21
-  %243 = add i64 %242, 1
-  call void @_ZdlPvm(ptr noundef %239, i64 noundef %243) #29
+  %241 = load i64, ptr %239, align 8, !tbaa !21
+  %242 = add i64 %241, 1
+  call void @_ZdlPvm(ptr noundef %238, i64 noundef %242) #29
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i:           ; preds = %.lr.ph.i.i.i.i.i147, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i
-  %.not.i.i.i.i.i148 = icmp eq ptr %232, %237
+  %.not.i.i.i.i.i148 = icmp eq ptr %231, %236
   br i1 %.not.i.i.i.i.i148, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, label %.lr.ph.i.i.i.i.i147, !llvm.loop !1206
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %224
-  store i32 0, ptr %233, align 8, !tbaa !30
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i, %223
+  store i32 0, ptr %232, align 8, !tbaa !30
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i
-  %.0.i.i.i = phi ptr [ %211, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %229, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
-  store ptr %.0.i.i.i, ptr %201, align 8, !tbaa !1184
+  %.0.i.i.i = phi ptr [ %210, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i ], [ %228, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i ]
+  store ptr %.0.i.i.i, ptr %200, align 8, !tbaa !1184
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit: ; preds = %200, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
-  %244 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %203, %200 ]
-  %245 = getelementptr inbounds nuw i8, ptr %244, i64 1
-  %246 = load i8, ptr %244, align 8, !tbaa !1190
-  %247 = zext i8 %246 to i64
-  %248 = getelementptr inbounds nuw i8, ptr %245, i64 %247
-  store i8 2, ptr %248, align 1, !tbaa !21
-  %249 = load ptr, ptr %201, align 8, !tbaa !1184
-  %250 = getelementptr inbounds nuw i8, ptr %249, i64 16
-  %251 = load i8, ptr %249, align 8, !tbaa !1190
-  %252 = add i8 %251, 1
-  store i8 %252, ptr %249, align 8, !tbaa !1190
-  %253 = zext i8 %251 to i64
-  %254 = getelementptr inbounds nuw i64, ptr %250, i64 %253
-  store i64 %202, ptr %254, align 8, !tbaa !1207
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit: ; preds = %199, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i
+  %243 = phi ptr [ %.0.i.i.i, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i ], [ %202, %199 ]
+  %244 = getelementptr inbounds nuw i8, ptr %243, i64 1
+  %245 = load i8, ptr %243, align 8, !tbaa !1190
+  %246 = zext i8 %245 to i64
+  %247 = getelementptr inbounds nuw i8, ptr %244, i64 %246
+  store i8 2, ptr %247, align 1, !tbaa !21
+  %248 = load ptr, ptr %200, align 8, !tbaa !1184
+  %249 = getelementptr inbounds nuw i8, ptr %248, i64 16
+  %250 = load i8, ptr %248, align 8, !tbaa !1190
+  %251 = add i8 %250, 1
+  store i8 %251, ptr %248, align 8, !tbaa !1190
+  %252 = zext i8 %250 to i64
+  %253 = getelementptr inbounds nuw i64, ptr %249, i64 %252
+  store i64 %201, ptr %253, align 8, !tbaa !1207
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
-255:                                              ; preds = %195
-  %256 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %257 = getelementptr inbounds nuw i8, ptr %24, i64 132
-  %258 = load i8, ptr %257, align 4, !tbaa !1068, !range !36, !noundef !37
-  %259 = trunc nuw i8 %258 to i1
-  br i1 %259, label %260, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
+254:                                              ; preds = %194
+  %255 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %256 = getelementptr inbounds nuw i8, ptr %24, i64 132
+  %257 = load i8, ptr %256, align 4, !tbaa !1068, !range !36, !noundef !37
+  %258 = trunc nuw i8 %257 to i1
+  br i1 %258, label %259, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
-260:                                              ; preds = %255
-  %261 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %24) #28
+259:                                              ; preds = %254
+  %260 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %23)
-  %262 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %263 = load ptr, ptr %262, align 8, !tbaa !1070
-  %.not.i.i47 = icmp eq ptr %263, null
-  br i1 %.not.i.i47, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %264
+  %261 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %262 = load ptr, ptr %261, align 8, !tbaa !1070
+  %.not.i.i47 = icmp eq ptr %262, null
+  br i1 %.not.i.i47, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i, label %263
 
-264:                                              ; preds = %260
-  %265 = load ptr, ptr %263, align 8, !tbaa !1079
-  %266 = getelementptr inbounds nuw i8, ptr %265, i64 32
-  %267 = load ptr, ptr %266, align 8
-  %268 = call noundef ptr %267(ptr noundef nonnull align 8 dereferenceable(168) %263) #28
+263:                                              ; preds = %259
+  %264 = load ptr, ptr %262, align 8, !tbaa !1079
+  %265 = getelementptr inbounds nuw i8, ptr %264, i64 32
+  %266 = load ptr, ptr %265, align 8
+  %267 = call noundef ptr %266(ptr noundef nonnull align 8 dereferenceable(168) %262) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %264, %260
-  %269 = phi ptr [ %268, %264 ], [ null, %260 ]
-  store ptr %269, ptr %23, align 8, !tbaa !1081
-  %270 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %261, ptr noundef nonnull align 8 dereferenceable(8) %23)
-  %271 = load i32, ptr %256, align 8, !tbaa !51
-  %272 = zext i32 %271 to i64
-  %273 = load ptr, ptr %270, align 8, !tbaa !1083
-  %274 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %273, i64 %272
-  %275 = getelementptr inbounds nuw i8, ptr %274, i64 8
-  %276 = zext nneg i32 %5 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %275, i64 noundef %276, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i: ; preds = %263, %259
+  %268 = phi ptr [ %267, %263 ], [ null, %259 ]
+  store ptr %268, ptr %23, align 8, !tbaa !1081
+  %269 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %260, ptr noundef nonnull align 8 dereferenceable(8) %23)
+  %270 = load i32, ptr %255, align 8, !tbaa !51
+  %271 = zext i32 %270 to i64
+  %272 = load ptr, ptr %269, align 8, !tbaa !1083
+  %273 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %272, i64 %271
+  %274 = getelementptr inbounds nuw i8, ptr %273, i64 8
+  %275 = zext nneg i32 %5 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %274, i64 noundef %275, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
-_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %255, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
-  %277 = load ptr, ptr %32, align 16, !tbaa !22
-  %278 = getelementptr inbounds nuw i8, ptr %277, i64 8
-  %.sroa.0.0.copyload.i.i = load i64, ptr %278, align 8, !tbaa !21
-  %279 = and i64 %.sroa.0.0.copyload.i.i, 15
-  %.not.i49 = icmp eq i64 %279, 0
-  br i1 %.not.i49, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %280
+_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit, %254, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i
+  %276 = load ptr, ptr %32, align 16, !tbaa !22
+  %277 = getelementptr inbounds nuw i8, ptr %276, i64 8
+  %.sroa.0.0.copyload.i.i = load i64, ptr %277, align 8, !tbaa !21
+  %278 = and i64 %.sroa.0.0.copyload.i.i, 15
+  %.not.i49 = icmp eq i64 %278, 0
+  br i1 %.not.i49, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit, label %279
 
-280:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
-  %281 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
-  %282 = extractvalue { ptr, i64 } %281, 0
+279:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
+  %280 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
+  %281 = extractvalue { ptr, i64 } %280, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %280
-  %.sroa.03.0.in.in.i = phi ptr [ %282, %280 ], [ %277, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit:   ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %279
+  %.sroa.03.0.in.in.i = phi ptr [ %281, %279 ], [ %276, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ]
   %.sroa.03.0.in.i = ptrtoint ptr %.sroa.03.0.in.in.i to i64
   %.sroa.03.0.i = and i64 %.sroa.03.0.in.i, -16
-  %283 = load i8, ptr %197, align 8, !tbaa !1066, !range !36, !noundef !37
-  %284 = trunc nuw i8 %283 to i1
-  br i1 %284, label %285, label %339
+  %282 = load i8, ptr %196, align 8, !tbaa !1066, !range !36, !noundef !37
+  %283 = trunc nuw i8 %282 to i1
+  br i1 %283, label %284, label %338
 
-285:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
-  %286 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  %287 = load ptr, ptr %286, align 8, !tbaa !1184
-  %.not.i149 = icmp eq ptr %287, null
-  br i1 %.not.i149, label %288, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166
+284:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
+  %285 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  %286 = load ptr, ptr %285, align 8, !tbaa !1184
+  %.not.i149 = icmp eq ptr %286, null
+  br i1 %.not.i149, label %287, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166
 
-288:                                              ; preds = %285
-  %289 = getelementptr inbounds nuw i8, ptr %24, i64 40
-  %290 = load ptr, ptr %289, align 8, !tbaa !1188
-  %291 = getelementptr inbounds nuw i8, ptr %290, i64 14976
-  %292 = load i32, ptr %291, align 8, !tbaa !1189
-  %293 = icmp eq i32 %292, 0
-  br i1 %293, label %294, label %308
+287:                                              ; preds = %284
+  %288 = getelementptr inbounds nuw i8, ptr %24, i64 40
+  %289 = load ptr, ptr %288, align 8, !tbaa !1188
+  %290 = getelementptr inbounds nuw i8, ptr %289, i64 14976
+  %291 = load i32, ptr %290, align 8, !tbaa !1189
+  %292 = icmp eq i32 %291, 0
+  br i1 %292, label %293, label %307
 
-294:                                              ; preds = %288
-  %295 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
-  store i8 0, ptr %295, align 8, !tbaa !1190
-  br label %296
+293:                                              ; preds = %287
+  %294 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
+  store i8 0, ptr %294, align 8, !tbaa !1190
+  br label %295
 
-296:                                              ; preds = %296, %294
-  %.idx.i.i.i.i162 = phi i64 [ 96, %294 ], [ %.add.i.i.i.i164, %296 ]
-  %.ptr.i.i.i.i163 = getelementptr inbounds nuw i8, ptr %295, i64 %.idx.i.i.i.i162
-  %297 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i163, i64 16
-  store ptr %297, ptr %.ptr.i.i.i.i163, align 8, !tbaa !1202
-  %298 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i163, i64 8
-  store i64 0, ptr %298, align 8, !tbaa !1203
-  store i8 0, ptr %297, align 8, !tbaa !21
+295:                                              ; preds = %295, %293
+  %.idx.i.i.i.i162 = phi i64 [ 96, %293 ], [ %.add.i.i.i.i164, %295 ]
+  %.ptr.i.i.i.i163 = getelementptr inbounds nuw i8, ptr %294, i64 %.idx.i.i.i.i162
+  %296 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i163, i64 16
+  store ptr %296, ptr %.ptr.i.i.i.i163, align 8, !tbaa !1202
+  %297 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i163, i64 8
+  store i64 0, ptr %297, align 8, !tbaa !1203
+  store i8 0, ptr %296, align 8, !tbaa !21
   %.add.i.i.i.i164 = add nuw nsw i64 %.idx.i.i.i.i162, 32
-  %299 = icmp eq i64 %.add.i.i.i.i164, 416
-  br i1 %299, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165, label %296
+  %298 = icmp eq i64 %.add.i.i.i.i164, 416
+  br i1 %298, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165, label %295
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165:   ; preds = %296
-  %300 = getelementptr inbounds nuw i8, ptr %295, i64 416
-  %301 = getelementptr inbounds nuw i8, ptr %295, i64 432
-  store ptr %301, ptr %300, align 8, !tbaa !29
-  %302 = getelementptr inbounds nuw i8, ptr %295, i64 424
-  store i32 0, ptr %302, align 8, !tbaa !30
-  %303 = getelementptr inbounds nuw i8, ptr %295, i64 428
-  store i32 8, ptr %303, align 4, !tbaa !47
-  %304 = getelementptr inbounds nuw i8, ptr %295, i64 528
-  %305 = getelementptr inbounds nuw i8, ptr %295, i64 544
-  store ptr %305, ptr %304, align 8, !tbaa !29
-  %306 = getelementptr inbounds nuw i8, ptr %295, i64 536
-  store i32 0, ptr %306, align 8, !tbaa !30
-  %307 = getelementptr inbounds nuw i8, ptr %295, i64 540
-  store i32 6, ptr %307, align 4, !tbaa !47
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165:   ; preds = %295
+  %299 = getelementptr inbounds nuw i8, ptr %294, i64 416
+  %300 = getelementptr inbounds nuw i8, ptr %294, i64 432
+  store ptr %300, ptr %299, align 8, !tbaa !29
+  %301 = getelementptr inbounds nuw i8, ptr %294, i64 424
+  store i32 0, ptr %301, align 8, !tbaa !30
+  %302 = getelementptr inbounds nuw i8, ptr %294, i64 428
+  store i32 8, ptr %302, align 4, !tbaa !47
+  %303 = getelementptr inbounds nuw i8, ptr %294, i64 528
+  %304 = getelementptr inbounds nuw i8, ptr %294, i64 544
+  store ptr %304, ptr %303, align 8, !tbaa !29
+  %305 = getelementptr inbounds nuw i8, ptr %294, i64 536
+  store i32 0, ptr %305, align 8, !tbaa !30
+  %306 = getelementptr inbounds nuw i8, ptr %294, i64 540
+  store i32 6, ptr %306, align 4, !tbaa !47
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159
 
-308:                                              ; preds = %288
-  %309 = getelementptr inbounds nuw i8, ptr %290, i64 14848
-  %310 = add i32 %292, -1
-  store i32 %310, ptr %291, align 8, !tbaa !1189
-  %311 = zext i32 %310 to i64
-  %312 = getelementptr inbounds nuw ptr, ptr %309, i64 %311
-  %313 = load ptr, ptr %312, align 8, !tbaa !1204
-  store i8 0, ptr %313, align 8, !tbaa !1190
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 424
-  store i32 0, ptr %314, align 8, !tbaa !30
-  %315 = getelementptr inbounds nuw i8, ptr %313, i64 528
-  %316 = load ptr, ptr %315, align 8, !tbaa !29
-  %317 = getelementptr inbounds nuw i8, ptr %313, i64 536
-  %318 = load i32, ptr %317, align 8, !tbaa !30
-  %.not4.i.i.i.i.i150 = icmp eq i32 %318, 0
+307:                                              ; preds = %287
+  %308 = getelementptr inbounds nuw i8, ptr %289, i64 14848
+  %309 = add i32 %291, -1
+  store i32 %309, ptr %290, align 8, !tbaa !1189
+  %310 = zext i32 %309 to i64
+  %311 = getelementptr inbounds nuw ptr, ptr %308, i64 %310
+  %312 = load ptr, ptr %311, align 8, !tbaa !1204
+  store i8 0, ptr %312, align 8, !tbaa !1190
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 424
+  store i32 0, ptr %313, align 8, !tbaa !30
+  %314 = getelementptr inbounds nuw i8, ptr %312, i64 528
+  %315 = load ptr, ptr %314, align 8, !tbaa !29
+  %316 = getelementptr inbounds nuw i8, ptr %312, i64 536
+  %317 = load i32, ptr %316, align 8, !tbaa !30
+  %.not4.i.i.i.i.i150 = icmp eq i32 %317, 0
   br i1 %.not4.i.i.i.i.i150, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158, label %.lr.ph.i.preheader.i.i.i.i151
 
-.lr.ph.i.preheader.i.i.i.i151:                    ; preds = %308
-  %319 = zext i32 %318 to i64
-  %.idx.i7.i.i.i152 = shl nuw nsw i64 %319, 6
-  %320 = getelementptr inbounds nuw i8, ptr %316, i64 %.idx.i7.i.i.i152
+.lr.ph.i.preheader.i.i.i.i151:                    ; preds = %307
+  %318 = zext i32 %317 to i64
+  %.idx.i7.i.i.i152 = shl nuw nsw i64 %318, 6
+  %319 = getelementptr inbounds nuw i8, ptr %315, i64 %.idx.i7.i.i.i152
   br label %.lr.ph.i.i.i.i.i153
 
 .lr.ph.i.i.i.i.i153:                              ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156, %.lr.ph.i.preheader.i.i.i.i151
-  %.05.i.i.i.i.i154 = phi ptr [ %321, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156 ], [ %320, %.lr.ph.i.preheader.i.i.i.i151 ]
-  %321 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i154, i64 -64
-  %322 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i154, i64 -40
-  %323 = load ptr, ptr %322, align 8, !tbaa !1205
-  %324 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i154, i64 -24
-  %325 = icmp eq ptr %323, %324
-  br i1 %325, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i155
+  %.05.i.i.i.i.i154 = phi ptr [ %320, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156 ], [ %319, %.lr.ph.i.preheader.i.i.i.i151 ]
+  %320 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i154, i64 -64
+  %321 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i154, i64 -40
+  %322 = load ptr, ptr %321, align 8, !tbaa !1205
+  %323 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i154, i64 -24
+  %324 = icmp eq ptr %322, %323
+  br i1 %324, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i155
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i155: ; preds = %.lr.ph.i.i.i.i.i153
-  %326 = load i64, ptr %324, align 8, !tbaa !21
-  %327 = add i64 %326, 1
-  call void @_ZdlPvm(ptr noundef %323, i64 noundef %327) #29
+  %325 = load i64, ptr %323, align 8, !tbaa !21
+  %326 = add i64 %325, 1
+  call void @_ZdlPvm(ptr noundef %322, i64 noundef %326) #29
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156:        ; preds = %.lr.ph.i.i.i.i.i153, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i155
-  %.not.i.i.i.i.i157 = icmp eq ptr %316, %321
+  %.not.i.i.i.i.i157 = icmp eq ptr %315, %320
   br i1 %.not.i.i.i.i.i157, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158, label %.lr.ph.i.i.i.i.i153, !llvm.loop !1206
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156, %308
-  store i32 0, ptr %317, align 8, !tbaa !30
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i156, %307
+  store i32 0, ptr %316, align 8, !tbaa !30
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165
-  %.0.i.i.i160 = phi ptr [ %295, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165 ], [ %313, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158 ]
-  store ptr %.0.i.i.i160, ptr %286, align 8, !tbaa !1184
+  %.0.i.i.i160 = phi ptr [ %294, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i165 ], [ %312, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i158 ]
+  store ptr %.0.i.i.i160, ptr %285, align 8, !tbaa !1184
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166: ; preds = %285, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159
-  %328 = phi ptr [ %.0.i.i.i160, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159 ], [ %287, %285 ]
-  %329 = getelementptr inbounds nuw i8, ptr %328, i64 1
-  %330 = load i8, ptr %328, align 8, !tbaa !1190
-  %331 = zext i8 %330 to i64
-  %332 = getelementptr inbounds nuw i8, ptr %329, i64 %331
-  store i8 8, ptr %332, align 1, !tbaa !21
-  %333 = load ptr, ptr %286, align 8, !tbaa !1184
-  %334 = getelementptr inbounds nuw i8, ptr %333, i64 16
-  %335 = load i8, ptr %333, align 8, !tbaa !1190
-  %336 = add i8 %335, 1
-  store i8 %336, ptr %333, align 8, !tbaa !1190
-  %337 = zext i8 %335 to i64
-  %338 = getelementptr inbounds nuw i64, ptr %334, i64 %337
-  store i64 %.sroa.03.0.i, ptr %338, align 8, !tbaa !1207
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166: ; preds = %284, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159
+  %327 = phi ptr [ %.0.i.i.i160, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i159 ], [ %286, %284 ]
+  %328 = getelementptr inbounds nuw i8, ptr %327, i64 1
+  %329 = load i8, ptr %327, align 8, !tbaa !1190
+  %330 = zext i8 %329 to i64
+  %331 = getelementptr inbounds nuw i8, ptr %328, i64 %330
+  store i8 8, ptr %331, align 1, !tbaa !21
+  %332 = load ptr, ptr %285, align 8, !tbaa !1184
+  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
+  %334 = load i8, ptr %332, align 8, !tbaa !1190
+  %335 = add i8 %334, 1
+  store i8 %335, ptr %332, align 8, !tbaa !1190
+  %336 = zext i8 %334 to i64
+  %337 = getelementptr inbounds nuw i64, ptr %333, i64 %336
+  store i64 %.sroa.03.0.i, ptr %337, align 8, !tbaa !1207
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit
 
-339:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
-  %340 = getelementptr inbounds nuw i8, ptr %24, i64 128
-  %341 = getelementptr inbounds nuw i8, ptr %24, i64 132
-  %342 = load i8, ptr %341, align 4, !tbaa !1068, !range !36, !noundef !37
-  %343 = trunc nuw i8 %342 to i1
-  br i1 %343, label %344, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit
+338:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit
+  %339 = getelementptr inbounds nuw i8, ptr %24, i64 128
+  %340 = getelementptr inbounds nuw i8, ptr %24, i64 132
+  %341 = load i8, ptr %340, align 4, !tbaa !1068, !range !36, !noundef !37
+  %342 = trunc nuw i8 %341 to i1
+  br i1 %342, label %343, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit
 
-344:                                              ; preds = %339
-  %345 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %24) #28
+343:                                              ; preds = %338
+  %344 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %24) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
-  %346 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  %347 = load ptr, ptr %346, align 8, !tbaa !1070
-  %.not.i.i50 = icmp eq ptr %347, null
-  br i1 %.not.i.i50, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51, label %348
+  %345 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %346 = load ptr, ptr %345, align 8, !tbaa !1070
+  %.not.i.i50 = icmp eq ptr %346, null
+  br i1 %.not.i.i50, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51, label %347
 
-348:                                              ; preds = %344
-  %349 = load ptr, ptr %347, align 8, !tbaa !1079
-  %350 = getelementptr inbounds nuw i8, ptr %349, i64 32
-  %351 = load ptr, ptr %350, align 8
-  %352 = call noundef ptr %351(ptr noundef nonnull align 8 dereferenceable(168) %347) #28
+347:                                              ; preds = %343
+  %348 = load ptr, ptr %346, align 8, !tbaa !1079
+  %349 = getelementptr inbounds nuw i8, ptr %348, i64 32
+  %350 = load ptr, ptr %349, align 8
+  %351 = call noundef ptr %350(ptr noundef nonnull align 8 dereferenceable(168) %346) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51: ; preds = %348, %344
-  %353 = phi ptr [ %352, %348 ], [ null, %344 ]
-  store ptr %353, ptr %22, align 8, !tbaa !1081
-  %354 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %345, ptr noundef nonnull align 8 dereferenceable(8) %22)
-  %355 = load i32, ptr %340, align 8, !tbaa !51
-  %356 = zext i32 %355 to i64
-  %357 = load ptr, ptr %354, align 8, !tbaa !1083
-  %358 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %357, i64 %356
-  %359 = getelementptr inbounds nuw i8, ptr %358, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %359, i64 noundef %.sroa.03.0.i, i32 noundef 8)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51: ; preds = %347, %343
+  %352 = phi ptr [ %351, %347 ], [ null, %343 ]
+  store ptr %352, ptr %22, align 8, !tbaa !1081
+  %353 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %344, ptr noundef nonnull align 8 dereferenceable(8) %22)
+  %354 = load i32, ptr %339, align 8, !tbaa !51
+  %355 = zext i32 %354 to i64
+  %356 = load ptr, ptr %353, align 8, !tbaa !1083
+  %357 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %356, i64 %355
+  %358 = getelementptr inbounds nuw i8, ptr %357, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %358, i64 noundef %.sroa.03.0.i, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166, %339, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit166, %338, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i51
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %24) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
-  %360 = getelementptr inbounds nuw i8, ptr %34, i64 64
-  %361 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %360) #28
-  %.not1.i.i.i.i.i53 = icmp eq ptr %361, null
+  %359 = getelementptr inbounds nuw i8, ptr %34, i64 64
+  %360 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %359) #28
+  %.not1.i.i.i.i.i53 = icmp eq ptr %360, null
   br i1 %.not1.i.i.i.i.i53, label %._crit_edge.i, label %.lr.ph.i.i.i.i.i54
 
-.lr.ph.i.i.i.i.i54:                               ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit, %366
-  %.sroa.0.0.i.i.i55 = phi ptr [ %369, %366 ], [ %361, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit ]
-  %362 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i55, i64 28
-  %363 = load i32, ptr %362, align 4
-  %364 = and i32 %363, 127
-  %365 = icmp eq i32 %364, 36
-  br i1 %365, label %.lr.ph.i61, label %366
+.lr.ph.i.i.i.i.i54:                               ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit, %365
+  %.sroa.0.0.i.i.i55 = phi ptr [ %368, %365 ], [ %360, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit ]
+  %361 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i55, i64 28
+  %362 = load i32, ptr %361, align 4
+  %363 = and i32 %362, 127
+  %364 = icmp eq i32 %363, 36
+  br i1 %364, label %.lr.ph.i61, label %365
 
-366:                                              ; preds = %.lr.ph.i.i.i.i.i54
-  %367 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i55, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i56 = load i64, ptr %367, align 8
-  %368 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i56, -8
-  %369 = inttoptr i64 %368 to ptr
-  %.not.i.i.i.i.i57 = icmp eq i64 %368, 0
+365:                                              ; preds = %.lr.ph.i.i.i.i.i54
+  %366 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i.i55, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i56 = load i64, ptr %366, align 8
+  %367 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i56, -8
+  %368 = inttoptr i64 %367 to ptr
+  %.not.i.i.i.i.i57 = icmp eq i64 %367, 0
   br i1 %.not.i.i.i.i.i57, label %._crit_edge.i, label %.lr.ph.i.i.i.i.i54, !llvm.loop !1933
 
 .lr.ph.i61:                                       ; preds = %.lr.ph.i.i.i.i.i54, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67
   %.sroa.037.053.i = phi ptr [ %.sroa.037.2.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67 ], [ %.sroa.0.0.i.i.i55, %.lr.ph.i.i.i.i.i54 ]
-  %370 = getelementptr inbounds nuw i8, ptr %.sroa.037.053.i, i64 28
-  %371 = load i32, ptr %370, align 4
-  %372 = and i32 %371, 512
-  %.not48.i = icmp eq i32 %372, 0
-  br i1 %.not48.i, label %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit, label %373
+  %369 = getelementptr inbounds nuw i8, ptr %.sroa.037.053.i, i64 28
+  %370 = load i32, ptr %369, align 4
+  %371 = and i32 %370, 512
+  %.not48.i = icmp eq i32 %371, 0
+  br i1 %.not48.i, label %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit, label %372
 
-373:                                              ; preds = %.lr.ph.i61
-  %374 = getelementptr inbounds nuw i8, ptr %.sroa.037.053.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i62 = load i64, ptr %374, align 8
-  %375 = and i64 %.0.copyload.i.i.i.i.i.i.i62, -8
-  %376 = inttoptr i64 %375 to ptr
-  %.not1.i.i.i63 = icmp eq i64 %375, 0
+372:                                              ; preds = %.lr.ph.i61
+  %373 = getelementptr inbounds nuw i8, ptr %.sroa.037.053.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i62 = load i64, ptr %373, align 8
+  %374 = and i64 %.0.copyload.i.i.i.i.i.i.i62, -8
+  %375 = inttoptr i64 %374 to ptr
+  %.not1.i.i.i63 = icmp eq i64 %374, 0
   br i1 %.not1.i.i.i63, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67, label %.lr.ph.i.i.i64
 
-.lr.ph.i.i.i64:                                   ; preds = %373, %381
-  %.sroa.037.1.i = phi ptr [ %384, %381 ], [ %376, %373 ]
-  %377 = getelementptr inbounds nuw i8, ptr %.sroa.037.1.i, i64 28
-  %378 = load i32, ptr %377, align 4
-  %379 = and i32 %378, 127
-  %380 = icmp eq i32 %379, 36
-  br i1 %380, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67, label %381
+.lr.ph.i.i.i64:                                   ; preds = %372, %380
+  %.sroa.037.1.i = phi ptr [ %383, %380 ], [ %375, %372 ]
+  %376 = getelementptr inbounds nuw i8, ptr %.sroa.037.1.i, i64 28
+  %377 = load i32, ptr %376, align 4
+  %378 = and i32 %377, 127
+  %379 = icmp eq i32 %378, 36
+  br i1 %379, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67, label %380
 
-381:                                              ; preds = %.lr.ph.i.i.i64
-  %382 = getelementptr inbounds nuw i8, ptr %.sroa.037.1.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i.i65 = load i64, ptr %382, align 8
-  %383 = and i64 %.0.copyload.i.i.i.i.i.i.i.i65, -8
-  %384 = inttoptr i64 %383 to ptr
-  %.not.i.i.i66 = icmp eq i64 %383, 0
+380:                                              ; preds = %.lr.ph.i.i.i64
+  %381 = getelementptr inbounds nuw i8, ptr %.sroa.037.1.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i.i65 = load i64, ptr %381, align 8
+  %382 = and i64 %.0.copyload.i.i.i.i.i.i.i.i65, -8
+  %383 = inttoptr i64 %382 to ptr
+  %.not.i.i.i66 = icmp eq i64 %382, 0
   br i1 %.not.i.i.i66, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67, label %.lr.ph.i.i.i64, !llvm.loop !1933
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67: ; preds = %381, %.lr.ph.i.i.i64, %373
-  %.sroa.037.2.i = phi ptr [ %376, %373 ], [ %.sroa.037.1.i, %.lr.ph.i.i.i64 ], [ %384, %381 ]
+_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67: ; preds = %380, %.lr.ph.i.i.i64, %372
+  %.sroa.037.2.i = phi ptr [ %375, %372 ], [ %.sroa.037.1.i, %.lr.ph.i.i.i64 ], [ %383, %380 ]
   %.not46.i = icmp eq ptr %.sroa.037.2.i, null
   br i1 %.not46.i, label %._crit_edge.i, label %.lr.ph.i61
 
-._crit_edge.i:                                    ; preds = %366, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit
-  %385 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %360) #28
-  %.not1.i.i23.i = icmp eq ptr %385, null
+._crit_edge.i:                                    ; preds = %365, %_ZN5clang11DeclContext22specific_decl_iteratorINS_18CXXConstructorDeclEEppEv.exit.i67, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit
+  %384 = call ptr @_ZNK5clang11DeclContext11decls_beginEv(ptr noundef nonnull align 8 dereferenceable(32) %359) #28
+  %.not1.i.i23.i = icmp eq ptr %384, null
   br i1 %.not1.i.i23.i, label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread, label %.lr.ph.i.i24.i
 
-.lr.ph.i.i24.i:                                   ; preds = %._crit_edge.i, %390
-  %.sroa.034.1.i = phi ptr [ %393, %390 ], [ %385, %._crit_edge.i ]
-  %386 = getelementptr inbounds nuw i8, ptr %.sroa.034.1.i, i64 28
-  %387 = load i32, ptr %386, align 4
-  %388 = and i32 %387, 127
-  %389 = icmp eq i32 %388, 69
-  br i1 %389, label %.lr.ph58.i, label %390
+.lr.ph.i.i24.i:                                   ; preds = %._crit_edge.i, %389
+  %.sroa.034.1.i = phi ptr [ %392, %389 ], [ %384, %._crit_edge.i ]
+  %385 = getelementptr inbounds nuw i8, ptr %.sroa.034.1.i, i64 28
+  %386 = load i32, ptr %385, align 4
+  %387 = and i32 %386, 127
+  %388 = icmp eq i32 %387, 69
+  br i1 %388, label %.lr.ph58.i, label %389
 
-390:                                              ; preds = %.lr.ph.i.i24.i
-  %391 = getelementptr inbounds nuw i8, ptr %.sroa.034.1.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i25.i = load i64, ptr %391, align 8
-  %392 = and i64 %.0.copyload.i.i.i.i.i.i.i25.i, -8
-  %393 = inttoptr i64 %392 to ptr
-  %.not.i.i26.i = icmp eq i64 %392, 0
+389:                                              ; preds = %.lr.ph.i.i24.i
+  %390 = getelementptr inbounds nuw i8, ptr %.sroa.034.1.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i25.i = load i64, ptr %390, align 8
+  %391 = and i64 %.0.copyload.i.i.i.i.i.i.i25.i, -8
+  %392 = inttoptr i64 %391 to ptr
+  %.not.i.i26.i = icmp eq i64 %391, 0
   br i1 %.not.i.i26.i, label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread, label %.lr.ph.i.i24.i, !llvm.loop !2161
 
 .lr.ph58.i:                                       ; preds = %.lr.ph.i.i24.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i
   %.sroa.034.056.i = phi ptr [ %.sroa.034.4.i, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i ], [ %.sroa.034.1.i, %.lr.ph.i.i24.i ]
-  %394 = getelementptr inbounds nuw i8, ptr %.sroa.034.056.i, i64 48
-  %395 = load ptr, ptr %394, align 8, !tbaa !1577
-  %396 = getelementptr inbounds nuw i8, ptr %395, i64 28
-  %397 = load i32, ptr %396, align 4
-  %398 = and i32 %397, 127
-  %399 = icmp ne i32 %398, 36
-  %.not83.i = icmp eq ptr %395, null
-  %.not.i59 = or i1 %.not83.i, %399
-  br i1 %.not.i59, label %400, label %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit
+  %393 = getelementptr inbounds nuw i8, ptr %.sroa.034.056.i, i64 48
+  %394 = load ptr, ptr %393, align 8, !tbaa !1577
+  %395 = getelementptr inbounds nuw i8, ptr %394, i64 28
+  %396 = load i32, ptr %395, align 4
+  %397 = and i32 %396, 127
+  %398 = icmp ne i32 %397, 36
+  %.not83.i = icmp eq ptr %394, null
+  %.not.i59 = or i1 %.not83.i, %398
+  br i1 %.not.i59, label %399, label %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit
 
-400:                                              ; preds = %.lr.ph58.i
-  %401 = getelementptr inbounds nuw i8, ptr %.sroa.034.056.i, i64 8
-  %.0.copyload.i.i.i.i.i.i29.i = load i64, ptr %401, align 8
-  %402 = and i64 %.0.copyload.i.i.i.i.i.i29.i, -8
-  %403 = inttoptr i64 %402 to ptr
-  %.not1.i.i30.i = icmp eq i64 %402, 0
+399:                                              ; preds = %.lr.ph58.i
+  %400 = getelementptr inbounds nuw i8, ptr %.sroa.034.056.i, i64 8
+  %.0.copyload.i.i.i.i.i.i29.i = load i64, ptr %400, align 8
+  %401 = and i64 %.0.copyload.i.i.i.i.i.i29.i, -8
+  %402 = inttoptr i64 %401 to ptr
+  %.not1.i.i30.i = icmp eq i64 %401, 0
   br i1 %.not1.i.i30.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i, label %.lr.ph.i.i31.i
 
-.lr.ph.i.i31.i:                                   ; preds = %400, %408
-  %.sroa.034.3.i = phi ptr [ %411, %408 ], [ %403, %400 ]
-  %404 = getelementptr inbounds nuw i8, ptr %.sroa.034.3.i, i64 28
-  %405 = load i32, ptr %404, align 4
-  %406 = and i32 %405, 127
-  %407 = icmp eq i32 %406, 69
-  br i1 %407, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i, label %408
+.lr.ph.i.i31.i:                                   ; preds = %399, %407
+  %.sroa.034.3.i = phi ptr [ %410, %407 ], [ %402, %399 ]
+  %403 = getelementptr inbounds nuw i8, ptr %.sroa.034.3.i, i64 28
+  %404 = load i32, ptr %403, align 4
+  %405 = and i32 %404, 127
+  %406 = icmp eq i32 %405, 69
+  br i1 %406, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i, label %407
 
-408:                                              ; preds = %.lr.ph.i.i31.i
-  %409 = getelementptr inbounds nuw i8, ptr %.sroa.034.3.i, i64 8
-  %.0.copyload.i.i.i.i.i.i.i32.i = load i64, ptr %409, align 8
-  %410 = and i64 %.0.copyload.i.i.i.i.i.i.i32.i, -8
-  %411 = inttoptr i64 %410 to ptr
-  %.not.i.i33.i = icmp eq i64 %410, 0
+407:                                              ; preds = %.lr.ph.i.i31.i
+  %408 = getelementptr inbounds nuw i8, ptr %.sroa.034.3.i, i64 8
+  %.0.copyload.i.i.i.i.i.i.i32.i = load i64, ptr %408, align 8
+  %409 = and i64 %.0.copyload.i.i.i.i.i.i.i32.i, -8
+  %410 = inttoptr i64 %409 to ptr
+  %.not.i.i33.i = icmp eq i64 %409, 0
   br i1 %.not.i.i33.i, label %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i, label %.lr.ph.i.i31.i, !llvm.loop !2161
 
-_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i: ; preds = %408, %.lr.ph.i.i31.i, %400
-  %.sroa.034.4.i = phi ptr [ %403, %400 ], [ %.sroa.034.3.i, %.lr.ph.i.i31.i ], [ %411, %408 ]
+_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i: ; preds = %407, %.lr.ph.i.i31.i, %399
+  %.sroa.034.4.i = phi ptr [ %402, %399 ], [ %.sroa.034.3.i, %.lr.ph.i.i31.i ], [ %410, %407 ]
   %.not47.i = icmp eq ptr %.sroa.034.4.i, null
   br i1 %.not47.i, label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread, label %.lr.ph58.i, !llvm.loop !2162
 
 _ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit: ; preds = %.lr.ph.i61, %.lr.ph58.i
-  %.3.i = phi ptr [ %395, %.lr.ph58.i ], [ %.sroa.037.053.i, %.lr.ph.i61 ]
-  %412 = getelementptr inbounds nuw i8, ptr %.3.i, i64 24
-  %.sroa.0.0.copyload.i = load i32, ptr %412, align 8, !tbaa !51
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %196, i32 %.sroa.0.0.copyload.i, i32 noundef 6138, i1 noundef zeroext false) #28
+  %.3.i = phi ptr [ %394, %.lr.ph58.i ], [ %.sroa.037.053.i, %.lr.ph.i61 ]
+  %411 = getelementptr inbounds nuw i8, ptr %.3.i, i64 24
+  %.sroa.0.0.copyload.i = load i32, ptr %411, align 8, !tbaa !51
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %25, ptr noundef nonnull align 8 dereferenceable(8) %195, i32 %.sroa.0.0.copyload.i, i32 noundef 6138, i1 noundef zeroext false) #28
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %25) #28
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread
 
-413:                                              ; preds = %191
-  br i1 %193, label %414, label %735
+412:                                              ; preds = %190
+  br i1 %192, label %413, label %734
 
-414:                                              ; preds = %413
+413:                                              ; preds = %412
   call void @llvm.lifetime.start.p0(ptr nonnull %26)
-  %415 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %415, i32 %1, i32 noundef 5822, i1 noundef zeroext false) #28
-  %416 = getelementptr inbounds nuw i8, ptr %26, i64 120
-  %417 = load i8, ptr %416, align 8, !tbaa !1066, !range !36, !noundef !37
-  %418 = trunc nuw i8 %417 to i1
-  br i1 %418, label %419, label %474
+  %414 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %26, ptr noundef nonnull align 8 dereferenceable(8) %414, i32 %1, i32 noundef 5822, i1 noundef zeroext false) #28
+  %415 = getelementptr inbounds nuw i8, ptr %26, i64 120
+  %416 = load i8, ptr %415, align 8, !tbaa !1066, !range !36, !noundef !37
+  %417 = trunc nuw i8 %416 to i1
+  br i1 %417, label %418, label %473
 
-419:                                              ; preds = %414
-  %420 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %421 = zext nneg i32 %5 to i64
-  %422 = load ptr, ptr %420, align 8, !tbaa !1184
-  %.not.i167 = icmp eq ptr %422, null
-  br i1 %.not.i167, label %423, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184
+418:                                              ; preds = %413
+  %419 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %420 = zext nneg i32 %5 to i64
+  %421 = load ptr, ptr %419, align 8, !tbaa !1184
+  %.not.i167 = icmp eq ptr %421, null
+  br i1 %.not.i167, label %422, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184
 
-423:                                              ; preds = %419
-  %424 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %425 = load ptr, ptr %424, align 8, !tbaa !1188
-  %426 = getelementptr inbounds nuw i8, ptr %425, i64 14976
-  %427 = load i32, ptr %426, align 8, !tbaa !1189
-  %428 = icmp eq i32 %427, 0
-  br i1 %428, label %429, label %443
+422:                                              ; preds = %418
+  %423 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %424 = load ptr, ptr %423, align 8, !tbaa !1188
+  %425 = getelementptr inbounds nuw i8, ptr %424, i64 14976
+  %426 = load i32, ptr %425, align 8, !tbaa !1189
+  %427 = icmp eq i32 %426, 0
+  br i1 %427, label %428, label %442
 
-429:                                              ; preds = %423
-  %430 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
-  store i8 0, ptr %430, align 8, !tbaa !1190
-  br label %431
+428:                                              ; preds = %422
+  %429 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
+  store i8 0, ptr %429, align 8, !tbaa !1190
+  br label %430
 
-431:                                              ; preds = %431, %429
-  %.idx.i.i.i.i180 = phi i64 [ 96, %429 ], [ %.add.i.i.i.i182, %431 ]
-  %.ptr.i.i.i.i181 = getelementptr inbounds nuw i8, ptr %430, i64 %.idx.i.i.i.i180
-  %432 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i181, i64 16
-  store ptr %432, ptr %.ptr.i.i.i.i181, align 8, !tbaa !1202
-  %433 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i181, i64 8
-  store i64 0, ptr %433, align 8, !tbaa !1203
-  store i8 0, ptr %432, align 8, !tbaa !21
+430:                                              ; preds = %430, %428
+  %.idx.i.i.i.i180 = phi i64 [ 96, %428 ], [ %.add.i.i.i.i182, %430 ]
+  %.ptr.i.i.i.i181 = getelementptr inbounds nuw i8, ptr %429, i64 %.idx.i.i.i.i180
+  %431 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i181, i64 16
+  store ptr %431, ptr %.ptr.i.i.i.i181, align 8, !tbaa !1202
+  %432 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i181, i64 8
+  store i64 0, ptr %432, align 8, !tbaa !1203
+  store i8 0, ptr %431, align 8, !tbaa !21
   %.add.i.i.i.i182 = add nuw nsw i64 %.idx.i.i.i.i180, 32
-  %434 = icmp eq i64 %.add.i.i.i.i182, 416
-  br i1 %434, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183, label %431
+  %433 = icmp eq i64 %.add.i.i.i.i182, 416
+  br i1 %433, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183, label %430
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183:   ; preds = %431
-  %435 = getelementptr inbounds nuw i8, ptr %430, i64 416
-  %436 = getelementptr inbounds nuw i8, ptr %430, i64 432
-  store ptr %436, ptr %435, align 8, !tbaa !29
-  %437 = getelementptr inbounds nuw i8, ptr %430, i64 424
-  store i32 0, ptr %437, align 8, !tbaa !30
-  %438 = getelementptr inbounds nuw i8, ptr %430, i64 428
-  store i32 8, ptr %438, align 4, !tbaa !47
-  %439 = getelementptr inbounds nuw i8, ptr %430, i64 528
-  %440 = getelementptr inbounds nuw i8, ptr %430, i64 544
-  store ptr %440, ptr %439, align 8, !tbaa !29
-  %441 = getelementptr inbounds nuw i8, ptr %430, i64 536
-  store i32 0, ptr %441, align 8, !tbaa !30
-  %442 = getelementptr inbounds nuw i8, ptr %430, i64 540
-  store i32 6, ptr %442, align 4, !tbaa !47
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183:   ; preds = %430
+  %434 = getelementptr inbounds nuw i8, ptr %429, i64 416
+  %435 = getelementptr inbounds nuw i8, ptr %429, i64 432
+  store ptr %435, ptr %434, align 8, !tbaa !29
+  %436 = getelementptr inbounds nuw i8, ptr %429, i64 424
+  store i32 0, ptr %436, align 8, !tbaa !30
+  %437 = getelementptr inbounds nuw i8, ptr %429, i64 428
+  store i32 8, ptr %437, align 4, !tbaa !47
+  %438 = getelementptr inbounds nuw i8, ptr %429, i64 528
+  %439 = getelementptr inbounds nuw i8, ptr %429, i64 544
+  store ptr %439, ptr %438, align 8, !tbaa !29
+  %440 = getelementptr inbounds nuw i8, ptr %429, i64 536
+  store i32 0, ptr %440, align 8, !tbaa !30
+  %441 = getelementptr inbounds nuw i8, ptr %429, i64 540
+  store i32 6, ptr %441, align 4, !tbaa !47
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177
 
-443:                                              ; preds = %423
-  %444 = getelementptr inbounds nuw i8, ptr %425, i64 14848
-  %445 = add i32 %427, -1
-  store i32 %445, ptr %426, align 8, !tbaa !1189
-  %446 = zext i32 %445 to i64
-  %447 = getelementptr inbounds nuw ptr, ptr %444, i64 %446
-  %448 = load ptr, ptr %447, align 8, !tbaa !1204
-  store i8 0, ptr %448, align 8, !tbaa !1190
-  %449 = getelementptr inbounds nuw i8, ptr %448, i64 424
-  store i32 0, ptr %449, align 8, !tbaa !30
-  %450 = getelementptr inbounds nuw i8, ptr %448, i64 528
-  %451 = load ptr, ptr %450, align 8, !tbaa !29
-  %452 = getelementptr inbounds nuw i8, ptr %448, i64 536
-  %453 = load i32, ptr %452, align 8, !tbaa !30
-  %.not4.i.i.i.i.i168 = icmp eq i32 %453, 0
+442:                                              ; preds = %422
+  %443 = getelementptr inbounds nuw i8, ptr %424, i64 14848
+  %444 = add i32 %426, -1
+  store i32 %444, ptr %425, align 8, !tbaa !1189
+  %445 = zext i32 %444 to i64
+  %446 = getelementptr inbounds nuw ptr, ptr %443, i64 %445
+  %447 = load ptr, ptr %446, align 8, !tbaa !1204
+  store i8 0, ptr %447, align 8, !tbaa !1190
+  %448 = getelementptr inbounds nuw i8, ptr %447, i64 424
+  store i32 0, ptr %448, align 8, !tbaa !30
+  %449 = getelementptr inbounds nuw i8, ptr %447, i64 528
+  %450 = load ptr, ptr %449, align 8, !tbaa !29
+  %451 = getelementptr inbounds nuw i8, ptr %447, i64 536
+  %452 = load i32, ptr %451, align 8, !tbaa !30
+  %.not4.i.i.i.i.i168 = icmp eq i32 %452, 0
   br i1 %.not4.i.i.i.i.i168, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176, label %.lr.ph.i.preheader.i.i.i.i169
 
-.lr.ph.i.preheader.i.i.i.i169:                    ; preds = %443
-  %454 = zext i32 %453 to i64
-  %.idx.i7.i.i.i170 = shl nuw nsw i64 %454, 6
-  %455 = getelementptr inbounds nuw i8, ptr %451, i64 %.idx.i7.i.i.i170
+.lr.ph.i.preheader.i.i.i.i169:                    ; preds = %442
+  %453 = zext i32 %452 to i64
+  %.idx.i7.i.i.i170 = shl nuw nsw i64 %453, 6
+  %454 = getelementptr inbounds nuw i8, ptr %450, i64 %.idx.i7.i.i.i170
   br label %.lr.ph.i.i.i.i.i171
 
 .lr.ph.i.i.i.i.i171:                              ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174, %.lr.ph.i.preheader.i.i.i.i169
-  %.05.i.i.i.i.i172 = phi ptr [ %456, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174 ], [ %455, %.lr.ph.i.preheader.i.i.i.i169 ]
-  %456 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i172, i64 -64
-  %457 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i172, i64 -40
-  %458 = load ptr, ptr %457, align 8, !tbaa !1205
-  %459 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i172, i64 -24
-  %460 = icmp eq ptr %458, %459
-  br i1 %460, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i173
+  %.05.i.i.i.i.i172 = phi ptr [ %455, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174 ], [ %454, %.lr.ph.i.preheader.i.i.i.i169 ]
+  %455 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i172, i64 -64
+  %456 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i172, i64 -40
+  %457 = load ptr, ptr %456, align 8, !tbaa !1205
+  %458 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i172, i64 -24
+  %459 = icmp eq ptr %457, %458
+  br i1 %459, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i173
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i173: ; preds = %.lr.ph.i.i.i.i.i171
-  %461 = load i64, ptr %459, align 8, !tbaa !21
-  %462 = add i64 %461, 1
-  call void @_ZdlPvm(ptr noundef %458, i64 noundef %462) #29
+  %460 = load i64, ptr %458, align 8, !tbaa !21
+  %461 = add i64 %460, 1
+  call void @_ZdlPvm(ptr noundef %457, i64 noundef %461) #29
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174:        ; preds = %.lr.ph.i.i.i.i.i171, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i173
-  %.not.i.i.i.i.i175 = icmp eq ptr %451, %456
+  %.not.i.i.i.i.i175 = icmp eq ptr %450, %455
   br i1 %.not.i.i.i.i.i175, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176, label %.lr.ph.i.i.i.i.i171, !llvm.loop !1206
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174, %443
-  store i32 0, ptr %452, align 8, !tbaa !30
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i174, %442
+  store i32 0, ptr %451, align 8, !tbaa !30
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183
-  %.0.i.i.i178 = phi ptr [ %430, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183 ], [ %448, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176 ]
-  store ptr %.0.i.i.i178, ptr %420, align 8, !tbaa !1184
+  %.0.i.i.i178 = phi ptr [ %429, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i183 ], [ %447, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i176 ]
+  store ptr %.0.i.i.i178, ptr %419, align 8, !tbaa !1184
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184: ; preds = %419, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177
-  %463 = phi ptr [ %.0.i.i.i178, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177 ], [ %422, %419 ]
-  %464 = getelementptr inbounds nuw i8, ptr %463, i64 1
-  %465 = load i8, ptr %463, align 8, !tbaa !1190
-  %466 = zext i8 %465 to i64
-  %467 = getelementptr inbounds nuw i8, ptr %464, i64 %466
-  store i8 2, ptr %467, align 1, !tbaa !21
-  %468 = load ptr, ptr %420, align 8, !tbaa !1184
-  %469 = getelementptr inbounds nuw i8, ptr %468, i64 16
-  %470 = load i8, ptr %468, align 8, !tbaa !1190
-  %471 = add i8 %470, 1
-  store i8 %471, ptr %468, align 8, !tbaa !1190
-  %472 = zext i8 %470 to i64
-  %473 = getelementptr inbounds nuw i64, ptr %469, i64 %472
-  store i64 %421, ptr %473, align 8, !tbaa !1207
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184: ; preds = %418, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177
+  %462 = phi ptr [ %.0.i.i.i178, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i177 ], [ %421, %418 ]
+  %463 = getelementptr inbounds nuw i8, ptr %462, i64 1
+  %464 = load i8, ptr %462, align 8, !tbaa !1190
+  %465 = zext i8 %464 to i64
+  %466 = getelementptr inbounds nuw i8, ptr %463, i64 %465
+  store i8 2, ptr %466, align 1, !tbaa !21
+  %467 = load ptr, ptr %419, align 8, !tbaa !1184
+  %468 = getelementptr inbounds nuw i8, ptr %467, i64 16
+  %469 = load i8, ptr %467, align 8, !tbaa !1190
+  %470 = add i8 %469, 1
+  store i8 %470, ptr %467, align 8, !tbaa !1190
+  %471 = zext i8 %469 to i64
+  %472 = getelementptr inbounds nuw i64, ptr %468, i64 %471
+  store i64 %420, ptr %472, align 8, !tbaa !1207
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70
 
-474:                                              ; preds = %414
-  %475 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %476 = getelementptr inbounds nuw i8, ptr %26, i64 132
-  %477 = load i8, ptr %476, align 4, !tbaa !1068, !range !36, !noundef !37
-  %478 = trunc nuw i8 %477 to i1
-  br i1 %478, label %479, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70
+473:                                              ; preds = %413
+  %474 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %475 = getelementptr inbounds nuw i8, ptr %26, i64 132
+  %476 = load i8, ptr %475, align 4, !tbaa !1068, !range !36, !noundef !37
+  %477 = trunc nuw i8 %476 to i1
+  br i1 %477, label %478, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70
 
-479:                                              ; preds = %474
-  %480 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
+478:                                              ; preds = %473
+  %479 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
-  %481 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %482 = load ptr, ptr %481, align 8, !tbaa !1070
-  %.not.i.i68 = icmp eq ptr %482, null
-  br i1 %.not.i.i68, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69, label %483
+  %480 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %481 = load ptr, ptr %480, align 8, !tbaa !1070
+  %.not.i.i68 = icmp eq ptr %481, null
+  br i1 %.not.i.i68, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69, label %482
 
-483:                                              ; preds = %479
-  %484 = load ptr, ptr %482, align 8, !tbaa !1079
-  %485 = getelementptr inbounds nuw i8, ptr %484, i64 32
-  %486 = load ptr, ptr %485, align 8
-  %487 = call noundef ptr %486(ptr noundef nonnull align 8 dereferenceable(168) %482) #28
+482:                                              ; preds = %478
+  %483 = load ptr, ptr %481, align 8, !tbaa !1079
+  %484 = getelementptr inbounds nuw i8, ptr %483, i64 32
+  %485 = load ptr, ptr %484, align 8
+  %486 = call noundef ptr %485(ptr noundef nonnull align 8 dereferenceable(168) %481) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69: ; preds = %483, %479
-  %488 = phi ptr [ %487, %483 ], [ null, %479 ]
-  store ptr %488, ptr %21, align 8, !tbaa !1081
-  %489 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %480, ptr noundef nonnull align 8 dereferenceable(8) %21)
-  %490 = load i32, ptr %475, align 8, !tbaa !51
-  %491 = zext i32 %490 to i64
-  %492 = load ptr, ptr %489, align 8, !tbaa !1083
-  %493 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %492, i64 %491
-  %494 = getelementptr inbounds nuw i8, ptr %493, i64 8
-  %495 = zext nneg i32 %5 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %494, i64 noundef %495, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69: ; preds = %482, %478
+  %487 = phi ptr [ %486, %482 ], [ null, %478 ]
+  store ptr %487, ptr %21, align 8, !tbaa !1081
+  %488 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %479, ptr noundef nonnull align 8 dereferenceable(8) %21)
+  %489 = load i32, ptr %474, align 8, !tbaa !51
+  %490 = zext i32 %489 to i64
+  %491 = load ptr, ptr %488, align 8, !tbaa !1083
+  %492 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %491, i64 %490
+  %493 = getelementptr inbounds nuw i8, ptr %492, i64 8
+  %494 = zext nneg i32 %5 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %493, i64 noundef %494, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70
 
-_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184, %474, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69
-  %496 = load ptr, ptr %32, align 16, !tbaa !22
-  %497 = getelementptr inbounds nuw i8, ptr %496, i64 8
-  %.sroa.0.0.copyload.i.i72 = load i64, ptr %497, align 8, !tbaa !21
-  %498 = and i64 %.sroa.0.0.copyload.i.i72, 15
-  %.not.i73 = icmp eq i64 %498, 0
-  br i1 %.not.i73, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77, label %499
+_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit184, %473, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i69
+  %495 = load ptr, ptr %32, align 16, !tbaa !22
+  %496 = getelementptr inbounds nuw i8, ptr %495, i64 8
+  %.sroa.0.0.copyload.i.i72 = load i64, ptr %496, align 8, !tbaa !21
+  %497 = and i64 %.sroa.0.0.copyload.i.i72, 15
+  %.not.i73 = icmp eq i64 %497, 0
+  br i1 %.not.i73, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77, label %498
 
-499:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70
-  %500 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
-  %501 = extractvalue { ptr, i64 } %500, 0
+498:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70
+  %499 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
+  %500 = extractvalue { ptr, i64 } %499, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70, %499
-  %.sroa.03.0.in.in.i74 = phi ptr [ %501, %499 ], [ %496, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70, %498
+  %.sroa.03.0.in.in.i74 = phi ptr [ %500, %498 ], [ %495, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit70 ]
   %.sroa.03.0.in.i75 = ptrtoint ptr %.sroa.03.0.in.in.i74 to i64
   %.sroa.03.0.i76 = and i64 %.sroa.03.0.in.i75, -16
-  %502 = load i8, ptr %416, align 8, !tbaa !1066, !range !36, !noundef !37
-  %503 = trunc nuw i8 %502 to i1
-  br i1 %503, label %504, label %558
+  %501 = load i8, ptr %415, align 8, !tbaa !1066, !range !36, !noundef !37
+  %502 = trunc nuw i8 %501 to i1
+  br i1 %502, label %503, label %557
 
-504:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77
-  %505 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %506 = load ptr, ptr %505, align 8, !tbaa !1184
-  %.not.i185 = icmp eq ptr %506, null
-  br i1 %.not.i185, label %507, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202
+503:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77
+  %504 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %505 = load ptr, ptr %504, align 8, !tbaa !1184
+  %.not.i185 = icmp eq ptr %505, null
+  br i1 %.not.i185, label %506, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202
 
-507:                                              ; preds = %504
-  %508 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %509 = load ptr, ptr %508, align 8, !tbaa !1188
-  %510 = getelementptr inbounds nuw i8, ptr %509, i64 14976
-  %511 = load i32, ptr %510, align 8, !tbaa !1189
-  %512 = icmp eq i32 %511, 0
-  br i1 %512, label %513, label %527
+506:                                              ; preds = %503
+  %507 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %508 = load ptr, ptr %507, align 8, !tbaa !1188
+  %509 = getelementptr inbounds nuw i8, ptr %508, i64 14976
+  %510 = load i32, ptr %509, align 8, !tbaa !1189
+  %511 = icmp eq i32 %510, 0
+  br i1 %511, label %512, label %526
 
-513:                                              ; preds = %507
-  %514 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
-  store i8 0, ptr %514, align 8, !tbaa !1190
-  br label %515
+512:                                              ; preds = %506
+  %513 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
+  store i8 0, ptr %513, align 8, !tbaa !1190
+  br label %514
 
-515:                                              ; preds = %515, %513
-  %.idx.i.i.i.i198 = phi i64 [ 96, %513 ], [ %.add.i.i.i.i200, %515 ]
-  %.ptr.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %514, i64 %.idx.i.i.i.i198
-  %516 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i199, i64 16
-  store ptr %516, ptr %.ptr.i.i.i.i199, align 8, !tbaa !1202
-  %517 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i199, i64 8
-  store i64 0, ptr %517, align 8, !tbaa !1203
-  store i8 0, ptr %516, align 8, !tbaa !21
+514:                                              ; preds = %514, %512
+  %.idx.i.i.i.i198 = phi i64 [ 96, %512 ], [ %.add.i.i.i.i200, %514 ]
+  %.ptr.i.i.i.i199 = getelementptr inbounds nuw i8, ptr %513, i64 %.idx.i.i.i.i198
+  %515 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i199, i64 16
+  store ptr %515, ptr %.ptr.i.i.i.i199, align 8, !tbaa !1202
+  %516 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i199, i64 8
+  store i64 0, ptr %516, align 8, !tbaa !1203
+  store i8 0, ptr %515, align 8, !tbaa !21
   %.add.i.i.i.i200 = add nuw nsw i64 %.idx.i.i.i.i198, 32
-  %518 = icmp eq i64 %.add.i.i.i.i200, 416
-  br i1 %518, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201, label %515
+  %517 = icmp eq i64 %.add.i.i.i.i200, 416
+  br i1 %517, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201, label %514
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201:   ; preds = %515
-  %519 = getelementptr inbounds nuw i8, ptr %514, i64 416
-  %520 = getelementptr inbounds nuw i8, ptr %514, i64 432
-  store ptr %520, ptr %519, align 8, !tbaa !29
-  %521 = getelementptr inbounds nuw i8, ptr %514, i64 424
-  store i32 0, ptr %521, align 8, !tbaa !30
-  %522 = getelementptr inbounds nuw i8, ptr %514, i64 428
-  store i32 8, ptr %522, align 4, !tbaa !47
-  %523 = getelementptr inbounds nuw i8, ptr %514, i64 528
-  %524 = getelementptr inbounds nuw i8, ptr %514, i64 544
-  store ptr %524, ptr %523, align 8, !tbaa !29
-  %525 = getelementptr inbounds nuw i8, ptr %514, i64 536
-  store i32 0, ptr %525, align 8, !tbaa !30
-  %526 = getelementptr inbounds nuw i8, ptr %514, i64 540
-  store i32 6, ptr %526, align 4, !tbaa !47
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201:   ; preds = %514
+  %518 = getelementptr inbounds nuw i8, ptr %513, i64 416
+  %519 = getelementptr inbounds nuw i8, ptr %513, i64 432
+  store ptr %519, ptr %518, align 8, !tbaa !29
+  %520 = getelementptr inbounds nuw i8, ptr %513, i64 424
+  store i32 0, ptr %520, align 8, !tbaa !30
+  %521 = getelementptr inbounds nuw i8, ptr %513, i64 428
+  store i32 8, ptr %521, align 4, !tbaa !47
+  %522 = getelementptr inbounds nuw i8, ptr %513, i64 528
+  %523 = getelementptr inbounds nuw i8, ptr %513, i64 544
+  store ptr %523, ptr %522, align 8, !tbaa !29
+  %524 = getelementptr inbounds nuw i8, ptr %513, i64 536
+  store i32 0, ptr %524, align 8, !tbaa !30
+  %525 = getelementptr inbounds nuw i8, ptr %513, i64 540
+  store i32 6, ptr %525, align 4, !tbaa !47
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195
 
-527:                                              ; preds = %507
-  %528 = getelementptr inbounds nuw i8, ptr %509, i64 14848
-  %529 = add i32 %511, -1
-  store i32 %529, ptr %510, align 8, !tbaa !1189
-  %530 = zext i32 %529 to i64
-  %531 = getelementptr inbounds nuw ptr, ptr %528, i64 %530
-  %532 = load ptr, ptr %531, align 8, !tbaa !1204
-  store i8 0, ptr %532, align 8, !tbaa !1190
-  %533 = getelementptr inbounds nuw i8, ptr %532, i64 424
-  store i32 0, ptr %533, align 8, !tbaa !30
-  %534 = getelementptr inbounds nuw i8, ptr %532, i64 528
-  %535 = load ptr, ptr %534, align 8, !tbaa !29
-  %536 = getelementptr inbounds nuw i8, ptr %532, i64 536
-  %537 = load i32, ptr %536, align 8, !tbaa !30
-  %.not4.i.i.i.i.i186 = icmp eq i32 %537, 0
+526:                                              ; preds = %506
+  %527 = getelementptr inbounds nuw i8, ptr %508, i64 14848
+  %528 = add i32 %510, -1
+  store i32 %528, ptr %509, align 8, !tbaa !1189
+  %529 = zext i32 %528 to i64
+  %530 = getelementptr inbounds nuw ptr, ptr %527, i64 %529
+  %531 = load ptr, ptr %530, align 8, !tbaa !1204
+  store i8 0, ptr %531, align 8, !tbaa !1190
+  %532 = getelementptr inbounds nuw i8, ptr %531, i64 424
+  store i32 0, ptr %532, align 8, !tbaa !30
+  %533 = getelementptr inbounds nuw i8, ptr %531, i64 528
+  %534 = load ptr, ptr %533, align 8, !tbaa !29
+  %535 = getelementptr inbounds nuw i8, ptr %531, i64 536
+  %536 = load i32, ptr %535, align 8, !tbaa !30
+  %.not4.i.i.i.i.i186 = icmp eq i32 %536, 0
   br i1 %.not4.i.i.i.i.i186, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194, label %.lr.ph.i.preheader.i.i.i.i187
 
-.lr.ph.i.preheader.i.i.i.i187:                    ; preds = %527
-  %538 = zext i32 %537 to i64
-  %.idx.i7.i.i.i188 = shl nuw nsw i64 %538, 6
-  %539 = getelementptr inbounds nuw i8, ptr %535, i64 %.idx.i7.i.i.i188
+.lr.ph.i.preheader.i.i.i.i187:                    ; preds = %526
+  %537 = zext i32 %536 to i64
+  %.idx.i7.i.i.i188 = shl nuw nsw i64 %537, 6
+  %538 = getelementptr inbounds nuw i8, ptr %534, i64 %.idx.i7.i.i.i188
   br label %.lr.ph.i.i.i.i.i189
 
 .lr.ph.i.i.i.i.i189:                              ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192, %.lr.ph.i.preheader.i.i.i.i187
-  %.05.i.i.i.i.i190 = phi ptr [ %540, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192 ], [ %539, %.lr.ph.i.preheader.i.i.i.i187 ]
-  %540 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i190, i64 -64
-  %541 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i190, i64 -40
-  %542 = load ptr, ptr %541, align 8, !tbaa !1205
-  %543 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i190, i64 -24
-  %544 = icmp eq ptr %542, %543
-  br i1 %544, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i191
+  %.05.i.i.i.i.i190 = phi ptr [ %539, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192 ], [ %538, %.lr.ph.i.preheader.i.i.i.i187 ]
+  %539 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i190, i64 -64
+  %540 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i190, i64 -40
+  %541 = load ptr, ptr %540, align 8, !tbaa !1205
+  %542 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i190, i64 -24
+  %543 = icmp eq ptr %541, %542
+  br i1 %543, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i191
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i191: ; preds = %.lr.ph.i.i.i.i.i189
-  %545 = load i64, ptr %543, align 8, !tbaa !21
-  %546 = add i64 %545, 1
-  call void @_ZdlPvm(ptr noundef %542, i64 noundef %546) #29
+  %544 = load i64, ptr %542, align 8, !tbaa !21
+  %545 = add i64 %544, 1
+  call void @_ZdlPvm(ptr noundef %541, i64 noundef %545) #29
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192:        ; preds = %.lr.ph.i.i.i.i.i189, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i191
-  %.not.i.i.i.i.i193 = icmp eq ptr %535, %540
+  %.not.i.i.i.i.i193 = icmp eq ptr %534, %539
   br i1 %.not.i.i.i.i.i193, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194, label %.lr.ph.i.i.i.i.i189, !llvm.loop !1206
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192, %527
-  store i32 0, ptr %536, align 8, !tbaa !30
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i192, %526
+  store i32 0, ptr %535, align 8, !tbaa !30
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201
-  %.0.i.i.i196 = phi ptr [ %514, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201 ], [ %532, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194 ]
-  store ptr %.0.i.i.i196, ptr %505, align 8, !tbaa !1184
+  %.0.i.i.i196 = phi ptr [ %513, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i201 ], [ %531, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i194 ]
+  store ptr %.0.i.i.i196, ptr %504, align 8, !tbaa !1184
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202: ; preds = %504, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195
-  %547 = phi ptr [ %.0.i.i.i196, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195 ], [ %506, %504 ]
-  %548 = getelementptr inbounds nuw i8, ptr %547, i64 1
-  %549 = load i8, ptr %547, align 8, !tbaa !1190
-  %550 = zext i8 %549 to i64
-  %551 = getelementptr inbounds nuw i8, ptr %548, i64 %550
-  store i8 8, ptr %551, align 1, !tbaa !21
-  %552 = load ptr, ptr %505, align 8, !tbaa !1184
-  %553 = getelementptr inbounds nuw i8, ptr %552, i64 16
-  %554 = load i8, ptr %552, align 8, !tbaa !1190
-  %555 = add i8 %554, 1
-  store i8 %555, ptr %552, align 8, !tbaa !1190
-  %556 = zext i8 %554 to i64
-  %557 = getelementptr inbounds nuw i64, ptr %553, i64 %556
-  store i64 %.sroa.03.0.i76, ptr %557, align 8, !tbaa !1207
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202: ; preds = %503, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195
+  %546 = phi ptr [ %.0.i.i.i196, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i195 ], [ %505, %503 ]
+  %547 = getelementptr inbounds nuw i8, ptr %546, i64 1
+  %548 = load i8, ptr %546, align 8, !tbaa !1190
+  %549 = zext i8 %548 to i64
+  %550 = getelementptr inbounds nuw i8, ptr %547, i64 %549
+  store i8 8, ptr %550, align 1, !tbaa !21
+  %551 = load ptr, ptr %504, align 8, !tbaa !1184
+  %552 = getelementptr inbounds nuw i8, ptr %551, i64 16
+  %553 = load i8, ptr %551, align 8, !tbaa !1190
+  %554 = add i8 %553, 1
+  store i8 %554, ptr %551, align 8, !tbaa !1190
+  %555 = zext i8 %553 to i64
+  %556 = getelementptr inbounds nuw i64, ptr %552, i64 %555
+  store i64 %.sroa.03.0.i76, ptr %556, align 8, !tbaa !1207
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
 
-558:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77
-  %559 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %560 = getelementptr inbounds nuw i8, ptr %26, i64 132
-  %561 = load i8, ptr %560, align 4, !tbaa !1068, !range !36, !noundef !37
-  %562 = trunc nuw i8 %561 to i1
-  br i1 %562, label %563, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
+557:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit77
+  %558 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %559 = getelementptr inbounds nuw i8, ptr %26, i64 132
+  %560 = load i8, ptr %559, align 4, !tbaa !1068, !range !36, !noundef !37
+  %561 = trunc nuw i8 %560 to i1
+  br i1 %561, label %562, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
 
-563:                                              ; preds = %558
-  %564 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
+562:                                              ; preds = %557
+  %563 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
-  %565 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %566 = load ptr, ptr %565, align 8, !tbaa !1070
-  %.not.i.i78 = icmp eq ptr %566, null
-  br i1 %.not.i.i78, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79, label %567
+  %564 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %565 = load ptr, ptr %564, align 8, !tbaa !1070
+  %.not.i.i78 = icmp eq ptr %565, null
+  br i1 %.not.i.i78, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79, label %566
 
-567:                                              ; preds = %563
-  %568 = load ptr, ptr %566, align 8, !tbaa !1079
-  %569 = getelementptr inbounds nuw i8, ptr %568, i64 32
-  %570 = load ptr, ptr %569, align 8
-  %571 = call noundef ptr %570(ptr noundef nonnull align 8 dereferenceable(168) %566) #28
+566:                                              ; preds = %562
+  %567 = load ptr, ptr %565, align 8, !tbaa !1079
+  %568 = getelementptr inbounds nuw i8, ptr %567, i64 32
+  %569 = load ptr, ptr %568, align 8
+  %570 = call noundef ptr %569(ptr noundef nonnull align 8 dereferenceable(168) %565) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79: ; preds = %567, %563
-  %572 = phi ptr [ %571, %567 ], [ null, %563 ]
-  store ptr %572, ptr %20, align 8, !tbaa !1081
-  %573 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %564, ptr noundef nonnull align 8 dereferenceable(8) %20)
-  %574 = load i32, ptr %559, align 8, !tbaa !51
-  %575 = zext i32 %574 to i64
-  %576 = load ptr, ptr %573, align 8, !tbaa !1083
-  %577 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %576, i64 %575
-  %578 = getelementptr inbounds nuw i8, ptr %577, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %578, i64 noundef %.sroa.03.0.i76, i32 noundef 8)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79: ; preds = %566, %562
+  %571 = phi ptr [ %570, %566 ], [ null, %562 ]
+  store ptr %571, ptr %20, align 8, !tbaa !1081
+  %572 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %563, ptr noundef nonnull align 8 dereferenceable(8) %20)
+  %573 = load i32, ptr %558, align 8, !tbaa !51
+  %574 = zext i32 %573 to i64
+  %575 = load ptr, ptr %572, align 8, !tbaa !1083
+  %576 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %575, i64 %574
+  %577 = getelementptr inbounds nuw i8, ptr %576, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %577, i64 noundef %.sroa.03.0.i76, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202, %558, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79
-  %579 = load i8, ptr %416, align 8, !tbaa !1066, !range !36, !noundef !37
-  %580 = trunc nuw i8 %579 to i1
-  br i1 %580, label %581, label %636
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit202, %557, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i79
+  %578 = load i8, ptr %415, align 8, !tbaa !1066, !range !36, !noundef !37
+  %579 = trunc nuw i8 %578 to i1
+  br i1 %579, label %580, label %635
 
-581:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
-  %582 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %583 = sext i32 %4 to i64
-  %584 = load ptr, ptr %582, align 8, !tbaa !1184
-  %.not.i203 = icmp eq ptr %584, null
-  br i1 %.not.i203, label %585, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220
+580:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
+  %581 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %582 = sext i32 %4 to i64
+  %583 = load ptr, ptr %581, align 8, !tbaa !1184
+  %.not.i203 = icmp eq ptr %583, null
+  br i1 %.not.i203, label %584, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220
 
-585:                                              ; preds = %581
-  %586 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %587 = load ptr, ptr %586, align 8, !tbaa !1188
-  %588 = getelementptr inbounds nuw i8, ptr %587, i64 14976
-  %589 = load i32, ptr %588, align 8, !tbaa !1189
-  %590 = icmp eq i32 %589, 0
-  br i1 %590, label %591, label %605
+584:                                              ; preds = %580
+  %585 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %586 = load ptr, ptr %585, align 8, !tbaa !1188
+  %587 = getelementptr inbounds nuw i8, ptr %586, i64 14976
+  %588 = load i32, ptr %587, align 8, !tbaa !1189
+  %589 = icmp eq i32 %588, 0
+  br i1 %589, label %590, label %604
 
-591:                                              ; preds = %585
-  %592 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
-  store i8 0, ptr %592, align 8, !tbaa !1190
-  br label %593
+590:                                              ; preds = %584
+  %591 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
+  store i8 0, ptr %591, align 8, !tbaa !1190
+  br label %592
 
-593:                                              ; preds = %593, %591
-  %.idx.i.i.i.i216 = phi i64 [ 96, %591 ], [ %.add.i.i.i.i218, %593 ]
-  %.ptr.i.i.i.i217 = getelementptr inbounds nuw i8, ptr %592, i64 %.idx.i.i.i.i216
-  %594 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i217, i64 16
-  store ptr %594, ptr %.ptr.i.i.i.i217, align 8, !tbaa !1202
-  %595 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i217, i64 8
-  store i64 0, ptr %595, align 8, !tbaa !1203
-  store i8 0, ptr %594, align 8, !tbaa !21
+592:                                              ; preds = %592, %590
+  %.idx.i.i.i.i216 = phi i64 [ 96, %590 ], [ %.add.i.i.i.i218, %592 ]
+  %.ptr.i.i.i.i217 = getelementptr inbounds nuw i8, ptr %591, i64 %.idx.i.i.i.i216
+  %593 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i217, i64 16
+  store ptr %593, ptr %.ptr.i.i.i.i217, align 8, !tbaa !1202
+  %594 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i217, i64 8
+  store i64 0, ptr %594, align 8, !tbaa !1203
+  store i8 0, ptr %593, align 8, !tbaa !21
   %.add.i.i.i.i218 = add nuw nsw i64 %.idx.i.i.i.i216, 32
-  %596 = icmp eq i64 %.add.i.i.i.i218, 416
-  br i1 %596, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219, label %593
+  %595 = icmp eq i64 %.add.i.i.i.i218, 416
+  br i1 %595, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219, label %592
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219:   ; preds = %593
-  %597 = getelementptr inbounds nuw i8, ptr %592, i64 416
-  %598 = getelementptr inbounds nuw i8, ptr %592, i64 432
-  store ptr %598, ptr %597, align 8, !tbaa !29
-  %599 = getelementptr inbounds nuw i8, ptr %592, i64 424
-  store i32 0, ptr %599, align 8, !tbaa !30
-  %600 = getelementptr inbounds nuw i8, ptr %592, i64 428
-  store i32 8, ptr %600, align 4, !tbaa !47
-  %601 = getelementptr inbounds nuw i8, ptr %592, i64 528
-  %602 = getelementptr inbounds nuw i8, ptr %592, i64 544
-  store ptr %602, ptr %601, align 8, !tbaa !29
-  %603 = getelementptr inbounds nuw i8, ptr %592, i64 536
-  store i32 0, ptr %603, align 8, !tbaa !30
-  %604 = getelementptr inbounds nuw i8, ptr %592, i64 540
-  store i32 6, ptr %604, align 4, !tbaa !47
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219:   ; preds = %592
+  %596 = getelementptr inbounds nuw i8, ptr %591, i64 416
+  %597 = getelementptr inbounds nuw i8, ptr %591, i64 432
+  store ptr %597, ptr %596, align 8, !tbaa !29
+  %598 = getelementptr inbounds nuw i8, ptr %591, i64 424
+  store i32 0, ptr %598, align 8, !tbaa !30
+  %599 = getelementptr inbounds nuw i8, ptr %591, i64 428
+  store i32 8, ptr %599, align 4, !tbaa !47
+  %600 = getelementptr inbounds nuw i8, ptr %591, i64 528
+  %601 = getelementptr inbounds nuw i8, ptr %591, i64 544
+  store ptr %601, ptr %600, align 8, !tbaa !29
+  %602 = getelementptr inbounds nuw i8, ptr %591, i64 536
+  store i32 0, ptr %602, align 8, !tbaa !30
+  %603 = getelementptr inbounds nuw i8, ptr %591, i64 540
+  store i32 6, ptr %603, align 4, !tbaa !47
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213
 
-605:                                              ; preds = %585
-  %606 = getelementptr inbounds nuw i8, ptr %587, i64 14848
-  %607 = add i32 %589, -1
-  store i32 %607, ptr %588, align 8, !tbaa !1189
-  %608 = zext i32 %607 to i64
-  %609 = getelementptr inbounds nuw ptr, ptr %606, i64 %608
-  %610 = load ptr, ptr %609, align 8, !tbaa !1204
-  store i8 0, ptr %610, align 8, !tbaa !1190
-  %611 = getelementptr inbounds nuw i8, ptr %610, i64 424
-  store i32 0, ptr %611, align 8, !tbaa !30
-  %612 = getelementptr inbounds nuw i8, ptr %610, i64 528
-  %613 = load ptr, ptr %612, align 8, !tbaa !29
-  %614 = getelementptr inbounds nuw i8, ptr %610, i64 536
-  %615 = load i32, ptr %614, align 8, !tbaa !30
-  %.not4.i.i.i.i.i204 = icmp eq i32 %615, 0
+604:                                              ; preds = %584
+  %605 = getelementptr inbounds nuw i8, ptr %586, i64 14848
+  %606 = add i32 %588, -1
+  store i32 %606, ptr %587, align 8, !tbaa !1189
+  %607 = zext i32 %606 to i64
+  %608 = getelementptr inbounds nuw ptr, ptr %605, i64 %607
+  %609 = load ptr, ptr %608, align 8, !tbaa !1204
+  store i8 0, ptr %609, align 8, !tbaa !1190
+  %610 = getelementptr inbounds nuw i8, ptr %609, i64 424
+  store i32 0, ptr %610, align 8, !tbaa !30
+  %611 = getelementptr inbounds nuw i8, ptr %609, i64 528
+  %612 = load ptr, ptr %611, align 8, !tbaa !29
+  %613 = getelementptr inbounds nuw i8, ptr %609, i64 536
+  %614 = load i32, ptr %613, align 8, !tbaa !30
+  %.not4.i.i.i.i.i204 = icmp eq i32 %614, 0
   br i1 %.not4.i.i.i.i.i204, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212, label %.lr.ph.i.preheader.i.i.i.i205
 
-.lr.ph.i.preheader.i.i.i.i205:                    ; preds = %605
-  %616 = zext i32 %615 to i64
-  %.idx.i7.i.i.i206 = shl nuw nsw i64 %616, 6
-  %617 = getelementptr inbounds nuw i8, ptr %613, i64 %.idx.i7.i.i.i206
+.lr.ph.i.preheader.i.i.i.i205:                    ; preds = %604
+  %615 = zext i32 %614 to i64
+  %.idx.i7.i.i.i206 = shl nuw nsw i64 %615, 6
+  %616 = getelementptr inbounds nuw i8, ptr %612, i64 %.idx.i7.i.i.i206
   br label %.lr.ph.i.i.i.i.i207
 
 .lr.ph.i.i.i.i.i207:                              ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210, %.lr.ph.i.preheader.i.i.i.i205
-  %.05.i.i.i.i.i208 = phi ptr [ %618, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210 ], [ %617, %.lr.ph.i.preheader.i.i.i.i205 ]
-  %618 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i208, i64 -64
-  %619 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i208, i64 -40
-  %620 = load ptr, ptr %619, align 8, !tbaa !1205
-  %621 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i208, i64 -24
-  %622 = icmp eq ptr %620, %621
-  br i1 %622, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i209
+  %.05.i.i.i.i.i208 = phi ptr [ %617, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210 ], [ %616, %.lr.ph.i.preheader.i.i.i.i205 ]
+  %617 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i208, i64 -64
+  %618 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i208, i64 -40
+  %619 = load ptr, ptr %618, align 8, !tbaa !1205
+  %620 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i208, i64 -24
+  %621 = icmp eq ptr %619, %620
+  br i1 %621, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i209
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i209: ; preds = %.lr.ph.i.i.i.i.i207
-  %623 = load i64, ptr %621, align 8, !tbaa !21
-  %624 = add i64 %623, 1
-  call void @_ZdlPvm(ptr noundef %620, i64 noundef %624) #29
+  %622 = load i64, ptr %620, align 8, !tbaa !21
+  %623 = add i64 %622, 1
+  call void @_ZdlPvm(ptr noundef %619, i64 noundef %623) #29
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210:        ; preds = %.lr.ph.i.i.i.i.i207, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i209
-  %.not.i.i.i.i.i211 = icmp eq ptr %613, %618
+  %.not.i.i.i.i.i211 = icmp eq ptr %612, %617
   br i1 %.not.i.i.i.i.i211, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212, label %.lr.ph.i.i.i.i.i207, !llvm.loop !1206
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210, %605
-  store i32 0, ptr %614, align 8, !tbaa !30
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i210, %604
+  store i32 0, ptr %613, align 8, !tbaa !30
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219
-  %.0.i.i.i214 = phi ptr [ %592, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219 ], [ %610, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212 ]
-  store ptr %.0.i.i.i214, ptr %582, align 8, !tbaa !1184
+  %.0.i.i.i214 = phi ptr [ %591, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i219 ], [ %609, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i212 ]
+  store ptr %.0.i.i.i214, ptr %581, align 8, !tbaa !1184
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220: ; preds = %581, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213
-  %625 = phi ptr [ %.0.i.i.i214, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213 ], [ %584, %581 ]
-  %626 = getelementptr inbounds nuw i8, ptr %625, i64 1
-  %627 = load i8, ptr %625, align 8, !tbaa !1190
-  %628 = zext i8 %627 to i64
-  %629 = getelementptr inbounds nuw i8, ptr %626, i64 %628
-  store i8 2, ptr %629, align 1, !tbaa !21
-  %630 = load ptr, ptr %582, align 8, !tbaa !1184
-  %631 = getelementptr inbounds nuw i8, ptr %630, i64 16
-  %632 = load i8, ptr %630, align 8, !tbaa !1190
-  %633 = add i8 %632, 1
-  store i8 %633, ptr %630, align 8, !tbaa !1190
-  %634 = zext i8 %632 to i64
-  %635 = getelementptr inbounds nuw i64, ptr %631, i64 %634
-  store i64 %583, ptr %635, align 8, !tbaa !1207
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220: ; preds = %580, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213
+  %624 = phi ptr [ %.0.i.i.i214, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i213 ], [ %583, %580 ]
+  %625 = getelementptr inbounds nuw i8, ptr %624, i64 1
+  %626 = load i8, ptr %624, align 8, !tbaa !1190
+  %627 = zext i8 %626 to i64
+  %628 = getelementptr inbounds nuw i8, ptr %625, i64 %627
+  store i8 2, ptr %628, align 1, !tbaa !21
+  %629 = load ptr, ptr %581, align 8, !tbaa !1184
+  %630 = getelementptr inbounds nuw i8, ptr %629, i64 16
+  %631 = load i8, ptr %629, align 8, !tbaa !1190
+  %632 = add i8 %631, 1
+  store i8 %632, ptr %629, align 8, !tbaa !1190
+  %633 = zext i8 %631 to i64
+  %634 = getelementptr inbounds nuw i64, ptr %630, i64 %633
+  store i64 %582, ptr %634, align 8, !tbaa !1207
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
 
-636:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
-  %637 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %638 = getelementptr inbounds nuw i8, ptr %26, i64 132
-  %639 = load i8, ptr %638, align 4, !tbaa !1068, !range !36, !noundef !37
-  %640 = trunc nuw i8 %639 to i1
-  br i1 %640, label %641, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
+635:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit82
+  %636 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %637 = getelementptr inbounds nuw i8, ptr %26, i64 132
+  %638 = load i8, ptr %637, align 4, !tbaa !1068, !range !36, !noundef !37
+  %639 = trunc nuw i8 %638 to i1
+  br i1 %639, label %640, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
 
-641:                                              ; preds = %636
-  %642 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
+640:                                              ; preds = %635
+  %641 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %19)
-  %643 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %644 = load ptr, ptr %643, align 8, !tbaa !1070
-  %.not.i.i83 = icmp eq ptr %644, null
-  br i1 %.not.i.i83, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84, label %645
+  %642 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %643 = load ptr, ptr %642, align 8, !tbaa !1070
+  %.not.i.i83 = icmp eq ptr %643, null
+  br i1 %.not.i.i83, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84, label %644
 
-645:                                              ; preds = %641
-  %646 = load ptr, ptr %644, align 8, !tbaa !1079
-  %647 = getelementptr inbounds nuw i8, ptr %646, i64 32
-  %648 = load ptr, ptr %647, align 8
-  %649 = call noundef ptr %648(ptr noundef nonnull align 8 dereferenceable(168) %644) #28
+644:                                              ; preds = %640
+  %645 = load ptr, ptr %643, align 8, !tbaa !1079
+  %646 = getelementptr inbounds nuw i8, ptr %645, i64 32
+  %647 = load ptr, ptr %646, align 8
+  %648 = call noundef ptr %647(ptr noundef nonnull align 8 dereferenceable(168) %643) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84: ; preds = %645, %641
-  %650 = phi ptr [ %649, %645 ], [ null, %641 ]
-  store ptr %650, ptr %19, align 8, !tbaa !1081
-  %651 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %642, ptr noundef nonnull align 8 dereferenceable(8) %19)
-  %652 = load i32, ptr %637, align 8, !tbaa !51
-  %653 = zext i32 %652 to i64
-  %654 = load ptr, ptr %651, align 8, !tbaa !1083
-  %655 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %654, i64 %653
-  %656 = getelementptr inbounds nuw i8, ptr %655, i64 8
-  %657 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %656, i64 noundef %657, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84: ; preds = %644, %640
+  %649 = phi ptr [ %648, %644 ], [ null, %640 ]
+  store ptr %649, ptr %19, align 8, !tbaa !1081
+  %650 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %641, ptr noundef nonnull align 8 dereferenceable(8) %19)
+  %651 = load i32, ptr %636, align 8, !tbaa !51
+  %652 = zext i32 %651 to i64
+  %653 = load ptr, ptr %650, align 8, !tbaa !1083
+  %654 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %653, i64 %652
+  %655 = getelementptr inbounds nuw i8, ptr %654, i64 8
+  %656 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %655, i64 noundef %656, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220, %636, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84
-  %658 = load i8, ptr %416, align 8, !tbaa !1066, !range !36, !noundef !37
-  %659 = trunc nuw i8 %658 to i1
-  br i1 %659, label %660, label %714
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit220, %635, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i84
+  %657 = load i8, ptr %415, align 8, !tbaa !1066, !range !36, !noundef !37
+  %658 = trunc nuw i8 %657 to i1
+  br i1 %658, label %659, label %713
 
-660:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
-  %661 = getelementptr inbounds nuw i8, ptr %26, i64 32
-  %662 = load ptr, ptr %661, align 8, !tbaa !1184
-  %.not.i221 = icmp eq ptr %662, null
-  br i1 %.not.i221, label %663, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238
+659:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
+  %660 = getelementptr inbounds nuw i8, ptr %26, i64 32
+  %661 = load ptr, ptr %660, align 8, !tbaa !1184
+  %.not.i221 = icmp eq ptr %661, null
+  br i1 %.not.i221, label %662, label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238
 
-663:                                              ; preds = %660
-  %664 = getelementptr inbounds nuw i8, ptr %26, i64 40
-  %665 = load ptr, ptr %664, align 8, !tbaa !1188
-  %666 = getelementptr inbounds nuw i8, ptr %665, i64 14976
-  %667 = load i32, ptr %666, align 8, !tbaa !1189
-  %668 = icmp eq i32 %667, 0
-  br i1 %668, label %669, label %683
+662:                                              ; preds = %659
+  %663 = getelementptr inbounds nuw i8, ptr %26, i64 40
+  %664 = load ptr, ptr %663, align 8, !tbaa !1188
+  %665 = getelementptr inbounds nuw i8, ptr %664, i64 14976
+  %666 = load i32, ptr %665, align 8, !tbaa !1189
+  %667 = icmp eq i32 %666, 0
+  br i1 %667, label %668, label %682
 
-669:                                              ; preds = %663
-  %670 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
-  store i8 0, ptr %670, align 8, !tbaa !1190
-  br label %671
+668:                                              ; preds = %662
+  %669 = call noalias noundef nonnull dereferenceable(928) ptr @_Znwm(i64 noundef 928) #31
+  store i8 0, ptr %669, align 8, !tbaa !1190
+  br label %670
 
-671:                                              ; preds = %671, %669
-  %.idx.i.i.i.i234 = phi i64 [ 96, %669 ], [ %.add.i.i.i.i236, %671 ]
-  %.ptr.i.i.i.i235 = getelementptr inbounds nuw i8, ptr %670, i64 %.idx.i.i.i.i234
-  %672 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i235, i64 16
-  store ptr %672, ptr %.ptr.i.i.i.i235, align 8, !tbaa !1202
-  %673 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i235, i64 8
-  store i64 0, ptr %673, align 8, !tbaa !1203
-  store i8 0, ptr %672, align 8, !tbaa !21
+670:                                              ; preds = %670, %668
+  %.idx.i.i.i.i234 = phi i64 [ 96, %668 ], [ %.add.i.i.i.i236, %670 ]
+  %.ptr.i.i.i.i235 = getelementptr inbounds nuw i8, ptr %669, i64 %.idx.i.i.i.i234
+  %671 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i235, i64 16
+  store ptr %671, ptr %.ptr.i.i.i.i235, align 8, !tbaa !1202
+  %672 = getelementptr inbounds nuw i8, ptr %.ptr.i.i.i.i235, i64 8
+  store i64 0, ptr %672, align 8, !tbaa !1203
+  store i8 0, ptr %671, align 8, !tbaa !21
   %.add.i.i.i.i236 = add nuw nsw i64 %.idx.i.i.i.i234, 32
-  %674 = icmp eq i64 %.add.i.i.i.i236, 416
-  br i1 %674, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237, label %671
+  %673 = icmp eq i64 %.add.i.i.i.i236, 416
+  br i1 %673, label %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237, label %670
 
-_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237:   ; preds = %671
-  %675 = getelementptr inbounds nuw i8, ptr %670, i64 416
-  %676 = getelementptr inbounds nuw i8, ptr %670, i64 432
-  store ptr %676, ptr %675, align 8, !tbaa !29
-  %677 = getelementptr inbounds nuw i8, ptr %670, i64 424
-  store i32 0, ptr %677, align 8, !tbaa !30
-  %678 = getelementptr inbounds nuw i8, ptr %670, i64 428
-  store i32 8, ptr %678, align 4, !tbaa !47
-  %679 = getelementptr inbounds nuw i8, ptr %670, i64 528
-  %680 = getelementptr inbounds nuw i8, ptr %670, i64 544
-  store ptr %680, ptr %679, align 8, !tbaa !29
-  %681 = getelementptr inbounds nuw i8, ptr %670, i64 536
-  store i32 0, ptr %681, align 8, !tbaa !30
-  %682 = getelementptr inbounds nuw i8, ptr %670, i64 540
-  store i32 6, ptr %682, align 4, !tbaa !47
+_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237:   ; preds = %670
+  %674 = getelementptr inbounds nuw i8, ptr %669, i64 416
+  %675 = getelementptr inbounds nuw i8, ptr %669, i64 432
+  store ptr %675, ptr %674, align 8, !tbaa !29
+  %676 = getelementptr inbounds nuw i8, ptr %669, i64 424
+  store i32 0, ptr %676, align 8, !tbaa !30
+  %677 = getelementptr inbounds nuw i8, ptr %669, i64 428
+  store i32 8, ptr %677, align 4, !tbaa !47
+  %678 = getelementptr inbounds nuw i8, ptr %669, i64 528
+  %679 = getelementptr inbounds nuw i8, ptr %669, i64 544
+  store ptr %679, ptr %678, align 8, !tbaa !29
+  %680 = getelementptr inbounds nuw i8, ptr %669, i64 536
+  store i32 0, ptr %680, align 8, !tbaa !30
+  %681 = getelementptr inbounds nuw i8, ptr %669, i64 540
+  store i32 6, ptr %681, align 4, !tbaa !47
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231
 
-683:                                              ; preds = %663
-  %684 = getelementptr inbounds nuw i8, ptr %665, i64 14848
-  %685 = add i32 %667, -1
-  store i32 %685, ptr %666, align 8, !tbaa !1189
-  %686 = zext i32 %685 to i64
-  %687 = getelementptr inbounds nuw ptr, ptr %684, i64 %686
-  %688 = load ptr, ptr %687, align 8, !tbaa !1204
-  store i8 0, ptr %688, align 8, !tbaa !1190
-  %689 = getelementptr inbounds nuw i8, ptr %688, i64 424
-  store i32 0, ptr %689, align 8, !tbaa !30
-  %690 = getelementptr inbounds nuw i8, ptr %688, i64 528
-  %691 = load ptr, ptr %690, align 8, !tbaa !29
-  %692 = getelementptr inbounds nuw i8, ptr %688, i64 536
-  %693 = load i32, ptr %692, align 8, !tbaa !30
-  %.not4.i.i.i.i.i222 = icmp eq i32 %693, 0
+682:                                              ; preds = %662
+  %683 = getelementptr inbounds nuw i8, ptr %664, i64 14848
+  %684 = add i32 %666, -1
+  store i32 %684, ptr %665, align 8, !tbaa !1189
+  %685 = zext i32 %684 to i64
+  %686 = getelementptr inbounds nuw ptr, ptr %683, i64 %685
+  %687 = load ptr, ptr %686, align 8, !tbaa !1204
+  store i8 0, ptr %687, align 8, !tbaa !1190
+  %688 = getelementptr inbounds nuw i8, ptr %687, i64 424
+  store i32 0, ptr %688, align 8, !tbaa !30
+  %689 = getelementptr inbounds nuw i8, ptr %687, i64 528
+  %690 = load ptr, ptr %689, align 8, !tbaa !29
+  %691 = getelementptr inbounds nuw i8, ptr %687, i64 536
+  %692 = load i32, ptr %691, align 8, !tbaa !30
+  %.not4.i.i.i.i.i222 = icmp eq i32 %692, 0
   br i1 %.not4.i.i.i.i.i222, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230, label %.lr.ph.i.preheader.i.i.i.i223
 
-.lr.ph.i.preheader.i.i.i.i223:                    ; preds = %683
-  %694 = zext i32 %693 to i64
-  %.idx.i7.i.i.i224 = shl nuw nsw i64 %694, 6
-  %695 = getelementptr inbounds nuw i8, ptr %691, i64 %.idx.i7.i.i.i224
+.lr.ph.i.preheader.i.i.i.i223:                    ; preds = %682
+  %693 = zext i32 %692 to i64
+  %.idx.i7.i.i.i224 = shl nuw nsw i64 %693, 6
+  %694 = getelementptr inbounds nuw i8, ptr %690, i64 %.idx.i7.i.i.i224
   br label %.lr.ph.i.i.i.i.i225
 
 .lr.ph.i.i.i.i.i225:                              ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228, %.lr.ph.i.preheader.i.i.i.i223
-  %.05.i.i.i.i.i226 = phi ptr [ %696, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228 ], [ %695, %.lr.ph.i.preheader.i.i.i.i223 ]
-  %696 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i226, i64 -64
-  %697 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i226, i64 -40
-  %698 = load ptr, ptr %697, align 8, !tbaa !1205
-  %699 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i226, i64 -24
-  %700 = icmp eq ptr %698, %699
-  br i1 %700, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i227
+  %.05.i.i.i.i.i226 = phi ptr [ %695, %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228 ], [ %694, %.lr.ph.i.preheader.i.i.i.i223 ]
+  %695 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i226, i64 -64
+  %696 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i226, i64 -40
+  %697 = load ptr, ptr %696, align 8, !tbaa !1205
+  %698 = getelementptr inbounds i8, ptr %.05.i.i.i.i.i226, i64 -24
+  %699 = icmp eq ptr %697, %698
+  br i1 %699, label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i227
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i227: ; preds = %.lr.ph.i.i.i.i.i225
-  %701 = load i64, ptr %699, align 8, !tbaa !21
-  %702 = add i64 %701, 1
-  call void @_ZdlPvm(ptr noundef %698, i64 noundef %702) #29
+  %700 = load i64, ptr %698, align 8, !tbaa !21
+  %701 = add i64 %700, 1
+  call void @_ZdlPvm(ptr noundef %697, i64 noundef %701) #29
   br label %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228
 
 _ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228:        ; preds = %.lr.ph.i.i.i.i.i225, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i.i.i.i.i.i227
-  %.not.i.i.i.i.i229 = icmp eq ptr %691, %696
+  %.not.i.i.i.i.i229 = icmp eq ptr %690, %695
   br i1 %.not.i.i.i.i.i229, label %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230, label %.lr.ph.i.i.i.i.i225, !llvm.loop !1206
 
-_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228, %683
-  store i32 0, ptr %692, align 8, !tbaa !30
+_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230: ; preds = %_ZN5clang9FixItHintD2Ev.exit.i.i.i.i.i228, %682
+  store i32 0, ptr %691, align 8, !tbaa !30
   br label %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231
 
 _ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231: ; preds = %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237
-  %.0.i.i.i232 = phi ptr [ %670, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237 ], [ %688, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230 ]
-  store ptr %.0.i.i.i232, ptr %661, align 8, !tbaa !1184
+  %.0.i.i.i232 = phi ptr [ %669, %_ZN5clang17DiagnosticStorageC2Ev.exit.i.i.i237 ], [ %687, %_ZN4llvm15SmallVectorImplIN5clang9FixItHintEE5clearEv.exit.i.i.i230 ]
+  store ptr %.0.i.i.i232, ptr %660, align 8, !tbaa !1184
   br label %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238
 
-_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238: ; preds = %660, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231
-  %703 = phi ptr [ %.0.i.i.i232, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231 ], [ %662, %660 ]
-  %704 = getelementptr inbounds nuw i8, ptr %703, i64 1
-  %705 = load i8, ptr %703, align 8, !tbaa !1190
-  %706 = zext i8 %705 to i64
-  %707 = getelementptr inbounds nuw i8, ptr %704, i64 %706
-  store i8 8, ptr %707, align 1, !tbaa !21
-  %708 = load ptr, ptr %661, align 8, !tbaa !1184
-  %709 = getelementptr inbounds nuw i8, ptr %708, i64 16
-  %710 = load i8, ptr %708, align 8, !tbaa !1190
-  %711 = add i8 %710, 1
-  store i8 %711, ptr %708, align 8, !tbaa !1190
-  %712 = zext i8 %710 to i64
-  %713 = getelementptr inbounds nuw i64, ptr %709, i64 %712
-  store i64 %spec.select, ptr %713, align 8, !tbaa !1207
+_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238: ; preds = %659, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231
+  %702 = phi ptr [ %.0.i.i.i232, %_ZNK5clang19StreamingDiagnostic10getStorageEv.exit.i231 ], [ %661, %659 ]
+  %703 = getelementptr inbounds nuw i8, ptr %702, i64 1
+  %704 = load i8, ptr %702, align 8, !tbaa !1190
+  %705 = zext i8 %704 to i64
+  %706 = getelementptr inbounds nuw i8, ptr %703, i64 %705
+  store i8 8, ptr %706, align 1, !tbaa !21
+  %707 = load ptr, ptr %660, align 8, !tbaa !1184
+  %708 = getelementptr inbounds nuw i8, ptr %707, i64 16
+  %709 = load i8, ptr %707, align 8, !tbaa !1190
+  %710 = add i8 %709, 1
+  store i8 %710, ptr %707, align 8, !tbaa !1190
+  %711 = zext i8 %709 to i64
+  %712 = getelementptr inbounds nuw i64, ptr %708, i64 %711
+  store i64 %spec.select, ptr %712, align 8, !tbaa !1207
   br label %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
-714:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
-  %715 = getelementptr inbounds nuw i8, ptr %26, i64 128
-  %716 = getelementptr inbounds nuw i8, ptr %26, i64 132
-  %717 = load i8, ptr %716, align 4, !tbaa !1068, !range !36, !noundef !37
-  %718 = trunc nuw i8 %717 to i1
-  br i1 %718, label %719, label %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
+713:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit
+  %714 = getelementptr inbounds nuw i8, ptr %26, i64 128
+  %715 = getelementptr inbounds nuw i8, ptr %26, i64 132
+  %716 = load i8, ptr %715, align 4, !tbaa !1068, !range !36, !noundef !37
+  %717 = trunc nuw i8 %716 to i1
+  br i1 %717, label %718, label %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
-719:                                              ; preds = %714
-  %720 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
+718:                                              ; preds = %713
+  %719 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
-  %721 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  %722 = load ptr, ptr %721, align 8, !tbaa !1070
-  %.not.i.i85 = icmp eq ptr %722, null
-  br i1 %.not.i.i85, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86, label %723
+  %720 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %721 = load ptr, ptr %720, align 8, !tbaa !1070
+  %.not.i.i85 = icmp eq ptr %721, null
+  br i1 %.not.i.i85, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86, label %722
 
-723:                                              ; preds = %719
-  %724 = load ptr, ptr %722, align 8, !tbaa !1079
-  %725 = getelementptr inbounds nuw i8, ptr %724, i64 32
-  %726 = load ptr, ptr %725, align 8
-  %727 = call noundef ptr %726(ptr noundef nonnull align 8 dereferenceable(168) %722) #28
+722:                                              ; preds = %718
+  %723 = load ptr, ptr %721, align 8, !tbaa !1079
+  %724 = getelementptr inbounds nuw i8, ptr %723, i64 32
+  %725 = load ptr, ptr %724, align 8
+  %726 = call noundef ptr %725(ptr noundef nonnull align 8 dereferenceable(168) %721) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86: ; preds = %723, %719
-  %728 = phi ptr [ %727, %723 ], [ null, %719 ]
-  store ptr %728, ptr %18, align 8, !tbaa !1081
-  %729 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %720, ptr noundef nonnull align 8 dereferenceable(8) %18)
-  %730 = load i32, ptr %715, align 8, !tbaa !51
-  %731 = zext i32 %730 to i64
-  %732 = load ptr, ptr %729, align 8, !tbaa !1083
-  %733 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %732, i64 %731
-  %734 = getelementptr inbounds nuw i8, ptr %733, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %734, i64 noundef %spec.select, i32 noundef 8)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86: ; preds = %722, %718
+  %727 = phi ptr [ %726, %722 ], [ null, %718 ]
+  store ptr %727, ptr %18, align 8, !tbaa !1081
+  %728 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %719, ptr noundef nonnull align 8 dereferenceable(8) %18)
+  %729 = load i32, ptr %714, align 8, !tbaa !51
+  %730 = zext i32 %729 to i64
+  %731 = load ptr, ptr %728, align 8, !tbaa !1083
+  %732 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %731, i64 %730
+  %733 = getelementptr inbounds nuw i8, ptr %732, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %733, i64 noundef %spec.select, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   br label %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit
 
-_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238, %714, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86
+_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit: ; preds = %_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE.exit238, %713, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i86
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %26) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread
 
-735:                                              ; preds = %413
-  %736 = tail call noundef ptr @_ZNK5clang12FunctionDecl31getTemplateInstantiationPatternEb(ptr noundef nonnull align 8 dereferenceable(168) %.2, i1 noundef zeroext true) #28
-  %.not.i89 = icmp eq ptr %736, null
-  %spec.select.i = select i1 %.not.i89, ptr %.2, ptr %736
-  %737 = load ptr, ptr %spec.select.i, align 8, !tbaa !1079
-  %738 = getelementptr inbounds nuw i8, ptr %737, i64 32
-  %739 = load ptr, ptr %738, align 8
-  %740 = tail call noundef ptr %739(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i) #28
-  %741 = getelementptr inbounds nuw i8, ptr %740, i64 82
-  %742 = load i32, ptr %741, align 2
-  %743 = and i32 %742, 64
-  %.not6.i = icmp eq i32 %743, 0
+734:                                              ; preds = %412
+  %735 = tail call noundef ptr @_ZNK5clang12FunctionDecl31getTemplateInstantiationPatternEb(ptr noundef nonnull align 8 dereferenceable(168) %.2, i1 noundef zeroext true) #28
+  %.not.i89 = icmp eq ptr %735, null
+  %spec.select.i = select i1 %.not.i89, ptr %.2, ptr %735
+  %736 = load ptr, ptr %spec.select.i, align 8, !tbaa !1079
+  %737 = getelementptr inbounds nuw i8, ptr %736, i64 32
+  %738 = load ptr, ptr %737, align 8
+  %739 = tail call noundef ptr %738(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i) #28
+  %740 = getelementptr inbounds nuw i8, ptr %739, i64 82
+  %741 = load i32, ptr %740, align 2
+  %742 = and i32 %741, 64
+  %.not6.i = icmp eq i32 %742, 0
   br i1 %.not6.i, label %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit, label %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
 
-_ZNK5clang12FunctionDecl14isUserProvidedEv.exit:  ; preds = %735
-  %744 = load ptr, ptr %spec.select.i, align 8, !tbaa !1079
-  %745 = getelementptr inbounds nuw i8, ptr %744, i64 32
-  %746 = load ptr, ptr %745, align 8
-  %747 = tail call noundef ptr %746(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i) #28
-  %748 = getelementptr inbounds nuw i8, ptr %747, i64 82
-  %749 = load i32, ptr %748, align 2
-  %750 = and i32 %749, 512
-  %.not7.i = icmp eq i32 %750, 0
-  br i1 %.not7.i, label %751, label %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
+_ZNK5clang12FunctionDecl14isUserProvidedEv.exit:  ; preds = %734
+  %743 = load ptr, ptr %spec.select.i, align 8, !tbaa !1079
+  %744 = getelementptr inbounds nuw i8, ptr %743, i64 32
+  %745 = load ptr, ptr %744, align 8
+  %746 = tail call noundef ptr %745(ptr noundef nonnull align 8 dereferenceable(168) %spec.select.i) #28
+  %747 = getelementptr inbounds nuw i8, ptr %746, i64 82
+  %748 = load i32, ptr %747, align 2
+  %749 = and i32 %748, 512
+  %.not7.i = icmp eq i32 %749, 0
+  br i1 %.not7.i, label %750, label %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
 
-751:                                              ; preds = %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit
-  %752 = icmp eq i32 %5, 2
-  %753 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %752, label %754, label %840
+750:                                              ; preds = %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit
+  %751 = icmp eq i32 %5, 2
+  %752 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  br i1 %751, label %753, label %839
 
-754:                                              ; preds = %751
+753:                                              ; preds = %750
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
-  %755 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  %.sroa.0.0.copyload.i90 = load i32, ptr %755, align 8, !tbaa !51
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) %753, i32 %.sroa.0.0.copyload.i90, i32 noundef 5827, i1 noundef zeroext false) #28
-  %756 = getelementptr inbounds nuw i8, ptr %27, i64 120
-  %757 = load i8, ptr %756, align 8, !tbaa !1066, !range !36, !noundef !37
-  %758 = trunc nuw i8 %757 to i1
-  br i1 %758, label %759, label %761
+  %754 = getelementptr inbounds nuw i8, ptr %.2, i64 24
+  %.sroa.0.0.copyload.i90 = load i32, ptr %754, align 8, !tbaa !51
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %27, ptr noundef nonnull align 8 dereferenceable(8) %752, i32 %.sroa.0.0.copyload.i90, i32 noundef 5827, i1 noundef zeroext false) #28
+  %755 = getelementptr inbounds nuw i8, ptr %27, i64 120
+  %756 = load i8, ptr %755, align 8, !tbaa !1066, !range !36, !noundef !37
+  %757 = trunc nuw i8 %756 to i1
+  br i1 %757, label %758, label %760
 
-759:                                              ; preds = %754
-  %760 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %760, i64 noundef 2, i32 noundef 2)
+758:                                              ; preds = %753
+  %759 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %759, i64 noundef 2, i32 noundef 2)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93
 
-761:                                              ; preds = %754
-  %762 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %763 = getelementptr inbounds nuw i8, ptr %27, i64 132
-  %764 = load i8, ptr %763, align 4, !tbaa !1068, !range !36, !noundef !37
-  %765 = trunc nuw i8 %764 to i1
-  br i1 %765, label %766, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93
+760:                                              ; preds = %753
+  %761 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %762 = getelementptr inbounds nuw i8, ptr %27, i64 132
+  %763 = load i8, ptr %762, align 4, !tbaa !1068, !range !36, !noundef !37
+  %764 = trunc nuw i8 %763 to i1
+  br i1 %764, label %765, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93
 
-766:                                              ; preds = %761
-  %767 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
+765:                                              ; preds = %760
+  %766 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  %768 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %769 = load ptr, ptr %768, align 8, !tbaa !1070
-  %.not.i.i91 = icmp eq ptr %769, null
-  br i1 %.not.i.i91, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92, label %770
+  %767 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %768 = load ptr, ptr %767, align 8, !tbaa !1070
+  %.not.i.i91 = icmp eq ptr %768, null
+  br i1 %.not.i.i91, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92, label %769
 
-770:                                              ; preds = %766
-  %771 = load ptr, ptr %769, align 8, !tbaa !1079
-  %772 = getelementptr inbounds nuw i8, ptr %771, i64 32
-  %773 = load ptr, ptr %772, align 8
-  %774 = call noundef ptr %773(ptr noundef nonnull align 8 dereferenceable(168) %769) #28
+769:                                              ; preds = %765
+  %770 = load ptr, ptr %768, align 8, !tbaa !1079
+  %771 = getelementptr inbounds nuw i8, ptr %770, i64 32
+  %772 = load ptr, ptr %771, align 8
+  %773 = call noundef ptr %772(ptr noundef nonnull align 8 dereferenceable(168) %768) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92: ; preds = %770, %766
-  %775 = phi ptr [ %774, %770 ], [ null, %766 ]
-  store ptr %775, ptr %17, align 8, !tbaa !1081
-  %776 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %767, ptr noundef nonnull align 8 dereferenceable(8) %17)
-  %777 = load i32, ptr %762, align 8, !tbaa !51
-  %778 = zext i32 %777 to i64
-  %779 = load ptr, ptr %776, align 8, !tbaa !1083
-  %780 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %779, i64 %778
-  %781 = getelementptr inbounds nuw i8, ptr %780, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %781, i64 noundef 2, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92: ; preds = %769, %765
+  %774 = phi ptr [ %773, %769 ], [ null, %765 ]
+  store ptr %774, ptr %17, align 8, !tbaa !1081
+  %775 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %766, ptr noundef nonnull align 8 dereferenceable(8) %17)
+  %776 = load i32, ptr %761, align 8, !tbaa !51
+  %777 = zext i32 %776 to i64
+  %778 = load ptr, ptr %775, align 8, !tbaa !1083
+  %779 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %778, i64 %777
+  %780 = getelementptr inbounds nuw i8, ptr %779, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %780, i64 noundef 2, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93
 
-_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93: ; preds = %759, %761, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92
-  %782 = load ptr, ptr %32, align 16, !tbaa !22
-  %783 = getelementptr inbounds nuw i8, ptr %782, i64 8
-  %.sroa.0.0.copyload.i.i95 = load i64, ptr %783, align 8, !tbaa !21
-  %784 = and i64 %.sroa.0.0.copyload.i.i95, 15
-  %.not.i96 = icmp eq i64 %784, 0
-  br i1 %.not.i96, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100, label %785
+_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93: ; preds = %758, %760, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i92
+  %781 = load ptr, ptr %32, align 16, !tbaa !22
+  %782 = getelementptr inbounds nuw i8, ptr %781, i64 8
+  %.sroa.0.0.copyload.i.i95 = load i64, ptr %782, align 8, !tbaa !21
+  %783 = and i64 %.sroa.0.0.copyload.i.i95, 15
+  %.not.i96 = icmp eq i64 %783, 0
+  br i1 %.not.i96, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100, label %784
 
-785:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93
-  %786 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
-  %787 = extractvalue { ptr, i64 } %786, 0
+784:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93
+  %785 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
+  %786 = extractvalue { ptr, i64 } %785, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93, %785
-  %.sroa.03.0.in.in.i97 = phi ptr [ %787, %785 ], [ %782, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93, %784
+  %.sroa.03.0.in.in.i97 = phi ptr [ %786, %784 ], [ %781, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit93 ]
   %.sroa.03.0.in.i98 = ptrtoint ptr %.sroa.03.0.in.in.i97 to i64
   %.sroa.03.0.i99 = and i64 %.sroa.03.0.in.i98, -16
-  %788 = load i8, ptr %756, align 8, !tbaa !1066, !range !36, !noundef !37
-  %789 = trunc nuw i8 %788 to i1
-  br i1 %789, label %790, label %792
+  %787 = load i8, ptr %755, align 8, !tbaa !1066, !range !36, !noundef !37
+  %788 = trunc nuw i8 %787 to i1
+  br i1 %788, label %789, label %791
 
-790:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100
-  %791 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %791, i64 noundef %.sroa.03.0.i99, i32 noundef 8)
+789:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100
+  %790 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %790, i64 noundef %.sroa.03.0.i99, i32 noundef 8)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
 
-792:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100
-  %793 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %794 = getelementptr inbounds nuw i8, ptr %27, i64 132
-  %795 = load i8, ptr %794, align 4, !tbaa !1068, !range !36, !noundef !37
-  %796 = trunc nuw i8 %795 to i1
-  br i1 %796, label %797, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
+791:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit100
+  %792 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %793 = getelementptr inbounds nuw i8, ptr %27, i64 132
+  %794 = load i8, ptr %793, align 4, !tbaa !1068, !range !36, !noundef !37
+  %795 = trunc nuw i8 %794 to i1
+  br i1 %795, label %796, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
 
-797:                                              ; preds = %792
-  %798 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
+796:                                              ; preds = %791
+  %797 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
-  %799 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %800 = load ptr, ptr %799, align 8, !tbaa !1070
-  %.not.i.i101 = icmp eq ptr %800, null
-  br i1 %.not.i.i101, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102, label %801
+  %798 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %799 = load ptr, ptr %798, align 8, !tbaa !1070
+  %.not.i.i101 = icmp eq ptr %799, null
+  br i1 %.not.i.i101, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102, label %800
 
-801:                                              ; preds = %797
-  %802 = load ptr, ptr %800, align 8, !tbaa !1079
-  %803 = getelementptr inbounds nuw i8, ptr %802, i64 32
-  %804 = load ptr, ptr %803, align 8
-  %805 = call noundef ptr %804(ptr noundef nonnull align 8 dereferenceable(168) %800) #28
+800:                                              ; preds = %796
+  %801 = load ptr, ptr %799, align 8, !tbaa !1079
+  %802 = getelementptr inbounds nuw i8, ptr %801, i64 32
+  %803 = load ptr, ptr %802, align 8
+  %804 = call noundef ptr %803(ptr noundef nonnull align 8 dereferenceable(168) %799) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102: ; preds = %801, %797
-  %806 = phi ptr [ %805, %801 ], [ null, %797 ]
-  store ptr %806, ptr %16, align 8, !tbaa !1081
-  %807 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %798, ptr noundef nonnull align 8 dereferenceable(8) %16)
-  %808 = load i32, ptr %793, align 8, !tbaa !51
-  %809 = zext i32 %808 to i64
-  %810 = load ptr, ptr %807, align 8, !tbaa !1083
-  %811 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %810, i64 %809
-  %812 = getelementptr inbounds nuw i8, ptr %811, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %812, i64 noundef %.sroa.03.0.i99, i32 noundef 8)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102: ; preds = %800, %796
+  %805 = phi ptr [ %804, %800 ], [ null, %796 ]
+  store ptr %805, ptr %16, align 8, !tbaa !1081
+  %806 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %797, ptr noundef nonnull align 8 dereferenceable(8) %16)
+  %807 = load i32, ptr %792, align 8, !tbaa !51
+  %808 = zext i32 %807 to i64
+  %809 = load ptr, ptr %806, align 8, !tbaa !1083
+  %810 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %809, i64 %808
+  %811 = getelementptr inbounds nuw i8, ptr %810, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %811, i64 noundef %.sroa.03.0.i99, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105: ; preds = %790, %792, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102
-  %813 = load i8, ptr %756, align 8, !tbaa !1066, !range !36, !noundef !37
-  %814 = trunc nuw i8 %813 to i1
-  br i1 %814, label %815, label %818
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105: ; preds = %789, %791, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i102
+  %812 = load i8, ptr %755, align 8, !tbaa !1066, !range !36, !noundef !37
+  %813 = trunc nuw i8 %812 to i1
+  br i1 %813, label %814, label %817
 
-815:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
-  %816 = getelementptr inbounds nuw i8, ptr %27, i64 32
-  %817 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %816, i64 noundef %817, i32 noundef 2)
+814:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
+  %815 = getelementptr inbounds nuw i8, ptr %27, i64 32
+  %816 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %815, i64 noundef %816, i32 noundef 2)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108
 
-818:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
-  %819 = getelementptr inbounds nuw i8, ptr %27, i64 128
-  %820 = getelementptr inbounds nuw i8, ptr %27, i64 132
-  %821 = load i8, ptr %820, align 4, !tbaa !1068, !range !36, !noundef !37
-  %822 = trunc nuw i8 %821 to i1
-  br i1 %822, label %823, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108
+817:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit105
+  %818 = getelementptr inbounds nuw i8, ptr %27, i64 128
+  %819 = getelementptr inbounds nuw i8, ptr %27, i64 132
+  %820 = load i8, ptr %819, align 4, !tbaa !1068, !range !36, !noundef !37
+  %821 = trunc nuw i8 %820 to i1
+  br i1 %821, label %822, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108
 
-823:                                              ; preds = %818
-  %824 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
+822:                                              ; preds = %817
+  %823 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
-  %825 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %826 = load ptr, ptr %825, align 8, !tbaa !1070
-  %.not.i.i106 = icmp eq ptr %826, null
-  br i1 %.not.i.i106, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107, label %827
+  %824 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %825 = load ptr, ptr %824, align 8, !tbaa !1070
+  %.not.i.i106 = icmp eq ptr %825, null
+  br i1 %.not.i.i106, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107, label %826
 
-827:                                              ; preds = %823
-  %828 = load ptr, ptr %826, align 8, !tbaa !1079
-  %829 = getelementptr inbounds nuw i8, ptr %828, i64 32
-  %830 = load ptr, ptr %829, align 8
-  %831 = call noundef ptr %830(ptr noundef nonnull align 8 dereferenceable(168) %826) #28
+826:                                              ; preds = %822
+  %827 = load ptr, ptr %825, align 8, !tbaa !1079
+  %828 = getelementptr inbounds nuw i8, ptr %827, i64 32
+  %829 = load ptr, ptr %828, align 8
+  %830 = call noundef ptr %829(ptr noundef nonnull align 8 dereferenceable(168) %825) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107: ; preds = %827, %823
-  %832 = phi ptr [ %831, %827 ], [ null, %823 ]
-  store ptr %832, ptr %15, align 8, !tbaa !1081
-  %833 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %824, ptr noundef nonnull align 8 dereferenceable(8) %15)
-  %834 = load i32, ptr %819, align 8, !tbaa !51
-  %835 = zext i32 %834 to i64
-  %836 = load ptr, ptr %833, align 8, !tbaa !1083
-  %837 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %836, i64 %835
-  %838 = getelementptr inbounds nuw i8, ptr %837, i64 8
-  %839 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %838, i64 noundef %839, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107: ; preds = %826, %822
+  %831 = phi ptr [ %830, %826 ], [ null, %822 ]
+  store ptr %831, ptr %15, align 8, !tbaa !1081
+  %832 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %823, ptr noundef nonnull align 8 dereferenceable(8) %15)
+  %833 = load i32, ptr %818, align 8, !tbaa !51
+  %834 = zext i32 %833 to i64
+  %835 = load ptr, ptr %832, align 8, !tbaa !1083
+  %836 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %835, i64 %834
+  %837 = getelementptr inbounds nuw i8, ptr %836, i64 8
+  %838 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %837, i64 noundef %838, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108: ; preds = %815, %818, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108: ; preds = %814, %817, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i107
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %27) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread
 
-840:                                              ; preds = %751
+839:                                              ; preds = %750
   call void @llvm.lifetime.start.p0(ptr nonnull %28)
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %753, i32 %1, i32 noundef 5827, i1 noundef zeroext false) #28
-  %841 = getelementptr inbounds nuw i8, ptr %28, i64 120
-  %842 = load i8, ptr %841, align 8, !tbaa !1066, !range !36, !noundef !37
-  %843 = trunc nuw i8 %842 to i1
-  br i1 %843, label %844, label %847
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %28, ptr noundef nonnull align 8 dereferenceable(8) %752, i32 %1, i32 noundef 5827, i1 noundef zeroext false) #28
+  %840 = getelementptr inbounds nuw i8, ptr %28, i64 120
+  %841 = load i8, ptr %840, align 8, !tbaa !1066, !range !36, !noundef !37
+  %842 = trunc nuw i8 %841 to i1
+  br i1 %842, label %843, label %846
 
-844:                                              ; preds = %840
-  %845 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %846 = zext nneg i32 %5 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %845, i64 noundef %846, i32 noundef 2)
+843:                                              ; preds = %839
+  %844 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %845 = zext nneg i32 %5 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %844, i64 noundef %845, i32 noundef 2)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111
 
-847:                                              ; preds = %840
-  %848 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %849 = getelementptr inbounds nuw i8, ptr %28, i64 132
-  %850 = load i8, ptr %849, align 4, !tbaa !1068, !range !36, !noundef !37
-  %851 = trunc nuw i8 %850 to i1
-  br i1 %851, label %852, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111
+846:                                              ; preds = %839
+  %847 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %848 = getelementptr inbounds nuw i8, ptr %28, i64 132
+  %849 = load i8, ptr %848, align 4, !tbaa !1068, !range !36, !noundef !37
+  %850 = trunc nuw i8 %849 to i1
+  br i1 %850, label %851, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111
 
-852:                                              ; preds = %847
-  %853 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
+851:                                              ; preds = %846
+  %852 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
-  %854 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %855 = load ptr, ptr %854, align 8, !tbaa !1070
-  %.not.i.i109 = icmp eq ptr %855, null
-  br i1 %.not.i.i109, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110, label %856
+  %853 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %854 = load ptr, ptr %853, align 8, !tbaa !1070
+  %.not.i.i109 = icmp eq ptr %854, null
+  br i1 %.not.i.i109, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110, label %855
 
-856:                                              ; preds = %852
-  %857 = load ptr, ptr %855, align 8, !tbaa !1079
-  %858 = getelementptr inbounds nuw i8, ptr %857, i64 32
-  %859 = load ptr, ptr %858, align 8
-  %860 = call noundef ptr %859(ptr noundef nonnull align 8 dereferenceable(168) %855) #28
+855:                                              ; preds = %851
+  %856 = load ptr, ptr %854, align 8, !tbaa !1079
+  %857 = getelementptr inbounds nuw i8, ptr %856, i64 32
+  %858 = load ptr, ptr %857, align 8
+  %859 = call noundef ptr %858(ptr noundef nonnull align 8 dereferenceable(168) %854) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110: ; preds = %856, %852
-  %861 = phi ptr [ %860, %856 ], [ null, %852 ]
-  store ptr %861, ptr %14, align 8, !tbaa !1081
-  %862 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %853, ptr noundef nonnull align 8 dereferenceable(8) %14)
-  %863 = load i32, ptr %848, align 8, !tbaa !51
-  %864 = zext i32 %863 to i64
-  %865 = load ptr, ptr %862, align 8, !tbaa !1083
-  %866 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %865, i64 %864
-  %867 = getelementptr inbounds nuw i8, ptr %866, i64 8
-  %868 = zext nneg i32 %5 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %867, i64 noundef %868, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110: ; preds = %855, %851
+  %860 = phi ptr [ %859, %855 ], [ null, %851 ]
+  store ptr %860, ptr %14, align 8, !tbaa !1081
+  %861 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %852, ptr noundef nonnull align 8 dereferenceable(8) %14)
+  %862 = load i32, ptr %847, align 8, !tbaa !51
+  %863 = zext i32 %862 to i64
+  %864 = load ptr, ptr %861, align 8, !tbaa !1083
+  %865 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %864, i64 %863
+  %866 = getelementptr inbounds nuw i8, ptr %865, i64 8
+  %867 = zext nneg i32 %5 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %866, i64 noundef %867, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111
 
-_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111: ; preds = %844, %847, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110
-  %869 = load ptr, ptr %32, align 16, !tbaa !22
-  %870 = getelementptr inbounds nuw i8, ptr %869, i64 8
-  %.sroa.0.0.copyload.i.i113 = load i64, ptr %870, align 8, !tbaa !21
-  %871 = and i64 %.sroa.0.0.copyload.i.i113, 15
-  %.not.i114 = icmp eq i64 %871, 0
-  br i1 %.not.i114, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118, label %872
+_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111: ; preds = %843, %846, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i110
+  %868 = load ptr, ptr %32, align 16, !tbaa !22
+  %869 = getelementptr inbounds nuw i8, ptr %868, i64 8
+  %.sroa.0.0.copyload.i.i113 = load i64, ptr %869, align 8, !tbaa !21
+  %870 = and i64 %.sroa.0.0.copyload.i.i113, 15
+  %.not.i114 = icmp eq i64 %870, 0
+  br i1 %.not.i114, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118, label %871
 
-872:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111
-  %873 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
-  %874 = extractvalue { ptr, i64 } %873, 0
+871:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111
+  %872 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
+  %873 = extractvalue { ptr, i64 } %872, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111, %872
-  %.sroa.03.0.in.in.i115 = phi ptr [ %874, %872 ], [ %869, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111, %871
+  %.sroa.03.0.in.in.i115 = phi ptr [ %873, %871 ], [ %868, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit111 ]
   %.sroa.03.0.in.i116 = ptrtoint ptr %.sroa.03.0.in.in.i115 to i64
   %.sroa.03.0.i117 = and i64 %.sroa.03.0.in.i116, -16
-  %875 = load i8, ptr %841, align 8, !tbaa !1066, !range !36, !noundef !37
-  %876 = trunc nuw i8 %875 to i1
-  br i1 %876, label %877, label %879
+  %874 = load i8, ptr %840, align 8, !tbaa !1066, !range !36, !noundef !37
+  %875 = trunc nuw i8 %874 to i1
+  br i1 %875, label %876, label %878
 
-877:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118
-  %878 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %878, i64 noundef %.sroa.03.0.i117, i32 noundef 8)
+876:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118
+  %877 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %877, i64 noundef %.sroa.03.0.i117, i32 noundef 8)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
 
-879:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118
-  %880 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %881 = getelementptr inbounds nuw i8, ptr %28, i64 132
-  %882 = load i8, ptr %881, align 4, !tbaa !1068, !range !36, !noundef !37
-  %883 = trunc nuw i8 %882 to i1
-  br i1 %883, label %884, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
+878:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit118
+  %879 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %880 = getelementptr inbounds nuw i8, ptr %28, i64 132
+  %881 = load i8, ptr %880, align 4, !tbaa !1068, !range !36, !noundef !37
+  %882 = trunc nuw i8 %881 to i1
+  br i1 %882, label %883, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
 
-884:                                              ; preds = %879
-  %885 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
+883:                                              ; preds = %878
+  %884 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
-  %886 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %887 = load ptr, ptr %886, align 8, !tbaa !1070
-  %.not.i.i119 = icmp eq ptr %887, null
-  br i1 %.not.i.i119, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120, label %888
+  %885 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %886 = load ptr, ptr %885, align 8, !tbaa !1070
+  %.not.i.i119 = icmp eq ptr %886, null
+  br i1 %.not.i.i119, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120, label %887
 
-888:                                              ; preds = %884
-  %889 = load ptr, ptr %887, align 8, !tbaa !1079
-  %890 = getelementptr inbounds nuw i8, ptr %889, i64 32
-  %891 = load ptr, ptr %890, align 8
-  %892 = call noundef ptr %891(ptr noundef nonnull align 8 dereferenceable(168) %887) #28
+887:                                              ; preds = %883
+  %888 = load ptr, ptr %886, align 8, !tbaa !1079
+  %889 = getelementptr inbounds nuw i8, ptr %888, i64 32
+  %890 = load ptr, ptr %889, align 8
+  %891 = call noundef ptr %890(ptr noundef nonnull align 8 dereferenceable(168) %886) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120: ; preds = %888, %884
-  %893 = phi ptr [ %892, %888 ], [ null, %884 ]
-  store ptr %893, ptr %13, align 8, !tbaa !1081
-  %894 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %885, ptr noundef nonnull align 8 dereferenceable(8) %13)
-  %895 = load i32, ptr %880, align 8, !tbaa !51
-  %896 = zext i32 %895 to i64
-  %897 = load ptr, ptr %894, align 8, !tbaa !1083
-  %898 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %897, i64 %896
-  %899 = getelementptr inbounds nuw i8, ptr %898, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %899, i64 noundef %.sroa.03.0.i117, i32 noundef 8)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120: ; preds = %887, %883
+  %892 = phi ptr [ %891, %887 ], [ null, %883 ]
+  store ptr %892, ptr %13, align 8, !tbaa !1081
+  %893 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %884, ptr noundef nonnull align 8 dereferenceable(8) %13)
+  %894 = load i32, ptr %879, align 8, !tbaa !51
+  %895 = zext i32 %894 to i64
+  %896 = load ptr, ptr %893, align 8, !tbaa !1083
+  %897 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %896, i64 %895
+  %898 = getelementptr inbounds nuw i8, ptr %897, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %898, i64 noundef %.sroa.03.0.i117, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123: ; preds = %877, %879, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120
-  %900 = load i8, ptr %841, align 8, !tbaa !1066, !range !36, !noundef !37
-  %901 = trunc nuw i8 %900 to i1
-  br i1 %901, label %902, label %905
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123: ; preds = %876, %878, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i120
+  %899 = load i8, ptr %840, align 8, !tbaa !1066, !range !36, !noundef !37
+  %900 = trunc nuw i8 %899 to i1
+  br i1 %900, label %901, label %904
 
-902:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
-  %903 = getelementptr inbounds nuw i8, ptr %28, i64 32
-  %904 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %903, i64 noundef %904, i32 noundef 2)
+901:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
+  %902 = getelementptr inbounds nuw i8, ptr %28, i64 32
+  %903 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %902, i64 noundef %903, i32 noundef 2)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126
 
-905:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
-  %906 = getelementptr inbounds nuw i8, ptr %28, i64 128
-  %907 = getelementptr inbounds nuw i8, ptr %28, i64 132
-  %908 = load i8, ptr %907, align 4, !tbaa !1068, !range !36, !noundef !37
-  %909 = trunc nuw i8 %908 to i1
-  br i1 %909, label %910, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126
+904:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit123
+  %905 = getelementptr inbounds nuw i8, ptr %28, i64 128
+  %906 = getelementptr inbounds nuw i8, ptr %28, i64 132
+  %907 = load i8, ptr %906, align 4, !tbaa !1068, !range !36, !noundef !37
+  %908 = trunc nuw i8 %907 to i1
+  br i1 %908, label %909, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126
 
-910:                                              ; preds = %905
-  %911 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
+909:                                              ; preds = %904
+  %910 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
-  %912 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %913 = load ptr, ptr %912, align 8, !tbaa !1070
-  %.not.i.i124 = icmp eq ptr %913, null
-  br i1 %.not.i.i124, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125, label %914
+  %911 = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %912 = load ptr, ptr %911, align 8, !tbaa !1070
+  %.not.i.i124 = icmp eq ptr %912, null
+  br i1 %.not.i.i124, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125, label %913
 
-914:                                              ; preds = %910
-  %915 = load ptr, ptr %913, align 8, !tbaa !1079
-  %916 = getelementptr inbounds nuw i8, ptr %915, i64 32
-  %917 = load ptr, ptr %916, align 8
-  %918 = call noundef ptr %917(ptr noundef nonnull align 8 dereferenceable(168) %913) #28
+913:                                              ; preds = %909
+  %914 = load ptr, ptr %912, align 8, !tbaa !1079
+  %915 = getelementptr inbounds nuw i8, ptr %914, i64 32
+  %916 = load ptr, ptr %915, align 8
+  %917 = call noundef ptr %916(ptr noundef nonnull align 8 dereferenceable(168) %912) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125: ; preds = %914, %910
-  %919 = phi ptr [ %918, %914 ], [ null, %910 ]
-  store ptr %919, ptr %12, align 8, !tbaa !1081
-  %920 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %911, ptr noundef nonnull align 8 dereferenceable(8) %12)
-  %921 = load i32, ptr %906, align 8, !tbaa !51
-  %922 = zext i32 %921 to i64
-  %923 = load ptr, ptr %920, align 8, !tbaa !1083
-  %924 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %923, i64 %922
-  %925 = getelementptr inbounds nuw i8, ptr %924, i64 8
-  %926 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %925, i64 noundef %926, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125: ; preds = %913, %909
+  %918 = phi ptr [ %917, %913 ], [ null, %909 ]
+  store ptr %918, ptr %12, align 8, !tbaa !1081
+  %919 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %910, ptr noundef nonnull align 8 dereferenceable(8) %12)
+  %920 = load i32, ptr %905, align 8, !tbaa !51
+  %921 = zext i32 %920 to i64
+  %922 = load ptr, ptr %919, align 8, !tbaa !1083
+  %923 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %922, i64 %921
+  %924 = getelementptr inbounds nuw i8, ptr %923, i64 8
+  %925 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %924, i64 noundef %925, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126: ; preds = %902, %905, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126: ; preds = %901, %904, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i125
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %28) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
-  %927 = getelementptr inbounds nuw i8, ptr %.2, i64 24
-  %.sroa.0.0.copyload.i127 = load i32, ptr %927, align 8, !tbaa !51
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %753, i32 %.sroa.0.0.copyload.i127, i32 noundef 103, i1 noundef zeroext false) #28
+  %926 = getelementptr inbounds nuw i8, ptr %.2, i64 24
+  %.sroa.0.0.copyload.i127 = load i32, ptr %926, align 8, !tbaa !51
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %29, ptr noundef nonnull align 8 dereferenceable(8) %752, i32 %.sroa.0.0.copyload.i127, i32 noundef 103, i1 noundef zeroext false) #28
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %29) #28
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread
 
-_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread: ; preds = %735, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit
+_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread: ; preds = %734, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit
   %.not43 = icmp eq i32 %5, 2
-  br i1 %.not43, label %1016, label %928
+  br i1 %.not43, label %1015, label %927
 
-928:                                              ; preds = %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
+927:                                              ; preds = %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
-  %929 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %929, i32 %1, i32 noundef 5826, i1 noundef zeroext false) #28
-  %930 = getelementptr inbounds nuw i8, ptr %30, i64 120
-  %931 = load i8, ptr %930, align 8, !tbaa !1066, !range !36, !noundef !37
-  %932 = trunc nuw i8 %931 to i1
-  br i1 %932, label %933, label %936
+  %928 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  call void @_ZN5clang8SemaBase4DiagENS_14SourceLocationEjb(ptr dead_on_unwind nonnull writable sret(%"class.clang::SemaBase::SemaDiagnosticBuilder") align 8 %30, ptr noundef nonnull align 8 dereferenceable(8) %928, i32 %1, i32 noundef 5826, i1 noundef zeroext false) #28
+  %929 = getelementptr inbounds nuw i8, ptr %30, i64 120
+  %930 = load i8, ptr %929, align 8, !tbaa !1066, !range !36, !noundef !37
+  %931 = trunc nuw i8 %930 to i1
+  br i1 %931, label %932, label %935
 
-933:                                              ; preds = %928
-  %934 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %935 = zext nneg i32 %5 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %934, i64 noundef %935, i32 noundef 2)
+932:                                              ; preds = %927
+  %933 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %934 = zext nneg i32 %5 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %933, i64 noundef %934, i32 noundef 2)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130
 
-936:                                              ; preds = %928
-  %937 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  %938 = getelementptr inbounds nuw i8, ptr %30, i64 132
-  %939 = load i8, ptr %938, align 4, !tbaa !1068, !range !36, !noundef !37
-  %940 = trunc nuw i8 %939 to i1
-  br i1 %940, label %941, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130
+935:                                              ; preds = %927
+  %936 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %937 = getelementptr inbounds nuw i8, ptr %30, i64 132
+  %938 = load i8, ptr %937, align 4, !tbaa !1068, !range !36, !noundef !37
+  %939 = trunc nuw i8 %938 to i1
+  br i1 %939, label %940, label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130
 
-941:                                              ; preds = %936
-  %942 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
+940:                                              ; preds = %935
+  %941 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
-  %943 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %944 = load ptr, ptr %943, align 8, !tbaa !1070
-  %.not.i.i128 = icmp eq ptr %944, null
-  br i1 %.not.i.i128, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129, label %945
+  %942 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %943 = load ptr, ptr %942, align 8, !tbaa !1070
+  %.not.i.i128 = icmp eq ptr %943, null
+  br i1 %.not.i.i128, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129, label %944
 
-945:                                              ; preds = %941
-  %946 = load ptr, ptr %944, align 8, !tbaa !1079
-  %947 = getelementptr inbounds nuw i8, ptr %946, i64 32
-  %948 = load ptr, ptr %947, align 8
-  %949 = call noundef ptr %948(ptr noundef nonnull align 8 dereferenceable(168) %944) #28
+944:                                              ; preds = %940
+  %945 = load ptr, ptr %943, align 8, !tbaa !1079
+  %946 = getelementptr inbounds nuw i8, ptr %945, i64 32
+  %947 = load ptr, ptr %946, align 8
+  %948 = call noundef ptr %947(ptr noundef nonnull align 8 dereferenceable(168) %943) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129: ; preds = %945, %941
-  %950 = phi ptr [ %949, %945 ], [ null, %941 ]
-  store ptr %950, ptr %11, align 8, !tbaa !1081
-  %951 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %942, ptr noundef nonnull align 8 dereferenceable(8) %11)
-  %952 = load i32, ptr %937, align 8, !tbaa !51
-  %953 = zext i32 %952 to i64
-  %954 = load ptr, ptr %951, align 8, !tbaa !1083
-  %955 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %954, i64 %953
-  %956 = getelementptr inbounds nuw i8, ptr %955, i64 8
-  %957 = zext nneg i32 %5 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %956, i64 noundef %957, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129: ; preds = %944, %940
+  %949 = phi ptr [ %948, %944 ], [ null, %940 ]
+  store ptr %949, ptr %11, align 8, !tbaa !1081
+  %950 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %941, ptr noundef nonnull align 8 dereferenceable(8) %11)
+  %951 = load i32, ptr %936, align 8, !tbaa !51
+  %952 = zext i32 %951 to i64
+  %953 = load ptr, ptr %950, align 8, !tbaa !1083
+  %954 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %953, i64 %952
+  %955 = getelementptr inbounds nuw i8, ptr %954, i64 8
+  %956 = zext nneg i32 %5 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %955, i64 noundef %956, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130
 
-_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130: ; preds = %933, %936, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129
-  %958 = load ptr, ptr %32, align 16, !tbaa !22
-  %959 = getelementptr inbounds nuw i8, ptr %958, i64 8
-  %.sroa.0.0.copyload.i.i132 = load i64, ptr %959, align 8, !tbaa !21
-  %960 = and i64 %.sroa.0.0.copyload.i.i132, 15
-  %.not.i133 = icmp eq i64 %960, 0
-  br i1 %.not.i133, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137, label %961
+_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130: ; preds = %932, %935, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i129
+  %957 = load ptr, ptr %32, align 16, !tbaa !22
+  %958 = getelementptr inbounds nuw i8, ptr %957, i64 8
+  %.sroa.0.0.copyload.i.i132 = load i64, ptr %958, align 8, !tbaa !21
+  %959 = and i64 %.sroa.0.0.copyload.i.i132, 15
+  %.not.i133 = icmp eq i64 %959, 0
+  br i1 %.not.i133, label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137, label %960
 
-961:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130
-  %962 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
-  %963 = extractvalue { ptr, i64 } %962, 0
+960:                                              ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130
+  %961 = call { ptr, i64 } @_ZN5clang8QualType27getSplitUnqualifiedTypeImplES0_(i64 %spec.select) #28
+  %962 = extractvalue { ptr, i64 } %961, 0
   br label %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137
 
-_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130, %961
-  %.sroa.03.0.in.in.i134 = phi ptr [ %963, %961 ], [ %958, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130 ]
+_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137: ; preds = %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130, %960
+  %.sroa.03.0.in.in.i134 = phi ptr [ %962, %960 ], [ %957, %_ZN5clanglsI20TrivialSubobjectKindEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit130 ]
   %.sroa.03.0.in.i135 = ptrtoint ptr %.sroa.03.0.in.in.i134 to i64
   %.sroa.03.0.i136 = and i64 %.sroa.03.0.in.i135, -16
-  %964 = load i8, ptr %930, align 8, !tbaa !1066, !range !36, !noundef !37
-  %965 = trunc nuw i8 %964 to i1
-  br i1 %965, label %966, label %968
+  %963 = load i8, ptr %929, align 8, !tbaa !1066, !range !36, !noundef !37
+  %964 = trunc nuw i8 %963 to i1
+  br i1 %964, label %965, label %967
 
-966:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137
-  %967 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %967, i64 noundef %.sroa.03.0.i136, i32 noundef 8)
+965:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137
+  %966 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %966, i64 noundef %.sroa.03.0.i136, i32 noundef 8)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
 
-968:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137
-  %969 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  %970 = getelementptr inbounds nuw i8, ptr %30, i64 132
-  %971 = load i8, ptr %970, align 4, !tbaa !1068, !range !36, !noundef !37
-  %972 = trunc nuw i8 %971 to i1
-  br i1 %972, label %973, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
+967:                                              ; preds = %_ZNK5clang8QualType18getUnqualifiedTypeEv.exit137
+  %968 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %969 = getelementptr inbounds nuw i8, ptr %30, i64 132
+  %970 = load i8, ptr %969, align 4, !tbaa !1068, !range !36, !noundef !37
+  %971 = trunc nuw i8 %970 to i1
+  br i1 %971, label %972, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
 
-973:                                              ; preds = %968
-  %974 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
+972:                                              ; preds = %967
+  %973 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
-  %975 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %976 = load ptr, ptr %975, align 8, !tbaa !1070
-  %.not.i.i138 = icmp eq ptr %976, null
-  br i1 %.not.i.i138, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139, label %977
+  %974 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %975 = load ptr, ptr %974, align 8, !tbaa !1070
+  %.not.i.i138 = icmp eq ptr %975, null
+  br i1 %.not.i.i138, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139, label %976
 
-977:                                              ; preds = %973
-  %978 = load ptr, ptr %976, align 8, !tbaa !1079
-  %979 = getelementptr inbounds nuw i8, ptr %978, i64 32
-  %980 = load ptr, ptr %979, align 8
-  %981 = call noundef ptr %980(ptr noundef nonnull align 8 dereferenceable(168) %976) #28
+976:                                              ; preds = %972
+  %977 = load ptr, ptr %975, align 8, !tbaa !1079
+  %978 = getelementptr inbounds nuw i8, ptr %977, i64 32
+  %979 = load ptr, ptr %978, align 8
+  %980 = call noundef ptr %979(ptr noundef nonnull align 8 dereferenceable(168) %975) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139: ; preds = %977, %973
-  %982 = phi ptr [ %981, %977 ], [ null, %973 ]
-  store ptr %982, ptr %10, align 8, !tbaa !1081
-  %983 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %974, ptr noundef nonnull align 8 dereferenceable(8) %10)
-  %984 = load i32, ptr %969, align 8, !tbaa !51
-  %985 = zext i32 %984 to i64
-  %986 = load ptr, ptr %983, align 8, !tbaa !1083
-  %987 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %986, i64 %985
-  %988 = getelementptr inbounds nuw i8, ptr %987, i64 8
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %988, i64 noundef %.sroa.03.0.i136, i32 noundef 8)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139: ; preds = %976, %972
+  %981 = phi ptr [ %980, %976 ], [ null, %972 ]
+  store ptr %981, ptr %10, align 8, !tbaa !1081
+  %982 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %973, ptr noundef nonnull align 8 dereferenceable(8) %10)
+  %983 = load i32, ptr %968, align 8, !tbaa !51
+  %984 = zext i32 %983 to i64
+  %985 = load ptr, ptr %982, align 8, !tbaa !1083
+  %986 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %985, i64 %984
+  %987 = getelementptr inbounds nuw i8, ptr %986, i64 8
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %987, i64 noundef %.sroa.03.0.i136, i32 noundef 8)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142: ; preds = %966, %968, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139
-  %989 = load i8, ptr %930, align 8, !tbaa !1066, !range !36, !noundef !37
-  %990 = trunc nuw i8 %989 to i1
-  br i1 %990, label %991, label %994
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142: ; preds = %965, %967, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i139
+  %988 = load i8, ptr %929, align 8, !tbaa !1066, !range !36, !noundef !37
+  %989 = trunc nuw i8 %988 to i1
+  br i1 %989, label %990, label %993
 
-991:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
-  %992 = getelementptr inbounds nuw i8, ptr %30, i64 32
-  %993 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %992, i64 noundef %993, i32 noundef 2)
+990:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
+  %991 = getelementptr inbounds nuw i8, ptr %30, i64 32
+  %992 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(84) %991, i64 noundef %992, i32 noundef 2)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145
 
-994:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
-  %995 = getelementptr inbounds nuw i8, ptr %30, i64 128
-  %996 = getelementptr inbounds nuw i8, ptr %30, i64 132
-  %997 = load i8, ptr %996, align 4, !tbaa !1068, !range !36, !noundef !37
-  %998 = trunc nuw i8 %997 to i1
-  br i1 %998, label %999, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145
+993:                                              ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsINS_8QualTypeEvEERKS1_OT_.exit142
+  %994 = getelementptr inbounds nuw i8, ptr %30, i64 128
+  %995 = getelementptr inbounds nuw i8, ptr %30, i64 132
+  %996 = load i8, ptr %995, align 4, !tbaa !1068, !range !36, !noundef !37
+  %997 = trunc nuw i8 %996 to i1
+  br i1 %997, label %998, label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145
 
-999:                                              ; preds = %994
-  %1000 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
+998:                                              ; preds = %993
+  %999 = call noundef nonnull align 8 dereferenceable(20) ptr @_ZNK5clang8SemaBase21SemaDiagnosticBuilder22getDeviceDeferredDiagsEv(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  %1001 = getelementptr inbounds nuw i8, ptr %30, i64 16
-  %1002 = load ptr, ptr %1001, align 8, !tbaa !1070
-  %.not.i.i143 = icmp eq ptr %1002, null
-  br i1 %.not.i.i143, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144, label %1003
+  %1000 = getelementptr inbounds nuw i8, ptr %30, i64 16
+  %1001 = load ptr, ptr %1000, align 8, !tbaa !1070
+  %.not.i.i143 = icmp eq ptr %1001, null
+  br i1 %.not.i.i143, label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144, label %1002
 
-1003:                                             ; preds = %999
-  %1004 = load ptr, ptr %1002, align 8, !tbaa !1079
-  %1005 = getelementptr inbounds nuw i8, ptr %1004, i64 32
-  %1006 = load ptr, ptr %1005, align 8
-  %1007 = call noundef ptr %1006(ptr noundef nonnull align 8 dereferenceable(168) %1002) #28
+1002:                                             ; preds = %998
+  %1003 = load ptr, ptr %1001, align 8, !tbaa !1079
+  %1004 = getelementptr inbounds nuw i8, ptr %1003, i64 32
+  %1005 = load ptr, ptr %1004, align 8
+  %1006 = call noundef ptr %1005(ptr noundef nonnull align 8 dereferenceable(168) %1001) #28
   br label %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144
 
-_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144: ; preds = %1003, %999
-  %1008 = phi ptr [ %1007, %1003 ], [ null, %999 ]
-  store ptr %1008, ptr %9, align 8, !tbaa !1081
-  %1009 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %1000, ptr noundef nonnull align 8 dereferenceable(8) %9)
-  %1010 = load i32, ptr %995, align 8, !tbaa !51
-  %1011 = zext i32 %1010 to i64
-  %1012 = load ptr, ptr %1009, align 8, !tbaa !1083
-  %1013 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %1012, i64 %1011
-  %1014 = getelementptr inbounds nuw i8, ptr %1013, i64 8
-  %1015 = sext i32 %4 to i64
-  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %1014, i64 noundef %1015, i32 noundef 2)
+_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144: ; preds = %1002, %998
+  %1007 = phi ptr [ %1006, %1002 ], [ null, %998 ]
+  store ptr %1007, ptr %9, align 8, !tbaa !1081
+  %1008 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang16CanonicalDeclPtrIKNS2_12FunctionDeclEEESt6vectorISt4pairINS2_14SourceLocationENS2_17PartialDiagnosticEESaISB_EENS_12DenseMapInfoIS6_vEENS_6detail12DenseMapPairIS6_SD_EEEES6_SD_SF_SI_EixEOS6_(ptr noundef nonnull align 1 dereferenceable(1) %999, ptr noundef nonnull align 8 dereferenceable(8) %9)
+  %1009 = load i32, ptr %994, align 8, !tbaa !51
+  %1010 = zext i32 %1009 to i64
+  %1011 = load ptr, ptr %1008, align 8, !tbaa !1083
+  %1012 = getelementptr inbounds nuw %"struct.std::pair.2055", ptr %1011, i64 %1010
+  %1013 = getelementptr inbounds nuw i8, ptr %1012, i64 8
+  %1014 = sext i32 %4 to i64
+  call void @_ZNK5clang19StreamingDiagnostic12AddTaggedValEmNS_17DiagnosticsEngine12ArgumentKindE(ptr noundef nonnull align 8 dereferenceable(20) %1013, i64 noundef %1014, i32 noundef 2)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145
 
-_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145: ; preds = %991, %994, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144
+_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145: ; preds = %990, %993, %_ZN5clang16CanonicalDeclPtrIKNS_12FunctionDeclEEC2EPS2_.exit.i144
   call void @_ZN5clang8SemaBase21SemaDiagnosticBuilderD1Ev(ptr noundef nonnull align 8 dereferenceable(136) %30) #28
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %1016
+  br label %1015
 
-1016:                                             ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
-  %1017 = call noundef zeroext i1 @_ZN5clang4Sema22SpecialMemberIsTrivialEPNS_13CXXMethodDeclENS_20CXXSpecialMemberKindENS0_18TrivialABIHandlingEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %.2, i32 noundef %4, i32 noundef 0, i1 noundef zeroext true)
+1015:                                             ; preds = %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit145, %_ZNK5clang12FunctionDecl14isUserProvidedEv.exit.thread
+  %1016 = call noundef zeroext i1 @_ZN5clang4Sema22SpecialMemberIsTrivialEPNS_13CXXMethodDeclENS_20CXXSpecialMemberKindENS0_18TrivialABIHandlingEb(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %.2, i32 noundef %4, i32 noundef 0, i1 noundef zeroext true)
   br label %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread
 
-_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread: ; preds = %390, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i, %167, %155, %122, %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit, %1016, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit, %103, %153, %165, %.thread76.i, %._crit_edge.i, %8
-  %.0 = phi i1 [ true, %8 ], [ %.0.i, %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit ], [ false, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126 ], [ false, %1016 ], [ false, %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit ], [ true, %103 ], [ true, %153 ], [ true, %165 ], [ true, %.thread76.i ], [ false, %._crit_edge.i ], [ false, %122 ], [ false, %155 ], [ false, %167 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i ], [ false, %390 ]
+_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit.thread: ; preds = %389, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i, %167, %155, %122, %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit, %1015, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit, %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit, %103, %153, %165, %.thread76.i, %._crit_edge.i, %8
+  %.0 = phi i1 [ true, %8 ], [ %.0.i, %_ZL24findTrivialSpecialMemberRN5clang4SemaEPNS_13CXXRecordDeclENS_20CXXSpecialMemberKindEjbNS0_18TrivialABIHandlingEPPNS_13CXXMethodDeclE.exit ], [ false, %_ZN5clanglsINS_8QualTypeEEERKNS_8SemaBase21SemaDiagnosticBuilderES5_RKT_.exit ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit108 ], [ false, %_ZNK5clang8SemaBase21SemaDiagnosticBuilderlsIivEERKS1_OT_.exit126 ], [ false, %1015 ], [ false, %_ZL20findUserDeclaredCtorPN5clang13CXXRecordDeclE.exit ], [ true, %103 ], [ true, %153 ], [ true, %165 ], [ true, %.thread76.i ], [ false, %._crit_edge.i ], [ false, %122 ], [ false, %155 ], [ false, %167 ], [ false, %_ZN5clang11DeclContext22specific_decl_iteratorINS_20FunctionTemplateDeclEEppEv.exit.i ], [ false, %389 ]
   ret i1 %.0
 }
 

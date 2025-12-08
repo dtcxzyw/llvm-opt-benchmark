@@ -141,7 +141,7 @@ tf_get_section.exit:                              ; preds = %9, %.thread.i
 
 16:                                               ; preds = %tf_get_section.exit
   %17 = add nsw i32 %14, -1
-  %18 = icmp samesign ugt i32 %17, 11
+  %18 = icmp samesign ugt i32 %14, 12
   %or.cond3.i.i = or i1 %7, %18
   br i1 %or.cond3.i.i, label %.thread.i.i, label %19
 
@@ -195,8 +195,8 @@ tf_get_parent_section.exit:                       ; preds = %tf_get_section.exit
   %44 = load i32, ptr %43, align 8, !tbaa !25
   %45 = and i32 %44, 3
   %.not69 = icmp eq i32 %45, 0
-  %or.cond93 = select i1 %.not68, i1 %.not69, i1 false
-  br i1 %or.cond93, label %46, label %._crit_edge
+  %or.cond92 = select i1 %.not68, i1 %.not69, i1 false
+  br i1 %or.cond92, label %46, label %._crit_edge
 
 46:                                               ; preds = %41, %37
   %47 = getelementptr inbounds nuw i8, ptr %.0.i, i64 72

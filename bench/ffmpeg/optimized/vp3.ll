@@ -6100,7 +6100,7 @@ define internal fastcc range(i32 -1094995529, 1) i32 @theora_decode_tables(ptr n
   %127 = getelementptr inbounds nuw i8, ptr %4, i64 26134
   %128 = getelementptr inbounds nuw i8, ptr %4, i64 26518
   %129 = add nsw i32 %.0143254, -1
-  %.not11.i = icmp ult i32 %.0143254, 257
+  %.not11.i = icmp slt i32 %.0143254, 257
   %130 = lshr i32 %129, 8
   %.110.i = select i1 %.not11.i, i32 %129, i32 %130
   %.1.i = select i1 %.not11.i, i32 0, i32 8

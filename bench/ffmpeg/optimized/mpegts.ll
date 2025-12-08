@@ -7987,37 +7987,37 @@ get_bits_long.exit.i:                             ; preds = %27, %22, %9
   br label %get_bits64.exit
 
 46:                                               ; preds = %7
-  %47 = add nsw i32 %1, -32
-  %48 = icmp samesign ult i32 %47, 26
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %50 = load i32, ptr %49, align 8, !tbaa !250
-  %51 = load ptr, ptr %0, align 8, !tbaa !247
-  %52 = lshr i32 %.val, 3
-  %53 = zext nneg i32 %52 to i64
-  %54 = getelementptr inbounds nuw i8, ptr %51, i64 %53
-  %55 = load i32, ptr %54, align 1, !tbaa !9
-  %56 = tail call i32 @llvm.bswap.i32(i32 %55)
-  %57 = and i32 %.val, 7
-  %58 = shl i32 %56, %57
-  br i1 %48, label %59, label %64
+  %47 = icmp samesign ult i32 %1, 58
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %49 = load i32, ptr %48, align 8, !tbaa !250
+  %50 = load ptr, ptr %0, align 8, !tbaa !247
+  %51 = lshr i32 %.val, 3
+  %52 = zext nneg i32 %51 to i64
+  %53 = getelementptr inbounds nuw i8, ptr %50, i64 %52
+  %54 = load i32, ptr %53, align 1, !tbaa !9
+  %55 = tail call i32 @llvm.bswap.i32(i32 %54)
+  %56 = and i32 %.val, 7
+  %57 = shl i32 %55, %56
+  br i1 %47, label %58, label %64
 
-59:                                               ; preds = %46
-  %60 = sub nuw nsw i32 64, %1
-  %61 = lshr i32 %58, %60
-  %62 = add i32 %.val, %47
-  %63 = tail call i32 @llvm.umin.i32(i32 %50, i32 %62)
+58:                                               ; preds = %46
+  %59 = sub nuw nsw i32 64, %1
+  %60 = lshr i32 %57, %59
+  %61 = add i32 %.val, %1
+  %62 = add i32 %61, -32
+  %63 = tail call i32 @llvm.umin.i32(i32 %49, i32 %62)
   br label %get_bits_long.exit10.i
 
 64:                                               ; preds = %46
-  %65 = lshr i32 %58, 16
+  %65 = lshr i32 %57, 16
   %66 = add i32 %.val, 16
-  %67 = tail call i32 @llvm.umin.i32(i32 %50, i32 %66)
+  %67 = tail call i32 @llvm.umin.i32(i32 %49, i32 %66)
   store i32 %67, ptr %3, align 8, !tbaa !252
   %68 = add nsw i32 %1, -48
   %69 = shl i32 %65, %68
   %70 = lshr i32 %67, 3
   %71 = zext nneg i32 %70 to i64
-  %72 = getelementptr inbounds nuw i8, ptr %51, i64 %71
+  %72 = getelementptr inbounds nuw i8, ptr %50, i64 %71
   %73 = load i32, ptr %72, align 1, !tbaa !9
   %74 = tail call i32 @llvm.bswap.i32(i32 %73)
   %75 = and i32 %67, 7
@@ -8025,37 +8025,37 @@ get_bits_long.exit.i:                             ; preds = %27, %22, %9
   %77 = sub nsw i32 80, %1
   %78 = lshr i32 %76, %77
   %79 = add i32 %67, %68
-  %80 = tail call i32 @llvm.umin.i32(i32 %50, i32 %79)
+  %80 = tail call i32 @llvm.umin.i32(i32 %49, i32 %79)
   %81 = or i32 %78, %69
   br label %get_bits_long.exit10.i
 
-get_bits_long.exit10.i:                           ; preds = %64, %59
-  %.sink.i = phi i32 [ %63, %59 ], [ %80, %64 ]
-  %.0.i9.i = phi i32 [ %61, %59 ], [ %81, %64 ]
+get_bits_long.exit10.i:                           ; preds = %64, %58
+  %.sink.i = phi i32 [ %63, %58 ], [ %80, %64 ]
+  %.0.i9.i = phi i32 [ %60, %58 ], [ %81, %64 ]
   store i32 %.sink.i, ptr %3, align 8, !tbaa !252
   %82 = zext i32 %.0.i9.i to i64
   %83 = shl nuw i64 %82, 32
   %84 = lshr i32 %.sink.i, 3
   %85 = zext nneg i32 %84 to i64
-  %86 = getelementptr inbounds nuw i8, ptr %51, i64 %85
+  %86 = getelementptr inbounds nuw i8, ptr %50, i64 %85
   %87 = load i32, ptr %86, align 1, !tbaa !9
   %88 = tail call i32 @llvm.bswap.i32(i32 %87)
   %89 = and i32 %.sink.i, 7
   %90 = shl i32 %88, %89
   %91 = and i32 %90, -65536
   %92 = add i32 %.sink.i, 16
-  %93 = tail call i32 @llvm.umin.i32(i32 %50, i32 %92)
+  %93 = tail call i32 @llvm.umin.i32(i32 %49, i32 %92)
   store i32 %93, ptr %3, align 8, !tbaa !252
   %94 = lshr i32 %93, 3
   %95 = zext nneg i32 %94 to i64
-  %96 = getelementptr inbounds nuw i8, ptr %51, i64 %95
+  %96 = getelementptr inbounds nuw i8, ptr %50, i64 %95
   %97 = load i32, ptr %96, align 1, !tbaa !9
   %98 = tail call i32 @llvm.bswap.i32(i32 %97)
   %99 = and i32 %93, 7
   %100 = shl i32 %98, %99
   %101 = lshr i32 %100, 16
   %102 = add i32 %93, 16
-  %103 = tail call i32 @llvm.umin.i32(i32 %50, i32 %102)
+  %103 = tail call i32 @llvm.umin.i32(i32 %49, i32 %102)
   store i32 %103, ptr %3, align 8, !tbaa !252
   %104 = or disjoint i32 %101, %91
   %105 = zext i32 %104 to i64

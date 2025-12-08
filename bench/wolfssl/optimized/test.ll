@@ -1253,7 +1253,7 @@ define dso_local range(i32 -1815315583, 1) i32 @error_test() local_unnamed_addr 
 
 50:                                               ; preds = %44, %32
   %51 = add nsw i32 %.03469, -1
-  %52 = icmp samesign ugt i32 %51, -2000
+  %52 = icmp samesign ugt i32 %.03469, -1999
   br i1 %52, label %.preheader, label %53, !llvm.loop !18
 
 53:                                               ; preds = %50

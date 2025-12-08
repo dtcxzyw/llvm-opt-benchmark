@@ -3304,7 +3304,7 @@ define linkonce_odr void @_ZN4absl7debian215random_internal13randen_engineImEC2I
   %27 = load i32, ptr %25, align 8
   store i32 %27, ptr %24, align 16
   store i32 %26, ptr %25, align 8
-  %28 = icmp samesign ugt i64 %23, 7
+  %28 = icmp samesign ugt i64 %.028.i.i, 15
   br i1 %28, label %6, label %29, !llvm.loop !61
 
 29:                                               ; preds = %6

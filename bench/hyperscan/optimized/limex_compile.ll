@@ -15948,7 +15948,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType0EE12buildRepeatsERKNS0_10build_in
   %79 = shl nuw nsw i64 %78, 3
   %80 = add nuw nsw i64 %79, 83
   %81 = and i64 %80, 34359738360
-  %.not.i.i.i.i = icmp samesign ult i32 %71, 536870902
+  %.not.i.i.i.i = icmp slt i32 %69, 536870901
   br i1 %.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType0EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %82
 
 82:                                               ; preds = %77
@@ -43260,7 +43260,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType1EE12buildRepeatsERKNS0_10build_in
   %79 = shl nuw nsw i64 %78, 3
   %80 = add nuw nsw i64 %79, 87
   %81 = and i64 %80, 34359738360
-  %.not.i.i.i.i = icmp samesign ult i32 %71, 536870902
+  %.not.i.i.i.i = icmp slt i32 %69, 536870901
   br i1 %.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType1EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %82
 
 82:                                               ; preds = %77
@@ -49612,7 +49612,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType2EE12buildRepeatsERKNS0_10build_in
   %79 = shl nuw nsw i64 %78, 3
   %80 = add nuw nsw i64 %79, 95
   %81 = and i64 %80, 34359738352
-  %.not.i.i.i.i = icmp samesign ult i32 %71, 536870901
+  %.not.i.i.i.i = icmp slt i32 %69, 536870900
   br i1 %.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType2EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %82
 
 82:                                               ; preds = %77
@@ -56327,7 +56327,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType3EE12buildRepeatsERKNS0_10build_in
   %79 = shl nuw nsw i64 %78, 3
   %80 = add nuw nsw i64 %79, 111
   %81 = and i64 %80, 34359738336
-  %.not.i.i.i.i = icmp samesign ult i32 %71, 536870899
+  %.not.i.i.i.i = icmp slt i32 %69, 536870898
   br i1 %.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType3EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %82
 
 82:                                               ; preds = %77
@@ -63039,7 +63039,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType4EE12buildRepeatsERKNS0_10build_in
   %79 = shl nuw nsw i64 %78, 3
   %80 = add nuw nsw i64 %79, 95
   %81 = and i64 %80, 34359738352
-  %.not.i.i.i.i = icmp samesign ult i32 %71, 536870901
+  %.not.i.i.i.i = icmp slt i32 %69, 536870900
   br i1 %.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType4EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %82
 
 82:                                               ; preds = %77
@@ -69753,7 +69753,7 @@ _ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType5EE12buildRepeatsERKNS0_10build_in
   %79 = shl nuw nsw i64 %78, 3
   %80 = add nuw nsw i64 %79, 143
   %81 = and i64 %80, 34359738304
-  %.not.i.i.i.i = icmp samesign ult i32 %71, 536870895
+  %.not.i.i.i.i = icmp slt i32 %69, 536870894
   br i1 %.not.i.i.i.i, label %_ZN3ue212_GLOBAL__N_17FactoryIL13NFAEngineType5EE15repeatAllocSizeERKNS_17BoundedRepeatDataEPjS7_.exit.i, label %82
 
 82:                                               ; preds = %77

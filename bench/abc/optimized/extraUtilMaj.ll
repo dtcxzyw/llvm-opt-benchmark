@@ -1096,7 +1096,7 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   store i64 %110, ptr %102, align 8, !tbaa !40
   %indvars.iv.next71.i62 = add nuw nsw i64 %indvars.iv70.i61, 1
   %exitcond74.not.i63 = icmp eq i64 %indvars.iv.next71.i62, %wide.trip.count73.i
-  br i1 %exitcond74.not.i63, label %Abc_TtSwapAdjacent.exit64.thread132, label %101, !llvm.loop !66
+  br i1 %exitcond74.not.i63, label %Abc_TtSwapAdjacent.exit64.thread131, label %101, !llvm.loop !66
 
 111:                                              ; preds = %88
   %112 = icmp eq i64 %89, 5
@@ -1118,18 +1118,18 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   br i1 %119, label %.lr.ph.i57, label %.preheader.us.preheader.i67, !llvm.loop !67
 
 120:                                              ; preds = %111
-  %121 = icmp samesign ult i64 %89, 7
+  %121 = icmp samesign ult i64 %indvars.iv, 6
   %122 = trunc i64 %indvars.iv to i32
   %123 = add i32 %122, -5
   %124 = shl nuw i32 1, %123
   %125 = select i1 %121, i32 1, i32 %124
-  br i1 %21, label %.thread137, label %.preheader.lr.ph.i45
+  br i1 %21, label %.thread136, label %.preheader.lr.ph.i45
 
 .preheader.lr.ph.i45:                             ; preds = %120
   %126 = icmp sgt i32 %125, 0
   %127 = shl nsw i32 %125, 2
   %128 = sext i32 %127 to i64
-  br i1 %126, label %.preheader.us.preheader.i46, label %.thread137
+  br i1 %126, label %.preheader.us.preheader.i46, label %.thread136
 
 .preheader.us.preheader.i46:                      ; preds = %.preheader.lr.ph.i45
   %129 = shl nuw nsw i32 %125, 1
@@ -1160,16 +1160,16 @@ Abc_TtSwapAdjacent.exit:                          ; preds = %._crit_edge.us.i, %
   %136 = icmp ult ptr %135, %27
   br i1 %136, label %.preheader.us.i47, label %Abc_TtSwapAdjacent.exit64, !llvm.loop !69
 
-.thread137:                                       ; preds = %.preheader.lr.ph.i45, %120
+.thread136:                                       ; preds = %.preheader.lr.ph.i45, %120
   %137 = trunc i64 %indvars.iv to i32
   %138 = add i32 %137, 2
   br label %.thread
 
-Abc_TtSwapAdjacent.exit64.thread132:              ; preds = %101
-  %.not146 = icmp eq i64 %indvars.iv, 3
-  br i1 %.not146, label %.lr.ph.i78.preheader, label %.lr.ph64.i80
+Abc_TtSwapAdjacent.exit64.thread131:              ; preds = %101
+  %.not145 = icmp eq i64 %indvars.iv, 3
+  br i1 %.not145, label %.lr.ph.i78.preheader, label %.lr.ph64.i80
 
-.lr.ph64.i80:                                     ; preds = %Abc_TtSwapAdjacent.exit64.thread132
+.lr.ph64.i80:                                     ; preds = %Abc_TtSwapAdjacent.exit64.thread131
   %139 = add nsw i64 %indvars.iv, 2
   %140 = trunc nsw i64 %139 to i32
   %141 = shl nuw nsw i32 1, %140
@@ -1204,7 +1204,7 @@ Abc_TtSwapAdjacent.exit64:                        ; preds = %._crit_edge.us.i56
   %161 = trunc nsw i64 %159 to i32
   br i1 %160, label %.lr.ph.i78.preheader, label %.thread
 
-.lr.ph.i78.preheader:                             ; preds = %Abc_TtSwapAdjacent.exit64, %Abc_TtSwapAdjacent.exit64.thread132
+.lr.ph.i78.preheader:                             ; preds = %Abc_TtSwapAdjacent.exit64, %Abc_TtSwapAdjacent.exit64.thread131
   br label %.lr.ph.i78
 
 .lr.ph.i78:                                       ; preds = %.lr.ph.i78.preheader, %.lr.ph.i78
@@ -1219,29 +1219,29 @@ Abc_TtSwapAdjacent.exit64:                        ; preds = %._crit_edge.us.i56
   %167 = icmp ult ptr %166, %27
   br i1 %167, label %.lr.ph.i78, label %Abc_TtSwapAdjacent.exit85, !llvm.loop !67
 
-.thread:                                          ; preds = %.thread137, %Abc_TtSwapAdjacent.exit64
-  %168 = phi i32 [ %161, %Abc_TtSwapAdjacent.exit64 ], [ %138, %.thread137 ]
+.thread:                                          ; preds = %.thread136, %Abc_TtSwapAdjacent.exit64
+  %168 = phi i32 [ %161, %Abc_TtSwapAdjacent.exit64 ], [ %138, %.thread136 ]
   %.fr = freeze i32 %168
   %169 = icmp ult i32 %.fr, 7
   %170 = add nsw i32 %.fr, -6
   %171 = shl nuw i32 1, %170
-  br i1 %169, label %.thread139, label %172
+  br i1 %169, label %.thread138, label %172
 
 172:                                              ; preds = %.thread
   br i1 %21, label %Abc_TtSwapAdjacent.exit85, label %.preheader.lr.ph.i66
 
-.thread139:                                       ; preds = %.thread
+.thread138:                                       ; preds = %.thread
   br i1 %21, label %Abc_TtSwapAdjacent.exit85, label %.preheader.us.preheader.i67
 
 .preheader.lr.ph.i66:                             ; preds = %172
-  %.not145 = icmp eq i32 %170, 31
+  %.not144 = icmp eq i32 %170, 31
   %173 = shl i32 4, %170
   %174 = sext i32 %173 to i64
-  br i1 %.not145, label %Abc_TtSwapAdjacent.exit85, label %.preheader.us.preheader.i67
+  br i1 %.not144, label %Abc_TtSwapAdjacent.exit85, label %.preheader.us.preheader.i67
 
-.preheader.us.preheader.i67:                      ; preds = %.lr.ph.i57, %.thread139, %.preheader.lr.ph.i66
-  %175 = phi i64 [ %174, %.preheader.lr.ph.i66 ], [ 4, %.thread139 ], [ 4, %.lr.ph.i57 ]
-  %176 = phi i32 [ %171, %.preheader.lr.ph.i66 ], [ 1, %.thread139 ], [ 1, %.lr.ph.i57 ]
+.preheader.us.preheader.i67:                      ; preds = %.lr.ph.i57, %.thread138, %.preheader.lr.ph.i66
+  %175 = phi i64 [ %174, %.preheader.lr.ph.i66 ], [ 4, %.thread138 ], [ 4, %.lr.ph.i57 ]
+  %176 = phi i32 [ %171, %.preheader.lr.ph.i66 ], [ 1, %.thread138 ], [ 1, %.lr.ph.i57 ]
   %177 = shl nuw nsw i32 %176, 1
   %178 = zext nneg i32 %176 to i64
   %179 = zext nneg i32 %177 to i64
@@ -1270,7 +1270,7 @@ Abc_TtSwapAdjacent.exit64:                        ; preds = %._crit_edge.us.i56
   %184 = icmp ult ptr %183, %27
   br i1 %184, label %.preheader.us.i68, label %Abc_TtSwapAdjacent.exit85, !llvm.loop !69
 
-Abc_TtSwapAdjacent.exit85:                        ; preds = %._crit_edge.us.i77, %149, %.lr.ph.i78, %91, %.thread139, %113, %.preheader.lr.ph.i66, %172, %Abc_TtSwapAdjacent.exit
+Abc_TtSwapAdjacent.exit85:                        ; preds = %._crit_edge.us.i77, %149, %.lr.ph.i78, %91, %.thread138, %113, %.preheader.lr.ph.i66, %172, %Abc_TtSwapAdjacent.exit
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
   %185 = icmp sgt i64 %indvars.iv.next, %40
   br i1 %185, label %.lr.ph, label %._crit_edge, !llvm.loop !70

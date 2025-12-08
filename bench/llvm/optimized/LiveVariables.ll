@@ -18509,7 +18509,7 @@ define linkonce_odr hidden void @_ZNSt14priority_queueIPKN5clang8CFGBlockEN4llvm
   store ptr %.sroa.0.0.copyload, ptr %2, align 8
   %17 = add nsw i64 %16, -1
   %18 = lshr i64 %17, 1
-  %19 = icmp samesign ugt i64 %15, 16
+  %19 = icmp ugt i32 %6, 3
   br i1 %19, label %.lr.ph.i.i.i, label %._crit_edge.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8, %.lr.ph.i.i.i

@@ -448,7 +448,7 @@ define dso_local range(i32 0, 2) i32 @enc_main(i32 noundef %0, ptr noundef %1) l
 
 .critedge5:                                       ; preds = %.lr.ph, %.lr.ph
   store i8 0, ptr %95, align 1, !tbaa !24
-  %97 = icmp samesign ugt i64 %indvars.iv.next, 1
+  %97 = icmp samesign ugt i64 %indvars.iv, 2
   br i1 %97, label %.lr.ph, label %.preheader503._crit_edge, !llvm.loop !27
 
 .preheader503._crit_edge:                         ; preds = %.preheader503, %.critedge5

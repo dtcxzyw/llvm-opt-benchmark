@@ -2917,7 +2917,7 @@ decode_sysex_common_nrt_sd_packet.exit.i.i:       ; preds = %351, %345
   br i1 %441, label %442, label %449
 
 442:                                              ; preds = %434
-  %443 = icmp samesign ult i32 %440, 2
+  %443 = icmp samesign ult i32 %307, 6
   br i1 %443, label %decode_sysex_common_nrt_mtc.exit.thread.i.i, label %444
 
 444:                                              ; preds = %442

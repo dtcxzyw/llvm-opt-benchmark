@@ -31496,7 +31496,7 @@ define { ptr, i64 } @"_ZN77_$LT$i64$u20$as$u20$fish..fork_exec..flog_safe..Flogg
   %20 = or disjoint i8 %17, 48
   store i8 %20, ptr %19, align 1, !alias.scope !2498
   %21 = icmp ugt i64 %.sroa.0.019.i, 9
-  %22 = icmp samesign ugt i64 %15, 1
+  %22 = icmp samesign ugt i64 %.sroa.06.018.i, 2
   %or.cond.i = and i1 %21, %22
   br i1 %or.cond.i, label %14, label %7
 
@@ -31547,7 +31547,7 @@ define { ptr, i64 } @"_ZN77_$LT$i32$u20$as$u20$fish..fork_exec..flog_safe..Flogg
   %21 = or disjoint i8 %18, 48
   store i8 %21, ptr %20, align 1, !alias.scope !2501
   %22 = icmp samesign ugt i64 %.sroa.0.019.i, 9
-  %23 = icmp samesign ugt i64 %16, 1
+  %23 = icmp samesign ugt i64 %.sroa.06.018.i, 2
   %or.cond.i = and i1 %22, %23
   br i1 %or.cond.i, label %15, label %8
 
@@ -31585,7 +31585,7 @@ define { ptr, i64 } @"_ZN79_$LT$usize$u20$as$u20$fish..fork_exec..flog_safe..Flo
   %15 = or disjoint i8 %12, 48
   store i8 %15, ptr %14, align 1, !alias.scope !2504
   %16 = icmp ugt i64 %.sroa.0.019.i, 9
-  %17 = icmp samesign ugt i64 %10, 1
+  %17 = icmp samesign ugt i64 %.sroa.06.018.i, 2
   %or.cond.i = and i1 %16, %17
   br i1 %or.cond.i, label %9, label %6
 

@@ -178,7 +178,7 @@ define hidden i32 @lj_strfmt_parse(ptr noundef captures(none) initializes((16, 2
   %79 = zext i8 %78 to i32
   %80 = getelementptr inbounds nuw i8, ptr %.7, i64 1
   store ptr %80, ptr %0, align 8, !tbaa !4
-  %.not86 = icmp samesign ult i32 %71, 32
+  %.not86 = icmp ult i8 %69, 97
   %81 = select i1 %.not86, i32 8192, i32 0
   %82 = or i32 %81, %.377
   %83 = or i32 %82, %79
@@ -1495,7 +1495,7 @@ lj_strfmt_parse.exit:                             ; preds = %89
   %102 = load i8, ptr %101, align 1, !tbaa !13
   %103 = zext i8 %102 to i32
   %104 = getelementptr inbounds nuw i8, ptr %.7.i, i64 1
-  %.not86.i = icmp samesign ult i32 %87, 32
+  %.not86.i = icmp ult i8 %85, 97
   %105 = select i1 %.not86.i, i32 8192, i32 0
   %106 = or disjoint i32 %105, %103
   %107 = or i32 %106, %.377.i

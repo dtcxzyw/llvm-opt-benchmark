@@ -859,7 +859,7 @@ define void @_ZN6open3d4core10TensorList10FromTensorERKNS0_6TensorEb(ptr dead_on
   store i32 4, ptr %32, align 4, !tbaa !11
   %gepdiff = add nsw i64 %.idx, -8
   %33 = lshr exact i64 %gepdiff, 3
-  %34 = icmp samesign ugt i64 %gepdiff, 32
+  %34 = icmp ugt i32 %20, 5
   br i1 %34, label %35, label %_ZN6open3d4core15SmallVectorImplIlE7reserveEm.exit.i.i.i
 
 35:                                               ; preds = %26

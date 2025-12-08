@@ -19595,7 +19595,7 @@ _ZN5Eigen9DenseBaseINS_5BlockINS_6MatrixIdLin1ELin1ELi0ELin1ELin1EEELin1ELi1ELb1
   %261 = shl nsw i64 %260, 1
   %.not.i.i.i.i.i100 = icmp ult i64 %217, 3
   %262 = icmp sgt i64 %217, 4
-  %263 = icmp samesign ugt i64 %222, 7
+  %263 = icmp sgt i64 %217, 8
   %264 = icmp sgt i64 %261, %259
   %265 = icmp slt i64 %261, %222
   br label %266
@@ -20057,7 +20057,7 @@ define linkonce_odr void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6MatrixIdLin1
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp samesign ugt i64 %7, 7
+  %23 = icmp samesign ugt i64 %6, 8
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 .lr.ph.i.i.i.i:                                   ; preds = %19, %.lr.ph.i.i.i.i

@@ -15307,16 +15307,16 @@ _ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h9f23a2e8aeefec28E.e
   unreachable
 
 _ZN9hashbrown3raw13RawTableInner17new_uninitialized17h9046f259d257a74cE.exit: ; preds = %_ZN14allocator_api26stable5alloc6global6Global10alloc_impl17h9f23a2e8aeefec28E.exit.i
-  %65 = add nsw i64 %.sroa.4.0.i.ph, -1
-  %66 = icmp samesign ult i64 %65, 8
+  %65 = icmp samesign ult i64 %.sroa.4.0.i.ph, 9
+  %66 = add nsw i64 %.sroa.4.0.i.ph, -1
   %67 = lshr i64 %.sroa.4.0.i.ph, 3
   %68 = mul nuw nsw i64 %67, 7
-  %.sroa.06.0.i = select i1 %66, i64 %65, i64 %68
+  %.sroa.06.0.i = select i1 %65, i64 %66, i64 %68
   %69 = getelementptr inbounds i8, ptr %50, i64 %39
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %69, i8 -1, i64 %40, i1 false)
   store ptr %69, ptr %0, align 8
   %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %65, ptr %.sroa.3.0..sroa_idx, align 8
+  store i64 %66, ptr %.sroa.3.0..sroa_idx, align 8
   %.sroa.521.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %.sroa.06.0.i, ptr %.sroa.521.0..sroa_idx, align 8
   %.sroa.622.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 24

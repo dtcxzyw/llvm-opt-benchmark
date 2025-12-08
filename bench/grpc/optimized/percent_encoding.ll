@@ -397,7 +397,7 @@ _ZN9grpc_coreL8ValidHexEPKhS1_.exit.thread70:     ; preds = %switch.early.test76
 
 _ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread:     ; preds = %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %switch.early.test76, %45
   %50 = add nsw i8 %.fr, -48
-  %or.cond.i58 = icmp samesign ult i8 %50, 10
+  %or.cond.i58 = icmp slt i8 %.fr, 58
   br i1 %or.cond.i58, label %_ZN9grpc_coreL5DeHexEh.exit, label %51
 
 51:                                               ; preds = %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
@@ -421,7 +421,7 @@ _ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread:     ; preds = %switch.early.test76
 _ZN9grpc_coreL5DeHexEh.exit:                      ; preds = %57, %53, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread
   %.0.i59 = phi i8 [ %54, %53 ], [ %58, %57 ], [ %50, %_ZN9grpc_coreL8ValidHexEPKhS1_.exit57.thread ]
   %59 = add nsw i8 %.fr77, -48
-  %or.cond.i60 = icmp samesign ult i8 %59, 10
+  %or.cond.i60 = icmp slt i8 %.fr77, 58
   br i1 %or.cond.i60, label %_ZN9grpc_coreL5DeHexEh.exit65, label %60
 
 60:                                               ; preds = %_ZN9grpc_coreL5DeHexEh.exit

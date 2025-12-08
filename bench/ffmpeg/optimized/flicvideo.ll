@@ -217,18 +217,18 @@ bytestream2_get_le32.exit.i:                      ; preds = %22
   %40 = getelementptr inbounds nuw i8, ptr %6, i64 6
   %41 = load i16, ptr %40, align 1, !tbaa !34
   %42 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %43 = add nsw i32 %37, -16
-  %44 = icmp samesign ugt i32 %43, 5
-  %45 = icmp ne i16 %41, 0
-  %or.cond4447.i = select i1 %44, i1 %45, i1 false
+  %43 = icmp samesign ugt i32 %37, 21
+  %44 = icmp ne i16 %41, 0
+  %or.cond4447.i = select i1 %43, i1 %44, i1 false
   br i1 %or.cond4447.i, label %.lr.ph452.i.preheader, label %.critedge.i
 
 .lr.ph452.i.preheader:                            ; preds = %39
+  %45 = add nsw i32 %37, -16
   %46 = zext i16 %41 to i32
   br label %.lr.ph452.i
 
 .lr.ph452.i:                                      ; preds = %.lr.ph452.i.preheader, %250
-  %.1165450.i = phi i32 [ %255, %250 ], [ %43, %.lr.ph452.i.preheader ]
+  %.1165450.i = phi i32 [ %255, %250 ], [ %45, %.lr.ph452.i.preheader ]
   %.0170449.i = phi i32 [ %256, %250 ], [ %46, %.lr.ph452.i.preheader ]
   %.sroa.0.0448.i = phi ptr [ %254, %250 ], [ %42, %.lr.ph452.i.preheader ]
   %47 = ptrtoint ptr %.sroa.0.0448.i to i64
@@ -781,13 +781,13 @@ bytestream2_get_le32.exit.i31:                    ; preds = %281
 
 301:                                              ; preds = %bytestream2_get_le32.exit.i31
   %302 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  %303 = add nsw i32 %296, -16
-  %304 = icmp samesign ugt i32 %303, 5
-  %305 = icmp ne i16 %298, 0
-  %or.cond3787.i = select i1 %304, i1 %305, i1 false
+  %303 = icmp samesign ugt i32 %296, 21
+  %304 = icmp ne i16 %298, 0
+  %or.cond3787.i = select i1 %303, i1 %304, i1 false
   br i1 %or.cond3787.i, label %.lr.ph792.i, label %.critedge.i33
 
 .lr.ph792.i:                                      ; preds = %301
+  %305 = add nsw i32 %296, -16
   %306 = getelementptr inbounds nuw i8, ptr %272, i64 1044
   %307 = getelementptr inbounds nuw i8, ptr %272, i64 16
   %308 = getelementptr inbounds nuw i8, ptr %272, i64 1040
@@ -795,7 +795,7 @@ bytestream2_get_le32.exit.i31:                    ; preds = %281
   br label %310
 
 310:                                              ; preds = %808, %.lr.ph792.i
-  %.1317790.i = phi i32 [ %303, %.lr.ph792.i ], [ %813, %808 ]
+  %.1317790.i = phi i32 [ %305, %.lr.ph792.i ], [ %813, %808 ]
   %.0319789.i = phi i32 [ %299, %.lr.ph792.i ], [ %814, %808 ]
   %.sroa.0.0788.i = phi ptr [ %302, %.lr.ph792.i ], [ %812, %808 ]
   %311 = ptrtoint ptr %.sroa.0.0788.i to i64

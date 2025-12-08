@@ -3767,7 +3767,7 @@ _ZNK5folly3f146detail8F14TableINS1_21VectorContainerPolicyINSt7__cxx1112basic_st
   %23 = sub nuw nsw i32 64, %22
   %24 = zext nneg i32 %23 to i64
   %25 = shl nuw nsw i64 1, %24
-  %26 = icmp samesign ugt i64 %19, 20479
+  %26 = icmp ugt i64 %5, 5243135
   %27 = shl i32 10, %23
   %28 = zext i32 %27 to i64
   %29 = select i1 %26, i64 40960, i64 %28

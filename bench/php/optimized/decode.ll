@@ -1338,14 +1338,14 @@ define hidden range(i32 0, 16) i32 @lxb_encoding_decode_euc_jp(ptr noundef initi
 153:                                              ; preds = %120
   %154 = zext i8 %.0148 to i32
   %155 = mul nuw nsw i32 %124, 94
-  %156 = add nsw i32 %154, -161
-  %157 = add nuw nsw i32 %156, %155
+  %156 = add nuw nsw i32 %155, %154
+  %157 = add nsw i32 %156, -161
   %158 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %157, ptr %158, align 8, !tbaa !25
   br i1 %.0150, label %159, label %181
 
 159:                                              ; preds = %153
-  %160 = icmp samesign ugt i32 %157, 7210
+  %160 = icmp samesign ugt i32 %156, 7371
   br i1 %160, label %161, label %181
 
 161:                                              ; preds = %159
@@ -7118,14 +7118,14 @@ define hidden i32 @lxb_encoding_decode_euc_jp_single(ptr noundef captures(none) 
 51:                                               ; preds = %45
   %52 = zext i8 %.050 to i32
   %53 = mul nuw nsw i32 %47, 94
-  %54 = add nsw i32 %52, -161
-  %55 = add nuw nsw i32 %54, %53
+  %54 = add nuw nsw i32 %53, %52
+  %55 = add nsw i32 %54, -161
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 48
   store i32 %55, ptr %56, align 8, !tbaa !25
   br i1 %.052, label %57, label %59
 
 57:                                               ; preds = %51
-  %58 = icmp samesign ugt i32 %55, 7210
+  %58 = icmp samesign ugt i32 %54, 7371
   br i1 %58, label %.thread, label %59
 
 59:                                               ; preds = %51, %57

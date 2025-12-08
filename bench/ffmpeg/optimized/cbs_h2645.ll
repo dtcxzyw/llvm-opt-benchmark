@@ -15514,19 +15514,19 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %819 = icmp ugt i16 %818, 1
   br i1 %819, label %820, label %838
 
-820:                                              ; preds = %816, %805
-  %.sink1395.i = phi i16 [ %818, %816 ], [ %810, %805 ]
-  %821 = zext i16 %.sink1395.i to i32
+820:                                              ; preds = %805, %816
+  %.sink490 = phi i16 [ %818, %816 ], [ %810, %805 ]
+  %821 = zext i16 %.sink490 to i32
   %822 = shl nuw nsw i32 %821, 1
   %823 = add nsw i32 %822, -2
-  %.not.i.i996.i = icmp samesign ult i32 %823, 65536
+  %.not.i.i.i = icmp ult i16 %.sink490, -32767
   %824 = lshr i32 %823, 16
-  %spec.select.i.i997.i = select i1 %.not.i.i996.i, i32 %823, i32 %824
-  %spec.select12.i.i998.i = select i1 %.not.i.i996.i, i32 0, i32 16
-  %.not11.i.i999.i = icmp samesign ult i32 %spec.select.i.i997.i, 256
-  %825 = lshr i32 %spec.select.i.i997.i, 8
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %823, i32 %824
+  %spec.select12.i.i998.i = select i1 %.not.i.i.i, i32 0, i32 16
+  %.not11.i.i999.i = icmp samesign ult i32 %spec.select.i.i.i, 256
+  %825 = lshr i32 %spec.select.i.i.i, 8
   %826 = or disjoint i32 %spec.select12.i.i998.i, 8
-  %.110.i.i1000.i = select i1 %.not11.i.i999.i, i32 %spec.select.i.i997.i, i32 %825
+  %.110.i.i1000.i = select i1 %.not11.i.i999.i, i32 %spec.select.i.i.i, i32 %825
   %.1.i.i1001.i = select i1 %.not11.i.i999.i, i32 %spec.select12.i.i998.i, i32 %826
   %827 = zext nneg i32 %.110.i.i1000.i to i64
   %828 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %827
@@ -16257,9 +16257,9 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   br label %1161
 
 1161:                                             ; preds = %1151, %1147, %1143
-  %.sink1396.i = phi i8 [ %1160, %1151 ], [ %1150, %1147 ], [ 0, %1143 ]
+  %.sink1388.i = phi i8 [ %1160, %1151 ], [ %1150, %1147 ], [ 0, %1143 ]
   %1162 = getelementptr inbounds nuw i8, ptr %1138, i64 %indvars.iv1227.i
-  store i8 %.sink1396.i, ptr %1162, align 1, !tbaa !25
+  store i8 %.sink1388.i, ptr %1162, align 1, !tbaa !25
   br i1 %1144, label %1143, label %1163, !llvm.loop !558
 
 1163:                                             ; preds = %1161
@@ -16951,8 +16951,8 @@ cbs_h266_read_scaling_list_data.exit.i:           ; preds = %.thread159.i.i
   %1493 = getelementptr inbounds nuw i8, ptr %731, i64 2341
   %1494 = load i8, ptr %1493, align 1, !tbaa !609
   %.not977.i = icmp ne i8 %1494, 0
-  %brmerge1400.i = select i1 %.not977.i, i1 true, i1 %.not978.i
-  br i1 %brmerge1400.i, label %.thread1351.i, label %1495
+  %brmerge1392.i = select i1 %.not977.i, i1 true, i1 %.not978.i
+  br i1 %brmerge1392.i, label %.thread1351.i, label %1495
 
 1495:                                             ; preds = %1492
   call void @llvm.lifetime.start.p0(ptr nonnull %49)
@@ -23858,19 +23858,19 @@ cbs_h266_write_ph.exit:                           ; preds = %3038
   %3146 = icmp ugt i16 %3145, 1
   br i1 %3146, label %3147, label %3164
 
-3147:                                             ; preds = %3143, %3132
-  %.sink1632.i = phi i16 [ %3145, %3143 ], [ %3137, %3132 ]
-  %3148 = zext i16 %.sink1632.i to i32
+3147:                                             ; preds = %3132, %3143
+  %.sink1646 = phi i16 [ %3145, %3143 ], [ %3137, %3132 ]
+  %3148 = zext i16 %.sink1646 to i32
   %3149 = shl nuw nsw i32 %3148, 1
   %3150 = add nsw i32 %3149, -2
-  %.not.i.i1233.i = icmp samesign ult i32 %3150, 65536
+  %.not.i.i.i = icmp ult i16 %.sink1646, -32767
   %3151 = lshr i32 %3150, 16
-  %spec.select.i.i1234.i = select i1 %.not.i.i1233.i, i32 %3150, i32 %3151
-  %spec.select12.i.i1235.i = select i1 %.not.i.i1233.i, i32 0, i32 16
-  %.not11.i.i1236.i = icmp samesign ult i32 %spec.select.i.i1234.i, 256
-  %3152 = lshr i32 %spec.select.i.i1234.i, 8
+  %spec.select.i.i.i = select i1 %.not.i.i.i, i32 %3150, i32 %3151
+  %spec.select12.i.i1235.i = select i1 %.not.i.i.i, i32 0, i32 16
+  %.not11.i.i1236.i = icmp samesign ult i32 %spec.select.i.i.i, 256
+  %3152 = lshr i32 %spec.select.i.i.i, 8
   %3153 = or disjoint i32 %spec.select12.i.i1235.i, 8
-  %.110.i.i1237.i = select i1 %.not11.i.i1236.i, i32 %spec.select.i.i1234.i, i32 %3152
+  %.110.i.i1237.i = select i1 %.not11.i.i1236.i, i32 %spec.select.i.i.i, i32 %3152
   %.1.i.i1238.i = select i1 %.not11.i.i1236.i, i32 %spec.select12.i.i1235.i, i32 %3153
   %3154 = zext nneg i32 %.110.i.i1237.i to i64
   %3155 = getelementptr inbounds nuw i8, ptr @ff_log2_tab, i64 %3154
@@ -61581,7 +61581,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_read_ref_pic_list
   %64 = zext i8 %58 to i32
   %65 = shl nuw nsw i32 %64, 1
   %66 = add nsw i32 %65, -2
-  %.not11.i.i = icmp samesign ult i32 %66, 256
+  %.not11.i.i = icmp ult i8 %58, -127
   %67 = lshr i32 %66, 8
   %.110.i.i = select i1 %.not11.i.i, i32 %66, i32 %67
   %68 = zext nneg i32 %.110.i.i to i64
@@ -70039,7 +70039,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @cbs_h266_write_ref_pic_lis
   %67 = zext i8 %61 to i32
   %68 = shl nuw nsw i32 %67, 1
   %69 = add nsw i32 %68, -2
-  %.not11.i.i = icmp samesign ult i32 %69, 256
+  %.not11.i.i = icmp ult i8 %61, -127
   %70 = lshr i32 %69, 8
   %.110.i.i = select i1 %.not11.i.i, i32 %69, i32 %70
   %71 = zext nneg i32 %.110.i.i to i64

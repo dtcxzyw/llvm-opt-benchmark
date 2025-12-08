@@ -2300,7 +2300,7 @@ readbits.exit.i.thread:                           ; preds = %194
   %203 = lshr i32 128, %199
   %204 = and i32 %203, %197
   %.not.i189 = icmp eq i32 %204, 0
-  %.not21.i21.i = icmp samesign ugt i32 %199, 6
+  %.not21.i21.i = icmp eq i32 %.0371540, 6
   br i1 %.not21.i21.i, label %205, label %readbits.exit26.i
 
 205:                                              ; preds = %202

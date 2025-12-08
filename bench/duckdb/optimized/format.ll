@@ -64693,7 +64693,7 @@ define linkonce_odr noundef ptr @_ZNK10duckdb_fmt2v68internal12float_writerIwE8p
   %32 = sext i8 %31 to i32
   store i32 %32, ptr %.0811.i.i.i.i.i.i, align 4, !tbaa !118
   %33 = getelementptr inbounds nuw i8, ptr %.0811.i.i.i.i.i.i, i64 4
-  %34 = icmp samesign ugt i64 %.012.i.i.i.i.i.i, 1
+  %34 = icmp samesign ugt i64 %.012.i.i.i.i.i.i.in, 2
   br i1 %34, label %.lr.ph.i.i.i.i.i.i, label %_ZN10duckdb_fmt2v68internal8copy_strIwPKcPwTnNSt9enable_ifIXntsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit, !llvm.loop !803
 
 _ZN10duckdb_fmt2v68internal8copy_strIwPKcPwTnNSt9enable_ifIXntsr16needs_conversionIT0_T_EE5valueEiE4typeELi0EEET1_S7_S7_SB_.exit: ; preds = %.lr.ph.i.i.i.i.i.i, %13, %26

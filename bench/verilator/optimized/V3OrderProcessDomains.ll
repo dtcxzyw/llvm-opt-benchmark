@@ -6548,7 +6548,7 @@ define linkonce_odr dso_local void @_ZSt16__insertion_sortISt15_Deque_iteratorIN
   br i1 %24, label %25, label %31
 
 25:                                               ; preds = %12
-  %26 = icmp samesign ult i64 %23, 16
+  %26 = icmp slt i64 %22, 15
   br i1 %26, label %27, label %29
 
 27:                                               ; preds = %25
@@ -6671,7 +6671,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %71
   br i1 %85, label %86, label %92
 
 86:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
-  %87 = icmp samesign ult i64 %84, 16
+  %87 = icmp slt i64 %83, 15
   br i1 %87, label %88, label %90
 
 88:                                               ; preds = %86

@@ -1086,7 +1086,7 @@ _ZN9hashbrown3raw13RawTableInner22fallible_with_capacity17hf7590bc4c8d264eaE.exi
   %56 = getelementptr inbounds nuw i8, ptr %48, i64 %40
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1) %56, i8 -1, i64 %41, i1 false), !noalias !95
   %57 = add nsw i64 %.sroa.4.0.i.ph8.i, -1
-  %58 = icmp samesign ult i64 %57, 8
+  %58 = icmp samesign ult i64 %.sroa.4.0.i.ph8.i, 9
   %59 = lshr i64 %.sroa.4.0.i.ph8.i, 3
   %60 = mul nuw nsw i64 %59, 7
   %.sroa.02.0.i.i = select i1 %58, i64 %57, i64 %60

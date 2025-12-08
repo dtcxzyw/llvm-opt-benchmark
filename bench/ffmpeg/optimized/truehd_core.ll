@@ -45,10 +45,10 @@ define internal i32 @truehd_core_filter(ptr noundef %0, ptr noundef %1) #0 {
 
 24:                                               ; preds = %14
   %25 = getelementptr inbounds nuw i8, ptr %16, i64 4
-  %26 = add nsw i32 %12, -4
-  %27 = icmp samesign ugt i32 %26, 268435455
-  %28 = shl nuw nsw i32 %26, 3
-  %29 = select i1 %27, i32 -8, i32 %28
+  %26 = icmp samesign ugt i32 %12, 268435459
+  %27 = shl i32 %12, 3
+  %28 = add i32 %27, -32
+  %29 = select i1 %26, i32 -8, i32 %28
   %or.cond.i.i = icmp ugt i32 %29, 2147483134
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %29
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %25

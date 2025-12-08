@@ -49044,8 +49044,7 @@ _ssa_op1_info.exit8238.thread:                    ; preds = %16041, %_ssa_op1_in
   br label %16461
 
 16452:                                            ; preds = %16422, %16416
-  %.off8005 = add nsw i8 %16403, -23
-  %switch8006 = icmp samesign ult i8 %.off8005, 3
+  %switch8006 = icmp samesign ult i8 %16403, 26
   br i1 %switch8006, label %16453, label %16461
 
 16453:                                            ; preds = %16452

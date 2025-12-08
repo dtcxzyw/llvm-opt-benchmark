@@ -2623,8 +2623,7 @@ _ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %69
   %75 = or disjoint i64 %73, 1
   %76 = call noalias noundef nonnull ptr @_Znwm(i64 noundef %75) #24
   store i8 0, ptr %76, align 1, !tbaa !20
-  %.off = add nsw i32 %63, 6
-  %77 = icmp samesign ult i32 %.off, 7
+  %77 = icmp slt i32 %63, 1
   br i1 %77, label %_ZNSt6vectorIcSaIcEEC2EmRKS0_.exit, label %78
 
 78:                                               ; preds = %_ZNSt6vectorIcSaIcEE17_S_check_init_lenEmRKS0_.exit.i

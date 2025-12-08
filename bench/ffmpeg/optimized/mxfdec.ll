@@ -8612,7 +8612,7 @@ define internal i32 @mxf_read_tagged_value(ptr noundef %0, ptr noundef %1, i32 n
 28:                                               ; preds = %26
   %29 = add nsw i32 %3, -17
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %or.cond.i.i.i = icmp samesign ugt i32 %29, 1073741823
+  %or.cond.i.i.i = icmp samesign ugt i32 %3, 1073741840
   br i1 %or.cond.i.i.i, label %mxf_read_indirect_value.exit, label %31
 
 31:                                               ; preds = %28
@@ -8640,7 +8640,7 @@ define internal i32 @mxf_read_tagged_value(ptr noundef %0, ptr noundef %1, i32 n
 43:                                               ; preds = %41
   %44 = add nsw i32 %3, -17
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %or.cond.i.i14.i = icmp samesign ugt i32 %44, 1073741823
+  %or.cond.i.i14.i = icmp samesign ugt i32 %3, 1073741840
   br i1 %or.cond.i.i14.i, label %mxf_read_indirect_value.exit, label %46
 
 46:                                               ; preds = %43

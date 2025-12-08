@@ -3122,7 +3122,7 @@ read_sbr_channel_pair_element.exit.i:             ; preds = %.lr.ph127.i.i, %.lr
   br label %read_sbr_data.exit
 
 1480:                                             ; preds = %1455
-  %1481 = icmp samesign ugt i32 %1456, 16
+  %1481 = icmp samesign ugt i32 %.176.i, 18
   br i1 %1481, label %.loopexit.i54, label %1482
 
 1482:                                             ; preds = %1480
@@ -4326,8 +4326,8 @@ sbr_hf_gen.exit:                                  ; preds = %451, %._crit_edge72
 
 .lr.ph133.split.i.preheader:                      ; preds = %.lr.ph133.i
   %.pre176.i = load i32, ptr %309, align 4, !tbaa !10
-  %.pre540 = load i32, ptr %503, align 4, !tbaa !10
-  %557 = sext i32 %.pre540 to i64
+  %.pre542 = load i32, ptr %503, align 4, !tbaa !10
+  %557 = sext i32 %.pre542 to i64
   %.not111.i = icmp slt i64 %indvars.iv170.i, %557
   br label %.lr.ph133.split.i
 
@@ -5571,7 +5571,7 @@ av_div_sf.exit464.i:                              ; preds = %.lr.ph.i448.i, %av_
   %..i463.i = select i1 %or.cond.i462.i, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i460.i
   %.sroa.0.0.extract.trunc.i272.i = trunc i64 %..i463.i to i32
   %1129 = icmp eq i32 %.sroa.0.0.extract.trunc.i272.i, 0
-  br i1 %1129, label %.thread307, label %1130
+  br i1 %1129, label %.thread308, label %1130
 
 1130:                                             ; preds = %av_div_sf.exit464.i
   %1131 = icmp slt i32 %.sroa.0.0.extract.trunc.i272.i, 0
@@ -5721,7 +5721,7 @@ av_div_sf.exit529.i:                              ; preds = %.lr.ph.i513.i, %av_
   %..i528.i = select i1 %or.cond.i527.i, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i525.i
   %.sroa.0.0.extract.trunc.i279.i = trunc i64 %..i528.i to i32
   %1187 = icmp eq i32 %.sroa.0.0.extract.trunc.i279.i, 0
-  br i1 %1187, label %.thread307, label %1188
+  br i1 %1187, label %.thread308, label %1188
 
 1188:                                             ; preds = %av_div_sf.exit529.i
   %1189 = icmp slt i32 %.sroa.0.0.extract.trunc.i279.i, 0
@@ -6028,7 +6028,7 @@ av_div_sf.exit665.i:                              ; preds = %.lr.ph.i649.i, %av_
   %..i664.i = select i1 %or.cond.i663.i, i64 -639950127104, i64 %.sroa.02.0.insert.insert.i.i661.i
   %.sroa.0.0.extract.trunc.i286.i = trunc i64 %..i664.i to i32
   %1310 = icmp eq i32 %.sroa.0.0.extract.trunc.i286.i, 0
-  br i1 %1310, label %.thread307, label %1311
+  br i1 %1310, label %.thread308, label %1311
 
 1311:                                             ; preds = %av_div_sf.exit665.i
   %1312 = icmp slt i32 %.sroa.0.0.extract.trunc.i286.i, 0
@@ -6038,7 +6038,7 @@ av_div_sf.exit665.i:                              ; preds = %.lr.ph.i649.i, %av_
   tail call void @abort() #14
   unreachable
 
-.thread307:                                       ; preds = %av_div_sf.exit464.i, %av_div_sf.exit529.i, %av_div_sf.exit665.i
+.thread308:                                       ; preds = %av_div_sf.exit464.i, %av_div_sf.exit529.i, %av_div_sf.exit665.i
   %1314 = getelementptr inbounds %struct.SoftFloat, ptr %823, i64 %indvars.iv.i227
   br label %1374
 
@@ -6046,7 +6046,7 @@ av_sqrt_sf.exit278.i:                             ; preds = %1130, %1188, %1311
   %.sroa.0.0.extract.trunc.i286.sink.i = phi i32 [ %.sroa.0.0.extract.trunc.i272.i, %1130 ], [ %.sroa.0.0.extract.trunc.i279.i, %1188 ], [ %.sroa.0.0.extract.trunc.i286.i, %1311 ]
   %..i664.sink.i = phi i64 [ %..i463.i, %1130 ], [ %..i528.i, %1188 ], [ %..i664.i, %1311 ]
   %.sroa.12.0.extract.shift.i287.sink.i = lshr i64 %..i664.sink.i, 32
-  %.sroa.12.0.extract.trunc.i288.sink1875.i = trunc nuw i64 %.sroa.12.0.extract.shift.i287.sink.i to i32
+  %.sroa.12.0.extract.trunc.i288.sink1873.i = trunc nuw i64 %.sroa.12.0.extract.shift.i287.sink.i to i32
   %1315 = add nsw i32 %.sroa.0.0.extract.trunc.i286.sink.i, -536870912
   %1316 = ashr i32 %1315, 20
   %1317 = and i64 %..i664.sink.i, 1048575
@@ -6073,10 +6073,10 @@ av_sqrt_sf.exit278.i:                             ; preds = %1130, %1188, %1311
   %1338 = lshr i64 %1337, 29
   %1339 = trunc i64 %1338 to i32
   %1340 = icmp sgt i32 %1339, 1073741823
-  %1341 = add nsw i32 %.sroa.12.0.extract.trunc.i288.sink1875.i, -2
+  %1341 = add nsw i32 %.sroa.12.0.extract.trunc.i288.sink1873.i, -2
   %1342 = zext i1 %1340 to i32
   %.sroa.0.1.i289.i = lshr i32 %1339, %1342
-  %.sroa.12.1.i290.i = select i1 %1340, i32 %.sroa.12.0.extract.trunc.i288.sink1875.i, i32 %1341
+  %.sroa.12.1.i290.i = select i1 %1340, i32 %.sroa.12.0.extract.trunc.i288.sink1873.i, i32 %1341
   %1343 = ashr i32 %.sroa.12.1.i290.i, 1
   %1344 = add nsw i32 %1343, 1
   %1345 = zext i32 %1344 to i64
@@ -6136,16 +6136,16 @@ av_normalize_sf.exit.i697.i:                      ; preds = %._crit_edge.i.i692.
   br label %av_add_sf.exit703.i
 
 1372:                                             ; preds = %1352
-  %1373 = icmp samesign ult i32 %1350, 32
+  %1373 = icmp slt i32 %1343, -118
   br i1 %1373, label %1374, label %av_add_sf.exit703.i
 
-1374:                                             ; preds = %.thread307, %1372
-  %1375 = phi i32 [ 0, %.thread307 ], [ %1350, %1372 ]
-  %.sroa.414.0.extract.shift.i.i262300305311 = phi i32 [ -149, %.thread307 ], [ %1344, %1372 ]
-  %.sroa.012.0.extract.trunc.i.i261299306310 = phi i32 [ 0, %.thread307 ], [ %.sroa.0.1.i289.i, %1372 ]
-  %1376 = phi ptr [ %1314, %.thread307 ], [ %1349, %1372 ]
+1374:                                             ; preds = %.thread308, %1372
+  %1375 = phi i32 [ 0, %.thread308 ], [ %1350, %1372 ]
+  %.sroa.414.0.extract.shift.i.i262300306313 = phi i32 [ -149, %.thread308 ], [ %1344, %1372 ]
+  %.sroa.012.0.extract.trunc.i.i261299307312 = phi i32 [ 0, %.thread308 ], [ %.sroa.0.1.i289.i, %1372 ]
+  %1376 = phi ptr [ %1314, %.thread308 ], [ %1349, %1372 ]
   %1377 = lshr i32 536870912, %1375
-  %1378 = add nsw i32 %.sroa.012.0.extract.trunc.i.i261299306310, %1377
+  %1378 = add nsw i32 %.sroa.012.0.extract.trunc.i.i261299307312, %1377
   %1379 = add i32 %1378, 1073741824
   %1380 = icmp slt i32 %1379, 1
   %1381 = zext i1 %1380 to i32
@@ -6154,7 +6154,7 @@ av_normalize_sf.exit.i697.i:                      ; preds = %._crit_edge.i.i692.
   br i1 %.not.i29.i672.i, label %av_normalize_sf.exit41.i681.i, label %.preheader.i30.i673.i
 
 .preheader.i30.i673.i:                            ; preds = %1374
-  %.sroa.5.0.i23.i674.i = add nsw i32 %.sroa.414.0.extract.shift.i.i262300305311, %1381
+  %.sroa.5.0.i23.i674.i = add nuw nsw i32 %.sroa.414.0.extract.shift.i.i262300306313, %1381
   %1382 = add i32 %.sroa.0.0.i24.i671.i, 536870911
   %1383 = icmp ult i32 %1382, 1073741823
   br i1 %1383, label %.lr.ph.i38.i684.i, label %._crit_edge.i32.i676.i
@@ -6215,9 +6215,9 @@ av_add_sf.exit703.i:                              ; preds = %av_normalize_sf.exi
   %1402 = phi i32 [ %1396, %._crit_edge.loopexit.i265 ], [ %831, %830 ]
   %.lcssa1422.i = phi i32 [ %1397, %._crit_edge.loopexit.i265 ], [ %839, %830 ]
   %1403 = icmp slt i32 %.pre-phi1645.i, %.lcssa1422.i
-  br i1 %1403, label %.lr.ph1503.preheader.i, label %.thread1720.i
+  br i1 %1403, label %.lr.ph1503.preheader.i, label %.thread1718.i
 
-.thread1720.i:                                    ; preds = %._crit_edge.i218
+.thread1718.i:                                    ; preds = %._crit_edge.i218
   %1404 = load i32, ptr %337, align 16, !tbaa !58
   br label %av_add_sf.exit873.i
 
@@ -6674,17 +6674,17 @@ av_normalize_sf.exit41.i851.i:                    ; preds = %._crit_edge.i32.i84
   %.sroa.5.0.extract.shift18.i853.i = lshr i64 %.sroa.05.0.insert.insert.i37.i852.i, 32
   br label %av_add_sf.exit873.i
 
-av_add_sf.exit873.i:                              ; preds = %av_normalize_sf.exit41.i851.i, %1563, %av_normalize_sf.exit.i867.i, %av_add_sf.exit832.i, %.thread1720.i
-  %.sroa.5.0.i7961705.i = phi i64 [ %.sroa.5.0.i796.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.5.0.i796.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.5.0.i796.i, %av_add_sf.exit832.i ], [ %.sroa.5.0.i796.i, %1563 ], [ 4294967280, %.thread1720.i ]
-  %.sroa.016.0.i7951703.i = phi i64 [ %.sroa.016.0.i795.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.016.0.i795.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.016.0.i795.i, %av_add_sf.exit832.i ], [ %.sroa.016.0.i795.i, %1563 ], [ -68015789294, %.thread1720.i ]
-  %.pn.in.i = phi i32 [ %1499, %av_normalize_sf.exit.i867.i ], [ %1499, %av_normalize_sf.exit41.i851.i ], [ %1499, %av_add_sf.exit832.i ], [ %1499, %1563 ], [ %1404, %.thread1720.i ]
-  %.sroa.016.0.i836.i = phi i64 [ %.sroa.05.0.insert.insert.i.i868.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.05.0.insert.insert.i37.i852.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.016.0.insert.insert.i758.i, %av_add_sf.exit832.i ], [ -68015789294, %1563 ], [ -68015789294, %.thread1720.i ]
-  %.sroa.5.0.i837.i = phi i64 [ %.sroa.5.0.extract.shift.i869.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.5.0.extract.shift18.i853.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.5.0.i755.i, %av_add_sf.exit832.i ], [ 4294967280, %1563 ], [ 4294967280, %.thread1720.i ]
+av_add_sf.exit873.i:                              ; preds = %av_normalize_sf.exit41.i851.i, %1563, %av_normalize_sf.exit.i867.i, %av_add_sf.exit832.i, %.thread1718.i
+  %.sroa.5.0.i7961703.i = phi i64 [ %.sroa.5.0.i796.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.5.0.i796.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.5.0.i796.i, %av_add_sf.exit832.i ], [ %.sroa.5.0.i796.i, %1563 ], [ 4294967280, %.thread1718.i ]
+  %.sroa.016.0.i7951701.i = phi i64 [ %.sroa.016.0.i795.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.016.0.i795.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.016.0.i795.i, %av_add_sf.exit832.i ], [ %.sroa.016.0.i795.i, %1563 ], [ -68015789294, %.thread1718.i ]
+  %.pn.in.i = phi i32 [ %1499, %av_normalize_sf.exit.i867.i ], [ %1499, %av_normalize_sf.exit41.i851.i ], [ %1499, %av_add_sf.exit832.i ], [ %1499, %1563 ], [ %1404, %.thread1718.i ]
+  %.sroa.016.0.i836.i = phi i64 [ %.sroa.05.0.insert.insert.i.i868.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.05.0.insert.insert.i37.i852.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.016.0.insert.insert.i758.i, %av_add_sf.exit832.i ], [ -68015789294, %1563 ], [ -68015789294, %.thread1718.i ]
+  %.sroa.5.0.i837.i = phi i64 [ %.sroa.5.0.extract.shift.i869.i, %av_normalize_sf.exit.i867.i ], [ %.sroa.5.0.extract.shift18.i853.i, %av_normalize_sf.exit41.i851.i ], [ %.sroa.5.0.i755.i, %av_add_sf.exit832.i ], [ 4294967280, %1563 ], [ 4294967280, %.thread1718.i ]
   %.pn.i = zext i32 %.pn.in.i to i64
   %1582 = getelementptr inbounds nuw %struct.SoftFloat, ptr @sbr_gain_calc.limgain, i64 %.pn.i
-  %.sroa.9.0.extract.trunc.i875.i = trunc nuw i64 %.sroa.5.0.i7961705.i to i32
+  %.sroa.9.0.extract.trunc.i875.i = trunc nuw i64 %.sroa.5.0.i7961703.i to i32
   %.sroa.2.0.extract.trunc.i877.i = trunc nuw i64 %.sroa.5.0.i837.i to i32
-  %sext.i878.i = shl i64 %.sroa.016.0.i7951703.i, 32
+  %sext.i878.i = shl i64 %.sroa.016.0.i7951701.i, 32
   %1583 = ashr exact i64 %sext.i878.i, 2
   %sext18.i879.i = shl i64 %.sroa.016.0.i836.i, 32
   %1584 = ashr exact i64 %sext18.i879.i, 32
@@ -6747,21 +6747,21 @@ av_div_sf.exit897.i:                              ; preds = %.lr.ph.i881.i, %av_
   %1606 = sext i32 %1604 to i64
   %1607 = getelementptr inbounds i32, ptr @av_sqrttbl_sf, i64 %1606
   %1608 = load i32, ptr %1607, align 4, !tbaa !10
-  %.fr1902.i = freeze i32 %1608
-  %1609 = sext i32 %.fr1902.i to i64
+  %.fr1900.i = freeze i32 %1608
+  %1609 = sext i32 %.fr1900.i to i64
   %1610 = sub nuw nsw i64 1048576, %1605
   %1611 = mul nsw i64 %1610, %1609
   %1612 = getelementptr i8, ptr %1607, i64 4
   %1613 = load i32, ptr %1612, align 4, !tbaa !10
-  %.fr1901.i = freeze i32 %1613
-  %1614 = sext i32 %.fr1901.i to i64
+  %.fr1899.i = freeze i32 %1613
+  %1614 = sext i32 %.fr1899.i to i64
   %1615 = mul nsw i64 %1605, %1614
   %1616 = add nsw i64 %1615, %1611
   %1617 = and i64 %.sroa.12.0.extract.shift.i294.i, 1
   %1618 = getelementptr inbounds nuw i32, ptr @av_sqr_exp_multbl_sf, i64 %1617
   %1619 = load i32, ptr %1618, align 4, !tbaa !10
-  %.fr1903.i = freeze i32 %1619
-  %1620 = sext i32 %.fr1903.i to i64
+  %.fr1901.i = freeze i32 %1619
+  %1620 = sext i32 %.fr1901.i to i64
   %1621 = shl i64 %1616, 12
   %1622 = add i64 %1621, 2147483648
   %1623 = ashr i64 %1622, 32
@@ -6828,18 +6828,18 @@ av_sqrt_sf.exit299.i:                             ; preds = %1602, %av_div_sf.ex
 1653:                                             ; preds = %1651
   %1654 = sub nsw i32 17, %.sroa.410.0.extract.trunc.i.i
   %1655 = ashr i32 %.sroa.07.0.extract.trunc.i.i, %1654
-  %.fr1906.i = freeze i32 %1655
-  %1656 = icmp sgt i32 %.fr1906.i, 819200000
+  %.fr1904.i = freeze i32 %1655
+  %1656 = icmp sgt i32 %.fr1904.i, 819200000
   br i1 %1656, label %1663, label %av_gt_sf.exit.thread.i
 
 1657:                                             ; preds = %1651
-  %1658 = icmp samesign ult i32 %1649, 32
+  %1658 = icmp ult i64 %..i912.i, 210453397504
   br i1 %1658, label %1659, label %av_gt_sf.exit.i
 
 1659:                                             ; preds = %1657
   %1660 = lshr i32 819200000, %1649
-  %.fr1904.i = freeze i32 %1660
-  %1661 = icmp slt i32 %.fr1904.i, %.sroa.07.0.extract.trunc.i.i
+  %.fr1902.i = freeze i32 %1660
+  %1661 = icmp slt i32 %.fr1902.i, %.sroa.07.0.extract.trunc.i.i
   br i1 %1661, label %1663, label %av_gt_sf.exit.thread.i
 
 av_gt_sf.exit.i:                                  ; preds = %1657
@@ -6963,8 +6963,8 @@ av_div_sf.exit951.i:                              ; preds = %.lr.ph.i935.i, %167
 1710:                                             ; preds = %1708
   %1711 = sub nsw i32 0, %1704
   %1712 = ashr i32 %.sroa.07.0.extract.trunc.i952.i, %1711
-  %.not1907.i = icmp sgt i32 %1712, %.sroa.0.0.extract.trunc.i955.i
-  br i1 %.not1907.i, label %1718, label %1719
+  %.not1905.i = icmp sgt i32 %1712, %.sroa.0.0.extract.trunc.i955.i
+  br i1 %.not1905.i, label %1718, label %1719
 
 1713:                                             ; preds = %1708
   %1714 = icmp samesign ult i32 %1704, 32
@@ -6996,8 +6996,8 @@ av_gt_sf.exit959.i:                               ; preds = %1713
 1724:                                             ; preds = %1722
   %1725 = sub nsw i32 0, %1720
   %1726 = ashr i32 %.sroa.07.0.extract.trunc.i960.i, %1725
-  %.not1909.i = icmp sgt i32 %1726, %.sroa.0.0.extract.trunc.i963.i
-  br i1 %.not1909.i, label %1733, label %1734
+  %.not1907.i = icmp sgt i32 %1726, %.sroa.0.0.extract.trunc.i963.i
+  br i1 %.not1907.i, label %1733, label %1734
 
 1727:                                             ; preds = %1722
   %1728 = icmp samesign ult i32 %1720, 32
@@ -7005,8 +7005,8 @@ av_gt_sf.exit959.i:                               ; preds = %1713
 
 1729:                                             ; preds = %1727
   %1730 = ashr i32 %.sroa.0.0.extract.trunc.i963.i, %1720
-  %.not1908.i = icmp slt i32 %1730, %.sroa.07.0.extract.trunc.i960.i
-  br i1 %.not1908.i, label %1733, label %1734
+  %.not1906.i = icmp slt i32 %1730, %.sroa.07.0.extract.trunc.i960.i
+  br i1 %.not1906.i, label %1733, label %1734
 
 1731:                                             ; preds = %1727
   %1732 = icmp slt i32 %.sroa.07.0.extract.trunc.i960.i, 1
@@ -7833,13 +7833,13 @@ av_normalize_sf.exit41.i1264.i:                   ; preds = %._crit_edge.i32.i12
   br label %av_add_sf.exit1286.i
 
 av_add_sf.exit1286.i:                             ; preds = %av_normalize_sf.exit41.i1264.i, %2036, %av_normalize_sf.exit.i1280.i, %av_add_sf.exit1245.i, %._crit_edge1510.i
-  %.sroa.5.0.i12091759.i = phi i64 [ %.sroa.5.0.i1209.i, %av_normalize_sf.exit.i1280.i ], [ %.sroa.5.0.i1209.i, %av_normalize_sf.exit41.i1264.i ], [ %.sroa.5.0.i1209.i, %av_add_sf.exit1245.i ], [ %.sroa.5.0.i1209.i, %2036 ], [ 4294967280, %._crit_edge1510.i ]
-  %.sroa.016.0.i12081757.i = phi i64 [ %.sroa.016.0.i1208.i, %av_normalize_sf.exit.i1280.i ], [ %.sroa.016.0.i1208.i, %av_normalize_sf.exit41.i1264.i ], [ %.sroa.016.0.i1208.i, %av_add_sf.exit1245.i ], [ %.sroa.016.0.i1208.i, %2036 ], [ -68015789294, %._crit_edge1510.i ]
+  %.sroa.5.0.i12091757.i = phi i64 [ %.sroa.5.0.i1209.i, %av_normalize_sf.exit.i1280.i ], [ %.sroa.5.0.i1209.i, %av_normalize_sf.exit41.i1264.i ], [ %.sroa.5.0.i1209.i, %av_add_sf.exit1245.i ], [ %.sroa.5.0.i1209.i, %2036 ], [ 4294967280, %._crit_edge1510.i ]
+  %.sroa.016.0.i12081755.i = phi i64 [ %.sroa.016.0.i1208.i, %av_normalize_sf.exit.i1280.i ], [ %.sroa.016.0.i1208.i, %av_normalize_sf.exit41.i1264.i ], [ %.sroa.016.0.i1208.i, %av_add_sf.exit1245.i ], [ %.sroa.016.0.i1208.i, %2036 ], [ -68015789294, %._crit_edge1510.i ]
   %.sroa.016.0.i1249.i = phi i64 [ %.sroa.05.0.insert.insert.i.i1281.i, %av_normalize_sf.exit.i1280.i ], [ %.sroa.05.0.insert.insert.i37.i1265.i, %av_normalize_sf.exit41.i1264.i ], [ %.sroa.10.2.i, %av_add_sf.exit1245.i ], [ -68015789294, %2036 ], [ -68015789294, %._crit_edge1510.i ]
   %.sroa.5.0.i1250.i = phi i64 [ %.sroa.5.0.extract.shift.i1282.i, %av_normalize_sf.exit.i1280.i ], [ %.sroa.5.0.extract.shift18.i1266.i, %av_normalize_sf.exit41.i1264.i ], [ %.sroa.4.0.extract.shift.i1247.i, %av_add_sf.exit1245.i ], [ 4294967280, %2036 ], [ 4294967280, %._crit_edge1510.i ]
-  %.sroa.9.0.extract.trunc.i1288.i = trunc nuw i64 %.sroa.5.0.i12091759.i to i32
+  %.sroa.9.0.extract.trunc.i1288.i = trunc nuw i64 %.sroa.5.0.i12091757.i to i32
   %.sroa.2.0.extract.trunc.i1290.i = trunc nuw i64 %.sroa.5.0.i1250.i to i32
-  %sext.i1291.i = shl i64 %.sroa.016.0.i12081757.i, 32
+  %sext.i1291.i = shl i64 %.sroa.016.0.i12081755.i, 32
   %2055 = ashr exact i64 %sext.i1291.i, 2
   %sext18.i1292.i = shl i64 %.sroa.016.0.i1249.i, 32
   %2056 = ashr exact i64 %sext18.i1292.i, 32

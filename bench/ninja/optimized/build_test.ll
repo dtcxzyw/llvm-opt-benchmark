@@ -14333,7 +14333,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit396: ; preds = %39
   br i1 %408, label %409, label %415
 
 409:                                              ; preds = %.critedge256
-  %410 = icmp samesign ult i64 %407, 64
+  %410 = icmp slt i64 %406, 60
   br i1 %410, label %411, label %413
 
 411:                                              ; preds = %409
@@ -17238,7 +17238,7 @@ _ZN7testing15AssertionResultD2Ev.exit104.thread:  ; preds = %171, %_ZNKSt14defau
   br i1 %228, label %229, label %234
 
 229:                                              ; preds = %226
-  %230 = icmp samesign ult i64 %227, 64
+  %230 = icmp slt i64 %225, 48
   br i1 %230, label %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread, label %232
 
 _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i.thread: ; preds = %229
@@ -17270,7 +17270,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit.i: ; preds = %232, %234
   br i1 %245, label %246, label %252
 
 246:                                              ; preds = %243
-  %247 = icmp samesign ult i64 %244, 64
+  %247 = icmp slt i64 %225, 63
   br i1 %247, label %248, label %250
 
 248:                                              ; preds = %246
@@ -17365,7 +17365,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit212: ; preds = %_ZNSt11char_traitsI
   br i1 %296, label %297, label %303
 
 297:                                              ; preds = %290
-  %298 = icmp samesign ult i64 %295, 64
+  %298 = icmp slt i64 %294, 63
   br i1 %298, label %299, label %301
 
 299:                                              ; preds = %297
@@ -17537,7 +17537,7 @@ _ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_It
   br i1 %228, label %357, label %363
 
 357:                                              ; preds = %_ZSt16__insertion_sortISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_T0_.exit158
-  %358 = icmp samesign ult i64 %227, 64
+  %358 = icmp slt i64 %225, 48
   br i1 %358, label %359, label %361
 
 359:                                              ; preds = %357
@@ -17701,7 +17701,7 @@ _ZNSt15_Deque_iteratorIP4EdgeRS1_PS1_EppEv.exit.i.i: ; preds = %418, %_ZSt25__un
   br i1 %424, label %425, label %431
 
 425:                                              ; preds = %422
-  %426 = icmp samesign ult i64 %423, 64
+  %426 = icmp slt i64 %225, 63
   br i1 %426, label %427, label %429
 
 427:                                              ; preds = %425
@@ -17796,7 +17796,7 @@ _ZN20CompareEdgesByOutput3cmpEPK4EdgeS2_.exit185: ; preds = %_ZNSt11char_traitsI
   br i1 %475, label %476, label %482
 
 476:                                              ; preds = %469
-  %477 = icmp samesign ult i64 %474, 64
+  %477 = icmp slt i64 %473, 63
   br i1 %477, label %478, label %480
 
 478:                                              ; preds = %476
@@ -18446,7 +18446,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit422: ; preds = %19
   br i1 %210, label %211, label %217
 
 211:                                              ; preds = %198
-  %212 = icmp samesign ult i64 %209, 64
+  %212 = icmp slt i64 %208, 63
   br i1 %212, label %213, label %215
 
 213:                                              ; preds = %211
@@ -209365,7 +209365,7 @@ _ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit: ; preds = %42, %48
   br i1 %56, label %57, label %63
 
 57:                                               ; preds = %_ZStplRKSt15_Deque_iteratorIP4EdgeRS1_PS1_El.exit
-  %58 = icmp samesign ult i64 %55, 64
+  %58 = icmp slt i64 %37, 63
   br i1 %58, label %59, label %61
 
 59:                                               ; preds = %57
@@ -209504,7 +209504,7 @@ _ZSt22__move_median_to_firstISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__op
   br i1 %132, label %133, label %139
 
 133:                                              ; preds = %_ZSt22__move_median_to_firstISt15_Deque_iteratorIP4EdgeRS2_PS2_EN9__gnu_cxx5__ops15_Iter_comp_iterIPFbPKS1_SA_EEEEvT_SE_SE_SE_T0_.exit
-  %134 = icmp samesign ult i64 %131, 64
+  %134 = icmp slt i64 %130, 63
   br i1 %134, label %135, label %137
 
 135:                                              ; preds = %133

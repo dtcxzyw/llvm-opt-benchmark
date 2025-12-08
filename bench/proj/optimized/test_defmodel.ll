@@ -91976,7 +91976,7 @@ _ZNSt10unique_ptrIZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Tes
   br i1 %or.cond.i436, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %232
 
 232:                                              ; preds = %.sink.split.i433
-  %233 = icmp samesign ult i32 %193, 2
+  %233 = icmp eq i32 %.sroa.speculated, 0
   %234 = icmp eq i32 %192, 2
   %or.cond3.i437 = and i1 %234, %233
   br i1 %or.cond3.i437, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid10getZOffsetEiiRd.exit, label %235
@@ -92206,7 +92206,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   br i1 %or.cond.i469, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread, label %320
 
 320:                                              ; preds = %.sink.split.i465
-  %321 = icmp samesign ult i32 %193, 2
+  %321 = icmp eq i32 %.sroa.speculated, 0
   %322 = icmp eq i32 %192, 2
   %or.cond3.i470 = and i1 %322, %321
   br i1 %or.cond3.i470, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid24getEastingNorthingOffsetEiiRdS2_.exit477.thread, label %323
@@ -92294,7 +92294,7 @@ _ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4
   br i1 %or.cond.i.i497, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %349
 
 349:                                              ; preds = %.sink.split.i12.i492
-  %350 = icmp samesign ult i32 %193, 2
+  %350 = icmp eq i32 %.sroa.speculated, 0
   %351 = icmp eq i32 %192, 2
   %or.cond3.i.i498 = and i1 %351, %350
   br i1 %or.cond3.i.i498, label %_ZZN12_GLOBAL__N_145defmodel_evaluator_horizontal_unit_metre_Test8TestBodyEvENK4Grid25getEastingNorthingZOffsetEiiRdS2_S2_.exit, label %352

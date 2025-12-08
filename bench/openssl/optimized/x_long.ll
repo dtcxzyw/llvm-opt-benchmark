@@ -43,7 +43,7 @@ define internal void @long_free(ptr noundef writeonly captures(none) initializes
 ; Function Attrs: nounwind uwtable
 define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(none) %0, ptr noundef readonly captures(none) %1, i32 noundef %2, i32 %3, ptr readnone captures(none) %4, ptr noundef readonly captures(none) %5) #2 {
   %7 = icmp sgt i32 %2, 1
-  br i1 %7, label %8, label %17
+  br i1 %7, label %8, label %16
 
 8:                                                ; preds = %6
   %9 = load i8, ptr %1, align 1, !tbaa !3
@@ -57,31 +57,31 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
 
 11:                                               ; preds = %8, %10
   %.0 = phi i64 [ 0, %10 ], [ 255, %8 ]
-  %12 = add nsw i32 %2, -1
-  %13 = icmp samesign ugt i32 %12, 8
-  br i1 %13, label %16, label %18
+  %12 = icmp sgt i32 %2, 9
+  br i1 %12, label %15, label %17
 
 .thread:                                          ; preds = %8
-  %14 = icmp samesign ugt i32 %2, 8
-  br i1 %14, label %16, label %.thread87
+  %13 = icmp samesign ugt i32 %2, 8
+  br i1 %13, label %15, label %.thread87
 
 .thread87:                                        ; preds = %.thread
-  %15 = load i8, ptr %1, align 1, !tbaa !3
-  %.not3588 = icmp sgt i8 %15, -1
+  %14 = load i8, ptr %1, align 1, !tbaa !3
+  %.not3588 = icmp sgt i8 %14, -1
   %spec.select5989 = select i1 %.not3588, i64 0, i64 255
   br label %.lr.ph.preheader
 
-16:                                               ; preds = %.thread, %11
+15:                                               ; preds = %.thread, %11
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 155, ptr noundef nonnull @__func__.long_c2i) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 128, ptr noundef null) #5
   br label %42
 
-17:                                               ; preds = %6
+16:                                               ; preds = %6
   %.not = icmp eq i32 %2, 0
   br i1 %.not, label %._crit_edge.thread, label %25
 
-18:                                               ; preds = %11
+17:                                               ; preds = %11
+  %18 = add nsw i32 %2, -1
   %19 = getelementptr inbounds nuw i8, ptr %1, i64 1
   %20 = load i8, ptr %19, align 1, !tbaa !3
   %21 = zext i8 %20 to i64
@@ -89,23 +89,23 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   %23 = icmp samesign ult i64 %22, 128
   br i1 %23, label %24, label %.lr.ph.preheader
 
-24:                                               ; preds = %18
+24:                                               ; preds = %17
   tail call void @ERR_new() #5
   tail call void @ERR_set_debug(ptr noundef nonnull @.str.2, i32 noundef 166, ptr noundef nonnull @__func__.long_c2i) #5
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 221, ptr noundef null) #5
   br label %42
 
-25:                                               ; preds = %17
+25:                                               ; preds = %16
   %26 = load i8, ptr %1, align 1, !tbaa !3
   %.not35 = icmp sgt i8 %26, -1
   %spec.select59 = select i1 %.not35, i64 0, i64 255
   %27 = icmp eq i32 %2, 1
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge.thread
 
-.lr.ph.preheader:                                 ; preds = %18, %.thread87, %25
-  %.181 = phi i64 [ %spec.select59, %25 ], [ %spec.select5989, %.thread87 ], [ %.0, %18 ]
-  %.031414780 = phi ptr [ %1, %25 ], [ %1, %.thread87 ], [ %19, %18 ]
-  %.032404979 = phi i32 [ 1, %25 ], [ %2, %.thread87 ], [ %12, %18 ]
+.lr.ph.preheader:                                 ; preds = %17, %.thread87, %25
+  %.181 = phi i64 [ %spec.select59, %25 ], [ %spec.select5989, %.thread87 ], [ %.0, %17 ]
+  %.031414780 = phi ptr [ %1, %25 ], [ %1, %.thread87 ], [ %19, %17 ]
+  %.032404979 = phi i32 [ 1, %25 ], [ %2, %.thread87 ], [ %18, %17 ]
   %wide.trip.count = zext nneg i32 %.032404979 to i64
   br label %.lr.ph
 
@@ -132,9 +132,9 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   tail call void (i32, i32, ptr, ...) @ERR_set_error(i32 noundef 13, i32 noundef 128, ptr noundef null) #5
   br label %42
 
-._crit_edge.thread:                               ; preds = %17, %25, %._crit_edge
-  %.027.lcssa93 = phi i64 [ %33, %._crit_edge ], [ 0, %25 ], [ 0, %17 ]
-  %.18292 = phi i64 [ %.181, %._crit_edge ], [ %spec.select59, %25 ], [ 0, %17 ]
+._crit_edge.thread:                               ; preds = %16, %25, %._crit_edge
+  %.027.lcssa93 = phi i64 [ %33, %._crit_edge ], [ 0, %25 ], [ 0, %16 ]
+  %.18292 = phi i64 [ %.181, %._crit_edge ], [ %spec.select59, %25 ], [ 0, %16 ]
   %.not36 = icmp ne i64 %.18292, 0
   %36 = sext i1 %.not36 to i64
   %spec.select = xor i64 %.027.lcssa93, %36
@@ -153,8 +153,8 @@ define internal range(i32 0, 2) i32 @long_c2i(ptr noundef writeonly captures(non
   store i64 %spec.select, ptr %0, align 8
   br label %42
 
-42:                                               ; preds = %41, %40, %35, %24, %16
-  %.030 = phi i32 [ 0, %16 ], [ 0, %35 ], [ 0, %40 ], [ 1, %41 ], [ 0, %24 ]
+42:                                               ; preds = %41, %40, %35, %24, %15
+  %.030 = phi i32 [ 0, %15 ], [ 0, %35 ], [ 0, %40 ], [ 1, %41 ], [ 0, %24 ]
   ret i32 %.030
 }
 

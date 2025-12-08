@@ -957,7 +957,7 @@ define ptr @u16_normalize_tobuffer(i16 noundef zeroext %0, ptr noundef writeonly
   store i8 %26, ptr %27, align 1, !tbaa !3
   %28 = lshr i16 %.03438.i, 4
   %29 = add nsw i64 %.03039.i, -1
-  %30 = icmp samesign ugt i64 %29, 2
+  %30 = icmp samesign ugt i64 %.03039.i, 3
   br i1 %30, label %22, label %31
 
 31:                                               ; preds = %22
@@ -1041,7 +1041,7 @@ define noundef ptr @entity_norm(ptr noundef writeonly captures(address_is_null, 
   store i8 %27, ptr %28, align 1, !tbaa !3
   %29 = lshr i16 %.03438.i, 4
   %30 = add nsw i64 %.03039.i, -1
-  %31 = icmp samesign ugt i64 %30, 2
+  %31 = icmp samesign ugt i64 %.03039.i, 3
   br i1 %31, label %23, label %32
 
 32:                                               ; preds = %23

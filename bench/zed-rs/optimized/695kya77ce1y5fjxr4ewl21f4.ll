@@ -64987,7 +64987,7 @@ define hidden void @_ZN9zune_jpeg7headers10parse_app117hecefb1da5dac497dE(ptr de
   br i1 %.not, label %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17hedded62fbd93ecacE.exit.thread", label %24
 
 24:                                               ; preds = %20
-  %25 = icmp samesign ugt i64 %22, 6
+  %25 = icmp ugt i16 %18, 8
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -65113,7 +65113,7 @@ define hidden void @_ZN9zune_jpeg7headers10parse_app117hf55b11156ea12b33E(ptr de
   br i1 %.not, label %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h581c733232982d95E.exit.thread", label %21
 
 21:                                               ; preds = %17
-  %22 = icmp samesign ugt i64 %19, 6
+  %22 = icmp ugt i16 %15, 8
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21
@@ -65244,7 +65244,7 @@ define hidden void @_ZN9zune_jpeg7headers10parse_app217h55c0dc022cf2c2f3E(ptr de
   br i1 %.not, label %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17hedded62fbd93ecacE.exit.thread", label %24
 
 24:                                               ; preds = %20
-  %25 = icmp samesign ugt i64 %22, 14
+  %25 = icmp ugt i16 %18, 16
   br i1 %25, label %26, label %29
 
 26:                                               ; preds = %24
@@ -65297,8 +65297,8 @@ define hidden void @_ZN9zune_jpeg7headers10parse_app217h55c0dc022cf2c2f3E(ptr de
   %49 = add i64 %47, %48
   %50 = icmp ult i64 %49, %47
   %.not.i = icmp ugt i64 %49, %16
-  %or.cond69 = or i1 %50, %.not.i
-  br i1 %or.cond69, label %51, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc83073e2cabd1941E.exit"
+  %or.cond68 = or i1 %50, %.not.i
+  br i1 %or.cond68, label %51, label %"_ZN4core6result19Result$LT$T$C$E$GT$6unwrap17hc83073e2cabd1941E.exit"
 
 51:                                               ; preds = %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$6get_u817he61c63da8d700e3eE.exit28"
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !11386
@@ -65410,7 +65410,7 @@ define hidden void @_ZN9zune_jpeg7headers10parse_app217hcb1a38fcefbd3245E(ptr de
   br i1 %.not, label %"_ZN9zune_core10bytestream6reader20ZByteReader$LT$T$GT$24get_u16_inner_or_default17h581c733232982d95E.exit.thread", label %21
 
 21:                                               ; preds = %17
-  %22 = icmp samesign ugt i64 %19, 14
+  %22 = icmp ugt i16 %15, 16
   br i1 %22, label %23, label %26
 
 23:                                               ; preds = %21

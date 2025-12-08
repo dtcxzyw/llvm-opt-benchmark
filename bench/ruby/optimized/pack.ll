@@ -2261,7 +2261,7 @@ define internal fastcc void @encodes(i64 noundef %0, ptr noundef readonly captur
   store i8 %49, ptr %51, align 1, !tbaa !26
   %52 = getelementptr i8, ptr %.162, i64 3
   %53 = add nsw i64 %.15761, -3
-  %54 = icmp samesign ugt i64 %53, 2
+  %54 = icmp samesign ugt i64 %.15761, 5
   %55 = sub i64 4092, %.260
   %56 = icmp sgt i64 %55, 3
   %57 = and i1 %54, %56

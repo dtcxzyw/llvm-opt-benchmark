@@ -2165,7 +2165,7 @@ _ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE8generateIPjEEvT_S7_
   %46 = load i32, ptr %44, align 8, !tbaa !20
   store i32 %46, ptr %43, align 16, !tbaa !20
   store i32 %45, ptr %44, align 8, !tbaa !20
-  %47 = icmp samesign ugt i64 %42, 7
+  %47 = icmp samesign ugt i64 %.029, 15
   br i1 %47, label %_ZN4absl15random_internal13SaltedSeedSeqINS1_ISt8seed_seqEEE8generateIPjEEvT_S7_.exit, label %.loopexit, !llvm.loop !98
 
 48:                                               ; preds = %2
@@ -3434,7 +3434,7 @@ define linkonce_odr dso_local void @_ZN4absl15random_internal13randen_engineImEC
   %30 = load i32, ptr %28, align 8, !tbaa !20
   store i32 %30, ptr %27, align 16, !tbaa !20
   store i32 %29, ptr %28, align 8, !tbaa !20
-  %31 = icmp samesign ugt i64 %26, 7
+  %31 = icmp samesign ugt i64 %.022.i.i, 15
   br i1 %31, label %9, label %32, !llvm.loop !126
 
 32:                                               ; preds = %9

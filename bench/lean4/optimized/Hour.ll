@@ -806,7 +806,7 @@ lean_int_add.exit:                                ; preds = %16, %21, %.critedge
   %25 = ptrtoint ptr %.0.i to i64
   %26 = and i64 %25, 1
   %.not.i13 = icmp eq i64 %26, 0
-  br i1 %.not.i13, label %50, label %27, !prof !13
+  br i1 %.not.i13, label %49, label %27, !prof !13
 
 27:                                               ; preds = %lean_int_add.exit
   %28 = ptrtoint ptr %24 to i64
@@ -832,100 +832,99 @@ lean_int_emod.exit.thread23:                      ; preds = %27
   %.p.i = tail call i64 @llvm.abs.i64(i64 %33, i1 true)
   %40 = select i1 %39, i64 %.p.i, i64 0
   %.0.i14 = add nsw i64 %40, %38
-  %41 = add nsw i64 %.0.i14, 2147483648
-  %42 = icmp samesign ult i64 %41, 4294967296
-  br i1 %42, label %43, label %48, !prof !10
+  %41 = icmp slt i64 %.0.i14, 2147483648
+  br i1 %41, label %42, label %47, !prof !10
 
-43:                                               ; preds = %35
-  %44 = shl nsw i64 %.0.i14, 1
-  %45 = and i64 %44, 8589934590
-  %46 = or disjoint i64 %45, 1
-  %47 = inttoptr i64 %46 to ptr
+42:                                               ; preds = %35
+  %43 = shl nsw i64 %.0.i14, 1
+  %44 = and i64 %43, 8589934590
+  %45 = or disjoint i64 %44, 1
+  %46 = inttoptr i64 %45 to ptr
   br label %lean_dec.exit9
 
-48:                                               ; preds = %35
-  %49 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i14) #4
+47:                                               ; preds = %35
+  %48 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i14) #4
   br label %lean_dec.exit9
 
-50:                                               ; preds = %lean_int_add.exit
-  %51 = tail call ptr @lean_int_big_emod(ptr noundef %.0.i, ptr noundef %24) #4
-  %52 = load i32, ptr %.0.i, align 4, !tbaa !5
-  %53 = icmp sgt i32 %52, 1
-  br i1 %53, label %54, label %56, !prof !10
+49:                                               ; preds = %lean_int_add.exit
+  %50 = tail call ptr @lean_int_big_emod(ptr noundef %.0.i, ptr noundef %24) #4
+  %51 = load i32, ptr %.0.i, align 4, !tbaa !5
+  %52 = icmp sgt i32 %51, 1
+  br i1 %52, label %53, label %55, !prof !10
 
-54:                                               ; preds = %50
-  %55 = add nsw i32 %52, -1
-  store i32 %55, ptr %.0.i, align 4, !tbaa !5
+53:                                               ; preds = %49
+  %54 = add nsw i32 %51, -1
+  store i32 %54, ptr %.0.i, align 4, !tbaa !5
   br label %lean_dec.exit9
 
-56:                                               ; preds = %50
-  %.not.i = icmp eq i32 %52, 0
-  br i1 %.not.i, label %lean_dec.exit9, label %57
+55:                                               ; preds = %49
+  %.not.i = icmp eq i32 %51, 0
+  br i1 %.not.i, label %lean_dec.exit9, label %56
 
-57:                                               ; preds = %56
+56:                                               ; preds = %55
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.0.i) #4
   br label %lean_dec.exit9
 
-lean_dec.exit9:                                   ; preds = %48, %43, %31, %57, %56, %54, %lean_int_emod.exit.thread23
-  %.1.i22 = phi ptr [ %30, %lean_int_emod.exit.thread23 ], [ %51, %54 ], [ %51, %56 ], [ %51, %57 ], [ %49, %48 ], [ %47, %43 ], [ %.0.i, %31 ]
-  %58 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
-  %59 = ptrtoint ptr %.1.i22 to i64
-  %60 = and i64 %59, 1
-  %.not.i16 = icmp eq i64 %60, 0
-  br i1 %.not.i16, label %80, label %61, !prof !13
+lean_dec.exit9:                                   ; preds = %47, %42, %31, %56, %55, %53, %lean_int_emod.exit.thread23
+  %.1.i22 = phi ptr [ %30, %lean_int_emod.exit.thread23 ], [ %50, %53 ], [ %50, %55 ], [ %50, %56 ], [ %48, %47 ], [ %46, %42 ], [ %.0.i, %31 ]
+  %57 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__4, align 8, !tbaa !11
+  %58 = ptrtoint ptr %.1.i22 to i64
+  %59 = and i64 %58, 1
+  %.not.i16 = icmp eq i64 %59, 0
+  br i1 %.not.i16, label %79, label %60, !prof !13
 
-61:                                               ; preds = %lean_dec.exit9
-  %62 = ptrtoint ptr %58 to i64
-  %63 = and i64 %62, 1
-  %.not7.i17 = icmp eq i64 %63, 0
-  br i1 %.not7.i17, label %lean_int_add.exit20.thread26, label %65, !prof !13
+60:                                               ; preds = %lean_dec.exit9
+  %61 = ptrtoint ptr %57 to i64
+  %62 = and i64 %61, 1
+  %.not7.i17 = icmp eq i64 %62, 0
+  br i1 %.not7.i17, label %lean_int_add.exit20.thread26, label %64, !prof !13
 
-lean_int_add.exit20.thread26:                     ; preds = %61
-  %64 = tail call ptr @lean_int_big_add(ptr noundef %.1.i22, ptr noundef %58) #4
+lean_int_add.exit20.thread26:                     ; preds = %60
+  %63 = tail call ptr @lean_int_big_add(ptr noundef %.1.i22, ptr noundef %57) #4
   br label %lean_dec.exit
 
-65:                                               ; preds = %61
-  %66 = shl i64 %59, 31
-  %67 = ashr i64 %66, 32
-  %68 = shl i64 %62, 31
-  %69 = ashr i64 %68, 32
-  %70 = add nsw i64 %69, %67
-  %71 = add nsw i64 %70, 2147483648
-  %72 = icmp ult i64 %71, 4294967296
-  br i1 %72, label %73, label %78, !prof !10
+64:                                               ; preds = %60
+  %65 = shl i64 %58, 31
+  %66 = ashr i64 %65, 32
+  %67 = shl i64 %61, 31
+  %68 = ashr i64 %67, 32
+  %69 = add nsw i64 %68, %66
+  %70 = add nsw i64 %69, 2147483648
+  %71 = icmp ult i64 %70, 4294967296
+  br i1 %71, label %72, label %77, !prof !10
 
-73:                                               ; preds = %65
-  %74 = shl nsw i64 %70, 1
-  %75 = and i64 %74, 8589934590
-  %76 = or disjoint i64 %75, 1
-  %77 = inttoptr i64 %76 to ptr
+72:                                               ; preds = %64
+  %73 = shl nsw i64 %69, 1
+  %74 = and i64 %73, 8589934590
+  %75 = or disjoint i64 %74, 1
+  %76 = inttoptr i64 %75 to ptr
   br label %lean_dec.exit
 
-78:                                               ; preds = %65
-  %79 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %70) #4
+77:                                               ; preds = %64
+  %78 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %69) #4
   br label %lean_dec.exit
 
-80:                                               ; preds = %lean_dec.exit9
-  %81 = tail call ptr @lean_int_big_add(ptr noundef %.1.i22, ptr noundef %58) #4
-  %82 = load i32, ptr %.1.i22, align 4, !tbaa !5
-  %83 = icmp sgt i32 %82, 1
-  br i1 %83, label %84, label %86, !prof !10
+79:                                               ; preds = %lean_dec.exit9
+  %80 = tail call ptr @lean_int_big_add(ptr noundef %.1.i22, ptr noundef %57) #4
+  %81 = load i32, ptr %.1.i22, align 4, !tbaa !5
+  %82 = icmp sgt i32 %81, 1
+  br i1 %82, label %83, label %85, !prof !10
 
-84:                                               ; preds = %80
-  %85 = add nsw i32 %82, -1
-  store i32 %85, ptr %.1.i22, align 4, !tbaa !5
+83:                                               ; preds = %79
+  %84 = add nsw i32 %81, -1
+  store i32 %84, ptr %.1.i22, align 4, !tbaa !5
   br label %lean_dec.exit
 
-86:                                               ; preds = %80
-  %.not.i10 = icmp eq i32 %82, 0
-  br i1 %.not.i10, label %lean_dec.exit, label %87
+85:                                               ; preds = %79
+  %.not.i10 = icmp eq i32 %81, 0
+  br i1 %.not.i10, label %lean_dec.exit, label %86
 
-87:                                               ; preds = %86
+86:                                               ; preds = %85
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %.1.i22) #4
   br label %lean_dec.exit
 
-lean_dec.exit:                                    ; preds = %78, %73, %87, %86, %84, %lean_int_add.exit20.thread26
-  %.0.i1825 = phi ptr [ %64, %lean_int_add.exit20.thread26 ], [ %81, %84 ], [ %81, %86 ], [ %81, %87 ], [ %79, %78 ], [ %77, %73 ]
+lean_dec.exit:                                    ; preds = %77, %72, %86, %85, %83, %lean_int_add.exit20.thread26
+  %.0.i1825 = phi ptr [ %63, %lean_int_add.exit20.thread26 ], [ %80, %83 ], [ %80, %85 ], [ %80, %86 ], [ %78, %77 ], [ %76, %72 ]
   ret ptr %.0.i1825
 }
 
@@ -1334,7 +1333,7 @@ define ptr @initialize_Std_Time_Time_Unit_Hour(i8 noundef zeroext %0, ptr nounde
   %.val = load i32, ptr %9, align 4
   %.mask.i = and i32 %.val, -16777216
   %10 = icmp eq i32 %.mask.i, 16777216
-  br i1 %10, label %344, label %11
+  br i1 %10, label %340, label %11
 
 11:                                               ; preds = %7
   %12 = load i32, ptr %8, align 4, !tbaa !5
@@ -1360,7 +1359,7 @@ lean_dec_ref.exit:                                ; preds = %14, %16, %17
   %.val22 = load i32, ptr %19, align 4
   %.mask.i25 = and i32 %.val22, -16777216
   %20 = icmp eq i32 %.mask.i25, 16777216
-  br i1 %20, label %344, label %21
+  br i1 %20, label %340, label %21
 
 21:                                               ; preds = %lean_dec_ref.exit
   %22 = load i32, ptr %18, align 4, !tbaa !5
@@ -1386,7 +1385,7 @@ lean_dec_ref.exit17:                              ; preds = %24, %26, %27
   %.val23 = load i32, ptr %29, align 4
   %.mask.i26 = and i32 %.val23, -16777216
   %30 = icmp eq i32 %.mask.i26, 16777216
-  br i1 %30, label %344, label %31
+  br i1 %30, label %340, label %31
 
 31:                                               ; preds = %lean_dec_ref.exit17
   %32 = load i32, ptr %28, align 4, !tbaa !5
@@ -1412,7 +1411,7 @@ lean_dec_ref.exit19:                              ; preds = %34, %36, %37
   %.val24 = load i32, ptr %39, align 4
   %.mask.i27 = and i32 %.val24, -16777216
   %40 = icmp eq i32 %.mask.i27, 16777216
-  br i1 %40, label %344, label %41
+  br i1 %40, label %340, label %41
 
 41:                                               ; preds = %lean_dec_ref.exit19
   %42 = load i32, ptr %38, align 4, !tbaa !5
@@ -1548,341 +1547,339 @@ _init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit: ; preds = %71, %76,
   %.p.i.i = tail call i64 @llvm.abs.i64(i64 %88, i1 true)
   %95 = select i1 %94, i64 %.p.i.i, i64 0
   %.0.i.i40 = add nsw i64 %95, %93
-  %96 = add nsw i64 %.0.i.i40, 2147483648
-  %97 = icmp samesign ult i64 %96, 4294967296
-  br i1 %97, label %98, label %103, !prof !10
+  %96 = icmp slt i64 %.0.i.i40, 2147483648
+  br i1 %96, label %97, label %102, !prof !10
 
-98:                                               ; preds = %90
-  %99 = shl nsw i64 %.0.i.i40, 1
-  %100 = and i64 %99, 8589934590
-  %101 = or disjoint i64 %100, 1
-  %102 = inttoptr i64 %101 to ptr
+97:                                               ; preds = %90
+  %98 = shl nsw i64 %.0.i.i40, 1
+  %99 = and i64 %98, 8589934590
+  %100 = or disjoint i64 %99, 1
+  %101 = inttoptr i64 %100 to ptr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
-103:                                              ; preds = %90
-  %104 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i40) #4
+102:                                              ; preds = %90
+  %103 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i40) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
 .critedge.i.i41:                                  ; preds = %83, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__5.exit
-  %105 = tail call ptr @lean_int_big_emod(ptr noundef %79, ptr noundef %80) #4
+  %104 = tail call ptr @lean_int_big_emod(ptr noundef %79, ptr noundef %80) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
 
-_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit: ; preds = %86, %98, %103, %.critedge.i.i41
-  %.1.i.i = phi ptr [ %105, %.critedge.i.i41 ], [ %79, %86 ], [ %102, %98 ], [ %104, %103 ]
+_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit: ; preds = %86, %97, %102, %.critedge.i.i41
+  %.1.i.i = phi ptr [ %104, %.critedge.i.i41 ], [ %79, %86 ], [ %101, %97 ], [ %103, %102 ]
   store ptr %.1.i.i, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i) #4
-  %106 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
-  %107 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
-  %108 = ptrtoint ptr %106 to i64
-  %109 = and i64 %108, 1
-  %.not.i.i42 = icmp eq i64 %109, 0
-  br i1 %.not.i.i42, label %.critedge.i.i45, label %110, !prof !13
+  %105 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__7, align 8, !tbaa !11
+  %106 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
+  %107 = ptrtoint ptr %105 to i64
+  %108 = and i64 %107, 1
+  %.not.i.i42 = icmp eq i64 %108, 0
+  br i1 %.not.i.i42, label %.critedge.i.i45, label %109, !prof !13
 
-110:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
-  %111 = ptrtoint ptr %107 to i64
-  %112 = and i64 %111, 1
-  %.not7.i.i43 = icmp eq i64 %112, 0
-  br i1 %.not7.i.i43, label %.critedge.i.i45, label %113, !prof !13
+109:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
+  %110 = ptrtoint ptr %106 to i64
+  %111 = and i64 %110, 1
+  %.not7.i.i43 = icmp eq i64 %111, 0
+  br i1 %.not7.i.i43, label %.critedge.i.i45, label %112, !prof !13
 
-113:                                              ; preds = %110
-  %114 = shl i64 %108, 31
-  %115 = ashr i64 %114, 32
-  %116 = shl i64 %111, 31
-  %117 = ashr i64 %116, 32
-  %118 = add nsw i64 %117, %115
-  %119 = add nsw i64 %118, 2147483648
-  %120 = icmp ult i64 %119, 4294967296
-  br i1 %120, label %121, label %126, !prof !10
+112:                                              ; preds = %109
+  %113 = shl i64 %107, 31
+  %114 = ashr i64 %113, 32
+  %115 = shl i64 %110, 31
+  %116 = ashr i64 %115, 32
+  %117 = add nsw i64 %116, %114
+  %118 = add nsw i64 %117, 2147483648
+  %119 = icmp ult i64 %118, 4294967296
+  br i1 %119, label %120, label %125, !prof !10
 
-121:                                              ; preds = %113
-  %122 = shl nsw i64 %118, 1
-  %123 = and i64 %122, 8589934590
-  %124 = or disjoint i64 %123, 1
-  %125 = inttoptr i64 %124 to ptr
+120:                                              ; preds = %112
+  %121 = shl nsw i64 %117, 1
+  %122 = and i64 %121, 8589934590
+  %123 = or disjoint i64 %122, 1
+  %124 = inttoptr i64 %123 to ptr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
 
-126:                                              ; preds = %113
-  %127 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %118) #4
+125:                                              ; preds = %112
+  %126 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %117) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
 
-.critedge.i.i45:                                  ; preds = %110, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
-  %128 = tail call ptr @lean_int_big_add(ptr noundef %106, ptr noundef %107) #4
+.critedge.i.i45:                                  ; preds = %109, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__7.exit
+  %127 = tail call ptr @lean_int_big_add(ptr noundef %105, ptr noundef %106) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
 
-_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit: ; preds = %121, %126, %.critedge.i.i45
-  %.0.i.i44 = phi ptr [ %128, %.critedge.i.i45 ], [ %125, %121 ], [ %127, %126 ]
+_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit: ; preds = %120, %125, %.critedge.i.i45
+  %.0.i.i44 = phi ptr [ %127, %.critedge.i.i45 ], [ %124, %120 ], [ %126, %125 ]
   store ptr %.0.i.i44, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i44) #4
-  %129 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
-  %130 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
-  %131 = ptrtoint ptr %129 to i64
-  %132 = and i64 %131, 1
-  %.not.i.i46 = icmp eq i64 %132, 0
-  br i1 %.not.i.i46, label %.critedge.i.i51, label %133, !prof !13
+  %128 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__8, align 8, !tbaa !11
+  %129 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__5, align 8, !tbaa !11
+  %130 = ptrtoint ptr %128 to i64
+  %131 = and i64 %130, 1
+  %.not.i.i46 = icmp eq i64 %131, 0
+  br i1 %.not.i.i46, label %.critedge.i.i51, label %132, !prof !13
 
-133:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
-  %134 = ptrtoint ptr %130 to i64
-  %135 = and i64 %134, 1
-  %.not21.i.i47 = icmp eq i64 %135, 0
-  br i1 %.not21.i.i47, label %.critedge.i.i51, label %136, !prof !13
+132:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
+  %133 = ptrtoint ptr %129 to i64
+  %134 = and i64 %133, 1
+  %.not21.i.i47 = icmp eq i64 %134, 0
+  br i1 %.not21.i.i47, label %.critedge.i.i51, label %135, !prof !13
 
-136:                                              ; preds = %133
-  %137 = shl i64 %134, 31
-  %138 = ashr i64 %137, 32
-  %139 = icmp eq i64 %138, 0
-  br i1 %139, label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit, label %140
+135:                                              ; preds = %132
+  %136 = shl i64 %133, 31
+  %137 = ashr i64 %136, 32
+  %138 = icmp eq i64 %137, 0
+  br i1 %138, label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit, label %139
 
-140:                                              ; preds = %136
-  %141 = shl i64 %131, 31
-  %142 = ashr i64 %141, 32
-  %143 = srem i64 %142, %138
-  %144 = icmp slt i64 %143, 0
-  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %138, i1 true)
-  %145 = select i1 %144, i64 %.p.i.i48, i64 0
-  %.0.i.i49 = add nsw i64 %145, %143
-  %146 = add nsw i64 %.0.i.i49, 2147483648
-  %147 = icmp samesign ult i64 %146, 4294967296
-  br i1 %147, label %148, label %153, !prof !10
+139:                                              ; preds = %135
+  %140 = shl i64 %130, 31
+  %141 = ashr i64 %140, 32
+  %142 = srem i64 %141, %137
+  %143 = icmp slt i64 %142, 0
+  %.p.i.i48 = tail call i64 @llvm.abs.i64(i64 %137, i1 true)
+  %144 = select i1 %143, i64 %.p.i.i48, i64 0
+  %.0.i.i49 = add nsw i64 %144, %142
+  %145 = icmp slt i64 %.0.i.i49, 2147483648
+  br i1 %145, label %146, label %151, !prof !10
 
-148:                                              ; preds = %140
-  %149 = shl nsw i64 %.0.i.i49, 1
-  %150 = and i64 %149, 8589934590
-  %151 = or disjoint i64 %150, 1
-  %152 = inttoptr i64 %151 to ptr
+146:                                              ; preds = %139
+  %147 = shl nsw i64 %.0.i.i49, 1
+  %148 = and i64 %147, 8589934590
+  %149 = or disjoint i64 %148, 1
+  %150 = inttoptr i64 %149 to ptr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
-153:                                              ; preds = %140
-  %154 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i49) #4
+151:                                              ; preds = %139
+  %152 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i49) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
-.critedge.i.i51:                                  ; preds = %133, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
-  %155 = tail call ptr @lean_int_big_emod(ptr noundef %129, ptr noundef %130) #4
+.critedge.i.i51:                                  ; preds = %132, %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__8.exit
+  %153 = tail call ptr @lean_int_big_emod(ptr noundef %128, ptr noundef %129) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
 
-_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit: ; preds = %136, %148, %153, %.critedge.i.i51
-  %.1.i.i50 = phi ptr [ %155, %.critedge.i.i51 ], [ %129, %136 ], [ %152, %148 ], [ %154, %153 ]
+_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit: ; preds = %135, %146, %151, %.critedge.i.i51
+  %.1.i.i50 = phi ptr [ %153, %.critedge.i.i51 ], [ %128, %135 ], [ %150, %146 ], [ %152, %151 ]
   store ptr %.1.i.i50, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i50) #4
-  %156 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
-  %157 = ptrtoint ptr %156 to i64
-  %158 = and i64 %157, 1
-  %.not.i.i52 = icmp eq i64 %158, 0
-  br i1 %.not.i.i52, label %.critedge.i.i55, label %159, !prof !13
+  %154 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__9, align 8, !tbaa !11
+  %155 = ptrtoint ptr %154 to i64
+  %156 = and i64 %155, 1
+  %.not.i.i52 = icmp eq i64 %156, 0
+  br i1 %.not.i.i52, label %.critedge.i.i55, label %157, !prof !13
 
-159:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
-  %160 = and i64 %157, 8589934591
-  %161 = inttoptr i64 %160 to ptr
+157:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
+  %158 = and i64 %155, 8589934591
+  %159 = inttoptr i64 %158 to ptr
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit
 
 .critedge.i.i55:                                  ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__9.exit
-  %162 = tail call ptr @lean_int_big_add(ptr noundef %156, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
+  %160 = tail call ptr @lean_int_big_add(ptr noundef %154, ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   br label %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit
 
-_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit: ; preds = %159, %.critedge.i.i55
-  %.0.i.i54 = phi ptr [ %162, %.critedge.i.i55 ], [ %161, %159 ]
+_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit: ; preds = %157, %.critedge.i.i55
+  %.0.i.i54 = phi ptr [ %160, %.critedge.i.i55 ], [ %159, %157 ]
   store ptr %.0.i.i54, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__10, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i54) #4
-  %163 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__10, align 8, !tbaa !11
-  store ptr %163, ptr @l_Std_Time_Hour_instInhabitedOrdinal, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %163) #4
+  %161 = load ptr, ptr @l_Std_Time_Hour_instInhabitedOrdinal___closed__10, align 8, !tbaa !11
+  store ptr %161, ptr @l_Std_Time_Hour_instInhabitedOrdinal, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %161) #4
   tail call void @lean_inc_heartbeat() #4
-  %164 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %165 = icmp eq ptr %164, null
-  br i1 %165, label %166, label %_init_l_Std_Time_Hour_instOrdOrdinal___closed__1.exit
+  %162 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %163 = icmp eq ptr %162, null
+  br i1 %163, label %164, label %_init_l_Std_Time_Hour_instOrdOrdinal___closed__1.exit
 
-166:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit
+164:                                              ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOrdOrdinal___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instInhabitedOrdinal___closed__10.exit
-  %167 = getelementptr inbounds nuw i8, ptr %164, i64 4
-  store i32 1, ptr %164, align 4, !tbaa !5
-  store i32 -184549352, ptr %167, align 4
-  %168 = getelementptr inbounds nuw i8, ptr %164, i64 8
-  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %168, align 8, !tbaa !11
-  %169 = getelementptr inbounds nuw i8, ptr %164, i64 16
-  store i16 1, ptr %169, align 8, !tbaa !16
-  %170 = getelementptr inbounds nuw i8, ptr %164, i64 18
-  store i16 0, ptr %170, align 2, !tbaa !16
-  store ptr %164, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %164) #4
-  %171 = load ptr, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__1, align 8, !tbaa !11
+  %165 = getelementptr inbounds nuw i8, ptr %162, i64 4
+  store i32 1, ptr %162, align 4, !tbaa !5
+  store i32 -184549352, ptr %165, align 4
+  %166 = getelementptr inbounds nuw i8, ptr %162, i64 8
+  store ptr @l_Std_Time_Internal_Bounded_instOrd___rarg___lambda__1___boxed, ptr %166, align 8, !tbaa !11
+  %167 = getelementptr inbounds nuw i8, ptr %162, i64 16
+  store i16 1, ptr %167, align 8, !tbaa !16
+  %168 = getelementptr inbounds nuw i8, ptr %162, i64 18
+  store i16 0, ptr %168, align 2, !tbaa !16
+  store ptr %162, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %162) #4
+  %169 = load ptr, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__1, align 8, !tbaa !11
   tail call void @lean_inc_heartbeat() #4
-  %172 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
-  %173 = icmp eq ptr %172, null
-  br i1 %173, label %174, label %_init_l_Std_Time_Hour_instOrdOrdinal___closed__2.exit
+  %170 = tail call noalias ptr @mi_malloc_small(i64 noundef 32) #4
+  %171 = icmp eq ptr %170, null
+  br i1 %171, label %172, label %_init_l_Std_Time_Hour_instOrdOrdinal___closed__2.exit
 
-174:                                              ; preds = %_init_l_Std_Time_Hour_instOrdOrdinal___closed__1.exit
+172:                                              ; preds = %_init_l_Std_Time_Hour_instOrdOrdinal___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOrdOrdinal___closed__2.exit: ; preds = %_init_l_Std_Time_Hour_instOrdOrdinal___closed__1.exit
-  %175 = getelementptr inbounds nuw i8, ptr %172, i64 4
-  store i32 1, ptr %172, align 4, !tbaa !5
-  store i32 -184549344, ptr %175, align 4
-  %176 = getelementptr inbounds nuw i8, ptr %172, i64 8
-  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %176, align 8, !tbaa !11
-  %177 = getelementptr inbounds nuw i8, ptr %172, i64 16
-  store i16 3, ptr %177, align 8, !tbaa !16
-  %178 = getelementptr inbounds nuw i8, ptr %172, i64 18
-  store i16 1, ptr %178, align 2, !tbaa !16
-  %179 = getelementptr inbounds nuw i8, ptr %172, i64 24
-  store ptr %171, ptr %179, align 8, !tbaa !11
-  store ptr %172, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %172) #4
-  %180 = load ptr, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__2, align 8, !tbaa !11
-  store ptr %180, ptr @l_Std_Time_Hour_instOrdOrdinal, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %180) #4
+  %173 = getelementptr inbounds nuw i8, ptr %170, i64 4
+  store i32 1, ptr %170, align 4, !tbaa !5
+  store i32 -184549344, ptr %173, align 4
+  %174 = getelementptr inbounds nuw i8, ptr %170, i64 8
+  store ptr @l_compareOn___at_Std_Time_Internal_Bounded_instOrd___spec__1___rarg___boxed, ptr %174, align 8, !tbaa !11
+  %175 = getelementptr inbounds nuw i8, ptr %170, i64 16
+  store i16 3, ptr %175, align 8, !tbaa !16
+  %176 = getelementptr inbounds nuw i8, ptr %170, i64 18
+  store i16 1, ptr %176, align 2, !tbaa !16
+  %177 = getelementptr inbounds nuw i8, ptr %170, i64 24
+  store ptr %169, ptr %177, align 8, !tbaa !11
+  store ptr %170, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %170) #4
+  %178 = load ptr, ptr @l_Std_Time_Hour_instOrdOrdinal___closed__2, align 8, !tbaa !11
+  store ptr %178, ptr @l_Std_Time_Hour_instOrdOrdinal, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %178) #4
   tail call void @lean_inc_heartbeat() #4
-  %181 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %182 = icmp eq ptr %181, null
-  br i1 %182, label %183, label %_init_l_Std_Time_Hour_instOffsetRepr___closed__1.exit
+  %179 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %180 = icmp eq ptr %179, null
+  br i1 %180, label %181, label %_init_l_Std_Time_Hour_instOffsetRepr___closed__1.exit
 
-183:                                              ; preds = %_init_l_Std_Time_Hour_instOrdOrdinal___closed__2.exit
+181:                                              ; preds = %_init_l_Std_Time_Hour_instOrdOrdinal___closed__2.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOffsetRepr___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instOrdOrdinal___closed__2.exit
-  %184 = getelementptr inbounds nuw i8, ptr %181, i64 4
-  store i32 1, ptr %181, align 4, !tbaa !5
-  store i32 -184549352, ptr %184, align 4
-  %185 = getelementptr inbounds nuw i8, ptr %181, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %185, align 8, !tbaa !11
-  %186 = getelementptr inbounds nuw i8, ptr %181, i64 16
-  store i16 2, ptr %186, align 8, !tbaa !16
-  %187 = getelementptr inbounds nuw i8, ptr %181, i64 18
-  store i16 0, ptr %187, align 2, !tbaa !16
-  store ptr %181, ptr @l_Std_Time_Hour_instOffsetRepr___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %181) #4
-  %188 = load ptr, ptr @l_Std_Time_Hour_instOffsetRepr___closed__1, align 8, !tbaa !11
-  store ptr %188, ptr @l_Std_Time_Hour_instOffsetRepr, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %188) #4
+  %182 = getelementptr inbounds nuw i8, ptr %179, i64 4
+  store i32 1, ptr %179, align 4, !tbaa !5
+  store i32 -184549352, ptr %182, align 4
+  %183 = getelementptr inbounds nuw i8, ptr %179, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instRepr___rarg___boxed, ptr %183, align 8, !tbaa !11
+  %184 = getelementptr inbounds nuw i8, ptr %179, i64 16
+  store i16 2, ptr %184, align 8, !tbaa !16
+  %185 = getelementptr inbounds nuw i8, ptr %179, i64 18
+  store i16 0, ptr %185, align 2, !tbaa !16
+  store ptr %179, ptr @l_Std_Time_Hour_instOffsetRepr___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %179) #4
+  %186 = load ptr, ptr @l_Std_Time_Hour_instOffsetRepr___closed__1, align 8, !tbaa !11
+  store ptr %186, ptr @l_Std_Time_Hour_instOffsetRepr, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %186) #4
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Hour_instOffsetInhabited, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   tail call void @lean_inc_heartbeat() #4
-  %189 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %190 = icmp eq ptr %189, null
-  br i1 %190, label %191, label %_init_l_Std_Time_Hour_instOffsetAdd___closed__1.exit
+  %187 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %188 = icmp eq ptr %187, null
+  br i1 %188, label %189, label %_init_l_Std_Time_Hour_instOffsetAdd___closed__1.exit
 
-191:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetRepr___closed__1.exit
+189:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetRepr___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOffsetAdd___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instOffsetRepr___closed__1.exit
-  %192 = getelementptr inbounds nuw i8, ptr %189, i64 4
-  store i32 1, ptr %189, align 4, !tbaa !5
-  store i32 -184549352, ptr %192, align 4
-  %193 = getelementptr inbounds nuw i8, ptr %189, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %193, align 8, !tbaa !11
-  %194 = getelementptr inbounds nuw i8, ptr %189, i64 16
-  store i16 2, ptr %194, align 8, !tbaa !16
-  %195 = getelementptr inbounds nuw i8, ptr %189, i64 18
-  store i16 0, ptr %195, align 2, !tbaa !16
-  store ptr %189, ptr @l_Std_Time_Hour_instOffsetAdd___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %189) #4
-  %196 = load ptr, ptr @l_Std_Time_Hour_instOffsetAdd___closed__1, align 8, !tbaa !11
-  store ptr %196, ptr @l_Std_Time_Hour_instOffsetAdd, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %196) #4
+  %190 = getelementptr inbounds nuw i8, ptr %187, i64 4
+  store i32 1, ptr %187, align 4, !tbaa !5
+  store i32 -184549352, ptr %190, align 4
+  %191 = getelementptr inbounds nuw i8, ptr %187, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_add___rarg___boxed, ptr %191, align 8, !tbaa !11
+  %192 = getelementptr inbounds nuw i8, ptr %187, i64 16
+  store i16 2, ptr %192, align 8, !tbaa !16
+  %193 = getelementptr inbounds nuw i8, ptr %187, i64 18
+  store i16 0, ptr %193, align 2, !tbaa !16
+  store ptr %187, ptr @l_Std_Time_Hour_instOffsetAdd___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %187) #4
+  %194 = load ptr, ptr @l_Std_Time_Hour_instOffsetAdd___closed__1, align 8, !tbaa !11
+  store ptr %194, ptr @l_Std_Time_Hour_instOffsetAdd, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %194) #4
   tail call void @lean_inc_heartbeat() #4
-  %197 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %198 = icmp eq ptr %197, null
-  br i1 %198, label %199, label %_init_l_Std_Time_Hour_instOffsetSub___closed__1.exit
+  %195 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %196 = icmp eq ptr %195, null
+  br i1 %196, label %197, label %_init_l_Std_Time_Hour_instOffsetSub___closed__1.exit
 
-199:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetAdd___closed__1.exit
+197:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetAdd___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOffsetSub___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instOffsetAdd___closed__1.exit
-  %200 = getelementptr inbounds nuw i8, ptr %197, i64 4
-  store i32 1, ptr %197, align 4, !tbaa !5
-  store i32 -184549352, ptr %200, align 4
-  %201 = getelementptr inbounds nuw i8, ptr %197, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %201, align 8, !tbaa !11
-  %202 = getelementptr inbounds nuw i8, ptr %197, i64 16
-  store i16 2, ptr %202, align 8, !tbaa !16
-  %203 = getelementptr inbounds nuw i8, ptr %197, i64 18
-  store i16 0, ptr %203, align 2, !tbaa !16
-  store ptr %197, ptr @l_Std_Time_Hour_instOffsetSub___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %197) #4
-  %204 = load ptr, ptr @l_Std_Time_Hour_instOffsetSub___closed__1, align 8, !tbaa !11
-  store ptr %204, ptr @l_Std_Time_Hour_instOffsetSub, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %204) #4
+  %198 = getelementptr inbounds nuw i8, ptr %195, i64 4
+  store i32 1, ptr %195, align 4, !tbaa !5
+  store i32 -184549352, ptr %198, align 4
+  %199 = getelementptr inbounds nuw i8, ptr %195, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_sub___rarg___boxed, ptr %199, align 8, !tbaa !11
+  %200 = getelementptr inbounds nuw i8, ptr %195, i64 16
+  store i16 2, ptr %200, align 8, !tbaa !16
+  %201 = getelementptr inbounds nuw i8, ptr %195, i64 18
+  store i16 0, ptr %201, align 2, !tbaa !16
+  store ptr %195, ptr @l_Std_Time_Hour_instOffsetSub___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %195) #4
+  %202 = load ptr, ptr @l_Std_Time_Hour_instOffsetSub___closed__1, align 8, !tbaa !11
+  store ptr %202, ptr @l_Std_Time_Hour_instOffsetSub, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %202) #4
   tail call void @lean_inc_heartbeat() #4
-  %205 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %206 = icmp eq ptr %205, null
-  br i1 %206, label %207, label %_init_l_Std_Time_Hour_instOffsetNeg___closed__1.exit
+  %203 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %204 = icmp eq ptr %203, null
+  br i1 %204, label %205, label %_init_l_Std_Time_Hour_instOffsetNeg___closed__1.exit
 
-207:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetSub___closed__1.exit
+205:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetSub___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOffsetNeg___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instOffsetSub___closed__1.exit
-  %208 = getelementptr inbounds nuw i8, ptr %205, i64 4
-  store i32 1, ptr %205, align 4, !tbaa !5
-  store i32 -184549352, ptr %208, align 4
-  %209 = getelementptr inbounds nuw i8, ptr %205, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %209, align 8, !tbaa !11
-  %210 = getelementptr inbounds nuw i8, ptr %205, i64 16
-  store i16 1, ptr %210, align 8, !tbaa !16
-  %211 = getelementptr inbounds nuw i8, ptr %205, i64 18
-  store i16 0, ptr %211, align 2, !tbaa !16
-  store ptr %205, ptr @l_Std_Time_Hour_instOffsetNeg___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %205) #4
-  %212 = load ptr, ptr @l_Std_Time_Hour_instOffsetNeg___closed__1, align 8, !tbaa !11
-  store ptr %212, ptr @l_Std_Time_Hour_instOffsetNeg, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %212) #4
+  %206 = getelementptr inbounds nuw i8, ptr %203, i64 4
+  store i32 1, ptr %203, align 4, !tbaa !5
+  store i32 -184549352, ptr %206, align 4
+  %207 = getelementptr inbounds nuw i8, ptr %203, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instNeg___rarg___boxed, ptr %207, align 8, !tbaa !11
+  %208 = getelementptr inbounds nuw i8, ptr %203, i64 16
+  store i16 1, ptr %208, align 8, !tbaa !16
+  %209 = getelementptr inbounds nuw i8, ptr %203, i64 18
+  store i16 0, ptr %209, align 2, !tbaa !16
+  store ptr %203, ptr @l_Std_Time_Hour_instOffsetNeg___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %203) #4
+  %210 = load ptr, ptr @l_Std_Time_Hour_instOffsetNeg___closed__1, align 8, !tbaa !11
+  store ptr %210, ptr @l_Std_Time_Hour_instOffsetNeg, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %210) #4
   tail call void @lean_inc_heartbeat() #4
-  %213 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %214 = icmp eq ptr %213, null
-  br i1 %214, label %215, label %_init_l_Std_Time_Hour_instOffsetToString___closed__1.exit
+  %211 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %212 = icmp eq ptr %211, null
+  br i1 %212, label %213, label %_init_l_Std_Time_Hour_instOffsetToString___closed__1.exit
 
-215:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetNeg___closed__1.exit
+213:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetNeg___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOffsetToString___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instOffsetNeg___closed__1.exit
-  %216 = getelementptr inbounds nuw i8, ptr %213, i64 4
-  store i32 1, ptr %213, align 4, !tbaa !5
-  store i32 -184549352, ptr %216, align 4
-  %217 = getelementptr inbounds nuw i8, ptr %213, i64 8
-  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %217, align 8, !tbaa !11
-  %218 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  store i16 1, ptr %218, align 8, !tbaa !16
-  %219 = getelementptr inbounds nuw i8, ptr %213, i64 18
-  store i16 0, ptr %219, align 2, !tbaa !16
-  store ptr %213, ptr @l_Std_Time_Hour_instOffsetToString___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %213) #4
-  %220 = load ptr, ptr @l_Std_Time_Hour_instOffsetToString___closed__1, align 8, !tbaa !11
-  store ptr %220, ptr @l_Std_Time_Hour_instOffsetToString, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %220) #4
+  %214 = getelementptr inbounds nuw i8, ptr %211, i64 4
+  store i32 1, ptr %211, align 4, !tbaa !5
+  store i32 -184549352, ptr %214, align 4
+  %215 = getelementptr inbounds nuw i8, ptr %211, i64 8
+  store ptr @l_Std_Time_Internal_UnitVal_instToString___rarg___boxed, ptr %215, align 8, !tbaa !11
+  %216 = getelementptr inbounds nuw i8, ptr %211, i64 16
+  store i16 1, ptr %216, align 8, !tbaa !16
+  %217 = getelementptr inbounds nuw i8, ptr %211, i64 18
+  store i16 0, ptr %217, align 2, !tbaa !16
+  store ptr %211, ptr @l_Std_Time_Hour_instOffsetToString___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %211) #4
+  %218 = load ptr, ptr @l_Std_Time_Hour_instOffsetToString___closed__1, align 8, !tbaa !11
+  store ptr %218, ptr @l_Std_Time_Hour_instOffsetToString, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %218) #4
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Hour_instOffsetLT, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   store ptr inttoptr (i64 1 to ptr), ptr @l_Std_Time_Hour_instOffsetLE, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 1 to ptr)) #4
   tail call void @lean_inc_heartbeat() #4
-  %221 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %222 = icmp eq ptr %221, null
-  br i1 %222, label %223, label %_init_l_Std_Time_Hour_instOrdOffset___closed__1.exit
+  %219 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %220 = icmp eq ptr %219, null
+  br i1 %220, label %221, label %_init_l_Std_Time_Hour_instOrdOffset___closed__1.exit
 
-223:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetToString___closed__1.exit
+221:                                              ; preds = %_init_l_Std_Time_Hour_instOffsetToString___closed__1.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 _init_l_Std_Time_Hour_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Time_Hour_instOffsetToString___closed__1.exit
-  %224 = getelementptr inbounds nuw i8, ptr %221, i64 4
-  store i32 1, ptr %221, align 4, !tbaa !5
-  store i32 -184549352, ptr %224, align 4
-  %225 = getelementptr inbounds nuw i8, ptr %221, i64 8
-  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %225, align 8, !tbaa !11
-  %226 = getelementptr inbounds nuw i8, ptr %221, i64 16
-  store i16 2, ptr %226, align 8, !tbaa !16
-  %227 = getelementptr inbounds nuw i8, ptr %221, i64 18
-  store i16 0, ptr %227, align 2, !tbaa !16
-  store ptr %221, ptr @l_Std_Time_Hour_instOrdOffset___closed__1, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef nonnull %221) #4
-  %228 = load ptr, ptr @l_Std_Time_Hour_instOrdOffset___closed__1, align 8, !tbaa !11
-  store ptr %228, ptr @l_Std_Time_Hour_instOrdOffset, align 8, !tbaa !11
-  tail call void @lean_mark_persistent(ptr noundef %228) #4
+  %222 = getelementptr inbounds nuw i8, ptr %219, i64 4
+  store i32 1, ptr %219, align 4, !tbaa !5
+  store i32 -184549352, ptr %222, align 4
+  %223 = getelementptr inbounds nuw i8, ptr %219, i64 8
+  store ptr @l_Std_Time_Internal_instOrdUnitVal___rarg___boxed, ptr %223, align 8, !tbaa !11
+  %224 = getelementptr inbounds nuw i8, ptr %219, i64 16
+  store i16 2, ptr %224, align 8, !tbaa !16
+  %225 = getelementptr inbounds nuw i8, ptr %219, i64 18
+  store i16 0, ptr %225, align 2, !tbaa !16
+  store ptr %219, ptr @l_Std_Time_Hour_instOrdOffset___closed__1, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef nonnull %219) #4
+  %226 = load ptr, ptr @l_Std_Time_Hour_instOrdOffset___closed__1, align 8, !tbaa !11
+  store ptr %226, ptr @l_Std_Time_Hour_instOrdOffset, align 8, !tbaa !11
+  tail call void @lean_mark_persistent(ptr noundef %226) #4
   store ptr inttoptr (i64 25 to ptr), ptr @l_Std_Time_Hour_Ordinal_toRelative___closed__1, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 25 to ptr)) #4
   store ptr inttoptr (i64 23 to ptr), ptr @l_Std_Time_Hour_Ordinal_toRelative___closed__2, align 8, !tbaa !11
@@ -1890,233 +1887,231 @@ _init_l_Std_Time_Hour_instOrdOffset___closed__1.exit: ; preds = %_init_l_Std_Tim
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 49 to ptr)) #4
   store ptr inttoptr (i64 47 to ptr), ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__2, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef nonnull inttoptr (i64 47 to ptr)) #4
-  %229 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__2, align 8, !tbaa !11
-  %230 = ptrtoint ptr %229 to i64
-  %231 = and i64 %230, 1
-  %.not.i.i60 = icmp eq i64 %231, 0
-  br i1 %.not.i.i60, label %.critedge.i.i63, label %232, !prof !13
+  %227 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__2, align 8, !tbaa !11
+  %228 = ptrtoint ptr %227 to i64
+  %229 = and i64 %228, 1
+  %.not.i.i60 = icmp eq i64 %229, 0
+  br i1 %.not.i.i60, label %.critedge.i.i63, label %230, !prof !13
 
-232:                                              ; preds = %_init_l_Std_Time_Hour_instOrdOffset___closed__1.exit
-  %233 = shl i64 %230, 31
-  %234 = ashr i64 %233, 32
-  %235 = add nsw i64 %234, 1
-  %236 = icmp slt i64 %234, 2147483647
-  br i1 %236, label %237, label %242, !prof !10
+230:                                              ; preds = %_init_l_Std_Time_Hour_instOrdOffset___closed__1.exit
+  %231 = shl i64 %228, 31
+  %232 = ashr i64 %231, 32
+  %233 = add nsw i64 %232, 1
+  %234 = icmp slt i64 %232, 2147483647
+  br i1 %234, label %235, label %240, !prof !10
 
-237:                                              ; preds = %232
-  %238 = shl nsw i64 %235, 1
-  %239 = and i64 %238, 8589934590
-  %240 = or disjoint i64 %239, 1
-  %241 = inttoptr i64 %240 to ptr
+235:                                              ; preds = %230
+  %236 = shl nsw i64 %233, 1
+  %237 = and i64 %236, 8589934590
+  %238 = or disjoint i64 %237, 1
+  %239 = inttoptr i64 %238 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
 
-242:                                              ; preds = %232
-  %243 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %235) #4
+240:                                              ; preds = %230
+  %241 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %233) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
 
 .critedge.i.i63:                                  ; preds = %_init_l_Std_Time_Hour_instOrdOffset___closed__1.exit
-  %244 = tail call ptr @lean_int_big_add(ptr noundef %229, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
+  %242 = tail call ptr @lean_int_big_add(ptr noundef %227, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
 
-_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit: ; preds = %237, %242, %.critedge.i.i63
-  %.0.i.i62 = phi ptr [ %244, %.critedge.i.i63 ], [ %241, %237 ], [ %243, %242 ]
+_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit: ; preds = %235, %240, %.critedge.i.i63
+  %.0.i.i62 = phi ptr [ %242, %.critedge.i.i63 ], [ %239, %235 ], [ %241, %240 ]
   store ptr %.0.i.i62, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i62) #4
-  %245 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__2, align 8, !tbaa !11
-  %246 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
-  %247 = ptrtoint ptr %245 to i64
-  %248 = and i64 %247, 1
-  %.not.i.i64 = icmp eq i64 %248, 0
-  br i1 %.not.i.i64, label %.critedge.i.i69, label %249, !prof !13
+  %243 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__2, align 8, !tbaa !11
+  %244 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
+  %245 = ptrtoint ptr %243 to i64
+  %246 = and i64 %245, 1
+  %.not.i.i64 = icmp eq i64 %246, 0
+  br i1 %.not.i.i64, label %.critedge.i.i69, label %247, !prof !13
 
-249:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
-  %250 = ptrtoint ptr %246 to i64
-  %251 = and i64 %250, 1
-  %.not21.i.i65 = icmp eq i64 %251, 0
-  br i1 %.not21.i.i65, label %.critedge.i.i69, label %252, !prof !13
+247:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
+  %248 = ptrtoint ptr %244 to i64
+  %249 = and i64 %248, 1
+  %.not21.i.i65 = icmp eq i64 %249, 0
+  br i1 %.not21.i.i65, label %.critedge.i.i69, label %250, !prof !13
 
-252:                                              ; preds = %249
-  %253 = shl i64 %250, 31
-  %254 = ashr i64 %253, 32
-  %255 = icmp eq i64 %254, 0
-  br i1 %255, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit, label %256
+250:                                              ; preds = %247
+  %251 = shl i64 %248, 31
+  %252 = ashr i64 %251, 32
+  %253 = icmp eq i64 %252, 0
+  br i1 %253, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit, label %254
 
-256:                                              ; preds = %252
-  %257 = shl i64 %247, 31
-  %258 = ashr i64 %257, 32
-  %259 = srem i64 %258, %254
-  %260 = icmp slt i64 %259, 0
-  %.p.i.i66 = tail call i64 @llvm.abs.i64(i64 %254, i1 true)
-  %261 = select i1 %260, i64 %.p.i.i66, i64 0
-  %.0.i.i67 = add nsw i64 %261, %259
-  %262 = add nsw i64 %.0.i.i67, 2147483648
-  %263 = icmp samesign ult i64 %262, 4294967296
-  br i1 %263, label %264, label %269, !prof !10
+254:                                              ; preds = %250
+  %255 = shl i64 %245, 31
+  %256 = ashr i64 %255, 32
+  %257 = srem i64 %256, %252
+  %258 = icmp slt i64 %257, 0
+  %.p.i.i66 = tail call i64 @llvm.abs.i64(i64 %252, i1 true)
+  %259 = select i1 %258, i64 %.p.i.i66, i64 0
+  %.0.i.i67 = add nsw i64 %259, %257
+  %260 = icmp slt i64 %.0.i.i67, 2147483648
+  br i1 %260, label %261, label %266, !prof !10
 
-264:                                              ; preds = %256
-  %265 = shl nsw i64 %.0.i.i67, 1
-  %266 = and i64 %265, 8589934590
-  %267 = or disjoint i64 %266, 1
-  %268 = inttoptr i64 %267 to ptr
+261:                                              ; preds = %254
+  %262 = shl nsw i64 %.0.i.i67, 1
+  %263 = and i64 %262, 8589934590
+  %264 = or disjoint i64 %263, 1
+  %265 = inttoptr i64 %264 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
-269:                                              ; preds = %256
-  %270 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i67) #4
+266:                                              ; preds = %254
+  %267 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i67) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
-.critedge.i.i69:                                  ; preds = %249, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
-  %271 = tail call ptr @lean_int_big_emod(ptr noundef %245, ptr noundef %246) #4
+.critedge.i.i69:                                  ; preds = %247, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3.exit
+  %268 = tail call ptr @lean_int_big_emod(ptr noundef %243, ptr noundef %244) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
 
-_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit: ; preds = %252, %264, %269, %.critedge.i.i69
-  %.1.i.i68 = phi ptr [ %271, %.critedge.i.i69 ], [ %245, %252 ], [ %268, %264 ], [ %270, %269 ]
+_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit: ; preds = %250, %261, %266, %.critedge.i.i69
+  %.1.i.i68 = phi ptr [ %268, %.critedge.i.i69 ], [ %243, %250 ], [ %265, %261 ], [ %267, %266 ]
   store ptr %.1.i.i68, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i68) #4
-  %272 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4, align 8, !tbaa !11
-  %273 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
-  %274 = ptrtoint ptr %272 to i64
+  %269 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4, align 8, !tbaa !11
+  %270 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
+  %271 = ptrtoint ptr %269 to i64
+  %272 = and i64 %271, 1
+  %.not.i.i70 = icmp eq i64 %272, 0
+  br i1 %.not.i.i70, label %.critedge.i.i73, label %273, !prof !13
+
+273:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
+  %274 = ptrtoint ptr %270 to i64
   %275 = and i64 %274, 1
-  %.not.i.i70 = icmp eq i64 %275, 0
-  br i1 %.not.i.i70, label %.critedge.i.i73, label %276, !prof !13
+  %.not7.i.i71 = icmp eq i64 %275, 0
+  br i1 %.not7.i.i71, label %.critedge.i.i73, label %276, !prof !13
 
-276:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
-  %277 = ptrtoint ptr %273 to i64
-  %278 = and i64 %277, 1
-  %.not7.i.i71 = icmp eq i64 %278, 0
-  br i1 %.not7.i.i71, label %.critedge.i.i73, label %279, !prof !13
+276:                                              ; preds = %273
+  %277 = shl i64 %271, 31
+  %278 = ashr i64 %277, 32
+  %279 = shl i64 %274, 31
+  %280 = ashr i64 %279, 32
+  %281 = add nsw i64 %280, %278
+  %282 = add nsw i64 %281, 2147483648
+  %283 = icmp ult i64 %282, 4294967296
+  br i1 %283, label %284, label %289, !prof !10
 
-279:                                              ; preds = %276
-  %280 = shl i64 %274, 31
-  %281 = ashr i64 %280, 32
-  %282 = shl i64 %277, 31
-  %283 = ashr i64 %282, 32
-  %284 = add nsw i64 %283, %281
-  %285 = add nsw i64 %284, 2147483648
-  %286 = icmp ult i64 %285, 4294967296
-  br i1 %286, label %287, label %292, !prof !10
-
-287:                                              ; preds = %279
-  %288 = shl nsw i64 %284, 1
-  %289 = and i64 %288, 8589934590
-  %290 = or disjoint i64 %289, 1
-  %291 = inttoptr i64 %290 to ptr
+284:                                              ; preds = %276
+  %285 = shl nsw i64 %281, 1
+  %286 = and i64 %285, 8589934590
+  %287 = or disjoint i64 %286, 1
+  %288 = inttoptr i64 %287 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
 
-292:                                              ; preds = %279
-  %293 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %284) #4
+289:                                              ; preds = %276
+  %290 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %281) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
 
-.critedge.i.i73:                                  ; preds = %276, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
-  %294 = tail call ptr @lean_int_big_add(ptr noundef %272, ptr noundef %273) #4
+.critedge.i.i73:                                  ; preds = %273, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__4.exit
+  %291 = tail call ptr @lean_int_big_add(ptr noundef %269, ptr noundef %270) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
 
-_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit: ; preds = %287, %292, %.critedge.i.i73
-  %.0.i.i72 = phi ptr [ %294, %.critedge.i.i73 ], [ %291, %287 ], [ %293, %292 ]
+_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit: ; preds = %284, %289, %.critedge.i.i73
+  %.0.i.i72 = phi ptr [ %291, %.critedge.i.i73 ], [ %288, %284 ], [ %290, %289 ]
   store ptr %.0.i.i72, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i72) #4
-  %295 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5, align 8, !tbaa !11
-  %296 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
-  %297 = ptrtoint ptr %295 to i64
+  %292 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5, align 8, !tbaa !11
+  %293 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__3, align 8, !tbaa !11
+  %294 = ptrtoint ptr %292 to i64
+  %295 = and i64 %294, 1
+  %.not.i.i74 = icmp eq i64 %295, 0
+  br i1 %.not.i.i74, label %.critedge.i.i79, label %296, !prof !13
+
+296:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
+  %297 = ptrtoint ptr %293 to i64
   %298 = and i64 %297, 1
-  %.not.i.i74 = icmp eq i64 %298, 0
-  br i1 %.not.i.i74, label %.critedge.i.i79, label %299, !prof !13
+  %.not21.i.i75 = icmp eq i64 %298, 0
+  br i1 %.not21.i.i75, label %.critedge.i.i79, label %299, !prof !13
 
-299:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
-  %300 = ptrtoint ptr %296 to i64
-  %301 = and i64 %300, 1
-  %.not21.i.i75 = icmp eq i64 %301, 0
-  br i1 %.not21.i.i75, label %.critedge.i.i79, label %302, !prof !13
+299:                                              ; preds = %296
+  %300 = shl i64 %297, 31
+  %301 = ashr i64 %300, 32
+  %302 = icmp eq i64 %301, 0
+  br i1 %302, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit, label %303
 
-302:                                              ; preds = %299
-  %303 = shl i64 %300, 31
-  %304 = ashr i64 %303, 32
-  %305 = icmp eq i64 %304, 0
-  br i1 %305, label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit, label %306
+303:                                              ; preds = %299
+  %304 = shl i64 %294, 31
+  %305 = ashr i64 %304, 32
+  %306 = srem i64 %305, %301
+  %307 = icmp slt i64 %306, 0
+  %.p.i.i76 = tail call i64 @llvm.abs.i64(i64 %301, i1 true)
+  %308 = select i1 %307, i64 %.p.i.i76, i64 0
+  %.0.i.i77 = add nsw i64 %308, %306
+  %309 = icmp slt i64 %.0.i.i77, 2147483648
+  br i1 %309, label %310, label %315, !prof !10
 
-306:                                              ; preds = %302
-  %307 = shl i64 %297, 31
-  %308 = ashr i64 %307, 32
-  %309 = srem i64 %308, %304
-  %310 = icmp slt i64 %309, 0
-  %.p.i.i76 = tail call i64 @llvm.abs.i64(i64 %304, i1 true)
-  %311 = select i1 %310, i64 %.p.i.i76, i64 0
-  %.0.i.i77 = add nsw i64 %311, %309
-  %312 = add nsw i64 %.0.i.i77, 2147483648
-  %313 = icmp samesign ult i64 %312, 4294967296
-  br i1 %313, label %314, label %319, !prof !10
-
-314:                                              ; preds = %306
-  %315 = shl nsw i64 %.0.i.i77, 1
-  %316 = and i64 %315, 8589934590
-  %317 = or disjoint i64 %316, 1
-  %318 = inttoptr i64 %317 to ptr
+310:                                              ; preds = %303
+  %311 = shl nsw i64 %.0.i.i77, 1
+  %312 = and i64 %311, 8589934590
+  %313 = or disjoint i64 %312, 1
+  %314 = inttoptr i64 %313 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 
-319:                                              ; preds = %306
-  %320 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i77) #4
+315:                                              ; preds = %303
+  %316 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %.0.i.i77) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 
-.critedge.i.i79:                                  ; preds = %299, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
-  %321 = tail call ptr @lean_int_big_emod(ptr noundef %295, ptr noundef %296) #4
+.critedge.i.i79:                                  ; preds = %296, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__5.exit
+  %317 = tail call ptr @lean_int_big_emod(ptr noundef %292, ptr noundef %293) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
 
-_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit: ; preds = %302, %314, %319, %.critedge.i.i79
-  %.1.i.i78 = phi ptr [ %321, %.critedge.i.i79 ], [ %295, %302 ], [ %318, %314 ], [ %320, %319 ]
+_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit: ; preds = %299, %310, %315, %.critedge.i.i79
+  %.1.i.i78 = phi ptr [ %317, %.critedge.i.i79 ], [ %292, %299 ], [ %314, %310 ], [ %316, %315 ]
   store ptr %.1.i.i78, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.1.i.i78) #4
-  %322 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6, align 8, !tbaa !11
-  %323 = ptrtoint ptr %322 to i64
-  %324 = and i64 %323, 1
-  %.not.i.i80 = icmp eq i64 %324, 0
-  br i1 %.not.i.i80, label %.critedge.i.i83, label %325, !prof !13
+  %318 = load ptr, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6, align 8, !tbaa !11
+  %319 = ptrtoint ptr %318 to i64
+  %320 = and i64 %319, 1
+  %.not.i.i80 = icmp eq i64 %320, 0
+  br i1 %.not.i.i80, label %.critedge.i.i83, label %321, !prof !13
 
-325:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
-  %326 = shl i64 %323, 31
-  %327 = ashr i64 %326, 32
-  %328 = add nsw i64 %327, 1
-  %329 = icmp slt i64 %327, 2147483647
-  br i1 %329, label %330, label %335, !prof !10
+321:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
+  %322 = shl i64 %319, 31
+  %323 = ashr i64 %322, 32
+  %324 = add nsw i64 %323, 1
+  %325 = icmp slt i64 %323, 2147483647
+  br i1 %325, label %326, label %331, !prof !10
 
-330:                                              ; preds = %325
-  %331 = shl nsw i64 %328, 1
-  %332 = and i64 %331, 8589934590
-  %333 = or disjoint i64 %332, 1
-  %334 = inttoptr i64 %333 to ptr
+326:                                              ; preds = %321
+  %327 = shl nsw i64 %324, 1
+  %328 = and i64 %327, 8589934590
+  %329 = or disjoint i64 %328, 1
+  %330 = inttoptr i64 %329 to ptr
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
 
-335:                                              ; preds = %325
-  %336 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %328) #4
+331:                                              ; preds = %321
+  %332 = tail call ptr @lean_big_int64_to_int(i64 noundef range(i64 -4294967296, -9223372036854775808) %324) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
 
 .critedge.i.i83:                                  ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__6.exit
-  %337 = tail call ptr @lean_int_big_add(ptr noundef %322, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
+  %333 = tail call ptr @lean_int_big_add(ptr noundef %318, ptr noundef nonnull inttoptr (i64 3 to ptr)) #4
   br label %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
 
-_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit: ; preds = %330, %335, %.critedge.i.i83
-  %.0.i.i82 = phi ptr [ %337, %.critedge.i.i83 ], [ %334, %330 ], [ %336, %335 ]
+_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit: ; preds = %326, %331, %.critedge.i.i83
+  %.0.i.i82 = phi ptr [ %333, %.critedge.i.i83 ], [ %330, %326 ], [ %332, %331 ]
   store ptr %.0.i.i82, ptr @l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7, align 8, !tbaa !11
   tail call void @lean_mark_persistent(ptr noundef %.0.i.i82) #4
   tail call void @lean_inc_heartbeat() #4
-  %338 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
-  %339 = icmp eq ptr %338, null
-  br i1 %339, label %340, label %.sink.split
+  %334 = tail call noalias ptr @mi_malloc_small(i64 noundef 24) #4
+  %335 = icmp eq ptr %334, null
+  br i1 %335, label %336, label %.sink.split
 
-340:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
+336:                                              ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit
   tail call void @lean_internal_panic_out_of_memory() #5
   unreachable
 
 .sink.split:                                      ; preds = %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit, %3
-  %.sink110 = phi ptr [ %4, %3 ], [ %338, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit ]
-  %341 = getelementptr inbounds nuw i8, ptr %.sink110, i64 4
+  %.sink110 = phi ptr [ %4, %3 ], [ %334, %_init_l_Std_Time_Hour_Ordinal_shiftTo1BasedHour___closed__7.exit ]
+  %337 = getelementptr inbounds nuw i8, ptr %.sink110, i64 4
   store i32 1, ptr %.sink110, align 4, !tbaa !5
-  store i32 131096, ptr %341, align 4
-  %342 = getelementptr inbounds nuw i8, ptr %.sink110, i64 8
-  store ptr inttoptr (i64 1 to ptr), ptr %342, align 8, !tbaa !11
-  %343 = getelementptr inbounds nuw i8, ptr %.sink110, i64 16
-  store ptr inttoptr (i64 1 to ptr), ptr %343, align 8, !tbaa !11
-  br label %344
+  store i32 131096, ptr %337, align 4
+  %338 = getelementptr inbounds nuw i8, ptr %.sink110, i64 8
+  store ptr inttoptr (i64 1 to ptr), ptr %338, align 8, !tbaa !11
+  %339 = getelementptr inbounds nuw i8, ptr %.sink110, i64 16
+  store ptr inttoptr (i64 1 to ptr), ptr %339, align 8, !tbaa !11
+  br label %340
 
-344:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
+340:                                              ; preds = %.sink.split, %lean_dec_ref.exit19, %lean_dec_ref.exit17, %lean_dec_ref.exit, %7
   %.0 = phi ptr [ %8, %7 ], [ %18, %lean_dec_ref.exit ], [ %28, %lean_dec_ref.exit17 ], [ %38, %lean_dec_ref.exit19 ], [ %.sink110, %.sink.split ]
   ret ptr %.0
 }

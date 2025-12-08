@@ -1608,7 +1608,7 @@ _ZN5Eigen8internal13first_alignedILi16EdlEET1_PKT0_S2_.exit.i.i.i.i.i.i: ; preds
   %50 = shl nsw i64 %49, 1
   %51 = icmp sgt i64 %11, 4
   %52 = getelementptr inbounds nuw i8, ptr %.sroa.040.sroa.0.0.copyload, i64 16
-  %53 = icmp samesign ugt i64 %36, 7
+  %53 = icmp sgt i64 %11, 8
   %54 = icmp sgt i64 %50, %48
   %55 = getelementptr inbounds nuw double, ptr %.sroa.040.sroa.0.0.copyload, i64 %48
   %56 = icmp slt i64 %50, %36
@@ -1929,7 +1929,7 @@ define linkonce_odr dso_local void @_ZNK5Eigen10MatrixBaseINS_5BlockINS1_INS_6Ma
   %20 = getelementptr inbounds nuw i8, ptr %8, i64 24
   %21 = load <2 x double>, ptr %20, align 1, !tbaa !25
   %22 = fmul <2 x double> %21, %21
-  %23 = icmp samesign ugt i64 %7, 7
+  %23 = icmp samesign ugt i64 %6, 8
   br i1 %23, label %.lr.ph.i.i.i.i, label %._crit_edge.i.i.i.i
 
 ._crit_edge.i.i.i.i:                              ; preds = %.lr.ph.i.i.i.i, %19
@@ -2649,7 +2649,7 @@ define linkonce_odr dso_local void @_ZN5Eigen10MatrixBaseINS_5BlockINS_6MatrixId
   %53 = shl nsw i64 %52, 1
   %54 = icmp sgt i64 %15, 4
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.042.sroa.0.0.copyload, i64 16
-  %56 = icmp samesign ugt i64 %34, 7
+  %56 = icmp sgt i64 %15, 8
   %57 = icmp sgt i64 %53, %51
   %58 = getelementptr inbounds nuw double, ptr %.sroa.042.sroa.0.0.copyload, i64 %51
   %59 = icmp slt i64 %53, %34

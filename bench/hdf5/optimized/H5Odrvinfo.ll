@@ -93,7 +93,7 @@ define internal noundef ptr @H5O__drvinfo_decode(ptr readnone captures(none) %0,
   %45 = getelementptr inbounds nuw i8, ptr %5, i64 9
   %46 = icmp ugt ptr %45, %8
   %47 = icmp samesign ult i64 %4, 11
-  %or.cond66 = or i1 %46, %47
+  %or.cond66 = or i1 %47, %46
   br i1 %or.cond66, label %48, label %52
 
 48:                                               ; preds = %42

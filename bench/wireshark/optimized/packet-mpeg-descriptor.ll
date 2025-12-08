@@ -4632,7 +4632,7 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_short_smoothing_buffe
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_stream(ptr noundef %0, i32 noundef %1, i32 noundef range(i32 1, 256) %2, ptr noundef %3) unnamed_addr #1 {
   %5 = icmp samesign ult i32 %2, 3
-  br i1 %5, label %46, label %6
+  br i1 %5, label %45, label %6
 
 6:                                                ; preds = %4
   %7 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use1, align 4
@@ -4644,43 +4644,42 @@ define internal fastcc void @proto_mpeg_descriptor_dissect_partial_transport_str
   %13 = or disjoint i32 %12, 2
   %14 = mul nuw nsw i32 %10, 400
   %15 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %11, ptr noundef %0, i32 noundef %13, i32 noundef 22, i32 noundef %10, i32 noundef 0, ptr noundef nonnull @.str.760, i32 noundef %14)
-  %16 = add nsw i32 %2, -3
-  %17 = icmp samesign ult i32 %16, 3
-  br i1 %17, label %46, label %18
+  %16 = icmp samesign ult i32 %2, 6
+  br i1 %16, label %45, label %17
 
-18:                                               ; preds = %6
-  %19 = add i32 %1, 3
-  %20 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use2, align 4
-  %21 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %20, ptr noundef %0, i32 noundef %19, i32 noundef 3, i32 noundef 0)
-  %22 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %19, i32 noundef 0)
-  %23 = and i32 %22, 4194303
-  %24 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_minimum_overall_smoothing_rate, align 4
-  %25 = shl i32 %19, 3
-  %26 = or disjoint i32 %25, 2
-  %27 = icmp eq i32 %23, 4194303
-  %28 = select i1 %27, ptr @.str.761, ptr @.str.760
-  %29 = mul nuw nsw i32 %23, 400
-  %30 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %24, ptr noundef %0, i32 noundef %26, i32 noundef 22, i32 noundef %23, i32 noundef 0, ptr noundef nonnull %28, i32 noundef %29)
-  %31 = and i32 %2, 254
-  %32 = icmp eq i32 %31, 6
-  br i1 %32, label %46, label %33
+17:                                               ; preds = %6
+  %18 = add i32 %1, 3
+  %19 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use2, align 4
+  %20 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %19, ptr noundef %0, i32 noundef %18, i32 noundef 3, i32 noundef 0)
+  %21 = tail call i32 @tvb_get_uint24(ptr noundef %0, i32 noundef %18, i32 noundef 0)
+  %22 = and i32 %21, 4194303
+  %23 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_minimum_overall_smoothing_rate, align 4
+  %24 = shl i32 %18, 3
+  %25 = or disjoint i32 %24, 2
+  %26 = icmp eq i32 %22, 4194303
+  %27 = select i1 %26, ptr @.str.761, ptr @.str.760
+  %28 = mul nuw nsw i32 %22, 400
+  %29 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %23, ptr noundef %0, i32 noundef %25, i32 noundef 22, i32 noundef %22, i32 noundef 0, ptr noundef nonnull %27, i32 noundef %28)
+  %30 = and i32 %2, 254
+  %31 = icmp eq i32 %30, 6
+  br i1 %31, label %45, label %32
 
-33:                                               ; preds = %18
-  %34 = add i32 %1, 6
-  %35 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use3, align 4
-  %36 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %35, ptr noundef %0, i32 noundef %34, i32 noundef 2, i32 noundef 0)
-  %37 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %34, i32 noundef 0)
-  %38 = and i16 %37, 16383
-  %39 = zext nneg i16 %38 to i32
-  %40 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_maximum_overall_smoothing_buffer, align 4
-  %41 = shl i32 %34, 3
-  %42 = or disjoint i32 %41, 2
-  %43 = icmp eq i16 %38, 16383
-  %44 = select i1 %43, ptr @.str.762, ptr @.str.763
-  %45 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %40, ptr noundef %0, i32 noundef %42, i32 noundef 14, i32 noundef %39, i32 noundef 0, ptr noundef nonnull %44, i32 noundef %39)
-  br label %46
+32:                                               ; preds = %17
+  %33 = add i32 %1, 6
+  %34 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_reserved_future_use3, align 4
+  %35 = tail call ptr @proto_tree_add_item(ptr noundef %3, i32 noundef %34, ptr noundef %0, i32 noundef %33, i32 noundef 2, i32 noundef 0)
+  %36 = tail call zeroext i16 @tvb_get_uint16(ptr noundef %0, i32 noundef %33, i32 noundef 0)
+  %37 = and i16 %36, 16383
+  %38 = zext nneg i16 %37 to i32
+  %39 = load i32, ptr @hf_mpeg_descr_partial_transport_stream_maximum_overall_smoothing_buffer, align 4
+  %40 = shl i32 %33, 3
+  %41 = or disjoint i32 %40, 2
+  %42 = icmp eq i16 %37, 16383
+  %43 = select i1 %42, ptr @.str.762, ptr @.str.763
+  %44 = tail call ptr (ptr, i32, ptr, i32, i32, i32, i32, ptr, ...) @proto_tree_add_uint_bits_format_value(ptr noundef %3, i32 noundef %39, ptr noundef %0, i32 noundef %41, i32 noundef 14, i32 noundef %38, i32 noundef 0, ptr noundef nonnull %43, i32 noundef %38)
+  br label %45
 
-46:                                               ; preds = %33, %6, %18, %4
+45:                                               ; preds = %32, %6, %17, %4
   ret void
 }
 

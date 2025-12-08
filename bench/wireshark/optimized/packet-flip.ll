@@ -182,7 +182,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   br i1 %or.cond, label %70, label %.preheader
 
 .preheader:                                       ; preds = %45
-  %48 = icmp samesign ugt i32 %46, 3
+  %48 = icmp samesign ugt i32 %14, 11
   %49 = select i1 %spec.select, i1 %48, i1 false
   br i1 %49, label %.lr.ph, label %._crit_edge
 
@@ -206,8 +206,8 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %54, ptr %50, align 8
   %55 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %54)
   store ptr %55, ptr %5, align 16
-  %56 = add i32 %.1130.us, 4
-  %57 = sub i32 %14, %56
+  %56 = add nuw nsw i32 %.1130.us, 4
+  %57 = sub nsw i32 %14, %56
   store i32 %57, ptr %52, align 8
   %58 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef %56, i32 noundef %57)
   store ptr %58, ptr %51, align 16
@@ -231,7 +231,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 66:                                               ; preds = %64, %._crit_edge.i.us
   %67 = add nsw i32 %.0105128.us, -4
-  %68 = icmp samesign ugt i32 %67, 3
+  %68 = icmp sgt i32 %.0105128.us, 7
   %69 = select i1 %63, i1 %68, i1 false
   br i1 %69, label %.lr.ph.split.us, label %._crit_edge
 
@@ -253,8 +253,8 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
   store i32 %74, ptr %50, align 8
   %75 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef 0, i32 noundef %74)
   store ptr %75, ptr %5, align 16
-  %76 = add i32 %.1130, 4
-  %77 = sub i32 %14, %76
+  %76 = add nuw nsw i32 %.1130, 4
+  %77 = sub nsw i32 %14, %76
   store i32 %77, ptr %52, align 8
   %78 = call ptr @tvb_get_ptr(ptr noundef %19, i32 noundef %76, i32 noundef %77)
   store ptr %78, ptr %51, align 16
@@ -299,7 +299,7 @@ define internal i32 @dissect_flip(ptr noundef %0, ptr noundef %1, ptr noundef %2
 
 104:                                              ; preds = %100, %73
   %105 = add nsw i32 %.0105128, -4
-  %106 = icmp samesign ugt i32 %105, 3
+  %106 = icmp sgt i32 %.0105128, 7
   %107 = select i1 %83, i1 %106, i1 false
   br i1 %107, label %.lr.ph.split, label %._crit_edge
 

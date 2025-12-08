@@ -90214,7 +90214,7 @@ _ZNK5o3dgc12TriangleFans5BeginEl.exit:            ; preds = %_ZN5o3dgc22Compress
   br i1 %.not19.i, label %.preheader.i, label %.loopexit290
 
 .preheader.i:                                     ; preds = %119
-  %123 = icmp samesign ult i64 %75, 3
+  %123 = icmp samesign ult i64 %74, 4
   br i1 %123, label %_ZN5o3dgc7IsCase0EllPKlS1_.exit, label %.lr.ph.i
 
 124:                                              ; preds = %.lr.ph.i
@@ -90945,7 +90945,7 @@ _ZN5o3dgc22CompressedTriangleFans10PushConfigEl.exit175: ; preds = %._crit_edge.
   br i1 %.not19.i181, label %.preheader.i182, label %.loopexit
 
 .preheader.i182:                                  ; preds = %415
-  %419 = icmp samesign ult i64 %75, 3
+  %419 = icmp samesign ult i64 %74, 4
   br i1 %419, label %_ZN5o3dgc7IsCase7EllPKlS1_.exit, label %.lr.ph.i183
 
 420:                                              ; preds = %.lr.ph.i183

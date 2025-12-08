@@ -251,10 +251,10 @@ bytestream2_get_byte.exit:                        ; preds = %4
 
 .loopexit167:                                     ; preds = %.loopexit167.loopexit.critedge, %87
   %92 = getelementptr inbounds nuw i8, ptr %16, i64 8
-  %93 = add nsw i32 %18, -8
-  %94 = icmp samesign ugt i32 %93, 268435455
-  %95 = shl nuw nsw i32 %93, 3
-  %96 = select i1 %94, i32 -8, i32 %95
+  %93 = icmp samesign ugt i32 %18, 268435463
+  %94 = shl i32 %18, 3
+  %95 = add i32 %94, -64
+  %96 = select i1 %93, i32 -8, i32 %95
   %or.cond.i.i = icmp ugt i32 %96, 2147483134
   %.018.i.i = select i1 %or.cond.i.i, i32 0, i32 %96
   %.017.i.i = select i1 %or.cond.i.i, ptr null, ptr %92

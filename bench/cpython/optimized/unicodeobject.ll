@@ -50932,10 +50932,10 @@ asciilib_utf8_decode.exit:                        ; preds = %.thread.i, %.thread
 190:                                              ; preds = %187
   %191 = zext i8 %189 to i32
   %192 = shl nuw nsw i32 %.0145.i, 6
-  %193 = add nsw i32 %192, -12416
-  %194 = add nuw nsw i32 %193, %191
+  %193 = add nuw nsw i32 %192, %191
+  %194 = add nsw i32 %193, -12416
   %195 = getelementptr i8, ptr %.2148.i, i64 2
-  %196 = icmp samesign ugt i32 %194, 255
+  %196 = icmp samesign ugt i32 %193, 12671
   br i1 %196, label %ucs1lib_utf8_decode.exit, label %197
 
 197:                                              ; preds = %190
@@ -51733,8 +51733,8 @@ PyUnicode_WRITE.exit:                             ; preds = %571, %573, %576
   %594 = sub i64 %592, %593
   %.not61 = icmp sle i64 %591, %594
   %595 = icmp eq ptr %.pre150, %.pre151
-  %or.cond217 = select i1 %.not61, i1 true, i1 %595
-  br i1 %or.cond217, label %.critedge, label %597
+  %or.cond215 = select i1 %.not61, i1 true, i1 %595
+  br i1 %or.cond215, label %.critedge, label %597
 
 596:                                              ; preds = %585
   %.old = icmp eq ptr %.pre150, %.pre151
@@ -51845,9 +51845,9 @@ Py_XDECREF.exit121:                               ; preds = %_PyUnicodeWriter_Wr
   br i1 %636, label %Py_XDECREF.exit118.sink.split, label %Py_XDECREF.exit118
 
 Py_XDECREF.exit118.sink.split:                    ; preds = %634, %621
-  %.sink218 = phi ptr [ %618, %621 ], [ %631, %634 ]
+  %.sink216 = phi ptr [ %618, %621 ], [ %631, %634 ]
   %.2.ph = phi i32 [ 0, %621 ], [ -1, %634 ]
-  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink218) #42
+  tail call void @_Py_Dealloc(ptr noundef nonnull %.sink216) #42
   br label %Py_XDECREF.exit118
 
 Py_XDECREF.exit118:                               ; preds = %597, %Py_XDECREF.exit118.sink.split, %634, %632, %Py_XDECREF.exit121, %621, %619, %Py_XDECREF.exit

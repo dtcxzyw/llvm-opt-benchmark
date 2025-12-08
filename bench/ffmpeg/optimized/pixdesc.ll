@@ -2635,7 +2635,7 @@ define range(i32 -22, 1) i32 @av_chroma_location_enum_to_pos(ptr noundef writeon
   %8 = and i32 %7, 128
   store i32 %8, ptr %0, align 4, !tbaa !4
   %9 = lshr i32 %6, 1
-  %10 = icmp samesign ult i32 %6, 4
+  %10 = icmp samesign ult i32 %2, 5
   %11 = zext i1 %10 to i32
   %12 = xor i32 %9, %11
   %13 = shl nuw nsw i32 %12, 7

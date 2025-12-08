@@ -9465,9 +9465,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1113
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !1113
   store i64 1, ptr %62, align 8, !alias.scope !1119, !noalias !1122
-  %78 = add nsw i64 %2, -1
-  %79 = icmp samesign ugt i64 %78, 1
-  br i1 %79, label %.lr.ph.i, label %._crit_edge.thread.i
+  %78 = icmp samesign ugt i64 %2, 2
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1113
@@ -9475,7 +9474,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   br label %89
 
 .lr.ph.i:                                         ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %80 = add nsw i64 %2, -2
   br label %87
 
 ._crit_edge.i:                                    ; preds = %109
@@ -9525,7 +9525,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 94:                                               ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !1113
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1113
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %80, i64 56, i1 false), !noalias !1113
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %79, i64 56, i1 false), !noalias !1113
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1113
   %95 = load i64, ptr %62, align 8, !alias.scope !1133, !noalias !1136, !noundef !3
   %96 = load i64, ptr %12, align 8, !range !1131, !alias.scope !1133, !noalias !1136, !noundef !3
@@ -9566,7 +9566,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 109:                                              ; preds = %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !1113
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1113
-  %exitcond.not.i = icmp eq i64 %88, %78
+  %exitcond.not.i = icmp eq i64 %.sroa.05.034.i, %80
   br i1 %exitcond.not.i, label %._crit_edge.i, label %87
 
 .thread29.i:                                      ; preds = %99
@@ -9783,9 +9783,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1148
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !1148
   store i64 1, ptr %62, align 8, !alias.scope !1154, !noalias !1157
-  %78 = add nsw i64 %2, -1
-  %79 = icmp samesign ugt i64 %78, 1
-  br i1 %79, label %.lr.ph.i, label %._crit_edge.thread.i
+  %78 = icmp samesign ugt i64 %2, 2
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1148
@@ -9793,7 +9792,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   br label %89
 
 .lr.ph.i:                                         ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %80 = add nsw i64 %2, -2
   br label %87
 
 ._crit_edge.i:                                    ; preds = %109
@@ -9843,7 +9843,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 94:                                               ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !1148
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1148
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %80, i64 56, i1 false), !noalias !1148
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %79, i64 56, i1 false), !noalias !1148
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1148
   %95 = load i64, ptr %62, align 8, !alias.scope !1167, !noalias !1170, !noundef !3
   %96 = load i64, ptr %12, align 8, !range !1131, !alias.scope !1167, !noalias !1170, !noundef !3
@@ -9884,7 +9884,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 109:                                              ; preds = %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !1148
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1148
-  %exitcond.not.i = icmp eq i64 %88, %78
+  %exitcond.not.i = icmp eq i64 %.sroa.05.034.i, %80
   br i1 %exitcond.not.i, label %._crit_edge.i, label %87
 
 .thread29.i:                                      ; preds = %99
@@ -10101,9 +10101,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1182
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !1182
   store i64 1, ptr %62, align 8, !alias.scope !1188, !noalias !1191
-  %78 = add nsw i64 %2, -1
-  %79 = icmp samesign ugt i64 %78, 1
-  br i1 %79, label %.lr.ph.i, label %._crit_edge.thread.i
+  %78 = icmp samesign ugt i64 %2, 2
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1182
@@ -10111,7 +10110,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   br label %89
 
 .lr.ph.i:                                         ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %80 = add nsw i64 %2, -2
   br label %87
 
 ._crit_edge.i:                                    ; preds = %109
@@ -10161,7 +10161,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 94:                                               ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !1182
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1182
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %80, i64 56, i1 false), !noalias !1182
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %79, i64 56, i1 false), !noalias !1182
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1182
   %95 = load i64, ptr %62, align 8, !alias.scope !1201, !noalias !1204, !noundef !3
   %96 = load i64, ptr %12, align 8, !range !1131, !alias.scope !1201, !noalias !1204, !noundef !3
@@ -10202,7 +10202,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 109:                                              ; preds = %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !1182
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1182
-  %exitcond.not.i = icmp eq i64 %88, %78
+  %exitcond.not.i = icmp eq i64 %.sroa.05.034.i, %80
   br i1 %exitcond.not.i, label %._crit_edge.i, label %87
 
 .thread29.i:                                      ; preds = %99
@@ -10419,9 +10419,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !1216
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %59, ptr noundef nonnull align 8 dereferenceable(56) %11, i64 56, i1 false), !noalias !1216
   store i64 1, ptr %62, align 8, !alias.scope !1222, !noalias !1225
-  %78 = add nsw i64 %2, -1
-  %79 = icmp samesign ugt i64 %78, 1
-  br i1 %79, label %.lr.ph.i, label %._crit_edge.thread.i
+  %78 = icmp samesign ugt i64 %2, 2
+  br i1 %78, label %.lr.ph.i, label %._crit_edge.thread.i
 
 ._crit_edge.thread.i:                             ; preds = %76
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !1216
@@ -10429,7 +10428,8 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
   br label %89
 
 .lr.ph.i:                                         ; preds = %76
-  %80 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %79 = getelementptr inbounds nuw i8, ptr %6, i64 56
+  %80 = add nsw i64 %2, -2
   br label %87
 
 ._crit_edge.i:                                    ; preds = %109
@@ -10479,7 +10479,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 94:                                               ; preds = %87
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %8, ptr noundef nonnull align 8 dereferenceable(56) %6, i64 56, i1 false), !noalias !1216
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !1216
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %80, i64 56, i1 false), !noalias !1216
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %7, ptr noundef nonnull align 8 dereferenceable(56) %79, i64 56, i1 false), !noalias !1216
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !1216
   %95 = load i64, ptr %62, align 8, !alias.scope !1235, !noalias !1238, !noundef !3
   %96 = load i64, ptr %12, align 8, !range !1131, !alias.scope !1235, !noalias !1238, !noundef !3
@@ -10520,7 +10520,7 @@ _ZN4core5alloc6layout6Layout6repeat17hef5345a2963d8f0eE.exit.i.i.i: ; preds = %4
 109:                                              ; preds = %105
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %10, ptr noundef nonnull align 8 dereferenceable(56) %7, i64 56, i1 false), !noalias !1216
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !1216
-  %exitcond.not.i = icmp eq i64 %88, %78
+  %exitcond.not.i = icmp eq i64 %.sroa.05.034.i, %80
   br i1 %exitcond.not.i, label %._crit_edge.i, label %87
 
 .thread29.i:                                      ; preds = %99

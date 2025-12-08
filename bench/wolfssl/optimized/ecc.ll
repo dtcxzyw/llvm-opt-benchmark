@@ -3238,7 +3238,7 @@ define i32 @wc_ecc_gen_k(ptr noundef %0, i32 noundef %1, ptr noundef %2, ptr nou
   %26 = getelementptr inbounds nuw i8, ptr %.01528.i, i64 8
   store volatile i64 0, ptr %.01528.i, align 8, !tbaa !27
   %27 = add nsw i32 %.01827.i, -8
-  %28 = icmp samesign ugt i32 %27, 7
+  %28 = icmp samesign ugt i32 %.01827.i, 15
   br i1 %28, label %.lr.ph29.i, label %.lr.ph35.i, !llvm.loop !63
 
 .lr.ph35.i:                                       ; preds = %.lr.ph29.i, %.lr.ph35.i
@@ -6416,7 +6416,7 @@ define i32 @wc_ecc_import_x963_ex(ptr noundef %0, i32 noundef %1, ptr noundef %2
   br i1 %.not27.us.i, label %.thread59, label %.split.us.i, !llvm.loop !19
 
 .split.i:                                         ; preds = %33
-  %.not2836.i = icmp samesign ugt i32 %24, 56
+  %.not2836.i = icmp sgt i32 %1, 57
   br i1 %.not2836.i, label %.lr.ph.i, label %.thread29.i
 
 41:                                               ; preds = %.lr.ph.i

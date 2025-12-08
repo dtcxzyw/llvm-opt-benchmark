@@ -48567,11 +48567,11 @@ _ZN5arrow8internal13ParseUnsignedEPKcmPh.exit19.i.i: ; preds = %_ZN5arrow8intern
   ]
 
 311:                                              ; preds = %308
-  %312 = icmp samesign ugt i64 %310, 3
+  %312 = icmp samesign ugt i64 %.062.i, 23
   br i1 %312, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66, label %315, !prof !62
 
 313:                                              ; preds = %308
-  %314 = icmp samesign ugt i64 %310, 6
+  %314 = icmp samesign ugt i64 %.062.i, 26
   br i1 %314, label %_ZN5arrow8internalL21ParseTimestampISO8601EPKcmNS_8TimeUnit4typeEPlPb.exit.thread66, label %315, !prof !62
 
 315:                                              ; preds = %313, %311, %308

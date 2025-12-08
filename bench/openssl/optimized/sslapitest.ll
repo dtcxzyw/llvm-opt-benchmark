@@ -11326,7 +11326,7 @@ define internal range(i32 0, 2) i32 @test_max_fragment_len_ext(i32 noundef %0) #
   %8 = zext i1 %7 to i32
   %9 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7425, ptr noundef nonnull @.str.753, i32 noundef %8) #24
   %.not = icmp eq i32 %9, 0
-  br i1 %.not, label %157, label %10
+  br i1 %.not, label %155, label %10
 
 10:                                               ; preds = %1
   %11 = load ptr, ptr %3, align 8, !tbaa !19
@@ -11338,14 +11338,14 @@ define internal range(i32 0, 2) i32 @test_max_fragment_len_ext(i32 noundef %0) #
   %17 = zext i1 %16 to i32
   %18 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7429, ptr noundef nonnull @.str.754, i32 noundef %17) #24
   %.not16 = icmp eq i32 %18, 0
-  br i1 %.not16, label %155, label %19
+  br i1 %.not16, label %153, label %19
 
 19:                                               ; preds = %10
   %20 = load ptr, ptr %3, align 8, !tbaa !19
   %21 = call ptr @SSL_new(ptr noundef %20) #24
   %22 = call i32 @test_ptr(ptr noundef nonnull @.str.14, i32 noundef 7433, ptr noundef nonnull @.str.755, ptr noundef %21) #24
   %.not17 = icmp eq i32 %22, 0
-  br i1 %.not17, label %155, label %23
+  br i1 %.not17, label %153, label %23
 
 23:                                               ; preds = %19
   %24 = call ptr @BIO_s_mem() #24
@@ -11364,14 +11364,14 @@ define internal range(i32 0, 2) i32 @test_max_fragment_len_ext(i32 noundef %0) #
 31:                                               ; preds = %29, %23
   %32 = call i32 @BIO_free(ptr noundef %25) #24
   %33 = call i32 @BIO_free(ptr noundef %27) #24
-  br label %155
+  br label %153
 
 34:                                               ; preds = %29
   call void @SSL_set_bio(ptr noundef %21, ptr noundef %25, ptr noundef %27) #24
   %35 = call i32 @SSL_connect(ptr noundef %21) #24
   %36 = call i32 @test_int_le(ptr noundef nonnull @.str.14, i32 noundef 7446, ptr noundef nonnull @.str.758, ptr noundef nonnull @.str.218, i32 noundef %35, i32 noundef 0) #24
   %.not20 = icmp eq i32 %36, 0
-  br i1 %.not20, label %155, label %37
+  br i1 %.not20, label %153, label %37
 
 37:                                               ; preds = %34
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
@@ -11403,270 +11403,269 @@ PACKET_buf_init.exit.thread.i:                    ; preds = %43
   br label %get_MFL_from_client_hello.exit
 
 PACKET_forward.exit22.i:                          ; preds = %PACKET_buf_init.exit.i
-  %49 = add nsw i64 %38, -5
-  %50 = icmp samesign ugt i64 %49, 3
-  %.0.i21.i = zext i1 %50 to i32
-  %51 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7374, ptr noundef nonnull @.str.764, i32 noundef %.0.i21.i) #24
-  %.not7.i = icmp eq i32 %51, 0
+  %49 = icmp samesign ugt i64 %38, 8
+  %.0.i21.i = zext i1 %49 to i32
+  %50 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7374, ptr noundef nonnull @.str.764, i32 noundef %.0.i21.i) #24
+  %.not7.i = icmp eq i32 %50, 0
   br i1 %.not7.i, label %get_MFL_from_client_hello.exit, label %PACKET_forward.exit25.i
 
 PACKET_forward.exit25.i:                          ; preds = %PACKET_forward.exit22.i
-  %52 = add nsw i64 %38, -9
-  %.sroa.18.2.i = select i1 %50, i64 %52, i64 %49
-  %.sroa.054.2.v.i = select i1 %50, i64 9, i64 5
+  %.sroa.18.2.v.i = select i1 %49, i64 -9, i64 -5
+  %.sroa.18.2.i = add nsw i64 %.sroa.18.2.v.i, %38
+  %.sroa.054.2.v.i = select i1 %49, i64 9, i64 5
   %.sroa.054.2.i = getelementptr inbounds nuw i8, ptr %44, i64 %.sroa.054.2.v.i
-  %53 = icmp ugt i64 %.sroa.18.2.i, 33
-  %54 = add nsw i64 %.sroa.18.2.i, -34
-  %.sroa.054.3.idx.i = select i1 %53, i64 34, i64 0
+  %51 = icmp ugt i64 %.sroa.18.2.i, 33
+  %52 = add nsw i64 %.sroa.18.2.i, -34
+  %.sroa.054.3.idx.i = select i1 %51, i64 34, i64 0
   %.sroa.054.3.i = getelementptr inbounds nuw i8, ptr %.sroa.054.2.i, i64 %.sroa.054.3.idx.i
-  %.sroa.18.3.i = select i1 %53, i64 %54, i64 %.sroa.18.2.i
-  %.0.i24.i = zext i1 %53 to i32
-  %55 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7377, ptr noundef nonnull @.str.765, i32 noundef %.0.i24.i) #24
-  %.not8.i = icmp eq i32 %55, 0
-  br i1 %.not8.i, label %get_MFL_from_client_hello.exit, label %56
+  %.sroa.18.3.i = select i1 %51, i64 %52, i64 %.sroa.18.2.i
+  %.0.i24.i = zext i1 %51 to i32
+  %53 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7377, ptr noundef nonnull @.str.765, i32 noundef %.0.i24.i) #24
+  %.not8.i = icmp eq i32 %53, 0
+  br i1 %.not8.i, label %get_MFL_from_client_hello.exit, label %54
 
-56:                                               ; preds = %PACKET_forward.exit25.i
+54:                                               ; preds = %PACKET_forward.exit25.i
   %.not.i.i.i.i = icmp eq i64 %.sroa.18.3.i, 0
-  br i1 %.not.i.i.i.i, label %PACKET_get_length_prefixed_1.exit.thread.i, label %57
+  br i1 %.not.i.i.i.i, label %PACKET_get_length_prefixed_1.exit.thread.i, label %55
 
-57:                                               ; preds = %56
-  %58 = load i8, ptr %.sroa.054.3.i, align 1, !tbaa !27
-  %59 = add nsw i64 %.sroa.18.3.i, -1
-  %60 = zext i8 %58 to i64
-  %61 = icmp samesign ult i64 %59, %60
-  br i1 %61, label %PACKET_get_length_prefixed_1.exit.i, label %62
+55:                                               ; preds = %54
+  %56 = load i8, ptr %.sroa.054.3.i, align 1, !tbaa !27
+  %57 = add nsw i64 %.sroa.18.3.i, -1
+  %58 = zext i8 %56 to i64
+  %59 = icmp samesign ult i64 %57, %58
+  br i1 %59, label %PACKET_get_length_prefixed_1.exit.i, label %60
 
-62:                                               ; preds = %57
-  %63 = getelementptr inbounds nuw i8, ptr %.sroa.054.3.i, i64 1
-  %64 = getelementptr inbounds nuw i8, ptr %63, i64 %60
-  %65 = sub nuw nsw i64 %59, %60
+60:                                               ; preds = %55
+  %61 = getelementptr inbounds nuw i8, ptr %.sroa.054.3.i, i64 1
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 %58
+  %63 = sub nuw nsw i64 %57, %58
   br label %PACKET_get_length_prefixed_1.exit.i
 
-PACKET_get_length_prefixed_1.exit.i:              ; preds = %62, %57
-  %.sroa.054.4.i = phi ptr [ %.sroa.054.3.i, %57 ], [ %64, %62 ]
-  %.sroa.18.4.i = phi i64 [ %.sroa.18.3.i, %57 ], [ %65, %62 ]
-  %.sroa.051.1.i = phi ptr [ null, %57 ], [ %63, %62 ]
-  %.sroa.11.1.i = phi i64 [ 0, %57 ], [ %60, %62 ]
-  %.0.i26.i = phi i32 [ 0, %57 ], [ 1, %62 ]
-  %66 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7379, ptr noundef nonnull @.str.766, i32 noundef %.0.i26.i) #24
-  %.not9.i = icmp eq i32 %66, 0
-  br i1 %.not9.i, label %get_MFL_from_client_hello.exit, label %68
+PACKET_get_length_prefixed_1.exit.i:              ; preds = %60, %55
+  %.sroa.054.4.i = phi ptr [ %.sroa.054.3.i, %55 ], [ %62, %60 ]
+  %.sroa.18.4.i = phi i64 [ %.sroa.18.3.i, %55 ], [ %63, %60 ]
+  %.sroa.051.1.i = phi ptr [ null, %55 ], [ %61, %60 ]
+  %.sroa.11.1.i = phi i64 [ 0, %55 ], [ %58, %60 ]
+  %.0.i26.i = phi i32 [ 0, %55 ], [ 1, %60 ]
+  %64 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7379, ptr noundef nonnull @.str.766, i32 noundef %.0.i26.i) #24
+  %.not9.i = icmp eq i32 %64, 0
+  br i1 %.not9.i, label %get_MFL_from_client_hello.exit, label %66
 
-PACKET_get_length_prefixed_1.exit.thread.i:       ; preds = %56
-  %67 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7379, ptr noundef nonnull @.str.766, i32 noundef 0) #24
-  %.not992.i = icmp eq i32 %67, 0
+PACKET_get_length_prefixed_1.exit.thread.i:       ; preds = %54
+  %65 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7379, ptr noundef nonnull @.str.766, i32 noundef 0) #24
+  %.not992.i = icmp eq i32 %65, 0
   br i1 %.not992.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit.thread.i
 
-68:                                               ; preds = %PACKET_get_length_prefixed_1.exit.i
-  %69 = icmp samesign ult i64 %.sroa.18.4.i, 2
-  br i1 %69, label %PACKET_get_length_prefixed_2.exit.i, label %70
+66:                                               ; preds = %PACKET_get_length_prefixed_1.exit.i
+  %67 = icmp samesign ult i64 %.sroa.18.4.i, 2
+  br i1 %67, label %PACKET_get_length_prefixed_2.exit.i, label %68
 
-70:                                               ; preds = %68
-  %71 = load i8, ptr %.sroa.054.4.i, align 1, !tbaa !27
-  %72 = zext i8 %71 to i64
-  %73 = shl nuw nsw i64 %72, 8
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.054.4.i, i64 1
-  %75 = load i8, ptr %74, align 1, !tbaa !27
-  %76 = zext i8 %75 to i64
-  %77 = or disjoint i64 %73, %76
-  %78 = add nsw i64 %.sroa.18.4.i, -2
-  %79 = icmp samesign ult i64 %78, %77
-  br i1 %79, label %PACKET_get_length_prefixed_2.exit.i, label %80
+68:                                               ; preds = %66
+  %69 = load i8, ptr %.sroa.054.4.i, align 1, !tbaa !27
+  %70 = zext i8 %69 to i64
+  %71 = shl nuw nsw i64 %70, 8
+  %72 = getelementptr inbounds nuw i8, ptr %.sroa.054.4.i, i64 1
+  %73 = load i8, ptr %72, align 1, !tbaa !27
+  %74 = zext i8 %73 to i64
+  %75 = or disjoint i64 %71, %74
+  %76 = add nsw i64 %.sroa.18.4.i, -2
+  %77 = icmp samesign ult i64 %76, %75
+  br i1 %77, label %PACKET_get_length_prefixed_2.exit.i, label %78
 
-80:                                               ; preds = %70
-  %81 = getelementptr inbounds nuw i8, ptr %.sroa.054.4.i, i64 2
-  %82 = getelementptr inbounds nuw i8, ptr %81, i64 %77
-  %83 = sub nuw nsw i64 %78, %77
+78:                                               ; preds = %68
+  %79 = getelementptr inbounds nuw i8, ptr %.sroa.054.4.i, i64 2
+  %80 = getelementptr inbounds nuw i8, ptr %79, i64 %75
+  %81 = sub nuw nsw i64 %76, %75
   br label %PACKET_get_length_prefixed_2.exit.i
 
-PACKET_get_length_prefixed_2.exit.i:              ; preds = %80, %70, %68
-  %.sroa.054.5.i = phi ptr [ %.sroa.054.4.i, %68 ], [ %.sroa.054.4.i, %70 ], [ %82, %80 ]
-  %.sroa.18.5.i = phi i64 [ %.sroa.18.4.i, %68 ], [ %.sroa.18.4.i, %70 ], [ %83, %80 ]
-  %.sroa.051.2.i = phi ptr [ %.sroa.051.1.i, %68 ], [ %.sroa.051.1.i, %70 ], [ %81, %80 ]
-  %.sroa.11.2.i = phi i64 [ %.sroa.11.1.i, %68 ], [ %.sroa.11.1.i, %70 ], [ %77, %80 ]
-  %.0.i30.i = phi i32 [ 0, %68 ], [ 0, %70 ], [ 1, %80 ]
-  %84 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7381, ptr noundef nonnull @.str.767, i32 noundef %.0.i30.i) #24
-  %.not10.i = icmp eq i32 %84, 0
-  br i1 %.not10.i, label %get_MFL_from_client_hello.exit, label %86
+PACKET_get_length_prefixed_2.exit.i:              ; preds = %78, %68, %66
+  %.sroa.054.5.i = phi ptr [ %.sroa.054.4.i, %66 ], [ %.sroa.054.4.i, %68 ], [ %80, %78 ]
+  %.sroa.18.5.i = phi i64 [ %.sroa.18.4.i, %66 ], [ %.sroa.18.4.i, %68 ], [ %81, %78 ]
+  %.sroa.051.2.i = phi ptr [ %.sroa.051.1.i, %66 ], [ %.sroa.051.1.i, %68 ], [ %79, %78 ]
+  %.sroa.11.2.i = phi i64 [ %.sroa.11.1.i, %66 ], [ %.sroa.11.1.i, %68 ], [ %75, %78 ]
+  %.0.i30.i = phi i32 [ 0, %66 ], [ 0, %68 ], [ 1, %78 ]
+  %82 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7381, ptr noundef nonnull @.str.767, i32 noundef %.0.i30.i) #24
+  %.not10.i = icmp eq i32 %82, 0
+  br i1 %.not10.i, label %get_MFL_from_client_hello.exit, label %84
 
 PACKET_get_length_prefixed_2.exit.thread.i:       ; preds = %PACKET_get_length_prefixed_1.exit.thread.i
-  %85 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7381, ptr noundef nonnull @.str.767, i32 noundef 0) #24
-  %.not10106.i = icmp eq i32 %85, 0
+  %83 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7381, ptr noundef nonnull @.str.767, i32 noundef 0) #24
+  %.not10106.i = icmp eq i32 %83, 0
   br i1 %.not10106.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_1.exit36.i
 
-86:                                               ; preds = %PACKET_get_length_prefixed_2.exit.i
+84:                                               ; preds = %PACKET_get_length_prefixed_2.exit.i
   %.not.i.i.i33.i = icmp eq i64 %.sroa.18.5.i, 0
-  br i1 %.not.i.i.i33.i, label %PACKET_get_length_prefixed_1.exit36.i, label %87
+  br i1 %.not.i.i.i33.i, label %PACKET_get_length_prefixed_1.exit36.i, label %85
 
-87:                                               ; preds = %86
-  %88 = load i8, ptr %.sroa.054.5.i, align 1, !tbaa !27
-  %89 = add nsw i64 %.sroa.18.5.i, -1
-  %90 = zext i8 %88 to i64
-  %91 = icmp samesign ult i64 %89, %90
-  br i1 %91, label %PACKET_get_length_prefixed_1.exit36.i, label %92
+85:                                               ; preds = %84
+  %86 = load i8, ptr %.sroa.054.5.i, align 1, !tbaa !27
+  %87 = add nsw i64 %.sroa.18.5.i, -1
+  %88 = zext i8 %86 to i64
+  %89 = icmp samesign ult i64 %87, %88
+  br i1 %89, label %PACKET_get_length_prefixed_1.exit36.i, label %90
 
-92:                                               ; preds = %87
-  %93 = getelementptr inbounds nuw i8, ptr %.sroa.054.5.i, i64 1
-  %94 = getelementptr inbounds nuw i8, ptr %93, i64 %90
-  %95 = sub nuw nsw i64 %89, %90
+90:                                               ; preds = %85
+  %91 = getelementptr inbounds nuw i8, ptr %.sroa.054.5.i, i64 1
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 %88
+  %93 = sub nuw nsw i64 %87, %88
   br label %PACKET_get_length_prefixed_1.exit36.i
 
-PACKET_get_length_prefixed_1.exit36.i:            ; preds = %92, %87, %86, %PACKET_get_length_prefixed_2.exit.thread.i
-  %.sroa.054.6.i = phi ptr [ %.sroa.054.5.i, %86 ], [ %.sroa.054.5.i, %87 ], [ %94, %92 ], [ %.sroa.054.3.i, %PACKET_get_length_prefixed_2.exit.thread.i ]
-  %.sroa.18.6.i = phi i64 [ 0, %86 ], [ %.sroa.18.5.i, %87 ], [ %95, %92 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ]
-  %.sroa.051.3.i = phi ptr [ %.sroa.051.2.i, %86 ], [ %.sroa.051.2.i, %87 ], [ %93, %92 ], [ null, %PACKET_get_length_prefixed_2.exit.thread.i ]
-  %.sroa.11.3.i = phi i64 [ %.sroa.11.2.i, %86 ], [ %.sroa.11.2.i, %87 ], [ %90, %92 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ]
-  %.0.i35.i = phi i32 [ 0, %86 ], [ 0, %87 ], [ 1, %92 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ]
-  %96 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7383, ptr noundef nonnull @.str.766, i32 noundef %.0.i35.i) #24
-  %.not11.i = icmp eq i32 %96, 0
-  br i1 %.not11.i, label %get_MFL_from_client_hello.exit, label %97
+PACKET_get_length_prefixed_1.exit36.i:            ; preds = %90, %85, %84, %PACKET_get_length_prefixed_2.exit.thread.i
+  %.sroa.054.6.i = phi ptr [ %.sroa.054.5.i, %84 ], [ %.sroa.054.5.i, %85 ], [ %92, %90 ], [ %.sroa.054.3.i, %PACKET_get_length_prefixed_2.exit.thread.i ]
+  %.sroa.18.6.i = phi i64 [ 0, %84 ], [ %.sroa.18.5.i, %85 ], [ %93, %90 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ]
+  %.sroa.051.3.i = phi ptr [ %.sroa.051.2.i, %84 ], [ %.sroa.051.2.i, %85 ], [ %91, %90 ], [ null, %PACKET_get_length_prefixed_2.exit.thread.i ]
+  %.sroa.11.3.i = phi i64 [ %.sroa.11.2.i, %84 ], [ %.sroa.11.2.i, %85 ], [ %88, %90 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ]
+  %.0.i35.i = phi i32 [ 0, %84 ], [ 0, %85 ], [ 1, %90 ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ]
+  %94 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7383, ptr noundef nonnull @.str.766, i32 noundef %.0.i35.i) #24
+  %.not11.i = icmp eq i32 %94, 0
+  br i1 %.not11.i, label %get_MFL_from_client_hello.exit, label %95
 
-97:                                               ; preds = %PACKET_get_length_prefixed_1.exit36.i
-  %98 = icmp samesign ult i64 %.sroa.18.6.i, 2
-  br i1 %98, label %PACKET_as_length_prefixed_2.exit.i, label %99
+95:                                               ; preds = %PACKET_get_length_prefixed_1.exit36.i
+  %96 = icmp samesign ult i64 %.sroa.18.6.i, 2
+  br i1 %96, label %PACKET_as_length_prefixed_2.exit.i, label %97
 
-99:                                               ; preds = %97
-  %100 = load i8, ptr %.sroa.054.6.i, align 1, !tbaa !27
-  %101 = zext i8 %100 to i64
-  %102 = shl nuw nsw i64 %101, 8
-  %103 = getelementptr inbounds nuw i8, ptr %.sroa.054.6.i, i64 1
-  %104 = load i8, ptr %103, align 1, !tbaa !27
-  %105 = zext i8 %104 to i64
-  %106 = or disjoint i64 %102, %105
-  %107 = add nsw i64 %.sroa.18.6.i, -2
-  %.not5.i.i = icmp eq i64 %107, %106
-  br i1 %.not5.i.i, label %108, label %PACKET_as_length_prefixed_2.exit.i
+97:                                               ; preds = %95
+  %98 = load i8, ptr %.sroa.054.6.i, align 1, !tbaa !27
+  %99 = zext i8 %98 to i64
+  %100 = shl nuw nsw i64 %99, 8
+  %101 = getelementptr inbounds nuw i8, ptr %.sroa.054.6.i, i64 1
+  %102 = load i8, ptr %101, align 1, !tbaa !27
+  %103 = zext i8 %102 to i64
+  %104 = or disjoint i64 %100, %103
+  %105 = add nsw i64 %.sroa.18.6.i, -2
+  %.not5.i.i = icmp eq i64 %105, %104
+  br i1 %.not5.i.i, label %106, label %PACKET_as_length_prefixed_2.exit.i
 
-108:                                              ; preds = %99
-  %109 = getelementptr inbounds nuw i8, ptr %.sroa.054.6.i, i64 2
+106:                                              ; preds = %97
+  %107 = getelementptr inbounds nuw i8, ptr %.sroa.054.6.i, i64 2
   br label %PACKET_as_length_prefixed_2.exit.i
 
-PACKET_as_length_prefixed_2.exit.i:               ; preds = %108, %99, %97
-  %.sroa.051.4.i = phi ptr [ %.sroa.051.3.i, %97 ], [ %109, %108 ], [ %.sroa.051.3.i, %99 ]
-  %.sroa.11.4.i = phi i64 [ %.sroa.11.3.i, %97 ], [ %106, %108 ], [ %.sroa.11.3.i, %99 ]
-  %.0.i40.i = phi i32 [ 0, %97 ], [ 1, %108 ], [ 0, %99 ]
-  %110 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7385, ptr noundef nonnull @.str.768, i32 noundef %.0.i40.i) #24
-  %.not12.i = icmp eq i32 %110, 0
+PACKET_as_length_prefixed_2.exit.i:               ; preds = %106, %97, %95
+  %.sroa.051.4.i = phi ptr [ %.sroa.051.3.i, %95 ], [ %107, %106 ], [ %.sroa.051.3.i, %97 ]
+  %.sroa.11.4.i = phi i64 [ %.sroa.11.3.i, %95 ], [ %104, %106 ], [ %.sroa.11.3.i, %97 ]
+  %.0.i40.i = phi i32 [ 0, %95 ], [ 1, %106 ], [ 0, %97 ]
+  %108 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7385, ptr noundef nonnull @.str.768, i32 noundef %.0.i40.i) #24
+  %.not12.i = icmp eq i32 %108, 0
   br i1 %.not12.i, label %get_MFL_from_client_hello.exit, label %.preheader.i
 
-.preheader.i:                                     ; preds = %PACKET_as_length_prefixed_2.exit.i, %139
-  %.sroa.051.0.i = phi ptr [ %.sroa.051.6.i, %139 ], [ %.sroa.051.4.i, %PACKET_as_length_prefixed_2.exit.i ]
-  %.sroa.11.0.i = phi i64 [ %.sroa.11.6.i, %139 ], [ %.sroa.11.4.i, %PACKET_as_length_prefixed_2.exit.i ]
-  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %139 ], [ null, %PACKET_as_length_prefixed_2.exit.i ]
-  %.sroa.6.0.i = phi i64 [ %.sroa.6.1.i, %139 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
-  %.063.i = phi i32 [ %.1124129.i, %139 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
+.preheader.i:                                     ; preds = %PACKET_as_length_prefixed_2.exit.i, %137
+  %.sroa.051.0.i = phi ptr [ %.sroa.051.6.i, %137 ], [ %.sroa.051.4.i, %PACKET_as_length_prefixed_2.exit.i ]
+  %.sroa.11.0.i = phi i64 [ %.sroa.11.6.i, %137 ], [ %.sroa.11.4.i, %PACKET_as_length_prefixed_2.exit.i ]
+  %.sroa.0.0.i = phi ptr [ %.sroa.0.1.i, %137 ], [ null, %PACKET_as_length_prefixed_2.exit.i ]
+  %.sroa.6.0.i = phi i64 [ %.sroa.6.1.i, %137 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
+  %.063.i = phi i32 [ %.1124129.i, %137 ], [ 0, %PACKET_as_length_prefixed_2.exit.i ]
   switch i64 %.sroa.11.0.i, label %PACKET_get_net_2.exit.i [
     i64 0, label %get_MFL_from_client_hello.exit
     i64 1, label %PACKET_get_net_2.exit.thread.i
   ]
 
 PACKET_get_net_2.exit.i:                          ; preds = %.preheader.i
-  %111 = load i8, ptr %.sroa.051.0.i, align 1, !tbaa !27
-  %112 = zext i8 %111 to i32
-  %113 = shl nuw nsw i32 %112, 8
-  %114 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 1
-  %115 = load i8, ptr %114, align 1, !tbaa !27
-  %116 = zext i8 %115 to i32
-  %117 = or disjoint i32 %113, %116
-  %118 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 2
-  %119 = add i64 %.sroa.11.0.i, -2
-  %120 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7390, ptr noundef nonnull @.str.769, i32 noundef 1) #24
-  %.not14.i = icmp eq i32 %120, 0
-  br i1 %.not14.i, label %get_MFL_from_client_hello.exit, label %122
+  %109 = load i8, ptr %.sroa.051.0.i, align 1, !tbaa !27
+  %110 = zext i8 %109 to i32
+  %111 = shl nuw nsw i32 %110, 8
+  %112 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 1
+  %113 = load i8, ptr %112, align 1, !tbaa !27
+  %114 = zext i8 %113 to i32
+  %115 = or disjoint i32 %111, %114
+  %116 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 2
+  %117 = add i64 %.sroa.11.0.i, -2
+  %118 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7390, ptr noundef nonnull @.str.769, i32 noundef 1) #24
+  %.not14.i = icmp eq i32 %118, 0
+  br i1 %.not14.i, label %get_MFL_from_client_hello.exit, label %120
 
 PACKET_get_net_2.exit.thread.i:                   ; preds = %.preheader.i
-  %121 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7390, ptr noundef nonnull @.str.769, i32 noundef 0) #24
-  %.not14121.i = icmp eq i32 %121, 0
+  %119 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7390, ptr noundef nonnull @.str.769, i32 noundef 0) #24
+  %.not14121.i = icmp eq i32 %119, 0
   br i1 %.not14121.i, label %get_MFL_from_client_hello.exit, label %PACKET_get_length_prefixed_2.exit46.i
 
-122:                                              ; preds = %PACKET_get_net_2.exit.i
-  %123 = icmp ult i64 %119, 2
-  br i1 %123, label %PACKET_get_length_prefixed_2.exit46.i, label %124
+120:                                              ; preds = %PACKET_get_net_2.exit.i
+  %121 = icmp ult i64 %117, 2
+  br i1 %121, label %PACKET_get_length_prefixed_2.exit46.i, label %122
 
-124:                                              ; preds = %122
-  %125 = load i8, ptr %118, align 1, !tbaa !27
-  %126 = zext i8 %125 to i64
-  %127 = shl nuw nsw i64 %126, 8
-  %128 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 3
-  %129 = load i8, ptr %128, align 1, !tbaa !27
-  %130 = zext i8 %129 to i64
-  %131 = or disjoint i64 %127, %130
-  %132 = add i64 %.sroa.11.0.i, -4
-  %133 = icmp ult i64 %132, %131
-  br i1 %133, label %PACKET_get_length_prefixed_2.exit46.i, label %134
+122:                                              ; preds = %120
+  %123 = load i8, ptr %116, align 1, !tbaa !27
+  %124 = zext i8 %123 to i64
+  %125 = shl nuw nsw i64 %124, 8
+  %126 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 3
+  %127 = load i8, ptr %126, align 1, !tbaa !27
+  %128 = zext i8 %127 to i64
+  %129 = or disjoint i64 %125, %128
+  %130 = add i64 %.sroa.11.0.i, -4
+  %131 = icmp ult i64 %130, %129
+  br i1 %131, label %PACKET_get_length_prefixed_2.exit46.i, label %132
 
-134:                                              ; preds = %124
-  %135 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 4
-  %136 = getelementptr inbounds nuw i8, ptr %135, i64 %131
-  %137 = sub nuw i64 %132, %131
+132:                                              ; preds = %122
+  %133 = getelementptr inbounds nuw i8, ptr %.sroa.051.0.i, i64 4
+  %134 = getelementptr inbounds nuw i8, ptr %133, i64 %129
+  %135 = sub nuw i64 %130, %129
   br label %PACKET_get_length_prefixed_2.exit46.i
 
-PACKET_get_length_prefixed_2.exit46.i:            ; preds = %134, %124, %122, %PACKET_get_net_2.exit.thread.i
-  %.1124129.i = phi i32 [ %117, %122 ], [ %117, %124 ], [ %117, %134 ], [ %.063.i, %PACKET_get_net_2.exit.thread.i ]
-  %.sroa.051.6.i = phi ptr [ %118, %122 ], [ %118, %124 ], [ %136, %134 ], [ %.sroa.051.0.i, %PACKET_get_net_2.exit.thread.i ]
-  %.sroa.11.6.i = phi i64 [ %119, %122 ], [ %119, %124 ], [ %137, %134 ], [ 1, %PACKET_get_net_2.exit.thread.i ]
-  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %122 ], [ %.sroa.0.0.i, %124 ], [ %135, %134 ], [ %.sroa.0.0.i, %PACKET_get_net_2.exit.thread.i ]
-  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %122 ], [ %.sroa.6.0.i, %124 ], [ %131, %134 ], [ %.sroa.6.0.i, %PACKET_get_net_2.exit.thread.i ]
-  %.0.i45.i = phi i32 [ 0, %122 ], [ 0, %124 ], [ 1, %134 ], [ 0, %PACKET_get_net_2.exit.thread.i ]
-  %138 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7391, ptr noundef nonnull @.str.770, i32 noundef %.0.i45.i) #24
-  %.not15.i = icmp eq i32 %138, 0
-  br i1 %.not15.i, label %get_MFL_from_client_hello.exit, label %139
+PACKET_get_length_prefixed_2.exit46.i:            ; preds = %132, %122, %120, %PACKET_get_net_2.exit.thread.i
+  %.1124129.i = phi i32 [ %115, %120 ], [ %115, %122 ], [ %115, %132 ], [ %.063.i, %PACKET_get_net_2.exit.thread.i ]
+  %.sroa.051.6.i = phi ptr [ %116, %120 ], [ %116, %122 ], [ %134, %132 ], [ %.sroa.051.0.i, %PACKET_get_net_2.exit.thread.i ]
+  %.sroa.11.6.i = phi i64 [ %117, %120 ], [ %117, %122 ], [ %135, %132 ], [ 1, %PACKET_get_net_2.exit.thread.i ]
+  %.sroa.0.1.i = phi ptr [ %.sroa.0.0.i, %120 ], [ %.sroa.0.0.i, %122 ], [ %133, %132 ], [ %.sroa.0.0.i, %PACKET_get_net_2.exit.thread.i ]
+  %.sroa.6.1.i = phi i64 [ %.sroa.6.0.i, %120 ], [ %.sroa.6.0.i, %122 ], [ %129, %132 ], [ %.sroa.6.0.i, %PACKET_get_net_2.exit.thread.i ]
+  %.0.i45.i = phi i32 [ 0, %120 ], [ 0, %122 ], [ 1, %132 ], [ 0, %PACKET_get_net_2.exit.thread.i ]
+  %136 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7391, ptr noundef nonnull @.str.770, i32 noundef %.0.i45.i) #24
+  %.not15.i = icmp eq i32 %136, 0
+  br i1 %.not15.i, label %get_MFL_from_client_hello.exit, label %137
 
-139:                                              ; preds = %PACKET_get_length_prefixed_2.exit46.i
-  %140 = icmp eq i32 %.1124129.i, 1
-  br i1 %140, label %141, label %.preheader.i, !llvm.loop !70
+137:                                              ; preds = %PACKET_get_length_prefixed_2.exit46.i
+  %138 = icmp eq i32 %.1124129.i, 1
+  br i1 %138, label %139, label %.preheader.i, !llvm.loop !70
 
-141:                                              ; preds = %139
-  %142 = trunc nuw nsw i64 %.sroa.6.1.i to i32
-  %143 = call i32 @test_uint_ne(ptr noundef nonnull @.str.14, i32 noundef 7395, ptr noundef nonnull @.str.771, ptr noundef nonnull @.str.218, i32 noundef %142, i32 noundef 0) #24
-  %.not16.i = icmp eq i32 %143, 0
-  br i1 %.not16.i, label %get_MFL_from_client_hello.exit, label %144
+139:                                              ; preds = %137
+  %140 = trunc nuw nsw i64 %.sroa.6.1.i to i32
+  %141 = call i32 @test_uint_ne(ptr noundef nonnull @.str.14, i32 noundef 7395, ptr noundef nonnull @.str.771, ptr noundef nonnull @.str.218, i32 noundef %140, i32 noundef 0) #24
+  %.not16.i = icmp eq i32 %141, 0
+  br i1 %.not16.i, label %get_MFL_from_client_hello.exit, label %142
 
-144:                                              ; preds = %141
+142:                                              ; preds = %139
   %.not.i.i.i = icmp eq i64 %.sroa.6.1.i, 0
-  br i1 %.not.i.i.i, label %PACKET_get_1.exit.i, label %145
+  br i1 %.not.i.i.i, label %PACKET_get_1.exit.i, label %143
 
-145:                                              ; preds = %144
-  %146 = load i8, ptr %.sroa.0.1.i, align 1, !tbaa !27
-  %147 = zext i8 %146 to i32
+143:                                              ; preds = %142
+  %144 = load i8, ptr %.sroa.0.1.i, align 1, !tbaa !27
+  %145 = zext i8 %144 to i32
   br label %PACKET_get_1.exit.i
 
-PACKET_get_1.exit.i:                              ; preds = %145, %144
-  %.064.i = phi i32 [ 0, %144 ], [ %147, %145 ]
-  %.0.i48.i = phi i32 [ 0, %144 ], [ 1, %145 ]
-  %148 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7396, ptr noundef nonnull @.str.772, i32 noundef %.0.i48.i) #24
-  %.not17.i = icmp ne i32 %148, 0
+PACKET_get_1.exit.i:                              ; preds = %143, %142
+  %.064.i = phi i32 [ 0, %142 ], [ %145, %143 ]
+  %.0.i48.i = phi i32 [ 0, %142 ], [ 1, %143 ]
+  %146 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7396, ptr noundef nonnull @.str.772, i32 noundef %.0.i48.i) #24
+  %.not17.i = icmp ne i32 %146, 0
   %spec.select24 = select i1 %.not17.i, i32 %.064.i, i32 0
   %spec.select25 = zext i1 %.not17.i to i32
   br label %get_MFL_from_client_hello.exit
 
-get_MFL_from_client_hello.exit:                   ; preds = %.preheader.i, %PACKET_get_net_2.exit.i, %PACKET_get_net_2.exit.thread.i, %PACKET_get_length_prefixed_2.exit46.i, %PACKET_get_1.exit.i, %37, %41, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.thread.i, %PACKET_forward.exit22.i, %PACKET_forward.exit25.i, %PACKET_get_length_prefixed_1.exit.i, %PACKET_get_length_prefixed_1.exit.thread.i, %PACKET_get_length_prefixed_2.exit.i, %PACKET_get_length_prefixed_2.exit.thread.i, %PACKET_get_length_prefixed_1.exit36.i, %PACKET_as_length_prefixed_2.exit.i, %141
-  %.023 = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %141 ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ %spec.select24, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
-  %.0.i = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %141 ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ %spec.select25, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
+get_MFL_from_client_hello.exit:                   ; preds = %.preheader.i, %PACKET_get_net_2.exit.i, %PACKET_get_net_2.exit.thread.i, %PACKET_get_length_prefixed_2.exit46.i, %PACKET_get_1.exit.i, %37, %41, %PACKET_buf_init.exit.i, %PACKET_buf_init.exit.thread.i, %PACKET_forward.exit22.i, %PACKET_forward.exit25.i, %PACKET_get_length_prefixed_1.exit.i, %PACKET_get_length_prefixed_1.exit.thread.i, %PACKET_get_length_prefixed_2.exit.i, %PACKET_get_length_prefixed_2.exit.thread.i, %PACKET_get_length_prefixed_1.exit36.i, %PACKET_as_length_prefixed_2.exit.i, %139
+  %.023 = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %139 ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ %spec.select24, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
+  %.0.i = phi i32 [ 0, %37 ], [ 0, %41 ], [ 0, %PACKET_buf_init.exit.thread.i ], [ 0, %PACKET_buf_init.exit.i ], [ 0, %PACKET_forward.exit22.i ], [ 0, %PACKET_forward.exit25.i ], [ 0, %PACKET_get_length_prefixed_1.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_2.exit.thread.i ], [ 0, %PACKET_get_length_prefixed_1.exit36.i ], [ 0, %PACKET_as_length_prefixed_2.exit.i ], [ 0, %139 ], [ 0, %PACKET_get_length_prefixed_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit.i ], [ %spec.select25, %PACKET_get_1.exit.i ], [ 0, %PACKET_get_length_prefixed_2.exit46.i ], [ 0, %PACKET_get_net_2.exit.thread.i ], [ 0, %PACKET_get_net_2.exit.i ], [ 0, %.preheader.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  %149 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7451, ptr noundef nonnull @.str.759, i32 noundef %.0.i) #24
-  %.not21 = icmp eq i32 %149, 0
-  br i1 %.not21, label %155, label %150
+  %147 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7451, ptr noundef nonnull @.str.759, i32 noundef %.0.i) #24
+  %.not21 = icmp eq i32 %147, 0
+  br i1 %.not21, label %153, label %148
 
-150:                                              ; preds = %get_MFL_from_client_hello.exit
-  %151 = zext i8 %14 to i32
-  %152 = icmp eq i32 %.023, %151
-  %153 = zext i1 %152 to i32
-  %154 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7454, ptr noundef nonnull @.str.760, i32 noundef %153) #24
-  %.not22 = icmp ne i32 %154, 0
+148:                                              ; preds = %get_MFL_from_client_hello.exit
+  %149 = zext i8 %14 to i32
+  %150 = icmp eq i32 %.023, %149
+  %151 = zext i1 %150 to i32
+  %152 = call i32 @test_true(ptr noundef nonnull @.str.14, i32 noundef 7454, ptr noundef nonnull @.str.760, i32 noundef %151) #24
+  %.not22 = icmp ne i32 %152, 0
   %spec.select = zext i1 %.not22 to i32
+  br label %153
+
+153:                                              ; preds = %148, %get_MFL_from_client_hello.exit, %34, %19, %10, %31
+  %.015 = phi i32 [ 0, %get_MFL_from_client_hello.exit ], [ 0, %34 ], [ 0, %31 ], [ 0, %19 ], [ 0, %10 ], [ %spec.select, %148 ]
+  %.014 = phi ptr [ %21, %get_MFL_from_client_hello.exit ], [ %21, %34 ], [ %21, %31 ], [ %21, %19 ], [ null, %10 ], [ %21, %148 ]
+  call void @SSL_free(ptr noundef %.014) #24
+  %154 = load ptr, ptr %3, align 8, !tbaa !19
+  call void @SSL_CTX_free(ptr noundef %154) #24
   br label %155
 
-155:                                              ; preds = %150, %get_MFL_from_client_hello.exit, %34, %19, %10, %31
-  %.015 = phi i32 [ 0, %get_MFL_from_client_hello.exit ], [ 0, %34 ], [ 0, %31 ], [ 0, %19 ], [ 0, %10 ], [ %spec.select, %150 ]
-  %.014 = phi ptr [ %21, %get_MFL_from_client_hello.exit ], [ %21, %34 ], [ %21, %31 ], [ %21, %19 ], [ null, %10 ], [ %21, %150 ]
-  call void @SSL_free(ptr noundef %.014) #24
-  %156 = load ptr, ptr %3, align 8, !tbaa !19
-  call void @SSL_CTX_free(ptr noundef %156) #24
-  br label %157
-
-157:                                              ; preds = %1, %155
-  %.0 = phi i32 [ %.015, %155 ], [ 0, %1 ]
+155:                                              ; preds = %1, %153
+  %.0 = phi i32 [ %.015, %153 ], [ 0, %1 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   ret i32 %.0
 }

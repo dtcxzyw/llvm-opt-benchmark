@@ -105081,23 +105081,23 @@ define noundef i32 @_ZN5typst4math5style11styled_char17h6bb08c724ae1549eE(ptr no
   br i1 %brmerge4.i, label %.thread133, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
 
 69:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 2, label %94
     i8 3, label %95
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 4, label %.thread153.thread
   ]
 
 70:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 2, label %96
     i8 3, label %97
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 4, label %.thread153.thread
-    i8 5, label %155
+    i8 5, label %154
   ]
 
 71:                                               ; preds = %52
@@ -105111,60 +105111,60 @@ define noundef i32 @_ZN5typst4math5style11styled_char17h6bb08c724ae1549eE(ptr no
   br i1 %brmerge8.i, label %.thread133, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
 
 75:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 2, label %98
     i8 3, label %99
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 4, label %.thread153.thread
   ]
 
 76:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 3, label %100
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 2, label %.thread133.thread168
     i8 4, label %.thread153.thread
   ]
 
 77:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 3, label %101
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 2, label %.thread133.thread168
     i8 4, label %.thread153.thread
   ]
 
 78:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 2, label %.thread133.thread168
     i8 3, label %.thread133.thread
     i8 4, label %.thread153.thread
   ]
 
 79:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 2, label %.thread133.thread168
     i8 3, label %.thread133.thread
     i8 4, label %.thread153.thread
   ]
 
 80:                                               ; preds = %52
-  switch i8 %20, label %default.unreachable178 [
+  switch i8 %20, label %default.unreachable179 [
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
-    i8 0, label %153
-    i8 1, label %154
+    i8 0, label %152
+    i8 1, label %153
     i8 2, label %.thread133.thread168
     i8 3, label %.thread133.thread
     i8 4, label %.thread153.thread
@@ -105226,8 +105226,8 @@ define noundef i32 @_ZN5typst4math5style11styled_char17h6bb08c724ae1549eE(ptr no
 101:                                              ; preds = %77
   br i1 %.0.i1.i.i, label %.thread133.thread, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
 
-_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit: ; preds = %.thread123.thread, %77, %76, %75, %69, %78, %79, %80, %52, %114, %92, %90, %57, %56, %55, %115, %113, %94, %95, %96, %97, %98, %99, %100, %101, %63, %65, %67, %71, %73, %81, %84, %86, %88, %.thread153.thread, %125, %125, %125, %125, %126, %126, %126, %126, %127, %127, %.thread123
-  %.0 = phi i32 [ %1, %.thread123 ], [ %1, %127 ], [ %1, %127 ], [ %1, %126 ], [ %1, %126 ], [ %1, %126 ], [ %1, %126 ], [ %1, %125 ], [ %1, %125 ], [ %1, %125 ], [ %1, %125 ], [ %132, %.thread153.thread ], [ 8459, %94 ], [ 8460, %95 ], [ 8464, %96 ], [ 8465, %97 ], [ 8475, %98 ], [ 8476, %99 ], [ 8493, %100 ], [ 8488, %101 ], [ 8492, %63 ], [ 8496, %65 ], [ 8497, %67 ], [ 8466, %71 ], [ 8499, %73 ], [ 8462, %81 ], [ 8495, %84 ], [ 8458, %86 ], [ 8500, %88 ], [ %.sroa.44.0..sroa.34.0.i, %113 ], [ %.sroa.24.0..sroa.0.0.i, %115 ], [ 10216, %57 ], [ 10219, %56 ], [ 10218, %55 ], [ 10217, %52 ], [ 8461, %69 ], [ 8477, %75 ], [ 8450, %76 ], [ 8484, %77 ], [ 8469, %78 ], [ 8473, %79 ], [ 8474, %80 ], [ 120484, %90 ], [ 120485, %92 ], [ %.sroa.14.0.i, %114 ], [ %1, %.thread123.thread ]
+_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit: ; preds = %.thread123.thread, %77, %76, %75, %69, %78, %79, %80, %52, %114, %92, %90, %57, %56, %55, %115, %113, %94, %95, %96, %97, %98, %99, %100, %101, %63, %65, %67, %71, %73, %81, %84, %86, %88, %.thread153.thread, %125, %125, %125, %125, %126, %126, %126, %126, %.thread153, %.thread153, %.thread123
+  %.0 = phi i32 [ %1, %.thread123 ], [ %1, %.thread153 ], [ %1, %.thread153 ], [ %1, %126 ], [ %1, %126 ], [ %1, %126 ], [ %1, %126 ], [ %1, %125 ], [ %1, %125 ], [ %1, %125 ], [ %1, %125 ], [ %131, %.thread153.thread ], [ 8459, %94 ], [ 8460, %95 ], [ 8464, %96 ], [ 8465, %97 ], [ 8475, %98 ], [ 8476, %99 ], [ 8493, %100 ], [ 8488, %101 ], [ 8492, %63 ], [ 8496, %65 ], [ 8497, %67 ], [ 8466, %71 ], [ 8499, %73 ], [ 8462, %81 ], [ 8495, %84 ], [ 8458, %86 ], [ 8500, %88 ], [ %.sroa.44.0..sroa.34.0.i, %113 ], [ %.sroa.24.0..sroa.0.0.i, %115 ], [ 10216, %57 ], [ 10219, %56 ], [ 10218, %55 ], [ 10217, %52 ], [ 8461, %69 ], [ 8477, %75 ], [ 8450, %76 ], [ 8484, %77 ], [ 8469, %78 ], [ 8473, %79 ], [ 8474, %80 ], [ 120484, %90 ], [ 120485, %92 ], [ %.sroa.14.0.i, %114 ], [ %1, %.thread123.thread ]
   ret i32 %.0
 
 102:                                              ; preds = %52
@@ -105315,7 +105315,7 @@ _ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit: ; preds = %.thre
 122:                                              ; preds = %120
   %123 = add i32 %1, -48
   %or.cond6 = icmp ult i32 %123, 10
-  br i1 %or.cond6, label %127, label %.thread123
+  br i1 %or.cond6, label %.thread153, label %.thread123
 
 .thread123.thread:                                ; preds = %90, %92
   br label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
@@ -105326,29 +105326,29 @@ _ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit: ; preds = %.thre
   br i1 %or.cond7, label %.thread153.thread, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
 
 .thread133:                                       ; preds = %63, %65, %67, %71, %73, %.thread
-  switch i8 %20, label %default.unreachable178 [
-    i8 0, label %153
-    i8 1, label %154
+  switch i8 %20, label %default.unreachable179 [
+    i8 0, label %152
+    i8 1, label %153
     i8 2, label %.thread133.thread168
     i8 3, label %.thread133.thread
     i8 4, label %.thread153.thread
-    i8 5, label %155
+    i8 5, label %154
   ]
 
 .thread.thread163.thread:                         ; preds = %88, %86, %84, %81, %.thread.thread163
-  switch i8 %20, label %default.unreachable178 [
-    i8 0, label %144
-    i8 1, label %145
-    i8 2, label %146
-    i8 3, label %147
+  switch i8 %20, label %default.unreachable179 [
+    i8 0, label %143
+    i8 1, label %144
+    i8 2, label %145
+    i8 3, label %146
     i8 4, label %.thread153.thread
-    i8 5, label %148
+    i8 5, label %147
   ]
 
 125:                                              ; preds = %118
-  switch i8 %20, label %default.unreachable178 [
-    i8 0, label %140
-    i8 1, label %141
+  switch i8 %20, label %default.unreachable179 [
+    i8 0, label %139
+    i8 1, label %140
     i8 2, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 3, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 4, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
@@ -105356,117 +105356,117 @@ _ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit: ; preds = %.thre
   ]
 
 126:                                              ; preds = %120
-  switch i8 %20, label %default.unreachable178 [
-    i8 0, label %136
-    i8 1, label %137
+  switch i8 %20, label %default.unreachable179 [
+    i8 0, label %135
+    i8 1, label %136
     i8 2, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 3, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 4, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 5, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
   ]
 
-127:                                              ; preds = %122
-  switch i8 %20, label %default.unreachable178 [
-    i8 0, label %128
-    i8 1, label %129
+.thread153:                                       ; preds = %122
+  switch i8 %20, label %default.unreachable179 [
+    i8 0, label %127
+    i8 1, label %128
     i8 2, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 3, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
     i8 4, label %.thread153.thread
-    i8 5, label %130
+    i8 5, label %129
   ]
 
-default.unreachable178:                           ; preds = %127, %126, %125, %.thread.thread163.thread, %.thread133, %80, %79, %78, %77, %76, %75, %70, %69
+default.unreachable179:                           ; preds = %.thread153, %126, %125, %.thread.thread163.thread, %.thread133, %80, %79, %78, %77, %76, %75, %70, %69
   unreachable
 
-128:                                              ; preds = %127
+127:                                              ; preds = %.thread153
   %. = select i1 %.0.i1.i.i, i32 120782, i32 48
   br label %.thread153.thread
 
-129:                                              ; preds = %127
+128:                                              ; preds = %.thread153
   %.42 = select i1 %.0.i1.i.i, i32 120812, i32 120802
   br label %.thread153.thread
 
-130:                                              ; preds = %127
+129:                                              ; preds = %.thread153
   br label %.thread153.thread
 
-.thread153.thread:                                ; preds = %.thread123, %77, %76, %75, %70, %69, %78, %79, %80, %159, %158, %157, %156, %.thread133, %.thread133.thread, %.thread133.thread168, %152, %151, %150, %149, %.thread.thread163.thread, %147, %146, %143, %142, %141, %139, %138, %137, %127, %129, %128, %155, %148, %130
-  %.036.neg131 = phi i32 [ -65, %155 ], [ -97, %148 ], [ -48, %130 ], [ -48, %128 ], [ -48, %129 ], [ -48, %127 ], [ -945, %137 ], [ -945, %138 ], [ -945, %139 ], [ -913, %141 ], [ -913, %142 ], [ -913, %143 ], [ -97, %146 ], [ -97, %147 ], [ -97, %.thread.thread163.thread ], [ -97, %149 ], [ -97, %150 ], [ -97, %151 ], [ -97, %152 ], [ -65, %.thread133.thread168 ], [ -65, %.thread133.thread ], [ -65, %.thread133 ], [ -65, %156 ], [ -65, %157 ], [ -65, %158 ], [ -65, %159 ], [ -65, %80 ], [ -65, %79 ], [ -65, %78 ], [ -65, %69 ], [ -65, %70 ], [ -65, %75 ], [ -65, %76 ], [ -65, %77 ], [ -1488, %.thread123 ]
-  %.037 = phi i32 [ 120120, %155 ], [ 120146, %148 ], [ 120792, %130 ], [ %., %128 ], [ %.42, %129 ], [ 120822, %127 ], [ %.43, %137 ], [ %.44, %138 ], [ %.45, %139 ], [ %.46, %141 ], [ %.47, %142 ], [ %.48, %143 ], [ %.49, %146 ], [ %.50, %147 ], [ 120458, %.thread.thread163.thread ], [ %.51, %149 ], [ %.52, %150 ], [ %.53, %151 ], [ %.54, %152 ], [ %.55, %.thread133.thread168 ], [ %.56, %.thread133.thread ], [ 120432, %.thread133 ], [ %.57, %156 ], [ %.58, %157 ], [ %.59, %158 ], [ %.60, %159 ], [ 120432, %80 ], [ 120432, %79 ], [ 120432, %78 ], [ 120432, %69 ], [ 120432, %70 ], [ 120432, %75 ], [ 120432, %76 ], [ 120432, %77 ], [ 8501, %.thread123 ]
-  %131 = add nsw i32 %.036.neg131, %1
-  %132 = add nsw i32 %131, %.037
-  %133 = xor i32 %132, 55296
-  %134 = add i32 %133, -1114112
-  %135 = icmp ult i32 %134, -1112064
-  br i1 %135, label %160, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
+.thread153.thread:                                ; preds = %.thread123, %77, %76, %75, %70, %69, %78, %79, %80, %158, %157, %156, %155, %.thread133, %.thread133.thread, %.thread133.thread168, %151, %150, %149, %148, %.thread.thread163.thread, %146, %145, %142, %141, %140, %138, %137, %136, %.thread153, %128, %127, %154, %147, %129
+  %.036.neg131 = phi i32 [ -65, %154 ], [ -97, %147 ], [ -48, %129 ], [ -48, %127 ], [ -48, %128 ], [ -48, %.thread153 ], [ -945, %136 ], [ -945, %137 ], [ -945, %138 ], [ -913, %140 ], [ -913, %141 ], [ -913, %142 ], [ -97, %145 ], [ -97, %146 ], [ -97, %.thread.thread163.thread ], [ -97, %148 ], [ -97, %149 ], [ -97, %150 ], [ -97, %151 ], [ -65, %.thread133.thread168 ], [ -65, %.thread133.thread ], [ -65, %.thread133 ], [ -65, %155 ], [ -65, %156 ], [ -65, %157 ], [ -65, %158 ], [ -65, %80 ], [ -65, %79 ], [ -65, %78 ], [ -65, %69 ], [ -65, %70 ], [ -65, %75 ], [ -65, %76 ], [ -65, %77 ], [ -1488, %.thread123 ]
+  %.037 = phi i32 [ 120120, %154 ], [ 120146, %147 ], [ 120792, %129 ], [ %., %127 ], [ %.42, %128 ], [ 120822, %.thread153 ], [ %.43, %136 ], [ %.44, %137 ], [ %.45, %138 ], [ %.46, %140 ], [ %.47, %141 ], [ %.48, %142 ], [ %.49, %145 ], [ %.50, %146 ], [ 120458, %.thread.thread163.thread ], [ %.51, %148 ], [ %.52, %149 ], [ %.53, %150 ], [ %.54, %151 ], [ %.55, %.thread133.thread168 ], [ %.56, %.thread133.thread ], [ 120432, %.thread133 ], [ %.57, %155 ], [ %.58, %156 ], [ %.59, %157 ], [ %.60, %158 ], [ 120432, %80 ], [ 120432, %79 ], [ 120432, %78 ], [ 120432, %69 ], [ 120432, %70 ], [ 120432, %75 ], [ 120432, %76 ], [ 120432, %77 ], [ 8501, %.thread123 ]
+  %130 = add nsw i32 %.036.neg131, %1
+  %131 = add nsw i32 %130, %.037
+  %132 = xor i32 %131, 55296
+  %133 = add i32 %132, -1114112
+  %134 = icmp ult i32 %133, -1112064
+  br i1 %134, label %159, label %_ZN5typst4math5style15latin_exception17h72b461a6fc05cc90E.exit
+
+135:                                              ; preds = %126
+  br i1 %.0.i1.i.i, label %138, label %137
 
 136:                                              ; preds = %126
-  br i1 %.0.i1.i.i, label %139, label %138
-
-137:                                              ; preds = %126
   %.43 = select i1 %.0.i, i32 120746, i32 120688
   br label %.thread153.thread
 
-138:                                              ; preds = %136
+137:                                              ; preds = %135
   %.44 = select i1 %.0.i, i32 120572, i32 945
   br label %.thread153.thread
 
-139:                                              ; preds = %136
+138:                                              ; preds = %135
   %.45 = select i1 %.0.i, i32 120630, i32 120514
   br label %.thread153.thread
 
-140:                                              ; preds = %125
-  br i1 %.0.i1.i.i, label %143, label %142
+139:                                              ; preds = %125
+  br i1 %.0.i1.i.i, label %142, label %141
 
-141:                                              ; preds = %125
+140:                                              ; preds = %125
   %.46 = select i1 %.0.i, i32 120720, i32 120662
   br label %.thread153.thread
 
-142:                                              ; preds = %140
+141:                                              ; preds = %139
   %.47 = select i1 %.0.i, i32 120546, i32 913
   br label %.thread153.thread
 
-143:                                              ; preds = %140
+142:                                              ; preds = %139
   %.48 = select i1 %.0.i, i32 120604, i32 120488
   br label %.thread153.thread
 
+143:                                              ; preds = %.thread.thread163.thread
+  br i1 %.0.i1.i.i, label %149, label %148
+
 144:                                              ; preds = %.thread.thread163.thread
-  br i1 %.0.i1.i.i, label %150, label %149
+  br i1 %.0.i1.i.i, label %151, label %150
 
 145:                                              ; preds = %.thread.thread163.thread
-  br i1 %.0.i1.i.i, label %152, label %151
-
-146:                                              ; preds = %.thread.thread163.thread
   %.49 = select i1 %.0.i1.i.i, i32 120042, i32 119990
   br label %.thread153.thread
 
-147:                                              ; preds = %.thread.thread163.thread
+146:                                              ; preds = %.thread.thread163.thread
   %.50 = select i1 %.0.i1.i.i, i32 120198, i32 120094
   br label %.thread153.thread
 
-148:                                              ; preds = %.thread.thread163.thread
+147:                                              ; preds = %.thread.thread163.thread
   br label %.thread153.thread
 
-149:                                              ; preds = %144
+148:                                              ; preds = %143
   %.51 = select i1 %.0.i, i32 119886, i32 97
   br label %.thread153.thread
 
-150:                                              ; preds = %144
+149:                                              ; preds = %143
   %.52 = select i1 %.0.i, i32 119938, i32 119834
   br label %.thread153.thread
 
-151:                                              ; preds = %145
+150:                                              ; preds = %144
   %.53 = select i1 %.0.i, i32 120354, i32 120250
   br label %.thread153.thread
 
-152:                                              ; preds = %145
+151:                                              ; preds = %144
   %.54 = select i1 %.0.i, i32 120406, i32 120302
   br label %.thread153.thread
 
-153:                                              ; preds = %77, %76, %75, %70, %69, %78, %79, %80, %.thread133
-  br i1 %.0.i1.i.i, label %157, label %156
+152:                                              ; preds = %77, %76, %75, %70, %69, %78, %79, %80, %.thread133
+  br i1 %.0.i1.i.i, label %156, label %155
 
-154:                                              ; preds = %77, %76, %75, %70, %69, %78, %79, %80, %.thread133
-  br i1 %.0.i1.i.i, label %159, label %158
+153:                                              ; preds = %77, %76, %75, %70, %69, %78, %79, %80, %.thread133
+  br i1 %.0.i1.i.i, label %158, label %157
 
 .thread133.thread168:                             ; preds = %77, %76, %78, %79, %80, %98, %96, %94, %.thread133
   %.55 = select i1 %.0.i1.i.i, i32 120016, i32 119964
@@ -105476,26 +105476,26 @@ default.unreachable178:                           ; preds = %127, %126, %125, %.
   %.56 = select i1 %.0.i1.i.i, i32 120172, i32 120068
   br label %.thread153.thread
 
-155:                                              ; preds = %70, %.thread133
+154:                                              ; preds = %70, %.thread133
   br label %.thread153.thread
 
-156:                                              ; preds = %153
+155:                                              ; preds = %152
   %.57 = select i1 %.0.i, i32 119860, i32 65
   br label %.thread153.thread
 
-157:                                              ; preds = %153
+156:                                              ; preds = %152
   %.58 = select i1 %.0.i, i32 119912, i32 119808
   br label %.thread153.thread
 
-158:                                              ; preds = %154
+157:                                              ; preds = %153
   %.59 = select i1 %.0.i, i32 120328, i32 120224
   br label %.thread153.thread
 
-159:                                              ; preds = %154
+158:                                              ; preds = %153
   %.60 = select i1 %.0.i, i32 120380, i32 120276
   br label %.thread153.thread
 
-160:                                              ; preds = %.thread153.thread
+159:                                              ; preds = %.thread153.thread
   call void @_ZN4core6option13unwrap_failed17hac39b9b7507453f8E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.9bf146a73cb71d9c7e3fe69f46c42f4a.409) #84
   unreachable
 }

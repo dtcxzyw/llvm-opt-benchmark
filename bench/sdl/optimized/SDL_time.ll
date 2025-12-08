@@ -255,7 +255,7 @@ SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %17, %19
   %.zext = zext nneg i16 %31 to i32
   %32 = add nuw nsw i32 %2, %.zext
   %33 = add nsw i32 %32, -1
-  %34 = icmp samesign ugt i32 %33, 305
+  %34 = icmp samesign ugt i32 %32, 306
   br i1 %34, label %35, label %37
 
 35:                                               ; preds = %24
@@ -280,7 +280,7 @@ SDL_GetDaysInMonth_REAL.exit25:                   ; preds = %17, %19
 
 44:                                               ; preds = %41, %39, %37
   %45 = phi i32 [ 59, %37 ], [ 60, %39 ], [ %43, %41 ]
-  %46 = add nuw nsw i32 %45, %33
+  %46 = add nuw nsw i32 %33, %45
   br label %SDL_CivilToDays.exit
 
 SDL_CivilToDays.exit:                             ; preds = %44, %35, %SDL_GetDaysInMonth_REAL.exit25, %5

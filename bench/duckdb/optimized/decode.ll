@@ -2305,7 +2305,7 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit102: ; preds = %.
   br i1 %97, label %98, label %101
 
 98:                                               ; preds = %88
-  %99 = icmp samesign ugt i32 %93, 4
+  %99 = icmp sgt i32 %.0283, 3
   %100 = icmp eq i64 %90, 0
   %or.cond = select i1 %99, i1 %100, i1 false
   br i1 %or.cond, label %_ZN13duckdb_brotliL18BrotliSafeReadBitsEPNS_15BrotliBitReaderEmPm.exit95.thread, label %101
@@ -2534,7 +2534,7 @@ _ZN13duckdb_brotliL14BrotliPullByteEPNS_15BrotliBitReaderE.exit110: ; preds = %.
   br i1 %192, label %193, label %196
 
 193:                                              ; preds = %183
-  %194 = icmp samesign ugt i32 %188, 1
+  %194 = icmp sgt i32 %.1275, 0
   %195 = icmp eq i64 %185, 0
   %or.cond3 = select i1 %194, i1 %195, i1 false
   br i1 %or.cond3, label %_ZN13duckdb_brotliL18BrotliSafeReadBitsEPNS_15BrotliBitReaderEmPm.exit95.thread, label %196

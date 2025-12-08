@@ -193,7 +193,7 @@ PACKET_buf_init.exit.thread:                      ; preds = %63
 
 PACKET_forward.exit72:                            ; preds = %PACKET_buf_init.exit
   %69 = add nsw i64 %61, -5
-  %70 = icmp samesign ugt i64 %69, 3
+  %70 = icmp samesign ugt i64 %61, 8
   %.0.i71 = zext i1 %70 to i32
   %71 = call i32 @test_true(ptr noundef nonnull @.str, i32 noundef 162, ptr noundef nonnull @.str.20, i32 noundef %.0.i71) #3
   %.not53 = icmp eq i32 %71, 0
@@ -204,7 +204,7 @@ PACKET_forward.exit75:                            ; preds = %PACKET_forward.exit
   %.sroa.18.2 = select i1 %70, i64 %72, i64 %69
   %.sroa.0101.2.v = select i1 %70, i64 9, i64 5
   %.sroa.0101.2 = getelementptr inbounds nuw i8, ptr %64, i64 %.sroa.0101.2.v
-  %73 = icmp ugt i64 %.sroa.18.2, 33
+  %73 = icmp samesign ugt i64 %.sroa.18.2, 33
   %74 = add nsw i64 %.sroa.18.2, -34
   %.sroa.0101.3.idx = select i1 %73, i64 34, i64 0
   %.sroa.0101.3 = getelementptr inbounds nuw i8, ptr %.sroa.0101.2, i64 %.sroa.0101.3.idx

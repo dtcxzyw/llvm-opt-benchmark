@@ -872,7 +872,7 @@ define internal zeroext i1 @HIDAPI_DriverShield_SendJoystickEffect(ptr noundef %
   %13 = load ptr, ptr %12, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %14 = zext nneg i32 %11 to i64
-  %15 = icmp samesign ugt i32 %11, 30
+  %15 = icmp samesign ugt i32 %3, 31
   br i1 %15, label %16, label %18
 
 16:                                               ; preds = %8

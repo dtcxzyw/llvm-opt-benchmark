@@ -4746,12 +4746,12 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr readnone captures(n
   store i32 0, ptr %5, align 4, !annotation !43
   %13 = call i32 @sata_scr_read(ptr noundef %0, i32 noundef 0, ptr noundef nonnull %4) #32
   %14 = icmp eq i32 %13, 0
-  br i1 %14, label %15, label %92
+  br i1 %14, label %15, label %88
 
 15:                                               ; preds = %12
   %16 = call i32 @sata_scr_read(ptr noundef %0, i32 noundef 2, ptr noundef nonnull %5) #32
   %17 = icmp eq i32 %16, 0
-  br i1 %17, label %18, label %92
+  br i1 %17, label %18, label %88
 
 18:                                               ; preds = %15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
@@ -4772,7 +4772,7 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr readnone captures(n
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 14728
   %28 = load i32, ptr %27, align 8
   %29 = icmp eq i32 %28, 0
-  br i1 %29, label %74, label %78
+  br i1 %29, label %70, label %74
 
 30:                                               ; preds = %21
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
@@ -4789,81 +4789,75 @@ define dso_local void @ata_std_postreset(ptr noundef %0, ptr readnone captures(n
   %39 = getelementptr inbounds nuw i8, ptr %34, i64 14720
   %40 = load ptr, ptr %39, align 64
   %41 = icmp eq ptr %40, null
-  br i1 %41, label %59, label %42
+  br i1 %41, label %57, label %42
 
 42:                                               ; preds = %38, %30
   %43 = getelementptr inbounds nuw i8, ptr %34, i64 36
   %44 = load i32, ptr %43, align 4
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %46 = load i32, ptr %45, align 8
-  %47 = icmp eq i32 %33, 0
-  br i1 %47, label %55, label %48
+  %47 = add nsw i32 %33, -4
+  %or.cond = icmp ult i32 %47, -3
+  br i1 %or.cond, label %53, label %48
 
 48:                                               ; preds = %42
-  %49 = add nsw i32 %33, -1
-  %50 = icmp samesign ugt i32 %49, 2
-  br i1 %50, label %55, label %51
+  %49 = zext nneg i32 %33 to i64
+  %50 = getelementptr ptr, ptr @sata_spd_string.spd_str, i64 %49
+  %51 = getelementptr i8, ptr %50, i64 -8
+  %52 = load ptr, ptr %51, align 8
+  br label %53
 
-51:                                               ; preds = %48
-  %52 = zext nneg i32 %49 to i64
-  %53 = getelementptr ptr, ptr @sata_spd_string.spd_str, i64 %52
-  %54 = load ptr, ptr %53, align 8
-  br label %55
+53:                                               ; preds = %48, %42
+  %54 = phi ptr [ %52, %48 ], [ @.str.30, %42 ]
+  %55 = load i32, ptr %5, align 4
+  %56 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.322, i32 noundef %44, i32 noundef %46, ptr noundef %54, i32 noundef %31, i32 noundef %55) #34
+  br label %88
 
-55:                                               ; preds = %51, %48, %42
-  %56 = phi ptr [ %54, %51 ], [ @.str.30, %48 ], [ @.str.30, %42 ]
-  %57 = load i32, ptr %5, align 4
-  %58 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.322, i32 noundef %44, i32 noundef %46, ptr noundef %56, i32 noundef %31, i32 noundef %57) #34
-  br label %92
+57:                                               ; preds = %38
+  %58 = getelementptr inbounds nuw i8, ptr %34, i64 36
+  %59 = load i32, ptr %58, align 4
+  %60 = add nsw i32 %33, -4
+  %or.cond3 = icmp ult i32 %60, -3
+  br i1 %or.cond3, label %66, label %61
 
-59:                                               ; preds = %38
-  %60 = getelementptr inbounds nuw i8, ptr %34, i64 36
-  %61 = load i32, ptr %60, align 4
-  %62 = icmp eq i32 %33, 0
-  br i1 %62, label %70, label %63
+61:                                               ; preds = %57
+  %62 = zext nneg i32 %33 to i64
+  %63 = getelementptr ptr, ptr @sata_spd_string.spd_str, i64 %62
+  %64 = getelementptr i8, ptr %63, i64 -8
+  %65 = load ptr, ptr %64, align 8
+  br label %66
 
-63:                                               ; preds = %59
-  %64 = add nsw i32 %33, -1
-  %65 = icmp samesign ugt i32 %64, 2
-  br i1 %65, label %70, label %66
+66:                                               ; preds = %61, %57
+  %67 = phi ptr [ %65, %61 ], [ @.str.30, %57 ]
+  %68 = load i32, ptr %5, align 4
+  %69 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.323, i32 noundef %59, ptr noundef %67, i32 noundef %31, i32 noundef %68) #34
+  br label %88
 
-66:                                               ; preds = %63
-  %67 = zext nneg i32 %64 to i64
-  %68 = getelementptr ptr, ptr @sata_spd_string.spd_str, i64 %67
-  %69 = load ptr, ptr %68, align 8
-  br label %70
+70:                                               ; preds = %25
+  %71 = getelementptr inbounds nuw i8, ptr %26, i64 14720
+  %72 = load ptr, ptr %71, align 64
+  %73 = icmp eq ptr %72, null
+  br i1 %73, label %82, label %74
 
-70:                                               ; preds = %66, %63, %59
-  %71 = phi ptr [ %69, %66 ], [ @.str.30, %63 ], [ @.str.30, %59 ]
-  %72 = load i32, ptr %5, align 4
-  %73 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.323, i32 noundef %61, ptr noundef %71, i32 noundef %31, i32 noundef %72) #34
-  br label %92
+74:                                               ; preds = %70, %25
+  %75 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %76 = load i32, ptr %75, align 4
+  %77 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %78 = load i32, ptr %77, align 8
+  %79 = load i32, ptr %4, align 4
+  %80 = load i32, ptr %5, align 4
+  %81 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.324, i32 noundef %76, i32 noundef %78, i32 noundef %79, i32 noundef %80) #34
+  br label %88
 
-74:                                               ; preds = %25
-  %75 = getelementptr inbounds nuw i8, ptr %26, i64 14720
-  %76 = load ptr, ptr %75, align 64
-  %77 = icmp eq ptr %76, null
-  br i1 %77, label %86, label %78
+82:                                               ; preds = %70
+  %83 = getelementptr inbounds nuw i8, ptr %26, i64 36
+  %84 = load i32, ptr %83, align 4
+  %85 = load i32, ptr %4, align 4
+  %86 = load i32, ptr %5, align 4
+  %87 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.325, i32 noundef %84, i32 noundef %85, i32 noundef %86) #34
+  br label %88
 
-78:                                               ; preds = %74, %25
-  %79 = getelementptr inbounds nuw i8, ptr %26, i64 36
-  %80 = load i32, ptr %79, align 4
-  %81 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %82 = load i32, ptr %81, align 8
-  %83 = load i32, ptr %4, align 4
-  %84 = load i32, ptr %5, align 4
-  %85 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.324, i32 noundef %80, i32 noundef %82, i32 noundef %83, i32 noundef %84) #34
-  br label %92
-
-86:                                               ; preds = %74
-  %87 = getelementptr inbounds nuw i8, ptr %26, i64 36
-  %88 = load i32, ptr %87, align 4
-  %89 = load i32, ptr %4, align 4
-  %90 = load i32, ptr %5, align 4
-  %91 = call i32 (ptr, ...) @_printk(ptr noundef nonnull @.str.325, i32 noundef %88, i32 noundef %89, i32 noundef %90) #34
-  br label %92
-
-92:                                               ; preds = %86, %78, %70, %55, %15, %12
+88:                                               ; preds = %82, %74, %66, %53, %15, %12
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

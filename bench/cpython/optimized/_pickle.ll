@@ -3952,7 +3952,7 @@ _Pickler_Write.exit.thread.i:                     ; preds = %_Pickler_Write.exit
 
 381:                                              ; preds = %379
   %382 = call ptr @PyErr_NoMemory() #13
-  br label %.thread161.thread193.i
+  br label %.thread161.thread194.i
 
 383:                                              ; preds = %379
   %384 = sdiv i64 %375, 2
@@ -3961,7 +3961,7 @@ _Pickler_Write.exit.thread.i:                     ; preds = %_Pickler_Write.exit
   %386 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %387 = call i32 @_PyBytes_Resize(ptr noundef nonnull %386, i64 noundef %385) #13
   %388 = icmp slt i32 %387, 0
-  br i1 %388, label %.thread161.thread193.i, label %389
+  br i1 %388, label %.thread161.thread194.i, label %389
 
 389:                                              ; preds = %383, %.thread.i85.i
   %390 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -4013,12 +4013,12 @@ _Pickler_Write.exit.thread.i:                     ; preds = %_Pickler_Write.exit
 412:                                              ; preds = %407
   %413 = load ptr, ptr @PyExc_OverflowError, align 8, !tbaa !35
   call void @PyErr_SetString(ptr noundef %413, ptr noundef nonnull @.str.23) #13
-  br label %.thread161.thread193.i
+  br label %.thread161.thread194.i
 
 414:                                              ; preds = %407
   %415 = call ptr @PyBytes_FromStringAndSize(ptr noundef null, i64 noundef %410) #13
   %416 = icmp eq ptr %415, null
-  br i1 %416, label %.thread161.thread193.i, label %417
+  br i1 %416, label %.thread161.thread194.i, label %417
 
 417:                                              ; preds = %414
   %418 = getelementptr inbounds nuw i8, ptr %415, i64 32
@@ -4029,7 +4029,7 @@ _Pickler_Write.exit.thread.i:                     ; preds = %_Pickler_Write.exit
 421:                                              ; preds = %417
   %422 = load i32, ptr %10, align 4, !tbaa !91
   %423 = icmp slt i32 %422, 0
-  %424 = icmp samesign ugt i64 %410, 1
+  %424 = icmp sgt i64 %409, 0
   %or.cond9.i = and i1 %424, %423
   br i1 %or.cond9.i, label %425, label %432
 
@@ -4068,7 +4068,7 @@ _Pickler_Write.exit.thread.i:                     ; preds = %_Pickler_Write.exit
   %440 = trunc i64 %439 to i8
   %441 = getelementptr i8, ptr %9, i64 %indvars.iv.i
   store i8 %440, ptr %441, align 1, !tbaa !42
-  %442 = ashr i64 %439, 8
+  %442 = lshr i64 %439, 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 5
   br i1 %exitcond.not.i, label %.loopexit.i, label %438, !llvm.loop !92
@@ -4413,7 +4413,7 @@ _Pickler_Write.exit129.i:                         ; preds = %.preheader.i124.i
   store i64 %616, ptr %503, align 8, !tbaa !47
   br label %.thread161.thread.i
 
-.thread161.thread193.i:                           ; preds = %414, %412, %383, %381
+.thread161.thread194.i:                           ; preds = %414, %412, %383, %381
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %save_long.exit
@@ -4440,8 +4440,8 @@ _Pickler_Write.exit129.i:                         ; preds = %.preheader.i124.i
   call void @_Py_Dealloc(ptr noundef nonnull %.264169.i) #13
   br label %save_long.exit
 
-save_long.exit:                                   ; preds = %354, %.thread152.i, %489, %.thread161.thread193.i, %.thread161.thread.i, %618, %621
-  %.1.i164 = phi i32 [ %355, %354 ], [ 0, %.thread152.i ], [ %.066167.i, %.thread161.thread.i ], [ %.066167.i, %618 ], [ %.066167.i, %621 ], [ -1, %.thread161.thread193.i ], [ -1, %489 ]
+save_long.exit:                                   ; preds = %354, %.thread152.i, %489, %.thread161.thread194.i, %.thread161.thread.i, %618, %621
+  %.1.i164 = phi i32 [ %355, %354 ], [ 0, %.thread152.i ], [ %.066167.i, %.thread161.thread.i ], [ %.066167.i, %618 ], [ %.066167.i, %621 ], [ -1, %.thread161.thread194.i ], [ -1, %489 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %_Pickler_OpcodeBoundary.exit
@@ -4971,7 +4971,7 @@ Py_DECREF.exit:                                   ; preds = %866, %863, %861, %8
 883:                                              ; preds = %878
   %884 = tail call ptr @PyErr_Occurred() #13
   %.not135 = icmp eq ptr %884, null
-  br i1 %.not135, label %Py_INCREF.exit.thread255, label %.thread
+  br i1 %.not135, label %Py_INCREF.exit.thread256, label %.thread
 
 885:                                              ; preds = %878
   %886 = load i32, ptr %881, align 8, !tbaa !42
@@ -4991,7 +4991,7 @@ Py_DECREF.exit:                                   ; preds = %866, %863, %861, %8
 Py_INCREF.exit:                                   ; preds = %888, %890
   %.pr.pr = load ptr, ptr %12, align 8, !tbaa !35
   %.not136 = icmp eq ptr %.pr.pr, null
-  br i1 %.not136, label %Py_INCREF.exit.thread255, label %Py_INCREF.exit.thread
+  br i1 %.not136, label %Py_INCREF.exit.thread256, label %Py_INCREF.exit.thread
 
 Py_INCREF.exit.thread:                            ; preds = %885, %Py_INCREF.exit
   %893 = phi ptr [ %.pr.pr, %Py_INCREF.exit ], [ %881, %885 ]
@@ -5008,16 +5008,16 @@ _Py_NewRef.exit:                                  ; preds = %Py_INCREF.exit.thre
   %898 = call fastcc ptr @_Pickle_FastCall(ptr noundef nonnull %893, ptr noundef nonnull %2)
   br label %926
 
-Py_INCREF.exit.thread255:                         ; preds = %883, %Py_INCREF.exit
+Py_INCREF.exit.thread256:                         ; preds = %883, %Py_INCREF.exit
   %899 = call i32 @PyType_IsSubtype(ptr noundef %.val, ptr noundef nonnull @PyType_Type) #13
   %.not137 = icmp eq i32 %899, 0
   br i1 %.not137, label %902, label %900
 
-900:                                              ; preds = %Py_INCREF.exit.thread255
+900:                                              ; preds = %Py_INCREF.exit.thread256
   %901 = call fastcc i32 @save_global(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef null)
   br label %.thread
 
-902:                                              ; preds = %Py_INCREF.exit.thread255
+902:                                              ; preds = %Py_INCREF.exit.thread256
   %903 = call i32 @PyObject_GetOptionalAttr(ptr noundef %2, ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 42944), ptr noundef nonnull %12) #13
   %904 = icmp slt i32 %903, 0
   br i1 %904, label %.thread, label %905

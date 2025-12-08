@@ -2263,7 +2263,7 @@ calc_bitrate.exit175:                             ; preds = %38, %42, %45
 
 53:                                               ; preds = %50
   %54 = trunc nuw nsw i32 %4 to i16
-  br label %175
+  br label %173
 
 55:                                               ; preds = %50
   %56 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %51)
@@ -2273,7 +2273,7 @@ calc_bitrate.exit175:                             ; preds = %38, %42, %45
 58:                                               ; preds = %55
   %59 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext, align 4
   %60 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %59, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.44)
-  br label %81
+  br label %80
 
 61:                                               ; preds = %55
   %62 = zext i8 %56 to i32
@@ -2294,187 +2294,185 @@ calc_bitrate.exit175:                             ; preds = %38, %42, %45
   br label %calc_bitrate_ext.exit
 
 70:                                               ; preds = %66
-  %71 = add nsw i8 %56, 69
-  %or.cond8.i = icmp samesign ult i8 %71, 64
-  br i1 %or.cond8.i, label %72, label %calc_bitrate_ext.exit
+  %or.cond8.i = icmp samesign ult i8 %56, -5
+  br i1 %or.cond8.i, label %71, label %calc_bitrate_ext.exit
 
-72:                                               ; preds = %70
-  %73 = shl nuw nsw i32 %62, 1
-  %74 = add nsw i32 %73, -244
+71:                                               ; preds = %70
+  %72 = shl nuw nsw i32 %62, 1
+  %73 = add nsw i32 %72, -244
   br label %calc_bitrate_ext.exit
 
-calc_bitrate_ext.exit:                            ; preds = %63, %68, %70, %72
-  %.0.i178 = phi i32 [ %65, %63 ], [ %69, %68 ], [ %74, %72 ], [ 256, %70 ]
-  %75 = icmp ugt i8 %56, 74
-  %76 = mul nuw nsw i32 %.0.i178, 1000
-  %77 = select i1 %75, i32 %76, i32 %.0.i178
-  %78 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext, align 4
-  %79 = select i1 %75, ptr @.str.46, ptr @.str.47
-  %80 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %78, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %62, ptr noundef nonnull @.str.45, i32 noundef %.0.i178, ptr noundef nonnull %79)
-  br label %81
+calc_bitrate_ext.exit:                            ; preds = %63, %68, %70, %71
+  %.0.i178 = phi i32 [ %65, %63 ], [ %69, %68 ], [ %73, %71 ], [ 256, %70 ]
+  %74 = icmp ugt i8 %56, 74
+  %75 = mul nuw nsw i32 %.0.i178, 1000
+  %76 = select i1 %74, i32 %75, i32 %.0.i178
+  %77 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext, align 4
+  %78 = select i1 %74, ptr @.str.46, ptr @.str.47
+  %79 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %77, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %62, ptr noundef nonnull @.str.45, i32 noundef %.0.i178, ptr noundef nonnull %78)
+  br label %80
 
-81:                                               ; preds = %calc_bitrate_ext.exit, %58
-  %.1156 = phi i32 [ %.0155, %58 ], [ %77, %calc_bitrate_ext.exit ]
-  %82 = icmp ult i32 %4, 5
-  br i1 %82, label %83, label %.thread
+80:                                               ; preds = %calc_bitrate_ext.exit, %58
+  %.1156 = phi i32 [ %.0155, %58 ], [ %76, %calc_bitrate_ext.exit ]
+  %81 = icmp ult i32 %4, 5
+  br i1 %81, label %82, label %.thread
 
-83:                                               ; preds = %81
-  %84 = icmp samesign ugt i32 %.1156, 999
-  %85 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_total, align 4
-  br i1 %84, label %86, label %91
+82:                                               ; preds = %80
+  %83 = icmp samesign ugt i32 %.1156, 999
+  %84 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_total, align 4
+  br i1 %83, label %85, label %90
 
-86:                                               ; preds = %83
-  %87 = uitofp nneg i32 %.1156 to float
-  %88 = fdiv float %87, 1.000000e+03
-  %89 = fpext float %88 to double
-  %90 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %85, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %.1156, ptr noundef nonnull @.str.48, double noundef %89)
-  br label %93
+85:                                               ; preds = %82
+  %86 = uitofp nneg i32 %.1156 to float
+  %87 = fdiv float %86, 1.000000e+03
+  %88 = fpext float %87 to double
+  %89 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %84, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %.1156, ptr noundef nonnull @.str.48, double noundef %88)
+  br label %92
 
-91:                                               ; preds = %83
-  %92 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %85, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %.1156, ptr noundef nonnull @.str.43, i32 noundef %.1156)
-  br label %93
+90:                                               ; preds = %82
+  %91 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %84, ptr noundef %0, i32 noundef %51, i32 noundef 1, i32 noundef %.1156, ptr noundef nonnull @.str.43, i32 noundef %.1156)
+  br label %92
 
-93:                                               ; preds = %86, %91
-  %94 = icmp eq i32 %4, 3
-  br i1 %94, label %175, label %.thread
+92:                                               ; preds = %85, %90
+  %93 = icmp eq i32 %4, 3
+  br i1 %93, label %173, label %.thread
 
-.thread:                                          ; preds = %81, %93
-  %95 = add i32 %3, 3
-  %96 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %95)
-  %97 = icmp eq i8 %96, 0
-  br i1 %97, label %98, label %101
+.thread:                                          ; preds = %80, %92
+  %94 = add i32 %3, 3
+  %95 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %94)
+  %96 = icmp eq i8 %95, 0
+  br i1 %96, label %97, label %100
 
-98:                                               ; preds = %.thread
-  %99 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext, align 4
-  %100 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %99, ptr noundef %0, i32 noundef %95, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.49)
-  br label %121
+97:                                               ; preds = %.thread
+  %98 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext, align 4
+  %99 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %98, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.49)
+  br label %119
 
-101:                                              ; preds = %.thread
-  %102 = zext i8 %96 to i32
-  %or.cond.i179 = icmp ult i8 %96, 75
-  br i1 %or.cond.i179, label %103, label %106
+100:                                              ; preds = %.thread
+  %101 = zext i8 %95 to i32
+  %or.cond.i179 = icmp ult i8 %95, 75
+  br i1 %or.cond.i179, label %102, label %105
 
-103:                                              ; preds = %101
-  %104 = mul nuw nsw i32 %102, 100
-  %105 = add nuw nsw i32 %104, 8600
+102:                                              ; preds = %100
+  %103 = mul nuw nsw i32 %101, 100
+  %104 = add nuw nsw i32 %103, 8600
   br label %calc_bitrate_ext.exit183
 
-106:                                              ; preds = %101
-  %107 = icmp ult i8 %96, -69
-  br i1 %107, label %108, label %110
+105:                                              ; preds = %100
+  %106 = icmp ult i8 %95, -69
+  br i1 %106, label %107, label %109
 
-108:                                              ; preds = %106
-  %109 = add nsw i32 %102, -58
+107:                                              ; preds = %105
+  %108 = add nsw i32 %101, -58
   br label %calc_bitrate_ext.exit183
 
-110:                                              ; preds = %106
-  %111 = add nsw i8 %96, 69
-  %or.cond8.i181 = icmp samesign ult i8 %111, 64
-  br i1 %or.cond8.i181, label %112, label %calc_bitrate_ext.exit183
+109:                                              ; preds = %105
+  %or.cond8.i181 = icmp samesign ult i8 %95, -5
+  br i1 %or.cond8.i181, label %110, label %calc_bitrate_ext.exit183
 
-112:                                              ; preds = %110
-  %113 = shl nuw nsw i32 %102, 1
-  %114 = add nsw i32 %113, -244
+110:                                              ; preds = %109
+  %111 = shl nuw nsw i32 %101, 1
+  %112 = add nsw i32 %111, -244
   br label %calc_bitrate_ext.exit183
 
-calc_bitrate_ext.exit183:                         ; preds = %103, %108, %110, %112
-  %.0.i182 = phi i32 [ %105, %103 ], [ %109, %108 ], [ %114, %112 ], [ 256, %110 ]
-  %115 = icmp ugt i8 %96, 74
-  %116 = mul nuw nsw i32 %.0.i182, 1000
-  %117 = select i1 %115, i32 %116, i32 %.0.i182
-  %118 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext, align 4
-  %119 = select i1 %115, ptr @.str.46, ptr @.str.47
-  %120 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %118, ptr noundef %0, i32 noundef %95, i32 noundef 1, i32 noundef %102, ptr noundef nonnull @.str.45, i32 noundef %.0.i182, ptr noundef nonnull %119)
-  br label %121
+calc_bitrate_ext.exit183:                         ; preds = %102, %107, %109, %110
+  %.0.i182 = phi i32 [ %104, %102 ], [ %108, %107 ], [ %112, %110 ], [ 256, %109 ]
+  %113 = icmp ugt i8 %95, 74
+  %114 = mul nuw nsw i32 %.0.i182, 1000
+  %115 = select i1 %113, i32 %114, i32 %.0.i182
+  %116 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext, align 4
+  %117 = select i1 %113, ptr @.str.46, ptr @.str.47
+  %118 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %116, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef %101, ptr noundef nonnull @.str.45, i32 noundef %.0.i182, ptr noundef nonnull %117)
+  br label %119
 
-121:                                              ; preds = %calc_bitrate_ext.exit183, %98
-  %.1 = phi i32 [ %.0, %98 ], [ %117, %calc_bitrate_ext.exit183 ]
-  %122 = icmp ult i32 %4, 6
-  br i1 %122, label %123, label %.thread184
+119:                                              ; preds = %calc_bitrate_ext.exit183, %97
+  %.1 = phi i32 [ %.0, %97 ], [ %115, %calc_bitrate_ext.exit183 ]
+  %120 = icmp ult i32 %4, 6
+  br i1 %120, label %121, label %.thread184
 
-123:                                              ; preds = %121
-  %124 = icmp samesign ugt i32 %.1, 999
-  %125 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_total, align 4
-  br i1 %124, label %126, label %131
+121:                                              ; preds = %119
+  %122 = icmp samesign ugt i32 %.1, 999
+  %123 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_total, align 4
+  br i1 %122, label %124, label %129
 
-126:                                              ; preds = %123
-  %127 = uitofp nneg i32 %.1 to float
-  %128 = fdiv float %127, 1.000000e+03
-  %129 = fpext float %128 to double
-  %130 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %125, ptr noundef %0, i32 noundef %95, i32 noundef 1, i32 noundef %.1, ptr noundef nonnull @.str.48, double noundef %129)
-  br label %133
+124:                                              ; preds = %121
+  %125 = uitofp nneg i32 %.1 to float
+  %126 = fdiv float %125, 1.000000e+03
+  %127 = fpext float %126 to double
+  %128 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %123, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef %.1, ptr noundef nonnull @.str.48, double noundef %127)
+  br label %131
 
-131:                                              ; preds = %123
-  %132 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %125, ptr noundef %0, i32 noundef %95, i32 noundef 1, i32 noundef %.1, ptr noundef nonnull @.str.43, i32 noundef %.1)
-  br label %133
+129:                                              ; preds = %121
+  %130 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %123, ptr noundef %0, i32 noundef %94, i32 noundef 1, i32 noundef %.1, ptr noundef nonnull @.str.43, i32 noundef %.1)
+  br label %131
 
-133:                                              ; preds = %126, %131
-  br i1 %82, label %175, label %.thread184
+131:                                              ; preds = %124, %129
+  br i1 %81, label %173, label %.thread184
 
-.thread184:                                       ; preds = %121, %133
-  %134 = add i32 %3, 4
-  %135 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %134)
-  %136 = zext i8 %135 to i32
-  %137 = add i8 %135, 1
-  %or.cond = icmp ult i8 %137, 2
-  br i1 %or.cond, label %138, label %141
+.thread184:                                       ; preds = %119, %131
+  %132 = add i32 %3, 4
+  %133 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %132)
+  %134 = zext i8 %133 to i32
+  %135 = add i8 %133, 1
+  %or.cond = icmp ult i8 %135, 2
+  br i1 %or.cond, label %136, label %139
 
-138:                                              ; preds = %.thread184
-  %139 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext2, align 4
-  %140 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %139, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef %136, ptr noundef nonnull @.str.50)
-  br label %147
+136:                                              ; preds = %.thread184
+  %137 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext2, align 4
+  %138 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %137, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef %134, ptr noundef nonnull @.str.50)
+  br label %145
 
-141:                                              ; preds = %.thread184
-  %142 = shl nuw nsw i32 %136, 8
-  %143 = mul nuw nsw i32 %136, 256000
-  %144 = add nuw nsw i32 %143, %.1156
-  %145 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext2, align 4
-  %146 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %145, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef %136, ptr noundef nonnull @.str.51, i32 noundef %142)
-  br label %147
+139:                                              ; preds = %.thread184
+  %140 = shl nuw nsw i32 %134, 8
+  %141 = mul nuw nsw i32 %134, 256000
+  %142 = add nuw nsw i32 %141, %.1156
+  %143 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_ext2, align 4
+  %144 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %143, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef %134, ptr noundef nonnull @.str.51, i32 noundef %140)
+  br label %145
 
-147:                                              ; preds = %141, %138
-  %.2157 = phi i32 [ %.1156, %138 ], [ %144, %141 ]
-  %148 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_total, align 4
-  %149 = uitofp nneg i32 %.2157 to float
-  %150 = fdiv float %149, 1.000000e+03
-  %151 = fpext float %150 to double
-  %152 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %148, ptr noundef %0, i32 noundef %134, i32 noundef 1, i32 noundef %.2157, ptr noundef nonnull @.str.48, double noundef %151)
-  %153 = add i32 %3, 5
-  %154 = icmp eq i32 %4, 5
-  br i1 %154, label %175, label %155
+145:                                              ; preds = %139, %136
+  %.2157 = phi i32 [ %.1156, %136 ], [ %142, %139 ]
+  %146 = load i32, ptr @hf_nas_eps_esm_apn_ambr_dl_total, align 4
+  %147 = uitofp nneg i32 %.2157 to float
+  %148 = fdiv float %147, 1.000000e+03
+  %149 = fpext float %148 to double
+  %150 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %146, ptr noundef %0, i32 noundef %132, i32 noundef 1, i32 noundef %.2157, ptr noundef nonnull @.str.48, double noundef %149)
+  %151 = add i32 %3, 5
+  %152 = icmp eq i32 %4, 5
+  br i1 %152, label %173, label %153
 
-155:                                              ; preds = %147
-  %156 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %153)
-  %157 = zext i8 %156 to i32
-  %158 = add i8 %156, 1
-  %or.cond5 = icmp ult i8 %158, 2
-  br i1 %or.cond5, label %159, label %162
+153:                                              ; preds = %145
+  %154 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %151)
+  %155 = zext i8 %154 to i32
+  %156 = add i8 %154, 1
+  %or.cond5 = icmp ult i8 %156, 2
+  br i1 %or.cond5, label %157, label %160
 
-159:                                              ; preds = %155
-  %160 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext2, align 4
-  %161 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %160, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef %157, ptr noundef nonnull @.str.52)
-  br label %168
+157:                                              ; preds = %153
+  %158 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext2, align 4
+  %159 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %158, ptr noundef %0, i32 noundef %151, i32 noundef 1, i32 noundef %155, ptr noundef nonnull @.str.52)
+  br label %166
 
-162:                                              ; preds = %155
-  %163 = shl nuw nsw i32 %157, 8
-  %164 = mul nuw nsw i32 %157, 256000
-  %165 = add nuw nsw i32 %164, %.1
-  %166 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext2, align 4
-  %167 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %166, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef %157, ptr noundef nonnull @.str.51, i32 noundef %163)
-  br label %168
+160:                                              ; preds = %153
+  %161 = shl nuw nsw i32 %155, 8
+  %162 = mul nuw nsw i32 %155, 256000
+  %163 = add nuw nsw i32 %162, %.1
+  %164 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_ext2, align 4
+  %165 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %164, ptr noundef %0, i32 noundef %151, i32 noundef 1, i32 noundef %155, ptr noundef nonnull @.str.51, i32 noundef %161)
+  br label %166
 
-168:                                              ; preds = %162, %159
-  %.2 = phi i32 [ %.1, %159 ], [ %165, %162 ]
-  %169 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_total, align 4
-  %170 = uitofp nneg i32 %.2 to float
-  %171 = fdiv float %170, 1.000000e+03
-  %172 = fpext float %171 to double
-  %173 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %169, ptr noundef %0, i32 noundef %153, i32 noundef 1, i32 noundef %.2, ptr noundef nonnull @.str.48, double noundef %172)
-  %174 = trunc i32 %4 to i16
-  br label %175
+166:                                              ; preds = %160, %157
+  %.2 = phi i32 [ %.1, %157 ], [ %163, %160 ]
+  %167 = load i32, ptr @hf_nas_eps_esm_apn_ambr_ul_total, align 4
+  %168 = uitofp nneg i32 %.2 to float
+  %169 = fdiv float %168, 1.000000e+03
+  %170 = fpext float %169 to double
+  %171 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %167, ptr noundef %0, i32 noundef %151, i32 noundef 1, i32 noundef %.2, ptr noundef nonnull @.str.48, double noundef %170)
+  %172 = trunc i32 %4 to i16
+  br label %173
 
-175:                                              ; preds = %133, %147, %93, %168, %53
-  %.0158 = phi i16 [ %54, %53 ], [ %174, %168 ], [ 3, %93 ], [ 5, %147 ], [ 4, %133 ]
+173:                                              ; preds = %131, %145, %92, %166, %53
+  %.0158 = phi i16 [ %54, %53 ], [ %172, %166 ], [ 3, %92 ], [ 5, %145 ], [ 4, %131 ]
   ret i16 %.0158
 }
 
@@ -2497,7 +2495,7 @@ define hidden zeroext i16 @de_esm_qos(ptr noundef %0, ptr noundef %1, ptr readno
 
 12:                                               ; preds = %7
   %13 = trunc nuw nsw i32 %4 to i16
-  br label %255
+  br label %295
 
 14:                                               ; preds = %7
   %15 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %10)
@@ -2544,7 +2542,7 @@ calc_bitrate.exit:                                ; preds = %24, %28, %31
 35:                                               ; preds = %calc_bitrate.exit, %17
   %36 = add i32 %3, 2
   %37 = icmp eq i32 %4, 2
-  br i1 %37, label %255, label %38
+  br i1 %37, label %295, label %38
 
 38:                                               ; preds = %35
   %39 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %36)
@@ -2590,7 +2588,7 @@ calc_bitrate.exit216:                             ; preds = %48, %52, %55
 
 59:                                               ; preds = %calc_bitrate.exit216, %41
   %60 = icmp ult i32 %4, 4
-  br i1 %60, label %255, label %61
+  br i1 %60, label %295, label %61
 
 61:                                               ; preds = %59
   %62 = add i32 %3, 3
@@ -2625,7 +2623,7 @@ calc_bitrate.exit221:                             ; preds = %67, %71, %74
   %76 = zext nneg i16 %.0.i220 to i32
   %77 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %64, ptr noundef %0, i32 noundef %62, i32 noundef 1, i32 noundef %65, ptr noundef nonnull @.str.43, i32 noundef %76)
   %78 = icmp eq i32 %4, 4
-  br i1 %78, label %255, label %79
+  br i1 %78, label %295, label %79
 
 79:                                               ; preds = %calc_bitrate.exit221
   %80 = add i32 %3, 4
@@ -2661,7 +2659,7 @@ calc_bitrate.exit226:                             ; preds = %85, %89, %92
   %95 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format_value(ptr noundef %1, i32 noundef %82, ptr noundef %0, i32 noundef %80, i32 noundef 1, i32 noundef %83, ptr noundef nonnull @.str.43, i32 noundef %94)
   %96 = add i32 %3, 5
   %97 = icmp ult i32 %4, 6
-  br i1 %97, label %255, label %98
+  br i1 %97, label %295, label %98
 
 98:                                               ; preds = %calc_bitrate.exit226
   %99 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %96)
@@ -2671,7 +2669,7 @@ calc_bitrate.exit226:                             ; preds = %85, %89, %92
 101:                                              ; preds = %98
   %102 = load i32, ptr @hf_nas_eps_esm_embr_ul, align 4
   %103 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %102, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.55)
-  br label %122
+  br label %121
 
 104:                                              ; preds = %98
   %105 = zext i8 %99 to i32
@@ -2693,295 +2691,362 @@ calc_bitrate.exit226:                             ; preds = %85, %89, %92
   br label %calc_bitrate_ext.exit
 
 114:                                              ; preds = %110
-  %115 = add nsw i8 %99, 69
-  %or.cond8.i = icmp samesign ult i8 %115, 64
-  br i1 %or.cond8.i, label %116, label %calc_bitrate_ext.exit
+  %or.cond8.i = icmp samesign ult i8 %99, -5
+  br i1 %or.cond8.i, label %115, label %calc_bitrate_ext.exit
 
-116:                                              ; preds = %114
-  %117 = shl nuw nsw i32 %105, 1
-  %118 = add nsw i32 %117, -244
+115:                                              ; preds = %114
+  %116 = shl nuw nsw i32 %105, 1
+  %117 = add nsw i32 %116, -244
   br label %calc_bitrate_ext.exit
 
-calc_bitrate_ext.exit:                            ; preds = %107, %112, %114, %116
-  %.0.i229 = phi i32 [ %109, %107 ], [ %113, %112 ], [ %118, %116 ], [ 256, %114 ]
-  %119 = icmp ugt i8 %99, 74
-  %120 = select i1 %119, ptr @.str.46, ptr @.str.47
-  %121 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %105, ptr noundef nonnull @.str.56, i32 noundef %.0.i229, ptr noundef nonnull %120)
-  br label %122
+calc_bitrate_ext.exit:                            ; preds = %107, %112, %114, %115
+  %.0.i229 = phi i32 [ %109, %107 ], [ %113, %112 ], [ %117, %115 ], [ 256, %114 ]
+  %118 = icmp ugt i8 %99, 74
+  %119 = select i1 %118, ptr @.str.46, ptr @.str.47
+  %120 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %106, ptr noundef %0, i32 noundef %96, i32 noundef 1, i32 noundef %105, ptr noundef nonnull @.str.56, i32 noundef %.0.i229, ptr noundef nonnull %119)
+  br label %121
 
-122:                                              ; preds = %calc_bitrate_ext.exit, %101
-  %123 = add i32 %3, 6
-  %124 = icmp eq i32 %4, 6
-  br i1 %124, label %255, label %125
+121:                                              ; preds = %calc_bitrate_ext.exit, %101
+  %122 = add i32 %3, 6
+  %123 = icmp eq i32 %4, 6
+  br i1 %123, label %295, label %124
 
-125:                                              ; preds = %122
-  %126 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %123)
-  %127 = icmp eq i8 %126, 0
-  br i1 %127, label %128, label %131
+124:                                              ; preds = %121
+  %125 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %122)
+  %126 = icmp eq i8 %125, 0
+  br i1 %126, label %127, label %130
 
-128:                                              ; preds = %125
-  %129 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
-  %130 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %129, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.57)
-  br label %149
+127:                                              ; preds = %124
+  %128 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
+  %129 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %128, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.57)
+  br label %147
 
-131:                                              ; preds = %125
-  %132 = zext i8 %126 to i32
-  %133 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
-  %or.cond.i230 = icmp ult i8 %126, 75
-  br i1 %or.cond.i230, label %134, label %137
+130:                                              ; preds = %124
+  %131 = zext i8 %125 to i32
+  %132 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
+  %or.cond.i230 = icmp ult i8 %125, 75
+  br i1 %or.cond.i230, label %133, label %136
 
-134:                                              ; preds = %131
-  %135 = mul nuw nsw i32 %132, 100
-  %136 = add nuw nsw i32 %135, 8600
+133:                                              ; preds = %130
+  %134 = mul nuw nsw i32 %131, 100
+  %135 = add nuw nsw i32 %134, 8600
   br label %calc_bitrate_ext.exit234
 
-137:                                              ; preds = %131
-  %138 = icmp ult i8 %126, -69
-  br i1 %138, label %139, label %141
+136:                                              ; preds = %130
+  %137 = icmp ult i8 %125, -69
+  br i1 %137, label %138, label %140
 
-139:                                              ; preds = %137
-  %140 = add nsw i32 %132, -58
+138:                                              ; preds = %136
+  %139 = add nsw i32 %131, -58
   br label %calc_bitrate_ext.exit234
 
-141:                                              ; preds = %137
-  %142 = add nsw i8 %126, 69
-  %or.cond8.i232 = icmp samesign ult i8 %142, 64
-  br i1 %or.cond8.i232, label %143, label %calc_bitrate_ext.exit234
+140:                                              ; preds = %136
+  %or.cond8.i232 = icmp samesign ult i8 %125, -5
+  br i1 %or.cond8.i232, label %141, label %calc_bitrate_ext.exit234
 
-143:                                              ; preds = %141
-  %144 = shl nuw nsw i32 %132, 1
-  %145 = add nsw i32 %144, -244
+141:                                              ; preds = %140
+  %142 = shl nuw nsw i32 %131, 1
+  %143 = add nsw i32 %142, -244
   br label %calc_bitrate_ext.exit234
 
-calc_bitrate_ext.exit234:                         ; preds = %134, %139, %141, %143
-  %.0.i233 = phi i32 [ %136, %134 ], [ %140, %139 ], [ %145, %143 ], [ 256, %141 ]
-  %146 = icmp ugt i8 %126, 74
-  %147 = select i1 %146, ptr @.str.46, ptr @.str.47
-  %148 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %133, ptr noundef %0, i32 noundef %123, i32 noundef 1, i32 noundef %132, ptr noundef nonnull @.str.58, i32 noundef %.0.i233, ptr noundef nonnull %147)
-  br label %149
+calc_bitrate_ext.exit234:                         ; preds = %133, %138, %140, %141
+  %.0.i233 = phi i32 [ %135, %133 ], [ %139, %138 ], [ %143, %141 ], [ 256, %140 ]
+  %144 = icmp ugt i8 %125, 74
+  %145 = select i1 %144, ptr @.str.46, ptr @.str.47
+  %146 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %132, ptr noundef %0, i32 noundef %122, i32 noundef 1, i32 noundef %131, ptr noundef nonnull @.str.58, i32 noundef %.0.i233, ptr noundef nonnull %145)
+  br label %147
 
-149:                                              ; preds = %calc_bitrate_ext.exit234, %128
-  %150 = add i32 %3, 7
-  %151 = icmp ult i32 %4, 8
-  br i1 %151, label %255, label %152
+147:                                              ; preds = %calc_bitrate_ext.exit234, %127
+  %148 = add i32 %3, 7
+  %149 = icmp ult i32 %4, 8
+  br i1 %149, label %295, label %150
 
-152:                                              ; preds = %149
-  %153 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %150)
-  %154 = icmp eq i8 %153, 0
-  br i1 %154, label %155, label %158
+150:                                              ; preds = %147
+  %151 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %148)
+  %152 = icmp eq i8 %151, 0
+  br i1 %152, label %153, label %156
 
-155:                                              ; preds = %152
-  %156 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
-  %157 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %156, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.59)
-  br label %176
+153:                                              ; preds = %150
+  %154 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
+  %155 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %154, ptr noundef %0, i32 noundef %148, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.59)
+  br label %173
 
-158:                                              ; preds = %152
-  %159 = zext i8 %153 to i32
-  %160 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
-  %or.cond.i235 = icmp ult i8 %153, 75
-  br i1 %or.cond.i235, label %161, label %164
+156:                                              ; preds = %150
+  %157 = zext i8 %151 to i32
+  %158 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
+  %or.cond.i235 = icmp ult i8 %151, 75
+  br i1 %or.cond.i235, label %159, label %162
 
-161:                                              ; preds = %158
-  %162 = mul nuw nsw i32 %159, 100
-  %163 = add nuw nsw i32 %162, 8600
+159:                                              ; preds = %156
+  %160 = mul nuw nsw i32 %157, 100
+  %161 = add nuw nsw i32 %160, 8600
   br label %calc_bitrate_ext.exit239
 
-164:                                              ; preds = %158
-  %165 = icmp ult i8 %153, -69
-  br i1 %165, label %166, label %168
+162:                                              ; preds = %156
+  %163 = icmp ult i8 %151, -69
+  br i1 %163, label %164, label %166
 
-166:                                              ; preds = %164
-  %167 = add nsw i32 %159, -58
+164:                                              ; preds = %162
+  %165 = add nsw i32 %157, -58
   br label %calc_bitrate_ext.exit239
 
-168:                                              ; preds = %164
-  %169 = add nsw i8 %153, 69
-  %or.cond8.i237 = icmp samesign ult i8 %169, 64
-  br i1 %or.cond8.i237, label %170, label %calc_bitrate_ext.exit239
+166:                                              ; preds = %162
+  %or.cond8.i237 = icmp samesign ult i8 %151, -5
+  br i1 %or.cond8.i237, label %167, label %calc_bitrate_ext.exit239
 
-170:                                              ; preds = %168
-  %171 = shl nuw nsw i32 %159, 1
-  %172 = add nsw i32 %171, -244
+167:                                              ; preds = %166
+  %168 = shl nuw nsw i32 %157, 1
+  %169 = add nsw i32 %168, -244
   br label %calc_bitrate_ext.exit239
 
-calc_bitrate_ext.exit239:                         ; preds = %161, %166, %168, %170
-  %.0.i238 = phi i32 [ %163, %161 ], [ %167, %166 ], [ %172, %170 ], [ 256, %168 ]
-  %173 = icmp ugt i8 %153, 74
-  %174 = select i1 %173, ptr @.str.46, ptr @.str.47
-  %175 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %160, ptr noundef %0, i32 noundef %150, i32 noundef 1, i32 noundef %159, ptr noundef nonnull @.str.60, i32 noundef %.0.i238, ptr noundef nonnull %174)
-  br label %176
+calc_bitrate_ext.exit239:                         ; preds = %159, %164, %166, %167
+  %.0.i238 = phi i32 [ %161, %159 ], [ %165, %164 ], [ %169, %167 ], [ 256, %166 ]
+  %170 = icmp ugt i8 %151, 74
+  %171 = select i1 %170, ptr @.str.46, ptr @.str.47
+  %172 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %158, ptr noundef %0, i32 noundef %148, i32 noundef 1, i32 noundef %157, ptr noundef nonnull @.str.60, i32 noundef %.0.i238, ptr noundef nonnull %171)
+  br label %173
 
-176:                                              ; preds = %calc_bitrate_ext.exit239, %155
-  %177 = add i32 %3, 8
-  %178 = icmp eq i32 %4, 8
-  br i1 %178, label %255, label %179
+173:                                              ; preds = %calc_bitrate_ext.exit239, %153
+  %174 = add i32 %3, 8
+  %175 = icmp eq i32 %4, 8
+  br i1 %175, label %295, label %176
+
+176:                                              ; preds = %173
+  %177 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %174)
+  %178 = icmp eq i8 %177, 0
+  br i1 %178, label %179, label %182
 
 179:                                              ; preds = %176
-  %180 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %177)
-  %181 = icmp eq i8 %180, 0
-  br i1 %181, label %182, label %185
+  %180 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
+  %181 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %180, ptr noundef %0, i32 noundef %174, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.61)
+  br label %199
 
-182:                                              ; preds = %179
-  %183 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
-  %184 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %183, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.61)
-  br label %203
+182:                                              ; preds = %176
+  %183 = zext i8 %177 to i32
+  %184 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
+  %or.cond.i240 = icmp ult i8 %177, 75
+  br i1 %or.cond.i240, label %185, label %188
 
-185:                                              ; preds = %179
-  %186 = zext i8 %180 to i32
-  %187 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
-  %or.cond.i240 = icmp ult i8 %180, 75
-  br i1 %or.cond.i240, label %188, label %191
-
-188:                                              ; preds = %185
-  %189 = mul nuw nsw i32 %186, 100
-  %190 = add nuw nsw i32 %189, 8600
+185:                                              ; preds = %182
+  %186 = mul nuw nsw i32 %183, 100
+  %187 = add nuw nsw i32 %186, 8600
   br label %calc_bitrate_ext.exit244
 
-191:                                              ; preds = %185
-  %192 = icmp ult i8 %180, -69
-  br i1 %192, label %193, label %195
+188:                                              ; preds = %182
+  %189 = icmp ult i8 %177, -69
+  br i1 %189, label %190, label %192
 
-193:                                              ; preds = %191
-  %194 = add nsw i32 %186, -58
+190:                                              ; preds = %188
+  %191 = add nsw i32 %183, -58
   br label %calc_bitrate_ext.exit244
 
-195:                                              ; preds = %191
-  %196 = add nsw i8 %180, 69
-  %or.cond8.i242 = icmp samesign ult i8 %196, 64
-  br i1 %or.cond8.i242, label %197, label %calc_bitrate_ext.exit244
+192:                                              ; preds = %188
+  %or.cond8.i242 = icmp samesign ult i8 %177, -5
+  br i1 %or.cond8.i242, label %193, label %calc_bitrate_ext.exit244
 
-197:                                              ; preds = %195
-  %198 = shl nuw nsw i32 %186, 1
-  %199 = add nsw i32 %198, -244
+193:                                              ; preds = %192
+  %194 = shl nuw nsw i32 %183, 1
+  %195 = add nsw i32 %194, -244
   br label %calc_bitrate_ext.exit244
 
-calc_bitrate_ext.exit244:                         ; preds = %188, %193, %195, %197
-  %.0.i243 = phi i32 [ %190, %188 ], [ %194, %193 ], [ %199, %197 ], [ 256, %195 ]
-  %200 = icmp ugt i8 %180, 74
-  %201 = select i1 %200, ptr @.str.46, ptr @.str.47
-  %202 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %187, ptr noundef %0, i32 noundef %177, i32 noundef 1, i32 noundef %186, ptr noundef nonnull @.str.62, i32 noundef %.0.i243, ptr noundef nonnull %201)
-  br label %203
+calc_bitrate_ext.exit244:                         ; preds = %185, %190, %192, %193
+  %.0.i243 = phi i32 [ %187, %185 ], [ %191, %190 ], [ %195, %193 ], [ 256, %192 ]
+  %196 = icmp ugt i8 %177, 74
+  %197 = select i1 %196, ptr @.str.46, ptr @.str.47
+  %198 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %184, ptr noundef %0, i32 noundef %174, i32 noundef 1, i32 noundef %183, ptr noundef nonnull @.str.62, i32 noundef %.0.i243, ptr noundef nonnull %197)
+  br label %199
 
-203:                                              ; preds = %calc_bitrate_ext.exit244, %182
-  %204 = add i32 %3, 9
-  %205 = icmp ult i32 %4, 10
-  br i1 %205, label %255, label %206
+199:                                              ; preds = %calc_bitrate_ext.exit244, %179
+  %200 = add i32 %3, 9
+  %201 = icmp ult i32 %4, 10
+  br i1 %201, label %295, label %202
 
-206:                                              ; preds = %203
-  %207 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %204)
-  %208 = icmp eq i8 %207, 0
-  br i1 %208, label %209, label %212
+202:                                              ; preds = %199
+  %203 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %200)
+  %204 = icmp eq i8 %203, 0
+  br i1 %204, label %205, label %208
 
-209:                                              ; preds = %206
+205:                                              ; preds = %202
+  %206 = load i32, ptr @hf_nas_eps_esm_embr_ul, align 4
+  %207 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %206, ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.63)
+  br label %224
+
+208:                                              ; preds = %202
+  %209 = zext i8 %203 to i32
   %210 = load i32, ptr @hf_nas_eps_esm_embr_ul, align 4
-  %211 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %210, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.63)
-  br label %217
+  %or.cond.i245 = icmp ult i8 %203, 62
+  br i1 %or.cond.i245, label %211, label %214
 
-212:                                              ; preds = %206
-  %213 = zext i8 %207 to i32
-  %214 = load i32, ptr @hf_nas_eps_esm_embr_ul, align 4
-  %215 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %207)
-  %216 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %214, ptr noundef %0, i32 noundef %204, i32 noundef 1, i32 noundef %213, ptr noundef nonnull @.str.64, i32 noundef %215)
-  br label %217
+211:                                              ; preds = %208
+  %212 = shl nuw nsw i32 %209, 2
+  %213 = or disjoint i32 %212, 256
+  br label %calc_bitrate_ext2.exit
 
-217:                                              ; preds = %212, %209
-  %218 = add i32 %3, 10
-  %219 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %218)
-  %220 = icmp eq i8 %219, 0
-  br i1 %220, label %221, label %224
+214:                                              ; preds = %208
+  %215 = icmp ult i8 %203, -94
+  br i1 %215, label %216, label %219
 
-221:                                              ; preds = %217
-  %222 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
-  %223 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %222, ptr noundef %0, i32 noundef %218, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.65)
-  br label %229
+216:                                              ; preds = %214
+  %217 = mul nuw nsw i32 %209, 10
+  %218 = add nsw i32 %217, -110
+  br label %calc_bitrate_ext2.exit
 
-224:                                              ; preds = %217
-  %225 = zext i8 %219 to i32
-  %226 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
-  %227 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %219)
-  %228 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %226, ptr noundef %0, i32 noundef %218, i32 noundef 1, i32 noundef %225, ptr noundef nonnull @.str.66, i32 noundef %227)
-  br label %229
+219:                                              ; preds = %214
+  %or.cond8.i247 = icmp samesign ult i8 %203, -9
+  br i1 %or.cond8.i247, label %220, label %calc_bitrate_ext2.exit
 
-229:                                              ; preds = %224, %221
-  %230 = add i32 %3, 11
-  %231 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %230)
-  %232 = icmp eq i8 %231, 0
-  br i1 %232, label %233, label %236
+220:                                              ; preds = %219
+  %221 = mul nuw nsw i32 %209, 100
+  %222 = add nsw i32 %221, -14600
+  br label %calc_bitrate_ext2.exit
 
-233:                                              ; preds = %229
-  %234 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
-  %235 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %234, ptr noundef %0, i32 noundef %230, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.67)
-  br label %241
+calc_bitrate_ext2.exit:                           ; preds = %211, %216, %219, %220
+  %.0.i248 = phi i32 [ %213, %211 ], [ %218, %216 ], [ %222, %220 ], [ 10000, %219 ]
+  %223 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %210, ptr noundef %0, i32 noundef %200, i32 noundef 1, i32 noundef %209, ptr noundef nonnull @.str.64, i32 noundef %.0.i248)
+  br label %224
 
-236:                                              ; preds = %229
-  %237 = zext i8 %231 to i32
-  %238 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
-  %239 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %231)
-  %240 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %238, ptr noundef %0, i32 noundef %230, i32 noundef 1, i32 noundef %237, ptr noundef nonnull @.str.68, i32 noundef %239)
-  br label %241
+224:                                              ; preds = %calc_bitrate_ext2.exit, %205
+  %225 = add i32 %3, 10
+  %226 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %225)
+  %227 = icmp eq i8 %226, 0
+  br i1 %227, label %228, label %231
 
-241:                                              ; preds = %236, %233
-  %242 = add i32 %3, 12
-  %243 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %242)
-  %244 = icmp eq i8 %243, 0
-  br i1 %244, label %245, label %248
+228:                                              ; preds = %224
+  %229 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
+  %230 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %229, ptr noundef %0, i32 noundef %225, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.65)
+  br label %247
 
-245:                                              ; preds = %241
-  %246 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
-  %247 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %246, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.69)
-  br label %253
+231:                                              ; preds = %224
+  %232 = zext i8 %226 to i32
+  %233 = load i32, ptr @hf_nas_eps_esm_embr_dl, align 4
+  %or.cond.i249 = icmp ult i8 %226, 62
+  br i1 %or.cond.i249, label %234, label %237
 
-248:                                              ; preds = %241
-  %249 = zext i8 %243 to i32
-  %250 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
-  %251 = tail call fastcc i32 @calc_bitrate_ext2(i8 noundef zeroext %243)
-  %252 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %250, ptr noundef %0, i32 noundef %242, i32 noundef 1, i32 noundef %249, ptr noundef nonnull @.str.70, i32 noundef %251)
-  br label %253
+234:                                              ; preds = %231
+  %235 = shl nuw nsw i32 %232, 2
+  %236 = or disjoint i32 %235, 256
+  br label %calc_bitrate_ext2.exit253
 
-253:                                              ; preds = %248, %245
-  %254 = trunc i32 %4 to i16
-  br label %255
+237:                                              ; preds = %231
+  %238 = icmp ult i8 %226, -94
+  br i1 %238, label %239, label %242
 
-255:                                              ; preds = %203, %149, %calc_bitrate.exit226, %176, %122, %calc_bitrate.exit221, %59, %35, %253, %12
-  %.0 = phi i16 [ %13, %12 ], [ %254, %253 ], [ 2, %35 ], [ 3, %59 ], [ 4, %calc_bitrate.exit221 ], [ 6, %122 ], [ 8, %176 ], [ 5, %calc_bitrate.exit226 ], [ 7, %149 ], [ 9, %203 ]
+239:                                              ; preds = %237
+  %240 = mul nuw nsw i32 %232, 10
+  %241 = add nsw i32 %240, -110
+  br label %calc_bitrate_ext2.exit253
+
+242:                                              ; preds = %237
+  %or.cond8.i251 = icmp samesign ult i8 %226, -9
+  br i1 %or.cond8.i251, label %243, label %calc_bitrate_ext2.exit253
+
+243:                                              ; preds = %242
+  %244 = mul nuw nsw i32 %232, 100
+  %245 = add nsw i32 %244, -14600
+  br label %calc_bitrate_ext2.exit253
+
+calc_bitrate_ext2.exit253:                        ; preds = %234, %239, %242, %243
+  %.0.i252 = phi i32 [ %236, %234 ], [ %241, %239 ], [ %245, %243 ], [ 10000, %242 ]
+  %246 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %233, ptr noundef %0, i32 noundef %225, i32 noundef 1, i32 noundef %232, ptr noundef nonnull @.str.66, i32 noundef %.0.i252)
+  br label %247
+
+247:                                              ; preds = %calc_bitrate_ext2.exit253, %228
+  %248 = add i32 %3, 11
+  %249 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %248)
+  %250 = icmp eq i8 %249, 0
+  br i1 %250, label %251, label %254
+
+251:                                              ; preds = %247
+  %252 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
+  %253 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %252, ptr noundef %0, i32 noundef %248, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.67)
+  br label %270
+
+254:                                              ; preds = %247
+  %255 = zext i8 %249 to i32
+  %256 = load i32, ptr @hf_nas_eps_esm_egbr_ul, align 4
+  %or.cond.i254 = icmp ult i8 %249, 62
+  br i1 %or.cond.i254, label %257, label %260
+
+257:                                              ; preds = %254
+  %258 = shl nuw nsw i32 %255, 2
+  %259 = or disjoint i32 %258, 256
+  br label %calc_bitrate_ext2.exit258
+
+260:                                              ; preds = %254
+  %261 = icmp ult i8 %249, -94
+  br i1 %261, label %262, label %265
+
+262:                                              ; preds = %260
+  %263 = mul nuw nsw i32 %255, 10
+  %264 = add nsw i32 %263, -110
+  br label %calc_bitrate_ext2.exit258
+
+265:                                              ; preds = %260
+  %or.cond8.i256 = icmp samesign ult i8 %249, -9
+  br i1 %or.cond8.i256, label %266, label %calc_bitrate_ext2.exit258
+
+266:                                              ; preds = %265
+  %267 = mul nuw nsw i32 %255, 100
+  %268 = add nsw i32 %267, -14600
+  br label %calc_bitrate_ext2.exit258
+
+calc_bitrate_ext2.exit258:                        ; preds = %257, %262, %265, %266
+  %.0.i257 = phi i32 [ %259, %257 ], [ %264, %262 ], [ %268, %266 ], [ 10000, %265 ]
+  %269 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %256, ptr noundef %0, i32 noundef %248, i32 noundef 1, i32 noundef %255, ptr noundef nonnull @.str.68, i32 noundef %.0.i257)
+  br label %270
+
+270:                                              ; preds = %calc_bitrate_ext2.exit258, %251
+  %271 = add i32 %3, 12
+  %272 = tail call zeroext i8 @tvb_get_uint8(ptr noundef %0, i32 noundef %271)
+  %273 = icmp eq i8 %272, 0
+  br i1 %273, label %274, label %277
+
+274:                                              ; preds = %270
+  %275 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
+  %276 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %275, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef 0, ptr noundef nonnull @.str.69)
+  br label %293
+
+277:                                              ; preds = %270
+  %278 = zext i8 %272 to i32
+  %279 = load i32, ptr @hf_nas_eps_esm_egbr_dl, align 4
+  %or.cond.i259 = icmp ult i8 %272, 62
+  br i1 %or.cond.i259, label %280, label %283
+
+280:                                              ; preds = %277
+  %281 = shl nuw nsw i32 %278, 2
+  %282 = or disjoint i32 %281, 256
+  br label %calc_bitrate_ext2.exit263
+
+283:                                              ; preds = %277
+  %284 = icmp ult i8 %272, -94
+  br i1 %284, label %285, label %288
+
+285:                                              ; preds = %283
+  %286 = mul nuw nsw i32 %278, 10
+  %287 = add nsw i32 %286, -110
+  br label %calc_bitrate_ext2.exit263
+
+288:                                              ; preds = %283
+  %or.cond8.i261 = icmp samesign ult i8 %272, -9
+  br i1 %or.cond8.i261, label %289, label %calc_bitrate_ext2.exit263
+
+289:                                              ; preds = %288
+  %290 = mul nuw nsw i32 %278, 100
+  %291 = add nsw i32 %290, -14600
+  br label %calc_bitrate_ext2.exit263
+
+calc_bitrate_ext2.exit263:                        ; preds = %280, %285, %288, %289
+  %.0.i262 = phi i32 [ %282, %280 ], [ %287, %285 ], [ %291, %289 ], [ 10000, %288 ]
+  %292 = tail call ptr (ptr, i32, ptr, i32, i32, i32, ptr, ...) @proto_tree_add_uint_format(ptr noundef %1, i32 noundef %279, ptr noundef %0, i32 noundef %271, i32 noundef 1, i32 noundef %278, ptr noundef nonnull @.str.70, i32 noundef %.0.i262)
+  br label %293
+
+293:                                              ; preds = %calc_bitrate_ext2.exit263, %274
+  %294 = trunc i32 %4 to i16
+  br label %295
+
+295:                                              ; preds = %199, %147, %calc_bitrate.exit226, %173, %121, %calc_bitrate.exit221, %59, %35, %293, %12
+  %.0 = phi i16 [ %13, %12 ], [ %294, %293 ], [ 2, %35 ], [ 3, %59 ], [ 4, %calc_bitrate.exit221 ], [ 6, %121 ], [ 8, %173 ], [ 5, %calc_bitrate.exit226 ], [ 7, %147 ], [ 9, %199 ]
   ret i16 %.0
-}
-
-; Function Attrs: mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable
-define internal fastcc range(i32 260, 10001) i32 @calc_bitrate_ext2(i8 noundef zeroext %0) unnamed_addr #2 {
-  %2 = zext i8 %0 to i32
-  %3 = add i8 %0, -1
-  %or.cond = icmp ult i8 %3, 61
-  br i1 %or.cond, label %4, label %7
-
-4:                                                ; preds = %1
-  %5 = shl nuw nsw i32 %2, 2
-  %6 = or disjoint i32 %5, 256
-  br label %17
-
-7:                                                ; preds = %1
-  %8 = add i8 %0, -62
-  %or.cond5 = icmp ult i8 %8, 100
-  br i1 %or.cond5, label %9, label %12
-
-9:                                                ; preds = %7
-  %10 = mul nuw nsw i32 %2, 10
-  %11 = add nsw i32 %10, -110
-  br label %17
-
-12:                                               ; preds = %7
-  %13 = add nsw i8 %0, 94
-  %or.cond8 = icmp samesign ult i8 %13, 85
-  br i1 %or.cond8, label %14, label %17
-
-14:                                               ; preds = %12
-  %15 = mul nuw nsw i32 %2, 100
-  %16 = add nsw i32 %15, -14600
-  br label %17
-
-17:                                               ; preds = %12, %9, %14, %4
-  %.0 = phi i32 [ %6, %4 ], [ %11, %9 ], [ %16, %14 ], [ 10000, %12 ]
-  ret i32 %.0
 }
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
@@ -3464,7 +3529,7 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @de_emm_esm_msg_cont.catch_spec, i64 noundef 1)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %28 = call i32 @_setjmp(ptr noundef nonnull %27) #10
+  %28 = call i32 @_setjmp(ptr noundef nonnull %27) #9
   %.not47 = icmp eq i32 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not47, ptr null, ptr %29
@@ -3568,7 +3633,7 @@ define internal noundef zeroext i16 @de_emm_esm_msg_cont(ptr noundef %0, ptr nou
 
 71:                                               ; preds = %70
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #11
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #10
   unreachable
 
 72:                                               ; preds = %70, %68
@@ -3663,7 +3728,7 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @de_emm_nas_msg_cont.catch_spec, i64 noundef 1)
   %27 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %28 = call i32 @_setjmp(ptr noundef nonnull %27) #10
+  %28 = call i32 @_setjmp(ptr noundef nonnull %27) #9
   %.not42 = icmp eq i32 %28, 0
   %29 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not42, ptr null, ptr %29
@@ -3768,7 +3833,7 @@ define internal noundef zeroext i16 @de_emm_nas_msg_cont(ptr noundef %0, ptr nou
 
 73:                                               ; preds = %72
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #11
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #10
   unreachable
 
 74:                                               ; preds = %72, %70
@@ -4224,7 +4289,7 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
   call void @except_setup_try(ptr noundef nonnull %10, ptr noundef nonnull %11, ptr noundef nonnull @de_emm_replayed_nas_msg_cont.catch_spec, i64 noundef 1)
   %17 = getelementptr inbounds nuw i8, ptr %11, i64 48
-  %18 = call i32 @_setjmp(ptr noundef nonnull %17) #10
+  %18 = call i32 @_setjmp(ptr noundef nonnull %17) #9
   %.not = icmp eq i32 %18, 0
   %19 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %.sink = select i1 %.not, ptr null, ptr %19
@@ -4328,7 +4393,7 @@ define internal noundef zeroext i16 @de_emm_replayed_nas_msg_cont(ptr noundef %0
 
 61:                                               ; preds = %60
   %.0..0..0..0.17 = load volatile ptr, ptr %8, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #11
+  call void @except_rethrow(ptr noundef %.0..0..0..0.17) #10
   unreachable
 
 62:                                               ; preds = %60, %58
@@ -4477,7 +4542,7 @@ define internal noundef zeroext i16 @de_emm_ciph_key_data(ptr noundef %0, ptr no
   %85 = add nuw nsw i32 %83, %84
   store i32 %85, ptr %21, align 4
   store i32 0, ptr %10, align 8
-  %86 = call i64 @mktime(ptr noundef nonnull %10) #12
+  %86 = call i64 @mktime(ptr noundef nonnull %10) #11
   store i64 %86, ptr %11, align 8
   store i32 0, ptr %22, align 8
   %87 = load i32, ptr @hf_nas_eps_emm_ciph_key_data_validity_start_time, align 4
@@ -5103,7 +5168,7 @@ define internal noundef zeroext i16 @de_esm_remote_ue_context_list(ptr noundef %
 
 100:                                              ; preds = %._crit_edge
   call void @llvm.lifetime.start.p0(ptr nonnull %17)
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %17, i8 noundef 0, i64 noundef 16, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(16) %17, i8 noundef 0, i64 noundef 16, i1 noundef false) #11
   %101 = call ptr @tvb_memcpy(ptr noundef %0, ptr noundef nonnull %17, i32 noundef %91, i64 noundef 8)
   %102 = load i32, ptr @hf_nas_eps_esm_remote_ue_context_list_ue_context_ipv6_prefix, align 4
   %103 = call ptr @proto_tree_add_ipv6(ptr noundef %25, i32 noundef %102, ptr noundef %0, i32 noundef %91, i32 noundef 8, ptr noundef nonnull %17)
@@ -5305,7 +5370,7 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @except_setup_try(ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull @de_esm_user_data_cont.catch_spec, i64 noundef 1)
   %41 = getelementptr inbounds nuw i8, ptr %12, i64 48
-  %42 = call i32 @_setjmp(ptr noundef nonnull %41) #10
+  %42 = call i32 @_setjmp(ptr noundef nonnull %41) #9
   %.not53 = icmp eq i32 %42, 0
   %43 = getelementptr inbounds nuw i8, ptr %12, i64 16
   %.sink58 = select i1 %.not53, ptr null, ptr %43
@@ -5413,7 +5478,7 @@ define internal noundef zeroext i16 @de_esm_user_data_cont(ptr noundef %0, ptr n
 
 89:                                               ; preds = %88
   %.0..0..0..0.25 = load volatile ptr, ptr %9, align 8
-  call void @except_rethrow(ptr noundef %.0..0..0..0.25) #11
+  call void @except_rethrow(ptr noundef %.0..0..0..0.25) #10
   unreachable
 
 90:                                               ; preds = %88, %86
@@ -5657,7 +5722,7 @@ define hidden void @proto_register_nas_eps() local_unnamed_addr #1 {
 }
 
 ; Function Attrs: nofree null_pointer_is_valid sspstrong uwtable
-define internal void @de_emm_wus_assist_info_ue_paging_prob_fmt(ptr noundef %0, i32 noundef %1) #3 {
+define internal void @de_emm_wus_assist_info_ue_paging_prob_fmt(ptr noundef %0, i32 noundef %1) #2 {
   %3 = icmp ult i32 %1, 20
   br i1 %3, label %4, label %7
 
@@ -6054,7 +6119,7 @@ declare zeroext i8 @tvb_get_bits8(ptr noundef, i32 noundef, i32 noundef) local_u
 declare void @except_setup_try(ptr noundef, ptr noundef, ptr noundef, i64 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nounwind null_pointer_is_valid returns_twice
-declare i32 @_setjmp(ptr noundef) local_unnamed_addr #4
+declare i32 @_setjmp(ptr noundef) local_unnamed_addr #3
 
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef %1, ptr noundef %2, i32 noundef range(i32 0, 7) %3) unnamed_addr #1 {
@@ -6119,7 +6184,7 @@ define internal fastcc void @dissect_nas_eps_esm_msg(ptr noundef %0, ptr noundef
 declare void @show_exception(ptr noundef, ptr noundef, ptr noundef, i64 noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: noreturn null_pointer_is_valid
-declare void @except_rethrow(ptr noundef) local_unnamed_addr #5
+declare void @except_rethrow(ptr noundef) local_unnamed_addr #4
 
 ; Function Attrs: null_pointer_is_valid
 declare void @except_free(ptr noundef) local_unnamed_addr #0
@@ -10695,7 +10760,7 @@ declare ptr @proto_tree_add_bits_ret_val(ptr noundef, i32 noundef, ptr noundef, 
 declare ptr @val_to_str_const(i32 noundef, ptr noundef, ptr noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nofree nounwind null_pointer_is_valid willreturn
-declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #6
+declare noundef i64 @mktime(ptr noundef captures(none)) local_unnamed_addr #5
 
 ; Function Attrs: null_pointer_is_valid
 declare ptr @proto_tree_add_time_format_value(ptr noundef, i32 noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, ptr noundef, ...) local_unnamed_addr #0
@@ -10740,7 +10805,7 @@ declare i32 @call_dissector_only(ptr noundef, ptr noundef, ptr noundef, ptr noun
 declare zeroext i16 @de_sm_pco(ptr noundef, ptr noundef, ptr noundef, i32 noundef, i32 noundef, ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: nofree null_pointer_is_valid
-declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #7
+declare i32 @__snprintf_chk(ptr noundef, i64 noundef, i32 noundef, i64 noundef, ptr noundef, ...) local_unnamed_addr #6
 
 ; Function Attrs: null_pointer_is_valid
 declare i32 @tvb_captured_length(ptr noundef) local_unnamed_addr #0
@@ -10820,27 +10885,26 @@ declare i32 @tvb_strneql(ptr noundef, i32 noundef, ptr noundef, i64 noundef) loc
 declare void @col_clear(ptr noundef, i32 noundef) local_unnamed_addr #0
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.start.p0(ptr captures(none)) #7
 
 ; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #8
+declare void @llvm.lifetime.end.p0(ptr captures(none)) #7
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
-declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #9
+declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #8
 
 attributes #0 = { null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #2 = { mustprogress nofree norecurse nosync nounwind null_pointer_is_valid sspstrong willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #3 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #4 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #6 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #7 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #8 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
-attributes #9 = { nocallback nofree nounwind willreturn memory(argmem: write) }
-attributes #10 = { nounwind returns_twice }
-attributes #11 = { noreturn }
-attributes #12 = { nounwind }
+attributes #2 = { nofree null_pointer_is_valid sspstrong uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "probe-stack"="inline-asm" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #3 = { nounwind null_pointer_is_valid returns_twice "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #4 = { noreturn null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind null_pointer_is_valid willreturn "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #6 = { nofree null_pointer_is_valid "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #7 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
+attributes #8 = { nocallback nofree nounwind willreturn memory(argmem: write) }
+attributes #9 = { nounwind returns_twice }
+attributes #10 = { noreturn }
+attributes #11 = { nounwind }
 
 !llvm.module.flags = !{!0, !1, !2, !3, !4, !5}
 
