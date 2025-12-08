@@ -4686,54 +4686,53 @@ define dso_local void @_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTCon
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang31ClassTemplateSpecializationDeclE, i64 16), ptr %0, align 8, !tbaa !125
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = ptrtoint ptr %7 to i64
-  %20 = and i64 %19, -5
-  store i64 %20, ptr %18, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 0, ptr %21, align 8
+  store i64 %19, ptr %18, align 8, !tbaa !14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 0, ptr %20, align 8
   %.sroa.0.0.copyload = load ptr, ptr %8, align 8, !tbaa !153
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !124
-  %22 = mul i64 %.sroa.2.0.copyload, 24
-  %23 = add i64 %22, 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2192
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2272
-  %26 = load i64, ptr %25, align 8, !tbaa !61
-  %27 = add i64 %23, %26
-  store i64 %27, ptr %25, align 8, !tbaa !61
-  %28 = load ptr, ptr %24, align 8, !tbaa !74
-  %29 = ptrtoint ptr %28 to i64
-  %30 = add i64 %29, 7
-  %31 = and i64 %30, -8
-  %32 = add i64 %31, %23
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2200
-  %34 = load ptr, ptr %33, align 8, !tbaa !75
-  %35 = ptrtoint ptr %34 to i64
-  %.not.i.i.i.i = icmp ule i64 %32, %35
-  %36 = icmp ne ptr %28, null
-  %37 = and i1 %36, %.not.i.i.i.i
-  br i1 %37, label %38, label %41, !prof !76
+  %21 = mul i64 %.sroa.2.0.copyload, 24
+  %22 = add i64 %21, 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2192
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2272
+  %25 = load i64, ptr %24, align 8, !tbaa !61
+  %26 = add i64 %22, %25
+  store i64 %26, ptr %24, align 8, !tbaa !61
+  %27 = load ptr, ptr %23, align 8, !tbaa !74
+  %28 = ptrtoint ptr %27 to i64
+  %29 = add i64 %28, 7
+  %30 = and i64 %29, -8
+  %31 = add i64 %30, %22
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2200
+  %33 = load ptr, ptr %32, align 8, !tbaa !75
+  %34 = ptrtoint ptr %33 to i64
+  %.not.i.i.i.i = icmp ule i64 %31, %34
+  %35 = icmp ne ptr %27, null
+  %36 = and i1 %35, %.not.i.i.i.i
+  br i1 %36, label %37, label %40, !prof !76
 
-38:                                               ; preds = %10
-  %39 = inttoptr i64 %32 to ptr
-  store ptr %39, ptr %24, align 8, !tbaa !74
-  %40 = inttoptr i64 %31 to ptr
+37:                                               ; preds = %10
+  %38 = inttoptr i64 %31 to ptr
+  store ptr %38, ptr %23, align 8, !tbaa !74
+  %39 = inttoptr i64 %30 to ptr
   br label %_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-41:                                               ; preds = %10
-  %42 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %24, i64 noundef %23, i64 noundef %23, i8 3)
+40:                                               ; preds = %10
+  %41 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %23, i64 noundef %22, i64 noundef %22, i8 3)
   br label %_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %38, %41
-  %.0.i.i.i.i = phi ptr [ %40, %38 ], [ %42, %41 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
+_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %37, %40
+  %.0.i.i.i.i = phi ptr [ %39, %37 ], [ %41, %40 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN5clang20TemplateArgumentListC1EN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #22
-  store ptr %.0.i.i.i.i, ptr %43, align 8, !tbaa !537
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %44, align 8, !tbaa !566
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %46 = load i8, ptr %45, align 4
-  %47 = and i8 %46, -8
-  store i8 %47, ptr %45, align 4
+  store ptr %.0.i.i.i.i, ptr %42, align 8, !tbaa !537
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 0, ptr %43, align 8, !tbaa !566
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %45 = load i8, ptr %44, align 4
+  %46 = and i8 %45, -8
+  store i8 %46, ptr %44, align 4
   ret void
 }
 
@@ -5514,65 +5513,64 @@ define dso_local void @_ZN5clang38ClassTemplatePartialSpecializationDeclC2ERNS_1
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang31ClassTemplateSpecializationDeclE, i64 16), ptr %0, align 8, !tbaa !125
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %19 = ptrtoint ptr %7 to i64
-  %20 = and i64 %19, -5
-  store i64 %20, ptr %18, align 8, !tbaa !14
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  store i64 0, ptr %21, align 8
-  %22 = mul i64 %.sroa.2.0.copyload, 24
-  %23 = add i64 %22, 8
-  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2192
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2272
-  %26 = load i64, ptr %25, align 8, !tbaa !61
-  %27 = add i64 %26, %23
-  store i64 %27, ptr %25, align 8, !tbaa !61
-  %28 = load ptr, ptr %24, align 8, !tbaa !74
-  %29 = ptrtoint ptr %28 to i64
-  %30 = add i64 %29, 7
-  %31 = and i64 %30, -8
-  %32 = add i64 %31, %23
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2200
-  %34 = load ptr, ptr %33, align 8, !tbaa !75
-  %35 = ptrtoint ptr %34 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %32, %35
-  %36 = icmp ne ptr %28, null
-  %37 = and i1 %36, %.not.i.i.i.i.i
-  br i1 %37, label %38, label %41, !prof !76
+  store i64 %19, ptr %18, align 8, !tbaa !14
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  store i64 0, ptr %20, align 8
+  %21 = mul i64 %.sroa.2.0.copyload, 24
+  %22 = add i64 %21, 8
+  %23 = getelementptr inbounds nuw i8, ptr %1, i64 2192
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2272
+  %25 = load i64, ptr %24, align 8, !tbaa !61
+  %26 = add i64 %25, %22
+  store i64 %26, ptr %24, align 8, !tbaa !61
+  %27 = load ptr, ptr %23, align 8, !tbaa !74
+  %28 = ptrtoint ptr %27 to i64
+  %29 = add i64 %28, 7
+  %30 = and i64 %29, -8
+  %31 = add i64 %30, %22
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 2200
+  %33 = load ptr, ptr %32, align 8, !tbaa !75
+  %34 = ptrtoint ptr %33 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %31, %34
+  %35 = icmp ne ptr %27, null
+  %36 = and i1 %35, %.not.i.i.i.i.i
+  br i1 %36, label %37, label %40, !prof !76
 
-38:                                               ; preds = %10
-  %39 = inttoptr i64 %32 to ptr
-  store ptr %39, ptr %24, align 8, !tbaa !74
-  %40 = inttoptr i64 %31 to ptr
+37:                                               ; preds = %10
+  %38 = inttoptr i64 %31 to ptr
+  store ptr %38, ptr %23, align 8, !tbaa !74
+  %39 = inttoptr i64 %30 to ptr
   br label %_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit
 
-41:                                               ; preds = %10
-  %42 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %24, i64 noundef %23, i64 noundef %23, i8 3)
+40:                                               ; preds = %10
+  %41 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %23, i64 noundef %22, i64 noundef %22, i8 3)
   br label %_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit
 
-_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit: ; preds = %38, %41
-  %.0.i.i.i.i.i = phi ptr [ %40, %38 ], [ %42, %41 ]
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 168
+_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit: ; preds = %37, %40
+  %.0.i.i.i.i.i = phi ptr [ %39, %37 ], [ %41, %40 ]
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 168
   tail call void @_ZN5clang20TemplateArgumentListC1EN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i.i, ptr %.sroa.010.0.copyload, i64 %.sroa.2.0.copyload) #22
-  store ptr %.0.i.i.i.i.i, ptr %43, align 8, !tbaa !537
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 176
-  store i32 0, ptr %44, align 8, !tbaa !566
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 180
-  %46 = load i8, ptr %45, align 4
-  %47 = and i8 %46, -8
-  store i8 %47, ptr %45, align 4
+  store ptr %.0.i.i.i.i.i, ptr %42, align 8, !tbaa !537
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 176
+  store i32 0, ptr %43, align 8, !tbaa !566
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 180
+  %45 = load i8, ptr %44, align 4
+  %46 = and i8 %45, -8
+  store i8 %46, ptr %44, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 112) (i8, ptr @_ZTVN5clang38ClassTemplatePartialSpecializationDeclE, i64 16), ptr %0, align 8, !tbaa !125
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  store ptr %6, ptr %48, align 8, !tbaa !577
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  store i64 0, ptr %49, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %51 = tail call fastcc noundef zeroext i1 @_ZL26AdoptTemplateParameterListPN5clang21TemplateParameterListEPNS_11DeclContextE(ptr noundef %6, ptr noundef nonnull %50)
-  br i1 %51, label %52, label %53
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  store ptr %6, ptr %47, align 8, !tbaa !577
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  store i64 0, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %50 = tail call fastcc noundef zeroext i1 @_ZL26AdoptTemplateParameterListPN5clang21TemplateParameterListEPNS_11DeclContextE(ptr noundef %6, ptr noundef nonnull %49)
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit
+51:                                               ; preds = %_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit
   tail call void @_ZN5clang4Decl14setInvalidDeclEb(ptr noundef nonnull align 8 dereferenceable(33) %0, i1 noundef zeroext true) #22
-  br label %53
+  br label %52
 
-53:                                               ; preds = %52, %_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit
+52:                                               ; preds = %51, %_ZN5clang31ClassTemplateSpecializationDeclC2ERNS_10ASTContextENS_4Decl4KindENS_11TagTypeKindEPNS_11DeclContextENS_14SourceLocationES8_PNS_17ClassTemplateDeclEN4llvm8ArrayRefINS_16TemplateArgumentEEEPS0_.exit
   ret void
 }
 
@@ -6758,54 +6756,53 @@ define dso_local void @_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindE
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang29VarTemplateSpecializationDeclE, i64 16), ptr %0, align 8, !tbaa !125
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = ptrtoint ptr %6 to i64
-  %21 = and i64 %20, -5
-  store i64 %21, ptr %19, align 8, !tbaa !14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 0, ptr %22, align 8
+  store i64 %20, ptr %19, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 0, ptr %21, align 8
   %.sroa.0.0.copyload = load ptr, ptr %10, align 8, !tbaa !153
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %10, i64 8
   %.sroa.2.0.copyload = load i64, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !124
-  %23 = mul i64 %.sroa.2.0.copyload, 24
-  %24 = add i64 %23, 8
-  %25 = getelementptr inbounds nuw i8, ptr %2, i64 2192
-  %26 = getelementptr inbounds nuw i8, ptr %2, i64 2272
-  %27 = load i64, ptr %26, align 8, !tbaa !61
-  %28 = add i64 %24, %27
-  store i64 %28, ptr %26, align 8, !tbaa !61
-  %29 = load ptr, ptr %25, align 8, !tbaa !74
-  %30 = ptrtoint ptr %29 to i64
-  %31 = add i64 %30, 7
-  %32 = and i64 %31, -8
-  %33 = add i64 %32, %24
-  %34 = getelementptr inbounds nuw i8, ptr %2, i64 2200
-  %35 = load ptr, ptr %34, align 8, !tbaa !75
-  %36 = ptrtoint ptr %35 to i64
-  %.not.i.i.i.i = icmp ule i64 %33, %36
-  %37 = icmp ne ptr %29, null
-  %38 = and i1 %37, %.not.i.i.i.i
-  br i1 %38, label %39, label %42, !prof !76
+  %22 = mul i64 %.sroa.2.0.copyload, 24
+  %23 = add i64 %22, 8
+  %24 = getelementptr inbounds nuw i8, ptr %2, i64 2192
+  %25 = getelementptr inbounds nuw i8, ptr %2, i64 2272
+  %26 = load i64, ptr %25, align 8, !tbaa !61
+  %27 = add i64 %23, %26
+  store i64 %27, ptr %25, align 8, !tbaa !61
+  %28 = load ptr, ptr %24, align 8, !tbaa !74
+  %29 = ptrtoint ptr %28 to i64
+  %30 = add i64 %29, 7
+  %31 = and i64 %30, -8
+  %32 = add i64 %31, %23
+  %33 = getelementptr inbounds nuw i8, ptr %2, i64 2200
+  %34 = load ptr, ptr %33, align 8, !tbaa !75
+  %35 = ptrtoint ptr %34 to i64
+  %.not.i.i.i.i = icmp ule i64 %32, %35
+  %36 = icmp ne ptr %28, null
+  %37 = and i1 %36, %.not.i.i.i.i
+  br i1 %37, label %38, label %41, !prof !76
 
-39:                                               ; preds = %11
-  %40 = inttoptr i64 %33 to ptr
-  store ptr %40, ptr %25, align 8, !tbaa !74
-  %41 = inttoptr i64 %32 to ptr
+38:                                               ; preds = %11
+  %39 = inttoptr i64 %32 to ptr
+  store ptr %39, ptr %24, align 8, !tbaa !74
+  %40 = inttoptr i64 %31 to ptr
   br label %_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-42:                                               ; preds = %11
-  %43 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %25, i64 noundef %24, i64 noundef %24, i8 3)
+41:                                               ; preds = %11
+  %42 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %24, i64 noundef %23, i64 noundef %23, i8 3)
   br label %_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %39, %42
-  %.0.i.i.i.i = phi ptr [ %41, %39 ], [ %43, %42 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+_ZN5clang20TemplateArgumentList10CreateCopyERNS_10ASTContextEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %38, %41
+  %.0.i.i.i.i = phi ptr [ %40, %38 ], [ %42, %41 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN5clang20TemplateArgumentListC1EN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i, ptr %.sroa.0.0.copyload, i64 %.sroa.2.0.copyload) #22
-  store ptr %.0.i.i.i.i, ptr %44, align 8, !tbaa !597
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %45, align 8, !tbaa !566
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %47 = load i8, ptr %46, align 4
-  %48 = and i8 %47, -16
-  store i8 %48, ptr %46, align 4
+  store ptr %.0.i.i.i.i, ptr %43, align 8, !tbaa !597
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 0, ptr %44, align 8, !tbaa !566
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %46 = load i8, ptr %45, align 4
+  %47 = and i8 %46, -16
+  store i8 %47, ptr %45, align 4
   ret void
 }
 
@@ -7351,64 +7348,63 @@ define dso_local void @_ZN5clang36VarTemplatePartialSpecializationDeclC2ERNS_10A
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang29VarTemplateSpecializationDeclE, i64 16), ptr %0, align 8, !tbaa !125
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %20 = ptrtoint ptr %6 to i64
-  %21 = and i64 %20, -5
-  store i64 %21, ptr %19, align 8, !tbaa !14
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  store i64 0, ptr %22, align 8
-  %23 = mul i64 %.sroa.2.0.copyload, 24
-  %24 = add i64 %23, 8
-  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2192
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 2272
-  %27 = load i64, ptr %26, align 8, !tbaa !61
-  %28 = add i64 %27, %24
-  store i64 %28, ptr %26, align 8, !tbaa !61
-  %29 = load ptr, ptr %25, align 8, !tbaa !74
-  %30 = ptrtoint ptr %29 to i64
-  %31 = add i64 %30, 7
-  %32 = and i64 %31, -8
-  %33 = add i64 %32, %24
-  %34 = getelementptr inbounds nuw i8, ptr %1, i64 2200
-  %35 = load ptr, ptr %34, align 8, !tbaa !75
-  %36 = ptrtoint ptr %35 to i64
-  %.not.i.i.i.i.i = icmp ule i64 %33, %36
-  %37 = icmp ne ptr %29, null
-  %38 = and i1 %37, %.not.i.i.i.i.i
-  br i1 %38, label %39, label %42, !prof !76
+  store i64 %20, ptr %19, align 8, !tbaa !14
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  store i64 0, ptr %21, align 8
+  %22 = mul i64 %.sroa.2.0.copyload, 24
+  %23 = add i64 %22, 8
+  %24 = getelementptr inbounds nuw i8, ptr %1, i64 2192
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 2272
+  %26 = load i64, ptr %25, align 8, !tbaa !61
+  %27 = add i64 %26, %23
+  store i64 %27, ptr %25, align 8, !tbaa !61
+  %28 = load ptr, ptr %24, align 8, !tbaa !74
+  %29 = ptrtoint ptr %28 to i64
+  %30 = add i64 %29, 7
+  %31 = and i64 %30, -8
+  %32 = add i64 %31, %23
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 2200
+  %34 = load ptr, ptr %33, align 8, !tbaa !75
+  %35 = ptrtoint ptr %34 to i64
+  %.not.i.i.i.i.i = icmp ule i64 %32, %35
+  %36 = icmp ne ptr %28, null
+  %37 = and i1 %36, %.not.i.i.i.i.i
+  br i1 %37, label %38, label %41, !prof !76
 
-39:                                               ; preds = %11
-  %40 = inttoptr i64 %33 to ptr
-  store ptr %40, ptr %25, align 8, !tbaa !74
-  %41 = inttoptr i64 %32 to ptr
+38:                                               ; preds = %11
+  %39 = inttoptr i64 %32 to ptr
+  store ptr %39, ptr %24, align 8, !tbaa !74
+  %40 = inttoptr i64 %31 to ptr
   br label %_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-42:                                               ; preds = %11
-  %43 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %25, i64 noundef %24, i64 noundef %24, i8 3)
+41:                                               ; preds = %11
+  %42 = tail call noundef nonnull ptr @_ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE12AllocateSlowEmmNS_5AlignE(ptr noundef nonnull align 8 dereferenceable(96) %24, i64 noundef %23, i64 noundef %23, i8 3)
   br label %_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
 
-_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %39, %42
-  %.0.i.i.i.i.i = phi ptr [ %41, %39 ], [ %43, %42 ]
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 128
+_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit: ; preds = %38, %41
+  %.0.i.i.i.i.i = phi ptr [ %40, %38 ], [ %42, %41 ]
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 128
   tail call void @_ZN5clang20TemplateArgumentListC1EN4llvm8ArrayRefINS_16TemplateArgumentEEE(ptr noundef nonnull align 8 dereferenceable(8) %.0.i.i.i.i.i, ptr %.sroa.013.0.copyload, i64 %.sroa.2.0.copyload) #22
-  store ptr %.0.i.i.i.i.i, ptr %44, align 8, !tbaa !597
-  %45 = getelementptr inbounds nuw i8, ptr %0, i64 136
-  store i32 0, ptr %45, align 8, !tbaa !566
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %47 = load i8, ptr %46, align 4
-  %48 = and i8 %47, -16
-  store i8 %48, ptr %46, align 4
+  store ptr %.0.i.i.i.i.i, ptr %43, align 8, !tbaa !597
+  %44 = getelementptr inbounds nuw i8, ptr %0, i64 136
+  store i32 0, ptr %44, align 8, !tbaa !566
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %46 = load i8, ptr %45, align 4
+  %47 = and i8 %46, -16
+  store i8 %47, ptr %45, align 4
   store ptr getelementptr inbounds nuw inrange(-16, 104) (i8, ptr @_ZTVN5clang36VarTemplatePartialSpecializationDeclE, i64 16), ptr %0, align 8, !tbaa !125
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 144
-  store ptr %5, ptr %49, align 8, !tbaa !612
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 152
-  store i64 0, ptr %50, align 8
-  %51 = tail call fastcc noundef zeroext i1 @_ZL26AdoptTemplateParameterListPN5clang21TemplateParameterListEPNS_11DeclContextE(ptr noundef %5, ptr noundef %2)
-  br i1 %51, label %52, label %53
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 144
+  store ptr %5, ptr %48, align 8, !tbaa !612
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 152
+  store i64 0, ptr %49, align 8
+  %50 = tail call fastcc noundef zeroext i1 @_ZL26AdoptTemplateParameterListPN5clang21TemplateParameterListEPNS_11DeclContextE(ptr noundef %5, ptr noundef %2)
+  br i1 %50, label %51, label %52
 
-52:                                               ; preds = %_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
+51:                                               ; preds = %_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
   tail call void @_ZN5clang4Decl14setInvalidDeclEb(ptr noundef nonnull align 8 dereferenceable(33) %0, i1 noundef zeroext true) #22
-  br label %53
+  br label %52
 
-53:                                               ; preds = %52, %_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
+52:                                               ; preds = %51, %_ZN5clang29VarTemplateSpecializationDeclC2ENS_4Decl4KindERNS_10ASTContextEPNS_11DeclContextENS_14SourceLocationES7_PNS_15VarTemplateDeclENS_8QualTypeEPNS_14TypeSourceInfoENS_12StorageClassEN4llvm8ArrayRefINS_16TemplateArgumentEEE.exit
   ret void
 }
 

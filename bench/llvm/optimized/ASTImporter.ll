@@ -111172,13 +111172,13 @@ define linkonce_odr hidden void @_ZN5clang17DefaultArgStorageINS_20TemplateTypeP
   %11 = and i64 %10, -7
   %12 = or disjoint i64 %11, 2
   store i64 %12, ptr %0, align 8, !tbaa !17
-  br label %44
+  br label %42
 
 13:                                               ; preds = %3
   %14 = and i64 %.0.copyload.i.i.i.i.i, 6
-  switch i64 %14, label %36 [
+  switch i64 %14, label %35 [
     i64 2, label %15
-    i64 4, label %33
+    i64 4, label %32
   ]
 
 15:                                               ; preds = %13
@@ -111212,32 +111212,30 @@ _ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLo
   %.1.i = phi ptr [ %29, %27 ], [ %26, %15 ]
   store ptr %.1.i, ptr %17, align 8, !tbaa !4921
   %30 = ptrtoint ptr %16 to i64
-  %31 = and i64 %30, -7
-  %32 = or disjoint i64 %31, 4
-  store i64 %32, ptr %0, align 8, !tbaa !17
-  br label %44
+  %31 = or disjoint i64 %30, 4
+  store i64 %31, ptr %0, align 8, !tbaa !17
+  br label %42
 
-33:                                               ; preds = %13
-  %34 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %spec.select.i, ptr %35, align 8, !tbaa !4915
-  br label %44
+32:                                               ; preds = %13
+  %33 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %34 = inttoptr i64 %33 to ptr
+  store ptr %spec.select.i, ptr %34, align 8, !tbaa !4915
+  br label %42
 
-36:                                               ; preds = %13
-  %37 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23216) %1) #25
-  store ptr %spec.select.i, ptr %37, align 8, !tbaa !4915
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+35:                                               ; preds = %13
+  %36 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23216) %1) #25
+  store ptr %spec.select.i, ptr %36, align 8, !tbaa !4915
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %39 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %40 = inttoptr i64 %39 to ptr
-  store ptr %40, ptr %38, align 8, !tbaa !4921
-  %41 = ptrtoint ptr %37 to i64
-  %42 = and i64 %41, -7
-  %43 = or disjoint i64 %42, 4
-  store i64 %43, ptr %0, align 8, !tbaa !17
-  br label %44
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %39 = inttoptr i64 %38 to ptr
+  store ptr %39, ptr %37, align 8, !tbaa !4921
+  %40 = ptrtoint ptr %36 to i64
+  %41 = or disjoint i64 %40, 4
+  store i64 %41, ptr %0, align 8, !tbaa !17
+  br label %42
 
-44:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %36, %33, %9
+42:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_20TemplateTypeParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %35, %32, %9
   ret void
 }
 
@@ -111450,13 +111448,13 @@ define linkonce_odr hidden void @_ZN5clang17DefaultArgStorageINS_23NonTypeTempla
   %11 = and i64 %10, -7
   %12 = or disjoint i64 %11, 2
   store i64 %12, ptr %0, align 8, !tbaa !17
-  br label %44
+  br label %42
 
 13:                                               ; preds = %3
   %14 = and i64 %.0.copyload.i.i.i.i.i, 6
-  switch i64 %14, label %36 [
+  switch i64 %14, label %35 [
     i64 2, label %15
-    i64 4, label %33
+    i64 4, label %32
   ]
 
 15:                                               ; preds = %13
@@ -111490,32 +111488,30 @@ _ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumen
   %.1.i = phi ptr [ %29, %27 ], [ %26, %15 ]
   store ptr %.1.i, ptr %17, align 8, !tbaa !4983
   %30 = ptrtoint ptr %16 to i64
-  %31 = and i64 %30, -7
-  %32 = or disjoint i64 %31, 4
-  store i64 %32, ptr %0, align 8, !tbaa !17
-  br label %44
+  %31 = or disjoint i64 %30, 4
+  store i64 %31, ptr %0, align 8, !tbaa !17
+  br label %42
 
-33:                                               ; preds = %13
-  %34 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %spec.select.i, ptr %35, align 8, !tbaa !4981
-  br label %44
+32:                                               ; preds = %13
+  %33 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %34 = inttoptr i64 %33 to ptr
+  store ptr %spec.select.i, ptr %34, align 8, !tbaa !4981
+  br label %42
 
-36:                                               ; preds = %13
-  %37 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23216) %1) #25
-  store ptr %spec.select.i, ptr %37, align 8, !tbaa !4981
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+35:                                               ; preds = %13
+  %36 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23216) %1) #25
+  store ptr %spec.select.i, ptr %36, align 8, !tbaa !4981
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %39 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %40 = inttoptr i64 %39 to ptr
-  store ptr %40, ptr %38, align 8, !tbaa !4983
-  %41 = ptrtoint ptr %37 to i64
-  %42 = and i64 %41, -7
-  %43 = or disjoint i64 %42, 4
-  store i64 %43, ptr %0, align 8, !tbaa !17
-  br label %44
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %39 = inttoptr i64 %38 to ptr
+  store ptr %39, ptr %37, align 8, !tbaa !4983
+  %40 = ptrtoint ptr %36 to i64
+  %41 = or disjoint i64 %40, 4
+  store i64 %41, ptr %0, align 8, !tbaa !17
+  br label %42
 
-44:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %36, %33, %9
+42:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_23NonTypeTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %35, %32, %9
   ret void
 }
 
@@ -111726,13 +111722,13 @@ define linkonce_odr hidden void @_ZN5clang17DefaultArgStorageINS_24TemplateTempl
   %11 = and i64 %10, -7
   %12 = or disjoint i64 %11, 2
   store i64 %12, ptr %0, align 8, !tbaa !17
-  br label %44
+  br label %42
 
 13:                                               ; preds = %3
   %14 = and i64 %.0.copyload.i.i.i.i.i, 6
-  switch i64 %14, label %36 [
+  switch i64 %14, label %35 [
     i64 2, label %15
-    i64 4, label %33
+    i64 4, label %32
   ]
 
 15:                                               ; preds = %13
@@ -111766,32 +111762,30 @@ _ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgume
   %.1.i = phi ptr [ %29, %27 ], [ %26, %15 ]
   store ptr %.1.i, ptr %17, align 8, !tbaa !5029
   %30 = ptrtoint ptr %16 to i64
-  %31 = and i64 %30, -7
-  %32 = or disjoint i64 %31, 4
-  store i64 %32, ptr %0, align 8, !tbaa !17
-  br label %44
+  %31 = or disjoint i64 %30, 4
+  store i64 %31, ptr %0, align 8, !tbaa !17
+  br label %42
 
-33:                                               ; preds = %13
-  %34 = and i64 %.0.copyload.i.i.i.i.i, -8
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %spec.select.i, ptr %35, align 8, !tbaa !5027
-  br label %44
+32:                                               ; preds = %13
+  %33 = and i64 %.0.copyload.i.i.i.i.i, -8
+  %34 = inttoptr i64 %33 to ptr
+  store ptr %spec.select.i, ptr %34, align 8, !tbaa !5027
+  br label %42
 
-36:                                               ; preds = %13
-  %37 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23216) %1) #25
-  store ptr %spec.select.i, ptr %37, align 8, !tbaa !5027
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 8
+35:                                               ; preds = %13
+  %36 = tail call noundef ptr @_ZN5clang30allocateDefaultArgStorageChainERKNS_10ASTContextE(ptr noundef nonnull align 8 dereferenceable(23216) %1) #25
+  store ptr %spec.select.i, ptr %36, align 8, !tbaa !5027
+  %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %.0.copyload.i.i.i.i.i.i = load i64, ptr %0, align 8
-  %39 = and i64 %.0.copyload.i.i.i.i.i.i, -8
-  %40 = inttoptr i64 %39 to ptr
-  store ptr %40, ptr %38, align 8, !tbaa !5029
-  %41 = ptrtoint ptr %37 to i64
-  %42 = and i64 %41, -7
-  %43 = or disjoint i64 %42, 4
-  store i64 %43, ptr %0, align 8, !tbaa !17
-  br label %44
+  %38 = and i64 %.0.copyload.i.i.i.i.i.i, -8
+  %39 = inttoptr i64 %38 to ptr
+  store ptr %39, ptr %37, align 8, !tbaa !5029
+  %40 = ptrtoint ptr %36 to i64
+  %41 = or disjoint i64 %40, 4
+  store i64 %41, ptr %0, align 8, !tbaa !17
+  br label %42
 
-44:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %36, %33, %9
+42:                                               ; preds = %_ZNK5clang17DefaultArgStorageINS_24TemplateTemplateParmDeclEPNS_19TemplateArgumentLocEE3getEv.exit, %35, %32, %9
   ret void
 }
 

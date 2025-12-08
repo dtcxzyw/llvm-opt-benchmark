@@ -25476,18 +25476,18 @@ define void @_ZN5folly20getGlobalCPUExecutorEv(ptr dead_on_unwind noalias writab
 
 6:                                                ; preds = %4
   invoke void @__cxa_throw(ptr nonnull %5, ptr nonnull @_ZTISt13runtime_error, ptr nonnull @_ZNSt13runtime_errorD1Ev) #38
-          to label %68 unwind label %9
+          to label %62 unwind label %9
 
 7:                                                ; preds = %4
   %8 = landingpad { ptr, i32 }
           cleanup
   tail call void @__cxa_free_exception(ptr nonnull %5) #24
-  br label %67
+  br label %61
 
 9:                                                ; preds = %6
   %10 = landingpad { ptr, i32 }
           cleanup
-  br label %67
+  br label %61
 
 11:                                               ; preds = %1
   %12 = load ptr, ptr %3, align 8, !tbaa !550
@@ -25517,89 +25517,79 @@ _ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAlive
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 40
   %28 = load ptr, ptr %27, align 8, !noalias !850
   %29 = tail call noundef zeroext i1 %28(ptr noundef nonnull align 8 dereferenceable(8) %25) #24, !noalias !850
-  %30 = ptrtoint ptr %21 to i64
   %not..i.i = xor i1 %29, true
-  %31 = zext i1 %not..i.i to i64
-  %spec.select.i.i = or i64 %31, %30
-  %32 = and i64 %30, -4
-  %33 = icmp eq i64 %32, 0
-  br i1 %33, label %_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit, label %34
-
-34:                                               ; preds = %_ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAliveIT_EEPS4_.exit
-  %35 = inttoptr i64 %32 to ptr
-  %36 = load ptr, ptr %35, align 64, !tbaa !7
-  %37 = getelementptr i8, ptr %36, i64 -72
-  %38 = load i64, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %35, i64 %38
-  %40 = ptrtoint ptr %39 to i64
+  %30 = zext i1 %not..i.i to i64
+  %31 = load ptr, ptr %21, align 64, !tbaa !7
+  %32 = getelementptr i8, ptr %31, i64 -72
+  %33 = load i64, ptr %32, align 8
+  %34 = getelementptr inbounds i8, ptr %21, i64 %33
+  %35 = ptrtoint ptr %34 to i64
+  %36 = or i64 %30, %35
   br label %_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit
 
-_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit: ; preds = %19, %34, %_ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAliveIT_EEPS4_.exit
-  %.sink.i.i7 = phi i64 [ %spec.select.i.i, %34 ], [ %spec.select.i.i, %_ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAliveIT_EEPS4_.exit ], [ 0, %19 ]
-  %41 = phi i64 [ %40, %34 ], [ 0, %_ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAliveIT_EEPS4_.exit ], [ 0, %19 ]
-  %42 = and i64 %.sink.i.i7, 3
-  %43 = or i64 %41, %42
-  store i64 %43, ptr %0, align 8, !tbaa !855
-  %44 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %45 = load ptr, ptr %44, align 8, !tbaa !17
-  %.not.i.i4 = icmp eq ptr %45, null
-  br i1 %.not.i.i4, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %46
+_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit: ; preds = %19, %_ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAliveIT_EEPS4_.exit
+  %37 = phi i64 [ %36, %_ZN5folly17getKeepAliveTokenINS_21CPUThreadPoolExecutorEEENS_8Executor9KeepAliveIT_EEPS4_.exit ], [ 0, %19 ]
+  store i64 %37, ptr %0, align 8, !tbaa !855
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %39 = load ptr, ptr %38, align 8, !tbaa !17
+  %.not.i.i4 = icmp eq ptr %39, null
+  br i1 %.not.i.i4, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, label %40
 
-46:                                               ; preds = %_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit
-  %47 = getelementptr inbounds nuw i8, ptr %45, i64 8
-  %48 = load atomic i64, ptr %47 acquire, align 8
-  %49 = icmp eq i64 %48, 4294967297
-  %50 = trunc i64 %48 to i32
-  br i1 %49, label %51, label %59
+40:                                               ; preds = %_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit
+  %41 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %42 = load atomic i64, ptr %41 acquire, align 8
+  %43 = icmp eq i64 %42, 4294967297
+  %44 = trunc i64 %42 to i32
+  br i1 %43, label %45, label %53
 
-51:                                               ; preds = %46
-  store i32 0, ptr %47, align 8, !tbaa !18
-  %52 = getelementptr inbounds nuw i8, ptr %45, i64 12
-  store i32 0, ptr %52, align 4, !tbaa !21
-  %53 = load ptr, ptr %45, align 8, !tbaa !7
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 16
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(16) %45) #24
-  %56 = load ptr, ptr %45, align 8, !tbaa !7
-  %57 = getelementptr inbounds nuw i8, ptr %56, i64 24
-  %58 = load ptr, ptr %57, align 8
-  tail call void %58(ptr noundef nonnull align 8 dereferenceable(16) %45) #24
+45:                                               ; preds = %40
+  store i32 0, ptr %41, align 8, !tbaa !18
+  %46 = getelementptr inbounds nuw i8, ptr %39, i64 12
+  store i32 0, ptr %46, align 4, !tbaa !21
+  %47 = load ptr, ptr %39, align 8, !tbaa !7
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 16
+  %49 = load ptr, ptr %48, align 8
+  tail call void %49(ptr noundef nonnull align 8 dereferenceable(16) %39) #24
+  %50 = load ptr, ptr %39, align 8, !tbaa !7
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
+  %52 = load ptr, ptr %51, align 8
+  tail call void %52(ptr noundef nonnull align 8 dereferenceable(16) %39) #24
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-59:                                               ; preds = %46
-  %60 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !32
-  %.not.i.i.i = icmp eq i8 %60, 0
-  br i1 %.not.i.i.i, label %63, label %61
+53:                                               ; preds = %40
+  %54 = load i8, ptr @__libc_single_threaded, align 1, !tbaa !32
+  %.not.i.i.i = icmp eq i8 %54, 0
+  br i1 %.not.i.i.i, label %57, label %55
 
-61:                                               ; preds = %59
-  %62 = add nsw i32 %50, -1
-  store i32 %62, ptr %47, align 4, !tbaa !33
+55:                                               ; preds = %53
+  %56 = add nsw i32 %44, -1
+  store i32 %56, ptr %41, align 4, !tbaa !33
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-63:                                               ; preds = %59
-  %64 = atomicrmw volatile add ptr %47, i32 -1 acq_rel, align 4
+57:                                               ; preds = %53
+  %58 = atomicrmw volatile add ptr %41, i32 -1 acq_rel, align 4
   br label %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
 
-_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %63, %61
-  %.0.i.i.i.i = phi i32 [ %50, %61 ], [ %64, %63 ]
-  %65 = icmp eq i32 %.0.i.i.i.i, 1
-  br i1 %65, label %66, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !27
+_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i: ; preds = %57, %55
+  %.0.i.i.i.i = phi i32 [ %44, %55 ], [ %58, %57 ]
+  %59 = icmp eq i32 %.0.i.i.i.i, 1
+  br i1 %59, label %60, label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit, !prof !27
 
-66:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
-  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %45) #24
+60:                                               ; preds = %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i
+  tail call void @_ZNSt16_Sp_counted_baseILN9__gnu_cxx12_Lock_policyE2EE24_M_release_last_use_coldEv(ptr noundef nonnull align 8 dereferenceable(16) %39) #24
   br label %_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit
 
-_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit, %51, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %66
+_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev.exit: ; preds = %_ZN5folly8Executor9KeepAliveINS_21CPUThreadPoolExecutorEED2Ev.exit, %45, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 
-67:                                               ; preds = %9, %7
+61:                                               ; preds = %9, %7
   %.pn = phi { ptr, i32 } [ %10, %9 ], [ %8, %7 ]
   call void @_ZNSt12__shared_ptrISt10shared_ptrIN5folly21CPUThreadPoolExecutorEELN9__gnu_cxx12_Lock_policyE2EED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %2) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   resume { ptr, i32 } %.pn
 
-68:                                               ; preds = %6
+62:                                               ; preds = %6
   unreachable
 }
 

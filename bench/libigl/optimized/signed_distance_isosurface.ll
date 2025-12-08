@@ -31938,7 +31938,7 @@ _ZNSt6vectorISt4pairIPN4CGAL26Surface_mesh_vertex_base_3INS1_28Robust_circumcent
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !762
-  br label %68
+  br label %67
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -31947,20 +31947,19 @@ _ZNSt6vectorISt4pairIPN4CGAL26Surface_mesh_vertex_base_3INS1_28Robust_circumcent
   %63 = inttoptr i64 %62 to ptr
   store ptr %63, ptr %47, align 8, !tbaa !310
   %64 = ptrtoint ptr %47 to i64
-  %65 = and i64 %64, -4
-  %66 = or disjoint i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  br label %68
+  %65 = or disjoint i64 %64, 1
+  %66 = inttoptr i64 %65 to ptr
+  br label %67
 
-68:                                               ; preds = %59, %57
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %67, %59 ]
+67:                                               ; preds = %59, %57
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %66, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Surface_mesh_vertex_base_3", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 56
   store ptr %.sink20, ptr %46, align 8, !tbaa !760
   store ptr %.sink, ptr %11, align 8, !tbaa !310
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !310
-  %69 = add i64 %40, 16
-  store i64 %69, ptr %2, align 8, !tbaa !95
+  %68 = add i64 %40, 16
+  store i64 %68, ptr %2, align 8, !tbaa !95
   ret void
 }
 
@@ -32100,7 +32099,7 @@ _ZNSt6vectorISt4pairIPN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !742
-  br label %68
+  br label %67
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -32109,20 +32108,19 @@ _ZNSt6vectorISt4pairIPN4CGAL52Delaunay_triangulation_cell_base_with_circumcenter
   %63 = inttoptr i64 %62 to ptr
   store ptr %63, ptr %47, align 8, !tbaa !310
   %64 = ptrtoint ptr %47 to i64
-  %65 = and i64 %64, -4
-  %66 = or disjoint i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  br label %68
+  %65 = or disjoint i64 %64, 1
+  %66 = inttoptr i64 %65 to ptr
+  br label %67
 
-68:                                               ; preds = %59, %57
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %67, %59 ]
+67:                                               ; preds = %59, %57
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %66, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Delaunay_triangulation_cell_base_with_circumcenter_3", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 192
   store ptr %.sink20, ptr %46, align 8, !tbaa !296
   store ptr %.sink, ptr %11, align 8, !tbaa !310
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !310
-  %69 = add i64 %40, 16
-  store i64 %69, ptr %2, align 8, !tbaa !94
+  %68 = add i64 %40, 16
+  store i64 %68, ptr %2, align 8, !tbaa !94
   ret void
 }
 

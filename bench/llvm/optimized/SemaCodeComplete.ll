@@ -90694,11 +90694,10 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang9NamedDeclEjELb1EE9push_backE
   %18 = ptrtoint ptr %12 to i64
   %19 = or i64 %18, 4
   store i64 %19, ptr %0, align 8, !tbaa !21
-  %.pre = and i64 %18, -8
   br label %20
 
 20:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang9NamedDeclEjELb1EE9push_backES6_.exit, %8
-  %.pre-phi = phi i64 [ %.pre, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang9NamedDeclEjELb1EE9push_backES6_.exit ], [ %10, %8 ]
+  %.pre-phi = phi i64 [ %18, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIPKN5clang9NamedDeclEjELb1EE9push_backES6_.exit ], [ %10, %8 ]
   %21 = inttoptr i64 %.pre-phi to ptr
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 8
   %23 = load i32, ptr %22, align 8, !tbaa !26

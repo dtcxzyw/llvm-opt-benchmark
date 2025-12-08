@@ -6410,14 +6410,13 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit: ; 
   %55 = getelementptr inbounds nuw i8, ptr %0, i64 6160
   store i32 %54, ptr %55, align 8, !tbaa !993
   %56 = ptrtoint ptr %5 to i64
-  %57 = and i64 %56, -8
-  %58 = or disjoint i64 %57, 3
-  %59 = load ptr, ptr %14, align 8, !tbaa !3
-  %60 = getelementptr inbounds nuw i8, ptr %59, i64 144
-  %61 = load ptr, ptr %60, align 8, !tbaa !607
-  %62 = getelementptr inbounds nuw i8, ptr %61, i64 18472
-  %.sroa.0.0.copyload.i19 = load i64, ptr %62, align 8, !tbaa !604
-  call void @_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclENS_8QualTypeEPN4llvm8FunctionERKNS0_14CGFunctionInfoERKNS0_15FunctionArgListENS_14SourceLocationESD_(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %58, i32 0, i64 %.sroa.0.0.copyload.i19, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(144) %7, i32 0, i32 0) #19
+  %57 = or disjoint i64 %56, 3
+  %58 = load ptr, ptr %14, align 8, !tbaa !3
+  %59 = getelementptr inbounds nuw i8, ptr %58, i64 144
+  %60 = load ptr, ptr %59, align 8, !tbaa !607
+  %61 = getelementptr inbounds nuw i8, ptr %60, i64 18472
+  %.sroa.0.0.copyload.i19 = load i64, ptr %61, align 8, !tbaa !604
+  call void @_ZN5clang7CodeGen15CodeGenFunction13StartFunctionENS_10GlobalDeclENS_8QualTypeEPN4llvm8FunctionERKNS0_14CGFunctionInfoERKNS0_15FunctionArgListENS_14SourceLocationESD_(ptr noundef nonnull align 8 dereferenceable(6496) %0, i64 %57, i32 0, i64 %.sroa.0.0.copyload.i19, ptr noundef %53, ptr noundef nonnull align 8 dereferenceable(40) %44, ptr noundef nonnull align 8 dereferenceable(144) %7, i32 0, i32 0) #19
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_ZN5clang7CodeGen18ApplyDebugLocationC1ERNS0_15CodeGenFunctionEbNS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(16) %10, ptr noundef nonnull align 8 dereferenceable(6496) %0, i1 noundef zeroext false, i32 0) #19
   call void @_ZN5clang7CodeGen15CodeGenFunction11emitDestroyENS0_7AddressENS_8QualTypeEPFvRS1_S2_S3_Eb(ptr noundef nonnull align 8 dereferenceable(6496) %0, ptr noundef nonnull byval(%"class.clang::CodeGen::Address") align 8 %1, i64 %2, ptr noundef %3, i1 noundef zeroext %4) #19
@@ -6426,15 +6425,15 @@ _ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit: ; 
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @_ZN5clang4DeclD2Ev(ptr noundef nonnull align 8 dereferenceable(100) %8) #19
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %63 = load ptr, ptr %7, align 8, !tbaa !612
-  %64 = icmp eq ptr %63, %11
-  br i1 %64, label %_ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit, label %65
+  %62 = load ptr, ptr %7, align 8, !tbaa !612
+  %63 = icmp eq ptr %62, %11
+  br i1 %63, label %_ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit, label %64
 
-65:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit
-  call void @free(ptr noundef %63) #19
+64:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit
+  call void @free(ptr noundef %62) #19
   br label %_ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit
 
-_ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit, %65
+_ZN4llvm11SmallVectorIPKN5clang7VarDeclELj16EED2Ev.exit: ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPKN5clang7VarDeclELb1EE9push_backES4_.exit, %64
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret ptr %53
 }
