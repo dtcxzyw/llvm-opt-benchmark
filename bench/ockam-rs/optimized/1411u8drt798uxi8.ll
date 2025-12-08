@@ -78584,7 +78584,7 @@ define hidden void @"_ZN89_$LT$minicbor..bytes..ByteArray$LT$_$GT$$u20$as$u20$mi
   br i1 %.not.not, label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread", label %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit"
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread": ; preds = %14
-  %.val.i = load i32, ptr %11, align 1, !alias.scope !10896
+  %.val.i61 = load i32, ptr %11, align 1, !alias.scope !10896
   br label %17
 
 "_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit": ; preds = %14
@@ -78616,10 +78616,10 @@ define hidden void @"_ZN89_$LT$minicbor..bytes..ByteArray$LT$_$GT$$u20$as$u20$mi
   br label %20
 
 17:                                               ; preds = %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit", %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread"
-  %.sroa.5.053 = phi i32 [ %.val.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread" ], [ %.sroa.5.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit" ]
+  %.sroa.5.055.ph = phi i32 [ %.val.i, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit.thread" ], [ %.sroa.5.0.copyload, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h13ce806abcadf202E.exit" ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.8)
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sroa.5.053, ptr %18, align 8
+  store i32 %.sroa.5.055.ph, ptr %18, align 8
   store i64 2, ptr %0, align 8
   br label %20
 
