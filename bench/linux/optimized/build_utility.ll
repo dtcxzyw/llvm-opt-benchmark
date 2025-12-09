@@ -9463,9 +9463,9 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
   br label %.split31.us
 
 .split31.us:                                      ; preds = %.split31.us.preheader, %.loopexit.split.us.us
-  %180 = phi ptr [ %.fr86, %.loopexit.split.us.us ], [ %.pre59.fr, %.split31.us.preheader ]
-  %181 = phi ptr [ %194, %.loopexit.split.us.us ], [ %.pre57, %.split31.us.preheader ]
-  %182 = phi i64 [ %195, %.loopexit.split.us.us ], [ 0, %.split31.us.preheader ]
+  %180 = phi ptr [ %194, %.loopexit.split.us.us ], [ %.pre59.fr, %.split31.us.preheader ]
+  %181 = phi ptr [ %195, %.loopexit.split.us.us ], [ %.pre57, %.split31.us.preheader ]
+  %182 = phi i64 [ %196, %.loopexit.split.us.us ], [ 0, %.split31.us.preheader ]
   %183 = getelementptr [1 x %struct.cpumask], ptr %171, i64 %182
   %184 = icmp ne ptr %180, null
   %185 = or i1 %176, %184
@@ -9487,15 +9487,15 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
   br i1 %exitcond54.not, label %.loopexit18.us, label %.split.us34, !llvm.loop !231
 
 .loopexit.split.us.us:                            ; preds = %.split.us34, %204, %212, %.loopexit18.us
-  %.fr86 = phi ptr [ %199, %.loopexit18.us ], [ %180, %212 ], [ %180, %204 ], [ %180, %.split.us34 ]
-  %194 = phi ptr [ %.pre, %.loopexit18.us ], [ %181, %212 ], [ %181, %204 ], [ %181, %.split.us34 ]
-  %195 = add nuw nsw i64 %182, 1
-  %196 = icmp eq i64 %195, %179
-  br i1 %196, label %.loopexit19, label %.split31.us, !llvm.loop !232
+  %194 = phi ptr [ %199, %.loopexit18.us ], [ %180, %212 ], [ %180, %204 ], [ %180, %.split.us34 ]
+  %195 = phi ptr [ %.pre, %.loopexit18.us ], [ %181, %212 ], [ %181, %204 ], [ %181, %.split.us34 ]
+  %196 = add nuw nsw i64 %182, 1
+  %197 = icmp eq i64 %196, %179
+  br i1 %197, label %.loopexit19, label %.split31.us, !llvm.loop !232
 
 .loopexit18.us:                                   ; preds = %192, %206, %215
-  %197 = select i1 %177, ptr null, ptr %186
-  %198 = tail call fastcc i32 @build_sched_domains(ptr noundef %183, ptr noundef %197)
+  %198 = select i1 %177, ptr null, ptr %186
+  %199 = tail call fastcc i32 @build_sched_domains(ptr noundef %183, ptr noundef %198)
   %.pre = load ptr, ptr @doms_cur, align 8
   %.pre58 = load ptr, ptr @dattr_cur, align 8
   %199 = freeze ptr %.pre58

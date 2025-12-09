@@ -215,8 +215,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 29:                                               ; preds = %.lr.ph.split.i.i
   %30 = add i64 %.03242.i.i, 1
-  %.not67.i.i = icmp eq i64 %30, %.fr33.i
-  br i1 %.not67.i.i, label %.preheader.i.i, label %.lr.ph.split.i.i, !llvm.loop !20
+  %.not65.i.i = icmp eq i64 %30, %.fr33.i
+  br i1 %.not65.i.i, label %.preheader.i.i, label %.lr.ph.split.i.i, !llvm.loop !20
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.i.i
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 %.033.ph52.i.i

@@ -4024,7 +4024,7 @@ _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us.i.i.i: ; preds = %43
   %46 = or disjoint i64 %.reass.us.i.i.i, %42
   %47 = cmpxchg ptr %17, i64 %.0.us.i.i.i, i64 %46 acq_rel acquire, align 8, !noalias !335
   %.fr12.us.i.i.i = freeze { i64, i1 } %47
-  %.sroa.18.0.in.i.us.i.i.i = extractvalue { i64, i1 } %.fr12.us.i.i.i, 1
+  %.sroa.07.0.i.us.i.i.i = extractvalue { i64, i1 } %.fr12.us.i.i.i, 1
   %.sroa.07.0.i.us.i.i.i = extractvalue { i64, i1 } %.fr12.us.i.i.i, 0
   br i1 %.sroa.18.0.in.i.us.i.i.i, label %_ZN5tokio7runtime2io12registration12Registration15clear_readiness17hb4ad8538a41e198fE.exit, label %43
 
@@ -5276,14 +5276,14 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
   %12 = lshr i64 %.0.us, 16
   %13 = trunc i64 %12 to i8
   %.not.us = icmp eq i8 %2, %13
-  br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split14.us
+  br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split13.us
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %11
   %.reass.us = and i64 %.0.us, %invariant.op
   %14 = or disjoint i64 %10, %.reass.us
   %15 = cmpxchg ptr %5, i64 %.0.us, i64 %14 acq_rel acquire, align 8
   %.fr12.us = freeze { i64, i1 } %15
-  %.sroa.18.0.in.i.us = extractvalue { i64, i1 } %.fr12.us, 1
+  %.sroa.07.0.i.us = extractvalue { i64, i1 } %.fr12.us, 1
   %.sroa.07.0.i.us = extractvalue { i64, i1 } %.fr12.us, 0
   br i1 %.sroa.18.0.in.i.us, label %.split14.us, label %11
 
@@ -5299,11 +5299,11 @@ _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %11
   %21 = or disjoint i64 %20, %.reass
   %22 = cmpxchg ptr %5, i64 %.0, i64 %21 acq_rel acquire, align 8
   %.fr12 = freeze { i64, i1 } %22
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %.fr12, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %.fr12, 1
   %.sroa.07.0.i = extractvalue { i64, i1 } %.fr12, 0
   br i1 %.sroa.18.0.in.i, label %.split14.us, label %.split
 
-.split14.us:                                      ; preds = %.split, %11, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us
+.split13.us:                                      ; preds = %.split, %11, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us
   ret void
 }
 
@@ -5327,14 +5327,14 @@ define hidden void @_ZN5tokio7runtime2io12scheduled_io11ScheduledIo13set_readine
   %11 = lshr i64 %.0.us, 16
   %12 = trunc i64 %11 to i8
   %.not.us = icmp eq i8 %2, %12
-  br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split14.us
+  br i1 %.not.us, label %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us, label %.split13.us
 
 _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %10
   %13 = and i64 %.0.us, 63
   %.reass.reass = or i64 %13, %invariant.op
   %14 = cmpxchg ptr %5, i64 %.0.us, i64 %.reass.reass acq_rel acquire, align 8
   %.fr12.us = freeze { i64, i1 } %14
-  %.sroa.18.0.in.i.us = extractvalue { i64, i1 } %.fr12.us, 1
+  %.sroa.07.0.i.us = extractvalue { i64, i1 } %.fr12.us, 1
   %.sroa.07.0.i.us = extractvalue { i64, i1 } %.fr12.us, 0
   br i1 %.sroa.18.0.in.i.us, label %.split14.us, label %10
 
@@ -5351,11 +5351,11 @@ _ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us: ; preds = %10
   %22 = or i64 %21, %.masked
   %23 = cmpxchg ptr %5, i64 %.0, i64 %22 acq_rel acquire, align 8
   %.fr12 = freeze { i64, i1 } %23
-  %.sroa.18.0.in.i = extractvalue { i64, i1 } %.fr12, 1
+  %.sroa.07.0.i = extractvalue { i64, i1 } %.fr12, 1
   %.sroa.07.0.i = extractvalue { i64, i1 } %.fr12, 0
   br i1 %.sroa.18.0.in.i, label %.split14.us, label %.split
 
-.split14.us:                                      ; preds = %.split, %10, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us
+.split13.us:                                      ; preds = %.split, %10, %_ZN5tokio4util3bit4Pack4pack17hae488213772cfa56E.exit.us
   ret void
 }
 

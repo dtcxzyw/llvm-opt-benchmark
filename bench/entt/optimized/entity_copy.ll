@@ -17132,7 +17132,7 @@ define linkonce_odr hidden void @_ZZNK4entt8meta_any10allow_castERKNS_9meta_type
   %13 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %14 = load ptr, ptr %13, align 8, !tbaa !430, !noalias !429
   %.fr2.i = freeze ptr %14
-  %15 = icmp eq ptr %.fr3.i, %.fr2.i
+  %.not102132.i.i = icmp eq ptr %.fr3.i, %.fr2.i
   %.not102132.i.i = icmp eq ptr %.fr3.i, null
   %.not102.i.i = or i1 %.not102132.i.i, %15
   br i1 %.not102.i.i, label %.thread.i.i, label %.lr.ph108.i.i

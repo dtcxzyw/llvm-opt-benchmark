@@ -138,7 +138,7 @@ define noundef range(i32 0, 101) i32 @_ZNK6icu_7717CharsetRecog_mbcs10match_mbcs
   %10 = load ptr, ptr %9, align 8
   %11 = call noundef signext i8 %10(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef %1)
   %.not.us = icmp eq i8 %11, 0
-  br i1 %.not.us, label %.split61.us, label %12
+  br i1 %.not.us, label %.split60.us, label %12
 
 12:                                               ; preds = %.split.us
   %13 = add nuw nsw i32 %.040.us, 1
@@ -155,12 +155,12 @@ define noundef range(i32 0, 101) i32 @_ZNK6icu_7717CharsetRecog_mbcs10match_mbcs
   %.fr54.us = freeze i32 %18
   %19 = icmp ugt i32 %.fr54.us, 255
   %20 = zext i1 %19 to i32
-  %spec.select86 = add nsw i32 %.037.us, %20
+  %spec.select84 = add nsw i32 %.037.us, %20
   br label %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us
 
 _ZN6icu_77L12binarySearchEPKtit.exit.thread.us:   ; preds = %17, %15
   %.142.us = phi i32 [ %16, %15 ], [ %.041.us, %17 ]
-  %.1.us = phi i32 [ %.037.us, %15 ], [ %spec.select86, %17 ]
+  %.1.us = phi i32 [ %.037.us, %15 ], [ %spec.select84, %17 ]
   %21 = icmp slt i32 %.142.us, 2
   %22 = mul nuw nsw i32 %.142.us, 5
   %.not50.us = icmp slt i32 %22, %.1.us
@@ -171,43 +171,43 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread.us:   ; preds = %17, %15
   %.not23.i = icmp slt i32 %3, 1
   br i1 %.not23.i, label %.split.split.us, label %.split.split
 
-.split.split.us:                                  ; preds = %.split, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72
-  %.041.us66 = phi i32 [ %.142.us74, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %.split ]
-  %.040.us67 = phi i32 [ %28, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %.split ]
-  %.037.us68 = phi i32 [ %.1.us75, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %.split ]
+.split.split.us:                                  ; preds = %.split, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70
+  %.041.us65 = phi i32 [ %.142.us72, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %.split ]
+  %.040.us66 = phi i32 [ %28, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %.split ]
+  %.037.us67 = phi i32 [ %.1.us73, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %.split ]
   %23 = load ptr, ptr %0, align 8, !tbaa !19
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 40
   %25 = load ptr, ptr %24, align 8
   %26 = call noundef signext i8 %25(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef %1)
-  %.not.us69 = icmp eq i8 %26, 0
-  br i1 %.not.us69, label %.split61.us, label %27
+  %.not.us68 = icmp eq i8 %26, 0
+  br i1 %.not.us68, label %.split60.us, label %27
 
 27:                                               ; preds = %.split.split.us
-  %28 = add nuw nsw i32 %.040.us67, 1
+  %28 = add nuw nsw i32 %.040.us66, 1
   %29 = load i8, ptr %6, align 4, !tbaa !10
-  %.not48.us70 = icmp eq i8 %29, 0
-  br i1 %.not48.us70, label %32, label %30
+  %.not48.us69 = icmp eq i8 %29, 0
+  br i1 %.not48.us69, label %32, label %30
 
 30:                                               ; preds = %27
-  %31 = add nsw i32 %.041.us66, 1
-  br label %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72
+  %31 = add nsw i32 %.041.us65, 1
+  br label %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70
 
 32:                                               ; preds = %27
   %33 = load i32, ptr %5, align 4, !tbaa !3
   %.fr54.us71 = freeze i32 %33
   %34 = icmp ugt i32 %.fr54.us71, 255
   %35 = zext i1 %34 to i32
-  %spec.select87 = add nsw i32 %.037.us68, %35
-  br label %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72
+  %spec.select85 = add nsw i32 %.037.us67, %35
+  br label %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70
 
-_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72: ; preds = %32, %30
-  %.142.us74 = phi i32 [ %31, %30 ], [ %.041.us66, %32 ]
-  %.1.us75 = phi i32 [ %.037.us68, %30 ], [ %spec.select87, %32 ]
-  %36 = icmp slt i32 %.142.us74, 2
-  %37 = mul nuw nsw i32 %.142.us74, 5
-  %.not50.us76 = icmp slt i32 %37, %.1.us75
-  %or.cond51.us77 = select i1 %36, i1 true, i1 %.not50.us76
-  br i1 %or.cond51.us77, label %.split.split.us, label %.loopexit, !llvm.loop !21
+_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70: ; preds = %32, %30
+  %.142.us72 = phi i32 [ %31, %30 ], [ %.041.us65, %32 ]
+  %.1.us73 = phi i32 [ %.037.us67, %30 ], [ %spec.select85, %32 ]
+  %36 = icmp slt i32 %.142.us72, 2
+  %37 = mul nuw nsw i32 %.142.us72, 5
+  %.not50.us74 = icmp slt i32 %37, %.1.us73
+  %or.cond51.us75 = select i1 %36, i1 true, i1 %.not50.us74
+  br i1 %or.cond51.us75, label %.split.split.us, label %.loopexit, !llvm.loop !21
 
 .split.split:                                     ; preds = %.split, %_ZN6icu_77L12binarySearchEPKtit.exit.thread
   %.043 = phi i32 [ %.144, %_ZN6icu_77L12binarySearchEPKtit.exit.thread ], [ 0, %.split ]
@@ -219,7 +219,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread.us72: ; preds = %32, %30
   %40 = load ptr, ptr %39, align 8
   %41 = call noundef signext i8 %40(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %5, ptr noundef %1)
   %.not = icmp eq i8 %41, 0
-  br i1 %.not, label %.split61.us.loopexit90, label %42
+  br i1 %.not, label %.split60.us.loopexit88, label %42
 
 42:                                               ; preds = %.split.split
   %43 = add nuw nsw i32 %.040, 1
@@ -280,43 +280,43 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
   %or.cond51 = select i1 %63, i1 true, i1 %.not50
   br i1 %or.cond51, label %.split.split, label %.loopexit, !llvm.loop !21
 
-.split61.us.loopexit90:                           ; preds = %.split.split
+.split60.us.loopexit88:                           ; preds = %.split.split
   %65 = sitofp i32 %.043 to double
   %66 = fadd double %65, 1.000000e+00
-  br label %.split61.us
+  br label %.split60.us
 
-.split61.us:                                      ; preds = %.split.split.us, %.split.us, %.split61.us.loopexit90
+.split60.us:                                      ; preds = %.split.split.us, %.split.us, %.split60.us.loopexit88
   %.us-phi = phi double [ %66, %.split61.us.loopexit90 ], [ 1.000000e+00, %.split.us ], [ 1.000000e+00, %.split.split.us ]
-  %.us-phi62 = phi i32 [ %.041, %.split61.us.loopexit90 ], [ %.041.us, %.split.us ], [ %.041.us66, %.split.split.us ]
-  %.us-phi63 = phi i32 [ %.040, %.split61.us.loopexit90 ], [ %.040.us, %.split.us ], [ %.040.us67, %.split.split.us ]
-  %.us-phi64 = phi i32 [ %.037, %.split61.us.loopexit90 ], [ %.037.us, %.split.us ], [ %.037.us68, %.split.split.us ]
-  %67 = icmp slt i32 %.us-phi64, 11
-  %68 = icmp eq i32 %.us-phi62, 0
+  %.us-phi61 = phi i32 [ %.041, %.split61.us.loopexit90 ], [ %.041.us, %.split.us ], [ %.041.us65, %.split.split.us ]
+  %.us-phi62 = phi i32 [ %.040, %.split61.us.loopexit90 ], [ %.040.us, %.split.us ], [ %.040.us66, %.split.split.us ]
+  %.us-phi63 = phi i32 [ %.037, %.split61.us.loopexit90 ], [ %.037.us, %.split.us ], [ %.037.us67, %.split.split.us ]
+  %67 = icmp slt i32 %.us-phi63, 11
+  %68 = icmp eq i32 %.us-phi61, 0
   %or.cond = and i1 %68, %67
   br i1 %or.cond, label %69, label %72
 
-69:                                               ; preds = %.split61.us
-  %70 = icmp eq i32 %.us-phi64, 0
-  %71 = icmp samesign ult i32 %.us-phi63, 10
+69:                                               ; preds = %.split60.us
+  %70 = icmp eq i32 %.us-phi63, 0
+  %71 = icmp samesign ult i32 %.us-phi62, 10
   %or.cond3 = select i1 %70, i1 %71, i1 false
   %. = select i1 %or.cond3, i32 0, i32 10
   br label %.loopexit
 
-72:                                               ; preds = %.split61.us
-  %73 = mul nsw i32 %.us-phi62, 20
-  %74 = icmp slt i32 %.us-phi64, %73
+72:                                               ; preds = %.split60.us
+  %73 = mul nsw i32 %.us-phi61, 20
+  %74 = icmp slt i32 %.us-phi63, %73
   br i1 %74, label %.loopexit, label %75
 
 75:                                               ; preds = %72
   br i1 %.not49, label %76, label %78
 
 76:                                               ; preds = %75
-  %reass.sub = sub i32 %.us-phi64, %73
+  %reass.sub = sub i32 %.us-phi63, %73
   %77 = add i32 %reass.sub, 30
   br label %86
 
 78:                                               ; preds = %75
-  %79 = sitofp i32 %.us-phi64 to double
+  %79 = sitofp i32 %.us-phi63 to double
   %80 = fmul double %79, 2.500000e-01
   %81 = call double @log(double noundef %80) #13, !tbaa !26
   %82 = fdiv double 9.000000e+01, %81
@@ -331,7 +331,7 @@ _ZN6icu_77L12binarySearchEPKtit.exit.thread:      ; preds = %56, %_ZN6icu_77L12b
   %spec.store.select4 = call i32 @llvm.smin.i32(i32 %87, i32 100)
   br label %.loopexit
 
-.loopexit:                                        ; preds = %_ZN6icu_77L12binarySearchEPKtit.exit.thread, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us, %72, %86, %69
+.loopexit:                                        ; preds = %_ZN6icu_77L12binarySearchEPKtit.exit.thread, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us70, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us, %72, %86, %69
   %.0 = phi i32 [ %., %69 ], [ %spec.store.select4, %86 ], [ 0, %72 ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread.us72 ], [ 0, %_ZN6icu_77L12binarySearchEPKtit.exit.thread ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

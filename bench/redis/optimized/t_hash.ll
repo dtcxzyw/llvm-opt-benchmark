@@ -6772,11 +6772,11 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br label %.critedge.us.us
 
 .critedge.us.us:                                  ; preds = %.critedge.us.us.preheader, %.critedge.us.us
-  %indvars.iv483 = phi i64 [ 0, %.critedge.us.us.preheader ], [ %indvars.iv.next484, %.critedge.us.us ]
+  %indvars.iv484 = phi i64 [ 0, %.critedge.us.us.preheader ], [ %indvars.iv.next485, %.critedge.us.us ]
   %.0103300.us.us = phi i32 [ 0, %.critedge.us.us.preheader ], [ %223, %.critedge.us.us ]
   %213 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx506 = shl i64 %indvars.iv483, 4
-  %214 = getelementptr i8, ptr %213, i64 %.idx506
+  %.idx507 = shl i64 %indvars.iv484, 4
+  %214 = getelementptr i8, ptr %213, i64 %.idx507
   %215 = getelementptr ptr, ptr %214, i64 %212
   %216 = load ptr, ptr %215, align 8, !tbaa !64
   %217 = getelementptr inbounds nuw i8, ptr %216, i64 8
@@ -6794,16 +6794,16 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %223 = add nuw nsw i32 %.0103300.us.us, %222
-  %indvars.iv.next484 = add nuw nsw i64 %indvars.iv483, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next484, %wide.trip.count
+  %indvars.iv.next485 = add nuw nsw i64 %indvars.iv484, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next485, %wide.trip.count
   br i1 %exitcond.not, label %.critedge._crit_edge.thread, label %.critedge.us.us, !llvm.loop !140
 
 .critedge.us:                                     ; preds = %.lr.ph.split.us, %.critedge.us
-  %indvars.iv480 = phi i64 [ %indvars.iv.next481, %.critedge.us ], [ 0, %.lr.ph.split.us ]
+  %indvars.iv481 = phi i64 [ %indvars.iv.next482, %.critedge.us ], [ 0, %.lr.ph.split.us ]
   %.0103300.us = phi i32 [ %234, %.critedge.us ], [ 0, %.lr.ph.split.us ]
   %224 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx505 = shl i64 %indvars.iv480, 4
-  %225 = getelementptr i8, ptr %224, i64 %.idx505
+  %.idx506 = shl i64 %indvars.iv481, 4
+  %225 = getelementptr i8, ptr %224, i64 %.idx506
   %226 = getelementptr ptr, ptr %225, i64 %212
   %227 = load ptr, ptr %226, align 8, !tbaa !64
   %228 = getelementptr inbounds nuw i8, ptr %227, i64 8
@@ -6821,8 +6821,8 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %234 = add nuw nsw i32 %.0103300.us, %233
-  %indvars.iv.next481 = add nuw nsw i64 %indvars.iv480, 1
-  %235 = icmp sge i64 %indvars.iv.next481, %37
+  %indvars.iv.next482 = add nuw nsw i64 %indvars.iv481, 1
+  %235 = icmp sge i64 %indvars.iv.next482, %37
   %or.cond.not = select i1 %232, i1 true, i1 %235
   br i1 %or.cond.not, label %.critedge._crit_edge, label %.critedge.us, !llvm.loop !140
 
@@ -6888,8 +6888,8 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br i1 %259, label %.critedge._crit_edge.thread, label %330
 
 .critedge._crit_edge.thread:                      ; preds = %.lr.ph.split.split.us, %.critedge.us.us, %.preheader, %.critedge._crit_edge
-  %.1104511 = phi i32 [ %.1104, %.critedge._crit_edge ], [ 0, %.preheader ], [ %223, %.critedge.us.us ], [ %247, %.lr.ph.split.split.us ]
-  %260 = icmp eq i32 %.1104511, %163
+  %.1104512 = phi i32 [ %.1104, %.critedge._crit_edge ], [ 0, %.preheader ], [ %223, %.critedge.us.us ], [ %247, %.lr.ph.split.split.us ]
+  %260 = icmp eq i32 %.1104512, %163
   %261 = and i32 %.0152, 64
   %262 = icmp eq i32 %261, 0
   %or.cond7 = select i1 %262, i1 true, i1 %260
@@ -6922,8 +6922,8 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   %.not116 = icmp eq i32 %276, 0
   %spec.select = select i1 %.not116, i32 0, i32 4
   %277 = sext i32 %162 to i64
-  %smax489 = call i32 @llvm.smax.i32(i32 %163, i32 1)
-  %wide.trip.count490 = zext nneg i32 %smax489 to i64
+  %smax490 = call i32 @llvm.smax.i32(i32 %163, i32 1)
+  %wide.trip.count491 = zext nneg i32 %smax490 to i64
   br label %280
 
 ._crit_edge320.loopexit:                          ; preds = %301
@@ -6937,12 +6937,12 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
   br i1 %.not113, label %302, label %303
 
 280:                                              ; preds = %.lr.ph319, %301
-  %indvars.iv486 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next487, %301 ]
+  %indvars.iv487 = phi i64 [ 0, %.lr.ph319 ], [ %indvars.iv.next488, %301 ]
   %.0317 = phi i32 [ 0, %.lr.ph319 ], [ %.1, %301 ]
   %.096316 = phi i32 [ 0, %.lr.ph319 ], [ %.197, %301 ]
   %281 = load ptr, ptr %14, align 8, !tbaa !132
-  %.idx507 = shl i64 %indvars.iv486, 4
-  %282 = getelementptr i8, ptr %281, i64 %.idx507
+  %.idx508 = shl i64 %indvars.iv487, 4
+  %282 = getelementptr i8, ptr %281, i64 %.idx508
   %283 = getelementptr ptr, ptr %282, i64 %277
   %284 = load ptr, ptr %283, align 8, !tbaa !64
   %285 = getelementptr inbounds nuw i8, ptr %284, i64 8
@@ -6968,9 +6968,9 @@ hashTypeLength.exit:                              ; preds = %186, %191, %198
 301:                                              ; preds = %293, %280
   %.197 = phi i32 [ %300, %293 ], [ %.096316, %280 ]
   %.1 = phi i32 [ %297, %293 ], [ %.0317, %280 ]
-  %indvars.iv.next487 = add nuw nsw i64 %indvars.iv486, 1
-  %exitcond491.not = icmp eq i64 %indvars.iv.next487, %wide.trip.count490
-  br i1 %exitcond491.not, label %._crit_edge320.loopexit, label %280, !llvm.loop !141
+  %indvars.iv.next488 = add nuw nsw i64 %indvars.iv487, 1
+  %exitcond492.not = icmp eq i64 %indvars.iv.next488, %wide.trip.count491
+  br i1 %exitcond492.not, label %._crit_edge320.loopexit, label %280, !llvm.loop !141
 
 302:                                              ; preds = %._crit_edge320
   call void @hashTypeSetExDone(ptr noundef nonnull %10)

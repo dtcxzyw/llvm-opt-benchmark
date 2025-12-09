@@ -605,8 +605,8 @@ get_node_buffer_id.exit99.i:                      ; preds = %110, %108
   br label %131
 
 131:                                              ; preds = %149, %125
-  %.0.i.i101.i = phi i64 [ %129, %125 ], [ %152, %149 ]
-  %132 = lshr i64 %.0.i.i101.i, 5
+  %.0.i.i100.i = phi i64 [ %129, %125 ], [ %152, %149 ]
+  %132 = lshr i64 %.0.i.i100.i, 5
   %133 = getelementptr inbounds nuw i32, ptr %130, i64 %132
   %134 = load i32, ptr %133, align 4, !tbaa !61
   %135 = trunc i64 %.0.i.i101.i to i32
@@ -733,8 +733,8 @@ get_node_buffer_id.exit108.i:                     ; preds = %169, %.lr.ph184.i
   br label %194
 
 194:                                              ; preds = %212, %188
-  %.0.i.i110.i = phi i64 [ %192, %188 ], [ %215, %212 ]
-  %195 = lshr i64 %.0.i.i110.i, 5
+  %.0.i.i109.i = phi i64 [ %192, %188 ], [ %215, %212 ]
+  %195 = lshr i64 %.0.i.i109.i, 5
   %196 = getelementptr inbounds nuw i32, ptr %193, i64 %195
   %197 = load i32, ptr %196, align 4, !tbaa !61
   %198 = trunc i64 %.0.i.i110.i to i32
@@ -800,8 +800,8 @@ ggml_gallocr_hash_get.exit113.i:                  ; preds = %207, %202
   br label %233
 
 233:                                              ; preds = %249, %229
-  %.0.i.i115.i = phi i64 [ %232, %229 ], [ %252, %249 ]
-  %234 = lshr i64 %.0.i.i115.i, 5
+  %.0.i.i114.i = phi i64 [ %232, %229 ], [ %252, %249 ]
+  %234 = lshr i64 %.0.i.i114.i, 5
   %235 = getelementptr inbounds nuw i32, ptr %193, i64 %234
   %236 = load i32, ptr %235, align 4, !tbaa !61
   %237 = trunc i64 %.0.i.i115.i to i32
@@ -877,8 +877,8 @@ ggml_gallocr_hash_get.exit118.i:                  ; preds = %245, %241
   br label %277
 
 277:                                              ; preds = %293, %273
-  %.0.i.i.i193 = phi i64 [ %276, %273 ], [ %296, %293 ]
-  %278 = lshr i64 %.0.i.i.i193, 5
+  %.0.i.i.i192 = phi i64 [ %276, %273 ], [ %296, %293 ]
+  %278 = lshr i64 %.0.i.i.i192, 5
   %279 = getelementptr inbounds nuw i32, ptr %193, i64 %278
   %280 = load i32, ptr %279, align 4, !tbaa !61
   %281 = trunc i64 %.0.i.i.i193 to i32
@@ -1306,8 +1306,8 @@ ggml_gallocr_hash_get.exit:                       ; preds = %448, %443
   br label %496
 
 496:                                              ; preds = %514, %490
-  %.0.i.i182 = phi i64 [ %494, %490 ], [ %517, %514 ]
-  %497 = lshr i64 %.0.i.i182, 5
+  %.0.i.i181 = phi i64 [ %494, %490 ], [ %517, %514 ]
+  %497 = lshr i64 %.0.i.i181, 5
   %498 = getelementptr inbounds nuw i32, ptr %495, i64 %497
   %499 = load i32, ptr %498, align 4, !tbaa !61
   %500 = trunc i64 %.0.i.i182 to i32
@@ -1423,8 +1423,8 @@ ggml_gallocr_hash_get.exit185:                    ; preds = %509, %504
   br label %561
 
 561:                                              ; preds = %579, %552
-  %.0.i.i187 = phi i64 [ %559, %552 ], [ %582, %579 ]
-  %562 = lshr i64 %.0.i.i187, 5
+  %.0.i.i186 = phi i64 [ %559, %552 ], [ %582, %579 ]
+  %562 = lshr i64 %.0.i.i186, 5
   %563 = getelementptr inbounds nuw i32, ptr %560, i64 %562
   %564 = load i32, ptr %563, align 4, !tbaa !61
   %565 = trunc i64 %.0.i.i187 to i32
@@ -2522,8 +2522,8 @@ ggml_op_can_inplace.exit:                         ; preds = %70, %70, %70, %70, 
   br label %87
 
 87:                                               ; preds = %105, %81
-  %.0.i.i.i69 = phi i64 [ %85, %81 ], [ %108, %105 ]
-  %88 = lshr i64 %.0.i.i.i69, 5
+  %.0.i.i.i68 = phi i64 [ %85, %81 ], [ %108, %105 ]
+  %88 = lshr i64 %.0.i.i.i68, 5
   %89 = getelementptr inbounds nuw i32, ptr %86, i64 %88
   %90 = load i32, ptr %89, align 4, !tbaa !61
   %91 = trunc i64 %.0.i.i.i69 to i32
@@ -2623,8 +2623,8 @@ ggml_gallocr_is_own.exit:                         ; preds = %100, %95
   br i1 %.not16.i, label %132, label %ggml_are_same_layout.exit.thread
 
 ggml_are_same_layout.exit:                        ; preds = %132, %158
-  %.0.i.i75 = phi i64 [ %161, %158 ], [ %85, %132 ]
-  %143 = lshr i64 %.0.i.i75, 5
+  %.0.i.i74 = phi i64 [ %161, %158 ], [ %85, %132 ]
+  %143 = lshr i64 %.0.i.i74, 5
   %144 = getelementptr inbounds nuw i32, ptr %86, i64 %143
   %145 = load i32, ptr %144, align 4, !tbaa !61
   %146 = trunc i64 %.0.i.i75 to i32

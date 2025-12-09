@@ -2141,9 +2141,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %.promoted62.i.fr = freeze i64 %.promoted62.i
   br label %151
 
-151:                                              ; preds = %176, %.lr.ph.i
+151:                                              ; preds = %175, %.lr.ph.i
   %152 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %177, %176 ]
-  %153 = phi i64 [ %.promoted62.i.fr, %.lr.ph.i ], [ %.fr411, %176 ]
+  %153 = phi i64 [ %.promoted62.i.fr, %.lr.ph.i ], [ %176, %176 ]
   %154 = phi i64 [ %143, %.lr.ph.i ], [ %178, %176 ]
   %155 = getelementptr inbounds i8, ptr %135, i64 %154
   %156 = load i8, ptr %155, align 1, !alias.scope !383, !noalias !389, !noundef !5
@@ -2155,7 +2155,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %151
-  br i1 %133, label %176, label %.sink.split.i
+  br i1 %133, label %175, label %.sink.split.i
 
 163:                                              ; preds = %151
   %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %153)
@@ -2186,7 +2186,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 .split391.us:                                     ; preds = %169
   %.neg.i = sub i64 %152, %.fr
   %174 = add i64 %.neg.i, %166
-  br i1 %133, label %176, label %.sink.split.i
+  br i1 %133, label %175, label %.sink.split.i
 
 .split:                                           ; preds = %163
   %.not35.i = icmp eq i64 %.014.i, 0
@@ -2198,8 +2198,8 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %175 = freeze i64 %.sink.i
   br label %176
 
-176:                                              ; preds = %.split391.us, %198, %.sink.split.i, %162
-  %.fr411 = phi i64 [ %153, %.split391.us ], [ %153, %198 ], [ %153, %162 ], [ %175, %.sink.split.i ]
+175:                                              ; preds = %.split391.us, %198, %.sink.split.i, %162
+  %176 = phi i64 [ %153, %.split391.us ], [ %153, %198 ], [ %153, %162 ], [ %175, %.sink.split.i ]
   %177 = phi i64 [ %174, %.split391.us ], [ %199, %198 ], [ %154, %162 ], [ %.ph107.i, %.sink.split.i ]
   %178 = sub i64 %177, %141
   %.not34.i = icmp ult i64 %178, %137
@@ -2253,9 +2253,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 
 198:                                              ; preds = %191
   %199 = sub i64 %152, %150
-  br i1 %133, label %176, label %.sink.split.i
+  br i1 %133, label %175, label %.sink.split.i
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread297": ; preds = %121, %176, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i", %.preheader.i.i.i
+"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread297": ; preds = %121, %175, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i", %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !354
   br label %258
 

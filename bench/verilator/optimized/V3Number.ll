@@ -19473,12 +19473,12 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
   ret ptr %0
 
 46:                                               ; preds = %.lr.ph60, %.critedge.loopexit
-  %.fr61.pn = phi i32 [ %.fr61, %.lr.ph60 ], [ %indvars.iv68, %.critedge.loopexit ]
+  %.fr61.pn = phi i32 [ %.fr61, %.lr.ph60 ], [ %indvars.iv67, %.critedge.loopexit ]
   %indvars.iv = phi i32 [ %.fr61, %.lr.ph60 ], [ %indvars.iv.next, %.critedge.loopexit ]
   %.02759 = phi i32 [ 0, %.lr.ph60 ], [ %47, %.critedge.loopexit ]
-  %indvars.iv68 = sub i32 %.fr61.pn, %.sroa.speculated38
-  %smin72 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated38, i32 %indvars.iv)
-  %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv68, i32 0)
+  %indvars.iv67 = sub i32 %.fr61.pn, %.sroa.speculated38
+  %smin71 = tail call i32 @llvm.smin.i32(i32 %.sroa.speculated38, i32 %indvars.iv)
+  %smax = tail call i32 @llvm.smax.i32(i32 %indvars.iv67, i32 0)
   %47 = add i32 %.02759, %.sroa.speculated38
   %48 = sub i32 %.fr61, %47
   %.sroa.speculated = tail call i32 @llvm.smax.i32(i32 %48, i32 0)
@@ -19489,8 +19489,8 @@ define dso_local noundef nonnull align 8 dereferenceable(56) ptr @_ZN8V3Number9o
 
 .lr.ph:                                           ; preds = %46
   %50 = load i8, ptr %11, align 4
-  %.fr63 = freeze i8 %50
-  %51 = add i8 %.fr63, -1
+  %.fr62 = freeze i8 %50
+  %51 = add i8 %.fr62, -1
   %spec.select.i.i.i = icmp ult i8 %51, 2
   %52 = load i32, ptr %43, align 8
   %53 = load i8, ptr %44, align 4
@@ -19601,8 +19601,8 @@ _ZN12V3NumberData3numEv.exit.i.us:                ; preds = %_ZNK8V3Number5bitIs
 
 _ZN8V3Number6setBitEic.exit.us:                   ; preds = %103, %96, %89, %82, %_ZNK8V3Number5bitIsEi.exit.us
   %109 = add nuw nsw i32 %.048.us, 1
-  %exitcond73.not = icmp eq i32 %109, %smin72
-  br i1 %exitcond73.not, label %.critedge.loopexit, label %.lr.ph.split.us, !llvm.loop !303
+  %exitcond72.not = icmp eq i32 %109, %smin71
+  br i1 %exitcond72.not, label %.critedge.loopexit, label %.lr.ph.split.us, !llvm.loop !303
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   br i1 %spec.select.i.i.i, label %.lr.ph.split.split.us.preheader, label %.lr.ph.split.split, !prof !41
@@ -19617,8 +19617,8 @@ _ZN8V3Number6setBitEic.exit.us:                   ; preds = %103, %96, %89, %82,
 
 _ZN8V3Number6setBitEic.exit.us55:                 ; preds = %.lr.ph.split.split.us
   %110 = add nuw nsw i32 %.048.us51, 1
-  %exitcond71.not = icmp eq i32 %110, %smin72
-  br i1 %exitcond71.not, label %.critedge.loopexit, label %.lr.ph.split.split.us, !llvm.loop !303
+  %exitcond70.not = icmp eq i32 %110, %smin71
+  br i1 %exitcond70.not, label %.critedge.loopexit, label %.lr.ph.split.split.us, !llvm.loop !303
 
 .lr.ph.split.split:                               ; preds = %.lr.ph.split, %_ZN8V3Number6setBitEic.exit
   %.048 = phi i32 [ %122, %_ZN8V3Number6setBitEic.exit ], [ 0, %.lr.ph.split ]
@@ -19649,7 +19649,7 @@ _ZNK8V3Number5bitIsEi.exit:                       ; preds = %.lr.ph.split.split
 
 _ZN8V3Number6setBitEic.exit:                      ; preds = %_ZNK8V3Number5bitIsEi.exit
   %122 = add nuw nsw i32 %.048, 1
-  %exitcond.not = icmp eq i32 %122, %smin72
+  %exitcond.not = icmp eq i32 %122, %smin71
   br i1 %exitcond.not, label %.critedge.loopexit, label %.lr.ph.split.split, !llvm.loop !303
 }
 

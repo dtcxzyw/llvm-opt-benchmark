@@ -1847,8 +1847,8 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i: ; preds = %176, %1
   br label %186
 
 186:                                              ; preds = %198, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i
-  %.0.i59.i.i = phi i64 [ %185, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i ], [ %201, %198 ]
-  %187 = lshr i64 %.0.i59.i.i, 5
+  %.0.i58.i.i = phi i64 [ %185, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i ], [ %201, %198 ]
+  %187 = lshr i64 %.0.i58.i.i, 5
   %188 = getelementptr inbounds nuw i32, ptr %135, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !130
   %190 = trunc i64 %.0.i59.i.i to i32

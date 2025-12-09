@@ -13127,50 +13127,50 @@ declare void @node_conf_set_all_active_bits(ptr noundef) local_unnamed_addr #1
 define dso_local i64 @find_resv_end(i64 noundef %0, i32 noundef %1) local_unnamed_addr #0 {
   %3 = load ptr, ptr @resv_list, align 8
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %25, label %4
+  br i1 %.not, label %23, label %4
 
 4:                                                ; preds = %2
   %5 = tail call ptr @list_iterator_create(ptr noundef nonnull %3) #19
   br label %.outer
 
-.outer:                                           ; preds = %13, %4
+.outer:; preds = %.backedge, %4
   %.0.ph = phi i64 [ %spec.select, %13 ], [ 0, %4 ]
   br label %6
 
-6:                                                ; preds = %.outer, %8
+6:; preds = %.outer, %8
   %7 = tail call ptr @list_next(ptr noundef %5) #19
   %.not21 = icmp eq ptr %7, null
   br i1 %.not21, label %16, label %8
 
-8:                                                ; preds = %6
+8:   ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %10 = load i64, ptr %9, align 8
   %11 = freeze i64 %10
   %12 = icmp sgt i64 %0, %11
   br i1 %12, label %6, label %13, !llvm.loop !78
 
-13:                                               ; preds = %8
+.backedge:                                        ; preds = %8
   %14 = icmp eq i64 %.0.ph, 0
-  %15 = tail call i64 @llvm.smin.i64(i64 %11, i64 %.0.ph)
+  %14 = tail call i64 @llvm.smin.i64(i64 %11, i64 %.0.ph)
   %spec.select = select i1 %14, i64 %11, i64 %15
   br label %.outer, !llvm.loop !78
 
-16:                                               ; preds = %6
+._crit_edge:                                      ; preds = %6
   tail call void @list_iterator_destroy(ptr noundef %5) #19
-  %17 = icmp sgt i32 %1, 0
-  br i1 %17, label %18, label %25
+  %15 = icmp sgt i32 %1, 0
+  br i1 %15, label %16, label %23
 
-18:                                               ; preds = %16
-  %19 = add nsw i32 %1, -1
-  %20 = zext nneg i32 %19 to i64
-  %21 = add i64 %.0.ph, %20
-  %22 = zext nneg i32 %1 to i64
-  %23 = srem i64 %21, %22
-  %24 = sub i64 %21, %23
-  br label %25
+16:                                               ; preds = %._crit_edge
+  %17 = add nsw i32 %1, -1
+  %18 = zext nneg i32 %17 to i64
+  %19 = add i64 %.0.ph, %18
+  %20 = zext nneg i32 %1 to i64
+  %21 = srem i64 %19, %20
+  %22 = sub i64 %19, %21
+  br label %23
 
-25:                                               ; preds = %16, %18, %2
-  %.016 = phi i64 [ 0, %2 ], [ %24, %18 ], [ %.0.ph, %16 ]
+23:                                               ; preds = %._crit_edge, %16, %2
+  %.016 = phi i64 [ 0, %2 ], [ %22, %18 ], [ %.0.ph, %16 ]
   ret i64 %.016
 }
 

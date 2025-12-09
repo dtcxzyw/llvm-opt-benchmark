@@ -2971,8 +2971,8 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %61, label %.thread, label %.lr.ph, !llvm.loop !124
 
 .thread:                                          ; preds = %.lr.ph, %.thread8, %20
-  %.lcssa39.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa39.sink) #18
+  %.lcssa41.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa41.sink) #18
   %62 = getelementptr %struct.sk_buff_head, ptr %19, i64 %21
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -3030,8 +3030,8 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %102, label %.thread9, label %.lr.ph22, !llvm.loop !125
 
 .thread9:                                         ; preds = %.lr.ph22, %.thread10, %.thread
-  %.lcssa42.sink = phi i64 [ %65, %.thread ], [ %98, %.thread10 ], [ %71, %.lr.ph22 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %63, i64 noundef %.lcssa42.sink) #18
+  %.lcssa44.sink = phi i64 [ %65, %.thread ], [ %98, %.thread10 ], [ %71, %.lr.ph22 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %63, i64 noundef %.lcssa44.sink) #18
   tail call fastcc void @__sta_info_recalc_tim(ptr noundef %9, i1 noundef zeroext false)
   %103 = load ptr, ptr %62, align 8
   %104 = icmp eq ptr %103, %62
@@ -3039,13 +3039,13 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
 
 105:                                              ; preds = %.thread9
   %106 = load ptr, ptr %23, align 8
-  %.fr13 = freeze ptr %106
-  %107 = icmp ne ptr %.fr13, %23
+  %.fr = freeze ptr %106
+  %107 = icmp ne ptr %.fr, %23
   br label %108
 
 108:                                              ; preds = %105, %.thread9
-  %.fr = phi i1 [ true, %.thread9 ], [ %107, %105 ]
-  %109 = or i1 %22, %.fr
+  %.fr13 = phi i1 [ true, %.thread9 ], [ %107, %105 ]
+  %109 = or i1 %22, %.fr13
   %110 = add nuw nsw i64 %21, 1
   %111 = icmp eq i64 %110, 4
   br i1 %111, label %112, label %20, !llvm.loop !126

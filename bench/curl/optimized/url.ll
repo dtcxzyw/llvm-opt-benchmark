@@ -4161,8 +4161,8 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
   br label %16
 
 16:                                               ; preds = %.lr.ph, %160
-  %.078192 = phi ptr [ %2, %.lr.ph ], [ %164, %160 ]
-  %17 = load ptr, ptr %.078192, align 8, !tbaa !266
+  %.078191 = phi ptr [ %2, %.lr.ph ], [ %164, %160 ]
+  %17 = load ptr, ptr %.078191, align 8, !tbaa !266
   %18 = load i8, ptr %17, align 1, !tbaa !215
   %19 = icmp eq i8 %18, 58
   br i1 %19, label %.thread.i, label %20
@@ -4290,8 +4290,8 @@ sub_1.i.i:                                        ; preds = %switch.early.test.i
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = sub nsw i32 50, %66
-  %.not174.i.i = icmp eq i8 %65, 50
-  br i1 %.not174.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not173.i.i = icmp eq i8 %65, 50
+  br i1 %.not173.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.083166.i.i, i64 2
@@ -4549,7 +4549,7 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   %.1127159 = phi ptr [ %123, %.thread154 ], [ %.1127, %144 ]
   %162 = and i64 %161, -513
   store i64 %162, ptr %7, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %.078192, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.078191, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !270
   %165 = icmp eq ptr %164, null
   %166 = icmp ne ptr %.1127159, null
@@ -4557,11 +4557,11 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   br i1 %or.cond, label %.critedge, label %16, !llvm.loop !271
 
 .critedge:                                        ; preds = %160, %3
-  %.lcssa185 = phi i1 [ false, %3 ], [ %166, %160 ]
+  %.lcssa184 = phi i1 [ false, %3 ], [ %166, %160 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %168 = load ptr, ptr %167, align 8, !tbaa !99
   %169 = icmp eq ptr %168, null
-  %or.cond4 = or i1 %.lcssa185, %169
+  %or.cond4 = or i1 %.lcssa184, %169
   br i1 %or.cond4, label %parse_connect_to_string.exit.thread137, label %170
 
 170:                                              ; preds = %.critedge
@@ -4672,11 +4672,11 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   %235 = load i16, ptr %234, align 8, !tbaa !280
   %236 = zext i16 %235 to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, ptr noundef %226, ptr noundef %197, i32 noundef %228, ptr noundef %232, ptr noundef nonnull %202, i32 noundef %236) #11
-  %.pre209 = load ptr, ptr %6, align 8, !tbaa !272
+  %.pre207 = load ptr, ptr %6, align 8, !tbaa !272
   br label %237
 
 237:                                              ; preds = %225, %221, %203
-  %238 = phi ptr [ %.pre209, %225 ], [ %209, %221 ], [ %209, %203 ]
+  %238 = phi ptr [ %.pre207, %225 ], [ %209, %221 ], [ %209, %203 ]
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 28
   %240 = load i32, ptr %239, align 4, !tbaa !281
   %.not103 = icmp eq i32 %.284240, %240

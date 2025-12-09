@@ -2007,10 +2007,10 @@ _ZNKSt5dequeIN3ue217rose_literal_infoESaIS1_EE14_M_range_checkEm.exit.i.i: ; pre
   br label %341
 
 341:                                              ; preds = %337, %335
-  %.sink2934 = phi i64 [ %340, %337 ], [ %336, %335 ]
-  %342 = getelementptr inbounds ptr, ptr %300, i64 %.sink2934
+  %.sink2933 = phi i64 [ %340, %337 ], [ %336, %335 ]
+  %342 = getelementptr inbounds ptr, ptr %300, i64 %.sink2933
   %343 = load ptr, ptr %342, align 8, !noalias !49
-  %.idx.i.i.i.i.i.i = mul i64 %.sink2934, -440
+  %.idx.i.i.i.i.i.i = mul i64 %.sink2933, -440
   %344 = getelementptr i8, ptr %343, i64 %.idx.i.i.i.i.i.i
   %storemerge.i.i.i.i.i208.i = getelementptr %"struct.ue2::rose_literal_info", ptr %344, i64 %329
   %345 = getelementptr i8, ptr %343, i64 %.idx.i.i.i.i.i.i
@@ -3379,7 +3379,7 @@ _ZN3ue2L15recordResourcesERNS_13RoseResourcesERKNS_13RoseBuildImplERKSt6vectorIN
   %880 = load ptr, ptr %879, align 8
   %881 = icmp ne ptr %878, %880
   %.not5.i.i.i24.i.i.i.i.i.i = select i1 %876, i1 true, i1 %881
-  br i1 %.not5.i.i.i24.i.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2919", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.thread.i.i.i.i.i.i"
+  br i1 %.not5.i.i.i24.i.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2918", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit20.thread.i.i.i.i.i.i"
   %882 = getelementptr inbounds nuw i8, ptr %.sroa.048.067.i.i.i.i.i.i, i64 432
@@ -3401,7 +3401,7 @@ _ZN3ue2L15recordResourcesERNS_13RoseResourcesERKNS_13RoseBuildImplERKSt6vectorIN
   %892 = load ptr, ptr %891, align 8
   %893 = icmp ne ptr %890, %892
   %.not5.i.i.i29.i.i.i.i.i.i = select i1 %888, i1 true, i1 %893
-  br i1 %.not5.i.i.i29.i.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2921", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i.i"
+  br i1 %.not5.i.i.i29.i.i.i.i.i.i, label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2920", label %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i.i"
 
 "_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.thread.i.i.i.i.i.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.thread.i.i.i.i.i.i"
   %894 = getelementptr inbounds nuw i8, ptr %.sroa.048.067.i.i.i.i.i.i, i64 576
@@ -3501,15 +3501,15 @@ _ZN3ue2L15recordResourcesERNS_13RoseResourcesERKNS_13RoseBuildImplERKSt6vectorIN
   %936 = getelementptr inbounds nuw i8, ptr %.sroa.048.067.i.i.i.i.i.i, i64 144
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2919": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2918": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit25.i.i.i.i.i.i"
   %937 = getelementptr inbounds nuw i8, ptr %.sroa.048.067.i.i.i.i.i.i, i64 288
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2921": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2920": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit30.i.i.i.i.i.i"
   %938 = getelementptr inbounds nuw i8, ptr %.sroa.048.067.i.i.i.i.i.i, i64 432
   br label %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i"
 
-"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2919", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2921", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit40.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit35.i.i.i.i.i.i"
+"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i": ; preds = %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i.i", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2918", %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2920", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit45.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit40.i.i.i.i.i.i", %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit35.i.i.i.i.i.i"
   %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i = phi ptr [ %.sroa.048.0.lcssa.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit35.i.i.i.i.i.i" ], [ %.sroa.048.1.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit40.i.i.i.i.i.i" ], [ %.sroa.048.2.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit45.i.i.i.i.i.i" ], [ %936, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit" ], [ %937, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2919" ], [ %938, %"_ZSt6any_ofIN9__gnu_cxx17__normal_iteratorIPKN3ue210OutfixInfoESt6vectorIS3_SaIS3_EEEEZNS2_L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EbT_SE_T0_.exit.i.loopexit.split.loop.exit2921" ], [ %.sroa.048.067.i.i.i.i.i.i, %"_ZN9__gnu_cxx5__ops10_Iter_predIZN3ue2L15needsMpvCatchupERKNS2_13RoseBuildImplEE3$_0EclINS_17__normal_iteratorIPKNS2_10OutfixInfoESt6vectorISA_SaISA_EEEEEEbT_.exit.i.i.i.i.i.i" ]
   %.not.i112 = icmp eq ptr %839, %.sroa.08.0.in.sroa.speculated.i.i.i.i.i.i
   br i1 %.not.i112, label %_ZN3ue2L15needsMpvCatchupERKNS_13RoseBuildImplE.exit, label %939
@@ -10027,8 +10027,8 @@ _ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9Ros
   %3315 = getelementptr inbounds nuw i8, ptr %57, i64 40
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %3315, i8 0, i64 16, i1 false)
   %3316 = getelementptr inbounds nuw i8, ptr %145, i64 8
-  %.not2634 = icmp eq i32 %3232, %3309
-  br i1 %.not2634, label %3320, label %3317
+  %.not2633 = icmp eq i32 %3232, %3309
+  br i1 %.not2633, label %3320, label %3317
 
 3317:                                             ; preds = %_ZNSt10_HashtableIN3ue212graph_detail17vertex_descriptorINS0_9ue2_graphINS0_9RoseGraphENS0_15RoseVertexPropsENS0_13RoseEdgePropsEEEEESt4pairIKS8_jESaISB_ENSt8__detail10_Select1stESt8equal_toIS8_ESt4hashIS8_ENSD_18_Mod_range_hashingENSD_20_Default_ranged_hashENSD_20_Prime_rehash_policyENSD_17_Hashtable_traitsILb1ELb0ELb1EEEE5clearEv.exit.i.i
   %3318 = sub i32 %3232, %3309
@@ -18925,12 +18925,12 @@ _ZNK3ue215rose_literal_id22elength_including_maskEv.exit119.i: ; preds = %_ZNK3u
   invoke void @_ZN3ue218ResourceLimitErrorC1Ev(ptr noundef nonnull align 8 dereferenceable(48) %6501)
           to label %.invoke2935 unwind label %6503
 
-.invoke2935:                                      ; preds = %6500, %6491, %5949
+.invoke2934:                                      ; preds = %6500, %6491, %5949
   %6502 = phi ptr [ %5950, %5949 ], [ %6492, %6491 ], [ %6501, %6500 ]
   invoke void @__cxa_throw(ptr nonnull %6502, ptr nonnull @_ZTIN3ue218ResourceLimitErrorE, ptr nonnull @_ZN3ue218ResourceLimitErrorD1Ev) #28
           to label %.cont2936 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-.cont2936:                                        ; preds = %.invoke2935
+.cont2935:                                        ; preds = %.invoke2934
   unreachable
 
 6503:                                             ; preds = %6500
@@ -19490,7 +19490,7 @@ _ZNSt6vectorI11LeftNfaInfoSaIS0_EED2Ev.exit:      ; preds = %_ZNSt10unique_ptrIN
           cleanup
   br label %.body985
 
-.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke2935, %6505, %.noexc1085, %6454, %6334, %.critedge.i.split.i, %._crit_edge.i.i997, %_ZN3ue2L22hasNonSmallBlockOutfixERKSt6vectorINS_10OutfixInfoESaIS1_EE.exit, %6206, %6200, %6186, %6183, %6180, %6177, %6173, %6169, %6165, %6158, %6151, %6147, %5966, %5958, %5953, %5931
+.loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke2934, %6505, %.noexc1085, %6454, %6334, %.critedge.i.split.i, %._crit_edge.i.i997, %_ZN3ue2L22hasNonSmallBlockOutfixERKSt6vectorINS_10OutfixInfoESaIS1_EE.exit, %6206, %6200, %6186, %6183, %6180, %6177, %6173, %6169, %6165, %6158, %6151, %6147, %5966, %5958, %5953, %5931
   %lpad.loopexit.split-lp1223 = landingpad { ptr, i32 }
           cleanup
   br label %.body985

@@ -7703,7 +7703,7 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !208
   %.fr = freeze i32 %53
-  %54 = add i32 %.fr, %.043
+  %.pre = add i32 %.fr, %.043
   %.pre = add i32 %54, 1
   br label %.loopexit
 

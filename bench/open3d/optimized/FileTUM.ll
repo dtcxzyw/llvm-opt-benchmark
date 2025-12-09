@@ -30827,7 +30827,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %16,
   %.fr74.i.i = freeze double %187
   %188 = extractelement <2 x double> %183, i64 0
   %.fr.i.i = freeze double %188
-  %189 = fadd double %.fr74.i.i, %.fr.i.i
+  %190 = fadd double %.fr74.i.i, %.fr.i.i
   %190 = fadd double %.fr75.i.i, %189
   %191 = fcmp ogt double %190, 0.000000e+00
   %192 = extractelement <2 x double> %181, i64 0
@@ -30846,13 +30846,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21: ; preds = %16,
   %200 = extractelement <2 x double> %foldExtExtBinop, i64 0
   %201 = fmul double %199, %200
   store double %201, ptr %3, align 16, !tbaa !20
-  %foldExtExtBinop174 = fsub <2 x double> %179, %175
-  %202 = extractelement <2 x double> %foldExtExtBinop174, i64 0
+  %foldExtExtBinop149 = fsub <2 x double> %179, %175
+  %202 = extractelement <2 x double> %foldExtExtBinop149, i64 0
   %203 = fmul double %199, %202
   store double %203, ptr %36, align 8, !tbaa !20
-  %shift176 = shufflevector <2 x double> %171, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop177 = fsub <2 x double> %shift176, %173
-  %204 = extractelement <2 x double> %foldExtExtBinop177, i64 0
+  %shift151 = shufflevector <2 x double> %171, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop152 = fsub <2 x double> %shift151, %173
+  %204 = extractelement <2 x double> %foldExtExtBinop152, i64 0
   %205 = fmul double %199, %204
   store double %205, ptr %37, align 16, !tbaa !20
   br label %_ZN5Eigen14QuaternionBaseINS_10QuaternionIdLi0EEEEaSINS_5BlockIKNS_6MatrixIdLi4ELi4ELi0ELi4ELi4EEELi3ELi3ELb0EEEEERS2_RKNS_10MatrixBaseIT_EE.exit

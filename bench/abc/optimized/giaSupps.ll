@@ -7130,16 +7130,16 @@ Abc_TtFindFirstAndBit2.exit51:                    ; preds = %.lr.ph.i35
   %spec.select81 = phi i32 [ %spec.select79, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %spec.select, %Abc_TtFindFirstAndBit2.exit51 ]
   %.fr91 = phi i32 [ 1000000000, %Abc_TtFindFirstAndBit2.exit51.thread ], [ %88, %Abc_TtFindFirstAndBit2.exit51 ]
   %spec.select81.fr = freeze i32 %spec.select81
-  %89 = tail call i32 @llvm.smin.i32(i32 %spec.select81.fr, i32 %.fr91)
-  %90 = icmp eq i32 %89, 1000000000
-  br i1 %90, label %.thread.thread, label %91
+  %88 = tail call i32 @llvm.smin.i32(i32 %spec.select81.fr, i32 %.fr91)
+  %89 = icmp eq i32 %88, 1000000000
+  br i1 %89, label %.thread.thread, label %90
 
 .thread.thread:                                   ; preds = %2, %.thread
-  br label %91
+  br label %90
 
-91:                                               ; preds = %.thread, %.thread.thread
-  %92 = phi i32 [ -1, %.thread.thread ], [ %89, %.thread ]
-  ret i32 %92
+90:                                               ; preds = %.thread, %.thread.thread
+  %91 = phi i32 [ -1, %.thread.thread ], [ %88, %.thread ]
+  ret i32 %91
 }
 
 ; Function Attrs: nounwind uwtable

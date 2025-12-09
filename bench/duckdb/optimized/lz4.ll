@@ -1176,9 +1176,9 @@ _ZN10duckdb_lz4L18LZ4_putIndexOnHashEjjPvNS_11tableType_tE.exit607.i: ; preds = 
   %525 = add i32 %.0390.i, 65535
   %.not510.i = icmp uge i32 %525, %494
   %.not509.not.i = select i1 %59, i1 true, i1 %.not510.i
-  br i1 %.not509.not.i, label %527, label %.thread888.i
+  br i1 %.not509.not.i, label %527, label %.thread887.i
 
-.thread888.i:                                     ; preds = %524
+.thread887.i:                                     ; preds = %524
   %526 = getelementptr i8, ptr %.8.fr.i, i64 1
   br label %535
 
@@ -1202,7 +1202,7 @@ _ZN10duckdb_lz4L13LZ4_wildCopy8EPvPKvS0_.exit.i:  ; preds = %527
   %534 = getelementptr i8, ptr %.8.fr.i, i64 1
   br i1 %59, label %540, label %535
 
-535:                                              ; preds = %533, %.thread888.i
+535:                                              ; preds = %533, %.thread887.i
   %536 = phi ptr [ %526, %.thread888.i ], [ %534, %533 ]
   %.val.i609.i = load i64, ptr %536, align 1, !tbaa !3
   %537 = mul i64 %.val.i609.i, -3523014627271114752
@@ -1286,8 +1286,8 @@ _ZN10duckdb_lz4L16LZ4_hashPositionEPKvNS_11tableType_tE.exit612.thread.i: ; pred
   %571 = udiv i64 %570, 255
   %572 = add nuw nsw i64 %571, 1
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %.14789.i, i8 -1, i64 %572, i1 false), !tbaa !3
-  %.neg887.i = mul i64 %571, -255
-  %573 = add i64 %.neg887.i, %570
+  %.neg886.i = mul i64 %571, -255
+  %573 = add i64 %.neg886.i, %570
   %574 = getelementptr i8, ptr %.0414713.i, i64 %571
   %scevgep856.i = getelementptr i8, ptr %574, i64 2
   br label %._crit_edge794.i

@@ -4178,8 +4178,8 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
   br label %15
 
 15:                                               ; preds = %.lr.ph, %159
-  %.028105 = phi ptr [ %2, %.lr.ph ], [ %163, %159 ]
-  %16 = load ptr, ptr %.028105, align 8, !tbaa !275
+  %.028104 = phi ptr [ %2, %.lr.ph ], [ %163, %159 ]
+  %16 = load ptr, ptr %.028104, align 8, !tbaa !275
   %17 = load i8, ptr %16, align 1, !tbaa !219
   %18 = icmp eq i8 %17, 58
   br i1 %18, label %.thread.i, label %19
@@ -4307,8 +4307,8 @@ sub_1.i.i:                                        ; preds = %switch.early.test.i
   %64 = load i8, ptr %63, align 1
   %65 = zext i8 %64 to i32
   %66 = sub nsw i32 50, %65
-  %.not174.i.i = icmp eq i8 %64, 50
-  br i1 %.not174.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not173.i.i = icmp eq i8 %64, 50
+  br i1 %.not173.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %67 = getelementptr inbounds nuw i8, ptr %.083166.i.i, i64 2
@@ -4566,7 +4566,7 @@ parse_connect_to_string.exit.thread70:            ; preds = %120, %119
   %.15486 = phi ptr [ %122, %.thread81 ], [ %.154, %143 ]
   %161 = and i64 %160, -513
   store i64 %161, ptr %6, align 8
-  %162 = getelementptr inbounds nuw i8, ptr %.028105, i64 8
+  %162 = getelementptr inbounds nuw i8, ptr %.028104, i64 8
   %163 = load ptr, ptr %162, align 8, !tbaa !279
   %164 = icmp ne ptr %163, null
   %165 = icmp eq ptr %.15486, null

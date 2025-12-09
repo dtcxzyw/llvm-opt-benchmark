@@ -14679,9 +14679,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
 10:                                               ; preds = %8
   %11 = trunc i64 %1 to i32
   %12 = icmp eq i32 %11, 0
-  br i1 %12, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, label %.lr.ph68
+  br i1 %12, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, label %.lr.ph69
 
-.lr.ph68:                                         ; preds = %10
+.lr.ph69:                                         ; preds = %10
   %.idx1.i = shl nuw nsw i64 %6, 2
   %13 = lshr i64 %6, 2
   %.not.i = icmp eq i64 %13, 0
@@ -14697,9 +14697,9 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
   %22 = or disjoint i64 %21, 1
   br label %23
 
-23:                                               ; preds = %.lr.ph68, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread
-  %.02266 = phi i32 [ 0, %.lr.ph68 ], [ %118, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread ]
-  %24 = zext i32 %.02266 to i64
+23:                                               ; preds = %.lr.ph69, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread
+  %.02267 = phi i32 [ 0, %.lr.ph68 ], [ %118, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread ]
+  %24 = zext i32 %.02267 to i64
   %25 = getelementptr inbounds nuw i32, ptr %0, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 %.idx1.i
   br i1 %.not.i, label %._crit_edge.i.i.i.i.i, label %.lr.ph.preheader.i.i.i.i.i
@@ -14725,13 +14725,13 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
   %30 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   %.val30.i.i.i.i.i = load i32, ptr %30, align 4, !tbaa !108
   %.not37.i.i.i.i.i = icmp eq i32 %.val30.i.i.i.i.i, -1
-  br i1 %.not37.i.i.i.i.i, label %31, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91"
+  br i1 %.not37.i.i.i.i.i, label %31, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95"
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   %.val31.i.i.i.i.i = load i32, ptr %32, align 4, !tbaa !108
   %.not38.i.i.i.i.i = icmp eq i32 %.val31.i.i.i.i.i, -1
-  br i1 %.not38.i.i.i.i.i, label %33, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93"
+  br i1 %.not38.i.i.i.i.i, label %33, label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97"
 
 33:                                               ; preds = %31
   %34 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 16
@@ -14777,15 +14777,15 @@ define dso_local noundef zeroext i1 @_ZN4llvm17ShuffleVectorInst24isOneUseSingle
   %44 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 4
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91": ; preds = %29
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95": ; preds = %29
   %45 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 8
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93": ; preds = %31
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97": ; preds = %31
   %46 = getelementptr inbounds nuw i8, ptr %.02949.i.i.i.i.i, i64 12
   br label %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
 
-"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93", %37, %40, %43
+"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit": ; preds = %.lr.ph.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit95", %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit97", %37, %40, %43
   %.028.i.i.i.i.i = phi ptr [ %.029.lcssa.i.i.i.i.i, %37 ], [ %.1.i.i.i.i.i, %40 ], [ %.2.i.i.i.i.i, %43 ], [ %44, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit" ], [ %45, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit91" ], [ %46, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit.loopexit.split.loop.exit93" ], [ %.02949.i.i.i.i.i, %.lr.ph.i.i.i.i.i ]
   %47 = icmp eq ptr %26, %.028.i.i.i.i.i
   br i1 %47, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread, label %48
@@ -14957,9 +14957,9 @@ _ZN4llvm14SmallBitVectorD2Ev.exit:                ; preds = %_ZN4llvm9BitVectorD
   br i1 %cond, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51
 
 _ZN4llvm14SmallBitVectorD2Ev.exit.thread:         ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit, %43, %._crit_edge.i.i.i.i.i, %"_ZN4llvm6all_ofIRNS_8ArrayRefIiEEZNS_17ShuffleVectorInst24isOneUseSingleSourceMaskES2_iE3$_0EEbOT_T0_.exit"
-  %118 = add i32 %.02266, %2
-  %.not73 = icmp ult i32 %118, %11
-  br i1 %.not73, label %23, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, !llvm.loop !325
+  %118 = add i32 %.02267, %2
+  %.not77 = icmp ult i32 %118, %11
+  br i1 %.not77, label %23, label %_ZN4llvm14SmallBitVectorD2Ev.exit.thread51, !llvm.loop !325
 
 _ZN4llvm14SmallBitVectorD2Ev.exit.thread51:       ; preds = %_ZN4llvm14SmallBitVectorD2Ev.exit, %58, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread, %10, %3, %5, %8
   %.0 = phi i1 [ false, %8 ], [ false, %5 ], [ false, %3 ], [ true, %10 ], [ false, %_ZN4llvm14SmallBitVectorD2Ev.exit ], [ false, %58 ], [ true, %_ZN4llvm14SmallBitVectorD2Ev.exit.thread ]

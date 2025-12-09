@@ -27569,35 +27569,35 @@ define void @_ZN5ImGui36RenderColorRectWithAlphaCheckerboardEP10ImDrawList6ImVec
   %10 = alloca %struct.ImVec2, align 8
   %11 = alloca %struct.ImVec2, align 8
   %12 = alloca %struct.ImVec2, align 8
-  %.fr113 = freeze <2 x float> %2
-  %.fr112 = freeze <2 x float> %1
-  %.fr71 = freeze <2 x float> %5
-  store <2 x float> %.fr112, ptr %9, align 8
-  store <2 x float> %.fr113, ptr %10, align 8
+  %.fr114 = freeze <2 x float> %2
+  %.fr113 = freeze <2 x float> %1
+  %.fr75 = freeze <2 x float> %5
+  store <2 x float> %.fr113, ptr %9, align 8
+  store <2 x float> %.fr114, ptr %10, align 8
   %13 = and i32 %7, 496
   %14 = icmp eq i32 %13, 0
   %spec.store.select = select i1 %14, i32 240, i32 %7
   %.not = icmp ugt i32 %3, -16777217
-  %15 = extractelement <2 x float> %.fr112, i64 0
-  %16 = extractelement <2 x float> %.fr113, i64 0
+  %15 = extractelement <2 x float> %.fr113, i64 0
+  %16 = extractelement <2 x float> %.fr114, i64 0
   br i1 %.not, label %125, label %17
 
 17:                                               ; preds = %8
-  %18 = extractelement <2 x float> %.fr113, i64 1
-  %19 = extractelement <2 x float> %.fr112, i64 1
+  %18 = extractelement <2 x float> %.fr114, i64 1
+  %19 = extractelement <2 x float> %.fr113, i64 1
   %20 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -3355444, i32 noundef %3)
   %21 = tail call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef %20, float noundef 1.000000e+00)
   %22 = tail call noundef i32 @_Z18ImAlphaBlendColorsjj(i32 noundef -8355712, i32 noundef %3)
   %23 = tail call noundef i32 @_ZN5ImGui11GetColorU32Ejf(i32 noundef %22, float noundef 1.000000e+00)
   call void @_ZN10ImDrawList13AddRectFilledERK6ImVec2S2_jfi(ptr noundef nonnull align 8 dereferenceable(216) %0, ptr noundef nonnull align 4 dereferenceable(8) %9, ptr noundef nonnull align 4 dereferenceable(8) %10, i32 noundef %21, float noundef %6, i32 noundef %spec.store.select)
-  %foldExtExtBinop = fadd <2 x float> %.fr71, %.fr112
+  %foldExtExtBinop = fadd <2 x float> %.fr75, %.fr113
   %24 = extractelement <2 x float> %foldExtExtBinop, i64 1
   %25 = fcmp olt float %24, %18
   br i1 %25, label %.lr.ph66, label %.loopexit62
 
 .lr.ph66:                                         ; preds = %17
-  %foldExtExtBinop121 = fadd <2 x float> %.fr71, %.fr112
-  %26 = extractelement <2 x float> %foldExtExtBinop121, i64 0
+  %foldExtExtBinop122 = fadd <2 x float> %.fr75, %.fr113
+  %26 = extractelement <2 x float> %foldExtExtBinop122, i64 0
   %27 = icmp eq i32 %spec.store.select, 256
   %28 = getelementptr inbounds nuw i8, ptr %11, i64 4
   %29 = getelementptr inbounds nuw i8, ptr %12, i64 4

@@ -6685,7 +6685,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   br i1 %99, label %.noexc52.preheader, label %._crit_edge
 
 .noexc52.preheader:                               ; preds = %94
-  %.pre154 = load i32, ptr %9, align 4, !tbaa !4
+  %.pre153 = load i32, ptr %9, align 4, !tbaa !4
   br label %.noexc52
 
 ._crit_edge:                                      ; preds = %.noexc52, %94
@@ -7270,7 +7270,7 @@ _ZN4ncnn3MatD2Ev.exit.split.us.us.i:              ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %exitcond466.not.i, label %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit, label %.lr.ph.us410.i, !llvm.loop !262
 
 .noexc52:                                         ; preds = %.noexc52.preheader, %.noexc52
-  %432 = phi i32 [ %477, %.noexc52 ], [ %.pre154, %.noexc52.preheader ]
+  %432 = phi i32 [ %477, %.noexc52 ], [ %.pre153, %.noexc52.preheader ]
   %433 = phi i32 [ %479, %.noexc52 ], [ %98, %.noexc52.preheader ]
   %.045144 = phi i32 [ %478, %.noexc52 ], [ 0, %.noexc52.preheader ]
   %434 = sub nsw i32 %433, %.045144

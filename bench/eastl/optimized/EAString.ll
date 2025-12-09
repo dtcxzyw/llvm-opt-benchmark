@@ -9311,7 +9311,7 @@ if.end40:                                         ; preds = %do.body, %if.end36,
   %tobool43.not93 = icmp eq i32 %nDigitCount, 0
   br i1 %tobool43.not93, label %if.end48, label %for.body44.preheader
 
-for.body44.preheader:                             ; preds = %if.then23, %if.end40
+for.body44.preheader:; preds = %if.then23, %if.end40
   %expcnt.2171 = phi i32 [ %nDigitCount, %if.end40 ], [ %inc, %if.then23 ]
   %fract.1170 = phi double [ 0.000000e+00, %if.end40 ], [ %call12, %if.then23 ]
   br label %for.body44
@@ -9366,8 +9366,8 @@ while.body:                                       ; preds = %while.body.preheade
   %.pre.pre = load double, ptr %tmp, align 8
   %conv60 = fptosi double %.pre.pre to i32
   %cmp61 = icmp eq i32 %conv60, 0
-  %or.cond185 = select i1 %leading.0101, i1 %cmp61, i1 false
-  br i1 %or.cond185, label %if.then62, label %if.else64
+  %or.cond180 = select i1 %leading.0101, i1 %cmp61, i1 false
+  br i1 %or.cond180, label %if.then62, label %if.else64
 
 if.then62:                                        ; preds = %while.body
   %11 = load i32, ptr %decimalPos, align 4
@@ -9479,23 +9479,23 @@ if.end122.loopexit155:                            ; preds = %if.end113, %if.end1
   br label %if.end122
 
 if.end122:                                        ; preds = %if.then62, %for.cond78, %if.end122.loopexit155, %for.cond101.preheader, %for.cond78.preheader, %if.then90, %if.else98, %while.end
-  %nDigitCountAfterDecimal.0.ph.lcssa178 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
-  %t.3.idx.ph.lcssa98177 = phi i64 [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph128, %if.then62 ]
+  %nDigitCountAfterDecimal.0.ph.lcssa173 = phi i32 [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.then90 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.else98 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %while.end ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond101.preheader ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %if.end122.loopexit155 ], [ %nDigitCountAfterDecimal.0.ph.lcssa, %for.cond78 ], [ %nDigitCountAfterDecimal.0.ph125, %if.then62 ]
+  %t.3.idx.ph.lcssa98172 = phi i64 [ %t.3.idx.ph.lcssa98, %if.then90 ], [ %t.3.idx.ph.lcssa98, %if.else98 ], [ %t.3.idx.ph.lcssa98, %while.end ], [ %t.3.idx.ph.lcssa98, %for.cond78.preheader ], [ %t.3.idx.ph.lcssa98, %for.cond101.preheader ], [ %t.3.idx.ph.lcssa98, %if.end122.loopexit155 ], [ %t.3.idx.ph.lcssa98, %for.cond78 ], [ %t.3.idx.ph128, %if.then62 ]
   %neg.1 = phi i1 [ %cmp9, %if.then90 ], [ false, %if.else98 ], [ %cmp9, %while.end ], [ %cmp9, %for.cond78.preheader ], [ true, %for.cond101.preheader ], [ %22, %if.end122.loopexit155 ], [ %cmp9, %for.cond78 ], [ %cmp9, %if.then62 ]
-  %t.3.ptr.le97179 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98177
-  %tobool128.not151 = icmp slt i32 %nDigitCountAfterDecimal.0.ph.lcssa178, 1
+  %t.3.ptr.le97174 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98172
+  %tobool128.not151 = icmp slt i32 %nDigitCountAfterDecimal.0.ph.lcssa173, 1
   br i1 %tobool128.not151, label %while.end131, label %while.body129.preheader
 
 while.body129.preheader:                          ; preds = %if.end122
-  %23 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa178 to i64
-  tail call void @llvm.memset.p0.i64(ptr align 1 %t.3.ptr.le97179, i8 48, i64 %23, i1 false)
-  %24 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98177
-  %25 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa178 to i64
+  %23 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa173 to i64
+  tail call void @llvm.memset.p0.i64(ptr align 1 %t.3.ptr.le97174, i8 48, i64 %23, i1 false)
+  %24 = getelementptr i8, ptr %buffer, i64 %t.3.idx.ph.lcssa98172
+  %25 = zext nneg i32 %nDigitCountAfterDecimal.0.ph.lcssa173 to i64
   %26 = getelementptr i8, ptr %24, i64 %25
   br label %while.end131
 
 while.end131:                                     ; preds = %while.body129.preheader, %if.end122
-  %t.4.lcssa = phi ptr [ %t.3.ptr.le97179, %if.end122 ], [ %26, %while.body129.preheader ]
+  %t.4.lcssa = phi ptr [ %t.3.ptr.le97174, %if.end122 ], [ %26, %while.body129.preheader ]
   store i8 0, ptr %t.4.lcssa, align 1
   %27 = load i8, ptr %buffer, align 1
   %cmp134 = icmp eq i8 %27, 0

@@ -31004,12 +31004,12 @@ define linkonce_odr void @_ZZN7xgboost6common19SketchContainerImplINS0_15WQuanti
   %.fr = freeze i32 %8
   %9 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !86
-  %.fr64 = freeze i32 %10
-  %11 = icmp ult i32 %.fr, %.fr64
+  %.fr65 = freeze i32 %10
+  %11 = icmp ult i32 %.fr, %.fr65
   br i1 %11, label %12, label %.loopexit54
 
 12:                                               ; preds = %1
-  %13 = zext i32 %.fr64 to i64
+  %13 = zext i32 %.fr65 to i64
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %15 = load ptr, ptr %14, align 8, !tbaa !937
   %16 = load i64, ptr %15, align 8, !tbaa !55
@@ -31152,8 +31152,8 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 95:                                               ; preds = %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit45.thread.us, %89, %.lr.ph.split.us
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %96 = add nuw i64 %.03855.us, 1
-  %exitcond67.not = icmp eq i64 %96, %40
-  br i1 %exitcond67.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !950
+  %exitcond68.not = icmp eq i64 %96, %40
+  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph.split.us, !llvm.loop !950
 
 .lr.ph57:                                         ; preds = %_ZNK7xgboost6common15OptionalWeightsixEm.exit, %127
   %.03756 = phi i64 [ %128, %127 ], [ %27, %_ZNK7xgboost6common15OptionalWeightsixEm.exit ]
@@ -31213,8 +31213,8 @@ _ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.
 127:                                              ; preds = %121, %_ZN7xgboost6common5IsCatENS0_4SpanIKNS_11FeatureTypeELm18446744073709551615EEEj.exit.thread, %.lr.ph57
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %128 = add nuw nsw i64 %.03756, 1
-  %exitcond68.not = icmp eq i64 %128, %13
-  br i1 %exitcond68.not, label %.loopexit, label %.lr.ph57, !llvm.loop !954
+  %exitcond69.not = icmp eq i64 %128, %13
+  br i1 %exitcond69.not, label %.loopexit, label %.lr.ph57, !llvm.loop !954
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %.lr.ph.split
   %.03855 = phi i64 [ %129, %.lr.ph.split ], [ 0, %.lr.ph ]

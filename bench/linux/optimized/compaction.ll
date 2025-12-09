@@ -8179,8 +8179,8 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %79 = load ptr, ptr %78, align 8
   %80 = getelementptr i8, ptr %79, i64 -8
   %81 = icmp eq ptr %79, %77
-  %.pre118 = load i64, ptr @vmemmap_base, align 8
-  br i1 %81, label %.loopexit67, label %82
+  %.pre117 = load i64, ptr @vmemmap_base, align 8
+  br i1 %81, label %.loopexit68, label %82
 
 82:                                               ; preds = %74
   %83 = trunc i32 %66 to i16
@@ -8191,7 +8191,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr i8, ptr %86, i64 -8
   %88 = icmp eq ptr %86, %77
-  br i1 %88, label %.loopexit67, label %89, !llvm.loop !153
+  br i1 %88, label %.loopexit68, label %89, !llvm.loop !153
 
 89:                                               ; preds = %84, %82
   %90 = phi ptr [ %80, %82 ], [ %87, %84 ]
@@ -8204,7 +8204,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %97 = add nuw i32 %96, 1
   %98 = add i32 %93, 1
   %99 = ptrtoint ptr %90 to i64
-  %100 = sub i64 %99, %.pre118
+  %100 = sub i64 %99, %.pre117
   %101 = ashr exact i64 %100, 6
   %102 = icmp ult i64 %101, %94
   br i1 %102, label %109, label %103
@@ -8225,7 +8225,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
 .thread:                                          ; preds = %109
   store i16 0, ptr %13, align 8
   store i16 %83, ptr %48, align 2
-  br label %.loopexit67
+  br label %.loopexit68
 
 112:                                              ; preds = %109
   %113 = icmp uge i64 %101, %41
@@ -8235,9 +8235,9 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %117 = zext i1 %115 to i32
   %118 = lshr i32 %92, %117
   %119 = icmp ult i32 %97, %118
-  br i1 %119, label %84, label %.loopexit67
+  br i1 %119, label %84, label %.loopexit68
 
-.loopexit67:                                      ; preds = %112, %84, %.thread, %74
+.loopexit68:                                      ; preds = %112, %84, %.thread, %74
   %120 = phi ptr [ %80, %74 ], [ %90, %.thread ], [ %90, %112 ], [ %87, %84 ]
   %121 = phi i32 [ 0, %74 ], [ %97, %.thread ], [ %97, %84 ], [ %97, %112 ]
   %122 = phi i64 [ 0, %74 ], [ %95, %.thread ], [ %116, %84 ], [ %116, %112 ]
@@ -8248,7 +8248,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %127 = icmp eq ptr %123, null
   %128 = icmp ne i64 %122, 0
   %129 = select i1 %127, i1 %128, i1 false
-  %130 = inttoptr i64 %.pre118 to ptr
+  %130 = inttoptr i64 %.pre117 to ptr
   %131 = getelementptr %struct.page, ptr %130, i64 %122
   %132 = select i1 %129, ptr %131, ptr %120
   %133 = select i1 %129, ptr %131, ptr %123
@@ -8261,7 +8261,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %137 = icmp eq ptr %136, %77
   br i1 %137, label %152, label %138
 
-138:                                              ; preds = %.loopexit67
+138:                                              ; preds = %.loopexit68
   %139 = load ptr, ptr %77, align 8
   %140 = icmp eq ptr %139, %134
   br i1 %140, label %141, label %142
@@ -8297,7 +8297,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   store ptr %150, ptr %78, align 8
   br label %152
 
-152:                                              ; preds = %148, %145, %.loopexit67
+152:                                              ; preds = %148, %145, %.loopexit68
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %153 = icmp eq ptr %133, null
   br i1 %153, label %173, label %154
@@ -8742,7 +8742,7 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %418 = and i64 %417, -512
   %419 = add i64 %418, 512
   %420 = icmp ult i64 %415, %419
-  br i1 %420, label %.loopexit66, label %421
+  br i1 %420, label %.loopexit67, label %421
 
 421:                                              ; preds = %412
   %422 = getelementptr inbounds nuw i8, ptr %7, i64 112
@@ -8975,15 +8975,15 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   br i1 %561, label %566, label %563
 
 563:                                              ; preds = %558
-  br i1 %562, label %.loopexit66, label %564
+  br i1 %562, label %.loopexit67, label %564
 
 564:                                              ; preds = %563
   %565 = add i64 %439, -512
   store i64 %565, ptr %6, align 8
-  br label %.loopexit66
+  br label %.loopexit67
 
 566:                                              ; preds = %558
-  br i1 %562, label %.loopexit66, label %567
+  br i1 %562, label %.loopexit67, label %567
 
 567:                                              ; preds = %566
   %568 = icmp eq i64 %541, 0
@@ -9001,14 +9001,14 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   %573 = add i64 %.ph64.fr, -512
   store i64 %573, ptr %6, align 8
   %574 = icmp ult i64 %573, %419
-  br i1 %574, label %.loopexit66, label %438, !llvm.loop !160
+  br i1 %574, label %.loopexit67, label %438, !llvm.loop !160
 
-.loopexit66:                                      ; preds = %566, %572, %563, %564, %412
+.loopexit67:                                      ; preds = %566, %572, %563, %564, %412
   %575 = phi i64 [ %542, %563 ], [ %565, %564 ], [ %.fr, %412 ], [ %542, %566 ], [ %573, %572 ]
   store i64 %575, ptr %413, align 8
   br label %576
 
-576:                                              ; preds = %.loopexit66, %408
+576:                                              ; preds = %.loopexit67, %408
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store ptr %3, ptr %3, align 8
   %577 = getelementptr inbounds nuw i8, ptr %3, i64 8
@@ -9044,11 +9044,11 @@ define internal noundef ptr @compaction_alloc(ptr readnone captures(none) %0, i6
   br label %593
 
 593:                                              ; preds = %592, %.preheader
-  %.pre119 = load ptr, ptr %3, align 8
+  %.pre118 = load ptr, ptr %3, align 8
   br label %594
 
 594:                                              ; preds = %594, %593
-  %595 = phi ptr [ %598, %594 ], [ %.pre119, %593 ]
+  %595 = phi ptr [ %598, %594 ], [ %.pre118, %593 ]
   %596 = phi i32 [ %602, %594 ], [ 0, %593 ]
   %597 = phi ptr [ %601, %594 ], [ %583, %593 ]
   %598 = getelementptr inbounds nuw i8, ptr %597, i64 8

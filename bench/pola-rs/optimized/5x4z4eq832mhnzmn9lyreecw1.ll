@@ -15165,7 +15165,7 @@ define hidden void @_ZN10polars_ops13chunked_array7strings5split15split_to_struc
 
 75:                                               ; preds = %._crit_edge.i
   %76 = icmp eq ptr %.sroa.028.1.i, %36
-  br i1 %76, label %.loopexit581, label %77
+  br i1 %76, label %.loopexit578, label %77
 
 77:                                               ; preds = %75
   %.sroa.028.3.i = getelementptr inbounds nuw i8, ptr %.sroa.028.1.i, i64 16
@@ -15183,7 +15183,7 @@ define hidden void @_ZN10polars_ops13chunked_array7strings5split15split_to_struc
 
 82:                                               ; preds = %.noexc16
   %83 = icmp eq ptr %.sroa.030.1.i.ph, %37
-  br i1 %83, label %.loopexit581, label %84
+  br i1 %83, label %.loopexit578, label %84
 
 84:                                               ; preds = %82
   %85 = load ptr, ptr %.sroa.030.1.i.ph, align 8, !noalias !2755, !nonnull !6, !noundef !6
@@ -16561,12 +16561,12 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   %737 = icmp eq ptr %688, %677
   br i1 %737, label %.loopexit, label %.lr.ph
 
-.loopexit581:                                     ; preds = %82, %75
+.loopexit578:                                     ; preds = %82, %75
   call void @llvm.lifetime.end.p0(ptr nonnull %13), !noalias !2755
   call void @llvm.lifetime.end.p0(ptr nonnull %14), !noalias !2755
   br label %.loopexit
 
-.loopexit:                                        ; preds = %736, %672, %.loopexit581, %687, %686
+.loopexit:                                        ; preds = %736, %672, %.loopexit578, %687, %686
   call void @llvm.lifetime.start.p0(ptr nonnull %18)
   %.sroa.061.0.copyload = load i64, ptr %21, align 8
   %.sroa.462.0..sroa_idx = getelementptr inbounds nuw i8, ptr %21, i64 8
@@ -16671,12 +16671,12 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit: ; preds = %77
-  %lpad.loopexit582 = landingpad { ptr, i32 }
+  %lpad.loopexit579 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp: ; preds = %84
-  %lpad.loopexit.split-lp583 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp580 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
@@ -16686,7 +16686,7 @@ _ZN12polars_arrow6bitmap7mutable13MutableBitmap4push17h617058ee50f36283E.exit.i:
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp, %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp.loopexit, %.loopexit76
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit82, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit89, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit582, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp583, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit76 ], [ %lpad.loopexit79, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit82, %.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit84, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit87, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit89, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp ], [ %lpad.loopexit579, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit ], [ %lpad.loopexit.split-lp580, %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr107drop_in_place$LT$alloc..vec..Vec$LT$polars_arrow..array..utf8..mutable..MutableUtf8Array$LT$i64$GT$$GT$$GT$17h597a253d197c65d2E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %21) #40
           to label %.thread unwind label %760
 }

@@ -11195,8 +11195,8 @@ _ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thre
   %.promoted65.i.fr = freeze i64 %.promoted65.i
   br label %108
 
-108:                                              ; preds = %134, %.lr.ph.i
-  %109 = phi i64 [ %.promoted65.i.fr, %.lr.ph.i ], [ %.fr58, %134 ]
+108:                                              ; preds = %133, %.lr.ph.i
+  %109 = phi i64 [ %.promoted65.i.fr, %.lr.ph.i ], [ %134, %134 ]
   %110 = phi i64 [ %99, %.lr.ph.i ], [ %136, %134 ]
   %111 = phi i64 [ %10, %.lr.ph.i ], [ %135, %134 ]
   %.not.i = icmp eq i64 %10, %111
@@ -11214,7 +11214,7 @@ _ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thre
 
 120:                                              ; preds = %112
   store i64 %110, ptr %9, align 8, !alias.scope !2314, !noalias !2321
-  br i1 %90, label %134, label %.sink.split.i
+  br i1 %90, label %133, label %.sink.split.i
 
 121:                                              ; preds = %112
   %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %109)
@@ -11245,7 +11245,7 @@ _ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thre
 .split47.us:                                      ; preds = %127
   %132 = add i64 %.neg.i, %124
   store i64 %132, ptr %9, align 8, !alias.scope !2314, !noalias !2321
-  br i1 %90, label %134, label %.sink.split.i
+  br i1 %90, label %133, label %.sink.split.i
 
 .split:                                           ; preds = %121
   %.not36.i = icmp eq i64 %.014.i, 0
@@ -11258,8 +11258,8 @@ _ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thre
   store i64 %133, ptr %104, align 8, !alias.scope !2314, !noalias !2321
   br label %134
 
-134:                                              ; preds = %.split47.us, %156, %.sink.split.i, %120
-  %.fr58 = phi i64 [ %109, %.split47.us ], [ %109, %156 ], [ %109, %120 ], [ %133, %.sink.split.i ]
+133:                                              ; preds = %.split47.us, %156, %.sink.split.i, %120
+  %134 = phi i64 [ %109, %.split47.us ], [ %109, %156 ], [ %109, %120 ], [ %133, %.sink.split.i ]
   %135 = phi i64 [ %132, %.split47.us ], [ %107, %156 ], [ %110, %120 ], [ %.ph119.i, %.sink.split.i ]
   %136 = sub i64 %135, %98
   %.not35.i = icmp ult i64 %136, %94
@@ -11317,7 +11317,7 @@ _ZN4core3str11validations23next_code_point_reverse17ha7fa0ae6aa0ec291E.exit.thre
 
 156:                                              ; preds = %149
   store i64 %107, ptr %9, align 8, !alias.scope !2314, !noalias !2321
-  br i1 %90, label %134, label %.sink.split.i
+  br i1 %90, label %133, label %.sink.split.i
 
 .split45.us:                                      ; preds = %123
   tail call void @_ZN4core9panicking18panic_bounds_check17h5aa5e8a957e001f9E(i64 noundef %125, i64 noundef %94, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.aa5a0d5c8376d20d7c74586073353af9.62) #39, !noalias !2325
@@ -11360,7 +11360,7 @@ _ZN4core3str7pattern14TwoWaySearcher9next_back17h22d7b5d123647bb9E.exit: ; preds
   %166 = tail call i64 @llvm.umin.i64(i64 %.012.lcssa.ph, i64 %111)
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %134, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.loopexit", %87, %.loopexit
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread": ; preds = %133, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.loopexit", %87, %.loopexit
   %.0.sroa.speculated.i = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %166, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.loopexit" ], [ 0, %134 ]
   %.012.lcssa = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %.012.lcssa.ph, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha03ab45daa8167cbE.exit.thread.loopexit" ], [ 0, %134 ]
   store i64 %.0.sroa.speculated.i, ptr %9, align 8

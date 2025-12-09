@@ -6743,65 +6743,65 @@ tailrecurse.outer:                                ; preds = %tailrecurse.outer.o
 
 tailrecurse.us:                                   ; preds = %tailrecurse.outer, %tailrecurse.us.backedge
   %.tr.us = phi ptr [ %.tr.us.be, %tailrecurse.us.backedge ], [ %.tr.ph, %tailrecurse.outer ]
-  %6 = load i32, ptr %.tr.us, align 8, !tbaa !20
-  switch i32 %6, label %.critedge [
+  %5 = load i32, ptr %.tr.us, align 8, !tbaa !20
+  switch i32 %5, label %.critedge [
     i32 7, label %.split.us.preheader
     i32 8, label %.split.us.preheader
     i32 4, label %.split88.us
-    i32 6, label %22
-    i32 5, label %7
+    i32 6, label %21
+    i32 5, label %6
     i32 9, label %.split91.us
   ]
 
-7:                                                ; preds = %tailrecurse.us
-  %8 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 24
-  %9 = load i32, ptr %8, align 8, !tbaa !98
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 16
-  %11 = load ptr, ptr %10, align 8, !tbaa !20
-  %cond = icmp eq i32 %9, 3
-  br i1 %cond, label %12, label %tailrecurse.us.backedge
+6:                                                ; preds = %tailrecurse.us
+  %7 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 24
+  %8 = load i32, ptr %7, align 8, !tbaa !98
+  %9 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 16
+  %10 = load ptr, ptr %9, align 8, !tbaa !20
+  %cond = icmp eq i32 %8, 3
+  br i1 %cond, label %11, label %tailrecurse.us.backedge
 
-tailrecurse.us.backedge:                          ; preds = %7, %26, %19
-  %.tr.us.be = phi ptr [ %28, %26 ], [ %21, %19 ], [ %11, %7 ]
+tailrecurse.us.backedge:                          ; preds = %6, %25, %18
+  %.tr.us.be = phi ptr [ %27, %26 ], [ %20, %19 ], [ %10, %7 ]
   br label %tailrecurse.us
 
-12:                                               ; preds = %7
-  %13 = tail call fastcc i32 @tune_call(ptr noundef %11, ptr noundef %1, i32 noundef %.tr77.ph.ph)
-  %.not65.us = icmp eq i32 %13, 0
-  br i1 %.not65.us, label %14, label %.critedge
+11:                                               ; preds = %6
+  %12 = tail call fastcc i32 @tune_call(ptr noundef %10, ptr noundef %1, i32 noundef %.tr77.ph.ph)
+  %.not65.us = icmp eq i32 %12, 0
+  br i1 %.not65.us, label %13, label %.critedge
 
-14:                                               ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 32
-  %16 = load ptr, ptr %15, align 8, !tbaa !20
-  %.not66.us = icmp eq ptr %16, null
-  br i1 %.not66.us, label %19, label %17
+13:                                               ; preds = %11
+  %14 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 32
+  %15 = load ptr, ptr %14, align 8, !tbaa !20
+  %.not66.us = icmp eq ptr %15, null
+  br i1 %.not66.us, label %18, label %16
 
-17:                                               ; preds = %14
-  %18 = tail call fastcc i32 @tune_call(ptr noundef nonnull %16, ptr noundef %1, i32 noundef %.tr77.ph.ph)
-  %.not67.us = icmp eq i32 %18, 0
-  br i1 %.not67.us, label %19, label %.critedge
+16:                                               ; preds = %13
+  %17 = tail call fastcc i32 @tune_call(ptr noundef nonnull %15, ptr noundef %1, i32 noundef %.tr77.ph.ph)
+  %.not67.us = icmp eq i32 %17, 0
+  br i1 %.not67.us, label %18, label %.critedge
 
-19:                                               ; preds = %17, %14
-  %20 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 40
-  %21 = load ptr, ptr %20, align 8, !tbaa !20
-  %.not68.us = icmp eq ptr %21, null
+18:                                               ; preds = %16, %13
+  %19 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 40
+  %20 = load ptr, ptr %19, align 8, !tbaa !20
+  %.not68.us = icmp eq ptr %20, null
   br i1 %.not68.us, label %.critedge, label %tailrecurse.us.backedge
 
-22:                                               ; preds = %tailrecurse.us
-  %23 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 24
-  %24 = load i32, ptr %23, align 8, !tbaa !20
-  %25 = icmp slt i32 %24, 16
-  br i1 %25, label %26, label %.critedge
+21:                                               ; preds = %tailrecurse.us
+  %22 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 24
+  %23 = load i32, ptr %22, align 8, !tbaa !20
+  %24 = icmp slt i32 %23, 16
+  br i1 %24, label %25, label %.critedge
 
-26:                                               ; preds = %22
-  %27 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 16
-  %28 = load ptr, ptr %27, align 8, !tbaa !20
+25:                                               ; preds = %21
+  %26 = getelementptr inbounds nuw i8, ptr %.tr.us, i64 16
+  %27 = load ptr, ptr %26, align 8, !tbaa !20
   br label %tailrecurse.us.backedge
 
 tailrecurse:                                      ; preds = %tailrecurse.outer, %tailrecurse.backedge
   %.tr = phi ptr [ %.tr.be, %tailrecurse.backedge ], [ %.tr.ph, %tailrecurse.outer ]
-  %29 = load i32, ptr %.tr, align 8, !tbaa !20
-  switch i32 %29, label %.critedge [
+  %28 = load i32, ptr %.tr, align 8, !tbaa !20
+  switch i32 %28, label %.critedge [
     i32 7, label %.split.us.preheader
     i32 8, label %.split.us.preheader
     i32 4, label %.split88.us
@@ -6814,25 +6814,25 @@ tailrecurse:                                      ; preds = %tailrecurse.outer, 
   %.054.ph = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr, %tailrecurse ], [ %.tr, %tailrecurse ]
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %34
-  %.054 = phi ptr [ %36, %34 ], [ %.054.ph, %.split.us.preheader ]
-  %30 = getelementptr inbounds nuw i8, ptr %.054, i64 16
-  %31 = load ptr, ptr %30, align 8, !tbaa !20
-  %32 = tail call fastcc i32 @tune_call(ptr noundef %31, ptr noundef %1, i32 noundef %.tr77.ph.ph)
-  %33 = icmp eq i32 %32, 0
-  br i1 %33, label %34, label %.critedge
+.split.us:                                        ; preds = %.split.us.preheader, %33
+  %.054 = phi ptr [ %35, %34 ], [ %.054.ph, %.split.us.preheader ]
+  %29 = getelementptr inbounds nuw i8, ptr %.054, i64 16
+  %30 = load ptr, ptr %29, align 8, !tbaa !20
+  %31 = tail call fastcc i32 @tune_call(ptr noundef %30, ptr noundef %1, i32 noundef %.tr77.ph.ph)
+  %32 = icmp eq i32 %31, 0
+  br i1 %32, label %33, label %.critedge
 
-34:                                               ; preds = %.split.us
-  %35 = getelementptr inbounds nuw i8, ptr %.054, i64 24
-  %36 = load ptr, ptr %35, align 8, !tbaa !20
-  %.not70 = icmp eq ptr %36, null
+33:                                               ; preds = %.split.us
+  %34 = getelementptr inbounds nuw i8, ptr %.054, i64 24
+  %35 = load ptr, ptr %34, align 8, !tbaa !20
+  %.not70 = icmp eq ptr %35, null
   br i1 %.not70, label %.critedge, label %.split.us, !llvm.loop !208
 
 .split88.us:                                      ; preds = %tailrecurse, %tailrecurse.us
   %.us-phi89 = phi ptr [ %.tr.us, %tailrecurse.us ], [ %.tr, %tailrecurse ]
-  %37 = getelementptr inbounds nuw i8, ptr %.us-phi89, i64 28
-  %38 = load i32, ptr %37, align 4, !tbaa !20
-  %.fr = freeze i32 %38
+  %36 = getelementptr inbounds nuw i8, ptr %.us-phi89, i64 28
+  %37 = load i32, ptr %36, align 4, !tbaa !20
+  %.fr = freeze i32 %37
   %39 = icmp eq i32 %.fr, 0
   %40 = getelementptr inbounds nuw i8, ptr %.us-phi89, i64 16
   %41 = load ptr, ptr %40, align 8, !tbaa !20
@@ -7016,8 +7016,8 @@ tailrecurse.backedge:                             ; preds = %tailrecurse.backedg
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %108
 
-.critedge:                                        ; preds = %tailrecurse, %42, %67, %58, %65, %22, %19, %17, %12, %tailrecurse.us, %34, %.split.us, %.thread.i, %120, %115, %103, %96
-  %.1 = phi i32 [ -218, %103 ], [ -217, %115 ], [ 0, %120 ], [ -209, %96 ], [ %.sink.i, %.thread.i ], [ %32, %.split.us ], [ 0, %34 ], [ 0, %19 ], [ %18, %17 ], [ %13, %12 ], [ 0, %tailrecurse.us ], [ 0, %22 ], [ 0, %67 ], [ %66, %65 ], [ %61, %58 ], [ 0, %tailrecurse ], [ 0, %42 ]
+.critedge:                                        ; preds = %tailrecurse, %42, %67, %58, %65, %21, %18, %16, %11, %tailrecurse.us, %33, %.split.us, %.thread.i, %120, %115, %103, %96
+  %.1 = phi i32 [ -218, %103 ], [ -217, %115 ], [ 0, %120 ], [ -209, %96 ], [ %.sink.i, %.thread.i ], [ %31, %.split.us ], [ 0, %34 ], [ 0, %19 ], [ %17, %17 ], [ %13, %12 ], [ 0, %tailrecurse.us ], [ 0, %22 ], [ 0, %67 ], [ %66, %65 ], [ %61, %58 ], [ 0, %tailrecurse ], [ 0, %42 ]
   ret i32 %.1
 }
 
@@ -10670,7 +10670,7 @@ tailrecurse.us.us:                                ; preds = %tailrecurse.outer.s
   %15 = xor i32 %14, -1
   %16 = and i32 %.tr69.ph, %15
   %.not65.us.us = icmp eq i32 %16, 0
-  br i1 %.not65.us.us, label %common.ret354, label %17
+  br i1 %.not65.us.us, label %common.ret351, label %17
 
 17:                                               ; preds = %12
   %18 = or i32 %14, %.tr69.ph
@@ -10722,7 +10722,7 @@ tailrecurse.us:                                   ; preds = %tailrecurse.outer.s
   %34 = xor i32 %33, -1
   %35 = and i32 %.tr69.ph, %34
   %.not65.us = icmp eq i32 %35, 0
-  br i1 %.not65.us, label %common.ret354, label %36
+  br i1 %.not65.us, label %common.ret351, label %36
 
 36:                                               ; preds = %31
   %37 = or i32 %33, %.tr69.ph
@@ -10764,14 +10764,14 @@ tailrecurse:                                      ; preds = %tailrecurse.prehead
   %43 = getelementptr inbounds nuw i8, ptr %.0, i64 24
   %44 = load ptr, ptr %43, align 8, !tbaa !20
   %.not68 = icmp eq ptr %44, null
-  br i1 %.not68, label %common.ret354, label %40, !llvm.loop !265
+  br i1 %.not68, label %common.ret351, label %40, !llvm.loop !265
 
 .split90.us:                                      ; preds = %tailrecurse, %tailrecurse.us, %tailrecurse.us.us
   %.us-phi91 = phi ptr [ %.tr.us.us, %tailrecurse.us.us ], [ %.tr.us, %tailrecurse.us ], [ %.tr, %tailrecurse ]
   %45 = getelementptr inbounds nuw i8, ptr %.us-phi91, i64 28
   %46 = load i32, ptr %45, align 4, !tbaa !138
   %.fr115 = freeze i32 %46
-  %47 = icmp eq i32 %.fr115, -1
+  %48 = icmp eq i32 %.fr115, -1
   %48 = icmp sgt i32 %.fr115, 1
   %or.cond = or i1 %47, %48
   %49 = or i32 %.tr69.ph, 4
@@ -10810,7 +10810,7 @@ tailrecurse.outer.backedge:                       ; preds = %tailrecurse.outer.b
   %60 = load i32, ptr %59, align 8, !tbaa !155
   %61 = tail call range(i32 0, 33) i32 @llvm.ctpop.i32(i32 %60)
   %62 = icmp eq i32 %61, 1
-  br i1 %62, label %.split, label %common.ret354
+  br i1 %62, label %.split, label %common.ret351
 
 .split:                                           ; preds = %.split93.us
   %63 = tail call range(i32 0, 33) i32 @llvm.cttz.i32(i32 %60, i1 true)
@@ -10850,7 +10850,7 @@ tailrecurse.outer.backedge:                       ; preds = %tailrecurse.outer.b
   %78 = xor i32 %77, -1
   %79 = and i32 %.tr69.ph, %78
   %.not65 = icmp eq i32 %79, 0
-  br i1 %.not65, label %common.ret354, label %80
+  br i1 %.not65, label %common.ret351, label %80
 
 80:                                               ; preds = %75
   %81 = or i32 %77, %.tr69.ph
@@ -10862,7 +10862,7 @@ tailrecurse.backedge:                             ; preds = %68, %80, %100
   %.tr.be = load ptr, ptr %.tr.be.in, align 8, !tbaa !20
   br label %tailrecurse
 
-common.ret354:                                    ; preds = %40, %tailrecurse.us.us, %12, %tailrecurse.us, %31, %tailrecurse, %75, %97, %.split93.us, %.split, %.split99.us
+common.ret351:                                    ; preds = %40, %tailrecurse.us.us, %12, %tailrecurse.us, %31, %tailrecurse, %75, %97, %.split93.us, %.split, %.split99.us
   ret void
 
 .split99.us:                                      ; preds = %71, %27, %8
@@ -10881,7 +10881,7 @@ common.ret354:                                    ; preds = %40, %tailrecurse.us
   %89 = load i32, ptr %82, align 4, !tbaa !20
   %90 = and i32 %89, -9
   store i32 %90, ptr %82, align 4, !tbaa !20
-  br label %common.ret354
+  br label %common.ret351
 
 .split96.us:                                      ; preds = %68, %24, %5
   %.us-phi97 = phi ptr [ %.tr.us.us, %5 ], [ %.tr.us, %24 ], [ %.tr, %68 ]
@@ -10902,7 +10902,7 @@ common.ret354:                                    ; preds = %40, %tailrecurse.us
   %98 = getelementptr inbounds nuw i8, ptr %.us-phi97, i64 40
   %99 = load ptr, ptr %98, align 8, !tbaa !20
   %.not63 = icmp eq ptr %99, null
-  br i1 %.not63, label %common.ret354, label %tailrecurse.outer.backedge
+  br i1 %.not63, label %common.ret351, label %tailrecurse.outer.backedge
 
 100:                                              ; preds = %tailrecurse
   %101 = getelementptr inbounds nuw i8, ptr %.tr, i64 4

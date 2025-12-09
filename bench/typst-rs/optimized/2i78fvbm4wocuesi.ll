@@ -64481,8 +64481,8 @@ _ZN4core3str11validations23next_code_point_reverse17h959ef17ebe8ebef2E.exit.thre
   %.promoted65.i.fr = freeze i64 %.promoted65.i
   br label %108
 
-108:                                              ; preds = %134, %.lr.ph.i
-  %109 = phi i64 [ %.promoted65.i.fr, %.lr.ph.i ], [ %.fr58, %134 ]
+108:                                              ; preds = %133, %.lr.ph.i
+  %109 = phi i64 [ %.promoted65.i.fr, %.lr.ph.i ], [ %134, %134 ]
   %110 = phi i64 [ %99, %.lr.ph.i ], [ %136, %134 ]
   %111 = phi i64 [ %10, %.lr.ph.i ], [ %135, %134 ]
   %.not.i = icmp eq i64 %10, %111
@@ -64500,7 +64500,7 @@ _ZN4core3str11validations23next_code_point_reverse17h959ef17ebe8ebef2E.exit.thre
 
 120:                                              ; preds = %112
   store i64 %110, ptr %9, align 8, !alias.scope !13135, !noalias !13142
-  br i1 %90, label %134, label %.sink.split.i
+  br i1 %90, label %133, label %.sink.split.i
 
 121:                                              ; preds = %112
   %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %109)
@@ -64531,7 +64531,7 @@ _ZN4core3str11validations23next_code_point_reverse17h959ef17ebe8ebef2E.exit.thre
 .split47.us:                                      ; preds = %127
   %132 = add i64 %.neg.i, %124
   store i64 %132, ptr %9, align 8, !alias.scope !13135, !noalias !13142
-  br i1 %90, label %134, label %.sink.split.i
+  br i1 %90, label %133, label %.sink.split.i
 
 .split:                                           ; preds = %121
   %.not36.i = icmp eq i64 %.014.i, 0
@@ -64544,8 +64544,8 @@ _ZN4core3str11validations23next_code_point_reverse17h959ef17ebe8ebef2E.exit.thre
   store i64 %133, ptr %104, align 8, !alias.scope !13135, !noalias !13142
   br label %134
 
-134:                                              ; preds = %.split47.us, %156, %.sink.split.i, %120
-  %.fr58 = phi i64 [ %109, %.split47.us ], [ %109, %156 ], [ %109, %120 ], [ %133, %.sink.split.i ]
+133:                                              ; preds = %.split47.us, %156, %.sink.split.i, %120
+  %134 = phi i64 [ %109, %.split47.us ], [ %109, %156 ], [ %109, %120 ], [ %133, %.sink.split.i ]
   %135 = phi i64 [ %132, %.split47.us ], [ %107, %156 ], [ %110, %120 ], [ %.ph119.i, %.sink.split.i ]
   %136 = sub i64 %135, %98
   %.not35.i = icmp ult i64 %136, %94
@@ -64603,7 +64603,7 @@ _ZN4core3str11validations23next_code_point_reverse17h959ef17ebe8ebef2E.exit.thre
 
 156:                                              ; preds = %149
   store i64 %107, ptr %9, align 8, !alias.scope !13135, !noalias !13142
-  br i1 %90, label %134, label %.sink.split.i
+  br i1 %90, label %133, label %.sink.split.i
 
 .split45.us:                                      ; preds = %123
   tail call void @_ZN4core9panicking18panic_bounds_check17he5254f424ac3a4c4E(i64 noundef %125, i64 noundef %94, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.43c633cc9d0c07b847282a0596e0d119.172) #82, !noalias !13146
@@ -64646,7 +64646,7 @@ _ZN4core3str7pattern14TwoWaySearcher9next_back17h67879a9f72dfeb2bE.exit: ; preds
   %166 = tail call i64 @llvm.umin.i64(i64 %.012.lcssa.ph, i64 %111)
   br label %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread"
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread": ; preds = %134, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit", %87, %.loopexit
+"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread": ; preds = %133, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit", %87, %.loopexit
   %.0.sroa.speculated.i = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %166, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit" ], [ 0, %134 ]
   %.012.lcssa = phi i64 [ 0, %.loopexit ], [ 0, %87 ], [ %.012.lcssa.ph, %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17hec6e3494bc021c8aE.exit.thread.loopexit" ], [ 0, %134 ]
   store i64 %.0.sroa.speculated.i, ptr %9, align 8
@@ -81718,10 +81718,10 @@ default.unreachable:                              ; preds = %1053
   %1140 = icmp eq i64 %1139, %1134
   %1141 = add nuw i64 %.sroa.17.0.ph241.i, 1
   %1142 = icmp eq i64 %1141, %.us-phi218.fr.i
-  %brmerge.not331.i = and i1 %1142, %1140
-  %brmerge328.i = or i1 %1074, %brmerge.not331.i
-  %.sroa.12.0.ph243.mux.i = select i1 %brmerge.not331.i, i64 %.sroa.12.0.ph243.i, i64 %.us-phi218.fr.i
-  br i1 %brmerge328.i, label %"_ZN9hayagriva3csl14collapse_items28_$u7b$$u7b$closure$u7d$$u7d$17h7ab016cfc2ac491fE.exit160.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c10a1eb2e22111bE.exit.preheader.i155.i"
+  %brmerge.not329.i = and i1 %1142, %1140
+  %brmerge326.i = or i1 %1074, %brmerge.not329.i
+  %.sroa.12.0.ph243.mux.i = select i1 %brmerge.not329.i, i64 %.sroa.12.0.ph243.i, i64 %.us-phi218.fr.i
+  br i1 %brmerge326.i, label %"_ZN9hayagriva3csl14collapse_items28_$u7b$$u7b$closure$u7d$$u7d$17h7ab016cfc2ac491fE.exit160.i", label %"_ZN94_$LT$core..slice..iter..IterMut$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h5c10a1eb2e22111bE.exit.preheader.i155.i"
 
 .invoke3549:                                      ; preds = %1115, %1135, %1101
   %1143 = phi i64 [ %.sroa.17.0.ph241.i, %1101 ], [ %.sroa.17.0.ph241.i, %1135 ], [ %.us-phi218.fr.i, %1115 ]
