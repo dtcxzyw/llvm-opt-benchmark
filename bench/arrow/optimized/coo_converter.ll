@@ -3374,7 +3374,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
   %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %8 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3583,7 +3583,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
   %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %8 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3633,15 +3633,15 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr47 = freeze ptr %29
-  %.fr46 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr46 to i64
-  %31 = ptrtoint ptr %.fr47 to i64
+  %.fr49 = freeze ptr %29
+  %.fr48 = freeze ptr %28
+  %30 = ptrtoint ptr %.fr48 to i64
+  %31 = ptrtoint ptr %.fr49 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.fr49, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -3695,7 +3695,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %.fr49, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -3819,7 +3819,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
   %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %8 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3869,15 +3869,15 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc29, %_ZNSt6ve
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr48 = freeze ptr %29
-  %.fr47 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr47 to i64
-  %31 = ptrtoint ptr %.fr48 to i64
+  %.fr50 = freeze ptr %29
+  %.fr49 = freeze ptr %28
+  %30 = ptrtoint ptr %.fr49 to i64
+  %31 = ptrtoint ptr %.fr50 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -3931,7 +3931,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -4055,7 +4055,7 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
   %8 = ptrtoint ptr %6 to i64
-  %9 = ptrtoint ptr %7 to i64
+  %8 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -4105,15 +4105,15 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc29, %_ZNSt6ve
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr48 = freeze ptr %29
-  %.fr47 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr47 to i64
-  %31 = ptrtoint ptr %.fr48 to i64
+  %.fr50 = freeze ptr %29
+  %.fr49 = freeze ptr %28
+  %30 = ptrtoint ptr %.fr49 to i64
+  %31 = ptrtoint ptr %.fr50 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -4167,7 +4167,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us

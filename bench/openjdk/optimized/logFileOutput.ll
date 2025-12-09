@@ -200,8 +200,8 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
   br label %.lr.ph.lr.ph.us
 
 .lr.ph.lr.ph.us:                                  ; preds = %.lr.ph.lr.ph.us.preheader, %.outer78.us
-  %.0.ph82172.us = phi i64 [ %42, %.outer78.us ], [ %.0.ph194, %.lr.ph.lr.ph.us.preheader ]
-  %.059.ph81171.us = phi i64 [ %43, %.outer78.us ], [ %.059.ph193, %.lr.ph.lr.ph.us.preheader ]
+  %.0.ph82172.us = phi i64 [ %43, %.outer78.us ], [ %.0.ph194, %.lr.ph.lr.ph.us.preheader ]
+  %.059.ph81171.us = phi i64 [ %44, %.outer78.us ], [ %.059.ph193, %.lr.ph.lr.ph.us.preheader ]
   %.062.ph80170.us = phi ptr [ %.us-phi103.us, %.outer78.us ], [ %.062.ph192, %.lr.ph.lr.ph.us.preheader ]
   %.063.ph79169.us = phi i1 [ true, %.outer78.us ], [ %38, %.lr.ph.lr.ph.us.preheader ]
   br i1 %.063.ph79169.us, label %.lr.ph.us.us.us, label %.lr.ph.us.us174
@@ -210,36 +210,36 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
   %.us-phi103.us = phi ptr [ %.062.ph84142.us.us177, %.tail70.us129.us.us ], [ %.us-phi166.us, %.tail70.us.us ]
   %.us-phi104.us = phi i64 [ %.05996.us126.us147.us, %.tail70.us129.us.us ], [ %.05996.us.us, %.tail70.us.us ]
   %.us-phi105.us = phi i64 [ %.097.us125.us146.us, %.tail70.us129.us.us ], [ %.097.us.us, %.tail70.us.us ]
-  %39 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105.us
-  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %3) #13
-  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %42 = add i64 %41, %.us-phi105.us
-  %43 = add i64 %.us-phi104.us, 2
-  %44 = icmp ult i64 %42, %.2
-  br i1 %44, label %.lr.ph.lr.ph.us, label %.outer83._crit_edge, !llvm.loop !6
+  %40 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105.us
+  %41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %3) #13
+  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %43 = add i64 %42, %.us-phi105.us
+  %44 = add i64 %.us-phi104.us, 2
+  %45 = icmp ult i64 %43, %.2
+  br i1 %45, label %.lr.ph.lr.ph.us, label %.outer83._crit_edge, !llvm.loop !6
 
-45:                                               ; preds = %.lr.ph.split.us.split.us.us, %52
-  %.097.us.us = phi i64 [ %.us-phi168.us, %.lr.ph.split.us.split.us.us ], [ %54, %52 ]
-  %.05996.us.us = phi i64 [ %.us-phi167.us, %.lr.ph.split.us.split.us.us ], [ %53, %52 ]
+.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.split.us.split.us.us, %52
+  %.097.us.us = phi i64 [ %.062.ph84142.us.us.us, %.lr.ph.split.us.split.us.us ], [ %54, %52 ]
+  %.05996.us.us = phi i64 [ %.05996.us.us.ph, %.lr.ph.split.us.split.us.us ], [ %53, %52 ]
   %46 = getelementptr inbounds i8, ptr %1, i64 %.05996.us.us
   %47 = load i8, ptr %46, align 1
   %48 = icmp ne i8 %47, 37
   %brmerge = or i1 %48, %.063.ph79169.us
   br i1 %brmerge, label %52, label %.tail70.us.us
 
-.tail70.us.us:                                    ; preds = %45
+.tail70.us.us:                                    ; preds = %.lr.ph.split.us.split.us.us
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 116
   br i1 %51, label %.outer78.us, label %52
 
-52:                                               ; preds = %45, %.tail70.us.us
+52:                                               ; preds = %.lr.ph.split.us.split.us.us, %.tail70.us.us
   %53 = add i64 %.05996.us.us, 1
   %54 = add nuw i64 %.097.us.us, 1
   %55 = getelementptr inbounds i8, ptr %36, i64 %.097.us.us
   store i8 %47, ptr %55, align 1
   %56 = icmp ult i64 %54, %.2
-  br i1 %56, label %45, label %.outer83._crit_edge, !llvm.loop !6
+  br i1 %56, label %.lr.ph.split.us.split.us.us, label %.outer83._crit_edge, !llvm.loop !6
 
 .lr.ph.us.us174:                                  ; preds = %.lr.ph.lr.ph.us, %.split137.us.split.us152.us
   %.0.ph86144.us.us175 = phi i64 [ %75, %.split137.us.split.us152.us ], [ %.0.ph82172.us, %.lr.ph.lr.ph.us ]
@@ -292,15 +292,15 @@ sub_176.us.us149.us:                              ; preds = %.tail70.us129.us.us
   %77 = icmp ult i64 %75, %.2
   br i1 %77, label %.lr.ph.us.us174, label %.outer83._crit_edge, !llvm.loop !6
 
-.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.us.us174, %.lr.ph.us.us.us
-  %.us-phi166.us = phi ptr [ %.062.ph84142.us.us.us, %.lr.ph.us.us.us ], [ %.062.ph84142.us.us177, %.lr.ph.us.us174 ]
-  %.us-phi167.us = phi i64 [ %.059.ph85143.us.us.us, %.lr.ph.us.us.us ], [ %.059.ph85143.us.us176, %.lr.ph.us.us174 ]
-  %.us-phi168.us = phi i64 [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
-  br label %45
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us174, %.lr.ph.split.us.split.us.us.preheader
+  %.0.ph86144.us.us.us = phi ptr [ %.062.ph84142.us.us.us, %.lr.ph.us.us.us ], [ %.062.ph84142.us.us177, %.lr.ph.us.us174 ]
+  %.059.ph85143.us.us.us = phi i64 [ %.059.ph85143.us.us.us, %.lr.ph.us.us.us ], [ %.059.ph85143.us.us176, %.lr.ph.us.us174 ]
+  %.062.ph84142.us.us.us = phi i64 [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
+  br label %.lr.ph.split.us.split.us.us
 
-.lr.ph.us.us.us:                                  ; preds = %.lr.ph.lr.ph.us, %.split137.us.split.us.us.us.us
-  %.0.ph86144.us.us.us = phi i64 [ %93, %.split137.us.split.us.us.us.us ], [ %.0.ph82172.us, %.lr.ph.lr.ph.us ]
-  %.059.ph85143.us.us.us = phi i64 [ %94, %.split137.us.split.us.us.us.us ], [ %.059.ph81171.us, %.lr.ph.lr.ph.us ]
+.lr.ph.split.us.split.us.us.preheader:            ; preds = %.lr.ph.lr.ph.us, %.split137.us.split.us.us.us.us
+  %.097.us.us.ph = phi i64 [ %93, %.split137.us.split.us.us.us.us ], [ %.0.ph82172.us, %.lr.ph.lr.ph.us ]
+  %.05996.us.us.ph = phi i64 [ %94, %.split137.us.split.us.us.us.us ], [ %.059.ph81171.us, %.lr.ph.lr.ph.us ]
   %.062.ph84142.us.us.us = phi ptr [ null, %.split137.us.split.us.us.us.us ], [ %.062.ph80170.us, %.lr.ph.lr.ph.us ]
   %.not69.us.us.us = icmp eq ptr %.062.ph84142.us.us.us, null
   %.not69.fr.us.us.us = freeze i1 %.not69.us.us.us

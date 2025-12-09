@@ -12804,7 +12804,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   %29 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %30 = load i64, ptr %29, align 8
   tail call void (i64, ptr, ...) @sema_error_at(i64 %30, ptr noundef nonnull @.str.99) #12
-  br label %82
+  br label %81
 
 31:                                               ; preds = %24, %7
   %32 = and i8 %.pre, 8
@@ -12820,7 +12820,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 
 37:                                               ; preds = %33, %31
   %38 = call fastcc zeroext i1 @sema_call_analyse_invocation(ptr noundef nonnull %0, ptr noundef %2, ptr noundef nonnull byval(%struct.CalledDecl) align 8 %9, ptr noundef %8, ptr noundef %6)
-  br i1 %38, label %39, label %82
+  br i1 %38, label %39, label %81
 
 39:                                               ; preds = %37
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 72
@@ -12838,7 +12838,7 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
   store i16 %51, ptr %45, align 8
   %52 = load ptr, ptr @type_void, align 8
   %.not45 = icmp eq ptr %43, %52
-  br i1 %.not45, label %74, label %53
+  br i1 %.not45, label %73, label %53
 
 53:                                               ; preds = %39
   %.not46 = icmp eq ptr %43, null
@@ -12865,41 +12865,41 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 
 .thread:                                          ; preds = %61, %53
   %.03750 = phi i1 [ true, %53 ], [ %63, %61 ]
-  %64 = phi i16 [ 0, %53 ], [ %spec.select, %61 ]
-  %65 = and i16 %51, -4097
-  %66 = or disjoint i16 %64, %65
-  store i16 %66, ptr %45, align 8
-  %67 = load i8, ptr %12, align 8
-  %68 = trunc i8 %67 to i1
-  %69 = and i8 %67, 2
-  %.not47 = icmp eq i8 %69, 0
-  %70 = select i1 %.not47, i16 2048, i16 0
-  %spec.select53 = select i1 %.03750, i16 0, i16 %70
-  %71 = select i1 %68, i16 2048, i16 %spec.select53
-  %72 = and i16 %66, -2049
-  %73 = or disjoint i16 %71, %72
-  store i16 %73, ptr %45, align 8
-  br label %74
+  %63 = phi i16 [ 0, %53 ], [ %spec.select, %61 ]
+  %64 = and i16 %51, -4097
+  %65 = or disjoint i16 %63, %64
+  store i16 %65, ptr %45, align 8
+  %66 = load i8, ptr %12, align 8
+  %67 = trunc i8 %66 to i1
+  %68 = and i8 %66, 2
+  %.not47 = icmp eq i8 %68, 0
+  %69 = select i1 %.not47, i16 2048, i16 0
+  %spec.select53 = select i1 %.03750, i16 0, i16 %69
+  %70 = select i1 %67, i16 2048, i16 %spec.select53
+  %71 = and i16 %65, -2049
+  %72 = or disjoint i16 %70, %71
+  store i16 %72, ptr %45, align 8
+  br label %73
 
-74:                                               ; preds = %.thread, %39
-  %75 = trunc i8 %44 to i1
-  br i1 %75, label %76, label %81
+73:                                               ; preds = %.thread, %39
+  %74 = trunc i8 %44 to i1
+  br i1 %74, label %75, label %80
 
-76:                                               ; preds = %74
-  %77 = load i32, ptr %43, align 8
-  %78 = icmp eq i32 %77, 40
-  br i1 %78, label %81, label %79
+75:                                               ; preds = %73
+  %76 = load i32, ptr %43, align 8
+  %77 = icmp eq i32 %76, 40
+  br i1 %77, label %80, label %78
 
-79:                                               ; preds = %76
-  %80 = tail call ptr @type_get_optional(ptr noundef nonnull %43) #12
+78:                                               ; preds = %75
+  %79 = tail call ptr @type_get_optional(ptr noundef nonnull %43) #12
+  br label %80
+
+80:                                               ; preds = %73, %75, %78
+  %.0 = phi ptr [ %79, %79 ], [ %43, %76 ], [ %43, %74 ]
+  store ptr %.0, ptr %2, align 8
   br label %81
 
-81:                                               ; preds = %74, %76, %79
-  %.0 = phi ptr [ %80, %79 ], [ %43, %76 ], [ %43, %74 ]
-  store ptr %.0, ptr %2, align 8
-  br label %82
-
-82:                                               ; preds = %37, %81, %28
+81:                                               ; preds = %37, %80, %28
   %.039 = phi i1 [ true, %81 ], [ false, %28 ], [ false, %37 ]
   ret i1 %.039
 }

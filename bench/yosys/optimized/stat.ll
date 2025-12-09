@@ -17751,7 +17751,7 @@ _ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit: ; preds 
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not = icmp ne i32 %209, 0
+  %.not31.not = icmp ne i32 %209, 0
   %.not31.not = icmp ugt i32 %209, %65
   %or.cond = select i1 %.not, i1 %.not31.not, i1 false
   br i1 %or.cond, label %237, label %.thread

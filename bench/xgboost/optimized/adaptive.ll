@@ -11081,8 +11081,8 @@ _ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__g
   %141 = phi ptr [ %155, %_ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit.backedge ], [ %130, %.lr.ph301 ]
   %142 = phi i64 [ %154, %_ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit.backedge ], [ %129, %.lr.ph301 ]
   %143 = phi ptr [ %153, %_ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit.backedge ], [ %128, %.lr.ph301 ]
-  %.not591 = icmp eq ptr %141, %19
-  br i1 %.not591, label %_ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit49, label %144
+  %.not592 = icmp eq ptr %141, %19
+  br i1 %.not592, label %_ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit49, label %144
 
 144:                                              ; preds = %.lr.ph301.split
   %145 = load i64, ptr %141, align 8, !tbaa !21
@@ -11139,7 +11139,7 @@ _ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__g
   %179 = load i32, ptr %176, align 4, !tbaa !17
   %180 = load i32, ptr %178, align 4, !tbaa !17
   %181 = icmp slt i32 %179, %180
-  br i1 %181, label %.backedge, label %.thread483
+  br i1 %181, label %.backedge, label %.thread484
 
 _ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit54: ; preds = %168
   %not..i51 = xor i1 %172, true
@@ -11163,14 +11163,14 @@ _ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__g
   %188 = icmp eq ptr %.sroa.0.3.ph, %19
   br i1 %188, label %190, label %_ZN14__gnu_parallelleERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit56.preheader
 
-.thread483:                                       ; preds = %173
+.thread484:                                       ; preds = %173
   %189 = icmp eq ptr %.sroa.0.3.ph, %19
   br i1 %189, label %190, label %191
 
-190:                                              ; preds = %.thread483, %187
+190:                                              ; preds = %.thread484, %187
   br i1 %172, label %_ZN14__gnu_parallelleERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit56.preheader, label %.preheader236
 
-191:                                              ; preds = %.thread483
+191:                                              ; preds = %.thread484
   %192 = load i64, ptr %.sroa.0.3.ph, align 8, !tbaa !21
   %193 = load ptr, ptr %5, align 8, !tbaa !373
   %194 = getelementptr inbounds i32, ptr %193, i64 %192
@@ -11335,8 +11335,8 @@ _ZN14__gnu_parallelltERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__g
   %267 = phi ptr [ %282, %_ZN14__gnu_parallelleERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit60.backedge ], [ %256, %.lr.ph ]
   %268 = phi i64 [ %281, %_ZN14__gnu_parallelleERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit60.backedge ], [ %255, %.lr.ph ]
   %269 = phi ptr [ %280, %_ZN14__gnu_parallelleERKNS_16_GuardedIteratorIPmZN7xgboost6common7ArgSortImN9__gnu_cxx17__normal_iteratorIPKiSt6vectorIiSaIiEEEEiSt4lessIiEEES9_IT_SaISF_EEPKNS2_7ContextET0_SL_T2_EUlRKmSO_E_EESS_.exit60.backedge ], [ %254, %.lr.ph ]
-  %.not590.not = icmp eq ptr %267, %19
-  br i1 %.not590.not, label %.split.thread, label %271
+  %.not591.not = icmp eq ptr %267, %19
+  br i1 %.not591.not, label %.split.thread, label %271
 
 .split.thread:                                    ; preds = %.lr.ph.split
   %270 = icmp eq ptr %.sroa.0133.5.ph, %11

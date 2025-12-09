@@ -509,7 +509,7 @@ select.unfold99:                                  ; preds = %32
   %46 = load ptr, ptr %45, align 8, !tbaa !53
   %47 = tail call { double, double } %46(double %41, double %44, ptr noundef %38)
   %48 = extractvalue { double, double } %47, 0
-  %49 = extractvalue { double, double } %47, 1
+  %48 = extractvalue { double, double } %47, 1
   %50 = load ptr, ptr %37, align 8, !tbaa !42
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 440
   %52 = load double, ptr %51, align 8, !tbaa !46
@@ -646,14 +646,14 @@ default.unreachable130:                           ; preds = %34
   %cond.fr100 = freeze i1 %not..0
   br i1 %cond.fr100, label %.thread121, label %120
 
-120:                                              ; preds = %.critedge
+119:                                              ; preds = %.critedge
   br label %.thread121
 
 .thread121:                                       ; preds = %120, %.critedge, %3, %57, %71, %109, %54, %68, %106
-  %121 = phi double [ %53, %120 ], [ %53, %106 ], [ %53, %68 ], [ %53, %54 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %71 ], [ 0x7FF0000000000000, %109 ]
-  %122 = phi double [ %49, %120 ], [ %49, %106 ], [ %49, %68 ], [ %49, %54 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %71 ], [ 0x7FF0000000000000, %109 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %121, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %122, 1
+  %120 = phi double [ %53, %120 ], [ %53, %106 ], [ %53, %68 ], [ %53, %54 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %71 ], [ 0x7FF0000000000000, %109 ]
+  %121 = phi double [ %49, %120 ], [ %49, %106 ], [ %49, %68 ], [ %49, %54 ], [ 0x7FF0000000000000, %.critedge ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %57 ], [ 0x7FF0000000000000, %71 ], [ 0x7FF0000000000000, %109 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %120, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %121, 1
   ret { double, double } %.fca.1.insert
 }
 

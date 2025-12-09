@@ -801,13 +801,13 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %61 = load volatile i32, ptr @rename_lock, align 4
   %.not = icmp eq i32 %61, %16
-  br i1 %.not, label %.critedge, label %3
+  br i1 %.not, label %.critedge.loopexit, label %3
 
 .critedge8:                                       ; preds = %.thread2
   tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #9
   br label %.critedge
 
-.critedge:                                        ; preds = %60, %.critedge8
+.critedge.loopexit:                               ; preds = %60, %.critedge8
   %62 = icmp eq i32 %57, %.8.val
   br i1 %62, label %63, label %66
 

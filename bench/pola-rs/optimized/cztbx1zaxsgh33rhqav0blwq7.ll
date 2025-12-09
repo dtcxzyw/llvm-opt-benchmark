@@ -29231,9 +29231,9 @@ _ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread: ; 
 
 _ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit: ; preds = %203, %211
   %.sroa.0.0127278.sink = phi i64 [ %221, %211 ], [ %.sroa.0.0127278, %203 ]
-  %.sink497 = phi i16 [ 4, %211 ], [ -2, %203 ]
+  %.sink498 = phi i16 [ 4, %211 ], [ -2, %203 ]
   %231 = trunc nuw nsw i64 %.sroa.0.0127278.sink to i16
-  %232 = add nsw i16 %.sink497, %231
+  %232 = add nsw i16 %.sink498, %231
   %233 = and i16 %232, 7
   %234 = or disjoint i16 %233, %138
   %235 = icmp ult i16 %232, 16
@@ -29255,9 +29255,9 @@ _ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit: ; preds =
 
 242:                                              ; preds = %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit
   %243 = phi i64 [ %230, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %240, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
-  %.sroa.0.0.i97428430 = phi i16 [ %.sroa.0.0.i97.ph, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %232, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
+  %.sroa.0.0.i97429431 = phi i16 [ %.sroa.0.0.i97.ph, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %232, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
   %244 = phi i16 [ %229, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %234, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
-  %245 = lshr i16 %.sroa.0.0.i97428430, 3
+  %245 = lshr i16 %.sroa.0.0.i97429431, 3
   %narrow4.i = add nuw nsw i16 %245, %narrow.i
   %246 = zext nneg i16 %narrow4.i to i32
   %247 = shl nuw nsw i32 %246, 6
@@ -29450,19 +29450,19 @@ _ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread: ; p
 
 _ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99: ; preds = %322, %328
   %.sroa.035.0.sink = phi i64 [ %338, %328 ], [ %.sroa.035.0, %322 ]
-  %.sink498 = phi i16 [ 4, %328 ], [ -2, %322 ]
+  %.sink499 = phi i16 [ 4, %328 ], [ -2, %322 ]
   %346 = trunc nuw nsw i64 %.sroa.035.0.sink to i16
-  %347 = add nsw i16 %.sink498, %346
+  %347 = add nsw i16 %.sink499, %346
   %348 = zext i16 %347 to i64
   %349 = icmp ult i16 %347, 24
   br i1 %349, label %350, label %367
 
 350:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99
   %351 = phi i64 [ %345, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread ], [ %348, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99 ]
-  %.sroa.0.0.i98432 = phi i16 [ %.sroa.0.0.i98.ph, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread ], [ %347, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99 ]
-  %352 = and i16 %.sroa.0.0.i98432, 7
+  %.sroa.0.0.i98433 = phi i16 [ %.sroa.0.0.i98.ph, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread ], [ %347, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99 ]
+  %352 = and i16 %.sroa.0.0.i98433, 7
   %353 = or disjoint i16 %352, %154
-  %354 = lshr i16 %.sroa.0.0.i98432, 3
+  %354 = lshr i16 %.sroa.0.0.i98433, 3
   %narrow4.i105 = add nuw nsw i16 %354, %narrow.i104
   %355 = zext nneg i16 %narrow4.i105 to i32
   %356 = shl nuw nsw i32 %355, 6

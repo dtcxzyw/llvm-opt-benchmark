@@ -2107,7 +2107,7 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %15 = getelementptr i8, ptr %1, i64 10
   %.val2.i = load i16, ptr %15, align 2
   %16 = zext i16 %.val2.i to i32
-  %17 = zext i16 %.val.i to i32
+  %16 = zext i16 %.val.i to i32
   %18 = icmp ugt i16 %.val2.i, %.val.i
   %19 = sub nsw i32 %16, %17
   %20 = select i1 %18, i32 0, i32 %6
@@ -2147,12 +2147,12 @@ define hidden range(i32 0, 3) i32 @repeatHasMatchRing(ptr noundef readonly captu
   %37 = zext nneg i32 %36 to i64
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 %37
   %39 = load i8, ptr %38, align 1
-  %.fr94 = freeze i8 %39
-  %40 = zext i8 %.fr94 to i32
+  %.fr98 = freeze i8 %39
+  %40 = zext i8 %.fr98 to i32
   %41 = and i32 %spec.select.i, 7
   %42 = shl nuw nsw i32 1, %41
-  %.fr93 = freeze i32 %42
-  %43 = and i32 %.fr93, %40
+  %.fr97 = freeze i32 %42
+  %43 = and i32 %.fr97, %40
   %44 = icmp eq i32 %43, 0
   br i1 %44, label %ringHasMatch.exit.thread, label %ringHasMatch.exit.thread48
 
@@ -2715,8 +2715,8 @@ get_lowhi_masks.exit.i:                           ; preds = %383, %325
 368:                                              ; preds = %get_lowhi_masks.exit.i
   %369 = shl i64 %.048.i68.i, 6
   %370 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %367, i1 true)
-  %.fr = freeze i64 %370
-  %371 = or i64 %.fr, %369
+  %.fr96 = freeze i64 %370
+  %371 = or i64 %.fr96, %369
   %372 = icmp eq i32 %.056.i66.i, %334
   br i1 %372, label %.thread56.i, label %374
 

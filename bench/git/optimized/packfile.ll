@@ -1352,8 +1352,8 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
 24:                                               ; preds = %get_max_fd_limit.exit.i, %16
   %25 = phi i32 [ %storemerge.i, %get_max_fd_limit.exit.i ], [ %17, %16 ]
   %26 = load i32, ptr @pack_open_fds, align 4, !tbaa !36
-  %.not4678.i = icmp ugt i32 %25, %26
-  br i1 %.not4678.i, label %.critedge.i, label %.lr.ph.i
+  %.not4677.i = icmp ugt i32 %25, %26
+  br i1 %.not4677.i, label %.critedge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %24, %close_one_pack.exit.i
   %27 = load ptr, ptr %6, align 8, !tbaa !45
@@ -1392,8 +1392,8 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   %40 = getelementptr inbounds nuw i8, ptr %.01039.i.i, i64 136
   %41 = load i64, ptr %40, align 8, !tbaa !37
   %42 = icmp sgt i64 %39, %41
-  %spec.select80.i.i = select i1 %42, ptr %.01039.i.i, ptr %.042.i.i
-  %spec.select81.i.i = select i1 %42, i32 %.0641.i.i, i32 0
+  %spec.select76.i.i = select i1 %42, ptr %.01039.i.i, ptr %.042.i.i
+  %spec.select77.i.i = select i1 %42, i32 %.0641.i.i, i32 0
   br label %find_lru_pack.exit.i.i
 
 43:                                               ; preds = %33
@@ -1506,9 +1506,9 @@ get_max_fd_limit.exit.i:                          ; preds = %21, %18
   br i1 %.not30.i.i.i, label %find_lru_pack.exit.i.i, label %.lr.ph.i.i.i, !llvm.loop !90
 
 find_lru_pack.exit.i.i:                           ; preds = %.lr.ph.i.us.i.i, %47, %.lr.ph.i.us.us.i.i, %89, %84, %74, %64, %.lr.ph.i.us16.us.i.i, %43, %37, %36, %.lr.ph.i.i
-  %.212.i.i = phi ptr [ %.01039.i.i, %.lr.ph.i.i ], [ %.01039.i.i, %36 ], [ %.042.i.i, %43 ], [ %spec.select80.i.i, %37 ], [ %.01039.i.i, %.lr.ph.i.us16.us.i.i ], [ %.01039.i.i, %64 ], [ %.042.i.i, %74 ], [ %.042.i.i, %89 ], [ %.01039.i.i, %84 ], [ %.01039.i.i, %.lr.ph.i.us.us.i.i ], [ %.042.i.i, %47 ], [ %.042.i.i, %.lr.ph.i.us.i.i ]
+  %.212.i.i = phi ptr [ %.01039.i.i, %.lr.ph.i.i ], [ %.01039.i.i, %36 ], [ %.042.i.i, %43 ], [ %spec.select76.i.i, %37 ], [ %.01039.i.i, %.lr.ph.i.us16.us.i.i ], [ %.01039.i.i, %64 ], [ %.042.i.i, %74 ], [ %.042.i.i, %89 ], [ %.01039.i.i, %84 ], [ %.01039.i.i, %.lr.ph.i.us.us.i.i ], [ %.042.i.i, %47 ], [ %.042.i.i, %.lr.ph.i.us.i.i ]
   %.29.i.i = phi ptr [ %.0740.i.i, %.lr.ph.i.i ], [ null, %36 ], [ null, %43 ], [ null, %37 ], [ %.0740.i.i, %.lr.ph.i.us16.us.i.i ], [ %.0740.i.i, %64 ], [ %spec.select.i.us22.us.i.i, %74 ], [ %spec.select.i.i.i, %89 ], [ %.0740.i.i, %84 ], [ %.0740.i.i, %.lr.ph.i.us.us.i.i ], [ %spec.select.i.us.us.i.i, %47 ], [ %spec.select.i.us.i.i, %.lr.ph.i.us.i.i ]
-  %.2.i.i = phi i32 [ %.0641.i.i, %.lr.ph.i.i ], [ %.0641.i.i, %36 ], [ 0, %43 ], [ %spec.select81.i.i, %37 ], [ 0, %.lr.ph.i.us16.us.i.i ], [ %.0641.i.i, %64 ], [ 0, %74 ], [ %spec.select49.i.i, %89 ], [ %.0641.i.i, %84 ], [ 0, %.lr.ph.i.us.us.i.i ], [ 0, %47 ], [ %spec.select.i.i, %.lr.ph.i.us.i.i ]
+  %.2.i.i = phi i32 [ %.0641.i.i, %.lr.ph.i.i ], [ %.0641.i.i, %36 ], [ 0, %43 ], [ %spec.select77.i.i, %37 ], [ 0, %.lr.ph.i.us16.us.i.i ], [ %.0641.i.i, %64 ], [ 0, %74 ], [ %spec.select49.i.i, %89 ], [ %.0641.i.i, %84 ], [ 0, %.lr.ph.i.us.us.i.i ], [ 0, %47 ], [ %spec.select.i.i, %.lr.ph.i.us.i.i ]
   %91 = getelementptr inbounds nuw i8, ptr %.042.i.i, i64 16
   %.0.i.i = load ptr, ptr %91, align 8, !tbaa !63
   %.not.i.i = icmp eq ptr %.0.i.i, null

@@ -18649,7 +18649,7 @@ _ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i909:         ; preds = %_ZNK6vectorIjLb0EjE
 .noexc331:                                        ; preds = %_ZNK6vectorIjLb0EjE4sizeEv.exit.i20.i909
   %1521 = icmp ult i32 %.05.lcssa.i.i889, %1520
   %cond.fr1549 = freeze i1 %1521
-  %spec.select = select i1 %cond.fr1549, i64 %1442, i64 %1445
+  %spec.select1598 = select i1 %cond.fr1549, i64 %1442, i64 %1445
   %spec.select1598 = select i1 %cond.fr1549, i32 %1439, i32 %1438
   br label %.thread1553
 

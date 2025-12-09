@@ -41741,7 +41741,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN9
 25:                                               ; preds = %24
   %26 = load i32, ptr %8, align 8
   %.not42.i = icmp eq i32 %26, 0
-  br i1 %.not42.i, label %27, label %.thread, !prof !573
+  br i1 %.not42.i, label %27, label %45, !prof !573
 
 27:                                               ; preds = %25
   %.sroa.0.0.copyload.i.i36.i = load ptr, ptr %1, align 8
@@ -41770,17 +41770,17 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN9
 .sink.split.i:                                    ; preds = %31, %21
   %.sroa.0.0.i.i37.lcssa.sink.i = phi ptr [ %.sroa.0.0.i.i.i, %21 ], [ %.sroa.0.0.i.i37.i, %31 ]
   %.sink47.i = phi i32 [ 1, %21 ], [ 2, %31 ]
-  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = ptrtoint ptr %.sroa.0.0.i.i37.lcssa.sink.i to i64
-  %36 = ptrtoint ptr %34 to i64
-  %37 = sub i64 %35, %36
+  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %41 = load ptr, ptr %40, align 8
+  %42 = ptrtoint ptr %.sroa.0.0.i.i37.lcssa.sink.i to i64
+  %43 = ptrtoint ptr %41 to i64
+  %44 = sub i64 %42, %43
   store i32 %.sink47.i, ptr %8, align 8
-  store i64 %37, ptr %9, align 8
-  br label %.thread
+  store i64 %44, ptr %9, align 8
+  br label %45
 
-.thread:                                          ; preds = %25, %.sink.split.i
-  %.sroa.0.0.i.ph = phi i32 [ %.sink47.i, %.sink.split.i ], [ %26, %25 ]
+45:                                               ; preds = %25, %.sink.split.i
+  %.sroa.0.0.i = phi i32 [ %.sink47.i, %.sink.split.i ], [ %26, %25 ]
   %.sroa.725.0.i11 = load i64, ptr %9, align 8
   %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %39 = load ptr, ptr %38, align 8
@@ -41794,12 +41794,12 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN9
 
 42:                                               ; preds = %31
   %.sroa.725.0.i = load i64, ptr %9, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %44, ptr %45, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %46, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %47, ptr %48, align 8
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 0, ptr %49, align 8
   %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %.sroa.725.0.i, ptr %.sroa.51.0..sroa_idx, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -41818,8 +41818,8 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN9
   store i16 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx4.i, align 2
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit: ; preds = %.thread, %50, %42
-  %51 = phi ptr [ %38, %.thread ], [ %43, %50 ], [ %43, %42 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit: ; preds = %45, %50, %42
+  %51 = phi ptr [ %38, %.thread ], [ %46, %50 ], [ %43, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56

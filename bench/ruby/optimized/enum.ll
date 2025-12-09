@@ -3665,7 +3665,7 @@ rb_array_len.exit:                                ; preds = %28, %31
   %.fr = freeze i1 %35
   br i1 %.fr, label %.preheader.split.us.preheader, label %.loopexit31
 
-.preheader.split.us.preheader:                    ; preds = %.preheader
+.preheader.split.us:                              ; preds = %.preheader
   %smax = tail call i64 @llvm.smax.i64(i64 %.0.i27, i64 1)
   br label %.preheader.split.us
 

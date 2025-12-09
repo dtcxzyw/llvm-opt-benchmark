@@ -3370,7 +3370,7 @@ while.body.i6.i.i15.i.i.i842:                     ; preds = %land.rhs.i4.i.i12.i
 _ZNK4llvh15SmallPtrSetImplIPKN6hermes10BasicBlockEE5countES4_.exit862: ; preds = %land.rhs.i4.i.i12.i.i.i836
   %.not1303 = icmp eq ptr %retval.sroa.0.3.i.i.i837, %cond.i9.i.i.i834
   %cond.fr = freeze i1 %.not1303
-  %spec.select = select i1 %cond.fr, i32 %232, i32 %maxDiscovery.01360
+  %spec.select1584 = select i1 %cond.fr, i32 %232, i32 %maxDiscovery.01360
   %spec.select1580 = select i1 %cond.fr, ptr %194, ptr %innerHeader.01361
   br label %for.inc140
 

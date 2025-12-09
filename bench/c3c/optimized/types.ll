@@ -6451,55 +6451,55 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   br i1 %40, label %.thread, label %.preheader
 
 .preheader:                                       ; preds = %39
-  %41 = getelementptr inbounds nuw i8, ptr %8, i64 56
-  %42 = load ptr, ptr %41, align 8
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 104
-  %44 = load ptr, ptr %43, align 8
-  %.not5566 = icmp eq ptr %44, null
+  %42 = getelementptr inbounds nuw i8, ptr %8, i64 56
+  %43 = load ptr, ptr %42, align 8
+  %44 = getelementptr inbounds nuw i8, ptr %43, i64 104
+  %45 = load ptr, ptr %44, align 8
+  %.not5566 = icmp eq ptr %45, null
   br i1 %.not5566, label %.loopexit58, label %.lr.ph67
 
 .lr.ph67:                                         ; preds = %.preheader
-  %.not97 = icmp eq i64 %indvars.iv, 0
-  br i1 %.not97, label %.lr.ph67.split, label %.lr.ph67.split.us.preheader
+  %.not69 = icmp eq i64 %indvars.iv, 0
+  br i1 %.not69, label %.lr.ph67.split, label %.lr.ph67.split.us.preheader
 
 .lr.ph67.split.us.preheader:                      ; preds = %.lr.ph67
   %wide.trip.count = and i64 %indvars.iv, 4294967295
   br label %.lr.ph67.split.us
 
 .lr.ph67.split.us:                                ; preds = %.lr.ph67.split.us.preheader, %..loopexit_crit_edge.us
-  %45 = phi ptr [ %62, %..loopexit_crit_edge.us ], [ %44, %.lr.ph67.split.us.preheader ]
-  %46 = load ptr, ptr %45, align 8
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 24
-  %48 = load i64, ptr %47, align 8
-  %49 = and i64 %48, 127
-  %.not56.us = icmp eq i64 %49, 26
+  %46 = phi ptr [ %63, %..loopexit_crit_edge.us ], [ %45, %.lr.ph67.split.us.preheader ]
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load i64, ptr %48, align 8
+  %50 = and i64 %49, 127
+  %.not56.us = icmp eq i64 %50, 26
   br i1 %.not56.us, label %.lr.ph.us, label %.loopexit58
 
 .lr.ph.us:                                        ; preds = %.lr.ph67.split.us
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 72
-  %51 = load ptr, ptr %50, align 8
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8
-  br label %55
+  %51 = getelementptr inbounds nuw i8, ptr %47, i64 72
+  %52 = load ptr, ptr %51, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load ptr, ptr %53, align 8
+  br label %56
 
-54:                                               ; preds = %55
-  %indvars.iv.next74 = add nuw nsw i64 %indvars.iv73, 1
-  %exitcond76.not = icmp eq i64 %indvars.iv.next74, %wide.trip.count
-  br i1 %exitcond76.not, label %..loopexit_crit_edge.us, label %55, !llvm.loop !27
+55:                                               ; preds = %56
+  %indvars.iv.next75 = add nuw nsw i64 %indvars.iv74, 1
+  %exitcond77.not = icmp eq i64 %indvars.iv.next75, %wide.trip.count
+  br i1 %exitcond77.not, label %..loopexit_crit_edge.us, label %56, !llvm.loop !27
 
-55:                                               ; preds = %.lr.ph.us, %54
-  %indvars.iv73 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next74, %54 ]
-  %56 = getelementptr inbounds nuw ptr, ptr @type_find_common_ancestor.left_types, i64 %indvars.iv73
-  %57 = load ptr, ptr %56, align 8
-  %58 = icmp eq ptr %53, %57
-  br i1 %58, label %.loopexit58, label %54
+56:                                               ; preds = %.lr.ph.us, %55
+  %indvars.iv74 = phi i64 [ 0, %.lr.ph.us ], [ %indvars.iv.next75, %54 ]
+  %57 = getelementptr inbounds nuw ptr, ptr @type_find_common_ancestor.left_types, i64 %indvars.iv74
+  %58 = load ptr, ptr %57, align 8
+  %59 = icmp eq ptr %54, %58
+  br i1 %59, label %.loopexit58, label %55
 
-..loopexit_crit_edge.us:                          ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %53, i64 56
-  %60 = load ptr, ptr %59, align 8
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 104
-  %62 = load ptr, ptr %61, align 8
-  %.not55.us = icmp eq ptr %62, null
+..loopexit_crit_edge.us:                          ; preds = %55
+  %60 = getelementptr inbounds nuw i8, ptr %54, i64 56
+  %61 = load ptr, ptr %60, align 8
+  %62 = getelementptr inbounds nuw i8, ptr %61, i64 104
+  %63 = load ptr, ptr %62, align 8
+  %.not55.us = icmp eq ptr %63, null
   br i1 %.not55.us, label %.loopexit58, label %.lr.ph67.split.us
 
 .thread:                                          ; preds = %37, %39
@@ -6507,28 +6507,28 @@ define dso_local ptr @type_find_common_ancestor(ptr noundef readonly captures(ad
   unreachable
 
 .lr.ph67.split:                                   ; preds = %.lr.ph67, %.loopexit
-  %63 = phi ptr [ %75, %.loopexit ], [ %44, %.lr.ph67 ]
-  %64 = load ptr, ptr %63, align 8
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 24
-  %66 = load i64, ptr %65, align 8
-  %67 = and i64 %66, 127
-  %.not56 = icmp eq i64 %67, 26
+  %64 = phi ptr [ %76, %.loopexit ], [ %45, %.lr.ph67 ]
+  %65 = load ptr, ptr %64, align 8
+  %66 = getelementptr inbounds nuw i8, ptr %65, i64 24
+  %67 = load i64, ptr %66, align 8
+  %68 = and i64 %67, 127
+  %.not56 = icmp eq i64 %68, 26
   br i1 %.not56, label %.loopexit, label %.loopexit58
 
 .loopexit:                                        ; preds = %.lr.ph67.split
-  %68 = getelementptr inbounds nuw i8, ptr %64, i64 72
-  %69 = load ptr, ptr %68, align 8
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 8
-  %71 = load ptr, ptr %70, align 8
-  %72 = getelementptr inbounds nuw i8, ptr %71, i64 56
-  %73 = load ptr, ptr %72, align 8
-  %74 = getelementptr inbounds nuw i8, ptr %73, i64 104
-  %75 = load ptr, ptr %74, align 8
-  %.not55 = icmp eq ptr %75, null
+  %69 = getelementptr inbounds nuw i8, ptr %65, i64 72
+  %70 = load ptr, ptr %69, align 8
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
+  %72 = load ptr, ptr %71, align 8
+  %73 = getelementptr inbounds nuw i8, ptr %72, i64 56
+  %74 = load ptr, ptr %73, align 8
+  %75 = getelementptr inbounds nuw i8, ptr %74, i64 104
+  %76 = load ptr, ptr %75, align 8
+  %.not55 = icmp eq ptr %76, null
   br i1 %.not55, label %.loopexit58, label %.lr.ph67.split
 
-.loopexit58:                                      ; preds = %31, %..loopexit_crit_edge.us, %.lr.ph67.split.us, %55, %.loopexit, %.lr.ph67.split, %.preheader, %13, %20, %14, %10, %4, %2
-  %.037 = phi ptr [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ %21, %20 ], [ null, %14 ], [ null, %13 ], [ null, %.preheader ], [ null, %.lr.ph67.split ], [ null, %.loopexit ], [ %53, %55 ], [ null, %.lr.ph67.split.us ], [ null, %..loopexit_crit_edge.us ], [ %8, %31 ]
+.loopexit58:                                      ; preds = %31, %..loopexit_crit_edge.us, %.lr.ph67.split.us, %56, %.loopexit, %.lr.ph67.split, %.preheader, %13, %20, %14, %10, %4, %2
+  %.037 = phi ptr [ %0, %2 ], [ %6, %4 ], [ null, %10 ], [ %21, %20 ], [ null, %14 ], [ null, %13 ], [ null, %.preheader ], [ null, %.lr.ph67.split ], [ null, %.loopexit ], [ %54, %55 ], [ null, %.lr.ph67.split.us ], [ null, %..loopexit_crit_edge.us ], [ %8, %31 ]
   ret ptr %.037
 }
 

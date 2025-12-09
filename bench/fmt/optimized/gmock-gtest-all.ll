@@ -62548,8 +62548,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 .lr.ph.split.i.i.preheader:                       ; preds = %105, %108
   %.03527.i.i = phi ptr [ %109, %108 ], [ %.013.i, %105 ]
   %107 = load i8, ptr %.03527.i.i, align 1, !tbaa !12
-  %cond479 = icmp eq i8 %107, 42
-  br i1 %cond479, label %108, label %.loopexit1.i.i
+  %cond477 = icmp eq i8 %107, 42
+  br i1 %cond477, label %108, label %.loopexit1.i.i
 
 108:                                              ; preds = %.lr.ph.split.i.i.preheader
   %109 = getelementptr inbounds nuw i8, ptr %.03527.i.i, i64 1

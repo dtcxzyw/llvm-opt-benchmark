@@ -1301,12 +1301,12 @@ _ZNSt3__119__allocate_at_leastB8ne210000INS_9allocatorINS_4pairINS_17basic_strin
   br label %150
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit
-  %.sroa.077.0194 = phi ptr [ %144, %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit ], [ %.promoted.fr.i.i.i.i.i.i.i48, %.lr.ph.preheader ]
-  %143 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__14__fs10filesystem4path6appendB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.077.0194)
+  %.sroa.077.0193 = phi ptr [ %144, %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit ], [ %.promoted.fr.i.i.i.i.i.i.i48, %.lr.ph.preheader ]
+  %143 = invoke noundef nonnull align 8 dereferenceable(24) ptr @_ZNSt3__14__fs10filesystem4path6appendB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_(ptr noundef nonnull align 8 dereferenceable(24) %0, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.077.0193)
           to label %_ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit unwind label %146
 
 _ZNSt3__14__fs10filesystem4pathdVB8ne210000INS_17basic_string_viewIcNS_11char_traitsIcEEEEEENS_9enable_ifIXsr13__is_pathableIT_EE5valueERS2_E4typeERKS9_.exit: ; preds = %.lr.ph
-  %144 = getelementptr inbounds nuw i8, ptr %.sroa.077.0194, i64 24
+  %144 = getelementptr inbounds nuw i8, ptr %.sroa.077.0193, i64 24
   %145 = icmp eq ptr %144, %.sroa.17.0
   br i1 %145, label %._crit_edge, label %.lr.ph
 

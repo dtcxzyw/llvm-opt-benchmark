@@ -792,14 +792,14 @@ define internal void @alg_copy(i64 %0, ptr noundef %1, ptr noundef %2) #0 {
 ; Function Attrs: nounwind uwtable
 define range(i32 0, 2) i32 @ossl_method_store_fetch(ptr noundef readonly captures(address_is_null) %0, i32 noundef %1, ptr noundef %2, ptr noundef captures(address_is_null) %3, ptr noundef writeonly captures(address_is_null) %4) local_unnamed_addr #0 {
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %8, label %6
+  br i1 %.not, label %9, label %6
 
 6:                                                ; preds = %5
   %7 = load ptr, ptr %3, align 8, !tbaa !50
   br label %8
 
-8:                                                ; preds = %5, %6
-  %9 = phi ptr [ %7, %6 ], [ null, %5 ]
+9:                                                ; preds = %5, %6
+  %.fr167 = phi ptr [ %7, %6 ], [ null, %5 ]
   %10 = icmp slt i32 %1, 1
   %11 = icmp eq ptr %4, null
   %or.cond = or i1 %10, %11
@@ -807,7 +807,7 @@ define range(i32 0, 2) i32 @ossl_method_store_fetch(ptr noundef readonly capture
   %or.cond3 = or i1 %12, %or.cond
   br i1 %or.cond3, label %137, label %13
 
-13:                                               ; preds = %8
+13:                                               ; preds = %9
   %14 = load ptr, ptr %0, align 8, !tbaa !10
   %15 = tail call i32 @ossl_lib_ctx_is_default(ptr noundef %14) #7
   %.not92 = icmp eq i32 %15, 0
@@ -881,7 +881,7 @@ ossl_property_unlock.exit:                        ; preds = %21
   br i1 %47, label %.lr.ph162, label %ossl_property_unlock.exit107
 
 .lr.ph162:                                        ; preds = %.preheader
-  %48 = icmp eq ptr %9, null
+  %48 = icmp eq ptr %.fr167, null
   %.fr164 = freeze i1 %48
   br i1 %.fr164, label %.lr.ph162.split.us, label %.lr.ph162.split
 
@@ -908,7 +908,7 @@ ossl_property_unlock.exit:                        ; preds = %21
 
 58:                                               ; preds = %.lr.ph162.split
   %59 = load ptr, ptr %57, align 8, !tbaa !30
-  %60 = icmp eq ptr %59, %9
+  %60 = icmp eq ptr %59, %.fr167
   br i1 %60, label %.thread113, label %61
 
 61:                                               ; preds = %.lr.ph162.split, %58
@@ -929,9 +929,9 @@ ossl_property_unlock.exit:                        ; preds = %21
   br i1 %70, label %.lr.ph, label %ossl_property_unlock.exit107
 
 .lr.ph:                                           ; preds = %.thread
-  %71 = icmp eq ptr %9, null
-  %.fr167 = freeze i32 %66
-  %.not99 = icmp eq i32 %.fr167, 0
+  %71 = icmp eq ptr %.fr167, null
+  %.fr = freeze i32 %66
+  %.not99 = icmp eq i32 %.fr, 0
   %.fr = freeze i1 %71
   br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -1001,7 +1001,7 @@ ossl_property_unlock.exit:                        ; preds = %21
 
 99:                                               ; preds = %.lr.ph.split.split.us
   %100 = load ptr, ptr %98, align 8, !tbaa !30
-  %101 = icmp eq ptr %100, %9
+  %101 = icmp eq ptr %100, %.fr167
   br i1 %101, label %102, label %107
 
 102:                                              ; preds = %99
@@ -1030,7 +1030,7 @@ ossl_property_unlock.exit:                        ; preds = %21
 
 114:                                              ; preds = %.lr.ph.split.split
   %115 = load ptr, ptr %113, align 8, !tbaa !30
-  %116 = icmp eq ptr %115, %9
+  %116 = icmp eq ptr %115, %.fr167
   br i1 %116, label %117, label %123
 
 117:                                              ; preds = %114
@@ -1088,7 +1088,7 @@ ossl_property_unlock.exit107:                     ; preds = %107, %79, %61, %51,
   tail call void @ossl_property_free(ptr noundef %.275119) #7
   br label %137
 
-137:                                              ; preds = %18, %16, %8, %ossl_property_unlock.exit107, %ossl_property_unlock.exit
+137:                                              ; preds = %18, %16, %9, %ossl_property_unlock.exit107, %ossl_property_unlock.exit
   %.0 = phi i32 [ 0, %ossl_property_unlock.exit ], [ %.3, %ossl_property_unlock.exit107 ], [ 0, %8 ], [ 0, %16 ], [ 0, %18 ]
   ret i32 %.0
 }

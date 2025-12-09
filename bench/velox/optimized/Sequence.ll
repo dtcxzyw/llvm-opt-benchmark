@@ -10118,8 +10118,8 @@ if.then8.i:                                       ; preds = %if.end5.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit: ; preds = %if.end5.i, %if.then.i, %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
   %retval.0.i = phi i32 [ %cond.i, %if.then.i ], [ %20, %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i ], [ %div5.i, %if.end5.i ]
-  %cmp30 = icmp sgt i32 %sequenceCount, 0
-  br i1 %cmp30, label %for.body.lr.ph, label %for.end
+  %cmp29 = icmp sgt i32 %sequenceCount, 0
+  br i1 %cmp29, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit
   %add.i.i.i = add nsw i64 %conv.i, 719468

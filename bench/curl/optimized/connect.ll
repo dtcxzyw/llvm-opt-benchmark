@@ -1247,17 +1247,17 @@ thread-pre-split.i:                               ; preds = %283, %278, %274, %2
 .thread.i.i73:                                    ; preds = %303, %301
   %.02749.i.i74 = phi i64 [ 0, %301 ], [ %spec.select437.i, %303 ]
   %309 = load i32, ptr %206, align 4, !tbaa !77
-  %.not45.i.i75 = icmp eq i32 %309, 0
-  %narrow.i.i76 = select i1 %.not45.i.i75, i32 300000, i32 %309
-  %spec.select.i.i77 = zext i32 %narrow.i.i76 to i64
+  %.not45.i.i76 = icmp eq i32 %309, 0
+  %narrow.i.i77 = select i1 %.not45.i.i76, i32 300000, i32 %309
+  %spec.select.i.i78 = zext i32 %narrow.i.i77 to i64
   %310 = load i64, ptr %207, align 8
   %311 = load i32, ptr %208, align 8
   %312 = tail call i64 @Curl_timediff(i64 %215, i32 %216, i64 %310, i32 %311) #10
-  %313 = sub nsw i64 %spec.select.i.i77, %312
-  %.not46.i.i78 = icmp eq i64 %312, %spec.select.i.i77
-  %spec.store.select2.i.i79 = select i1 %.not46.i.i78, i64 -1, i64 %313
-  %.not47.not.i.i80 = icmp eq i64 %.02749.i.i74, 0
-  %314 = tail call i64 @llvm.smin.i64(i64 %spec.store.select2.i.i79, i64 %.02749.i.i74)
+  %313 = sub nsw i64 %spec.select.i.i78, %312
+  %.not46.i.i79 = icmp eq i64 %312, %spec.select.i.i78
+  %spec.store.select2.i.i80 = select i1 %.not46.i.i79, i64 -1, i64 %313
+  %.not47.not.i.i81 = icmp eq i64 %.02749.i.i74, 0
+  %314 = tail call i64 @llvm.smin.i64(i64 %spec.store.select2.i.i80, i64 %.02749.i.i74)
   %cond.fr.i81 = freeze i1 %.not47.not.i.i80
   %spec.select438.i = select i1 %cond.fr.i81, i64 %spec.store.select2.i.i79, i64 %314
   %315 = load i32, ptr %209, align 8, !tbaa !154
@@ -1397,7 +1397,7 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
   %379 = getelementptr inbounds nuw ptr, ptr %199, i64 %.0184353.i
   store ptr %220, ptr %210, align 8, !tbaa !122
   store ptr null, ptr %379, align 8, !tbaa !115
-  br label %.loopexit197
+  br label %.loopexit207
 
 380:                                              ; preds = %377, %358, %353, %349, %344, %343, %293, %291, %227, %221, %217
   %.2193.ph.i = phi i32 [ %.0191351.i, %291 ], [ %.0191351.i, %377 ], [ %.0191351.i, %358 ], [ %.0191351.i, %353 ], [ %.0191351.i, %349 ], [ %.0191351.i, %344 ], [ %.0191351.i, %343 ], [ %.0191351.i, %293 ], [ %.0191351.i, %217 ], [ %.0191351.i, %221 ], [ %228, %227 ]
@@ -1407,7 +1407,7 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
 .loopexit.i:                                      ; preds = %380
   %.pr = load ptr, ptr %210, align 8, !tbaa !122
   %.not228.i = icmp eq ptr %.pr, null
-  br i1 %.not228.i, label %381, label %.loopexit197
+  br i1 %.not228.i, label %381, label %.loopexit207
 
 381:                                              ; preds = %.loopexit.i
   %382 = icmp ne i32 %.2189.ph.i, 0
@@ -1666,7 +1666,7 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
   %505 = load i32, ptr %504, align 4, !tbaa !146
   %.not236.us.i = icmp eq i32 %505, 0
   %brmerge.not = and i1 %496, %.not236.us.i
-  br i1 %brmerge.not, label %.split.us.i.backedge, label %.split359.us.i.loopexit.split.loop.exit128
+  br i1 %brmerge.not, label %.split.us.i.backedge, label %.split359.us.i.loopexit.split.loop.exit138
 
 506:                                              ; preds = %499, %.split.us.i
   br i1 %496, label %.split.us.i.backedge, label %.split359.us.i
@@ -1729,8 +1729,8 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
   %538 = getelementptr inbounds nuw i8, ptr %509, i64 92
   %539 = load i32, ptr %538, align 4, !tbaa !146
   %.not236.i = icmp eq i32 %539, 0
-  %brmerge96.not = and i1 %507, %.not236.i
-  br i1 %brmerge96.not, label %.split.split.i.backedge, label %.split359.us.i.loopexit100.split.loop.exit122
+  %brmerge106.not = and i1 %507, %.not236.i
+  br i1 %brmerge106.not, label %.split.split.i.backedge, label %.split359.us.i.loopexit110.split.loop.exit132
 
 540:                                              ; preds = %533, %.split.split.i
   br i1 %507, label %.split.split.i.backedge, label %.split359.us.i
@@ -1738,16 +1738,16 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
 .split.split.i.backedge:                          ; preds = %540, %537
   br label %.split.split.i, !llvm.loop !157
 
-.split359.us.i.loopexit.split.loop.exit128:       ; preds = %503
+.split359.us.i.loopexit.split.loop.exit138:       ; preds = %503
   %.mux.le = select i1 %.not236.us.i, i32 7, i32 %505
   br label %.split359.us.i
 
-.split359.us.i.loopexit100.split.loop.exit122:    ; preds = %537
-  %.mux97.le = select i1 %.not236.i, i32 7, i32 %539
+.split359.us.i.loopexit110.split.loop.exit132:    ; preds = %537
+  %.mux107.le = select i1 %.not236.i, i32 7, i32 %539
   br label %.split359.us.i
 
-.split359.us.i:                                   ; preds = %540, %506, %.split359.us.i.loopexit100.split.loop.exit122, %.split359.us.i.loopexit.split.loop.exit128
-  %.us-phi.i = phi i32 [ %.mux.le, %.split359.us.i.loopexit.split.loop.exit128 ], [ %.mux97.le, %.split359.us.i.loopexit100.split.loop.exit122 ], [ 7, %506 ], [ 7, %540 ]
+.split359.us.i:                                   ; preds = %540, %506, %.split359.us.i.loopexit110.split.loop.exit132, %.split359.us.i.loopexit.split.loop.exit138
+  %.us-phi.i = phi i32 [ %.mux.le, %.split359.us.i.loopexit.split.loop.exit128 ], [ %.mux107.le, %.split359.us.i.loopexit100.split.loop.exit122 ], [ 7, %506 ], [ 7, %540 ]
   %541 = getelementptr inbounds nuw i8, ptr %198, i64 952
   %542 = load i64, ptr %541, align 8
   %543 = and i64 %542, 2
@@ -1785,7 +1785,7 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
   store i8 0, ptr %3, align 1, !tbaa !124
   br label %is_connected.exit
 
-.loopexit197:                                     ; preds = %.loopexit.i, %.loopexit.i.thread
+.loopexit207:                                     ; preds = %.loopexit.i, %.loopexit.i.thread
   store i8 1, ptr %3, align 1, !tbaa !124
   store i32 2, ptr %17, align 8, !tbaa !126
   %558 = load i8, ptr %12, align 4
@@ -1802,7 +1802,7 @@ baller_start_next.exit.i:                         ; preds = %333, %330, %baller_
   %565 = getelementptr inbounds nuw i8, ptr %.val, i64 32
   br label %566
 
-566:                                              ; preds = %baller_free.exit.i, %.loopexit197
+566:                                              ; preds = %baller_free.exit.i, %.loopexit207
   %567 = phi i1 [ true, %.loopexit197 ], [ false, %baller_free.exit.i ]
   %.01.i = phi i64 [ 0, %.loopexit197 ], [ 1, %baller_free.exit.i ]
   %568 = getelementptr inbounds nuw ptr, ptr %565, i64 %.01.i

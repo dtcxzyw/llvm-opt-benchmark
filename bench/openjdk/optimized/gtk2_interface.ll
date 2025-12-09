@@ -4758,8 +4758,8 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr noundef writeonly captu
   br label %.thread71
 
 .thread71:                                        ; preds = %._crit_edge98.loopexit, %.preheader.lr.ph, %3
-  %70 = phi i32 [ 1, %3 ], [ %69, %._crit_edge98.loopexit ], [ 1, %.preheader.lr.ph ]
-  ret i32 %70
+  %68 = phi i32 [ 1, %3 ], [ %69, %._crit_edge98.loopexit ], [ 1, %.preheader.lr.ph ]
+  ret i32 %68
 }
 
 ; Function Attrs: nounwind uwtable

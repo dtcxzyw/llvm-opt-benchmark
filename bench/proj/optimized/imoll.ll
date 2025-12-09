@@ -451,7 +451,7 @@ define internal { double, double } @_ZL15imoll_s_inverse5PJ_XYP8PJconsts(double 
   %6 = fcmp ogt double %1, 0x3FF6A09E66861B05
   %7 = fcmp olt double %1, 0xBFF6A09E66785C95
   %or.cond70 = or i1 %6, %7
-  br i1 %or.cond70, label %72, label %8
+  br i1 %or.cond70, label %71, label %8
 
 8:                                                ; preds = %3
   %9 = fcmp ult double %1, 0.000000e+00
@@ -503,7 +503,7 @@ select.unfold79:                                  ; preds = %10
   %38 = load ptr, ptr %37, align 8, !tbaa !54
   %39 = tail call { double, double } %38(double %33, double %36, ptr noundef %30)
   %40 = extractvalue { double, double } %39, 0
-  %41 = extractvalue { double, double } %39, 1
+  %40 = extractvalue { double, double } %39, 1
   %42 = load ptr, ptr %29, align 8, !tbaa !41
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 440
   %44 = load double, ptr %43, align 8, !tbaa !45
@@ -574,14 +574,14 @@ default.unreachable97:                            ; preds = %26
   %cond.fr80 = freeze i1 %not..0
   br i1 %cond.fr80, label %72, label %71
 
-71:                                               ; preds = %70
-  br label %72
+70:                                               ; preds = %70
+  br label %71
 
-72:                                               ; preds = %71, %3, %70
-  %73 = phi double [ %45, %71 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %70 ]
-  %74 = phi double [ %41, %71 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %70 ]
-  %.fca.0.insert = insertvalue { double, double } poison, double %73, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %74, 1
+71:                                               ; preds = %70, %3, %70
+  %72 = phi double [ %45, %71 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %70 ]
+  %73 = phi double [ %41, %71 ], [ 0x7FF0000000000000, %3 ], [ 0x7FF0000000000000, %70 ]
+  %.fca.0.insert = insertvalue { double, double } poison, double %72, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %73, 1
   ret { double, double } %.fca.1.insert
 }
 

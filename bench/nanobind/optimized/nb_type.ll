@@ -1141,12 +1141,12 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %116, %119, %106
   %152 = zext nneg i32 %150 to i64
   %153 = add nsw i64 %152, -8
   %154 = select i1 %151, i64 %153, i64 0
-  %.0264510 = add nuw nsw i64 %149, %154
-  %.3511 = call i64 @llvm.umax.i64(i64 %.0264510, i64 %.0254)
+  %.0264509 = add nuw nsw i64 %149, %154
+  %.3510 = call i64 @llvm.umax.i64(i64 %.0264509, i64 %.0254)
   %155 = getelementptr inbounds nuw i8, ptr %.1257446, i64 256
   %156 = load ptr, ptr %155, align 8
-  %.not313512 = icmp eq ptr %156, null
-  br i1 %.not313512, label %._crit_edge, label %.lr.ph
+  %.not313511 = icmp eq ptr %156, null
+  br i1 %.not313511, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.thread441
   %157 = load ptr, ptr @_ZN8nanobind6detail13nb_meta_cacheE, align 8
@@ -1165,7 +1165,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %116, %119, %106
   %168 = add nsw i64 %167, -8
   %169 = select i1 %166, i64 %168, i64 0
   %.0264 = add nuw nsw i64 %162, %169
-  %.3 = call i64 @llvm.umax.i64(i64 %.0264, i64 %.3513)
+  %.3 = call i64 @llvm.umax.i64(i64 %.0264, i64 %.3512)
   %170 = getelementptr inbounds nuw i8, ptr %173, i64 256
   %171 = load ptr, ptr %170, align 8
   %.not313 = icmp eq ptr %171, null
@@ -1173,7 +1173,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %116, %119, %106
 
 172:                                              ; preds = %.lr.ph, %158
   %173 = phi ptr [ %156, %.lr.ph ], [ %171, %158 ]
-  %.3513 = phi i64 [ %.3511, %.lr.ph ], [ %.3, %158 ]
+  %.3512 = phi i64 [ %.3510, %.lr.ph ], [ %.3, %158 ]
   %174 = getelementptr inbounds nuw i8, ptr %173, i64 8
   %175 = load ptr, ptr %174, align 8
   %176 = getelementptr inbounds nuw i8, ptr %175, i64 8
@@ -1182,7 +1182,7 @@ _ZL10_Py_DECREFP7_object.exit:                    ; preds = %116, %119, %106
   br i1 %178, label %158, label %._crit_edge
 
 ._crit_edge:                                      ; preds = %172, %158, %.thread441
-  %.3.lcssa = phi i64 [ %.3511, %.thread441 ], [ %.3, %158 ], [ %.3513, %172 ]
+  %.3.lcssa = phi i64 [ %.3510, %.thread441 ], [ %.3, %158 ], [ %.3512, %172 ]
   %179 = and i32 %145, 524288
   %180 = icmp ne i32 %179, 0
   br label %.thread453
@@ -1270,16 +1270,16 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread453
   %.not314517 = icmp eq i32 %.fr516, 0
   br i1 %.not314517, label %.thread468, label %.lr.ph526
 
-.lr.ph526:                                        ; preds = %.preheader, %227
-  %207 = phi ptr [ %228, %227 ], [ %205, %.preheader ]
-  %.fr525 = phi i32 [ %.fr, %227 ], [ %.fr516, %.preheader ]
-  %208 = phi ptr [ %229, %227 ], [ %205, %.preheader ]
-  %.3268524 = phi ptr [ %.4269, %227 ], [ %.1266, %.preheader ]
-  %.1272523 = phi ptr [ %.2273, %227 ], [ @_ZN8nanobind6detailL18nb_type_vectorcallEP7_objectPKS2_mS2_, %.preheader ]
-  %.1276522 = phi i8 [ %214, %227 ], [ 0, %.preheader ]
-  %.1282521 = phi i1 [ %216, %227 ], [ false, %.preheader ]
-  %.1284520 = phi i1 [ %220, %227 ], [ false, %.preheader ]
-  %.1286519 = phi i1 [ %.2287, %227 ], [ false, %.preheader ]
+.lr.ph526:; preds = %.preheader, %227
+  %208 = phi ptr [ %228, %227 ], [ %205, %.preheader ]
+  %209 = phi i32 [ %.fr, %227 ], [ %.fr516, %.preheader ]
+  %.1284.fr522 = phi ptr [ %229, %227 ], [ %205, %.preheader ]
+  %.3268521 = phi ptr [ %.4269, %227 ], [ %.1266, %.preheader ]
+  %.1272520 = phi ptr [ %.2273, %227 ], [ @_ZN8nanobind6detailL18nb_type_vectorcallEP7_objectPKS2_mS2_, %.preheader ]
+  %.1276519 = phi i8 [ %214, %227 ], [ 0, %.preheader ]
+  %.1282518 = phi i1 [ %216, %227 ], [ false, %.preheader ]
+  %.1286517 = phi i1 [ %220, %227 ], [ false, %.preheader ]
+  %.0288516 = phi i1 [ %229, %227 ], [ false, %.preheader ]
   %.0288518 = phi i64 [ %211, %227 ], [ 0, %.preheader ]
   %.not317 = icmp eq i64 %.0288518, 80
   br i1 %.not317, label %209, label %210, !prof !4
@@ -1288,7 +1288,7 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread453
   call void @_ZN8nanobind6detail16fail_unspecifiedEv() #29
   unreachable
 
-210:                                              ; preds = %.lr.ph526
+211:                                              ; preds = %.lr.ph526
   %211 = add nuw nsw i64 %.0288518, 1
   %212 = icmp eq i32 %.fr525, 71
   %213 = zext i1 %212 to i8
@@ -1303,35 +1303,35 @@ _ZNK8nanobind3str5c_strEv.exit:                   ; preds = %.thread453
   br i1 %221, label %222, label %225
 
 222:                                              ; preds = %210
-  %223 = getelementptr inbounds nuw i8, ptr %208, i64 8
+  %223 = getelementptr inbounds nuw i8, ptr %.1284.fr522, i64 8
   %224 = load ptr, ptr %223, align 8
   br label %227, !llvm.loop !33
 
 225:                                              ; preds = %210
-  %226 = getelementptr inbounds nuw i8, ptr %.3268524, i64 16
+  %226 = getelementptr inbounds nuw i8, ptr %.3268521, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.3268524, ptr noundef nonnull align 8 dereferenceable(16) %208, i64 16, i1 false)
   %.pre538 = load ptr, ptr %204, align 8
   br label %227
 
 227:                                              ; preds = %225, %222
   %228 = phi ptr [ %207, %222 ], [ %.pre538, %225 ]
-  %.2287 = phi i1 [ true, %222 ], [ %.1286519, %225 ]
-  %.2273 = phi ptr [ %224, %222 ], [ %.1272523, %225 ]
-  %.4269 = phi ptr [ %.3268524, %222 ], [ %226, %225 ]
+  %229 = phi i1 [ true, %222 ], [ %.0288516, %225 ]
+  %.2287 = phi ptr [ %224, %222 ], [ %.1272523, %225 ]
+  %.2273 = phi ptr [ %.3268524, %222 ], [ %226, %225 ]
   %229 = getelementptr inbounds nuw %struct.PyType_Slot, ptr %228, i64 %211
   %230 = load i32, ptr %229, align 8
   %.fr = freeze i32 %230
   %.not314 = icmp eq i32 %.fr, 0
-  br i1 %.not314, label %._crit_edge527.loopexit, label %.lr.ph526
+  br i1 %.not314, label %._crit_edge524.loopexit, label %.lr.ph526
 
-._crit_edge527.loopexit:                          ; preds = %227
-  %231 = xor i1 %220, true
+._crit_edge524.loopexit:                          ; preds = %227
+  %232 = xor i1 %220, true
   %232 = select i1 %231, i1 true, i1 %.2287
   %233 = freeze i1 %232
   %234 = select i1 %233, ptr %.2273, ptr null
   br label %.thread468
 
-.thread468:                                       ; preds = %.preheader, %._crit_edge527.loopexit, %203
+.thread468:                                       ; preds = %.preheader, %._crit_edge524.loopexit, %203
   %.2267480 = phi ptr [ %.1266, %203 ], [ %.1266, %.preheader ], [ %.4269, %._crit_edge527.loopexit ]
   %.0275477 = phi i8 [ 0, %203 ], [ 0, %.preheader ], [ %214, %._crit_edge527.loopexit ]
   %.0281475 = phi i1 [ false, %203 ], [ false, %.preheader ], [ %216, %._crit_edge527.loopexit ]

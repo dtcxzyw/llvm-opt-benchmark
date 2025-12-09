@@ -2647,15 +2647,15 @@ _ZN5arrowltERKNS_15BasicDecimal128ES2_.exit.i:    ; preds = %_ZN5arrowmlERKNS_15
   %50 = icmp eq i64 %44, %.sroa.5.0.i.i
   br i1 %50, label %51, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17
 
-51:                                               ; preds = %49
+51:; preds = %49
   %52 = load i64, ptr %0, align 8, !tbaa !7
   %.fr = freeze i64 %52
   %53 = icmp ult i64 %.fr, %.sroa.0.0.i.i
   %cond.fr21 = freeze i1 %53
   br i1 %cond.fr21, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17, !prof !28
 
-54:                                               ; preds = %46
-  %55 = icmp eq i64 %.sroa.5.0.i.i, %44
+54:; preds = %46
+  %56 = icmp eq i64 %.sroa.5.0.i.i, %44
   br i1 %55, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit, label %_ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit.thread17
 
 _ZN5arrowL25RescaleWouldCauseDataLossINS_15BasicDecimal128EEEbRKT_iS4_PS2_.exit: ; preds = %54

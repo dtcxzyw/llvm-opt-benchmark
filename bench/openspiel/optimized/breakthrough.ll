@@ -986,18 +986,18 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %73 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev(ptr noundef nonnull align 8 dereferenceable(16) %5) #25
-  br label %156
+  br label %153
 
 74:                                               ; preds = %80, %69
   %75 = landingpad { ptr, i32 }
           cleanup
-  br label %148
+  br label %145
 
 76:                                               ; preds = %70
   %77 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %8) #25
-  br label %148
+  br label %145
 
 78:                                               ; preds = %_ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit
   store i32 %3, ptr %10, align 4
@@ -1021,7 +1021,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %84 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %12) #25
-  br label %148
+  br label %145
 
 .lr.ph.preheader.i.i.i.i.i.i.i.i.i:               ; preds = %78
   %85 = mul nuw nsw i32 %3, %2
@@ -1107,18 +1107,18 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 123:                                              ; preds = %.lr.ph.preheader.i.i.i.i.i.i.i.i.i
   %124 = landingpad { ptr, i32 }
           cleanup
-  br label %148
+  br label %145
 
 125:                                              ; preds = %.lr.ph.split.split
   %126 = add nsw i32 %121, -1
   %127 = icmp eq i32 %.01744, %126
   br i1 %127, label %128, label %134
 
-128:                                              ; preds = %125
+.sink.split:                                      ; preds = %125
   %129 = mul nuw nsw i32 %120, %.01744
   br label %.sink.split
 
-.sink.split:                                      ; preds = %.lr.ph.split.split, %128
+.sink.split:; preds = %.lr.ph.split.split, %128
   %.sink78 = phi i32 [ %129, %128 ], [ %120, %.lr.ph.split.split ]
   %.sink = phi i32 [ 2, %128 ], [ 1, %.lr.ph.split.split ]
   %130 = add nsw i32 %.sink78, %.042
@@ -1134,7 +1134,7 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
   %137 = icmp slt i32 %135, %136
   br i1 %137, label %.lr.ph.split.split, label %._crit_edge, !llvm.loop !4
 
-._crit_edge:                                      ; preds = %134, %.split.us, %116, %.preheader
+._crit_edge:; preds = %134, %.split.us, %116, %.preheader
   %138 = phi i32 [ %93, %.preheader ], [ %117, %116 ], [ %98, %.split.us ], [ %136, %134 ]
   %139 = phi i32 [ %94, %.preheader ], [ %117, %116 ], [ %98, %.split.us ], [ %136, %134 ]
   %140 = add i32 %.01744, 1
@@ -1144,37 +1144,37 @@ _ZNSt10shared_ptrIKN10open_spiel4GameEED2Ev.exit: ; preds = %26, %44, %57, %_ZNS
 
 ._crit_edge47:                                    ; preds = %._crit_edge
   store i32 -3, ptr %63, align 8
-  %143 = icmp sgt i32 %141, 5
-  %144 = zext i1 %143 to i32
-  %145 = shl i32 %138, %144
-  %146 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %147 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  store i32 %145, ptr %147, align 4
-  store i32 %145, ptr %146, align 8
+  %140 = icmp sgt i32 %141, 5
+  %141 = zext i1 %140 to i32
+  %142 = shl i32 %138, %141
+  %143 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %144 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  store i32 %142, ptr %144, align 4
+  store i32 %142, ptr %143, align 8
   store i32 0, ptr %62, align 4
   store i32 0, ptr %64, align 4
   ret void
 
-148:                                              ; preds = %123, %83, %76, %74
+145:                                              ; preds = %123, %83, %76, %74
   %.pn = phi { ptr, i32 } [ %124, %123 ], [ %84, %83 ], [ %75, %74 ], [ %77, %76 ]
-  %149 = load ptr, ptr %67, align 8
-  %.not.i.i.i32 = icmp eq ptr %149, null
-  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, label %150
+  %146 = load ptr, ptr %67, align 8
+  %.not.i.i.i32 = icmp eq ptr %146, null
+  br i1 %.not.i.i.i32, label %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, label %147
 
-150:                                              ; preds = %148
-  %151 = getelementptr inbounds nuw i8, ptr %0, i64 104
-  %152 = load ptr, ptr %151, align 8
-  %153 = ptrtoint ptr %152 to i64
-  %154 = ptrtoint ptr %149 to i64
-  %155 = sub i64 %153, %154
-  call void @_ZdlPvm(ptr noundef nonnull %149, i64 noundef %155) #28
+147:                                              ; preds = %145
+  %148 = getelementptr inbounds nuw i8, ptr %0, i64 104
+  %149 = load ptr, ptr %148, align 8
+  %150 = ptrtoint ptr %149 to i64
+  %151 = ptrtoint ptr %146 to i64
+  %152 = sub i64 %150, %151
+  call void @_ZdlPvm(ptr noundef nonnull %146, i64 noundef %152) #28
   br label %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33
 
-_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33: ; preds = %148, %150
+_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33: ; preds = %145, %147
   call void @_ZN10open_spiel5StateD2Ev(ptr noundef nonnull align 8 dereferenceable(60) %0) #25
-  br label %156
+  br label %153
 
-156:                                              ; preds = %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, %72
+153:                                              ; preds = %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33, %72
   %.pn.pn = phi { ptr, i32 } [ %.pn, %_ZNSt6vectorIN10open_spiel12breakthrough9CellStateESaIS2_EED2Ev.exit33 ], [ %73, %72 ]
   resume { ptr, i32 } %.pn.pn
 }

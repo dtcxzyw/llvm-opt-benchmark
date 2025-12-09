@@ -16085,17 +16085,17 @@ if.then.i.i15.i.i.i:                              ; preds = %_ZNSt11char_traitsI
 _ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex16ExtensionCompareclERKNS2_14ExtensionEntryES6_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i.i.i, %if.then.i.i15.i.i.i
   %__ret.0.i.i13.i.i.i = phi i32 [ %retval.0.i3.i.i19.i.i.i, %if.then.i.i15.i.i.i ], [ %call.i.i.i11.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i10.i.i.i ]
   %cmp.i14.i.i.i = icmp sgt i32 %__ret.0.i.i13.i.i.i, -1
-  %cmp.i21.i.i.i = icmp slt i32 %3, %6
+  %cmp.i14.i.i.i = icmp slt i32 %3, %6
   %spec.select.i = select i1 %cmp.i14.i.i.i, i1 %cmp.i21.i.i.i, i1 false
-  %cond.fr = freeze i1 %spec.select.i
+  %.fr15 = freeze i1 %spec.select.i
   %add3.i.i.i = add nuw i64 %shr.i.i.i, 1
   %spec.select = select i1 %cond.fr, i64 %e.addr.07.i.i.i, i64 %shr.i.i.i
-  %spec.select15 = select i1 %cond.fr, i64 %add3.i.i.i, i64 %s.addr.08.i.i.i
+  %spec.select16 = select i1 %cond.fr, i64 %add3.i.i.i, i64 %s.addr.08.i.i.i
   br label %7
 
 7:                                                ; preds = %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex16ExtensionCompareclERKNS2_14ExtensionEntryES6_.exit, %.thread
   %8 = phi i64 [ %e.addr.07.i.i.i, %.thread ], [ %spec.select, %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex16ExtensionCompareclERKNS2_14ExtensionEntryES6_.exit ]
-  %9 = phi i64 [ %add3.i.i.i6, %.thread ], [ %spec.select15, %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex16ExtensionCompareclERKNS2_14ExtensionEntryES6_.exit ]
+  %9 = phi i64 [ %add3.i.i.i6, %.thread ], [ %spec.select16, %_ZNK6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex16ExtensionCompareclERKNS2_14ExtensionEntryES6_.exit ]
   %cmp.not.i.i.i = icmp eq i64 %9, %8
   br i1 %cmp.not.i.i.i, label %_ZNK4absl12lts_2023080218container_internal10btree_nodeINS1_10set_paramsIN6google8protobuf25EncodedDescriptorDatabase15DescriptorIndex14ExtensionEntryENS7_16ExtensionCompareESaIS8_ELi256ELb0EEEE11lower_boundIS8_EENS1_12SearchResultImLb0EEERKT_RKNS1_19key_compare_adapterIS9_S8_E15checked_compareE.exit, label %while.body.i.i.i, !llvm.loop !279
 

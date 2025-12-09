@@ -3900,19 +3900,19 @@ if.end106:                                        ; preds = %sw.epilog
   %20 = icmp eq i32 %19, 0
   %21 = freeze i1 %20
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1, ptr noundef %pContext)
-  br i1 %21, label %.thread, label %22
+  br i1 %20, label %.thread, label %21
 
-22:                                               ; preds = %if.end106
-  %23 = add nsw i32 %nSpaceCount.2, -1
-  %24 = load i32, ptr %nReadCount, align 4
-  %add111 = add nsw i32 %23, %24
+21:                                               ; preds = %if.end106
+  %22 = add nsw i32 %nSpaceCount.2, -1
+  %23 = load i32, ptr %nReadCount, align 4
+  %add111 = add nsw i32 %22, %23
   br label %.thread
 
-.thread:                                          ; preds = %if.end106.thread, %22, %entry, %if.end106
-  %25 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %22 ], [ 0, %if.end106.thread ]
-  %26 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %22 ], [ 0, %if.end106.thread ]
-  store i32 %25, ptr %nReadCount, align 4
-  ret i64 %26
+.thread:                                          ; preds = %if.end106.thread, %21, %entry, %if.end106
+  %24 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %21 ], [ 0, %if.end106.thread ]
+  %25 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %21 ], [ 0, %if.end106.thread ]
+  store i32 %24, ptr %nReadCount, align 4
+  ret i64 %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5267,19 +5267,19 @@ if.end106:                                        ; preds = %sw.epilog
   %20 = icmp eq i32 %19, 0
   %21 = freeze i1 %20
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1, ptr noundef %pContext)
-  br i1 %21, label %.thread, label %22
+  br i1 %20, label %.thread, label %21
 
-22:                                               ; preds = %if.end106
-  %23 = add nsw i32 %nSpaceCount.2, -1
-  %24 = load i32, ptr %nReadCount, align 4
-  %add111 = add nsw i32 %23, %24
+21:                                               ; preds = %if.end106
+  %22 = add nsw i32 %nSpaceCount.2, -1
+  %23 = load i32, ptr %nReadCount, align 4
+  %add111 = add nsw i32 %22, %23
   br label %.thread
 
-.thread:                                          ; preds = %if.end106.thread, %22, %entry, %if.end106
-  %25 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %22 ], [ 0, %if.end106.thread ]
-  %26 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %22 ], [ 0, %if.end106.thread ]
-  store i32 %25, ptr %nReadCount, align 4
-  ret i64 %26
+.thread:                                          ; preds = %if.end106.thread, %21, %entry, %if.end106
+  %24 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %21 ], [ 0, %if.end106.thread ]
+  %25 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %21 ], [ 0, %if.end106.thread ]
+  store i32 %24, ptr %nReadCount, align 4
+  ret i64 %25
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -6646,19 +6646,19 @@ if.end102:                                        ; preds = %sw.epilog
   %18 = icmp eq i32 %17, 0
   %19 = freeze i1 %18
   %call101 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1, ptr noundef %pContext)
-  br i1 %19, label %.thread, label %20
+  br i1 %19, label %.thread, label %19
 
-20:                                               ; preds = %if.end102
-  %21 = add nsw i32 %nSpaceCount.2, -1
-  %22 = load i32, ptr %nReadCount, align 4
-  %add107 = add nsw i32 %21, %22
+19:                                               ; preds = %if.end102
+  %20 = add nsw i32 %nSpaceCount.2, -1
+  %21 = load i32, ptr %nReadCount, align 4
+  %add107 = add nsw i32 %20, %21
   br label %.thread
 
-.thread:                                          ; preds = %if.end102.thread, %20, %entry, %if.end102
-  %23 = phi i32 [ 0, %entry ], [ 0, %if.end102 ], [ %add107, %20 ], [ 0, %if.end102.thread ]
-  %24 = phi i64 [ 0, %entry ], [ 0, %if.end102 ], [ %nValue.2, %20 ], [ 0, %if.end102.thread ]
-  store i32 %23, ptr %nReadCount, align 4
-  ret i64 %24
+.thread:                                          ; preds = %if.end102.thread, %19, %entry, %if.end102
+  %22 = phi i32 [ 0, %entry ], [ 0, %if.end102 ], [ %add107, %20 ], [ 0, %if.end102.thread ]
+  %23 = phi i64 [ 0, %entry ], [ 0, %if.end102 ], [ %nValue.2, %20 ], [ 0, %if.end102.thread ]
+  store i32 %22, ptr %nReadCount, align 4
+  ret i64 %23
 }
 
 ; Function Attrs: mustprogress uwtable

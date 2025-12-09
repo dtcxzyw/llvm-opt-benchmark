@@ -5182,7 +5182,7 @@ _prepareClientToWrite.exit:                       ; preds = %16, %9, %7
   %51 = zext i8 %.fr to i32
   %52 = and i32 %51, 7
   switch i32 %52, label %.thread [
-    i32 0, label %sdslen.exit.thread
+    i32 0, label %53
     i32 1, label %56
     i32 2, label %60
     i32 3, label %64
@@ -5193,9 +5193,9 @@ _prepareClientToWrite.exit:                       ; preds = %16, %9, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %73
 
-sdslen.exit.thread:                               ; preds = %48
-  %53 = lshr i32 %51, 3
-  %54 = zext nneg i32 %53 to i64
+53:                                               ; preds = %48
+  %54 = lshr i32 %51, 3
+  %55 = zext nneg i32 %54 to i64
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %55 = icmp ult i8 %.fr, 80
   %.24 = select i1 %55, i64 4, i64 5
@@ -5233,7 +5233,7 @@ sdslen.exit:                                      ; preds = %56, %60, %64, %68
   %. = select i1 %cond.fr, i64 4, i64 5
   br i1 %71, label %73, label %79
 
-73:                                               ; preds = %sdslen.exit.thread, %sdslen.exit, %.thread
+73:                                               ; preds = %53, %sdslen.exit, %.thread
   %74 = phi i64 [ 4, %.thread ], [ %., %sdslen.exit ], [ %.24, %sdslen.exit.thread ]
   %.0.i91720 = phi i64 [ 0, %.thread ], [ %.0.i9, %sdslen.exit ], [ %54, %sdslen.exit.thread ]
   %75 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 %.0.i91720

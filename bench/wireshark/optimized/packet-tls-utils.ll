@@ -6886,13 +6886,13 @@ copy_address_wmem.exit:                           ; preds = %4, %13
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %39, label %4
+  br i1 %.not, label %addresses_equal.exit, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %.not12 = icmp eq i32 %6, 0
-  br i1 %.not12, label %39, label %7
+  br i1 %.not12, label %addresses_equal.exit, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6938,14 +6938,14 @@ define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly c
   %37 = icmp eq i32 %bcmp.i, 0
   br i1 %37, label %addresses_equal.exit, label %38
 
-38:                                               ; preds = %31, %23, %19
+addresses_equal.exit.thread:                      ; preds = %31, %23, %19
   br label %addresses_equal.exit
 
-39:                                               ; preds = %4, %3
-  %40 = getelementptr inbounds nuw i8, ptr %2, i64 284
-  %41 = load i32, ptr %40, align 4
-  %42 = tail call ptr @dissector_get_uint_handle(ptr noundef %1, i32 noundef %41)
-  %43 = icmp ne ptr %42, null
+addresses_equal.exit:                             ; preds = %4, %3
+  %38 = getelementptr inbounds nuw i8, ptr %2, i64 284
+  %39 = load i32, ptr %38, align 4
+  %40 = tail call ptr @dissector_get_uint_handle(ptr noundef %1, i32 noundef %39)
+  %43 = icmp ne ptr %40, null
   %44 = zext i1 %43 to i32
   br label %addresses_equal.exit
 
@@ -6958,8 +6958,8 @@ addresses_equal.exit:                             ; preds = %38, %31, %29, %39
 
 .thread:                                          ; preds = %addresses_equal.exit, %7, %13
   %.017 = phi i32 [ 0, %13 ], [ 0, %7 ], [ %.0, %addresses_equal.exit ]
-  %45 = phi ptr [ @.str.631, %13 ], [ @.str.631, %7 ], [ %spec.select, %addresses_equal.exit ]
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.629, ptr noundef nonnull %45)
+  %41 = phi ptr [ @.str.631, %13 ], [ @.str.631, %7 ], [ %spec.select, %addresses_equal.exit ]
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.629, ptr noundef nonnull %41)
   ret i32 %.017
 }
 

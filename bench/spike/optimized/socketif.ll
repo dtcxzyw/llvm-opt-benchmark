@@ -27197,9 +27197,9 @@ define linkonce_odr noundef i32 @_ZNK5boost16re_detail_10740031cpp_regex_traits_
   br i1 %.not, label %..thread_crit_edge, label %7
 
 ..thread_crit_edge:                               ; preds = %3
-  %.pre23 = ptrtoint ptr %2 to i64
-  %.pre24 = ptrtoint ptr %1 to i64
-  %.pre26 = sub i64 %.pre23, %.pre24
+  %.pre24 = ptrtoint ptr %2 to i64
+  %.pre25 = ptrtoint ptr %1 to i64
+  %.pre27 = sub i64 %.pre24, %.pre25
   br label %.thread
 
 7:                                                ; preds = %3
@@ -27350,25 +27350,25 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %_ZNKS
 
 53:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.0.i.i, i64 64
-  br label %100
+  br label %99
 
 .thread:                                          ; preds = %..thread_crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
-  %.pre-phi27 = phi i64 [ %.pre26, %..thread_crit_edge ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
+  %.pre-phi28 = phi i64 [ %.pre27, %..thread_crit_edge ], [ %12, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ]
   br label %_ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i
 
 _ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i: ; preds = %.thread26.i.i.i, %.thread
-  %.032.i.i.i = phi ptr [ @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, %.thread ], [ %84, %.thread26.i.i.i ]
-  %.01131.i.i.i = phi i64 [ 21, %.thread ], [ %83, %.thread26.i.i.i ]
+  %.032.i.i.i = phi ptr [ @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, %.thread ], [ %83, %.thread26.i.i.i ]
+  %.01131.i.i.i = phi i64 [ 21, %.thread ], [ %82, %.thread26.i.i.i ]
   %55 = lshr i64 %.01131.i.i.i, 1
   %56 = getelementptr inbounds nuw %"struct.boost::re_detail_107400::character_pointer_range", ptr %.032.i.i.i, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !1061
   %58 = getelementptr inbounds nuw i8, ptr %56, i64 8
   %59 = load ptr, ptr %58, align 8, !tbaa !1063
   %60 = ptrtoint ptr %59 to i64
-  %61 = ptrtoint ptr %57 to i64
+  %60 = ptrtoint ptr %57 to i64
   %62 = sub i64 %60, %61
-  %63 = icmp slt i64 %.pre-phi27, %62
-  %64 = getelementptr inbounds i8, ptr %57, i64 %.pre-phi27
+  %63 = icmp slt i64 %.pre-phi28, %62
+  %64 = getelementptr inbounds i8, ptr %57, i64 %.pre-phi28
   %65 = select i1 %63, ptr %64, ptr %59
   %.not22.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %57, %65
   br i1 %.not22.i.i.i.i.i.i.i.i.i.i, label %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i, label %.lr.ph.preheader.i.i.i.i.i.i.i.i.i.i
@@ -27405,59 +27405,59 @@ _ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.e
 
 _ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i: ; preds = %76, %_ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i
   %.019.lcssa.i.i.i.i.i.i.i.i.i.i = phi ptr [ %1, %_ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i ], [ %scevgep.i.i.i.i.i.i.i.i.i.i, %76 ]
-  %79 = icmp ne ptr %.019.lcssa.i.i.i.i.i.i.i.i.i.i, %2
-  %cond.fr.i.i.i = freeze i1 %79
+  %.not.i.i.i18 = icmp ne ptr %.019.lcssa.i.i.i.i.i.i.i.i.i.i, %2
+  %cond.fr.i.i.i = freeze i1 %.not.i.i.i18
   %80 = getelementptr inbounds nuw i8, ptr %56, i64 16
   %81 = xor i64 %55, -1
   %82 = add nsw i64 %.01131.i.i.i, %81
-  %spec.select.i.i.i = select i1 %cond.fr.i.i.i, i64 %82, i64 %55
+  %spec.select30.i.i.i = select i1 %cond.fr.i.i.i, i64 %82, i64 %55
   %spec.select30.i.i.i = select i1 %cond.fr.i.i.i, ptr %80, ptr %.032.i.i.i
   br label %.thread26.i.i.i
 
 .thread26.i.i.i:                                  ; preds = %74, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i, %.thread.i.i.i
-  %83 = phi i64 [ %73, %.thread.i.i.i ], [ %spec.select.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i ], [ %55, %74 ]
-  %84 = phi ptr [ %71, %.thread.i.i.i ], [ %spec.select30.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i ], [ %.032.i.i.i, %74 ]
-  %85 = icmp sgt i64 %83, 0
-  br i1 %85, label %_ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, !llvm.loop !1065
+  %82 = phi i64 [ %73, %.thread.i.i.i ], [ %spec.select.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i ], [ %55, %74 ]
+  %83 = phi ptr [ %71, %.thread.i.i.i ], [ %spec.select30.i.i.i, %_ZNK9__gnu_cxx5__ops14_Iter_less_valclIPKN5boost16re_detail_10740023character_pointer_rangeIcEES7_EEbT_RT0_.exit.i.i.i ], [ %.032.i.i.i, %74 ]
+  %84 = icmp sgt i64 %82, 0
+  br i1 %84, label %_ZSt7advanceIPKN5boost16re_detail_10740023character_pointer_rangeIcEElEvRT_T0_.exit.i.i.i, label %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, !llvm.loop !1065
 
 _ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i: ; preds = %.thread26.i.i.i
-  %.not.i = icmp eq ptr %84, getelementptr inbounds nuw (i8, ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, i64 336)
-  br i1 %.not.i, label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit, label %86
+  %.not.i = icmp eq ptr %83, getelementptr inbounds nuw (i8, ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges, i64 336)
+  br i1 %.not.i, label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit, label %85
 
-86:                                               ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i
-  %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
-  %88 = load ptr, ptr %87, align 8, !tbaa !1063
-  %89 = load ptr, ptr %84, align 8, !tbaa !1061
+85:                                               ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i
+  %86 = getelementptr inbounds nuw i8, ptr %83, i64 8
+  %87 = load ptr, ptr %86, align 8, !tbaa !1063
+  %88 = load ptr, ptr %83, align 8, !tbaa !1061
   %90 = ptrtoint ptr %88 to i64
   %91 = ptrtoint ptr %89 to i64
   %92 = sub i64 %90, %91
   %93 = icmp eq i64 %.pre-phi27, %92
   br i1 %93, label %94, label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
 
-94:                                               ; preds = %86
+93:                                               ; preds = %85
   %.not.not.i.i.i.i.i.i = icmp eq ptr %2, %1
   br i1 %.not.not.i.i.i.i.i.i, label %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i, label %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i
 
-_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i: ; preds = %94
-  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %1, ptr %89, i64 %.pre-phi27)
+_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i: ; preds = %93
+  %bcmp.i.i.i.i.i.i = call i32 @bcmp(ptr %1, ptr %88, i64 %.pre-phi28)
   %.not9.i.i.i.i.i.i = icmp eq i32 %bcmp.i.i.i.i.i.i, 0
   br i1 %.not9.i.i.i.i.i.i, label %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i, label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
 
-_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i: ; preds = %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %94
-  %95 = ptrtoint ptr %84 to i64
-  %96 = sub i64 %95, ptrtoint (ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges to i64)
-  %sext = shl i64 %96, 28
-  %97 = ashr i64 %sext, 32
+_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i: ; preds = %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %93
+  %94 = ptrtoint ptr %83 to i64
+  %95 = sub i64 %94, ptrtoint (ptr @_ZZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_E6ranges to i64)
+  %sext = shl i64 %95, 28
+  %96 = ashr i64 %sext, 32
   br label %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
 
-_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit: ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, %86, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i
-  %.0.i = phi i64 [ %97, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i ], [ -1, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i ], [ -1, %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ -1, %86 ]
-  %98 = getelementptr i32, ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 %.0.i
-  %99 = getelementptr i8, ptr %98, i64 4
-  br label %100
+_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit: ; preds = %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i, %85, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i
+  %.0.i = phi i64 [ %96, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.thread.i ], [ -1, %_ZNK5boost16re_detail_10740023character_pointer_rangeIcEeqERKS2_.exit.i ], [ -1, %_ZSt11lower_boundIPKN5boost16re_detail_10740023character_pointer_rangeIcEES3_ET_S6_S6_RKT0_.exit.i ], [ -1, %86 ]
+  %97 = getelementptr i32, ptr @_ZZNK5boost16re_detail_10740031cpp_regex_traits_implementationIcE20lookup_classname_impEPKcS4_E5masks, i64 %.0.i
+  %98 = getelementptr i8, ptr %97, i64 4
+  br label %99
 
-100:                                              ; preds = %53, %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
-  %.1.in = phi ptr [ %99, %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit ], [ %54, %53 ]
+99:                                               ; preds = %53, %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit
+  %.1.in = phi ptr [ %98, %_ZN5boost16re_detail_10740020get_default_class_idIcEEiPKT_S4_.exit ], [ %54, %53 ]
   %.1 = load i32, ptr %.1.in, align 4, !tbaa !20
   ret i32 %.1
 }

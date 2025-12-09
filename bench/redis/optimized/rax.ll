@@ -5011,17 +5011,17 @@ define dso_local void @raxRecursiveShow(i32 noundef %0, i32 noundef %1, ptr noun
 
 tailrecurse:                                      ; preds = %._crit_edge48.loopexit, %3
   %.tr = phi i32 [ %0, %3 ], [ %46, %._crit_edge48.loopexit ]
-  %.tr67 = phi i32 [ %1, %3 ], [ %.0, %._crit_edge48.loopexit ]
-  %.tr68 = phi ptr [ %2, %3 ], [ %.0.copyload, %._crit_edge48.loopexit ]
-  %4 = load i32, ptr %.tr68, align 4
+  %.tr68 = phi i32 [ %1, %3 ], [ %.0, %._crit_edge48.loopexit ]
+  %.tr69 = phi ptr [ %2, %3 ], [ %.0.copyload, %._crit_edge48.loopexit ]
+  %4 = load i32, ptr %.tr69, align 4
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 91, i32 34
   %7 = lshr i32 %4, 3
-  %8 = getelementptr inbounds nuw i8, ptr %.tr68, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.tr69, i64 4
   %9 = select i1 %.not, i32 93, i32 34
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, i32 noundef %9)
-  %11 = load i32, ptr %.tr68, align 4
+  %11 = load i32, ptr %.tr69, align 4
   %12 = and i32 %11, 1
   %.not39 = icmp eq i32 %12, 0
   br i1 %.not39, label %29, label %13
@@ -5042,7 +5042,7 @@ tailrecurse:                                      ; preds = %._crit_edge48.loope
   %.not11.i = icmp eq i32 %21, 0
   %22 = shl nuw nsw i64 %17, 3
   %spec.select.i = select i1 %.not11.i, i64 %22, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.tr68, i64 %17
+  %23 = getelementptr inbounds nuw i8, ptr %.tr69, i64 %17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %spec.select.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -5053,7 +5053,7 @@ raxGetData.exit:                                  ; preds = %13, %15
   %.0.i = phi ptr [ %.0.copyload.i, %15 ], [ null, %13 ]
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %.0.i)
   %28 = add nsw i32 %27, %10
-  %.pre = load i32, ptr %.tr68, align 4
+  %.pre = load i32, ptr %.tr69, align 4
   br label %29
 
 29:                                               ; preds = %raxGetData.exit, %tailrecurse
@@ -5069,14 +5069,14 @@ raxGetData.exit:                                  ; preds = %13, %15
 33:                                               ; preds = %29
   %34 = icmp samesign ugt i32 %spec.select, 1
   %35 = select i1 %34, i32 7, i32 4
-  %36 = add nsw i32 %35, %.tr67
+  %36 = add nsw i32 %35, %.tr68
   %37 = icmp eq i32 %spec.select, 1
   %38 = select i1 %37, i32 %.035, i32 0
   %spec.select42 = add nsw i32 %36, %38
   br label %39
 
 39:                                               ; preds = %33, %29
-  %.0 = phi i32 [ %.tr67, %29 ], [ %spec.select42, %33 ]
+  %.0 = phi i32 [ %.tr68, %29 ], [ %spec.select42, %33 ]
   %40 = zext nneg i32 %32 to i64
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 %40
   %42 = xor i32 %32, 3
@@ -5097,7 +5097,7 @@ raxGetData.exit:                                  ; preds = %13, %15
   %.fr = freeze i1 %47
   br i1 %.fr, label %.lr.ph.us.us.preheader, label %.lr.ph47.split.us.split.preheader
 
-.lr.ph47.split.us.split.preheader:                ; preds = %.lr.ph47.split.us
+.lr.ph.us.us:                                     ; preds = %.lr.ph47.split.us
   %wide.trip.count = zext nneg i32 %spec.select to i64
   br label %.lr.ph47.split.us.split
 
@@ -5118,8 +5118,8 @@ raxGetData.exit:                                  ; preds = %13, %15
   %51 = load ptr, ptr @stdout, align 8, !tbaa !48
   %52 = tail call noundef i32 @putc(i32 noundef 32, ptr noundef %51)
   %53 = add nuw nsw i32 %.03443.us.us, 1
-  %exitcond54.not = icmp eq i32 %53, %smax
-  br i1 %exitcond54.not, label %._crit_edge.us.us, label %50, !llvm.loop !50
+  %exitcond55.not = icmp eq i32 %53, %smax
+  br i1 %exitcond55.not, label %._crit_edge.us.us, label %50, !llvm.loop !50
 
 ._crit_edge.us.us:                                ; preds = %50
   %54 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv55
@@ -5129,11 +5129,11 @@ raxGetData.exit:                                  ; preds = %13, %15
   %.0.copyload.us.us = load ptr, ptr %.03744.us.us, align 8
   tail call void @raxRecursiveShow(i32 noundef %46, i32 noundef %.0, ptr noundef %.0.copyload.us.us)
   %58 = getelementptr inbounds nuw i8, ptr %.03744.us.us, i64 8
-  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
-  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
-  br i1 %exitcond59.not, label %._crit_edge48, label %.lr.ph.us.us, !llvm.loop !51
+  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count58
+  br i1 %exitcond60.not, label %._crit_edge48, label %.lr.ph.us.us, !llvm.loop !51
 
-.lr.ph47.split.us.split:                          ; preds = %.lr.ph47.split.us.split.preheader, %.lr.ph47.split.us.split
+.lr.ph47.split.us.split:                          ; preds = %.lr.ph.us.us, %.lr.ph47.split.us.split
   %indvars.iv = phi i64 [ 0, %.lr.ph47.split.us.split.preheader ], [ %indvars.iv.next, %.lr.ph47.split.us.split ]
   %.03744.us = phi ptr [ %45, %.lr.ph47.split.us.split.preheader ], [ %65, %.lr.ph47.split.us.split ]
   %59 = load ptr, ptr @stdout, align 8, !tbaa !48

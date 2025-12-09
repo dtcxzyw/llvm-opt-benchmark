@@ -63402,7 +63402,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4CGAL8internal15exact_num_edgesINS
   br i1 %24, label %.preheader.i.i.i.i.i, label %_ZN4CGAL17Compact_containerINS_23Convex_hull_face_base_2INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS3_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEENS_28Triangulation_ds_face_base_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3ISB_EENS_30Triangulation_ds_vertex_base_2IvEEEENS1_ISB_NSC_IvEEEEEEEEEENS_7DefaultESP_SP_E5beginEv.exit.i.i.i
 
 .preheader.i.i.i.i.i:                             ; preds = %18, %.preheader.i.i.i.i.i.backedge
-  %25 = phi ptr [ %.be132, %.preheader.i.i.i.i.i.backedge ], [ %19, %18 ]
+  %25 = phi ptr [ %.be131, %.preheader.i.i.i.i.i.backedge ], [ %19, %18 ]
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 88
   %27 = getelementptr inbounds nuw i8, ptr %25, i64 112
   %28 = load ptr, ptr %27, align 8, !tbaa !242, !noalias !1453
@@ -63422,7 +63422,7 @@ define linkonce_odr dso_local noundef i64 @_ZN4CGAL8internal15exact_num_edgesINS
   br label %.preheader.i.i.i.i.i.backedge
 
 .preheader.i.i.i.i.i.backedge:                    ; preds = %32, %.preheader.i.i.i.i.i
-  %.be132 = phi ptr [ %26, %.preheader.i.i.i.i.i ], [ %34, %32 ]
+  %.be131 = phi ptr [ %26, %.preheader.i.i.i.i.i ], [ %34, %32 ]
   br label %.preheader.i.i.i.i.i, !llvm.loop !459
 
 .preheader.i.i.i.i.i.unreachabledefault:          ; preds = %.preheader.i.i.i.i.i
@@ -63464,7 +63464,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br i1 %46, label %.preheader.i.i, label %57
 
 .preheader.i.i:                                   ; preds = %.lr.ph.i.i, %.preheader.i.i.backedge
-  %47 = phi ptr [ %.be126, %.preheader.i.i.backedge ], [ %45, %.lr.ph.i.i ]
+  %47 = phi ptr [ %.be125, %.preheader.i.i.backedge ], [ %45, %.lr.ph.i.i ]
   %48 = getelementptr inbounds nuw i8, ptr %47, i64 88
   %49 = getelementptr inbounds nuw i8, ptr %47, i64 112
   %50 = load ptr, ptr %49, align 8, !tbaa !242, !noalias !1453
@@ -63484,7 +63484,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br label %.preheader.i.i.backedge
 
 .preheader.i.i.backedge:                          ; preds = %54, %.preheader.i.i
-  %.be126 = phi ptr [ %48, %.preheader.i.i ], [ %56, %54 ]
+  %.be125 = phi ptr [ %48, %.preheader.i.i ], [ %56, %54 ]
   br label %.preheader.i.i, !llvm.loop !459
 
 57:                                               ; preds = %.lr.ph.i.i
@@ -63575,7 +63575,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br i1 %.not2.i.i.us.i, label %_ZN4CGAL8internal18TDS2_edge_iteratorINS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS6_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISE_NS_28Triangulation_ds_face_base_2IvEEEEEENS_32Triangulation_ds_edge_iterator_2ISN_EEEppEv.exit.us.i.loopexit52, label %_ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE15associated_edgeEv.exit.i.i.us.i
 
 .preheader.i:                                     ; preds = %.split.i.i.us.i, %.preheader.i.backedge
-  %86 = phi ptr [ %.be120, %.preheader.i.backedge ], [ %82, %.split.i.i.us.i ]
+  %86 = phi ptr [ %.be119, %.preheader.i.backedge ], [ %82, %.split.i.i.us.i ]
   %87 = getelementptr inbounds nuw i8, ptr %86, i64 88
   %88 = getelementptr inbounds nuw i8, ptr %86, i64 112
   %89 = load ptr, ptr %88, align 8, !tbaa !242
@@ -63595,7 +63595,7 @@ _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2IN
   br label %.preheader.i.backedge
 
 .preheader.i.backedge:                            ; preds = %93, %.preheader.i
-  %.be120 = phi ptr [ %87, %.preheader.i ], [ %95, %93 ]
+  %.be119 = phi ptr [ %87, %.preheader.i ], [ %95, %93 ]
   br label %.preheader.i, !llvm.loop !459
 
 _ZN4CGAL32Triangulation_ds_edge_iterator_2INS_30Triangulation_data_structure_2INS_25Convex_hull_vertex_base_2INS_11GT3_for_CH3INS_20Convex_hull_traits_3INS_5EpickENS_12Polyhedron_3IS5_NS_18Polyhedron_items_3ENS_18HalfedgeDS_defaultESaIiEEESt17integral_constantIbLb1EEEEEENS_30Triangulation_ds_vertex_base_2IvEEEENS_23Convex_hull_face_base_2ISD_NS_28Triangulation_ds_face_base_2IvEEEEEEE9incrementEv.exit.loopexit4.i.i.us.i: ; preds = %.preheader.i, %.preheader.i

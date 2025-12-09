@@ -481,42 +481,42 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.0137.lcssa = phi i1 [ true, %19 ], [ %153, %._crit_edge.loopexit ]
   %.095.lcssa = phi i64 [ 0, %19 ], [ %.196, %._crit_edge.loopexit ]
   %.0.lcssa = phi i64 [ 0, %19 ], [ %.1, %._crit_edge.loopexit ]
-  %154 = getelementptr inbounds nuw i8, ptr %0, i64 49202
-  %155 = load i8, ptr %154, align 2, !tbaa !7, !range !26, !noundef !27
-  %156 = trunc nuw i8 %155 to i1
-  br i1 %156, label %157, label %159
+  %153 = getelementptr inbounds nuw i8, ptr %0, i64 49202
+  %154 = load i8, ptr %153, align 2, !tbaa !7, !range !26, !noundef !27
+  %155 = trunc nuw i8 %154 to i1
+  br i1 %155, label %156, label %158
 
-157:                                              ; preds = %._crit_edge
-  %158 = getelementptr inbounds nuw i8, ptr %0, i64 100848
-  call void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25) %158)
-  br label %159
+156:                                              ; preds = %._crit_edge
+  %157 = getelementptr inbounds nuw i8, ptr %0, i64 100848
+  call void @_ZN11SecPassword5CleanEv(ptr noundef nonnull align 8 dereferenceable(25) %157)
+  br label %158
 
-159:                                              ; preds = %157, %._crit_edge
-  br i1 %.0137.lcssa, label %164, label %switch.early.test
+158:                                              ; preds = %156, %._crit_edge
+  br i1 %.0137.lcssa, label %163, label %switch.early.test
 
-switch.early.test:                                ; preds = %159
+switch.early.test:                                ; preds = %158
   switch i32 %13, label %160 [
-    i32 84, label %164
-    i32 66, label %164
+    i32 84, label %163
+    i32 66, label %163
   ]
 
-160:                                              ; preds = %switch.early.test
+159:                                              ; preds = %switch.early.test
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
   call void @_Z4itoalPwm(i64 noundef %.095.lcssa, ptr noundef nonnull %9, i64 noundef 20)
   call void @_Z4itoalPwm(i64 noundef %.0.lcssa, ptr noundef nonnull %10, i64 noundef 20)
-  br i1 %22, label %161, label %163
+  br i1 %22, label %160, label %162
 
-161:                                              ; preds = %160
-  %162 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %.0.lcssa, i64 noundef %.095.lcssa)
-  br label %163
+160:                                              ; preds = %159
+  %161 = call noundef i32 @_Z14ToPercentUnlimll(i64 noundef %.0.lcssa, i64 noundef %.095.lcssa)
+  br label %162
 
-163:                                              ; preds = %160, %161
+162:                                              ; preds = %159, %160
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %164
+  br label %163
 
-164:                                              ; preds = %switch.early.test, %switch.early.test, %159, %163
+163:                                              ; preds = %switch.early.test, %switch.early.test, %158, %162
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   ret void
 }

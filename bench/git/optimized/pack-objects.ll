@@ -12448,13 +12448,13 @@ oe_delta.exit122:                                 ; preds = %oe_delta_size.exit1
   br label %168
 
 .thread.sink.split.sink.split:                    ; preds = %oe_delta.exit, %oe_delta.exit122
-  %.sink212 = phi i32 [ %129, %oe_delta.exit122 ], [ %68, %oe_delta.exit ]
+  %.sink214 = phi i32 [ %129, %oe_delta.exit122 ], [ %68, %oe_delta.exit ]
   %.1136144.ph.ph = phi ptr [ %98, %oe_delta.exit122 ], [ %50, %oe_delta.exit ]
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %138 = load i64, ptr %137, align 8
   %139 = and i64 %138, 36028797018963968
   %.not8.i120 = icmp eq i64 %139, 0
-  %140 = add i32 %.sink212, -1
+  %140 = add i32 %.sink214, -1
   %141 = zext i32 %140 to i64
   %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 112), align 8
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 8), align 8
@@ -12780,8 +12780,8 @@ oe_delta.exit130:                                 ; preds = %225, %234, %237
   %287 = sub i64 %.132.i, %261
   %288 = add i64 %287, %286
   %.pr.i = load i64, ptr %258, align 8, !tbaa !338
-  %.not40.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not40.i, label %.thread.i, label %.split.i, !llvm.loop !353
+  %.not39.i = icmp eq i64 %.pr.i, 0
+  br i1 %.not39.i, label %.thread.i, label %.split.i, !llvm.loop !353
 
 .critedge.i:                                      ; preds = %.split.us.i
   %289 = icmp eq i64 %268, 0

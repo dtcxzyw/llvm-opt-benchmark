@@ -27684,14 +27684,14 @@ define linkonce_odr i64 @_ZN4toml2v34impl7impl_ex6parser10parse_timeEb(ptr nound
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 3480
   store ptr @.str.130, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !115
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  %.0912.i.sroa.gep313 = getelementptr inbounds nuw i8, ptr %6, i64 4
+  %.0912.i.sroa.gep317 = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.0912.i50160.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4
   %.0912.i75161.sroa.gep = getelementptr inbounds nuw i8, ptr %6, i64 4
   br label %45
 
 45:                                               ; preds = %.noexc48, %2
   %exitcond.not.i = phi i1 [ false, %2 ], [ true, %.noexc48 ]
-  %.0912.i.sroa.phi = phi ptr [ %6, %2 ], [ %.0912.i.sroa.gep313, %.noexc48 ]
+  %.0912.i.sroa.phi = phi ptr [ %6, %2 ], [ %.0912.i.sroa.gep317, %.noexc48 ]
   %46 = load ptr, ptr %43, align 8, !tbaa !329
   %.not.i = icmp eq ptr %46, null
   br i1 %.not.i, label %47, label %49, !prof !146
@@ -27767,12 +27767,12 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %57, %60, %62
 .loopexit153:                                     ; preds = %53
   %lpad.loopexit155 = landingpad { ptr, i32 }
           cleanup
-  br label %333
+  br label %331
 
 .loopexit.split-lp154:                            ; preds = %47
   %lpad.loopexit.split-lp156 = landingpad { ptr, i32 }
           cleanup
-  br label %333
+  br label %331
 
 69:                                               ; preds = %_ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit
   %70 = landingpad { ptr, i32 }
@@ -27780,7 +27780,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %57, %60, %62
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %333
+  br label %331
 
 71:                                               ; preds = %.noexc48
   call void @llvm.lifetime.start.p0(ptr nonnull %10)
@@ -27808,7 +27808,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %57, %60, %62
   %82 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %332
+  br label %330
 
 83:                                               ; preds = %71
   %84 = load ptr, ptr %43, align 8, !tbaa !329
@@ -27830,7 +27830,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit: ; preds = %57, %60, %62
   %89 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %332
+  br label %330
 
 90:                                               ; preds = %83
   %91 = load i32, ptr %84, align 4, !tbaa !357
@@ -27886,7 +27886,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %95, %98, %100
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %332
+  br label %330
 
 109:                                              ; preds = %90
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %0)
@@ -27911,18 +27911,18 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit: ; preds = %95, %98, %100
 .loopexit148:                                     ; preds = %123
   %lpad.loopexit150 = landingpad { ptr, i32 }
           cleanup
-  br label %332
+  br label %330
 
 .loopexit.split-lp149:                            ; preds = %109, %117
   %lpad.loopexit.split-lp151 = landingpad { ptr, i32 }
           cleanup
-  br label %332
+  br label %330
 
 115:                                              ; preds = %112
   %116 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
-  br label %332
+  br label %330
 
 thread-pre-split:                                 ; preds = %.noexc54
   %.pr = load ptr, ptr %43, align 8, !tbaa !329
@@ -28006,7 +28006,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit66: ; preds = %127, %130, %13
   call void @llvm.lifetime.end.p0(ptr nonnull %19)
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
   call void @llvm.lifetime.end.p0(ptr nonnull %17)
-  br label %332
+  br label %330
 
 141:                                              ; preds = %.noexc54
   call void @llvm.lifetime.start.p0(ptr nonnull %20)
@@ -28033,7 +28033,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit66: ; preds = %127, %130, %13
   %151 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
-  br label %331
+  br label %329
 
 152:                                              ; preds = %141
   %153 = load ptr, ptr %43, align 8, !tbaa !329
@@ -28055,7 +28055,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit66: ; preds = %127, %130, %13
   %158 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
-  br label %331
+  br label %329
 
 159:                                              ; preds = %152
   %160 = load i32, ptr %153, align 4, !tbaa !357
@@ -28111,7 +28111,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit74: ; preds = %164, %167, %16
   call void @llvm.lifetime.end.p0(ptr nonnull %25)
   call void @llvm.lifetime.end.p0(ptr nonnull %24)
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
-  br label %331
+  br label %329
 
 178:                                              ; preds = %159
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %0)
@@ -28136,18 +28136,18 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit74: ; preds = %164, %167, %16
 .loopexit:                                        ; preds = %192
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %331
+  br label %329
 
 .loopexit.split-lp:                               ; preds = %178, %186
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %331
+  br label %329
 
 184:                                              ; preds = %181
   %185 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %26)
-  br label %331
+  br label %329
 
 thread-pre-split126:                              ; preds = %.noexc79
   %.pr127 = load ptr, ptr %43, align 8, !tbaa !329
@@ -28231,7 +28231,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit91: ; preds = %196, %199, %20
   call void @llvm.lifetime.end.p0(ptr nonnull %29)
   call void @llvm.lifetime.end.p0(ptr nonnull %28)
   call void @llvm.lifetime.end.p0(ptr nonnull %27)
-  br label %331
+  br label %329
 
 210:                                              ; preds = %.noexc79
   call void @llvm.lifetime.start.p0(ptr nonnull %30)
@@ -28258,7 +28258,7 @@ _ZN12_GLOBAL__N_15to_svEPKNS_14utf8_codepointE.exit91: ; preds = %196, %199, %20
   %220 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
-  br label %330
+  br label %328
 
 221:                                              ; preds = %210
   %222 = load ptr, ptr %43, align 8, !tbaa !329
@@ -28335,7 +28335,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit99: ; preds = %232, %235, %23
   call void @llvm.lifetime.end.p0(ptr nonnull %34)
   call void @llvm.lifetime.end.p0(ptr nonnull %33)
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
-  br label %330
+  br label %328
 
 246:                                              ; preds = %227, %228
   invoke void @_ZN4toml2v34impl7impl_ex6parser7advanceEv(ptr noundef nonnull align 8 dereferenceable(3496) %0)
@@ -28360,16 +28360,16 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit99: ; preds = %232, %235, %23
 252:                                              ; preds = %246
   %253 = landingpad { ptr, i32 }
           cleanup
-  br label %330
+  br label %328
 
 254:                                              ; preds = %249
   %255 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %35)
-  br label %330
+  br label %328
 
 thread-pre-split128:                              ; preds = %.noexc102
-  br i1 %.not38134, label %.thread205, label %.preheader145
+  br i1 %.not38134, label %.thread209, label %.preheader145
 
 .preheader145:                                    ; preds = %247, %thread-pre-split128
   %.09.i162 = phi i64 [ %262, %thread-pre-split128 ], [ 0, %247 ]
@@ -28399,7 +28399,7 @@ _ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m
 264:                                              ; preds = %260
   %265 = landingpad { ptr, i32 }
           cleanup
-  br label %330
+  br label %328
 
 266:                                              ; preds = %_ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %36)
@@ -28451,7 +28451,7 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit110: ; preds = %270, %273, %2
   call void @llvm.lifetime.end.p0(ptr nonnull %38)
   call void @llvm.lifetime.end.p0(ptr nonnull %37)
   call void @llvm.lifetime.end.p0(ptr nonnull %36)
-  br label %330
+  br label %328
 
 .thread:                                          ; preds = %.noexc102
   br i1 %.not38134, label %.thread141, label %284
@@ -28477,17 +28477,17 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit110: ; preds = %270, %273, %2
   %292 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %39)
-  br label %330
+  br label %328
 
 293:                                              ; preds = %_ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m.exit, %284
   %.0.lcssa.i132135139 = phi i64 [ 64, %284 ], [ %.09.i162, %_ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m.exit ]
   %294 = phi ptr [ %263, %284 ], [ %256, %_ZN4toml2v34impl7impl_ex6parser38consume_variable_length_digit_sequenceIjEEmPT_m.exit ]
-  br i1 %1, label %.thread205, label %295
+  br i1 %1, label %.thread209, label %295
 
 295:                                              ; preds = %293
   %296 = load i32, ptr %294, align 4, !tbaa !357
   %297 = tail call noundef zeroext i1 @_ZN4toml2v34impl19is_value_terminatorEDi(i32 noundef zeroext %296) #59
-  br i1 %297, label %.thread205, label %298
+  br i1 %297, label %.thread209, label %298
 
 298:                                              ; preds = %295
   call void @llvm.lifetime.start.p0(ptr nonnull %40)
@@ -28539,39 +28539,39 @@ _ZN12_GLOBAL__N_15to_svERKNS_14utf8_codepointE.exit118: ; preds = %302, %305, %3
   call void @llvm.lifetime.end.p0(ptr nonnull %42)
   call void @llvm.lifetime.end.p0(ptr nonnull %41)
   call void @llvm.lifetime.end.p0(ptr nonnull %40)
-  br label %330
+  br label %328
 
-.thread205:                                       ; preds = %thread-pre-split128, %293, %295
+.thread209:                                       ; preds = %thread-pre-split128, %293, %295
   %.0.lcssa.i132136 = phi i64 [ %.0.lcssa.i132135139, %293 ], [ %.0.lcssa.i132135139, %295 ], [ %262, %thread-pre-split128 ]
   %316 = icmp ult i64 %.0.lcssa.i132136, 9
   %cond.fr = freeze i1 %316
   %spec.select = select i1 %cond.fr, i64 %.0.lcssa.i132136, i64 9
   br label %.thread141
 
-.thread141:                                       ; preds = %.thread205, %.thread
-  %.0.lcssa.i132136144 = phi i64 [ 64, %.thread ], [ %.0.lcssa.i132136, %.thread205 ]
+.thread141:; preds = %.thread209, %.thread
+  %316 = phi i64 [ 64, %.thread ], [ %.0.lcssa.i132136, %.thread205 ]
   %317 = phi i64 [ 9, %.thread ], [ %spec.select, %.thread205 ]
   br label %319
 
-.preheader:                                       ; preds = %319
-  %318 = icmp ult i64 %.0.lcssa.i132136144, 9
+.lr.ph:                                           ; preds = %319
+  %318 = icmp ult i64 %316, 9
   br i1 %318, label %.lr.ph, label %_ZN12_GLOBAL__N_18is_matchIJDiDiDiDiEEEbDiDpT_.exit.thread
 
-319:                                              ; preds = %.thread141, %319
+319:; preds = %.thread141, %319
   %.013165 = phi i64 [ %317, %.thread141 ], [ %320, %319 ]
   %.014164 = phi i32 [ 1, %.thread141 ], [ %325, %319 ]
   %.015163 = phi i32 [ 0, %.thread141 ], [ %324, %319 ]
-  %320 = add i64 %.013165, -1
+  %322 = add i64 %.013165, -1
   %321 = getelementptr inbounds nuw i32, ptr %6, i64 %320
   %322 = load i32, ptr %321, align 4, !tbaa !145
   %323 = mul i32 %322, %.014164
   %324 = add i32 %323, %.015163
   %325 = mul i32 %.014164, 10
   %.not39 = icmp eq i64 %320, 0
-  br i1 %.not39, label %.preheader, label %319, !llvm.loop !601
+  br i1 %.not39, label %.lr.ph, label %319, !llvm.loop !601
 
-.lr.ph:                                           ; preds = %.preheader, %.lr.ph
-  %.0167 = phi i64 [ %327, %.lr.ph ], [ %.0.lcssa.i132136144, %.preheader ]
+.lr.ph:; preds = %.preheader, %.lr.ph
+  %.0167 = phi i64 [ %327, %.lr.ph ], [ %316, %.preheader ]
   %.1166 = phi i32 [ %326, %.lr.ph ], [ %324, %.preheader ]
   %326 = mul i32 %.1166, 10
   %327 = add nuw nsw i64 %.0167, 1
@@ -28588,32 +28588,32 @@ _ZN12_GLOBAL__N_18is_matchIJDiDiDiDiEEEbDiDpT_.exit.thread: ; preds = %.lr.ph, %
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6)
   %.sroa.5125.0.insert.ext = zext i32 %.sroa.5125.0 to i64
   %.sroa.5125.0.insert.shift = shl nuw i64 %.sroa.5125.0.insert.ext, 32
-  %328 = shl nuw nsw i32 %214, 16
-  %.sroa.3.0.insert.shift = zext nneg i32 %328 to i64
+  %326 = shl nuw nsw i32 %214, 16
+  %.sroa.3.0.insert.shift = zext nneg i32 %326 to i64
   %.sroa.3.0.insert.insert = or disjoint i64 %.sroa.5125.0.insert.shift, %.sroa.3.0.insert.shift
-  %329 = shl nuw nsw i32 %145, 8
-  %.sroa.2.0.insert.shift = zext nneg i32 %329 to i64
+  %327 = shl nuw nsw i32 %145, 8
+  %.sroa.2.0.insert.shift = zext nneg i32 %327 to i64
   %.sroa.2.0.insert.insert = or disjoint i64 %.sroa.3.0.insert.insert, %.sroa.2.0.insert.shift
   %.sroa.0124.0.insert.ext = zext nneg i32 %76 to i64
   %.sroa.0124.0.insert.insert = or disjoint i64 %.sroa.2.0.insert.insert, %.sroa.0124.0.insert.ext
   ret i64 %.sroa.0124.0.insert.insert
 
-330:                                              ; preds = %264, %282, %291, %314, %254, %252, %244, %219
+328:                                              ; preds = %264, %282, %291, %314, %254, %252, %244, %219
   %.pn41 = phi { ptr, i32 } [ %220, %219 ], [ %245, %244 ], [ %255, %254 ], [ %253, %252 ], [ %292, %291 ], [ %315, %314 ], [ %283, %282 ], [ %265, %264 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %30)
-  br label %331
+  br label %329
 
-331:                                              ; preds = %.loopexit, %.loopexit.split-lp, %330, %208, %184, %176, %157, %150
+329:                                              ; preds = %.loopexit, %.loopexit.split-lp, %328, %208, %184, %176, %157, %150
   %.pn43 = phi { ptr, i32 } [ %151, %150 ], [ %158, %157 ], [ %177, %176 ], [ %185, %184 ], [ %.pn41, %330 ], [ %209, %208 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @llvm.lifetime.end.p0(ptr nonnull %20)
-  br label %332
+  br label %330
 
-332:                                              ; preds = %.loopexit148, %.loopexit.split-lp149, %331, %139, %115, %107, %88, %81
+330:                                              ; preds = %.loopexit148, %.loopexit.split-lp149, %329, %139, %115, %107, %88, %81
   %.pn45 = phi { ptr, i32 } [ %82, %81 ], [ %89, %88 ], [ %108, %107 ], [ %116, %115 ], [ %.pn43, %331 ], [ %140, %139 ], [ %lpad.loopexit150, %.loopexit148 ], [ %lpad.loopexit.split-lp151, %.loopexit.split-lp149 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
-  br label %333
+  br label %331
 
-333:                                              ; preds = %.loopexit153, %.loopexit.split-lp154, %332, %69
+331:                                              ; preds = %.loopexit153, %.loopexit.split-lp154, %330, %69
   %.pn45.pn = phi { ptr, i32 } [ %.pn45, %332 ], [ %70, %69 ], [ %lpad.loopexit155, %.loopexit153 ], [ %lpad.loopexit.split-lp156, %.loopexit.split-lp154 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %44, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6, i64 16, i1 false), !tbaa.struct !328

@@ -898,7 +898,7 @@ define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr noundef cap
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %34 = load ptr, ptr %33, align 8, !tbaa !20
   %.not69 = icmp eq ptr %34, null
-  br i1 %.not69, label %35, label %.thread102
+  br i1 %.not69, label %35, label %.thread100
 
 35:                                               ; preds = %32
   %36 = load ptr, ptr %0, align 8, !tbaa !17
@@ -909,9 +909,9 @@ define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr noundef cap
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %39 = load ptr, ptr %38, align 8, !tbaa !21
   %.not71 = icmp eq ptr %39, null
-  br i1 %.not71, label %.critedge76, label %.thread102
+  br i1 %.not71, label %.critedge76, label %.thread100
 
-.thread102:                                       ; preds = %32, %37
+.thread100:                                       ; preds = %32, %37
   %40 = phi ptr [ %39, %37 ], [ %34, %32 ]
   %41 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %42 = load i32, ptr %41, align 8, !tbaa !30
@@ -922,7 +922,7 @@ define internal fastcc range(i32 0, 2) i32 @wpacket_intern_close(ptr noundef cap
   %47 = getelementptr inbounds nuw i8, ptr %40, i64 %46
   br i1 %44, label %.lr.ph.preheader.i, label %52
 
-.lr.ph.preheader.i:                               ; preds = %.thread102
+.lr.ph.preheader.i:                               ; preds = %.thread100
   %48 = getelementptr i8, ptr %47, i64 %31
   br label %.lr.ph.i
 
@@ -942,7 +942,7 @@ put_value.exit:                                   ; preds = %.lr.ph.i
   %.not14.i.not = icmp eq i64 %50, 0
   br i1 %.not14.i.not, label %.critedge76, label %put_quic_value.exit.thread
 
-52:                                               ; preds = %.thread102
+52:                                               ; preds = %.thread100
   %53 = icmp ult i64 %9, 64
   br i1 %53, label %ossl_quic_vlint_encode_len.exit.i, label %54
 
@@ -1015,9 +1015,9 @@ put_quic_value.exit:                              ; preds = %ossl_quic_vlint_enc
 81:                                               ; preds = %79
   %82 = load ptr, ptr %4, align 8, !tbaa !23
   %83 = icmp eq ptr %82, null
-  br i1 %83, label %WPACKET_put_bytes__.exit.thread108, label %.lr.ph.preheader.i.i
+  br i1 %83, label %WPACKET_put_bytes__.exit.thread106, label %.lr.ph.preheader.i.i
 
-WPACKET_put_bytes__.exit.thread108:               ; preds = %81
+WPACKET_put_bytes__.exit.thread106:               ; preds = %81
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %88
 
@@ -1042,19 +1042,19 @@ WPACKET_put_bytes__.exit.thread:                  ; preds = %79, %77
   br label %put_quic_value.exit.thread
 
 WPACKET_put_bytes__.exit:                         ; preds = %.lr.ph.i.i
-  %.not14.i.i.not = icmp eq i64 %86, 0
+  %.not14.i.not.i.not = icmp eq i64 %86, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not14.i.i.not, label %88, label %put_quic_value.exit.thread
+  br i1 %.not14.i.not.i.not, label %88, label %put_quic_value.exit.thread
 
-88:                                               ; preds = %WPACKET_put_bytes__.exit.thread108, %WPACKET_put_bytes__.exit
+88:                                               ; preds = %WPACKET_put_bytes__.exit.thread106, %WPACKET_put_bytes__.exit
   %89 = icmp ugt i64 %9, 127
   br i1 %89, label %90, label %.critedge76
 
 90:                                               ; preds = %88
   %91 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %92 = load ptr, ptr %91, align 8, !tbaa !4
-  %.not120 = icmp eq ptr %92, null
-  br i1 %.not120, label %put_quic_value.exit.thread, label %93, !prof !24
+  %.not118 = icmp eq ptr %92, null
+  br i1 %.not118, label %put_quic_value.exit.thread, label %93, !prof !24
 
 93:                                               ; preds = %90
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 32
@@ -1065,8 +1065,8 @@ WPACKET_put_bytes__.exit:                         ; preds = %.lr.ph.i.i
 
 98:                                               ; preds = %93
   %99 = load ptr, ptr %0, align 8, !tbaa !17
-  %.not.i.i98 = icmp eq ptr %99, null
-  br i1 %.not.i.i98, label %106, label %100
+  %.not.i.i96 = icmp eq ptr %99, null
+  br i1 %.not.i.i96, label %106, label %100
 
 100:                                              ; preds = %98
   %101 = load i64, ptr %99, align 8, !tbaa !18
@@ -1074,10 +1074,10 @@ WPACKET_put_bytes__.exit:                         ; preds = %.lr.ph.i.i
   br i1 %102, label %103, label %106
 
 103:                                              ; preds = %100
-  %..i.i99 = call i64 @llvm.umax.i64(i64 %96, i64 1)
-  %104 = shl nuw i64 %..i.i99, 1
+  %..i.i97 = call i64 @llvm.umax.i64(i64 %96, i64 1)
+  %104 = shl nuw i64 %..i.i97, 1
   %spec.store.select.i.i = call i64 @llvm.umax.i64(i64 %104, i64 256)
-  %.inv.i.i = icmp sgt i64 %..i.i99, -1
+  %.inv.i.i = icmp sgt i64 %..i.i97, -1
   %.027.i.i = select i1 %.inv.i.i, i64 %spec.store.select.i.i, i64 -1
   %105 = call i64 @BUF_MEM_grow(ptr noundef nonnull %99, i64 noundef %.027.i.i) #12
   %.not41.i.i = icmp eq i64 %105, 0
@@ -1124,7 +1124,7 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.thread17.i.i.i
   br label %129
 
 129:                                              ; preds = %109, %111, %121, %WPACKET_get_curr.exit.i.i.thread
-  %.0100 = phi ptr [ %120, %WPACKET_get_curr.exit.i.i.thread ], [ %128, %121 ], [ null, %111 ], [ null, %109 ]
+  %.098 = phi ptr [ %120, %WPACKET_get_curr.exit.i.i.thread ], [ %128, %121 ], [ null, %111 ], [ null, %109 ]
   %130 = load i64, ptr %5, align 8, !tbaa !16
   %131 = add i64 %130, 1
   store i64 %131, ptr %5, align 8, !tbaa !16
@@ -1132,13 +1132,13 @@ WPACKET_get_curr.exit.i.i.thread:                 ; preds = %.thread17.i.i.i
   %133 = load i64, ptr %132, align 8, !tbaa !22
   %134 = add i64 %133, 1
   store i64 %134, ptr %132, align 8, !tbaa !22
-  %135 = icmp eq ptr %.0100, null
+  %135 = icmp eq ptr %.098, null
   br i1 %135, label %.critedge76, label %.lr.ph.i.i83
 
 .lr.ph.i.i83:                                     ; preds = %129
   %136 = trunc nuw nsw i64 %.0 to i8
   %137 = or disjoint i8 %136, -128
-  store i8 %137, ptr %.0100, align 1, !tbaa !33
+  store i8 %137, ptr %.098, align 1, !tbaa !33
   br label %.critedge76
 
 .critedge76:                                      ; preds = %.lr.ph.i.i83, %129, %35, %put_quic_value.exit, %88, %37, %put_value.exit, %62, %66, %69
@@ -1257,8 +1257,8 @@ define dso_local range(i32 0, 2) i32 @WPACKET_put_bytes__(ptr noundef captures(n
 
 put_value.exit:                                   ; preds = %.lr.ph.i, %11
   %.010.lcssa.i = phi i64 [ %1, %11 ], [ %14, %.lr.ph.i ]
-  %.not14.i = icmp ne i64 %.010.lcssa.i, 0
-  %cond.fr = freeze i1 %.not14.i
+  %.not14.i.not = icmp ne i64 %.010.lcssa.i, 0
+  %cond.fr = freeze i1 %.not14.i.not
   %not.cond.fr = xor i1 %cond.fr, true
   %spec.select = zext i1 %not.cond.fr to i32
   br label %put_value.exit.thread
