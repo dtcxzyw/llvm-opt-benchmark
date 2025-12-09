@@ -17696,7 +17696,7 @@ zend_string_alloc.exit:                           ; preds = %.loopexit
   br label %103
 
 103:                                              ; preds = %.critedge12, %zend_string_alloc.exit
-  %.0225.in = phi i64 [ %.fr, %zend_string_alloc.exit ], [ %.4229, %.critedge12 ]
+  %.0225.in = phi i64 [ %.fr, %zend_string_alloc.exit ], [ %.4229.fr, %.critedge12 ]
   %.4 = phi ptr [ %102, %zend_string_alloc.exit ], [ %.6.lcssa, %.critedge12 ]
   %.0225 = add i64 %.0225.in, -1
   %104 = load i64, ptr %4, align 8, !tbaa !24
@@ -17800,7 +17800,8 @@ zend_string_alloc.exit:                           ; preds = %.loopexit
 
 .critedge8.thread:                                ; preds = %.lr.ph389, %.lr.ph389, %.lr.ph389, %.lr.ph389, %128, %.split, %.critedge8
   %.4229 = phi i64 [ %.2227, %.critedge8 ], [ %.0225, %.split ], [ %.0202388, %.lr.ph389 ], [ %.0202388, %.lr.ph389 ], [ %.0202388, %.lr.ph389 ], [ %.0202388, %.lr.ph389 ], [ %.2227, %128 ]
-  %131 = getelementptr inbounds nuw i8, ptr %32, i64 %.4229
+  %.4229.fr = freeze i64 %.4229
+  %131 = getelementptr inbounds nuw i8, ptr %32, i64 %.4229.fr
   %132 = load i8, ptr %131, align 1, !tbaa !10
   switch i8 %132, label %134 [
     i8 32, label %133
@@ -17812,11 +17813,11 @@ zend_string_alloc.exit:                           ; preds = %.loopexit
   br label %134
 
 134:                                              ; preds = %.critedge8.thread, %133
-  %.not260399 = icmp ugt i64 %.4229, %.0225
+  %.not260399 = icmp ugt i64 %.4229.fr, %.0225
   br i1 %.not260399, label %.critedge10, label %.lr.ph401
 
 .lr.ph401:                                        ; preds = %134, %137
-  %.6231400 = phi i64 [ %138, %137 ], [ %.4229, %134 ]
+  %.6231400 = phi i64 [ %138, %137 ], [ %.4229.fr, %134 ]
   %135 = getelementptr inbounds nuw i8, ptr %32, i64 %.6231400
   %136 = load i8, ptr %135, align 1, !tbaa !10
   switch i8 %136, label %.critedge10 [
@@ -17830,7 +17831,7 @@ zend_string_alloc.exit:                           ; preds = %.loopexit
   br i1 %.not260.not, label %.lr.ph401, label %.critedge10
 
 .critedge10:                                      ; preds = %137, %.lr.ph401, %134
-  %.6231.lcssa = phi i64 [ %.4229, %134 ], [ %.6231400, %.lr.ph401 ], [ %138, %137 ]
+  %.6231.lcssa = phi i64 [ %.4229.fr, %134 ], [ %.6231400, %.lr.ph401 ], [ %138, %137 ]
   %.not261405 = icmp ugt i64 %.6231.lcssa, %.0225
   br i1 %.not261405, label %.preheader, label %.lr.ph408
 
@@ -17851,7 +17852,7 @@ zend_string_alloc.exit:                           ; preds = %.loopexit
 
 .lr.ph413:                                        ; preds = %.preheader, %145
   %.6412 = phi ptr [ %146, %145 ], [ %.5.lcssa, %.preheader ]
-  %.3221411 = phi i64 [ %147, %145 ], [ %.4229, %.preheader ]
+  %.3221411 = phi i64 [ %147, %145 ], [ %.4229.fr, %.preheader ]
   %143 = getelementptr inbounds nuw i8, ptr %32, i64 %.3221411
   %144 = load i8, ptr %143, align 1, !tbaa !10
   switch i8 %144, label %.critedge12 [
@@ -17868,7 +17869,7 @@ zend_string_alloc.exit:                           ; preds = %.loopexit
 
 .critedge12:                                      ; preds = %145, %.lr.ph413, %.preheader
   %.6.lcssa = phi ptr [ %.5.lcssa, %.preheader ], [ %.6412, %.lr.ph413 ], [ %146, %145 ]
-  %148 = icmp eq i64 %.4229, 0
+  %148 = icmp eq i64 %.4229.fr, 0
   br i1 %148, label %149, label %103
 
 149:                                              ; preds = %.critedge12
@@ -18736,11 +18737,12 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
   %.2 = phi i32 [ %.3, %108 ], [ %.3, %.loopexit362 ], [ %.1231524, %48 ], [ 0, %58 ], [ %.1231524, %61 ], [ %.1231524, %63 ], [ 0, %65 ], [ %.1231524, %46 ]
   %.1244.add = add nuw nsw i64 %.1244.idx522, 1
   %.not295520547 = icmp samesign ult i64 %.1244.add, %1
+  %.2.fr = freeze i32 %.2
   br i1 %.not295520547, label %.lr.ph526.lr.ph, label %.loopexit
 
 .lr.ph526.lr.ph:                                  ; preds = %37, %.outer
   %.1.ph570 = phi i8 [ %.1.ph369552, %.outer ], [ %.0.ph608, %37 ]
-  %.1231.ph569 = phi i32 [ %.2, %.outer ], [ 0, %37 ]
+  %.1231.ph569 = phi i32 [ %.2.fr, %.outer ], [ 0, %37 ]
   %.2234.ph568 = phi i32 [ %.3235, %.outer ], [ %.0232502, %37 ]
   %.1244.idx.ph567 = phi i64 [ %.1244.add, %.outer ], [ %.0243.add, %37 ]
   %.5253.ph564 = phi ptr [ %.6254, %.outer ], [ %.3251, %37 ]
@@ -18750,7 +18752,7 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
 
 .lr.ph541:                                        ; preds = %.preheader358, %.critedge348
   %.3246.idx539 = phi i64 [ %.3246.idx, %.critedge348 ], [ %.3246.idx531, %.preheader358 ]
-  %.5538 = phi i32 [ %.6, %.critedge348 ], [ %.1231524, %.preheader358 ]
+  %.5538 = phi i32 [ %.6.fr, %.critedge348 ], [ %.1231524, %.preheader358 ]
   %.5237537 = phi i32 [ %.6238, %.critedge348 ], [ %.2234523, %.preheader358 ]
   %.0240536 = phi i32 [ %.1241, %.critedge348 ], [ 0, %.preheader358 ]
   %.3246.idx.in535 = phi i64 [ %.3246.idx539, %.critedge348 ], [ %.1244.idx522, %.preheader358 ]
@@ -18886,12 +18888,13 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
   %.6238 = phi i32 [ %.5237537, %.lr.ph541 ], [ %.5237537, %112 ], [ %.5237537, %111 ], [ %.5237537, %115 ], [ %.5237537, %114 ], [ %119, %118 ], [ 0, %120 ], [ 0, %124 ], [ 0, %123 ], [ %.5237537, %129 ], [ %.5237537, %149 ], [ %.5237537, %145 ], [ %.5237537, %137 ], [ %.5237537, %111 ], [ %.5237537, %114 ], [ %.5237537, %139 ], [ %.5237537, %142 ], [ %.5237537, %135 ], [ %.5237537, %132 ]
   %.6 = phi i32 [ %.5538, %.lr.ph541 ], [ %.5538, %112 ], [ %.5538, %111 ], [ %.5538, %115 ], [ %.5538, %114 ], [ %.5538, %118 ], [ %.5538, %120 ], [ 0, %124 ], [ 0, %123 ], [ %.5538, %129 ], [ %.5538, %149 ], [ %.5538, %145 ], [ %.5538, %137 ], [ %.5538, %111 ], [ %.5538, %114 ], [ %.5538, %139 ], [ %.5538, %142 ], [ %spec.select355, %135 ], [ %134, %132 ]
   %.3246.idx = add i64 %.3246.idx539, 1
+  %.6.fr = freeze i32 %.6
   %exitcond762.not = icmp eq i64 %.3246.idx, %1
   br i1 %exitcond762.not, label %.loopexit, label %.lr.ph541
 
 .lr.ph514:                                        ; preds = %.preheader, %.critedge350
   %.2245.idx512 = phi i64 [ %.2245.idx, %.critedge350 ], [ %.2245.idx506, %.preheader ]
-  %.4511 = phi i32 [ %.7, %.critedge350 ], [ %.1231524, %.preheader ]
+  %.4511 = phi i32 [ %.7.fr, %.critedge350 ], [ %.1231524, %.preheader ]
   %.4236510 = phi i32 [ %.7239, %.critedge350 ], [ %.2234523, %.preheader ]
   %.2245.idx.in509 = phi i64 [ %.2245.idx512, %.critedge350 ], [ %.1244.idx522, %.preheader ]
   %.2245.ptr513 = getelementptr inbounds nuw i8, ptr %6, i64 %.2245.idx512
@@ -19017,6 +19020,7 @@ define dso_local i64 @php_strip_tags_ex(ptr noundef %0, i64 noundef %1, ptr noun
   %.7239 = phi i32 [ %.4236510, %.lr.ph514 ], [ %156, %155 ], [ 0, %157 ], [ %.4236510, %164 ], [ %.4236510, %159 ], [ %.4236510, %169 ], [ %.4236510, %165 ], [ %.4236510, %175 ], [ %.4236510, %177 ], [ %.4236510, %180 ], [ %.4236510, %183 ], [ %.4236510, %186 ], [ %.4236510, %189 ], [ %.4236510, %192 ], [ %.4236510, %162 ]
   %.7 = phi i32 [ %.4511, %.lr.ph514 ], [ %.4511, %155 ], [ %.4511, %157 ], [ %.4.mux, %164 ], [ %.4511, %159 ], [ %.4511, %169 ], [ %.4511, %165 ], [ %.4511, %175 ], [ %.4511, %177 ], [ %.4511, %180 ], [ %.4511, %183 ], [ %.4511, %186 ], [ %.4511, %189 ], [ %.4511, %192 ], [ %163, %162 ]
   %.2245.idx = add i64 %.2245.idx512, 1
+  %.7.fr = freeze i32 %.7
   %exitcond.not = icmp eq i64 %.2245.idx, %1
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph514
 

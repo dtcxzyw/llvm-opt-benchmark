@@ -45090,14 +45090,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12ConstVisitor15ifMergeAdja
 
 .lr.ph:                                           ; preds = %3, %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit104
   %.tr139.ph175 = phi ptr [ %.us-phi170, %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit104 ], [ %2, %3 ]
-  %.tr138.ph174 = phi ptr [ %66, %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit104 ], [ %1, %3 ]
-  %.tr138.ph174.fr = freeze ptr %.tr138.ph174
-  %.not.i = icmp eq ptr %.tr138.ph174.fr, null
-  %6 = getelementptr inbounds nuw i8, ptr %.tr138.ph174.fr, i64 64
+  %.tr138.ph174 = phi ptr [ %.fr, %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit104 ], [ %1, %3 ]
+  %.not.i = icmp eq ptr %.tr138.ph174, null
+  %6 = getelementptr inbounds nuw i8, ptr %.tr138.ph174, i64 64
   br i1 %.not.i, label %.lr.ph.split.us, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.lr.ph
-  %7 = getelementptr inbounds nuw i8, ptr %.tr138.ph174.fr, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %.tr138.ph174, i64 24
   br label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
@@ -45122,13 +45121,13 @@ _ZN7AstNode11privateCastI6AstSelP11AstNodeExprEEPT_PS_.exit.us: ; preds = %.lr.p
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit
   %.tr139159 = phi ptr [ %39, %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit ], [ %.tr139.ph175, %.lr.ph.split.preheader ]
-  %13 = tail call noundef zeroext i1 @_ZN12ConstVisitor12operandsSameEP7AstNodeS1_(ptr noundef nonnull %.tr138.ph174.fr, ptr noundef %.tr139159)
+  %13 = tail call noundef zeroext i1 @_ZN12ConstVisitor12operandsSameEP7AstNodeS1_(ptr noundef nonnull %.tr138.ph174, ptr noundef %.tr139159)
   br i1 %13, label %.loopexit, label %_ZN7AstNode11privateCastI6AstSelP11AstNodeExprEEPT_PS_.exit
 
 _ZN7AstNode11privateCastI6AstSelP11AstNodeExprEEPT_PS_.exit: ; preds = %.lr.ph.split
   %.sroa.0.0.copyload.i.i.i = load i16, ptr %6, align 8, !tbaa !4
   %14 = icmp eq i16 %.sroa.0.0.copyload.i.i.i, 257
-  %spec.select.i = select i1 %14, ptr %.tr138.ph174.fr, ptr null
+  %spec.select.i = select i1 %14, ptr %.tr138.ph174, ptr null
   %.not.i85 = icmp eq ptr %.tr139159, null
   br i1 %.not.i85, label %_ZN7AstNode11privateCastI6AstSelP11AstNodeExprEEPT_PS_.exit88, label %15
 
@@ -45205,18 +45204,18 @@ _ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit: ; preds = %_ZN7A
 44:                                               ; preds = %.split165
   %45 = getelementptr inbounds nuw i8, ptr %.us-phi167, i64 24
   %46 = load ptr, ptr %45, align 8, !tbaa !137
-  %47 = tail call noundef zeroext i1 @_ZN7AstNode12sameTreeIterEPKS_S1_bb(ptr noundef nonnull align 8 dereferenceable(152) %.tr138.ph174.fr, ptr noundef %46, i1 noundef zeroext true, i1 noundef zeroext true)
+  %47 = tail call noundef zeroext i1 @_ZN7AstNode12sameTreeIterEPKS_S1_bb(ptr noundef nonnull align 8 dereferenceable(152) %.tr138.ph174, ptr noundef %46, i1 noundef zeroext true, i1 noundef zeroext true)
   br i1 %47, label %48, label %61
 
 48:                                               ; preds = %44
   %49 = tail call noalias noundef nonnull dereferenceable(176) ptr @_Znwm(i64 noundef 176) #33
-  %50 = getelementptr inbounds nuw i8, ptr %.tr138.ph174.fr, i64 88
+  %50 = getelementptr inbounds nuw i8, ptr %.tr138.ph174, i64 88
   %51 = load ptr, ptr %50, align 8, !tbaa !156
-  %52 = invoke noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(152) %.tr138.ph174.fr, i1 noundef zeroext false, i1 noundef zeroext true)
+  %52 = invoke noundef ptr @_ZN7AstNode9cloneTreeEbb(ptr noundef nonnull align 8 dereferenceable(152) %.tr138.ph174, i1 noundef zeroext false, i1 noundef zeroext true)
           to label %_ZN11AstNodeExpr13cloneTreePureEb.exit95 unwind label %59
 
 _ZN11AstNodeExpr13cloneTreePureEb.exit95:         ; preds = %48
-  %53 = getelementptr inbounds nuw i8, ptr %.tr138.ph174.fr, i64 72
+  %53 = getelementptr inbounds nuw i8, ptr %.tr138.ph174, i64 72
   %54 = load ptr, ptr %53, align 8, !tbaa !131
   %.not.i96 = icmp eq ptr %54, null
   br i1 %.not.i96, label %_ZNK7AstNode5widthEv.exit97, label %55
@@ -45250,10 +45249,11 @@ _ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100: ; preds = %63
   br i1 %64, label %_ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit104, label %.loopexit
 
 _ZN7AstNode11privateCastI9AstConcatP11AstNodeExprEEPT_PS_.exit104: ; preds = %_ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100
-  %65 = getelementptr inbounds nuw i8, ptr %.tr138.ph174.fr, i64 32
+  %65 = getelementptr inbounds nuw i8, ptr %.tr138.ph174, i64 32
   %66 = load ptr, ptr %65, align 8, !tbaa !136
   %67 = load i8, ptr getelementptr inbounds nuw (i8, ptr @v3Global, i64 1858), align 2, !tbaa !616, !range !80, !noundef !81
   %68 = trunc nuw i8 %67 to i1
+  %.fr = freeze ptr %66
   br i1 %68, label %.lr.ph, label %.loopexit
 
 _ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread: ; preds = %61
@@ -45262,7 +45262,7 @@ _ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread: ; preds = 
 
 _ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread.thread: ; preds = %_ZNK7AstNode5widthEv.exit, %_ZNK7AstNode5widthEv.exit97, %_ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread
   %.072124128136214 = phi ptr [ %.us-phi167, %_ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread ], [ %24, %_ZNK7AstNode5widthEv.exit ], [ %.us-phi167, %_ZNK7AstNode5widthEv.exit97 ]
-  %.071137213 = phi ptr [ %.us-phi168, %_ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread ], [ %.tr138.ph174.fr, %_ZNK7AstNode5widthEv.exit ], [ %49, %_ZNK7AstNode5widthEv.exit97 ]
+  %.071137213 = phi ptr [ %.us-phi168, %_ZN7AstNode9privateIsI9AstConcatP11AstNodeExprEEbPKS_.exit100.thread ], [ %.tr138.ph174, %_ZNK7AstNode5widthEv.exit ], [ %49, %_ZNK7AstNode5widthEv.exit97 ]
   %70 = getelementptr inbounds nuw i8, ptr %.071137213, i64 24
   %71 = load ptr, ptr %70, align 8, !tbaa !137
   %72 = getelementptr inbounds nuw i8, ptr %.072124128136214, i64 24

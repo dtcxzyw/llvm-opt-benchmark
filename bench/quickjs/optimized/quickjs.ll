@@ -89023,15 +89023,15 @@ define internal fastcc range(i32 -1, 1) i32 @js_eq_slow(ptr noundef %0, ptr noun
   %.sroa.30.0.copyload = load i64, ptr %.sroa.30.0..sroa_idx, align 8, !tbaa !45
   %.not258 = icmp eq i32 %2, 0
   %7 = select i1 %.not258, i32 170, i32 171
+  %.sroa.30.0.copyload.fr = freeze i64 %.sroa.30.0.copyload
   br label %.outer
 
 .outer:                                           ; preds = %.outer.backedge, %3
-  %.sroa.30.0.ph = phi i64 [ %.sroa.30.0.copyload, %3 ], [ %.sroa.30.0.ph.be, %.outer.backedge ]
-  %.sroa.0101.0.ph = phi double [ %.sroa.0101.0.copyload, %3 ], [ %.sroa.0101.0.ph.be, %.outer.backedge ]
-  %.sroa.30171.0.ph = phi i64 [ %.sroa.30171.0.copyload, %3 ], [ %.sroa.30171.0.ph.be, %.outer.backedge ]
-  %.sroa.0148.0.ph = phi double [ %.sroa.0148.0.copyload, %3 ], [ %.sroa.0148.0.ph.be, %.outer.backedge ]
-  %.sroa.30.0.ph.fr = freeze i64 %.sroa.30.0.ph
-  %8 = trunc i64 %.sroa.30.0.ph.fr to i32
+  %.sroa.30.0.ph.be.sink1233 = phi i64 [ %.sroa.30.0.ph.be.fr, %.outer.backedge ], [ %.sroa.30.0.copyload.fr, %3 ]
+  %.sroa.0101.0.ph = phi double [ %.sroa.0101.0.ph.be, %.outer.backedge ], [ %.sroa.0101.0.copyload, %3 ]
+  %.sroa.30171.0.ph = phi i64 [ %.sroa.30171.0.ph.be, %.outer.backedge ], [ %.sroa.30171.0.copyload, %3 ]
+  %.sroa.0148.0.ph = phi double [ %.sroa.0148.0.ph.be, %.outer.backedge ], [ %.sroa.0148.0.copyload, %3 ]
+  %8 = trunc i64 %.sroa.30.0.ph.be.sink1233 to i32
   %.not = icmp eq i32 %8, -7
   br i1 %.not, label %.outer.split.us.split.us.split.us, label %.outer.split
 
@@ -89190,7 +89190,7 @@ tag_is_number.exit277.thread:                     ; preds = %tag_is_number.exit.
   %54 = load ptr, ptr %53, align 8, !tbaa !672
   %55 = bitcast double %.sroa.0148.0.us448.us to i64
   %56 = bitcast double %.sroa.0101.0.ph to i64
-  %57 = tail call i32 %54(ptr noundef %0, i32 noundef 170, i64 %55, i64 %.sroa.30171.0.us447.us, i64 %56, i64 %.sroa.30.0.ph.fr) #43
+  %57 = tail call i32 %54(ptr noundef %0, i32 noundef 170, i64 %55, i64 %.sroa.30171.0.us447.us, i64 %56, i64 %.sroa.30.0.ph.be.sink1233) #43
   %58 = icmp slt i32 %57, 0
   br i1 %58, label %JS_FreeValue.exit283, label %JS_FreeValue.exit282
 
@@ -89207,14 +89207,14 @@ tag_is_number.exit277.thread:                     ; preds = %tag_is_number.exit.
 66:                                               ; preds = %59
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 608
   %68 = load ptr, ptr %67, align 8, !tbaa !664
-  %69 = tail call i32 %68(ptr noundef %0, i32 noundef 170, i64 %64, i64 %.sroa.30171.0.us447.us, i64 %65, i64 %.sroa.30.0.ph.fr) #43
+  %69 = tail call i32 %68(ptr noundef %0, i32 noundef 170, i64 %64, i64 %.sroa.30171.0.us447.us, i64 %65, i64 %.sroa.30.0.ph.be.sink1233) #43
   %70 = icmp slt i32 %69, 0
   br i1 %70, label %JS_FreeValue.exit283, label %JS_FreeValue.exit282
 
 71:                                               ; preds = %59
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 552
   %73 = load ptr, ptr %72, align 8, !tbaa !216
-  %74 = tail call i32 %73(ptr noundef %0, i32 noundef 170, i64 %64, i64 %.sroa.30171.0.us447.us, i64 %65, i64 %.sroa.30.0.ph.fr) #43
+  %74 = tail call i32 %73(ptr noundef %0, i32 noundef 170, i64 %64, i64 %.sroa.30171.0.us447.us, i64 %65, i64 %.sroa.30.0.ph.be.sink1233) #43
   %75 = icmp slt i32 %74, 0
   br i1 %75, label %JS_FreeValue.exit283, label %JS_FreeValue.exit282
 
@@ -89232,7 +89232,7 @@ tag_is_number.exit277.thread:                     ; preds = %tag_is_number.exit.
 77:                                               ; preds = %.split.us
   %78 = bitcast double %.sroa.0148.0.us448.us to i64
   %79 = bitcast double %.sroa.0101.0.ph to i64
-  %80 = call fastcc i32 @js_call_binary_op_fallback(ptr noundef %0, ptr noundef %4, i64 %78, i64 %.sroa.30171.0.us447.us, i64 %79, i64 %.sroa.30.0.ph.fr, i32 noundef %7, i32 noundef 0, i32 noundef 2)
+  %80 = call fastcc i32 @js_call_binary_op_fallback(ptr noundef %0, ptr noundef %4, i64 %78, i64 %.sroa.30171.0.us447.us, i64 %79, i64 %.sroa.30.0.ph.be.sink1233, i32 noundef %7, i32 noundef 0, i32 noundef 2)
   %.not268 = icmp eq i32 %80, 0
   br i1 %.not268, label %98, label %81
 
@@ -89261,7 +89261,7 @@ JS_FreeValue.exit:                                ; preds = %86, %81
 93:                                               ; preds = %JS_FreeValue.exit
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %95 = load ptr, ptr %94, align 8, !tbaa !36
-  tail call void @__JS_FreeValueRT(ptr noundef %95, i64 %79, i64 %.sroa.30.0.ph.fr)
+  tail call void @__JS_FreeValueRT(ptr noundef %95, i64 %79, i64 %.sroa.30.0.ph.be.sink1233)
   br label %JS_FreeValue.exit278
 
 JS_FreeValue.exit278:                             ; preds = %JS_FreeValue.exit, %93
@@ -89276,7 +89276,7 @@ JS_FreeValue.exit278:                             ; preds = %JS_FreeValue.exit, 
   %.us-phi422987 = phi i64 [ %.us-phi422988, %.split.us._crit_edge ], [ %.sroa.30171.0.us447.us, %77 ]
   %.pre-phi966 = phi i64 [ %.pre965, %.split.us._crit_edge ], [ %79, %77 ]
   %.pre-phi = phi i64 [ %.pre, %.split.us._crit_edge ], [ %78, %77 ]
-  %99 = tail call fastcc i32 @js_strict_eq2(ptr noundef %0, i64 %.pre-phi, i64 %.us-phi422987, i64 %.pre-phi966, i64 %.sroa.30.0.ph.fr, i32 noundef 0)
+  %99 = tail call fastcc i32 @js_strict_eq2(ptr noundef %0, i64 %.pre-phi, i64 %.us-phi422987, i64 %.pre-phi966, i64 %.sroa.30.0.ph.be.sink1233, i32 noundef 0)
   br label %JS_FreeValue.exit282
 
 .split426.us:                                     ; preds = %.outer.split.split.us.split, %.outer.split.split.split.us, %16
@@ -89341,7 +89341,7 @@ is_math_mode.exit.thread:                         ; preds = %104, %is_math_mode.
 
 119:                                              ; preds = %117
   %120 = bitcast double %.sroa.0101.0.ph to i64
-  %121 = tail call fastcc { i64, i64 } @JS_StringToBigInt(ptr noundef nonnull %0, i64 %120, i64 %.sroa.30.0.ph.fr)
+  %121 = tail call fastcc { i64, i64 } @JS_StringToBigInt(ptr noundef nonnull %0, i64 %120, i64 %.sroa.30.0.ph.be.sink1233)
   %122 = extractvalue { i64, i64 } %121, 0
   %123 = extractvalue { i64, i64 } %121, 1
   %124 = bitcast i64 %122 to double
@@ -89350,7 +89350,7 @@ is_math_mode.exit.thread:                         ; preds = %104, %is_math_mode.
   br i1 %.not264, label %183, label %126
 
 126:                                              ; preds = %119, %110
-  %.sroa.30.1 = phi i64 [ %.sroa.30.0.ph.fr, %110 ], [ %123, %119 ]
+  %.sroa.30.1 = phi i64 [ %.sroa.30.0.ph.be.sink1233, %110 ], [ %123, %119 ]
   %.sroa.0101.1 = phi double [ %.sroa.0101.0.ph, %110 ], [ %124, %119 ]
   %.sroa.30171.2 = phi i64 [ %114, %110 ], [ %.sroa.30171.1, %119 ]
   %.sroa.0148.2 = phi double [ %115, %110 ], [ %.sroa.0148.1, %119 ]
@@ -89416,13 +89416,13 @@ JS_FreeValue.exit281:                             ; preds = %126, %130, %135
 161:                                              ; preds = %156
   %162 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %163 = load ptr, ptr %162, align 8, !tbaa !36
-  tail call void @__JS_FreeValueRT(ptr noundef %163, i64 %154, i64 %.sroa.30.0.ph.fr)
+  tail call void @__JS_FreeValueRT(ptr noundef %163, i64 %154, i64 %.sroa.30.0.ph.be.sink1233)
   br label %JS_FreeValue.exit283
 
 164:                                              ; preds = %147
   %165 = bitcast i64 %150 to double
   %166 = bitcast double %.sroa.0101.0.ph to i64
-  %167 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %166, i64 %.sroa.30.0.ph.fr, i32 noundef 1)
+  %167 = tail call fastcc { i64, i64 } @JS_ToNumberHintFree(ptr noundef %0, i64 %166, i64 %.sroa.30.0.ph.be.sink1233, i32 noundef 1)
   %168 = extractvalue { i64, i64 } %167, 0
   %169 = extractvalue { i64, i64 } %167, 1
   %170 = bitcast i64 %168 to double
@@ -89450,7 +89450,7 @@ JS_FreeValue.exit281:                             ; preds = %126, %130, %135
   br label %JS_FreeValue.exit283
 
 183:                                              ; preds = %164, %117, %119
-  %.sroa.30.2 = phi i64 [ %169, %164 ], [ %123, %119 ], [ %.sroa.30.0.ph.fr, %117 ]
+  %.sroa.30.2 = phi i64 [ %169, %164 ], [ %123, %119 ], [ %.sroa.30.0.ph.be.sink1233, %117 ]
   %.sroa.0101.2 = phi double [ %170, %164 ], [ %124, %119 ], [ %.sroa.0101.0.ph, %117 ]
   %.sroa.30171.3 = phi i64 [ %151, %164 ], [ %.sroa.30171.1, %119 ], [ %.sroa.30171.1, %117 ]
   %.sroa.0148.3 = phi double [ %165, %164 ], [ %.sroa.0148.1, %119 ], [ %.sroa.0148.1, %117 ]
@@ -89479,6 +89479,7 @@ JS_FreeValue.exit281:                             ; preds = %126, %130, %135
   %.sroa.30171.0.ph.be = phi i64 [ %221, %233 ], [ %.sroa.30171.0368, %188 ]
   %.sroa.0148.0.ph.be = phi double [ %235, %233 ], [ %.sroa.0148.0353, %188 ]
   %.sroa.0101.0.ph.be = bitcast i64 %.sroa.0101.0.ph.be.in to double
+  %.sroa.30.0.ph.be.fr = freeze i64 %.sroa.30.0.ph.be
   br label %.outer
 
 .thread302:                                       ; preds = %.thread310
@@ -89522,7 +89523,7 @@ tag_is_number.exit285.thread:                     ; preds = %193, %193, %193, %1
   %194 = phi i32 [ %191, %193 ], [ %191, %193 ], [ %191, %193 ], [ %191, %193 ], [ %191, %193 ], [ %191, %193 ], [ %191, %193 ], [ -1, %.loopexit323.split.us ], [ -1, %.loopexit323.split.us ], [ -1, %.loopexit323.split.us ], [ -1, %.loopexit323.split.us ], [ -1, %.loopexit323.split.us ], [ -1, %.loopexit323.split.us ], [ -1, %.loopexit323.split.us ]
   %195 = bitcast double %.sroa.0148.0359 to i64
   %196 = bitcast double %.sroa.0101.0.ph to i64
-  %197 = call fastcc i32 @js_call_binary_op_fallback(ptr noundef %0, ptr noundef %4, i64 %195, i64 %.sroa.30171.0376, i64 %196, i64 %.sroa.30.0.ph.fr, i32 noundef %7, i32 noundef 0, i32 noundef 2)
+  %197 = call fastcc i32 @js_call_binary_op_fallback(ptr noundef %0, ptr noundef %4, i64 %195, i64 %.sroa.30171.0376, i64 %196, i64 %.sroa.30.0.ph.be.sink1233, i32 noundef %7, i32 noundef 0, i32 noundef 2)
   %.not259 = icmp eq i32 %197, 0
   br i1 %.not259, label %219, label %198
 
@@ -89559,7 +89560,7 @@ JS_FreeValue.exit287:                             ; preds = %198, %200, %205
 214:                                              ; preds = %209
   %215 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %216 = load ptr, ptr %215, align 8, !tbaa !36
-  tail call void @__JS_FreeValueRT(ptr noundef %216, i64 %196, i64 %.sroa.30.0.ph.fr)
+  tail call void @__JS_FreeValueRT(ptr noundef %216, i64 %196, i64 %.sroa.30.0.ph.be.sink1233)
   br label %JS_FreeValue.exit288
 
 JS_FreeValue.exit288:                             ; preds = %JS_FreeValue.exit287, %209, %214
@@ -89592,13 +89593,13 @@ JS_FreeValue.exit288:                             ; preds = %JS_FreeValue.exit28
 230:                                              ; preds = %225
   %231 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %232 = load ptr, ptr %231, align 8, !tbaa !36
-  tail call void @__JS_FreeValueRT(ptr noundef %232, i64 %196, i64 %.sroa.30.0.ph.fr)
+  tail call void @__JS_FreeValueRT(ptr noundef %232, i64 %196, i64 %.sroa.30.0.ph.be.sink1233)
   br label %JS_FreeValue.exit283
 
 233:                                              ; preds = %219
   %234 = extractvalue { i64, i64 } %220, 0
   %235 = bitcast i64 %234 to double
-  %236 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %196, i64 %.sroa.30.0.ph.fr, i32 noundef 2)
+  %236 = tail call fastcc { i64, i64 } @JS_ToPrimitiveFree(ptr noundef %0, i64 %196, i64 %.sroa.30.0.ph.be.sink1233, i32 noundef 2)
   %237 = extractvalue { i64, i64 } %236, 0
   %238 = extractvalue { i64, i64 } %236, 1
   %239 = and i64 %238, 4294967295
@@ -89645,7 +89646,7 @@ JS_IsHTMLDDA.exit:                                ; preds = %.thread314
   br i1 %or.cond269, label %266, label %JS_IsHTMLDDA.exit.thread
 
 JS_IsHTMLDDA.exit.thread:                         ; preds = %.thread314, %JS_IsHTMLDDA.exit
-  %258 = and i64 %.sroa.30.0.ph.fr, 4294967295
+  %258 = and i64 %.sroa.30.0.ph.be.sink1233, 4294967295
   %.not.i292 = icmp eq i64 %258, 4294967295
   br i1 %.not.i292, label %259, label %JS_IsHTMLDDA.exit294
 
@@ -89700,7 +89701,7 @@ JS_FreeValue.exit295:                             ; preds = %266, %268, %273
 283:                                              ; preds = %278
   %284 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %285 = load ptr, ptr %284, align 8, !tbaa !36
-  tail call void @__JS_FreeValueRT(ptr noundef %285, i64 %276, i64 %.sroa.30.0.ph.fr)
+  tail call void @__JS_FreeValueRT(ptr noundef %285, i64 %276, i64 %.sroa.30.0.ph.be.sink1233)
   br label %JS_FreeValue.exit282
 
 JS_FreeValue.exit282:                             ; preds = %.outer.split.split.us.split, %.outer.split.split.split.us, %283, %278, %JS_FreeValue.exit295, %145, %140, %JS_FreeValue.exit281, %39, %66, %71, %50, %29, %183, %98
@@ -154992,7 +154993,7 @@ switch.early.test.i:                              ; preds = %.preheader, %577
   %578 = freeze i32 %.pre
   %579 = icmp eq i32 %578, 93
   %580 = icmp samesign ugt i32 %.052.i804, 30
-  %.not755 = or i1 %580, %579
+  %.not755 = select i1 %579, i1 true, i1 %580
   br i1 %.not755, label %switch.early.test.i._crit_edge.loopexit, label %switch.early.test.i, !llvm.loop !1134
 
 switch.early.test.i._crit_edge.loopexit:          ; preds = %572, %switch.early.test.i, %switch.early.test.i, %577

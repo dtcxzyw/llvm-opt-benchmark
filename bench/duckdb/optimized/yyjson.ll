@@ -1903,7 +1903,7 @@ _ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit: ; preds = %13
   %.in91 = phi i64 [ %11, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit ], [ %17, %65 ]
   %.03990 = phi ptr [ %15, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit ], [ %72, %65 ]
   %.sroa.11.089 = phi ptr [ %14, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit ], [ %.us-phi86, %65 ]
-  %.sroa.0.088 = phi i64 [ 0, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit ], [ %.us-phi87, %65 ]
+  %.sroa.0.088 = phi i64 [ 0, %_ZN13duckdb_yyjsonL13yyjson_is_objEPNS_10yyjson_valE.exit ], [ %.us-phi87.fr, %65 ]
   %17 = add nsw i64 %.in91, -1
   %18 = getelementptr inbounds nuw i8, ptr %.03990, i64 8
   %19 = load ptr, ptr %18, align 8, !tbaa !75
@@ -2008,6 +2008,7 @@ _ZN13duckdb_yyjsonL20yyjson_obj_iter_getnEPNS_15yyjson_obj_iterEPKcm.exit: ; pre
   %71 = select i1 %68, i64 %70, i64 16
   %72 = getelementptr inbounds nuw i8, ptr %63, i64 %71
   %.not50 = icmp eq i64 %17, 0
+  %.us-phi87.fr = freeze i64 %.us-phi87
   br i1 %.not50, label %.critedge, label %16, !llvm.loop !93
 
 73:                                               ; preds = %9

@@ -1738,6 +1738,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
   %123 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %124 = load ptr, ptr %123, align 8, !tbaa !89
   %125 = load i64, ptr %122, align 8, !tbaa !147
+  %.fr.i.i.i = freeze i64 %125
   %126 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %127 = getelementptr inbounds nuw i8, ptr %1, i64 56
   %128 = load ptr, ptr %127, align 8, !tbaa !148
@@ -1745,6 +1746,7 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
   %130 = getelementptr inbounds nuw i8, ptr %92, i64 16
   %131 = load ptr, ptr %130, align 8, !tbaa !89
   %132 = load i64, ptr %129, align 8, !tbaa !147
+  %.fr.i58.i.i = freeze i64 %132
   %133 = getelementptr inbounds nuw i8, ptr %92, i64 64
   %134 = getelementptr inbounds nuw i8, ptr %92, i64 56
   %135 = load ptr, ptr %134, align 8, !tbaa !148
@@ -1806,16 +1808,15 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
   %160 = load ptr, ptr %159, align 8, !tbaa !92
   %161 = ptrtoint ptr %160 to i64
   %162 = lshr i64 %161, 4
-  %163 = urem i64 %162, %125
+  %163 = urem i64 %162, %.fr.i.i.i
   br label %164
 
 164:                                              ; preds = %176, %158
   %.0.i.i.i = phi i64 [ %163, %158 ], [ %179, %176 ]
-  %.0.fr.i.i.i = freeze i64 %.0.i.i.i
-  %165 = lshr i64 %.0.fr.i.i.i, 5
+  %165 = lshr i64 %.0.i.i.i, 5
   %166 = getelementptr inbounds nuw i32, ptr %128, i64 %165
   %167 = load i32, ptr %166, align 4, !tbaa !130
-  %168 = trunc i64 %.0.fr.i.i.i to i32
+  %168 = trunc i64 %.0.i.i.i to i32
   %169 = and i32 %168, 31
   %170 = shl nuw i32 1, %169
   %171 = and i32 %170, %167
@@ -1824,34 +1825,33 @@ define internal fastcc void @_ZL19ggml_opt_eval_graphP16ggml_opt_contextP11ggml_
 
 172:                                              ; preds = %164
   %173 = load ptr, ptr %126, align 8, !tbaa !150
-  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %.0.fr.i.i.i
+  %174 = getelementptr inbounds nuw ptr, ptr %173, i64 %.0.i.i.i
   %175 = load ptr, ptr %174, align 8, !tbaa !92
   %.not.i.i.i = icmp eq ptr %175, %160
   br i1 %.not.i.i.i, label %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i, label %176
 
 176:                                              ; preds = %172
-  %177 = add i64 %.0.fr.i.i.i, 1
-  %178 = icmp eq i64 %177, %125
+  %177 = add i64 %.0.i.i.i, 1
+  %178 = icmp eq i64 %177, %.fr.i.i.i
   %179 = select i1 %178, i64 0, i64 %177
   %180 = icmp eq i64 %179, %163
   br i1 %180, label %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i, label %164, !llvm.loop !151
 
 _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i: ; preds = %176, %172, %164
-  %.013.i.i.i = phi i64 [ -1, %176 ], [ %.0.fr.i.i.i, %164 ], [ %.0.fr.i.i.i, %172 ]
+  %.013.i.i.i = phi i64 [ -1, %176 ], [ %.0.i.i.i, %164 ], [ %.0.i.i.i, %172 ]
   %181 = getelementptr inbounds nuw ptr, ptr %131, i64 %indvars.iv85.i.i
   %182 = load ptr, ptr %181, align 8, !tbaa !92
   %183 = ptrtoint ptr %182 to i64
   %184 = lshr i64 %183, 4
-  %185 = urem i64 %184, %132
+  %185 = urem i64 %184, %.fr.i58.i.i
   br label %186
 
 186:                                              ; preds = %198, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i
-  %.0.i58.i.i = phi i64 [ %185, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i ], [ %201, %198 ]
-  %.0.fr.i59.i.i = freeze i64 %.0.i58.i.i
-  %187 = lshr i64 %.0.fr.i59.i.i, 5
+  %.0.i59.i.i = phi i64 [ %185, %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i ], [ %201, %198 ]
+  %187 = lshr i64 %.0.i59.i.i, 5
   %188 = getelementptr inbounds nuw i32, ptr %135, i64 %187
   %189 = load i32, ptr %188, align 4, !tbaa !130
-  %190 = trunc i64 %.0.fr.i59.i.i to i32
+  %190 = trunc i64 %.0.i59.i.i to i32
   %191 = and i32 %190, 31
   %192 = shl nuw i32 1, %191
   %193 = and i32 %192, %189
@@ -1860,20 +1860,20 @@ _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit.i.i: ; preds = %176, %1
 
 194:                                              ; preds = %186
   %195 = load ptr, ptr %133, align 8, !tbaa !150
-  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0.fr.i59.i.i
+  %196 = getelementptr inbounds nuw ptr, ptr %195, i64 %.0.i59.i.i
   %197 = load ptr, ptr %196, align 8, !tbaa !92
   %.not.i61.i.i = icmp eq ptr %197, %182
   br i1 %.not.i61.i.i, label %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i, label %198
 
 198:                                              ; preds = %194
-  %199 = add i64 %.0.fr.i59.i.i, 1
-  %200 = icmp eq i64 %199, %132
+  %199 = add i64 %.0.i59.i.i, 1
+  %200 = icmp eq i64 %199, %.fr.i58.i.i
   %201 = select i1 %200, i64 0, i64 %199
   %202 = icmp eq i64 %201, %185
   br i1 %202, label %_ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i, label %186, !llvm.loop !151
 
 _ZL14ggml_hash_findPK13ggml_hash_setPK11ggml_tensor.exit63.i.i: ; preds = %198, %194, %186
-  %.013.i62.i.i = phi i64 [ -1, %198 ], [ %.0.fr.i59.i.i, %186 ], [ %.0.fr.i59.i.i, %194 ]
+  %.013.i62.i.i = phi i64 [ -1, %198 ], [ %.0.i59.i.i, %186 ], [ %.0.i59.i.i, %194 ]
   %.not.i.i = icmp eq i64 %.013.i.i.i, -1
   br i1 %.not.i.i, label %.invoke93.i.i, label %205
 

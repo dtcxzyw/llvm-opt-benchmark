@@ -123954,14 +123954,13 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17hfb4783fc25b01e0cE.exit453
 
 495:                                              ; preds = %636, %484
   %496 = phi ptr [ %.pre735, %636 ], [ %485, %484 ]
-  %497 = phi ptr [ %.pre, %636 ], [ %.sroa.4589.0.copyload, %484 ]
+  %497 = phi ptr [ %.pre.fr, %636 ], [ %.sroa.4589.0.copyload, %484 ]
   %.pr.i = phi i32 [ %.pr.i.pre, %636 ], [ 4, %484 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7592)
   call void @llvm.experimental.noalias.scope.decl(metadata !27820)
   call void @llvm.experimental.noalias.scope.decl(metadata !27823)
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i)
-  %.fr22.i = freeze ptr %497
-  %498 = icmp eq ptr %.fr22.i, null
+  %498 = icmp eq ptr %497, null
   br i1 %498, label %.split.us.i, label %.split.preheader.i
 
 .split.preheader.i:                               ; preds = %495
@@ -124470,6 +124469,7 @@ _ZN4core4iter8adapters7flatten17and_then_or_clear17h11d3f9b0e3c11924E.exit.threa
   %.pr.i.pre = load i32, ptr %30, align 8, !alias.scope !27825, !noalias !27828
   %.pre = load ptr, ptr %.sroa.0148.sroa.5.0..sroa_idx, align 8, !alias.scope !27823, !noalias !27820
   %.pre735 = load ptr, ptr %.sroa.0148.sroa.5.sroa.4.0..sroa.0148.sroa.5.0..sroa_idx.sroa_idx, align 8, !alias.scope !27823, !noalias !27820
+  %.pre.fr = freeze ptr %.pre
   br label %495
 
 637:                                              ; preds = %.noexc497, %"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$12contains_key17hf068d38a9794dd46E.exit495"

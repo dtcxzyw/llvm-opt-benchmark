@@ -43,10 +43,12 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr i8, ptr %19, i64 80
   %.val = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.val, i64 22
+  %.val.fr = freeze ptr %.val
+  %21 = getelementptr inbounds nuw i8, ptr %.val.fr, i64 22
   %22 = load i8, ptr %21, align 2
-  %23 = zext i8 %22 to i64
-  %24 = getelementptr inbounds nuw i8, ptr %.val, i64 %23
+  %.fr = freeze i8 %22
+  %23 = zext i8 %.fr to i64
+  %24 = getelementptr i8, ptr %.val.fr, i64 %23
   br label %25
 
 25:                                               ; preds = %13, %17
@@ -70,27 +72,27 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   br label %.lr.ph.lr.ph.lr.ph
 
 37:                                               ; preds = %25
-  %.not422 = icmp eq ptr %.073, null
-  br i1 %.not422, label %.outer87._crit_edge, label %.lr.ph.lr.ph.lr.ph
+  %.not436 = icmp eq ptr %.073, null
+  br i1 %.not436, label %.outer87._crit_edge, label %.lr.ph.lr.ph.lr.ph
 
 .lr.ph.lr.ph.lr.ph:                               ; preds = %.thread, %37
   %38 = phi i1 [ %36, %.thread ], [ true, %37 ]
-  %.0320 = phi i32 [ 1, %.thread ], [ 0, %37 ]
-  %.070319 = phi ptr [ %35, %.thread ], [ null, %37 ]
+  %.0322 = phi i32 [ 1, %.thread ], [ 0, %37 ]
+  %.070321 = phi ptr [ %35, %.thread ], [ null, %37 ]
   %39 = getelementptr inbounds nuw i8, ptr %1, i64 80
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 80
   br label %.lr.ph.lr.ph
 
-.lr.ph.lr.ph:                                     ; preds = %.outer, %.lr.ph.lr.ph.lr.ph
-  %41 = phi i1 [ %28, %.lr.ph.lr.ph.lr.ph ], [ %176, %.outer ]
-  %42 = phi i1 [ %38, %.lr.ph.lr.ph.lr.ph ], [ %175, %.outer ]
-  %.1.ph253 = phi i32 [ %.0320, %.lr.ph.lr.ph.lr.ph ], [ %.us-phi113336, %.outer ]
+.lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.outer
+  %41 = phi i1 [ %28, %.lr.ph.lr.ph.lr.ph ], [ %172, %.outer ]
+  %42 = phi i1 [ %38, %.lr.ph.lr.ph.lr.ph ], [ %171, %.outer ]
+  %.1.ph253 = phi i32 [ %.0322, %.lr.ph.lr.ph.lr.ph ], [ %.us-phi113339, %.outer ]
   %.168.ph252 = phi i32 [ %.067, %.lr.ph.lr.ph.lr.ph ], [ %.168.ph90239, %.outer ]
-  %.171.ph251 = phi ptr [ %.070319, %.lr.ph.lr.ph.lr.ph ], [ %.us-phi112335, %.outer ]
+  %.171.ph251 = phi ptr [ %.070321, %.lr.ph.lr.ph.lr.ph ], [ %.us-phi112338, %.outer ]
   %.174.ph250 = phi ptr [ %.073, %.lr.ph.lr.ph.lr.ph ], [ %.174.ph88236, %.outer ]
-  %.076.ph249 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %.sink421, %.outer ]
-  %.077.ph244 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %174, %.outer ]
-  %.not423 = icmp eq ptr %.076.ph249, null
+  %.076.ph249 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %.fr255344.sink, %.outer ]
+  %.077.ph244 = phi ptr [ null, %.lr.ph.lr.ph.lr.ph ], [ %170, %.outer ]
+  %.not437 = icmp eq ptr %.076.ph249, null
   %43 = getelementptr inbounds nuw i8, ptr %.076.ph249, i64 4
   %44 = getelementptr inbounds nuw i8, ptr %.076.ph249, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %.076.ph249, i64 8
@@ -103,16 +105,15 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %.168.ph90239 = phi i32 [ %.168.ph252, %.lr.ph.lr.ph ], [ %.269, %.outer87 ]
   %.171.ph89238 = phi ptr [ %.171.ph251, %.lr.ph.lr.ph ], [ %.171104.us129.us, %.outer87 ]
   %.174.ph88236 = phi ptr [ %.174.ph250, %.lr.ph.lr.ph ], [ %.275, %.outer87 ]
-  %.lcssa152.fr = freeze i1 %47
   %48 = getelementptr inbounds nuw i8, ptr %.174.ph88236, i64 8
   %49 = getelementptr inbounds nuw i8, ptr %.174.ph88236, i64 12
-  br i1 %.not423, label %.split109.us, label %.lr.ph.split
+  br i1 %.not437, label %.split109.us, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
-  br i1 %.lcssa152.fr, label %.lr.ph.split.split.us.split.us.preheader, label %.lr.ph.split.split.split
+  br i1 %47, label %.lr.ph.split.split.us.split.us.preheader, label %.lr.ph.split.split.split
 
 .lr.ph.split.split.us.split.us.preheader:         ; preds = %.lr.ph.split
-  %.pre313 = load i32, ptr %.076.ph249, align 8
+  %.pre315 = load i32, ptr %.076.ph249, align 8
   br label %.lr.ph.split.split.us.split.us
 
 .lr.ph.split.split.us.split.us:                   ; preds = %.lr.ph.split.split.us.split.us.preheader, %89
@@ -120,7 +121,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %.1105.us128.us = phi i32 [ %.2.us.us, %89 ], [ %.1.ph91241, %.lr.ph.split.split.us.split.us.preheader ]
   %.171104.us129.us = phi ptr [ %.272.us.us, %89 ], [ %.171.ph89238, %.lr.ph.split.split.us.split.us.preheader ]
   %51 = load i32, ptr %48, align 4
-  %52 = icmp eq i32 %51, %.pre313
+  %52 = icmp eq i32 %51, %.pre315
   br i1 %52, label %53, label %57
 
 53:                                               ; preds = %.lr.ph.split.split.us.split.us
@@ -135,7 +136,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
 58:                                               ; preds = %57
   %59 = getelementptr inbounds nuw i8, ptr %.171104.us129.us, i64 8
   %60 = load i32, ptr %59, align 4
-  %61 = icmp eq i32 %60, %.pre313
+  %61 = icmp eq i32 %60, %.pre315
   br i1 %61, label %62, label %.split109.us.thread.thread
 
 62:                                               ; preds = %58
@@ -188,7 +189,7 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %91 = phi i1 [ true, %138 ], [ %46, %.lr.ph.split ]
   %.1105 = phi i32 [ %147, %138 ], [ %.1.ph91241, %.lr.ph.split ]
   %.171104 = phi ptr [ %146, %138 ], [ %.171.ph89238, %.lr.ph.split ]
-  br i1 %91, label %116, label %.split109.us.thread341
+  br i1 %91, label %116, label %.split109.us.thread347
 
 .split.us:                                        ; preds = %53
   %92 = getelementptr inbounds nuw i8, ptr %.174.ph88236, i64 16
@@ -216,10 +217,12 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %106 = load ptr, ptr %105, align 8
   %107 = getelementptr i8, ptr %106, i64 80
   %.val85 = load ptr, ptr %107, align 8
-  %108 = getelementptr inbounds nuw i8, ptr %.val85, i64 22
+  %.val85.fr = freeze ptr %.val85
+  %108 = getelementptr inbounds nuw i8, ptr %.val85.fr, i64 22
   %109 = load i8, ptr %108, align 2
-  %110 = zext i8 %109 to i64
-  %111 = getelementptr inbounds nuw i8, ptr %.val85, i64 %110
+  %.fr256 = freeze i8 %109
+  %110 = zext i8 %.fr256 to i64
+  %111 = getelementptr i8, ptr %.val85.fr, i64 %110
   %112 = add nsw i32 %.168.ph90239, 1
   br label %.outer87
 
@@ -236,14 +239,14 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
   %118 = load i32, ptr %117, align 4
   %119 = load i32, ptr %.076.ph249, align 8
   %120 = icmp eq i32 %118, %119
-  br i1 %120, label %121, label %.split109.us.thread341
+  br i1 %120, label %121, label %.split109.us.thread347
 
 121:                                              ; preds = %116
   %122 = getelementptr inbounds nuw i8, ptr %.171104, i64 12
   %123 = load i32, ptr %122, align 4
   %124 = load i32, ptr %43, align 4
   %125 = icmp eq i32 %123, %124
-  br i1 %125, label %126, label %.split109.us.thread341
+  br i1 %125, label %126, label %.split109.us.thread347
 
 126:                                              ; preds = %121
   %127 = getelementptr inbounds nuw i8, ptr %.171104, i64 16
@@ -281,89 +284,94 @@ define dso_local ptr @identify_opfamily_groups(ptr noundef readonly captures(non
 
 .split109.us.thread.thread:                       ; preds = %58, %62
   %148 = tail call ptr @palloc(i64 noundef 24) #7
-  %.pre315348358 = load i32, ptr %48, align 4
-  br label %154
+  %.fr255335368 = freeze ptr %148
+  %.pre317356369 = load i32, ptr %48, align 4
+  br label %153
 
 .split109.us.thread:                              ; preds = %57
   %149 = tail call ptr @palloc(i64 noundef 24) #7
-  %.pre315348 = load i32, ptr %48, align 4
-  br label %166
+  %.fr255335 = freeze ptr %149
+  %.pre317356 = load i32, ptr %48, align 4
+  br label %164
 
-.split109.us.thread341:                           ; preds = %121, %116, %.lr.ph.split.split.split
+.split109.us.thread347:                           ; preds = %121, %116, %.lr.ph.split.split.split
   %150 = tail call ptr @palloc(i64 noundef 24) #7
+  %.fr255352 = freeze ptr %150
   br label %.split109.us._crit_edge
 
 .split109.us:                                     ; preds = %.lr.ph
   %151 = tail call ptr @palloc(i64 noundef 24) #7
-  br i1 %.lcssa152.fr, label %153, label %.split109.us._crit_edge
+  %.fr255 = freeze ptr %151
+  br i1 %47, label %152, label %.split109.us._crit_edge
 
-.split109.us._crit_edge:                          ; preds = %.split109.us.thread341, %.split109.us
-  %152 = phi ptr [ %150, %.split109.us.thread341 ], [ %151, %.split109.us ]
-  %.us-phi113347 = phi i32 [ %.1105, %.split109.us.thread341 ], [ %.1.ph91241, %.split109.us ]
-  %.us-phi112346 = phi ptr [ %.171104, %.split109.us.thread341 ], [ %.171.ph89238, %.split109.us ]
-  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.us-phi112346, i64 8
-  %.pre314 = load i32, ptr %.phi.trans.insert, align 4
-  br label %168
+.split109.us._crit_edge:                          ; preds = %.split109.us.thread347, %.split109.us
+  %.fr255355 = phi ptr [ %.fr255352, %.split109.us.thread347 ], [ %.fr255, %.split109.us ]
+  %.us-phi113354 = phi i32 [ %.1105, %.split109.us.thread347 ], [ %.1.ph91241, %.split109.us ]
+  %.us-phi112353 = phi ptr [ %.171104, %.split109.us.thread347 ], [ %.171.ph89238, %.split109.us ]
+  %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.us-phi112353, i64 8
+  %.pre316 = load i32, ptr %.phi.trans.insert, align 4
+  br label %165
 
-153:                                              ; preds = %.split109.us
-  %.pre315 = load i32, ptr %48, align 4
-  br i1 %46, label %154, label %166
+152:                                              ; preds = %.split109.us
+  %.pre317 = load i32, ptr %48, align 4
+  br i1 %46, label %153, label %164
 
-154:                                              ; preds = %.split109.us.thread.thread, %153
-  %.pre315353 = phi i32 [ %.pre315, %153 ], [ %.pre315348358, %.split109.us.thread.thread ]
-  %.us-phi112333351 = phi ptr [ %.171.ph89238, %153 ], [ %.171104.us129.us, %.split109.us.thread.thread ]
-  %.us-phi113338349 = phi i32 [ %.1.ph91241, %153 ], [ %.1105.us128.us, %.split109.us.thread.thread ]
-  %155 = phi ptr [ %151, %153 ], [ %148, %.split109.us.thread.thread ]
-  %156 = getelementptr inbounds nuw i8, ptr %.us-phi112333351, i64 8
-  %157 = load i32, ptr %156, align 4
-  %158 = icmp ult i32 %.pre315353, %157
-  br i1 %158, label %166, label %159
+153:                                              ; preds = %.split109.us.thread.thread, %152
+  %.pre317363 = phi i32 [ %.pre317, %152 ], [ %.pre317356369, %.split109.us.thread.thread ]
+  %.us-phi112336361 = phi ptr [ %.171.ph89238, %152 ], [ %.171104.us129.us, %.split109.us.thread.thread ]
+  %.us-phi113341359 = phi i32 [ %.1.ph91241, %152 ], [ %.1105.us128.us, %.split109.us.thread.thread ]
+  %.fr255345357 = phi ptr [ %.fr255, %152 ], [ %.fr255335368, %.split109.us.thread.thread ]
+  %154 = getelementptr inbounds nuw i8, ptr %.us-phi112336361, i64 8
+  %155 = load i32, ptr %154, align 4
+  %156 = icmp ult i32 %.pre317363, %155
+  br i1 %156, label %164, label %157
 
-159:                                              ; preds = %154
-  %160 = icmp eq i32 %.pre315353, %157
-  br i1 %160, label %161, label %168
+157:                                              ; preds = %153
+  %158 = icmp eq i32 %.pre317363, %155
+  br i1 %158, label %159, label %165
 
-161:                                              ; preds = %159
-  %162 = load i32, ptr %49, align 4
-  %163 = getelementptr inbounds nuw i8, ptr %.us-phi112333351, i64 12
-  %164 = load i32, ptr %163, align 4
-  %165 = icmp ult i32 %162, %164
-  br i1 %165, label %166, label %168
+159:                                              ; preds = %157
+  %160 = load i32, ptr %49, align 4
+  %161 = getelementptr inbounds nuw i8, ptr %.us-phi112336361, i64 12
+  %162 = load i32, ptr %161, align 4
+  %163 = icmp ult i32 %160, %162
+  br i1 %163, label %164, label %165
 
-166:                                              ; preds = %.split109.us.thread, %161, %154, %153
-  %.pre315354 = phi i32 [ %.pre315348, %.split109.us.thread ], [ %.pre315353, %161 ], [ %.pre315353, %154 ], [ %.pre315, %153 ]
-  %.us-phi112333352 = phi ptr [ %.171104.us129.us, %.split109.us.thread ], [ %.us-phi112333351, %161 ], [ %.us-phi112333351, %154 ], [ %.171.ph89238, %153 ]
-  %.us-phi113338350 = phi i32 [ %.1105.us128.us, %.split109.us.thread ], [ %.us-phi113338349, %161 ], [ %.us-phi113338349, %154 ], [ %.1.ph91241, %153 ]
-  %167 = phi ptr [ %149, %.split109.us.thread ], [ %155, %161 ], [ %155, %154 ], [ %151, %153 ]
-  store i32 %.pre315354, ptr %167, align 8
+164:                                              ; preds = %.split109.us.thread, %159, %153, %152
+  %.pre317364 = phi i32 [ %.pre317356, %.split109.us.thread ], [ %.pre317363, %159 ], [ %.pre317363, %153 ], [ %.pre317, %152 ]
+  %.us-phi112336362 = phi ptr [ %.171104.us129.us, %.split109.us.thread ], [ %.us-phi112336361, %159 ], [ %.us-phi112336361, %153 ], [ %.171.ph89238, %152 ]
+  %.us-phi113341360 = phi i32 [ %.1105.us128.us, %.split109.us.thread ], [ %.us-phi113341359, %159 ], [ %.us-phi113341359, %153 ], [ %.1.ph91241, %152 ]
+  %.fr255345358 = phi ptr [ %.fr255335, %.split109.us.thread ], [ %.fr255345357, %159 ], [ %.fr255345357, %153 ], [ %.fr255, %152 ]
+  store i32 %.pre317364, ptr %.fr255345358, align 8
   br label %.outer
 
-168:                                              ; preds = %.split109.us._crit_edge, %161, %159
-  %169 = phi ptr [ %152, %.split109.us._crit_edge ], [ %155, %161 ], [ %155, %159 ]
-  %.us-phi113337 = phi i32 [ %.us-phi113347, %.split109.us._crit_edge ], [ %.us-phi113338349, %161 ], [ %.us-phi113338349, %159 ]
-  %.us-phi112334 = phi ptr [ %.us-phi112346, %.split109.us._crit_edge ], [ %.us-phi112333351, %161 ], [ %.us-phi112333351, %159 ]
-  %170 = phi i32 [ %.pre314, %.split109.us._crit_edge ], [ %.pre315353, %161 ], [ %157, %159 ]
-  store i32 %170, ptr %169, align 8
-  %171 = getelementptr inbounds nuw i8, ptr %.us-phi112334, i64 12
+165:                                              ; preds = %.split109.us._crit_edge, %159, %157
+  %.fr255344 = phi ptr [ %.fr255355, %.split109.us._crit_edge ], [ %.fr255345357, %159 ], [ %.fr255345357, %157 ]
+  %.us-phi113340 = phi i32 [ %.us-phi113354, %.split109.us._crit_edge ], [ %.us-phi113341359, %159 ], [ %.us-phi113341359, %157 ]
+  %.us-phi112337 = phi ptr [ %.us-phi112353, %.split109.us._crit_edge ], [ %.us-phi112336361, %159 ], [ %.us-phi112336361, %157 ]
+  %166 = phi i32 [ %.pre316, %.split109.us._crit_edge ], [ %.pre317363, %159 ], [ %155, %157 ]
+  store i32 %166, ptr %.fr255344, align 8
+  %167 = getelementptr inbounds nuw i8, ptr %.us-phi112337, i64 12
   br label %.outer
 
-.outer:                                           ; preds = %168, %166
-  %.sink421 = phi ptr [ %169, %168 ], [ %167, %166 ]
-  %.sink.in = phi ptr [ %171, %168 ], [ %49, %166 ]
-  %.us-phi113336 = phi i32 [ %.us-phi113337, %168 ], [ %.us-phi113338350, %166 ]
-  %.us-phi112335 = phi ptr [ %.us-phi112334, %168 ], [ %.us-phi112333352, %166 ]
+.outer:                                           ; preds = %165, %164
+  %.fr255344.sink = phi ptr [ %.fr255344, %165 ], [ %.fr255345358, %164 ]
+  %.sink.in = phi ptr [ %167, %165 ], [ %49, %164 ]
+  %.us-phi113339 = phi i32 [ %.us-phi113340, %165 ], [ %.us-phi113341360, %164 ]
+  %.us-phi112338 = phi ptr [ %.us-phi112337, %165 ], [ %.us-phi112336362, %164 ]
   %.sink = load i32, ptr %.sink.in, align 4
-  %172 = getelementptr inbounds nuw i8, ptr %.sink421, i64 4
-  store i32 %.sink, ptr %172, align 4
-  %173 = getelementptr inbounds nuw i8, ptr %.sink421, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %173, i8 0, i64 16, i1 false)
-  %174 = tail call ptr @lappend(ptr noundef %.077.ph244, ptr noundef nonnull %.sink421) #7
-  %175 = icmp ne ptr %.174.ph88236, null
-  %176 = icmp ne ptr %.us-phi112335, null
-  br label %.lr.ph.lr.ph
+  %168 = getelementptr inbounds nuw i8, ptr %.fr255344.sink, i64 4
+  store i32 %.sink, ptr %168, align 4
+  %169 = getelementptr inbounds nuw i8, ptr %.fr255344.sink, i64 8
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %169, i8 0, i64 16, i1 false)
+  %170 = tail call ptr @lappend(ptr noundef %.077.ph244, ptr noundef nonnull %.fr255344.sink) #7
+  %171 = icmp ne ptr %.174.ph88236, null
+  %172 = icmp ne ptr %.us-phi112338, null
+  %173 = select i1 %171, i1 true, i1 %172
+  br i1 %173, label %.lr.ph.lr.ph, label %.outer87._crit_edge, !llvm.loop !6
 
-.outer87._crit_edge:                              ; preds = %.outer87, %135, %138, %37
-  %.077.ph.lcssa = phi ptr [ null, %37 ], [ %.077.ph244, %138 ], [ %.077.ph244, %135 ], [ %.077.ph244, %.outer87 ]
+.outer87._crit_edge:                              ; preds = %.outer, %.outer87, %135, %138, %37
+  %.077.ph.lcssa = phi ptr [ null, %37 ], [ %.077.ph244, %138 ], [ %.077.ph244, %135 ], [ %.077.ph244, %.outer87 ], [ %170, %.outer ]
   ret ptr %.077.ph.lcssa
 }
 

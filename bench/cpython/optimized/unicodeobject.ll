@@ -52210,7 +52210,7 @@ declare i32 @PyUnicodeTranslateError_SetReason(ptr noundef, ptr noundef) local_u
 declare i32 @_PyUnicode_IsWhitespace(i32 noundef) local_unnamed_addr #1
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef i64 @asciilib_rfind_slice(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 1) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #26 {
+define internal fastcc i64 @asciilib_rfind_slice(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 1) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #26 {
   %6 = getelementptr i8, ptr %0, i64 %3
   %7 = sub i64 %4, %3
   %8 = icmp eq i64 %2, 0
@@ -52237,14 +52237,13 @@ define internal fastcc noundef i64 @asciilib_rfind_slice(ptr noundef readonly ca
 
 .lr.ph66.split.us.i.i.i:                          ; preds = %.preheader56.i.i.i, %44
   %.15065.us.i.i.i = phi i64 [ %46, %44 ], [ %18, %.preheader56.i.i.i ]
-  %.15065.us.i.i.fr.i = freeze i64 %.15065.us.i.i.i
-  %20 = getelementptr i8, ptr %6, i64 %.15065.us.i.i.fr.i
+  %20 = getelementptr i8, ptr %6, i64 %.15065.us.i.i.i
   %21 = load i8, ptr %20, align 1, !tbaa !195
   %22 = icmp eq i8 %21, %14
   br i1 %22, label %.preheader.us.i74.i.i, label %23
 
 23:                                               ; preds = %.lr.ph66.split.us.i.i.i
-  %.not.us.i73.i.i = icmp eq i64 %.15065.us.i.i.fr.i, 0
+  %.not.us.i73.i.i = icmp eq i64 %.15065.us.i.i.i, 0
   br i1 %.not.us.i73.i.i, label %asciilib_rfind.exit, label %24
 
 24:                                               ; preds = %23
@@ -52268,7 +52267,7 @@ define internal fastcc noundef i64 @asciilib_rfind_slice(ptr noundef readonly ca
   br i1 %.not52.us.i.i.i, label %48, label %.thread.us.i75.i.i
 
 .thread.us.i75.i.i:                               ; preds = %.preheader.us.i74.i.i
-  %.not53.us.i.i.i = icmp eq i64 %.15065.us.i.i.fr.i, 0
+  %.not53.us.i.i.i = icmp eq i64 %.15065.us.i.i.i, 0
   br i1 %.not53.us.i.i.i, label %43, label %36
 
 36:                                               ; preds = %.thread.us.i75.i.i
@@ -52286,7 +52285,8 @@ define internal fastcc noundef i64 @asciilib_rfind_slice(ptr noundef readonly ca
 
 44:                                               ; preds = %43, %36, %24
   %spec.select.lcssa.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %43 ], [ %31, %24 ], [ %2, %36 ]
-  %45 = sub nsw i64 %.15065.us.i.i.fr.i, %spec.select.lcssa.sink.i.i.i
+  %spec.select.lcssa.sink.i.i.fr.i = freeze i64 %spec.select.lcssa.sink.i.i.i
+  %45 = sub i64 %.15065.us.i.i.i, %spec.select.lcssa.sink.i.i.fr.i
   %46 = add nsw i64 %45, -1
   %47 = icmp sgt i64 %45, 0
   br i1 %47, label %.lr.ph66.split.us.i.i.i, label %asciilib_rfind.exit, !llvm.loop !427
@@ -52313,9 +52313,9 @@ define internal fastcc noundef i64 @asciilib_rfind_slice(ptr noundef readonly ca
   br i1 %59, label %.lr.ph.i71.i.i, label %.preheader56.i.i.i, !llvm.loop !429
 
 asciilib_fastsearch.exit.i:                       ; preds = %48
-  %60 = icmp slt i64 %.15065.us.i.i.fr.i, 0
+  %60 = icmp slt i64 %.15065.us.i.i.i, 0
   %61 = select i1 %60, i64 0, i64 %3
-  %spec.select.i = add i64 %61, %.15065.us.i.i.fr.i
+  %spec.select.i = add i64 %61, %.15065.us.i.i.i
   br label %asciilib_rfind.exit
 
 asciilib_rfind.exit:                              ; preds = %23, %44, %5, %9, %.preheader56.i.i.i, %asciilib_fastsearch.exit.i
@@ -52324,7 +52324,7 @@ asciilib_rfind.exit:                              ; preds = %23, %44, %5, %9, %.
 }
 
 ; Function Attrs: inlinehint nofree norecurse nosync nounwind memory(argmem: read) uwtable
-define internal fastcc noundef i64 @ucs1lib_rfind_slice(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 1) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #26 {
+define internal fastcc i64 @ucs1lib_rfind_slice(ptr noundef readonly captures(none) %0, ptr noundef readonly captures(none) %1, i64 noundef range(i64 2, 1) %2, i64 noundef %3, i64 noundef %4) unnamed_addr #26 {
   %6 = getelementptr i8, ptr %0, i64 %3
   %7 = sub i64 %4, %3
   %8 = icmp eq i64 %2, 0
@@ -52351,14 +52351,13 @@ define internal fastcc noundef i64 @ucs1lib_rfind_slice(ptr noundef readonly cap
 
 .lr.ph66.split.us.i.i.i:                          ; preds = %.preheader56.i.i.i, %44
   %.15065.us.i.i.i = phi i64 [ %46, %44 ], [ %18, %.preheader56.i.i.i ]
-  %.15065.us.i.i.fr.i = freeze i64 %.15065.us.i.i.i
-  %20 = getelementptr i8, ptr %6, i64 %.15065.us.i.i.fr.i
+  %20 = getelementptr i8, ptr %6, i64 %.15065.us.i.i.i
   %21 = load i8, ptr %20, align 1, !tbaa !195
   %22 = icmp eq i8 %21, %14
   br i1 %22, label %.preheader.us.i80.i.i, label %23
 
 23:                                               ; preds = %.lr.ph66.split.us.i.i.i
-  %.not.us.i79.i.i = icmp eq i64 %.15065.us.i.i.fr.i, 0
+  %.not.us.i79.i.i = icmp eq i64 %.15065.us.i.i.i, 0
   br i1 %.not.us.i79.i.i, label %ucs1lib_rfind.exit, label %24
 
 24:                                               ; preds = %23
@@ -52382,7 +52381,7 @@ define internal fastcc noundef i64 @ucs1lib_rfind_slice(ptr noundef readonly cap
   br i1 %.not52.us.i.i.i, label %48, label %.thread.us.i.i.i
 
 .thread.us.i.i.i:                                 ; preds = %.preheader.us.i80.i.i
-  %.not53.us.i.i.i = icmp eq i64 %.15065.us.i.i.fr.i, 0
+  %.not53.us.i.i.i = icmp eq i64 %.15065.us.i.i.i, 0
   br i1 %.not53.us.i.i.i, label %43, label %36
 
 36:                                               ; preds = %.thread.us.i.i.i
@@ -52400,7 +52399,8 @@ define internal fastcc noundef i64 @ucs1lib_rfind_slice(ptr noundef readonly cap
 
 44:                                               ; preds = %43, %36, %24
   %spec.select.lcssa.sink.i.i.i = phi i64 [ %spec.select.i77.i.i, %43 ], [ %31, %24 ], [ %2, %36 ]
-  %45 = sub nsw i64 %.15065.us.i.i.fr.i, %spec.select.lcssa.sink.i.i.i
+  %spec.select.lcssa.sink.i.i.fr.i = freeze i64 %spec.select.lcssa.sink.i.i.i
+  %45 = sub i64 %.15065.us.i.i.i, %spec.select.lcssa.sink.i.i.fr.i
   %46 = add nsw i64 %45, -1
   %47 = icmp sgt i64 %45, 0
   br i1 %47, label %.lr.ph66.split.us.i.i.i, label %ucs1lib_rfind.exit, !llvm.loop !430
@@ -52427,9 +52427,9 @@ define internal fastcc noundef i64 @ucs1lib_rfind_slice(ptr noundef readonly cap
   br i1 %59, label %.lr.ph.i76.i.i, label %.preheader56.i.i.i, !llvm.loop !432
 
 ucs1lib_fastsearch.exit.i:                        ; preds = %48
-  %60 = icmp slt i64 %.15065.us.i.i.fr.i, 0
+  %60 = icmp slt i64 %.15065.us.i.i.i, 0
   %61 = select i1 %60, i64 0, i64 %3
-  %spec.select.i = add i64 %61, %.15065.us.i.i.fr.i
+  %spec.select.i = add i64 %61, %.15065.us.i.i.i
   br label %ucs1lib_rfind.exit
 
 ucs1lib_rfind.exit:                               ; preds = %23, %44, %5, %9, %.preheader56.i.i.i, %ucs1lib_fastsearch.exit.i
@@ -52745,7 +52745,7 @@ define internal fastcc i64 @asciilib__two_way_find(ptr noundef %0, i64 noundef %
 .split.us.i.i.i:                                  ; preds = %25, %4
   %7 = phi i64 [ %26, %25 ], [ 1, %4 ]
   %.042.us.i.i.i = phi i64 [ %.1.us.i.i.i, %25 ], [ 0, %4 ]
-  %.02941.us.i.i.i = phi i64 [ %.130.us.i.i.i, %25 ], [ 1, %4 ]
+  %.02941.us.i.i.i = phi i64 [ %.130.us.i.i.i.fr, %25 ], [ 1, %4 ]
   %.03140.us.i.i.i = phi i64 [ %.132.us.i.i.i, %25 ], [ 1, %4 ]
   %.03339.us.i.i.i = phi i64 [ %.134.us.i.i.i, %25 ], [ 0, %4 ]
   %8 = getelementptr i8, ptr %2, i64 %7
@@ -52783,14 +52783,15 @@ define internal fastcc i64 @asciilib__two_way_find(ptr noundef %0, i64 noundef %
   %.132.us.i.i.i = phi i64 [ %24, %21 ], [ 1, %16 ], [ %.03140.us.i.i.i, %18 ]
   %.130.us.i.i.i = phi i64 [ %23, %21 ], [ %17, %16 ], [ %spec.select38.us.i.i.i, %18 ]
   %.1.us.i.i.i = phi i64 [ %.042.us.i.i.i, %21 ], [ %.02941.us.i.i.i, %16 ], [ %.042.us.i.i.i, %18 ]
-  %26 = add i64 %.130.us.i.i.i, %.134.us.i.i.i
+  %.130.us.i.i.i.fr = freeze i64 %.130.us.i.i.i
+  %26 = add i64 %.130.us.i.i.i.fr, %.134.us.i.i.i
   %27 = icmp slt i64 %26, %3
   br i1 %27, label %.split.us.i.i.i, label %.split.i.i.i, !llvm.loop !558
 
 .split.i.i.i:                                     ; preds = %25, %46
   %28 = phi i64 [ %47, %46 ], [ 1, %25 ]
   %.042.i.i.i = phi i64 [ %.1.i.i.i, %46 ], [ 0, %25 ]
-  %.02941.i.i.i = phi i64 [ %.130.i.i.i, %46 ], [ 1, %25 ]
+  %.02941.i.i.i = phi i64 [ %.130.i.i.i.fr, %46 ], [ 1, %25 ]
   %.03140.i.i.i = phi i64 [ %.132.i.i.i, %46 ], [ 1, %25 ]
   %.03339.i.i.i = phi i64 [ %.134.i.i.i, %46 ], [ 0, %25 ]
   %29 = getelementptr i8, ptr %2, i64 %28
@@ -52828,7 +52829,8 @@ define internal fastcc i64 @asciilib__two_way_find(ptr noundef %0, i64 noundef %
   %.132.i.i.i = phi i64 [ %38, %35 ], [ 1, %44 ], [ %.03140.i.i.i, %41 ]
   %.130.i.i.i = phi i64 [ %37, %35 ], [ %45, %44 ], [ %spec.select38.i.i.i, %41 ]
   %.1.i.i.i = phi i64 [ %.042.i.i.i, %35 ], [ %.02941.i.i.i, %44 ], [ %.042.i.i.i, %41 ]
-  %47 = add i64 %.130.i.i.i, %.134.i.i.i
+  %.130.i.i.i.fr = freeze i64 %.130.i.i.i
+  %47 = add i64 %.130.i.i.i.fr, %.134.i.i.i
   %48 = icmp slt i64 %47, %3
   br i1 %48, label %.split.i.i.i, label %asciilib__factorize.exit.i, !llvm.loop !558
 

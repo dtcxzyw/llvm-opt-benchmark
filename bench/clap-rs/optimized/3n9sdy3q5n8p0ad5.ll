@@ -6008,13 +6008,12 @@ select.unfold522.i:                               ; preds = %"_ZN12clap_builder4
 443:                                              ; preds = %532, %436
   %.promoted.i246.i = phi ptr [ %.promoted.i246.pre.i, %532 ], [ %.sroa.4434.0.copyload.i, %436 ]
   %444 = phi ptr [ %.pre746.i, %532 ], [ %437, %436 ]
-  %445 = phi ptr [ %.pre745.i, %532 ], [ %.sroa.4434.0.copyload.i, %436 ]
+  %445 = phi ptr [ %.pre745.fr.i, %532 ], [ %.sroa.4434.0.copyload.i, %436 ]
   %.pr.i.i = phi i64 [ %.pr.i.pre.i, %532 ], [ -9223372036854775807, %436 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7437.i)
   call void @llvm.experimental.noalias.scope.decl(metadata !1794)
   call void @llvm.experimental.noalias.scope.decl(metadata !1797)
-  %.fr693.i = freeze ptr %445
-  %446 = icmp eq ptr %.fr693.i, null
+  %446 = icmp eq ptr %445, null
   br i1 %446, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %443
@@ -6309,6 +6308,7 @@ common.resume.i:                                  ; preds = %808, %497, %203
   %.pre745.i = load ptr, ptr %.sroa.054.sroa.4.0..sroa_idx.i, align 8, !alias.scope !1797, !noalias !1822
   %.pre746.i = load ptr, ptr %.sroa.054.sroa.4.sroa.4.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1797, !noalias !1822
   %.promoted.i246.pre.i = load ptr, ptr %.sroa.054.sroa.4.sroa.3.0..sroa.054.sroa.4.0..sroa_idx.sroa_idx.i, align 8, !alias.scope !1797, !noalias !1822
+  %.pre745.fr.i = freeze ptr %.pre745.i
   br label %443
 
 533:                                              ; preds = %.noexc213.i
@@ -7772,13 +7772,12 @@ select.unfold271:                                 ; preds = %.backedge
 173:                                              ; preds = %232, %171
   %.promoted.i = phi ptr [ %.promoted.i.pre, %232 ], [ %.sroa.4229.0.copyload, %171 ]
   %174 = phi ptr [ %.pre380, %232 ], [ %172, %171 ]
-  %175 = phi ptr [ %.pre379, %232 ], [ %.sroa.4229.0.copyload, %171 ]
+  %175 = phi ptr [ %.pre379.fr, %232 ], [ %.sroa.4229.0.copyload, %171 ]
   %.pr.i = phi i64 [ %.pr.i.pre, %232 ], [ -9223372036854775807, %171 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.7232)
   call void @llvm.experimental.noalias.scope.decl(metadata !2250)
   call void @llvm.experimental.noalias.scope.decl(metadata !2253)
-  %.fr363 = freeze ptr %175
-  %176 = icmp eq ptr %.fr363, null
+  %176 = icmp eq ptr %175, null
   br i1 %176, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %173
@@ -8005,6 +8004,7 @@ common.resume:                                    ; preds = %44, %389, %220
   %.pre379 = load ptr, ptr %.sroa.034.sroa.4.0..sroa_idx, align 8, !alias.scope !2253, !noalias !2250
   %.pre380 = load ptr, ptr %.sroa.034.sroa.4.sroa.4.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2253, !noalias !2250
   %.promoted.i.pre = load ptr, ptr %.sroa.034.sroa.4.sroa.3.0..sroa.034.sroa.4.0..sroa_idx.sroa_idx, align 8, !alias.scope !2253, !noalias !2250
+  %.pre379.fr = freeze ptr %.pre379
   br label %173
 
 238:                                              ; preds = %354, %.thread, %307, %.body164, %389, %"_ZN4core3ptr110drop_in_place$LT$clap_builder..util..flat_set..FlatSet$LT$clap_builder..builder..styled_str..StyledStr$GT$$GT$17h50b559f185ac789dE.exit193", %350, %.thread260, %304, %294, %.body, %49

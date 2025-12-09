@@ -4379,20 +4379,20 @@ define internal fastcc noundef signext range(i8 0, 2) i8 @_ZN6icu_77L14enumGroup
 
 _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   %.not = icmp eq ptr %3, null
-  %.not4530 = icmp sgt i32 %1, %2
+  %.not4533 = icmp sgt i32 %1, %2
   br i1 %.not, label %91, label %57
 
 57:                                               ; preds = %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
-  br i1 %.not4530, label %.critedge, label %.lr.ph
+  br i1 %.not4533, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %57
   %58 = icmp eq i32 %5, 2
   br i1 %58, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %71
-  %.04229.us = phi i32 [ %72, %71 ], [ %1, %.lr.ph ]
-  %59 = and i32 %.04229.us, 31
+  %.04232.us = phi i32 [ %72, %71 ], [ %1, %.lr.ph ]
+  %59 = and i32 %.04232.us, 31
   %60 = zext nneg i32 %59 to i64
   %61 = getelementptr inbounds nuw i16, ptr %7, i64 %60
   %62 = load i16, ptr %61, align 2, !tbaa !33
@@ -4406,18 +4406,18 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
 
 68:                                               ; preds = %.lr.ph.split.us
   %69 = zext i16 %67 to i32
-  %70 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.04229.us, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %69)
+  %70 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.04232.us, i32 noundef %5, ptr noundef nonnull %9, i32 noundef %69)
   %.not49.us = icmp eq i8 %70, 0
   br i1 %.not49.us, label %.split.us, label %71
 
 71:                                               ; preds = %68, %.lr.ph.split.us
-  %72 = add i32 %.04229.us, 1
-  %exitcond.not = icmp eq i32 %.04229.us, %2
+  %72 = add i32 %.04232.us, 1
+  %exitcond.not = icmp eq i32 %.04232.us, %2
   br i1 %exitcond.not, label %.critedge, label %.lr.ph.split.us, !llvm.loop !118
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %89
-  %.04229 = phi i32 [ %90, %89 ], [ %1, %.lr.ph ]
-  %73 = and i32 %.04229, 31
+  %.04232 = phi i32 [ %90, %89 ], [ %1, %.lr.ph ]
+  %73 = and i32 %.04232, 31
   %74 = zext nneg i32 %73 to i64
   %75 = getelementptr inbounds nuw i16, ptr %7, i64 %74
   %76 = load i16, ptr %75, align 2, !tbaa !33
@@ -4430,7 +4430,7 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   br i1 %82, label %83, label %.thread
 
 83:                                               ; preds = %.lr.ph.split
-  %84 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.04229, ptr noundef nonnull %9, i16 noundef zeroext 200)
+  %84 = call fastcc noundef zeroext i16 @_ZN6icu_77L10getExtNameEjPct(i32 noundef %.04232, ptr noundef nonnull %9, i16 noundef zeroext 200)
   %85 = zext i16 %84 to i64
   %86 = getelementptr inbounds nuw i8, ptr %9, i64 %85
   store i8 0, ptr %86, align 1, !tbaa !26
@@ -4438,16 +4438,16 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   br i1 %.not48, label %89, label %.thread
 
 .thread:                                          ; preds = %.lr.ph.split, %83
-  %.04182 = phi i16 [ %84, %83 ], [ %81, %.lr.ph.split ]
-  %87 = zext i16 %.04182 to i32
-  %88 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.04229, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %87)
+  %.04187 = phi i16 [ %84, %83 ], [ %81, %.lr.ph.split ]
+  %87 = zext i16 %.04187 to i32
+  %88 = call noundef signext i8 %3(ptr noundef %4, i32 noundef %.04232, i32 noundef 2, ptr noundef nonnull %9, i32 noundef %87)
   %.not49 = icmp eq i8 %88, 0
   br i1 %.not49, label %.split.us, label %89
 
 89:                                               ; preds = %.thread, %83
-  %90 = add i32 %.04229, 1
-  %exitcond60.not = icmp eq i32 %.04229, %2
-  br i1 %exitcond60.not, label %.critedge, label %.lr.ph.split, !llvm.loop !118
+  %90 = add i32 %.04232, 1
+  %exitcond66.not = icmp eq i32 %.04232, %2
+  br i1 %exitcond66.not, label %.critedge, label %.lr.ph.split, !llvm.loop !118
 
 .split.us:                                        ; preds = %68, %.thread
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
@@ -4455,9 +4455,9 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
 
 91:                                               ; preds = %_ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit
   %92 = load ptr, ptr %4, align 8, !tbaa !54
-  br i1 %.not4530, label %.critedge51, label %.lr.ph33
+  br i1 %.not4533, label %.critedge51, label %.lr.ph36
 
-.lr.ph33:                                         ; preds = %91
+.lr.ph36:                                         ; preds = %91
   %93 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %94 = getelementptr inbounds nuw i8, ptr %0, i64 18
   %95 = load i16, ptr %93, align 2, !tbaa !33
@@ -4471,9 +4471,9 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   %102 = icmp eq i32 %5, 2
   br label %103
 
-103:                                              ; preds = %.lr.ph33, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread
-  %.14331 = phi i32 [ %1, %.lr.ph33 ], [ %184, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread ]
-  %104 = and i32 %.14331, 31
+103:                                              ; preds = %.lr.ph36, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread
+  %.14334 = phi i32 [ %1, %.lr.ph36 ], [ %184, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread ]
+  %104 = and i32 %.14334, 31
   %105 = zext nneg i32 %104 to i64
   %106 = getelementptr inbounds nuw i16, ptr %7, i64 %105
   %107 = load i16, ptr %106, align 2, !tbaa !33
@@ -4528,7 +4528,7 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
 .lr.ph.i:                                         ; preds = %.loopexit90.i, %.thread.i
   %.4.ph141.i = phi ptr [ %.5.i, %.thread.i ], [ %.056.i, %.loopexit90.i ]
   %.464.ph140.i = phi i16 [ %.565.i, %.thread.i ], [ %.060.i, %.loopexit90.i ]
-  %.068.ph139.i = phi ptr [ %.169.i, %.thread.i ], [ %92, %.loopexit90.i ]
+  %.068.ph139.i = phi ptr [ %.169.fr.i, %.thread.i ], [ %92, %.loopexit90.i ]
   %124 = icmp eq ptr %.068.ph139.i, %92
   %or.cond3.i = and i1 %102, %124
   br i1 %or.cond3.i, label %.lr.ph.split.us.i, label %.lr.ph.split.i
@@ -4596,7 +4596,7 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   br i1 %.not83.i, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %153
 
 153:                                              ; preds = %.split.us.i
-  %154 = getelementptr i8, ptr %.068.ph139.i, i64 1
+  %154 = getelementptr inbounds nuw i8, ptr %.068.ph139.i, i64 1
   %155 = load i8, ptr %.068.ph139.i, align 1, !tbaa !26
   %.not84.i = icmp eq i8 %.us-phi118.i, %155
   br i1 %.not84.i, label %.thread.i, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread
@@ -4633,7 +4633,7 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   %.us-phi127.i = phi i16 [ %.666.i, %170 ], [ %.666.us.i, %144 ]
   %.us-phi128.i = phi ptr [ %.6.i, %170 ], [ %.6.us.i, %144 ]
   %.us-phi129.i = phi i8 [ %150, %170 ], [ %127, %144 ]
-  %171 = getelementptr i8, ptr %.068.ph139.i, i64 1
+  %171 = getelementptr inbounds nuw i8, ptr %.068.ph139.i, i64 1
   %172 = load i8, ptr %.068.ph139.i, align 1, !tbaa !26
   %.not82.i = icmp eq i8 %.us-phi129.i, %172
   br i1 %.not82.i, label %.thread.i, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread
@@ -4655,7 +4655,7 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
 
 177:                                              ; preds = %175
   %178 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %179 = getelementptr i8, ptr %.270.i, i64 1
+  %179 = getelementptr inbounds nuw i8, ptr %.270.i, i64 1
   %180 = load i8, ptr %.270.i, align 1, !tbaa !26
   %.not80.i = icmp eq i8 %176, %180
   br i1 %.not80.i, label %175, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread, !llvm.loop !122
@@ -4664,24 +4664,25 @@ _ZN6icu_77L18expandGroupLengthsEPKhPtS2_.exit:    ; preds = %55
   %.169.i = phi ptr [ %154, %153 ], [ %171, %.split126.us.i ], [ %.270.i, %175 ]
   %.565.i = phi i16 [ %.us-phi.i, %153 ], [ %.us-phi127.i, %.split126.us.i ], [ %.us-phi123.i, %175 ]
   %.5.i = phi ptr [ %.us-phi117.i, %153 ], [ %.us-phi128.i, %.split126.us.i ], [ %.us-phi124.i, %175 ]
+  %.169.fr.i = freeze ptr %.169.i
   %.not109.i = icmp eq i16 %.565.i, 0
   br i1 %.not109.i, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit, label %.lr.ph.i, !llvm.loop !121
 
 _ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit: ; preds = %.split.us.i, %170, %.thread.i, %145, %113, %.loopexit90.i
-  %.068.ph106.i = phi ptr [ %92, %.loopexit90.i ], [ %92, %113 ], [ %92, %145 ], [ %.068.ph139.i, %.split.us.i ], [ %.068.ph139.i, %170 ], [ %.169.i, %.thread.i ]
+  %.068.ph106.i = phi ptr [ %92, %.loopexit90.i ], [ %92, %113 ], [ %.068.ph139.i, %145 ], [ %.068.ph139.i, %.split.us.i ], [ %.068.ph139.i, %170 ], [ %.169.fr.i, %.thread.i ]
   %181 = load i8, ptr %.068.ph106.i, align 1, !tbaa !26
   %.not3 = icmp eq i8 %181, 0
   br i1 %.not3, label %182, label %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread
 
 182:                                              ; preds = %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit
   %183 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %.14331, ptr %183, align 8, !tbaa !56
+  store i32 %.14334, ptr %183, align 8, !tbaa !56
   br label %.critedge51
 
 _ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit.thread: ; preds = %.split126.us.i, %153, %177, %_ZN6icu_77L11compareNameEPNS_10UCharNamesEPKht15UCharNameChoicePKc.exit
-  %184 = add i32 %.14331, 1
-  %exitcond61.not = icmp eq i32 %.14331, %2
-  br i1 %exitcond61.not, label %.critedge51, label %103, !llvm.loop !123
+  %184 = add i32 %.14334, 1
+  %exitcond67.not = icmp eq i32 %.14334, %2
+  br i1 %exitcond67.not, label %.critedge51, label %103, !llvm.loop !123
 
 .critedge:                                        ; preds = %71, %89, %57
   call void @llvm.lifetime.end.p0(ptr nonnull %9)

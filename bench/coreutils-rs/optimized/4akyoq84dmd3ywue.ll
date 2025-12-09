@@ -2138,13 +2138,13 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   %149 = getelementptr inbounds nuw i8, ptr %28, i64 24
   %150 = load i64, ptr %149, align 8, !alias.scope !380, !noalias !387
   %.promoted62.i = load i64, ptr %148, align 8, !alias.scope !380, !noalias !387
+  %.promoted62.i.fr = freeze i64 %.promoted62.i
   br label %151
 
-151:                                              ; preds = %175, %.lr.ph.i
-  %152 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %177, %175 ]
-  %153 = phi i64 [ %.promoted62.i, %.lr.ph.i ], [ %176, %175 ]
-  %154 = phi i64 [ %143, %.lr.ph.i ], [ %178, %175 ]
-  %.fr411 = freeze i64 %153
+151:                                              ; preds = %176, %.lr.ph.i
+  %152 = phi i64 [ %.promoted.i, %.lr.ph.i ], [ %177, %176 ]
+  %153 = phi i64 [ %.promoted62.i.fr, %.lr.ph.i ], [ %.fr411, %176 ]
+  %154 = phi i64 [ %143, %.lr.ph.i ], [ %178, %176 ]
   %155 = getelementptr inbounds i8, ptr %135, i64 %154
   %156 = load i8, ptr %155, align 1, !alias.scope !383, !noalias !389, !noundef !5
   %157 = and i8 %156, 63
@@ -2155,10 +2155,10 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
   br i1 %161, label %162, label %163
 
 162:                                              ; preds = %151
-  br i1 %133, label %175, label %.sink.split.i
+  br i1 %133, label %176, label %.sink.split.i
 
 163:                                              ; preds = %151
-  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %.fr411)
+  %.0.sroa.speculated.i.i = tail call i64 @llvm.umin.i64(i64 %.fr, i64 %153)
   %.014.i = select i1 %133, i64 %.fr, i64 %.0.sroa.speculated.i.i
   %164 = add i64 %.014.i, -1
   %.first_iter.i = icmp ult i64 %164, %141
@@ -2186,7 +2186,7 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 .split391.us:                                     ; preds = %169
   %.neg.i = sub i64 %152, %.fr
   %174 = add i64 %.neg.i, %166
-  br i1 %133, label %175, label %.sink.split.i
+  br i1 %133, label %176, label %.sink.split.i
 
 .split:                                           ; preds = %163
   %.not35.i = icmp eq i64 %.014.i, 0
@@ -2195,17 +2195,18 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 .sink.split.i:                                    ; preds = %.split391.us, %198, %162
   %.sink.i = phi i64 [ %150, %198 ], [ %141, %.split391.us ], [ %141, %162 ]
   %.ph107.i = phi i64 [ %199, %198 ], [ %174, %.split391.us ], [ %154, %162 ]
-  br label %175
+  %175 = freeze i64 %.sink.i
+  br label %176
 
-175:                                              ; preds = %.split391.us, %198, %.sink.split.i, %162
-  %176 = phi i64 [ %.fr411, %.split391.us ], [ %.fr411, %198 ], [ %.fr411, %162 ], [ %.sink.i, %.sink.split.i ]
+176:                                              ; preds = %.split391.us, %198, %.sink.split.i, %162
+  %.fr411 = phi i64 [ %153, %.split391.us ], [ %153, %198 ], [ %153, %162 ], [ %175, %.sink.split.i ]
   %177 = phi i64 [ %174, %.split391.us ], [ %199, %198 ], [ %154, %162 ], [ %.ph107.i, %.sink.split.i ]
   %178 = sub i64 %177, %141
   %.not34.i = icmp ult i64 %178, %137
   br i1 %.not34.i, label %151, label %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread297"
 
 .split387.us:                                     ; preds = %.split.us, %.split
-  %.015.i = select i1 %133, i64 %141, i64 %.fr411
+  %.015.i = select i1 %133, i64 %141, i64 %153
   br label %179
 
 179:                                              ; preds = %191, %.split387.us
@@ -2252,9 +2253,9 @@ _ZN4core3str11validations23next_code_point_reverse17h0c36ac845fa069d6E.exit.thre
 
 198:                                              ; preds = %191
   %199 = sub i64 %152, %150
-  br i1 %133, label %175, label %.sink.split.i
+  br i1 %133, label %176, label %.sink.split.i
 
-"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread297": ; preds = %121, %175, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i", %.preheader.i.i.i
+"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exit.i.thread297": ; preds = %121, %176, %"_ZN4core3str21_$LT$impl$u20$str$GT$5rfind17h6dfb6aa82238df0fE.exitthread-pre-split.i", %.preheader.i.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %28), !noalias !354
   br label %258
 

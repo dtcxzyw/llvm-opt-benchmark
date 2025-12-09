@@ -965,13 +965,13 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %218, %._crit_edge
   %292 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   %293 = load i32, ptr %292, align 4, !tbaa !15
   %294 = icmp eq i32 %293, %287
-  br i1 %294, label %.loopexit.loopexit.split.loop.exit370, label %295
+  br i1 %294, label %.loopexit.loopexit.split.loop.exit373, label %295
 
 295:                                              ; preds = %291
   %296 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   %297 = load i32, ptr %296, align 4, !tbaa !15
   %298 = icmp eq i32 %297, %287
-  br i1 %298, label %.loopexit.loopexit.split.loop.exit368, label %299
+  br i1 %298, label %.loopexit.loopexit.split.loop.exit371, label %299
 
 299:                                              ; preds = %295
   %300 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
@@ -994,16 +994,16 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %218, %._crit_edge
   %308 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 12
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit368:            ; preds = %295
+.loopexit.loopexit.split.loop.exit371:            ; preds = %295
   %309 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 8
   br label %.loopexit
 
-.loopexit.loopexit.split.loop.exit370:            ; preds = %291
+.loopexit.loopexit.split.loop.exit373:            ; preds = %291
   %310 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i.i, i64 4
   br label %.loopexit
 
-.loopexit:                                        ; preds = %288, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit368, %.loopexit.loopexit.split.loop.exit370, %._crit_edge._crit_edge52.i.i.i.i.i184
-  %.028.i.i.i.i.i185 = phi ptr [ %spec.select.i.i, %._crit_edge._crit_edge52.i.i.i.i.i184 ], [ %308, %.loopexit.loopexit.split.loop.exit ], [ %309, %.loopexit.loopexit.split.loop.exit368 ], [ %310, %.loopexit.loopexit.split.loop.exit370 ], [ %.02946.i.i.i.i.i, %288 ]
+.loopexit:                                        ; preds = %288, %.loopexit.loopexit.split.loop.exit, %.loopexit.loopexit.split.loop.exit371, %.loopexit.loopexit.split.loop.exit373, %._crit_edge._crit_edge52.i.i.i.i.i184
+  %.028.i.i.i.i.i185 = phi ptr [ %spec.select.i.i, %._crit_edge._crit_edge52.i.i.i.i.i184 ], [ %308, %.loopexit.loopexit.split.loop.exit ], [ %309, %.loopexit.loopexit.split.loop.exit371 ], [ %310, %.loopexit.loopexit.split.loop.exit373 ], [ %.02946.i.i.i.i.i, %288 ]
   %311 = icmp eq ptr %.028.i.i.i.i.i185, getelementptr inbounds nuw (i8, ptr @_ZN5ZXing4OneDL8ALPHABETE, i64 84)
   %312 = ptrtoint ptr %.028.i.i.i.i.i185 to i64
   %313 = sub i64 %312, ptrtoint (ptr @_ZN5ZXing4OneDL8ALPHABETE to i64)
@@ -1013,8 +1013,10 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %218, %._crit_edge
   %316 = getelementptr inbounds i32, ptr @_ZN5ZXing4OneDL19CHARACTER_ENCODINGSE, i64 %315
   %317 = load i32, ptr %316, align 4, !tbaa !41
   %318 = shl nuw i64 1, %315
-  %319 = and i64 %318, 1019351
+  %.fr306 = freeze i64 %318
+  %319 = and i64 %.fr306, 1019351
   %320 = icmp ne i64 %319, 0
+  %.fr308 = freeze i32 %317
   br label %.outer.split.us
 
 .outer.split.us:                                  ; preds = %.loopexit, %select.unfold.split.us
@@ -1023,11 +1025,10 @@ _ZNSt6vectorIbSaIbEEC2EmRKbRKS0_.exit:            ; preds = %218, %._crit_edge
   %.077.ph299 = phi i32 [ 0, %.loopexit ], [ %350, %select.unfold.split.us ]
   %.sroa.9.1.ph298 = phi i32 [ %.sroa.9.0303, %.loopexit ], [ %.us-phi281, %select.unfold.split.us ]
   %.sroa.0232.1.ph297 = phi ptr [ %.sroa.0232.0302, %.loopexit ], [ %.us-phi, %select.unfold.split.us ]
-  %.fr293 = freeze i1 %321
   br i1 %.075.ph300, label %.outer.split.us.split.us, label %.outer.split.us.split
 
 .outer.split.us.split.us:                         ; preds = %.outer.split.us
-  br i1 %.fr293, label %.outer.split.us.split.us.split.us, label %_ZNSt14_Bit_referenceaSEb.exit.us.us
+  br i1 %321, label %.outer.split.us.split.us.split.us, label %_ZNSt14_Bit_referenceaSEb.exit.us.us
 
 .outer.split.us.split.us.split.us:                ; preds = %.outer.split.us.split.us
   %322 = add i32 %.sroa.9.1.ph298, 1
@@ -1057,7 +1058,7 @@ _ZNSt14_Bit_referenceaSEb.exit.us.us:             ; preds = %.outer.split.us.spl
   br i1 %328, label %select.unfold.split.us, label %_ZNSt14_Bit_referenceaSEb.exit.us.us
 
 .outer.split.us.split:                            ; preds = %.outer.split.us
-  br i1 %.fr293, label %.outer.split.us.split.split.us, label %_ZNSt14_Bit_referenceaSEb.exit.us
+  br i1 %321, label %.outer.split.us.split.split.us, label %_ZNSt14_Bit_referenceaSEb.exit.us
 
 .outer.split.us.split.split.us:                   ; preds = %.outer.split.us.split
   %335 = add i32 %.sroa.9.1.ph298, 1
@@ -1089,11 +1090,11 @@ _ZNSt14_Bit_referenceaSEb.exit.us:                ; preds = %.outer.split.us.spl
   br i1 %342, label %select.unfold.split.us, label %_ZNSt14_Bit_referenceaSEb.exit.us
 
 select.unfold.split.us.sink.split:                ; preds = %.outer.split.us.split.us.split.us, %.outer.split.us.split.split.us
-  %.sink376 = phi i64 [ %341, %.outer.split.us.split.split.us ], [ %327, %.outer.split.us.split.us.split.us ]
+  %.sink379 = phi i64 [ %341, %.outer.split.us.split.split.us ], [ %327, %.outer.split.us.split.us.split.us ]
   %spec.select259.idx.us.us285.pn = phi i64 [ %spec.select259.idx.us.us285, %.outer.split.us.split.split.us ], [ %spec.select259.idx.us.us.us, %.outer.split.us.split.us.split.us ]
   %.us-phi281.ph = phi i32 [ %spec.select260.us.us287, %.outer.split.us.split.split.us ], [ %spec.select260.us.us.us, %.outer.split.us.split.us.split.us ]
   %.us-phi.ph = getelementptr inbounds nuw i8, ptr %.sroa.0232.1.ph297, i64 %spec.select259.idx.us.us285.pn
-  store i64 %.sink376, ptr %.sroa.0232.1.ph297, align 8, !tbaa !42
+  store i64 %.sink379, ptr %.sroa.0232.1.ph297, align 8, !tbaa !42
   br label %select.unfold.split.us
 
 select.unfold.split.us:                           ; preds = %_ZNSt14_Bit_referenceaSEb.exit.us, %_ZNSt14_Bit_referenceaSEb.exit.us.us, %select.unfold.split.us.sink.split
@@ -1103,10 +1104,11 @@ select.unfold.split.us:                           ; preds = %_ZNSt14_Bit_referen
   %351 = xor i1 %.075.ph300, true
   %352 = sub nsw i32 5, %.077.ph299
   %353 = shl nuw i32 1, %352
-  %354 = and i32 %353, %317
+  %.fr307 = freeze i32 %353
+  %354 = and i32 %.fr307, %.fr308
   %355 = icmp eq i32 %354, 0
-  %exitcond312.not = icmp eq i32 %350, 7
-  br i1 %exitcond312.not, label %.outer.split, label %.outer.split.us, !llvm.loop !43
+  %exitcond315.not = icmp eq i32 %350, 7
+  br i1 %exitcond315.not, label %.outer.split, label %.outer.split.us, !llvm.loop !43
 
 .outer.split:                                     ; preds = %select.unfold.split.us
   %.sroa.0.0.copyload.i190 = load ptr, ptr %210, align 8

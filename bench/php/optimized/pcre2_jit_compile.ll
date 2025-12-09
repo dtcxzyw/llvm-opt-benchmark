@@ -11242,19 +11242,22 @@ bracketend.exit:                                  ; preds = %4
 
 43:                                               ; preds = %41, %39, %36
   %.157 = phi ptr [ %37, %36 ], [ %40, %39 ], [ %42, %41 ]
+  %.157.fr = freeze ptr %.157
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %45 = load ptr, ptr %44, align 8, !tbaa !98
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %47 = load ptr, ptr %46, align 8, !tbaa !48
-  %48 = ptrtoint ptr %.157 to i64
-  %49 = ptrtoint ptr %47 to i64
+  %48 = ptrtoint ptr %.157.fr to i64
+  %.fr103 = freeze ptr %47
+  %49 = ptrtoint ptr %.fr103 to i64
   %50 = sub i64 %48, %49
-  %51 = getelementptr inbounds i8, ptr %45, i64 %50
+  %.fr = freeze ptr %45
+  %51 = getelementptr i8, ptr %.fr, i64 %50
   br label %52
 
 52:                                               ; preds = %.thread73, %43, %34
   %.0.shrunk71 = phi i1 [ true, %43 ], [ false, %34 ], [ false, %.thread73 ]
-  %.056 = phi ptr [ %.157, %43 ], [ %35, %34 ], [ %33, %.thread73 ]
+  %.056 = phi ptr [ %.157.fr, %43 ], [ %35, %34 ], [ %33, %.thread73 ]
   %.1 = phi ptr [ %51, %43 ], [ %.055, %34 ], [ %2, %.thread73 ]
   %53 = icmp ult ptr %.056, %16
   br i1 %53, label %.lr.ph.lr.ph, label %.outer._crit_edge
@@ -11266,10 +11269,9 @@ bracketend.exit:                                  ; preds = %4
 
 .lr.ph:                                           ; preds = %.lr.ph.lr.ph, %.outer
   %.2.ph98 = phi ptr [ %.1, %.lr.ph.lr.ph ], [ %96, %.outer ]
-  %.258.ph97 = phi ptr [ %.056, %.lr.ph.lr.ph ], [ %.3, %.outer ]
-  %.2.ph98.fr = freeze ptr %.2.ph98
-  %.not100 = icmp eq ptr %.2.ph98.fr, null
-  br i1 %.not100, label %.lr.ph.split.us, label %.lr.ph.split
+  %.258.ph97 = phi ptr [ %.056, %.lr.ph.lr.ph ], [ %.3.fr, %.outer ]
+  %.not102 = icmp eq ptr %.2.ph98, null
+  br i1 %.not102, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %.0.shrunk71, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
@@ -11331,7 +11333,7 @@ bracketend.exit:                                  ; preds = %4
   br i1 %or.cond, label %73, label %74
 
 73:                                               ; preds = %71
-  store i8 1, ptr %.2.ph98.fr, align 1, !tbaa !75
+  store i8 1, ptr %.2.ph98, align 1, !tbaa !75
   br label %74
 
 74:                                               ; preds = %73, %71
@@ -11339,7 +11341,7 @@ bracketend.exit:                                  ; preds = %4
   br label %.backedge.us81
 
 76:                                               ; preds = %.lr.ph.split.split.us
-  %77 = tail call fastcc ptr @set_then_offsets(ptr noundef %0, ptr noundef nonnull %.25877.us78, ptr noundef nonnull %.2.ph98.fr)
+  %77 = tail call fastcc ptr @set_then_offsets(ptr noundef %0, ptr noundef nonnull %.25877.us78, ptr noundef nonnull %.2.ph98)
   br label %.backedge.us81
 
 .backedge.us81:                                   ; preds = %76, %74
@@ -11354,7 +11356,7 @@ bracketend.exit:                                  ; preds = %4
   br i1 %or.cond68, label %80, label %83
 
 80:                                               ; preds = %.lr.ph.split.split
-  %81 = tail call fastcc ptr @set_then_offsets(ptr noundef %0, ptr noundef nonnull %.25877, ptr noundef nonnull %.2.ph98.fr)
+  %81 = tail call fastcc ptr @set_then_offsets(ptr noundef %0, ptr noundef nonnull %.25877, ptr noundef nonnull %.2.ph98)
   br label %.backedge
 
 .backedge:                                        ; preds = %80, %101
@@ -11385,13 +11387,16 @@ bracketend.exit:                                  ; preds = %4
 
 .outer:                                           ; preds = %.split.us, %89, %87
   %.3 = phi ptr [ %88, %87 ], [ %90, %89 ], [ %85, %.split.us ]
+  %.3.fr = freeze ptr %.3
   %91 = load ptr, ptr %54, align 8, !tbaa !98
   %92 = load ptr, ptr %55, align 8, !tbaa !48
-  %93 = ptrtoint ptr %.3 to i64
-  %94 = ptrtoint ptr %92 to i64
+  %93 = ptrtoint ptr %.3.fr to i64
+  %.fr101 = freeze ptr %92
+  %94 = ptrtoint ptr %.fr101 to i64
   %95 = sub i64 %93, %94
-  %96 = getelementptr inbounds i8, ptr %91, i64 %95
-  %97 = icmp ult ptr %.3, %16
+  %.fr100 = freeze ptr %91
+  %96 = getelementptr i8, ptr %.fr100, i64 %95
+  %97 = icmp ult ptr %.3.fr, %16
   br i1 %97, label %.lr.ph, label %.outer._crit_edge
 
 98:                                               ; preds = %83
@@ -11400,7 +11405,7 @@ bracketend.exit:                                  ; preds = %4
   br i1 %or.cond99, label %100, label %101
 
 100:                                              ; preds = %98
-  store i8 1, ptr %.2.ph98.fr, align 1, !tbaa !75
+  store i8 1, ptr %.2.ph98, align 1, !tbaa !75
   br label %101
 
 101:                                              ; preds = %100, %98

@@ -3700,8 +3700,7 @@ analyze.exit92.loopexit:                          ; preds = %88
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %101 = tail call i32 @llvm.smax.i32(i32 %92, i32 %96)
   %. = tail call i32 @llvm.smax.i32(i32 %101, i32 %100)
-  %.05497.fr = freeze i32 %.05497
-  %102 = add i32 %., %.05497.fr
+  %102 = add i32 %., %.05497
   %103 = tail call i32 @llvm.smax.i32(i32 %.05398, i32 %.)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 100
   %104 = icmp samesign ult i64 %indvars.iv.next, %10

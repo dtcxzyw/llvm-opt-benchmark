@@ -70886,7 +70886,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph162, %._crit_edge155
   %8 = phi i64 [ 0, %.lr.ph162 ], [ %107, %._crit_edge155 ]
-  %.sroa.027.0161 = phi i64 [ %1, %.lr.ph162 ], [ %.sroa.02.1.lcssa, %._crit_edge155 ]
+  %.sroa.027.0161 = phi i64 [ %1, %.lr.ph162 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge155 ]
   %9 = add i64 %.sroa.027.0161, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -71037,6 +71037,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %59 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit" ], [ %69, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit" ], [ %71, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %60 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9352, !noundef !3
   %61 = icmp eq i64 %59, %60
   br i1 %61, label %62, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -71048,7 +71049,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %62, %._crit_edge
   %63 = load ptr, ptr %5, align 8, !alias.scope !9352, !nonnull !3, !noundef !3
   %64 = getelementptr inbounds nuw { i64, i64 }, ptr %63, i64 %59
-  store i64 %.sroa.02.1.lcssa, ptr %64, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %.lcssa, ptr %65, align 8
   %66 = add i64 %59, 1
@@ -71140,7 +71141,7 @@ thread-pre-split:                                 ; preds = %176
 
 ._crit_edge155:                                   ; preds = %thread-pre-split, %88, %89, %95, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %107 = phi i64 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %88 ], [ 3, %89 ], [ %77, %95 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge163, label %7
 
 108:                                              ; preds = %99, %.thread.i
@@ -71403,7 +71404,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph158, %._crit_edge151
   %8 = phi i64 [ 0, %.lr.ph158 ], [ %105, %._crit_edge151 ]
-  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa, %._crit_edge151 ]
+  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge151 ]
   %9 = add i64 %.sroa.027.0157, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -71549,6 +71550,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %57 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit" ], [ %67, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit" ], [ %69, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %58 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9392, !noundef !3
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -71560,7 +71562,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %60, %._crit_edge
   %61 = load ptr, ptr %5, align 8, !alias.scope !9392, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds nuw { i64, i64 }, ptr %61, i64 %57
-  store i64 %.sroa.02.1.lcssa, ptr %62, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.lcssa, ptr %63, align 8
   %64 = add i64 %57, 1
@@ -71652,7 +71654,7 @@ thread-pre-split:                                 ; preds = %174
 
 ._crit_edge151:                                   ; preds = %thread-pre-split, %86, %87, %93, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %105 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %86 ], [ 3, %87 ], [ %75, %93 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge159, label %7
 
 106:                                              ; preds = %97, %.thread.i
@@ -71915,7 +71917,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph159, %._crit_edge152
   %8 = phi i64 [ 0, %.lr.ph159 ], [ %105, %._crit_edge152 ]
-  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa, %._crit_edge152 ]
+  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge152 ]
   %9 = add i64 %.sroa.027.0158, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -72061,6 +72063,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %57 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit" ], [ %67, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit" ], [ %69, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %58 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9432, !noundef !3
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -72072,7 +72075,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %60, %._crit_edge
   %61 = load ptr, ptr %5, align 8, !alias.scope !9432, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds nuw { i64, i64 }, ptr %61, i64 %57
-  store i64 %.sroa.02.1.lcssa, ptr %62, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.lcssa, ptr %63, align 8
   %64 = add i64 %57, 1
@@ -72164,7 +72167,7 @@ thread-pre-split:                                 ; preds = %174
 
 ._crit_edge152:                                   ; preds = %thread-pre-split, %86, %87, %93, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %105 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %86 ], [ 3, %87 ], [ %75, %93 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge160, label %7
 
 106:                                              ; preds = %97, %.thread.i
@@ -72427,7 +72430,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph158, %._crit_edge151
   %8 = phi i64 [ 0, %.lr.ph158 ], [ %104, %._crit_edge151 ]
-  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa, %._crit_edge151 ]
+  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge151 ]
   %9 = add i64 %.sroa.027.0157, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -72572,6 +72575,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %56 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit" ], [ %66, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit" ], [ %68, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %57 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9473, !noundef !3
   %58 = icmp eq i64 %56, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -72583,7 +72587,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %59, %._crit_edge
   %60 = load ptr, ptr %5, align 8, !alias.scope !9473, !nonnull !3, !noundef !3
   %61 = getelementptr inbounds nuw { i64, i64 }, ptr %60, i64 %56
-  store i64 %.sroa.02.1.lcssa, ptr %61, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %.lcssa, ptr %62, align 8
   %63 = add i64 %56, 1
@@ -72675,7 +72679,7 @@ thread-pre-split:                                 ; preds = %171
 
 ._crit_edge151:                                   ; preds = %thread-pre-split, %85, %86, %92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %104 = phi i64 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %85 ], [ 3, %86 ], [ %74, %92 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge159, label %7
 
 105:                                              ; preds = %96, %.thread.i
@@ -72932,7 +72936,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph159, %._crit_edge152
   %8 = phi i64 [ 0, %.lr.ph159 ], [ %104, %._crit_edge152 ]
-  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa, %._crit_edge152 ]
+  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge152 ]
   %9 = add i64 %.sroa.027.0158, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -73077,6 +73081,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %56 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit" ], [ %66, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit" ], [ %68, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %57 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9514, !noundef !3
   %58 = icmp eq i64 %56, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -73088,7 +73093,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %59, %._crit_edge
   %60 = load ptr, ptr %5, align 8, !alias.scope !9514, !nonnull !3, !noundef !3
   %61 = getelementptr inbounds nuw { i64, i64 }, ptr %60, i64 %56
-  store i64 %.sroa.02.1.lcssa, ptr %61, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %.lcssa, ptr %62, align 8
   %63 = add i64 %56, 1
@@ -73180,7 +73185,7 @@ thread-pre-split:                                 ; preds = %171
 
 ._crit_edge152:                                   ; preds = %thread-pre-split, %85, %86, %92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %104 = phi i64 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %85 ], [ 3, %86 ], [ %74, %92 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge160, label %7
 
 105:                                              ; preds = %96, %.thread.i
@@ -73437,7 +73442,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph158, %._crit_edge151
   %8 = phi i64 [ 0, %.lr.ph158 ], [ %104, %._crit_edge151 ]
-  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa, %._crit_edge151 ]
+  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge151 ]
   %9 = add i64 %.sroa.027.0157, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -73582,6 +73587,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %56 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit" ], [ %66, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit" ], [ %68, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %57 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9550, !noundef !3
   %58 = icmp eq i64 %56, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -73593,7 +73599,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %59, %._crit_edge
   %60 = load ptr, ptr %5, align 8, !alias.scope !9550, !nonnull !3, !noundef !3
   %61 = getelementptr inbounds nuw { i64, i64 }, ptr %60, i64 %56
-  store i64 %.sroa.02.1.lcssa, ptr %61, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %.lcssa, ptr %62, align 8
   %63 = add i64 %56, 1
@@ -73685,7 +73691,7 @@ thread-pre-split:                                 ; preds = %171
 
 ._crit_edge151:                                   ; preds = %thread-pre-split, %85, %86, %92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %104 = phi i64 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %85 ], [ 3, %86 ], [ %74, %92 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge159, label %7
 
 105:                                              ; preds = %96, %.thread.i
@@ -73942,7 +73948,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph163, %._crit_edge156
   %8 = phi i64 [ 0, %.lr.ph163 ], [ %108, %._crit_edge156 ]
-  %.sroa.027.0162 = phi i64 [ %1, %.lr.ph163 ], [ %.sroa.02.1.lcssa, %._crit_edge156 ]
+  %.sroa.027.0162 = phi i64 [ %1, %.lr.ph163 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge156 ]
   %9 = add i64 %.sroa.027.0162, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -74094,6 +74100,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %60 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit" ], [ %70, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit" ], [ %72, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %61 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9590, !noundef !3
   %62 = icmp eq i64 %60, %61
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -74105,7 +74112,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %63, %._crit_edge
   %64 = load ptr, ptr %5, align 8, !alias.scope !9590, !nonnull !3, !noundef !3
   %65 = getelementptr inbounds nuw { i64, i64 }, ptr %64, i64 %60
-  store i64 %.sroa.02.1.lcssa, ptr %65, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.lcssa, ptr %66, align 8
   %67 = add i64 %60, 1
@@ -74197,7 +74204,7 @@ thread-pre-split:                                 ; preds = %179
 
 ._crit_edge156:                                   ; preds = %thread-pre-split, %89, %90, %96, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %108 = phi i64 [ %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %89 ], [ 3, %90 ], [ %78, %96 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge164, label %7
 
 109:                                              ; preds = %100, %.thread.i
@@ -74468,7 +74475,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph161, %._crit_edge154
   %8 = phi i64 [ 0, %.lr.ph161 ], [ %108, %._crit_edge154 ]
-  %.sroa.027.0160 = phi i64 [ %1, %.lr.ph161 ], [ %.sroa.02.1.lcssa, %._crit_edge154 ]
+  %.sroa.027.0160 = phi i64 [ %1, %.lr.ph161 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge154 ]
   %9 = add i64 %.sroa.027.0160, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -74620,6 +74627,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %60 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit" ], [ %70, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit" ], [ %72, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %61 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9625, !noundef !3
   %62 = icmp eq i64 %60, %61
   br i1 %62, label %63, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -74631,7 +74639,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %63, %._crit_edge
   %64 = load ptr, ptr %5, align 8, !alias.scope !9625, !nonnull !3, !noundef !3
   %65 = getelementptr inbounds nuw { i64, i64 }, ptr %64, i64 %60
-  store i64 %.sroa.02.1.lcssa, ptr %65, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %65, align 8
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 %.lcssa, ptr %66, align 8
   %67 = add i64 %60, 1
@@ -74723,7 +74731,7 @@ thread-pre-split:                                 ; preds = %179
 
 ._crit_edge154:                                   ; preds = %thread-pre-split, %89, %90, %96, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %108 = phi i64 [ %67, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %89 ], [ 3, %90 ], [ %78, %96 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge162, label %7
 
 109:                                              ; preds = %100, %.thread.i
@@ -74990,7 +74998,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph162, %._crit_edge155
   %8 = phi i64 [ 0, %.lr.ph162 ], [ %107, %._crit_edge155 ]
-  %.sroa.027.0161 = phi i64 [ %1, %.lr.ph162 ], [ %.sroa.02.1.lcssa, %._crit_edge155 ]
+  %.sroa.027.0161 = phi i64 [ %1, %.lr.ph162 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge155 ]
   %9 = add i64 %.sroa.027.0161, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -75141,6 +75149,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %59 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit" ], [ %69, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit" ], [ %71, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %60 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9661, !noundef !3
   %61 = icmp eq i64 %59, %60
   br i1 %61, label %62, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -75152,7 +75161,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %62, %._crit_edge
   %63 = load ptr, ptr %5, align 8, !alias.scope !9661, !nonnull !3, !noundef !3
   %64 = getelementptr inbounds nuw { i64, i64 }, ptr %63, i64 %59
-  store i64 %.sroa.02.1.lcssa, ptr %64, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %64, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
   store i64 %.lcssa, ptr %65, align 8
   %66 = add i64 %59, 1
@@ -75244,7 +75253,7 @@ thread-pre-split:                                 ; preds = %176
 
 ._crit_edge155:                                   ; preds = %thread-pre-split, %88, %89, %95, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %107 = phi i64 [ %66, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %88 ], [ 3, %89 ], [ %77, %95 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge163, label %7
 
 108:                                              ; preds = %99, %.thread.i
@@ -75511,7 +75520,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph158, %._crit_edge151
   %8 = phi i64 [ 0, %.lr.ph158 ], [ %105, %._crit_edge151 ]
-  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa, %._crit_edge151 ]
+  %.sroa.027.0157 = phi i64 [ %1, %.lr.ph158 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge151 ]
   %9 = add i64 %.sroa.027.0157, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -75657,6 +75666,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %57 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit" ], [ %67, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit" ], [ %69, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %58 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9696, !noundef !3
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -75668,7 +75678,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %60, %._crit_edge
   %61 = load ptr, ptr %5, align 8, !alias.scope !9696, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds nuw { i64, i64 }, ptr %61, i64 %57
-  store i64 %.sroa.02.1.lcssa, ptr %62, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.lcssa, ptr %63, align 8
   %64 = add i64 %57, 1
@@ -75760,7 +75770,7 @@ thread-pre-split:                                 ; preds = %174
 
 ._crit_edge151:                                   ; preds = %thread-pre-split, %86, %87, %93, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %105 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %86 ], [ 3, %87 ], [ %75, %93 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge159, label %7
 
 106:                                              ; preds = %97, %.thread.i
@@ -76023,7 +76033,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph159, %._crit_edge152
   %8 = phi i64 [ 0, %.lr.ph159 ], [ %105, %._crit_edge152 ]
-  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa, %._crit_edge152 ]
+  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge152 ]
   %9 = add i64 %.sroa.027.0158, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -76169,6 +76179,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %57 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit" ], [ %67, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit" ], [ %69, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %58 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9731, !noundef !3
   %59 = icmp eq i64 %57, %58
   br i1 %59, label %60, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -76180,7 +76191,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %60, %._crit_edge
   %61 = load ptr, ptr %5, align 8, !alias.scope !9731, !nonnull !3, !noundef !3
   %62 = getelementptr inbounds nuw { i64, i64 }, ptr %61, i64 %57
-  store i64 %.sroa.02.1.lcssa, ptr %62, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %62, align 8
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
   store i64 %.lcssa, ptr %63, align 8
   %64 = add i64 %57, 1
@@ -76272,7 +76283,7 @@ thread-pre-split:                                 ; preds = %174
 
 ._crit_edge152:                                   ; preds = %thread-pre-split, %86, %87, %93, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %105 = phi i64 [ %64, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %86 ], [ 3, %87 ], [ %75, %93 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge160, label %7
 
 106:                                              ; preds = %97, %.thread.i
@@ -76535,7 +76546,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 7:                                                ; preds = %.lr.ph159, %._crit_edge152
   %8 = phi i64 [ 0, %.lr.ph159 ], [ %104, %._crit_edge152 ]
-  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa, %._crit_edge152 ]
+  %.sroa.027.0158 = phi i64 [ %1, %.lr.ph159 ], [ %.sroa.02.1.lcssa.fr, %._crit_edge152 ]
   %9 = add i64 %.sroa.027.0158, -1
   %.not42 = icmp eq i64 %9, 0
   br i1 %.not42, label %._crit_edge, label %15
@@ -76680,6 +76691,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
   %56 = phi i64 [ %8, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit" ], [ %.pre, %._crit_edge.loopexit ], [ %8, %7 ]
   %.sroa.02.1.lcssa = phi i64 [ %.sroa.02.0, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit" ], [ %66, %._crit_edge.loopexit ], [ 0, %7 ]
   %.lcssa = phi i64 [ %10, %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit" ], [ %68, %._crit_edge.loopexit ], [ 1, %7 ]
+  %.sroa.02.1.lcssa.fr = freeze i64 %.sroa.02.1.lcssa
   %57 = load i64, ptr %4, align 8, !range !1001, !alias.scope !9767, !noundef !3
   %58 = icmp eq i64 %56, %57
   br i1 %58, label %59, label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
@@ -76691,7 +76703,7 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit": ; preds = %59, %._crit_edge
   %60 = load ptr, ptr %5, align 8, !alias.scope !9767, !nonnull !3, !noundef !3
   %61 = getelementptr inbounds nuw { i64, i64 }, ptr %60, i64 %56
-  store i64 %.sroa.02.1.lcssa, ptr %61, align 8
+  store i64 %.sroa.02.1.lcssa.fr, ptr %61, align 8
   %62 = getelementptr inbounds nuw i8, ptr %61, i64 8
   store i64 %.lcssa, ptr %62, align 8
   %63 = add i64 %56, 1
@@ -76783,7 +76795,7 @@ thread-pre-split:                                 ; preds = %171
 
 ._crit_edge152:                                   ; preds = %thread-pre-split, %85, %86, %92, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit"
   %104 = phi i64 [ %63, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h70e062807fdd1f3eE.exit" ], [ %.pr, %thread-pre-split ], [ 2, %85 ], [ 3, %86 ], [ %74, %92 ]
-  %.not = icmp eq i64 %.sroa.02.1.lcssa, 0
+  %.not = icmp eq i64 %.sroa.02.1.lcssa.fr, 0
   br i1 %.not, label %._crit_edge160, label %7
 
 105:                                              ; preds = %96, %.thread.i

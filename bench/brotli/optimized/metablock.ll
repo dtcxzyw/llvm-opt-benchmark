@@ -126,7 +126,7 @@ define hidden void @BrotliBuildMetaBlock(ptr noundef %0, ptr noundef %1, i64 nou
   %indvars.iv = phi i64 [ 0, %11 ], [ %indvars.iv.next, %168 ]
   %.0143299 = phi double [ 0x547D42AEA2879F2E, %11 ], [ %.1283364, %168 ]
   %.0144298 = phi i32 [ 1, %11 ], [ %.2146365, %168 ]
-  %.0148297 = phi i32 [ 0, %11 ], [ %169, %168 ]
+  %.0148297 = phi i32 [ 0, %11 ], [ %.fr, %168 ]
   %21 = icmp samesign ult i32 %.0148297, 16
   br i1 %21, label %.lr.ph, label %.thread.thread
 
@@ -382,13 +382,13 @@ PrefixEncodeCopyDistance.exit.i:                  ; preds = %142
   %.1149285.ph = phi i32 [ %.0148297, %.preheader ], [ 16, %162 ]
   %.1283.ph = phi double [ %.0143299, %.preheader ], [ %160, %162 ]
   %.2146.ph = phi i32 [ %.0144298, %.preheader ], [ %.3147, %162 ]
-  %164 = add i32 %.1149285.ph, -1
+  %164 = add nsw i32 %.1149285.ph, -1
   %165 = lshr i32 %164, 1
   br label %168
 
 .thread:                                          ; preds = %.loopexit279, %CommandRestoreDistanceCode.exit.us.i
   %.not177 = icmp eq i32 %.1149286, 0
-  %166 = add i32 %.1149286, -1
+  %166 = add nsw i32 %.1149286, -1
   %167 = lshr i32 %166, 1
   %spec.select = select i1 %.not177, i32 0, i32 %167
   br label %168
@@ -399,6 +399,7 @@ PrefixEncodeCopyDistance.exit.i:                  ; preds = %142
   %169 = phi i32 [ %165, %.thread.thread ], [ %spec.select, %.thread ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond322.not = icmp eq i64 %indvars.iv.next, 4
+  %.fr = freeze i32 %169
   br i1 %exitcond322.not, label %170, label %.preheader, !llvm.loop !45
 
 170:                                              ; preds = %168

@@ -4263,7 +4263,6 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
 47:                                               ; preds = %.lr.ph128, %.critedge
   %indvars.iv161 = phi i64 [ 0, %.lr.ph128 ], [ %indvars.iv.next162, %.critedge ]
   %.083127 = phi i32 [ 0, %.lr.ph128 ], [ %200, %.critedge ]
-  %.083127.fr = freeze i32 %.083127
   %.val102 = load ptr, ptr %18, align 8, !tbaa !11
   %48 = getelementptr inbounds nuw i32, ptr %.val102, i64 %indvars.iv161
   %49 = load i32, ptr %48, align 4, !tbaa !33
@@ -4274,7 +4273,7 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
   %53 = load i32, ptr %52, align 4, !tbaa !33
   %54 = getelementptr i8, ptr %52, i64 4
   %55 = load i32, ptr %54, align 4, !tbaa !33
-  %.not132 = icmp eq i32 %.083127.fr, 0
+  %.not132 = icmp eq i32 %.083127, 0
   %56 = mul nsw i32 %49, 5
   br i1 %.not132, label %.split119.us, label %.split119.preheader
 
@@ -4321,7 +4320,7 @@ define void @Gia_ManDupFadd(ptr noundef %0, ptr noundef %1, ptr noundef readonly
   br label %75
 
 75:                                               ; preds = %.split119, %67
-  %76 = phi i32 [ %74, %67 ], [ %.083127.fr, %.split119 ]
+  %76 = phi i32 [ %74, %67 ], [ %.083127, %.split119 ]
   %77 = getelementptr inbounds nuw i32, ptr %9, i64 %indvars.iv145
   store i32 %76, ptr %77, align 4, !tbaa !33
   %indvars.iv.next146 = add nuw nsw i64 %indvars.iv145, 1
@@ -4554,9 +4553,11 @@ Gia_ManAppendCo.exit:                             ; preds = %Vec_IntPush.exit.i,
   %196 = getelementptr inbounds nuw i8, ptr %191, i64 8
   store i32 %195, ptr %196, align 4, !tbaa !52
   %197 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef nonnull %0)
-  %198 = icmp eq i32 %.2, 23
+  %.2.fr = freeze i32 %.2
+  %198 = icmp eq i32 %.2.fr, 23
   %199 = zext i1 %198 to i32
-  %200 = xor i32 %197, %199
+  %.fr = freeze i32 %197
+  %200 = xor i32 %.fr, %199
   %indvars.iv.next162 = add nuw nsw i64 %indvars.iv161, 1
   %.val95 = load i32, ptr %10, align 4, !tbaa !3
   %201 = sext i32 %.val95 to i64

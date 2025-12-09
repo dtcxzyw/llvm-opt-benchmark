@@ -4161,8 +4161,8 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
   br label %16
 
 16:                                               ; preds = %.lr.ph, %160
-  %.078191 = phi ptr [ %2, %.lr.ph ], [ %164, %160 ]
-  %17 = load ptr, ptr %.078191, align 8, !tbaa !266
+  %.078192 = phi ptr [ %2, %.lr.ph ], [ %164, %160 ]
+  %17 = load ptr, ptr %.078192, align 8, !tbaa !266
   %18 = load i8, ptr %17, align 1, !tbaa !215
   %19 = icmp eq i8 %18, 58
   br i1 %19, label %.thread.i, label %20
@@ -4248,19 +4248,19 @@ define internal fastcc range(i32 0, 50) i32 @parse_connect_to_slist(ptr noundef 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %53, i64 1
   %59 = load i8, ptr %58, align 1, !tbaa !215
-  %.not117165.i.i = icmp eq i8 %59, 0
+  %.fr172.i.i = freeze i8 %59
+  %.not117165.i.i = icmp eq i8 %.fr172.i.i, 0
   br i1 %.not117165.i.i, label %.critedge4.thread.i.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %57, %.critedge2.i.i
-  %60 = phi i8 [ %63, %.critedge2.i.i ], [ %59, %57 ]
+  %60 = phi i8 [ %.fr.i.i, %.critedge2.i.i ], [ %.fr172.i.i, %57 ]
   %.083166.i.i = phi ptr [ %62, %.critedge2.i.i ], [ %58, %57 ]
-  %.fr.i.i = freeze i8 %60
-  %61 = add i8 %.fr.i.i, -48
+  %61 = add i8 %60, -48
   %or.cond128.i.i = icmp ult i8 %61, 10
   br i1 %or.cond128.i.i, label %.critedge2.i.i, label %switch.early.test.i.i
 
 switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
-  switch i8 %.fr.i.i, label %.critedge4.i.i [
+  switch i8 %60, label %.critedge4.i.i [
     i8 102, label %.critedge2.i.i
     i8 101, label %.critedge2.i.i
     i8 100, label %.critedge2.i.i
@@ -4281,7 +4281,8 @@ switch.early.test.i.i:                            ; preds = %.lr.ph.i.i
 .critedge2.i.i:                                   ; preds = %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %switch.early.test.i.i, %.lr.ph.i.i
   %62 = getelementptr inbounds nuw i8, ptr %.083166.i.i, i64 1
   %63 = load i8, ptr %62, align 1, !tbaa !215
-  %.not117.i.i = icmp eq i8 %63, 0
+  %.fr.i.i = freeze i8 %63
+  %.not117.i.i = icmp eq i8 %.fr.i.i, 0
   br i1 %.not117.i.i, label %.critedge4.thread.i.i, label %.lr.ph.i.i, !llvm.loop !268
 
 sub_1.i.i:                                        ; preds = %switch.early.test.i.i
@@ -4289,8 +4290,8 @@ sub_1.i.i:                                        ; preds = %switch.early.test.i
   %65 = load i8, ptr %64, align 1
   %66 = zext i8 %65 to i32
   %67 = sub nsw i32 50, %66
-  %.not173.i.i = icmp eq i8 %65, 50
-  br i1 %.not173.i.i, label %sub_2.i.i, label %.tail.i.i
+  %.not174.i.i = icmp eq i8 %65, 50
+  br i1 %.not174.i.i, label %sub_2.i.i, label %.tail.i.i
 
 sub_2.i.i:                                        ; preds = %sub_1.i.i
   %68 = getelementptr inbounds nuw i8, ptr %.083166.i.i, i64 2
@@ -4358,7 +4359,7 @@ sub_2.i.i:                                        ; preds = %sub_1.i.i
   br i1 %.not120.i.i, label %.critedge4.thread.i.i, label %.lr.ph170.i.i, !llvm.loop !269
 
 .critedge4.i.i:                                   ; preds = %switch.early.test.i.i, %90
-  %.pr.i.i = phi i8 [ %86, %90 ], [ %.fr.i.i, %switch.early.test.i.i ]
+  %.pr.i.i = phi i8 [ %86, %90 ], [ %60, %switch.early.test.i.i ]
   %.1.ph.i.i = phi ptr [ %.2169.i.i, %90 ], [ %.083166.i.i, %switch.early.test.i.i ]
   %92 = icmp eq i8 %.pr.i.i, 93
   br i1 %92, label %93, label %.critedge4.thread.i.i
@@ -4548,7 +4549,7 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   %.1127159 = phi ptr [ %123, %.thread154 ], [ %.1127, %144 ]
   %162 = and i64 %161, -513
   store i64 %162, ptr %7, align 8
-  %163 = getelementptr inbounds nuw i8, ptr %.078191, i64 8
+  %163 = getelementptr inbounds nuw i8, ptr %.078192, i64 8
   %164 = load ptr, ptr %163, align 8, !tbaa !270
   %165 = icmp eq ptr %164, null
   %166 = icmp ne ptr %.1127159, null
@@ -4556,11 +4557,11 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   br i1 %or.cond, label %.critedge, label %16, !llvm.loop !271
 
 .critedge:                                        ; preds = %160, %3
-  %.lcssa184 = phi i1 [ false, %3 ], [ %166, %160 ]
+  %.lcssa185 = phi i1 [ false, %3 ], [ %166, %160 ]
   %167 = getelementptr inbounds nuw i8, ptr %0, i64 2688
   %168 = load ptr, ptr %167, align 8, !tbaa !99
   %169 = icmp eq ptr %168, null
-  %or.cond4 = or i1 %.lcssa184, %169
+  %or.cond4 = or i1 %.lcssa185, %169
   br i1 %or.cond4, label %parse_connect_to_string.exit.thread137, label %170
 
 170:                                              ; preds = %.critedge
@@ -4671,11 +4672,11 @@ parse_connect_to_string.exit.thread143:           ; preds = %121, %120
   %235 = load i16, ptr %234, align 8, !tbaa !280
   %236 = zext i16 %235 to i32
   call void (ptr, ptr, ...) @Curl_infof(ptr noundef nonnull %0, ptr noundef nonnull @.str.64, ptr noundef %226, ptr noundef %197, i32 noundef %228, ptr noundef %232, ptr noundef nonnull %202, i32 noundef %236) #11
-  %.pre207 = load ptr, ptr %6, align 8, !tbaa !272
+  %.pre209 = load ptr, ptr %6, align 8, !tbaa !272
   br label %237
 
 237:                                              ; preds = %225, %221, %203
-  %238 = phi ptr [ %.pre207, %225 ], [ %209, %221 ], [ %209, %203 ]
+  %238 = phi ptr [ %.pre209, %225 ], [ %209, %221 ], [ %209, %203 ]
   %239 = getelementptr inbounds nuw i8, ptr %238, i64 28
   %240 = load i32, ptr %239, align 4, !tbaa !281
   %.not103 = icmp eq i32 %.284240, %240

@@ -2890,7 +2890,8 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   tail call void @__rcu_read_lock() #18
   %3 = getelementptr i8, ptr %0, i64 -288
   %4 = load volatile ptr, ptr %3, align 8
-  %5 = icmp eq ptr %4, %3
+  %.fr14 = freeze ptr %4
+  %5 = icmp eq ptr %.fr14, %3
   br i1 %5, label %118, label %6
 
 6:                                                ; preds = %1
@@ -2898,10 +2899,9 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br label %8
 
 8:                                                ; preds = %.thread11, %6
-  %9 = phi ptr [ %4, %6 ], [ %114, %.thread11 ]
+  %9 = phi ptr [ %.fr14, %6 ], [ %.fr15, %.thread11 ]
   %10 = phi i8 [ 0, %6 ], [ %113, %.thread11 ]
-  %.fr14 = freeze ptr %9
-  %11 = getelementptr inbounds nuw i8, ptr %.fr14, i64 80
+  %11 = getelementptr inbounds nuw i8, ptr %9, i64 80
   %12 = load ptr, ptr %11, align 8
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1672
   %14 = load ptr, ptr %13, align 8
@@ -2909,9 +2909,9 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %15, label %.thread11, label %16
 
 16:                                               ; preds = %8
-  %17 = getelementptr i8, ptr %.fr14, i64 328
-  %18 = getelementptr inbounds nuw i8, ptr %.fr14, i64 200
-  %19 = getelementptr inbounds nuw i8, ptr %.fr14, i64 232
+  %17 = getelementptr i8, ptr %9, i64 328
+  %18 = getelementptr inbounds nuw i8, ptr %9, i64 200
+  %19 = getelementptr inbounds nuw i8, ptr %9, i64 232
   br label %20
 
 20:                                               ; preds = %108, %16
@@ -2971,8 +2971,8 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %61, label %.thread, label %.lr.ph, !llvm.loop !124
 
 .thread:                                          ; preds = %.lr.ph, %.thread8, %20
-  %.lcssa41.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa41.sink) #18
+  %.lcssa39.sink = phi i64 [ %26, %20 ], [ %57, %.thread8 ], [ %32, %.lr.ph ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %24, i64 noundef %.lcssa39.sink) #18
   %62 = getelementptr %struct.sk_buff_head, ptr %19, i64 %21
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 20
   %64 = getelementptr inbounds nuw i8, ptr %62, i64 16
@@ -3030,22 +3030,22 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
   br i1 %102, label %.thread9, label %.lr.ph22, !llvm.loop !125
 
 .thread9:                                         ; preds = %.lr.ph22, %.thread10, %.thread
-  %.lcssa44.sink = phi i64 [ %65, %.thread ], [ %98, %.thread10 ], [ %71, %.lr.ph22 ]
-  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %63, i64 noundef %.lcssa44.sink) #18
-  tail call fastcc void @__sta_info_recalc_tim(ptr noundef %.fr14, i1 noundef zeroext false)
+  %.lcssa42.sink = phi i64 [ %65, %.thread ], [ %98, %.thread10 ], [ %71, %.lr.ph22 ]
+  tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %63, i64 noundef %.lcssa42.sink) #18
+  tail call fastcc void @__sta_info_recalc_tim(ptr noundef %9, i1 noundef zeroext false)
   %103 = load ptr, ptr %62, align 8
   %104 = icmp eq ptr %103, %62
   br i1 %104, label %105, label %108
 
 105:                                              ; preds = %.thread9
   %106 = load ptr, ptr %23, align 8
-  %.fr = freeze ptr %106
-  %107 = icmp ne ptr %.fr, %23
+  %.fr13 = freeze ptr %106
+  %107 = icmp ne ptr %.fr13, %23
   br label %108
 
 108:                                              ; preds = %105, %.thread9
-  %.fr13 = phi i1 [ true, %.thread9 ], [ %107, %105 ]
-  %109 = or i1 %22, %.fr13
+  %.fr = phi i1 [ true, %.thread9 ], [ %107, %105 ]
+  %109 = or i1 %22, %.fr
   %110 = add nuw nsw i64 %21, 1
   %111 = icmp eq i64 %110, 4
   br i1 %111, label %112, label %20, !llvm.loop !126
@@ -3056,8 +3056,9 @@ define internal void @sta_info_cleanup(ptr noundef %0) #0 align 16 {
 
 .thread11:                                        ; preds = %112, %8
   %113 = phi i8 [ %10, %8 ], [ %spec.select, %112 ]
-  %114 = load volatile ptr, ptr %.fr14, align 8
-  %115 = icmp eq ptr %114, %3
+  %114 = load volatile ptr, ptr %9, align 8
+  %.fr15 = freeze ptr %114
+  %115 = icmp eq ptr %.fr15, %3
   br i1 %115, label %116, label %8, !llvm.loop !127
 
 116:                                              ; preds = %.thread11

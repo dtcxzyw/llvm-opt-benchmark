@@ -1243,10 +1243,12 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !122
   %8 = load ptr, ptr %0, align 8, !tbaa !102
-  %9 = ptrtoint ptr %7 to i64
-  %10 = ptrtoint ptr %8 to i64
+  %.fr51 = freeze ptr %8
+  %.fr = freeze ptr %7
+  %9 = ptrtoint ptr %.fr to i64
+  %10 = ptrtoint ptr %.fr51 to i64
   %11 = sub i64 %9, %10
-  %12 = lshr exact i64 %11, 3
+  %12 = lshr i64 %11, 3
   %13 = trunc i64 %12 to i32
   %14 = urem i32 %5, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -1268,11 +1270,10 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
   %.0 = phi i32 [ %14, %3 ], [ %116, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ]
   %.sroa.429.0 = phi i1 [ false, %3 ], [ %.sroa.429.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ]
   %.sroa.028.0 = phi i32 [ undef, %3 ], [ %.sroa.028.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ]
-  %.0.fr = freeze i32 %.0
   br i1 %17, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread, label %26
 
 26:                                               ; preds = %25
-  %27 = lshr i32 %.0.fr, 7
+  %27 = lshr i32 %.0, 7
   %28 = load ptr, ptr %18, align 8
   %29 = icmp eq ptr %28, %15
   br i1 %29, label %30, label %33
@@ -1347,12 +1348,12 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit: ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 24
-  %56 = lshr i32 %.0.fr, 6
+  %56 = lshr i32 %.0, 6
   %57 = and i32 %56, 1
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw i64, ptr %55, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !74
-  %61 = and i32 %.0.fr, 63
+  %61 = and i32 %.0, 63
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw i64 1, %62
   %64 = and i64 %60, %63
@@ -1360,8 +1361,8 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   br i1 %.not49, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread, label %65
 
 65:                                               ; preds = %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit
-  %66 = zext i32 %.0.fr to i64
-  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %66
+  %66 = zext i32 %.0 to i64
+  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %.fr51, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !123
   %69 = load ptr, ptr %20, align 8, !tbaa !9
   %70 = zext i32 %68 to i64
@@ -1386,11 +1387,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %73
   br i1 %74, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread46
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, %52, %25, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit
-  %spec.select = select i1 %.sroa.429.0, i32 %.sroa.028.0, i32 %.0.fr
+  %spec.select = select i1 %.sroa.429.0, i32 %.sroa.028.0, i32 %.0
   br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %75
 
 75:                                               ; preds = %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread
-  %76 = lshr i32 %.0.fr, 7
+  %76 = lshr i32 %.0, 7
   %77 = load ptr, ptr %24, align 8
   %78 = icmp eq ptr %77, %21
   br i1 %78, label %79, label %82
@@ -1465,12 +1466,12 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18: ; preds = 
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit: ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i19, i64 24
-  %105 = lshr i32 %.0.fr, 6
+  %105 = lshr i32 %.0, 6
   %106 = and i32 %105, 1
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds nuw i64, ptr %104, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !74
-  %110 = and i32 %.0.fr, 63
+  %110 = and i32 %.0, 63
   %111 = zext nneg i32 %110 to i64
   %112 = shl nuw i64 1, %111
   %113 = and i64 %109, %112
@@ -1480,14 +1481,14 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 _ZN4llvmeqENS_9StringRefES0_.exit.thread46:       ; preds = %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %.sroa.429.1 = phi i1 [ %.sroa.429.0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.sroa.429.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit ], [ %.sroa.429.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ]
   %.sroa.028.1 = phi i32 [ %.sroa.028.0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.sroa.028.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit ], [ %.sroa.028.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ]
-  %114 = add i32 %.0.fr, 1
+  %114 = add i32 %.0, 1
   %115 = icmp eq i32 %114, %13
   %116 = select i1 %115, i32 0, i32 %114
   %.not = icmp eq i32 %116, %14
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %25, !llvm.loop !139
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18, %101, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread, %73, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.sroa.3.0 = phi i32 [ %.0.fr, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.028.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.0.fr, %73 ], [ %.0.fr, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread ], [ %spec.select, %101 ], [ %spec.select, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18 ]
+  %.sroa.3.0 = phi i32 [ %.0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.028.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.0, %73 ], [ %.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread ], [ %spec.select, %101 ], [ %spec.select, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18 ]
   %.sroa.6.0 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ], [ 4294967296, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ 0, %73 ], [ 0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ], [ 4294967296, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread ], [ 4294967296, %101 ], [ 4294967296, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.sroa.3.8.insert.ext = zext i32 %.sroa.3.0 to i64
@@ -3106,10 +3107,12 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8, !tbaa !122
   %8 = load ptr, ptr %0, align 8, !tbaa !102
-  %9 = ptrtoint ptr %7 to i64
-  %10 = ptrtoint ptr %8 to i64
+  %.fr51 = freeze ptr %8
+  %.fr = freeze ptr %7
+  %9 = ptrtoint ptr %.fr to i64
+  %10 = ptrtoint ptr %.fr51 to i64
   %11 = sub i64 %9, %10
-  %12 = lshr exact i64 %11, 3
+  %12 = lshr i64 %11, 3
   %13 = trunc i64 %12 to i32
   %14 = urem i32 %5, %13
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -3131,11 +3134,10 @@ define linkonce_odr hidden { ptr, i64 } @_ZNK4llvm3pdb9HashTableINS_7support6det
   %.0 = phi i32 [ %14, %3 ], [ %116, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ]
   %.sroa.429.0 = phi i1 [ false, %3 ], [ %.sroa.429.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ]
   %.sroa.028.0 = phi i32 [ undef, %3 ], [ %.sroa.028.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ]
-  %.0.fr = freeze i32 %.0
   br i1 %17, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread, label %26
 
 26:                                               ; preds = %25
-  %27 = lshr i32 %.0.fr, 7
+  %27 = lshr i32 %.0, 7
   %28 = load ptr, ptr %18, align 8
   %29 = icmp eq ptr %28, %15
   br i1 %29, label %30, label %33
@@ -3210,12 +3212,12 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i: ; preds = %.
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit: ; preds = %52
   %55 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i, i64 24
-  %56 = lshr i32 %.0.fr, 6
+  %56 = lshr i32 %.0, 6
   %57 = and i32 %56, 1
   %58 = zext nneg i32 %57 to i64
   %59 = getelementptr inbounds nuw i64, ptr %55, i64 %58
   %60 = load i64, ptr %59, align 8, !tbaa !74
-  %61 = and i32 %.0.fr, 63
+  %61 = and i32 %.0, 63
   %62 = zext nneg i32 %61 to i64
   %63 = shl nuw i64 1, %62
   %64 = and i64 %60, %63
@@ -3223,8 +3225,8 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
   br i1 %.not49, label %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread, label %65
 
 65:                                               ; preds = %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit
-  %66 = zext i32 %.0.fr to i64
-  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %8, i64 %66
+  %66 = zext i32 %.0 to i64
+  %67 = getelementptr inbounds nuw %"struct.std::pair", ptr %.fr51, i64 %66
   %68 = load i32, ptr %67, align 4, !tbaa !123
   %69 = load ptr, ptr %20, align 8, !tbaa !9
   %70 = zext i32 %68 to i64
@@ -3249,11 +3251,11 @@ _ZN4llvmeqENS_9StringRefES0_.exit:                ; preds = %73
   br i1 %74, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread46
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread: ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i, %52, %25, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit
-  %spec.select = select i1 %.sroa.429.0, i32 %.sroa.028.0, i32 %.0.fr
+  %spec.select = select i1 %.sroa.429.0, i32 %.sroa.028.0, i32 %.0
   br i1 %23, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %75
 
 75:                                               ; preds = %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread
-  %76 = lshr i32 %.0.fr, 7
+  %76 = lshr i32 %.0, 7
   %77 = load ptr, ptr %24, align 8
   %78 = icmp eq ptr %77, %21
   br i1 %78, label %79, label %82
@@ -3328,12 +3330,12 @@ _ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18: ; preds = 
 
 _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit: ; preds = %101
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.08.0.i.i.i.i19, i64 24
-  %105 = lshr i32 %.0.fr, 6
+  %105 = lshr i32 %.0, 6
   %106 = and i32 %105, 1
   %107 = zext nneg i32 %106 to i64
   %108 = getelementptr inbounds nuw i64, ptr %104, i64 %107
   %109 = load i64, ptr %108, align 8, !tbaa !74
-  %110 = and i32 %.0.fr, 63
+  %110 = and i32 %.0, 63
   %111 = zext nneg i32 %110 to i64
   %112 = shl nuw i64 1, %111
   %113 = and i64 %109, %112
@@ -3343,14 +3345,14 @@ _ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS
 _ZN4llvmeqENS_9StringRefES0_.exit.thread46:       ; preds = %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
   %.sroa.429.1 = phi i1 [ %.sroa.429.0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ true, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.sroa.429.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit ], [ %.sroa.429.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ]
   %.sroa.028.1 = phi i32 [ %.sroa.028.0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.sroa.028.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit ], [ %.sroa.028.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ]
-  %114 = add i32 %.0.fr, 1
+  %114 = add i32 %.0, 1
   %115 = icmp eq i32 %114, %13
   %116 = select i1 %115, i32 0, i32 %114
   %.not = icmp eq i32 %116, %14
   br i1 %.not, label %_ZN4llvmeqENS_9StringRefES0_.exit.thread, label %25, !llvm.loop !230
 
 _ZN4llvmeqENS_9StringRefES0_.exit.thread:         ; preds = %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18, %101, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread, %73, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit, %_ZN4llvmeqENS_9StringRefES0_.exit
-  %.sroa.3.0 = phi i32 [ %.0.fr, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.028.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.0.fr, %73 ], [ %.0.fr, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread ], [ %spec.select, %101 ], [ %spec.select, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18 ]
+  %.sroa.3.0 = phi i32 [ %.0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ %.sroa.028.1, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ %.0, %73 ], [ %.0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ], [ %spec.select, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread ], [ %spec.select, %101 ], [ %spec.select, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18 ]
   %.sroa.6.0 = phi i64 [ 0, %_ZN4llvmeqENS_9StringRefES0_.exit ], [ 4294967296, %_ZN4llvmeqENS_9StringRefES0_.exit.thread46 ], [ 4294967296, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isDeletedEj.exit ], [ 0, %73 ], [ 0, %_ZNK4llvm3pdb20NamedStreamMapTraits21storageKeyToLookupKeyEj.exit.thread ], [ 4294967296, %_ZNK4llvm3pdb9HashTableINS_7support6detail31packed_endian_specific_integralIjLNS_10endiannessE1ELm1ELm1EEEE9isPresentEj.exit.thread ], [ 4294967296, %101 ], [ 4294967296, %_ZNK4llvm15SparseBitVectorILj128EE19FindLowerBoundConstEj.exit.i.i18 ]
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %0, 0
   %.sroa.3.8.insert.ext = zext i32 %.sroa.3.0 to i64

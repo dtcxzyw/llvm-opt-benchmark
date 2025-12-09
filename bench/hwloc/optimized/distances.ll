@@ -3270,25 +3270,25 @@ define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone capt
   %18 = load i64, ptr %17, align 8, !tbaa !122
   %19 = and i64 %18, 8
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %.loopexit.sink.split.i, label %.preheader52.i
+  br i1 %.not.i, label %.loopexit.sink.split.i, label %.preheader53.i
 
-.preheader52.i:                                   ; preds = %13
-  %.not62.i = icmp eq i32 %16, 0
-  br i1 %.not62.i, label %.preheader51.i, label %.lr.ph.i
+.preheader53.i:                                   ; preds = %13
+  %.not63.i = icmp eq i32 %16, 0
+  br i1 %.not63.i, label %.preheader52.i, label %.lr.ph.i
 
-.lr.ph.i:                                         ; preds = %.preheader52.i
+.lr.ph.i:                                         ; preds = %.preheader53.i
   %.03748.i = add i32 %16, 1
   %wide.trip.count.i = zext i32 %16 to i64
   br label %21
 
-.preheader51.i:                                   ; preds = %21, %.preheader52.i
+.preheader52.i:                                   ; preds = %21, %.preheader53.i
   %20 = mul i32 %16, %16
-  %.not63.i = icmp eq i32 %20, 0
-  br i1 %.not63.i, label %hwloc__distances_transform_links.exit, label %.lr.ph56.preheader.i
+  %.not64.i = icmp eq i32 %20, 0
+  br i1 %.not64.i, label %hwloc__distances_transform_links.exit, label %.lr.ph57.preheader.i
 
-.lr.ph56.preheader.i:                             ; preds = %.preheader51.i
+.lr.ph57.preheader.i:                             ; preds = %.preheader52.i
   %wide.trip.count71.i = zext i32 %20 to i64
-  br label %.lr.ph56.i
+  br label %.lr.ph57.i
 
 21:                                               ; preds = %21, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %21 ]
@@ -3299,32 +3299,32 @@ define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone capt
   store i64 0, ptr %25, align 8, !tbaa !76
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
-  br i1 %exitcond.not.i, label %.preheader51.i, label %21, !llvm.loop !125
+  br i1 %exitcond.not.i, label %.preheader52.i, label %21, !llvm.loop !125
 
-.lr.ph56.i:                                       ; preds = %.lr.ph56.i, %.lr.ph56.preheader.i
-  %indvars.iv68.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph56.i ]
-  %.038.fr55.i = phi i64 [ 0, %.lr.ph56.preheader.i ], [ %.139.i, %.lr.ph56.i ]
+.lr.ph57.i:                                       ; preds = %.lr.ph57.i, %.lr.ph57.preheader.i
+  %indvars.iv68.i = phi i64 [ 0, %.lr.ph57.preheader.i ], [ %indvars.iv.next69.i, %.lr.ph57.i ]
+  %.03855.i = phi i64 [ 0, %.lr.ph57.preheader.i ], [ %.139.i, %.lr.ph57.i ]
   %26 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv68.i
   %27 = load i64, ptr %26, align 8, !tbaa !76
   %.fr.i = freeze i64 %27
-  %28 = add i64 %.038.fr55.i, -1
+  %28 = add i64 %.03855.i, -1
   %29 = add i64 %.fr.i, -1
-  %.not49.i = icmp ult i64 %29, %28
-  %.139.i = select i1 %.not49.i, i64 %.fr.i, i64 %.038.fr55.i
+  %.not50.i = icmp ult i64 %29, %28
+  %.139.i = select i1 %.not50.i, i64 %.fr.i, i64 %.03855.i
   %indvars.iv.next69.i = add nuw nsw i64 %indvars.iv68.i, 1
   %exitcond72.not.i = icmp eq i64 %indvars.iv.next69.i, %wide.trip.count71.i
-  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph56.i, !llvm.loop !126
+  br i1 %exitcond72.not.i, label %._crit_edge.i, label %.lr.ph57.i, !llvm.loop !126
 
-._crit_edge.i:                                    ; preds = %.lr.ph56.i
+._crit_edge.i:                                    ; preds = %.lr.ph57.i
   %.not44.i = icmp eq i64 %.139.i, 0
-  br i1 %.not44.i, label %hwloc__distances_transform_links.exit, label %.lr.ph59.i
+  br i1 %.not44.i, label %hwloc__distances_transform_links.exit, label %.lr.ph60.i
 
-30:                                               ; preds = %.lr.ph59.i
+30:                                               ; preds = %.lr.ph60.i
   %indvars.iv.next74.i = add nuw nsw i64 %indvars.iv73.i, 1
   %exitcond77.not.i = icmp eq i64 %indvars.iv.next74.i, %wide.trip.count71.i
-  br i1 %exitcond77.not.i, label %.lr.ph61.i, label %.lr.ph59.i, !llvm.loop !127
+  br i1 %exitcond77.not.i, label %.lr.ph62.i, label %.lr.ph60.i, !llvm.loop !127
 
-.lr.ph59.i:                                       ; preds = %._crit_edge.i, %30
+.lr.ph60.i:                                       ; preds = %._crit_edge.i, %30
   %indvars.iv73.i = phi i64 [ %indvars.iv.next74.i, %30 ], [ 0, %._crit_edge.i ]
   %31 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv73.i
   %32 = load i64, ptr %31, align 8, !tbaa !76
@@ -3332,18 +3332,18 @@ define range(i32 -1, 1) i32 @hwloc_distances_transform(ptr noundef readnone capt
   %.not45.i = icmp eq i64 %33, 0
   br i1 %.not45.i, label %30, label %.loopexit.sink.split.i
 
-.lr.ph61.i:                                       ; preds = %30, %.lr.ph61.i
-  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %.lr.ph61.i ], [ 0, %30 ]
+.lr.ph62.i:                                       ; preds = %30, %.lr.ph62.i
+  %indvars.iv78.i = phi i64 [ %indvars.iv.next79.i, %.lr.ph62.i ], [ 0, %30 ]
   %34 = getelementptr inbounds nuw i64, ptr %15, i64 %indvars.iv78.i
   %35 = load i64, ptr %34, align 8, !tbaa !76
   %36 = udiv i64 %35, %.139.i
   store i64 %36, ptr %34, align 8, !tbaa !76
   %indvars.iv.next79.i = add nuw nsw i64 %indvars.iv78.i, 1
   %exitcond82.not.i = icmp eq i64 %indvars.iv.next79.i, %wide.trip.count71.i
-  br i1 %exitcond82.not.i, label %hwloc__distances_transform_links.exit, label %.lr.ph61.i, !llvm.loop !128
+  br i1 %exitcond82.not.i, label %hwloc__distances_transform_links.exit, label %.lr.ph62.i, !llvm.loop !128
 
-.loopexit.sink.split.i:                           ; preds = %.lr.ph59.i, %13
-  %.sink.i = phi i32 [ 22, %13 ], [ 2, %.lr.ph59.i ]
+.loopexit.sink.split.i:                           ; preds = %.lr.ph60.i, %13
+  %.sink.i = phi i32 [ 22, %13 ], [ 2, %.lr.ph60.i ]
   %37 = tail call ptr @__errno_location() #32
   store i32 %.sink.i, ptr %37, align 4, !tbaa !3
   br label %hwloc__distances_transform_links.exit
@@ -3646,8 +3646,8 @@ is_nvswitch.exit63.thread.i:                      ; preds = %144, %is_nvswitch.e
   store i32 22, ptr %161, align 4, !tbaa !3
   br label %hwloc__distances_transform_links.exit
 
-hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph61.i, %100, %hwloc__distances_transform_merge_switch_ports.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader51.i, %.loopexit, %160, %11, %8
-  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ %99, %.loopexit ], [ 0, %._crit_edge.i ], [ 0, %.preheader51.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %100 ], [ 0, %.lr.ph61.i ], [ 0, %.loopexit.i ]
+hwloc__distances_transform_links.exit:            ; preds = %.loopexit.i, %.lr.ph62.i, %100, %hwloc__distances_transform_merge_switch_ports.exit, %.loopexit.sink.split.i, %._crit_edge.i, %.preheader52.i, %.loopexit, %160, %11, %8
+  %.011 = phi i32 [ -1, %8 ], [ -1, %160 ], [ %12, %11 ], [ -1, %hwloc__distances_transform_merge_switch_ports.exit ], [ %99, %.loopexit ], [ 0, %._crit_edge.i ], [ 0, %.preheader52.i ], [ -1, %.loopexit.sink.split.i ], [ 0, %100 ], [ 0, %.lr.ph62.i ], [ 0, %.loopexit.i ]
   ret i32 %.011
 }
 

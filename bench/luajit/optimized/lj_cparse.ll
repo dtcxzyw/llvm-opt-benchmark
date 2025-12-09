@@ -2229,8 +2229,7 @@ define internal fastcc range(i32 0, 1015809) i32 @cp_decl_spec(ptr noundef %0, p
 .outer:                                           ; preds = %137, %3
   %.098.ph = phi i32 [ %131, %137 ], [ 0, %3 ]
   %.096.ph = phi i32 [ %.197, %137 ], [ 0, %3 ]
-  %.094.ph = phi i32 [ %.094.lcssa334, %137 ], [ 0, %3 ]
-  %.098.ph.fr = freeze i32 %.098.ph
+  %.094.ph = phi i32 [ %.094.lcssa335, %137 ], [ 0, %3 ]
   call fastcc void @cp_decl_attributes(ptr noundef nonnull %0, ptr noundef %1)
   %22 = load i32, ptr %15, align 4, !tbaa !64
   %23 = add i32 %22, -269
@@ -2238,7 +2237,7 @@ define internal fastcc range(i32 0, 1015809) i32 @cp_decl_spec(ptr noundef %0, p
   br i1 %or.cond124206, label %._crit_edge.split.us, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.outer
-  %24 = and i32 %.098.ph.fr, 1952
+  %24 = and i32 %.098.ph, 1952
   %.not = icmp eq i32 %24, 0
   br i1 %.not, label %.lr.ph.split.us, label %.lr.ph.split
 
@@ -2454,43 +2453,44 @@ cp_check.exit.us:                                 ; preds = %104, %101
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 4
   %121 = load i32, ptr %120, align 4, !tbaa !81
   %.not104 = icmp eq i32 %121, 0
-  br i1 %.not104, label %.thread339, label %125
+  br i1 %.not104, label %.thread340, label %125
 
 ._crit_edge.split.us.thread:                      ; preds = %.backedge.us
   %122 = load ptr, ptr %17, align 8, !tbaa !101
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 4
   %124 = load i32, ptr %123, align 4, !tbaa !81
-  br label %.thread339
+  br label %.thread340
 
 125:                                              ; preds = %._crit_edge.split.us
   %.not105 = icmp eq i32 %.096.ph, 0
-  br i1 %.not105, label %.thread339, label %.thread
+  br i1 %.not105, label %.thread340, label %.thread
 
-.thread339:                                       ; preds = %._crit_edge.split.us.thread, %125, %._crit_edge.split.us
+.thread340:                                       ; preds = %._crit_edge.split.us.thread, %125, %._crit_edge.split.us
   %.pre-phi = phi i32 [ %118, %._crit_edge.split.us.thread ], [ %23, %125 ], [ %23, %._crit_edge.split.us ]
-  %.lcssa163337 = phi i32 [ %117, %._crit_edge.split.us.thread ], [ %22, %125 ], [ %22, %._crit_edge.split.us ]
-  %.094.lcssa334 = phi i32 [ %.094.be.us, %._crit_edge.split.us.thread ], [ %.094.ph, %125 ], [ %.094.ph, %._crit_edge.split.us ]
+  %.lcssa163338 = phi i32 [ %117, %._crit_edge.split.us.thread ], [ %22, %125 ], [ %22, %._crit_edge.split.us ]
+  %.094.lcssa335 = phi i32 [ %.094.be.us, %._crit_edge.split.us.thread ], [ %.094.ph, %125 ], [ %.094.ph, %._crit_edge.split.us ]
   %.197 = phi i32 [ %124, %._crit_edge.split.us.thread ], [ %121, %125 ], [ %.096.ph, %._crit_edge.split.us ]
   %126 = shl nuw nsw i32 1, %.pre-phi
-  %127 = and i32 %126, %.098.ph.fr
-  %128 = shl nuw nsw i32 %127, 1
+  %.fr = freeze i32 %126
+  %127 = and i32 %.fr, %.098.ph
+  %128 = shl i32 %127, 1
   %129 = and i32 %128, 64
-  %130 = or i32 %.098.ph.fr, %129
-  %131 = or i32 %130, %126
-  %132 = icmp samesign ugt i32 %.lcssa163337, 283
+  %130 = or i32 %.098.ph, %129
+  %131 = or i32 %130, %.fr
+  %132 = icmp samesign ugt i32 %.lcssa163338, 283
   br i1 %132, label %133, label %136
 
-133:                                              ; preds = %.thread339
-  %134 = and i32 %126, %2
+133:                                              ; preds = %.thread340
+  %134 = and i32 %.fr, %2
   %.not107 = icmp eq i32 %134, 0
   br i1 %.not107, label %135, label %137
 
 135:                                              ; preds = %133
-  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef nonnull %0, i32 noundef %.lcssa163337, i32 noundef 3070) #16
+  call void (ptr, i32, i32, ...) @cp_errmsg(ptr noundef nonnull %0, i32 noundef %.lcssa163338, i32 noundef 3070) #16
   unreachable
 
-136:                                              ; preds = %.thread339
-  %.not106 = icmp eq i32 %.094.lcssa334, 0
+136:                                              ; preds = %.thread340
+  %.not106 = icmp eq i32 %.094.lcssa335, 0
   br i1 %.not106, label %137, label %.thread
 
 137:                                              ; preds = %133, %136
@@ -2525,9 +2525,9 @@ cp_check.exit.us:                                 ; preds = %104, %101
   unreachable
 
 .thread:                                          ; preds = %136, %125, %.lr.ph.split.us, %.lr.ph.split
-  %142 = phi i32 [ %22, %.lr.ph.split ], [ %25, %.lr.ph.split.us ], [ %.lcssa163337, %136 ], [ %22, %125 ]
-  %.094189 = phi i32 [ %.094.ph, %.lr.ph.split ], [ %.094208.us, %.lr.ph.split.us ], [ %.094.lcssa334, %136 ], [ %.094.ph, %125 ]
-  %.2100 = phi i32 [ %.098.ph.fr, %.lr.ph.split ], [ %.098.ph.fr, %.lr.ph.split.us ], [ %131, %136 ], [ %.098.ph.fr, %125 ]
+  %142 = phi i32 [ %22, %.lr.ph.split ], [ %25, %.lr.ph.split.us ], [ %.lcssa163338, %136 ], [ %22, %125 ]
+  %.094189 = phi i32 [ %.094.ph, %.lr.ph.split ], [ %.094208.us, %.lr.ph.split.us ], [ %.094.lcssa335, %136 ], [ %.094.ph, %125 ]
+  %.2100 = phi i32 [ %.098.ph, %.lr.ph.split ], [ %.098.ph, %.lr.ph.split.us ], [ %131, %136 ], [ %.098.ph, %125 ]
   %.3 = phi i32 [ %.096.ph, %.lr.ph.split ], [ %.096207.us, %.lr.ph.split.us ], [ %.197, %136 ], [ %.096.ph, %125 ]
   %.3.fr = freeze i32 %.3
   %143 = icmp eq i32 %.3.fr, 4
@@ -2538,7 +2538,7 @@ cp_check.exit.us:                                 ; preds = %104, %101
   %144 = phi i32 [ %142, %.thread ], [ %22, %.lr.ph.split ], [ %25, %28 ], [ 256, %32 ]
   %.094188 = phi i32 [ %.094189, %.thread ], [ 0, %.lr.ph.split ], [ 0, %28 ], [ 0, %32 ]
   %.3150 = phi i32 [ %.3.fr, %.thread ], [ 0, %.lr.ph.split ], [ 0, %28 ], [ 0, %32 ]
-  %.2100149 = phi i32 [ %.2100, %.thread ], [ %.098.ph.fr, %.lr.ph.split ], [ %.098.ph.fr, %28 ], [ %.098.ph.fr, %32 ]
+  %.2100149 = phi i32 [ %.2100, %.thread ], [ %.098.ph, %.lr.ph.split ], [ %.098.ph, %28 ], [ %.098.ph, %32 ]
   %145 = phi i32 [ %spec.select152, %.thread ], [ 16, %.lr.ph.split ], [ 16, %28 ], [ 16, %32 ]
   %.not108151.in = and i32 %.2100149, 256
   %.not108151 = icmp eq i32 %.not108151.in, 0
@@ -2548,8 +2548,8 @@ cp_check.exit.us:                                 ; preds = %104, %101
 
 146:                                              ; preds = %.thread144
   call fastcc void @cp_push_type(ptr noundef %1, i32 noundef %.195)
-  %.pre320 = load i32, ptr %13, align 4, !tbaa !87
-  %.pre321 = load i32, ptr %11, align 4, !tbaa !91
+  %.pre321 = load i32, ptr %13, align 4, !tbaa !87
+  %.pre322 = load i32, ptr %11, align 4, !tbaa !91
   br label %227
 
 147:                                              ; preds = %.thread144
@@ -2716,8 +2716,8 @@ cp_push.exit126:                                  ; preds = %200
   br label %227
 
 227:                                              ; preds = %cp_push.exit, %cp_push.exit126, %146
-  %228 = phi i32 [ %171, %cp_push.exit ], [ %226, %cp_push.exit126 ], [ %.pre321, %146 ]
-  %229 = phi i32 [ %150, %cp_push.exit ], [ %201, %cp_push.exit126 ], [ %.pre320, %146 ]
+  %228 = phi i32 [ %171, %cp_push.exit ], [ %226, %cp_push.exit126 ], [ %.pre322, %146 ]
+  %229 = phi i32 [ %150, %cp_push.exit ], [ %201, %cp_push.exit126 ], [ %.pre321, %146 ]
   %230 = getelementptr inbounds nuw i8, ptr %1, i64 8
   store i32 %229, ptr %230, align 8, !tbaa !86
   %231 = getelementptr inbounds nuw i8, ptr %1, i64 52

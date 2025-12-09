@@ -6675,18 +6675,17 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
   br i1 %.not.not, label %70, label %._crit_edge150
 
 94:                                               ; preds = %.lr.ph, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit
-  %95 = phi i32 [ %.pre, %.lr.ph ], [ %481, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
+  %95 = phi i32 [ %.pre, %.lr.ph ], [ %.fr151, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
   %96 = phi i32 [ %84, %.lr.ph ], [ %483, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
   %.044145 = phi i32 [ 0, %.lr.ph ], [ %482, %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit ]
-  %.044145.fr = freeze i32 %.044145
-  %97 = sub nsw i32 %96, %.044145.fr
+  %97 = sub nsw i32 %96, %.044145
   %.sroa.speculated112 = call i32 @llvm.smin.i32(i32 %95, i32 %97)
   %98 = load i32, ptr %8, align 4, !tbaa !4
   %99 = icmp sgt i32 %98, 0
   br i1 %99, label %.noexc52.preheader, label %._crit_edge
 
 .noexc52.preheader:                               ; preds = %94
-  %.pre153 = load i32, ptr %9, align 4, !tbaa !4
+  %.pre154 = load i32, ptr %9, align 4, !tbaa !4
   br label %.noexc52
 
 ._crit_edge:                                      ; preds = %.noexc52, %94
@@ -6747,7 +6746,7 @@ _ZN4ncnn3MatD2Ev.exit:                            ; preds = %_ZN4ncnnL47conv3x3s
 
 _ZN4ncnn3MatD2Ev.exit293.us.i:                    ; preds = %190
   %134 = trunc i64 %indvars.iv425.i to i32
-  %135 = add i32 %.044145.fr, %134
+  %135 = add i32 %.044145, %134
   %136 = sdiv i32 %135, %107
   %137 = srem i32 %135, %107
   %138 = load i32, ptr %65, align 4, !tbaa !8, !noalias !242
@@ -6946,7 +6945,7 @@ _ZN4ncnn3MatD2Ev.exit293.us.i:                    ; preds = %190
 
 _ZN4ncnn3MatD2Ev.exit292.us.i:                    ; preds = %313
   %239 = trunc i64 %indvars.iv439.i to i32
-  %240 = add i32 %.044145.fr, %239
+  %240 = add i32 %.044145, %239
   %241 = sdiv i32 %240, %107
   %242 = srem i32 %240, %107
   %243 = load i32, ptr %65, align 4, !tbaa !8, !noalias !249
@@ -7157,7 +7156,7 @@ _ZN4ncnn3MatD2Ev.exit292.us.i.split:              ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 _ZN4ncnn3MatD2Ev.exit.us.i:                       ; preds = %398
   %369 = trunc nuw nsw i64 %indvars.iv457.i to i32
-  %370 = add i32 %.044145.fr, %369
+  %370 = add i32 %.044145, %369
   %371 = sdiv i32 %370, %107
   %372 = srem i32 %370, %107
   %373 = load i32, ptr %65, align 4, !tbaa !8, !noalias !256
@@ -7271,7 +7270,7 @@ _ZN4ncnn3MatD2Ev.exit.split.us.us.i:              ; preds = %_ZN4ncnn3MatD2Ev.ex
   br i1 %exitcond466.not.i, label %_ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit, label %.lr.ph.us410.i, !llvm.loop !262
 
 .noexc52:                                         ; preds = %.noexc52.preheader, %.noexc52
-  %432 = phi i32 [ %477, %.noexc52 ], [ %.pre153, %.noexc52.preheader ]
+  %432 = phi i32 [ %477, %.noexc52 ], [ %.pre154, %.noexc52.preheader ]
   %433 = phi i32 [ %479, %.noexc52 ], [ %98, %.noexc52.preheader ]
   %.045144 = phi i32 [ %478, %.noexc52 ], [ 0, %.noexc52.preheader ]
   %434 = sub nsw i32 %433, %.045144
@@ -7311,7 +7310,7 @@ _ZN4ncnn3MatD2Ev.exit.split.us.us.i:              ; preds = %_ZN4ncnn3MatD2Ev.ex
   store i64 %450, ptr %48, align 8, !tbaa !16
   call void @llvm.lifetime.start.p0(ptr nonnull %22)
   %456 = load i32, ptr %7, align 4, !tbaa !4
-  %457 = sdiv i32 %.044145.fr, %456
+  %457 = sdiv i32 %.044145, %456
   %458 = load i32, ptr %49, align 4, !tbaa !8, !noalias !266
   %459 = load i32, ptr %50, align 8, !tbaa !17, !noalias !266
   %460 = load ptr, ptr %11, align 8, !tbaa !25, !noalias !266
@@ -7353,7 +7352,8 @@ _ZN4ncnn3MatD2Ev.exit.split.us.us.i:              ; preds = %_ZN4ncnn3MatD2Ev.ex
 
 _ZN4ncnnL47conv3x3s1_winograd23_transform_output_tile_int8ERKNS_3MatERS0_iiii.exit: ; preds = %._crit_edge.us412.i, %.lr.ph401.i, %.preheader.i
   %481 = load i32, ptr %7, align 4, !tbaa !4
-  %482 = add nsw i32 %481, %.044145.fr
+  %.fr151 = freeze i32 %481
+  %482 = add i32 %.fr151, %.044145
   %483 = load i32, ptr %6, align 4, !tbaa !4
   %484 = icmp slt i32 %482, %483
   br i1 %484, label %94, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !270

@@ -6309,7 +6309,6 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   %.0134.ph170 = phi ptr [ %24, %.lr.ph.lr.ph ], [ %114, %76 ]
   %.1136.ph169 = phi i32 [ 8, %.lr.ph.lr.ph ], [ %111, %76 ]
   %.ph149168 = phi i32 [ 12, %.lr.ph.lr.ph ], [ %78, %76 ]
-  %.1136.ph169.fr = freeze i32 %.1136.ph169
   br label %27
 
 27:                                               ; preds = %.lr.ph, %31
@@ -6318,7 +6317,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   store i16 1, ptr %9, align 2
   %28 = getelementptr inbounds nuw i8, ptr %.0134162, i64 21
   %29 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %28) #21
-  %30 = icmp ugt i64 %29, 65530
+  %.fr = freeze i64 %29
+  %30 = icmp ugt i64 %.fr, 65530
   br i1 %30, label %31, label %35
 
 31:                                               ; preds = %27
@@ -6329,29 +6329,29 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   br i1 %.not144, label %.loopexit147, label %27, !llvm.loop !68
 
 35:                                               ; preds = %27
-  %36 = trunc nuw i64 %29 to i16
-  %37 = add nuw i16 %36, 1
+  %36 = trunc nuw i64 %.fr to i16
+  %37 = add i16 %36, 1
   %38 = zext i16 %37 to i32
   %39 = add nuw i16 %36, 5
   store i16 %39, ptr %25, align 2
-  %40 = trunc nuw nsw i64 %29 to i32
+  %40 = trunc nuw nsw i64 %.fr to i32
   %41 = add nuw nsw i32 %40, 8
   %42 = and i32 %41, 131068
   %43 = add nuw nsw i32 %42, 4
-  %44 = add i32 %43, %.1136.ph169.fr
+  %44 = add i32 %43, %.1136.ph169
   %45 = icmp ugt i32 %44, %20
   br i1 %45, label %46, label %.outer148
 
 46:                                               ; preds = %35
-  %47 = zext i32 %.1136.ph169.fr to i64
+  %47 = zext i32 %.1136.ph169 to i64
   %48 = getelementptr i8, ptr %19, i64 %47
   %49 = sub nsw i64 1048576, %47
-  %50 = icmp ugt i32 %.1136.ph169.fr, 1048576
+  %50 = icmp ugt i32 %.1136.ph169, 1048576
   %51 = select i1 %50, i64 0, i64 %49
   %52 = icmp ne i64 %51, -1
   call void @llvm.assume(i1 %52)
   %53 = call ptr @__memset_chk(ptr noundef %48, i32 noundef 0, i64 noundef 4, i64 noundef %51) #20
-  %54 = add i32 %.1136.ph169.fr, 4
+  %54 = add i32 %.1136.ph169, 4
   %55 = zext i32 %54 to i64
   %56 = getelementptr i8, ptr %19, i64 %55
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -6386,17 +6386,17 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 .outer148:                                        ; preds = %35
   %71 = add i32 %.ph149168, %43
   store i32 %71, ptr %21, align 4
-  %72 = zext i32 %.1136.ph169.fr to i64
+  %72 = zext i32 %.1136.ph169 to i64
   %73 = getelementptr i8, ptr %19, i64 %72
   %74 = sub nsw i64 1048576, %72
-  %75 = icmp ugt i32 %.1136.ph169.fr, 1048576
+  %75 = icmp ugt i32 %.1136.ph169, 1048576
   %spec.select = select i1 %75, i64 0, i64 %74
   br label %76
 
 76:                                               ; preds = %.outer148, %.outer148.thread
   %77 = phi ptr [ %26, %.outer148.thread ], [ %73, %.outer148 ]
   %78 = phi i32 [ %70, %.outer148.thread ], [ %71, %.outer148 ]
-  %.2226 = phi i32 [ 8, %.outer148.thread ], [ %.1136.ph169.fr, %.outer148 ]
+  %.2226 = phi i32 [ 8, %.outer148.thread ], [ %.1136.ph169, %.outer148 ]
   %79 = phi i64 [ 1048568, %.outer148.thread ], [ %spec.select, %.outer148 ]
   %80 = icmp ne i64 %79, -1
   call void @llvm.assume(i1 %80)
@@ -6442,7 +6442,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 
 .loopexit147:                                     ; preds = %76, %31, %23, %18
   %115 = phi i32 [ 12, %18 ], [ 12, %23 ], [ %.ph149168, %31 ], [ %78, %76 ]
-  %.0135 = phi i32 [ 8, %18 ], [ 8, %23 ], [ %.1136.ph169.fr, %31 ], [ %111, %76 ]
+  %.0135 = phi i32 [ 8, %18 ], [ 8, %23 ], [ %.1136.ph169, %31 ], [ %111, %76 ]
+  %.0135.fr = freeze i32 %.0135
   %116 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %117 = load ptr, ptr %116, align 8
   %.not145 = icmp eq ptr %117, null
@@ -6462,9 +6463,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 .lr.ph177:                                        ; preds = %.lr.ph177.lr.ph, %171
   %.1.ph186 = phi i32 [ 0, %.lr.ph177.lr.ph ], [ %207, %171 ]
   %.0133.ph185 = phi ptr [ %119, %.lr.ph177.lr.ph ], [ %209, %171 ]
-  %.4.ph184 = phi i32 [ %.0135, %.lr.ph177.lr.ph ], [ %206, %171 ]
+  %.4.ph184 = phi i32 [ %.0135.fr, %.lr.ph177.lr.ph ], [ %206, %171 ]
   %.ph183 = phi i32 [ %115, %.lr.ph177.lr.ph ], [ %173, %171 ]
-  %.4.ph184.fr = freeze i32 %.4.ph184
   br label %122
 
 122:                                              ; preds = %.lr.ph177, %126
@@ -6473,7 +6473,8 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   store i16 2, ptr %9, align 2
   %123 = getelementptr inbounds nuw i8, ptr %.0133175, i64 63
   %124 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %123) #21
-  %125 = icmp ugt i64 %124, 65518
+  %.fr259 = freeze i64 %124
+  %125 = icmp ugt i64 %.fr259, 65518
   br i1 %125, label %126, label %130
 
 126:                                              ; preds = %122
@@ -6484,29 +6485,29 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
   br i1 %.not146, label %.loopexit, label %122, !llvm.loop !85
 
 130:                                              ; preds = %122
-  %131 = trunc nuw i64 %124 to i16
-  %132 = add nuw i16 %131, 1
+  %131 = trunc nuw i64 %.fr259 to i16
+  %132 = add i16 %131, 1
   %133 = zext i16 %132 to i32
   %134 = add nuw i16 %131, 17
   store i16 %134, ptr %120, align 2
-  %135 = trunc nuw nsw i64 %124 to i32
+  %135 = trunc nuw nsw i64 %.fr259 to i32
   %136 = add nuw nsw i32 %135, 20
   %137 = and i32 %136, 131068
   %138 = add nuw nsw i32 %137, 4
-  %139 = add i32 %138, %.4.ph184.fr
+  %139 = add i32 %138, %.4.ph184
   %140 = icmp ugt i32 %139, %20
   br i1 %140, label %141, label %.outer
 
 141:                                              ; preds = %130
-  %142 = zext i32 %.4.ph184.fr to i64
+  %142 = zext i32 %.4.ph184 to i64
   %143 = getelementptr i8, ptr %19, i64 %142
   %144 = sub nsw i64 1048576, %142
-  %145 = icmp ugt i32 %.4.ph184.fr, 1048576
+  %145 = icmp ugt i32 %.4.ph184, 1048576
   %146 = select i1 %145, i64 0, i64 %144
   %147 = icmp ne i64 %146, -1
   call void @llvm.assume(i1 %147)
   %148 = call ptr @__memset_chk(ptr noundef %143, i32 noundef 0, i64 noundef 4, i64 noundef %146) #20
-  %149 = add i32 %.4.ph184.fr, 4
+  %149 = add i32 %.4.ph184, 4
   %150 = zext i32 %149 to i64
   %151 = getelementptr i8, ptr %19, i64 %150
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -6541,17 +6542,17 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 .outer:                                           ; preds = %130
   %166 = add i32 %.ph183, %138
   store i32 %166, ptr %21, align 4
-  %167 = zext i32 %.4.ph184.fr to i64
+  %167 = zext i32 %.4.ph184 to i64
   %168 = getelementptr i8, ptr %19, i64 %167
   %169 = sub nsw i64 1048576, %167
-  %170 = icmp ugt i32 %.4.ph184.fr, 1048576
+  %170 = icmp ugt i32 %.4.ph184, 1048576
   %spec.select258 = select i1 %170, i64 0, i64 %169
   br label %171
 
 171:                                              ; preds = %.outer, %.outer.thread
   %172 = phi ptr [ %121, %.outer.thread ], [ %168, %.outer ]
   %173 = phi i32 [ %165, %.outer.thread ], [ %166, %.outer ]
-  %.5230 = phi i32 [ 8, %.outer.thread ], [ %.4.ph184.fr, %.outer ]
+  %.5230 = phi i32 [ 8, %.outer.thread ], [ %.4.ph184, %.outer ]
   %174 = phi i64 [ 1048568, %.outer.thread ], [ %spec.select258, %.outer ]
   %175 = icmp ne i64 %174, -1
   call void @llvm.assume(i1 %175)
@@ -6597,7 +6598,7 @@ define internal fastcc zeroext i1 @pcapng_write_name_resolution_block(ptr nounde
 
 .loopexit:                                        ; preds = %171, %126, %118, %.loopexit147
   %210 = phi i32 [ %115, %.loopexit147 ], [ %115, %118 ], [ %.ph183, %126 ], [ %173, %171 ]
-  %.3 = phi i32 [ %.0135, %.loopexit147 ], [ %.0135, %118 ], [ %.4.ph184.fr, %126 ], [ %206, %171 ]
+  %.3 = phi i32 [ %.0135.fr, %.loopexit147 ], [ %.0135.fr, %118 ], [ %.4.ph184, %126 ], [ %206, %171 ]
   %211 = zext i32 %.3 to i64
   %212 = getelementptr i8, ptr %19, i64 %211
   %213 = sub nsw i64 1048576, %211

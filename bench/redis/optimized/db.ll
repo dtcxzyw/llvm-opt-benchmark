@@ -7657,13 +7657,12 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
 .preheader:                                       ; preds = %.preheader.lr.ph, %.loopexit
   %.043 = phi i32 [ 2, %.preheader.lr.ph ], [ %.pre-phi, %.loopexit ]
   %.02742 = phi i32 [ 0, %.preheader.lr.ph ], [ %.128, %.loopexit ]
-  %.043.fr = freeze i32 %.043
-  %34 = sext i32 %.043.fr to i64
+  %34 = sext i32 %.043 to i64
   %35 = getelementptr inbounds ptr, ptr %1, i64 %34
   %36 = load ptr, ptr %35, align 8, !tbaa !105
   %37 = getelementptr inbounds nuw i8, ptr %36, i64 8
   %38 = load ptr, ptr %37, align 8, !tbaa !18
-  %39 = add i32 %.043.fr, 1
+  %39 = add nsw i32 %.043, 1
   %40 = icmp slt i32 %39, %2
   br i1 %40, label %.preheader.split.us, label %.preheader.split
 
@@ -7703,8 +7702,9 @@ getKeysPrepareResult.exit:                        ; preds = %12, %27
   %51 = getelementptr inbounds nuw %struct.anon.5, ptr @__const.sortGetKeys.skiplist, i64 %50
   %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
   %53 = load i32, ptr %52, align 8, !tbaa !208
-  %54 = add nsw i32 %53, %.043.fr
-  %.pre = add nsw i32 %54, 1
+  %.fr = freeze i32 %53
+  %54 = add i32 %.fr, %.043
+  %.pre = add i32 %54, 1
   br label %.loopexit
 
 55:                                               ; preds = %.preheader.split
@@ -8044,7 +8044,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %.not, label %12, label %14
 
 12:                                               ; preds = %.lr.ph
-  %13 = add i32 %.04361, 1
+  %13 = add nsw i32 %.04361, 1
   br label %26
 
 14:                                               ; preds = %.lr.ph
@@ -8053,7 +8053,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %.not47, label %16, label %18
 
 16:                                               ; preds = %14
-  %17 = add i32 %.04361, 1
+  %17 = add nsw i32 %.04361, 1
   br label %26
 
 18:                                               ; preds = %14
@@ -8062,7 +8062,7 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
   br i1 %.not48, label %20, label %22
 
 20:                                               ; preds = %18
-  %21 = add i32 %.04361, 2
+  %21 = add nsw i32 %.04361, 2
   br label %26
 
 22:                                               ; preds = %18
@@ -8077,7 +8077,8 @@ define dso_local range(i32 -1073741824, 1073741824) i32 @xreadGetKeys(ptr nounde
 
 26:                                               ; preds = %16, %22, %20, %12
   %.245.ph = phi i32 [ %13, %12 ], [ %17, %16 ], [ %21, %20 ], [ %.04361, %22 ]
-  %27 = add i32 %.245.ph, 1
+  %.245.ph.fr = freeze i32 %.245.ph
+  %27 = add i32 %.245.ph.fr, 1
   %28 = icmp slt i32 %27, %2
   br i1 %28, label %.lr.ph, label %.loopexit, !llvm.loop !214
 

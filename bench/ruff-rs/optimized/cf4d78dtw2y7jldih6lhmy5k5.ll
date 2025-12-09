@@ -37573,18 +37573,18 @@ _ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.s
   %.sroa.31.0.copyload.i = load ptr, ptr %.sroa.31.0..sroa_idx.i, align 8, !noalias !2469
   br label %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.i
 
-_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.i: ; preds = %.noexc39, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i
-  %.sroa.31.0.us.i = phi ptr [ %.sroa.31.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.31.621.ph.us.i, %.noexc39 ]
-  %.sroa.34.0.us.i = phi ptr [ %.sroa.34.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.34.1222.ph.us.i, %.noexc39 ]
-  %.sroa.47.0.us.i = phi ptr [ %.sroa.47.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.47.823.ph.us.i, %.noexc39 ]
-  %.sroa.24.0.us.i = phi ptr [ %.sroa.24.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.24.1924.ph.us.i, %.noexc39 ]
-  %.sroa.18.0.us.i = phi i64 [ %.sroa.18.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.18.1525.ph.us.i, %.noexc39 ]
-  %.sroa.52.0.us.i = phi ptr [ %.sroa.52.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.52.226.ph.us.i, %.noexc39 ]
-  %.sroa.13.0.us.i = phi ptr [ %.sroa.13.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.13.1327.ph.us.i, %.noexc39 ]
-  %.sroa.9.0.us.i = phi i64 [ %.sroa.9.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.9.828.ph.us.i, %.noexc39 ]
-  %.sroa.55.0.us.i = phi ptr [ %.sroa.55.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.55.1.ph.us.i, %.noexc39 ]
-  %.sroa.5.0.us.i = phi ptr [ %.sroa.5.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.5.629.ph.us.i, %.noexc39 ]
-  %.sroa.0.0.us.i = phi i64 [ %.sroa.0.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ], [ %.sroa.0.130.ph.us.i, %.noexc39 ]
+_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.i: ; preds = %.noexc40, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i
+  %.sroa.31.0.us.i = phi ptr [ %.sroa.31.621.ph.us.i, %.noexc40 ], [ %.sroa.31.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.34.0.us.i = phi ptr [ %.sroa.34.1222.ph.us.i, %.noexc40 ], [ %.sroa.34.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.47.0.us.i = phi ptr [ %.sroa.47.823.ph.us.i, %.noexc40 ], [ %.sroa.47.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.24.0.us.i = phi ptr [ %.sroa.24.1924.ph.us.i, %.noexc40 ], [ %.sroa.24.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.18.0.us.i = phi i64 [ %.sroa.18.1525.ph.fr.us.i, %.noexc40 ], [ %.sroa.18.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.52.0.us.i = phi ptr [ %.sroa.52.226.ph.us.i, %.noexc40 ], [ %.sroa.52.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.13.0.us.i = phi ptr [ %.sroa.13.1327.ph.us.i, %.noexc40 ], [ %.sroa.13.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.9.0.us.i = phi i64 [ %.sroa.9.828.ph.fr.us.i, %.noexc40 ], [ %.sroa.9.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.55.0.us.i = phi ptr [ %.sroa.55.1.ph.us.i, %.noexc40 ], [ %.sroa.55.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.5.0.us.i = phi ptr [ %.sroa.5.629.ph.us.i, %.noexc40 ], [ %.sroa.5.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
+  %.sroa.0.0.us.i = phi i64 [ %.sroa.0.130.ph.us.i, %.noexc40 ], [ %.sroa.0.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.preheader.i ]
   switch i64 %.sroa.0.0.us.i, label %.split.i.i.i.i.us.i [
     i64 3, label %_ZN4core3ops8function6FnOnce9call_once17h86362fbb6fbb35acE.exit.i.us.i
     i64 2, label %.split.us.i.i.i.i.us.i
@@ -37774,7 +37774,12 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h801be4866dba14f6E.exit.thread.
 
 .noexc39:                                         ; preds = %.noexc38
   %269 = invoke noundef i32 @_ZN20ruff_python_semantic5scope5Scope3add17h6de6677a2e4ba197E(ptr noalias noundef nonnull align 8 dereferenceable(120) %268, ptr noalias noundef nonnull readonly align 1 %264, i64 noundef %266, i32 noundef %267)
-          to label %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc40 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc40:                                         ; preds = %.noexc39
+  %.sroa.9.828.ph.fr.us.i = freeze i64 %.sroa.9.828.ph.us.i
+  %.sroa.18.1525.ph.fr.us.i = freeze i64 %.sroa.18.1525.ph.us.i
+  br label %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.us.i
 
 select.unfold.us38.i.i.i.i.us.us.i:               ; preds = %.split.split.us.i.i.i.i.us.us.i.preheader, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5228b9d8f2f6ec6fE.exit.thread.us.i.i.i.i.us.us.i"
   %270 = phi i64 [ %291, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$4next17h5228b9d8f2f6ec6fE.exit.thread.us.i.i.i.i.us.us.i" ], [ %.sroa.9.0.us.i, %.split.split.us.i.i.i.i.us.us.i.preheader ]
@@ -37868,17 +37873,17 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h801be4866dba14f6E.exit.thread.
   %294 = getelementptr inbounds nuw i8, ptr %.us-phi.i, i64 16
   br label %_ZN4core4iter8adapters5chain17and_then_or_clear17h801be4866dba14f6E.exit.thread.us.i
 
-_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i: ; preds = %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader, %.noexc42
-  %.sroa.34.0.i = phi ptr [ %.sroa.34.1222.ph.i, %.noexc42 ], [ %.sroa.34.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.47.0.i = phi ptr [ %.sroa.47.823.ph.i, %.noexc42 ], [ %.sroa.47.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.24.0.i = phi ptr [ %.sroa.24.1924.ph.i, %.noexc42 ], [ %.sroa.24.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.18.0.i = phi i64 [ %.sroa.18.1525.ph.i, %.noexc42 ], [ %.sroa.18.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.52.0.i = phi ptr [ %.sroa.52.226.ph.i, %.noexc42 ], [ %.sroa.52.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.13.0.i = phi ptr [ %.sroa.13.1327.ph.i, %.noexc42 ], [ %.sroa.13.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.9.0.i = phi i64 [ %.sroa.9.828.ph.i, %.noexc42 ], [ %.sroa.9.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.55.0.i = phi ptr [ %.sroa.55.1.ph.i, %.noexc42 ], [ %.sroa.55.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.5.0.i = phi ptr [ %.sroa.5.629.ph.i, %.noexc42 ], [ %.sroa.5.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
-  %.sroa.0.0.i = phi i64 [ %.sroa.0.130.ph.i, %.noexc42 ], [ %.sroa.0.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i: ; preds = %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader, %.noexc43
+  %.sroa.34.0.i = phi ptr [ %.sroa.34.1222.ph.i, %.noexc43 ], [ %.sroa.34.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.47.0.i = phi ptr [ %.sroa.47.823.ph.i, %.noexc43 ], [ %.sroa.47.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.24.0.i = phi ptr [ %.sroa.24.1924.ph.i, %.noexc43 ], [ %.sroa.24.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.18.0.i = phi i64 [ %.sroa.18.1525.ph.fr.i, %.noexc43 ], [ %.sroa.18.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.52.0.i = phi ptr [ %.sroa.52.226.ph.i, %.noexc43 ], [ %.sroa.52.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.13.0.i = phi ptr [ %.sroa.13.1327.ph.i, %.noexc43 ], [ %.sroa.13.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.9.0.i = phi i64 [ %.sroa.9.828.ph.fr.i, %.noexc43 ], [ %.sroa.9.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.55.0.i = phi ptr [ %.sroa.55.1.ph.i, %.noexc43 ], [ %.sroa.55.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.5.0.i = phi ptr [ %.sroa.5.629.ph.i, %.noexc43 ], [ %.sroa.5.0.copyload.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
+  %.sroa.0.0.i = phi i64 [ %.sroa.0.130.ph.i, %.noexc43 ], [ %.sroa.0.0.copyload.fr.i, %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i.preheader ]
   switch i64 %.sroa.0.0.i, label %.split.i.i.i.i.i [
     i64 3, label %_ZN4core3ops8function6FnOnce9call_once17h86362fbb6fbb35acE.exit.i.i
     i64 2, label %.split.us.i.i.i.i.i
@@ -38144,7 +38149,12 @@ _ZN4core4iter8adapters5chain17and_then_or_clear17h801be4866dba14f6E.exit.thread.
 
 .noexc42:                                         ; preds = %.noexc41
   %349 = invoke noundef i32 @_ZN20ruff_python_semantic5scope5Scope3add17h6de6677a2e4ba197E(ptr noalias noundef nonnull align 8 dereferenceable(120) %348, ptr noalias noundef nonnull readonly align 1 %344, i64 noundef %346, i32 noundef %347)
-          to label %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+          to label %.noexc43 unwind label %.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit.split-lp.loopexit
+
+.noexc43:                                         ; preds = %.noexc42
+  %.sroa.9.828.ph.fr.i = freeze i64 %.sroa.9.828.ph.i
+  %.sroa.18.1525.ph.fr.i = freeze i64 %.sroa.18.1525.ph.i
+  br label %_ZN11ruff_linter8checkers3ast7Checker14target_version17h228652b60e28b489E.exit.split.i
 
 "_ZN4core6option15Option$LT$T$GT$7or_else17hb9c2d6770aa91d2dE.exit.i": ; preds = %"_ZN4core6option15Option$LT$T$GT$7or_else17hb9c2d6770aa91d2dE.exit.i.preheader", %.noexc46
   %.sroa.05.0.idx117.i = phi i64 [ %.sroa.05.0.add.i, %.noexc46 ], [ 0, %"_ZN4core6option15Option$LT$T$GT$7or_else17hb9c2d6770aa91d2dE.exit.i.preheader" ]

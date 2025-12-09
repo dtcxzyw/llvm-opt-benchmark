@@ -25516,17 +25516,17 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 52
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %.promoted145.fr = freeze i32 %.promoted145
+  %.promoted144.fr = freeze i32 %.promoted144
   br label %20
 
 20:                                               ; preds = %.loopexit, %1
   %21 = phi i32 [ %12, %1 ], [ %95, %.loopexit ]
-  %22 = phi i32 [ %.promoted145, %1 ], [ %128, %.loopexit ]
-  %23 = phi i32 [ %.promoted144, %1 ], [ %127, %.loopexit ]
+  %22 = phi i32 [ %.promoted145.fr, %1 ], [ %.fr154, %.loopexit ]
+  %23 = phi i32 [ %.promoted144.fr, %1 ], [ %127, %.loopexit ]
   %24 = phi ptr [ %.promoted, %1 ], [ %129, %.loopexit ]
   %.165 = phi i32 [ %spec.select, %1 ], [ %spec.select91, %.loopexit ]
-  %.fr155 = freeze i32 %23
-  %.fr154 = freeze i32 %22
-  %.not = icmp ugt i32 %.165, %.fr155
+  %.not = icmp ugt i32 %.165, %23
   br i1 %.not, label %.thread, label %25
 
 25:                                               ; preds = %20
@@ -25536,16 +25536,16 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
 .preheader:                                       ; preds = %25
   %26 = load i64, ptr %16, align 8, !tbaa !139
   %27 = trunc i64 %26 to i32
-  %28 = add i32 %.fr154, %.fr155
+  %28 = add i32 %22, %23
   %29 = icmp sgt i32 %28, -1
   %30 = icmp sgt i32 %28, 65535
-  %31 = sub i32 65536, %.fr154
-  %32 = sub nsw i32 0, %.fr154
+  %31 = sub i32 65536, %22
+  %32 = sub nsw i32 0, %22
   br i1 %29, label %.preheader.split, label %.preheader.split.us.split.us
 
 .preheader.split.us.split.us:                     ; preds = %.preheader, %.thread95.us.us
   %.6.us.us = phi i32 [ %36, %.thread95.us.us ], [ %.165, %.preheader ]
-  %33 = add nsw i32 %.6.us.us, %.fr154
+  %33 = add nsw i32 %.6.us.us, %22
   %34 = and i32 %33, 65535
   %.not82.us.us = icmp ult i32 %34, %27
   br i1 %.not82.us.us, label %35, label %.thread
@@ -25556,7 +25556,7 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
 
 .thread95.us.us:                                  ; preds = %35
   %36 = add i32 %.6.us.us, 1
-  %.not84.us.us = icmp ugt i32 %36, %.fr155
+  %.not84.us.us = icmp ugt i32 %36, %23
   br i1 %.not84.us.us, label %.thread, label %.preheader.split.us.split.us, !llvm.loop !783
 
 37:                                               ; preds = %25
@@ -25582,19 +25582,19 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
   br i1 %.not85, label %54, label %51
 
 51:                                               ; preds = %.preheader116
-  %52 = add nsw i32 %50, %.fr154
+  %52 = add nsw i32 %50, %22
   %53 = and i32 %52, 65535
   %.not86 = icmp eq i32 %53, 0
   br i1 %.not86, label %54, label %.thread109
 
 54:                                               ; preds = %51, %.preheader116
   %55 = add i32 %.367, 1
-  %.not87 = icmp ugt i32 %55, %.fr155
+  %.not87 = icmp ugt i32 %55, %23
   br i1 %.not87, label %.thread, label %.preheader116, !llvm.loop !784
 
 .preheader.split:                                 ; preds = %.preheader, %.thread95
   %.6 = phi i32 [ %63, %.thread95 ], [ %.165, %.preheader ]
-  %56 = add nsw i32 %.6, %.fr154
+  %56 = add nsw i32 %.6, %22
   %57 = and i32 %56, 65535
   %.not82 = icmp ult i32 %57, %27
   br i1 %.not82, label %62, label %58
@@ -25615,7 +25615,7 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
 .thread95:                                        ; preds = %60, %58, %62
   %.8.ph = phi i32 [ %.6, %62 ], [ %32, %58 ], [ %31, %60 ]
   %63 = add i32 %.8.ph, 1
-  %.not84 = icmp ugt i32 %63, %.fr155
+  %.not84 = icmp ugt i32 %63, %23
   br i1 %.not84, label %.thread, label %.preheader.split, !llvm.loop !783
 
 .thread:                                          ; preds = %54, %.preheader.split.us.split.us, %.thread95.us.us, %.thread95, %60, %37, %20
@@ -25644,11 +25644,13 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
   %79 = and i64 %78, 4294967294
   %80 = getelementptr inbounds nuw i8, ptr %69, i64 %79
   %81 = load i8, ptr %80, align 1, !tbaa !15
-  %82 = zext i8 %81 to i32
+  %.fr = freeze i8 %81
+  %82 = zext i8 %.fr to i32
   %83 = shl nuw nsw i32 %82, 8
   %84 = getelementptr inbounds nuw i8, ptr %80, i64 1
   %85 = load i8, ptr %84, align 1, !tbaa !15
-  %86 = zext i8 %85 to i32
+  %.fr156 = freeze i8 %85
+  %86 = zext i8 %.fr156 to i32
   %87 = or disjoint i32 %83, %86
   store i32 %87, ptr %14, align 4, !tbaa !777
   %88 = getelementptr inbounds nuw i8, ptr %80, i64 %72
@@ -25727,6 +25729,7 @@ define internal fastcc void @tt_cmap4_next(ptr noundef captures(none) %0) unname
   store ptr %129, ptr %13, align 8, !tbaa !781
   store i32 %130, ptr %17, align 4, !tbaa !782
   %spec.select91 = tail call i32 @llvm.umax.i32(i32 %.5, i32 %95)
+  %.fr154 = freeze i32 %128
   br label %20
 
 .thread109:                                       ; preds = %.thread, %51, %35, %62, %126

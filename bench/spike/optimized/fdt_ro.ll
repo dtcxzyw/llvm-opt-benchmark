@@ -2273,13 +2273,12 @@ define i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
 
 .lr.ph.i:                                         ; preds = %6, %13
   %.02331.i = phi i32 [ %spec.select.i, %13 ], [ -13, %6 ]
-  %.02530.i = phi i32 [ %14, %13 ], [ 0, %6 ]
-  %.02530.i.fr = freeze i32 %.02530.i
+  %.02530.i = phi i32 [ %.fr20, %13 ], [ 0, %6 ]
   %8 = load i32, ptr %3, align 4, !tbaa !6
   %.fr = freeze i32 %8
   %9 = icmp eq i32 %.fr, 0
-  %spec.select.i = select i1 %9, i32 %.02530.i.fr, i32 %.02331.i
-  %10 = icmp eq i32 %.02530.i.fr, %1
+  %spec.select.i = select i1 %9, i32 %.02530.i, i32 %.02331.i
+  %10 = icmp eq i32 %.02530.i, %1
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %.lr.ph.i
@@ -2287,17 +2286,18 @@ define i32 @fdt_node_depth(ptr noundef %0, i32 noundef %1) local_unnamed_addr #0
   br i1 %12, label %fdt_supernode_atdepth_offset.exit.thread, label %fdt_supernode_atdepth_offset.exit
 
 13:                                               ; preds = %.lr.ph.i
-  %14 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02530.i.fr, ptr noundef nonnull %3) #9
-  %.not32.i = icmp ugt i32 %14, %1
+  %14 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02530.i, ptr noundef nonnull %3) #9
+  %.fr20 = freeze i32 %14
+  %.not32.i = icmp ugt i32 %.fr20, %1
   br i1 %.not32.i, label %._crit_edge.i, label %.lr.ph.i, !llvm.loop !23
 
 ._crit_edge.i:                                    ; preds = %13
-  %or.cond.i = icmp sgt i32 %14, -2
+  %or.cond.i = icmp sgt i32 %.fr20, -2
   br i1 %or.cond.i, label %fdt_supernode_atdepth_offset.exit.thread, label %15
 
 15:                                               ; preds = %._crit_edge.i
-  %16 = icmp eq i32 %14, -4
-  %..025.i = select i1 %16, i32 -11, i32 %14
+  %16 = icmp eq i32 %.fr20, -4
+  %..025.i = select i1 %16, i32 -11, i32 %.fr20
   br label %fdt_supernode_atdepth_offset.exit.thread
 
 fdt_supernode_atdepth_offset.exit.thread:         ; preds = %2, %._crit_edge.i, %15, %6, %11
@@ -2334,13 +2334,12 @@ define i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1) local_unnamed_addr
 
 .lr.ph.i.i:                                       ; preds = %7, %14
   %.02331.i.i = phi i32 [ %spec.select.i.i, %14 ], [ -13, %7 ]
-  %.02530.i.i = phi i32 [ %15, %14 ], [ 0, %7 ]
-  %.02530.i.fr.i = freeze i32 %.02530.i.i
+  %.02530.i.i = phi i32 [ %.fr20.i, %14 ], [ 0, %7 ]
   %9 = load i32, ptr %4, align 4, !tbaa !6
   %.fr.i = freeze i32 %9
   %10 = icmp eq i32 %.fr.i, 0
-  %spec.select.i.i = select i1 %10, i32 %.02530.i.fr.i, i32 %.02331.i.i
-  %11 = icmp eq i32 %.02530.i.fr.i, %1
+  %spec.select.i.i = select i1 %10, i32 %.02530.i.i, i32 %.02331.i.i
+  %11 = icmp eq i32 %.02530.i.i, %1
   br i1 %11, label %12, label %14
 
 12:                                               ; preds = %.lr.ph.i.i
@@ -2348,17 +2347,18 @@ define i32 @fdt_parent_offset(ptr noundef %0, i32 noundef %1) local_unnamed_addr
   br i1 %13, label %fdt_supernode_atdepth_offset.exit.thread.i, label %fdt_supernode_atdepth_offset.exit.i
 
 14:                                               ; preds = %.lr.ph.i.i
-  %15 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02530.i.fr.i, ptr noundef nonnull %4) #9
-  %.not32.i.i = icmp ugt i32 %15, %1
+  %15 = call i32 @fdt_next_node(ptr noundef %0, i32 noundef %.02530.i.i, ptr noundef nonnull %4) #9
+  %.fr20.i = freeze i32 %15
+  %.not32.i.i = icmp ugt i32 %.fr20.i, %1
   br i1 %.not32.i.i, label %._crit_edge.i.i, label %.lr.ph.i.i, !llvm.loop !23
 
 ._crit_edge.i.i:                                  ; preds = %14
-  %or.cond.i.i = icmp sgt i32 %15, -2
+  %or.cond.i.i = icmp sgt i32 %.fr20.i, -2
   br i1 %or.cond.i.i, label %fdt_supernode_atdepth_offset.exit.thread.i, label %16
 
 16:                                               ; preds = %._crit_edge.i.i
-  %17 = icmp eq i32 %15, -4
-  %..025.i.i = select i1 %17, i32 -11, i32 %15
+  %17 = icmp eq i32 %.fr20.i, -4
+  %..025.i.i = select i1 %17, i32 -11, i32 %.fr20.i
   br label %fdt_supernode_atdepth_offset.exit.thread.i
 
 fdt_supernode_atdepth_offset.exit.thread.i:       ; preds = %16, %._crit_edge.i.i, %12, %7, %2

@@ -641,15 +641,20 @@ land.rhs.i.i189:                                  ; preds = %if.then17.i.i183, %
   %arrayidx.i33.i.i192 = getelementptr inbounds i8, ptr %call.i140, i64 %sub22.i.i191
   %20 = load i8, ptr %arrayidx.i33.i.i192, align 1
   %cmp.i34.i.i193 = icmp eq i8 %20, %14
-  br i1 %cmp.i34.i.i193, label %if.end28.i.i185, label %while.body26.i.i194
+  br i1 %cmp.i34.i.i193, label %if.end28.i.i185.loopexit, label %while.body26.i.i194
 
 while.body26.i.i194:                              ; preds = %land.rhs.i.i189
   %inc.i.i195 = add i64 %skip.239.i.i190, 1
   %exitcond.not.i.i196 = icmp eq i64 %inc.i.i195, %call3.i142
-  br i1 %exitcond.not.i.i196, label %if.end28.i.i185, label %land.rhs.i.i189, !llvm.loop !7
+  br i1 %exitcond.not.i.i196, label %if.end28.i.i185.loopexit, label %land.rhs.i.i189, !llvm.loop !7
 
-if.end28.i.i185:                                  ; preds = %while.body26.i.i194, %land.rhs.i.i189, %if.then17.i.i183
-  %skip.1.i.i186 = phi i64 [ %skip.042.i.i169, %if.then17.i.i183 ], [ %call3.i142, %while.body26.i.i194 ], [ %skip.239.i.i190, %land.rhs.i.i189 ]
+if.end28.i.i185.loopexit:                         ; preds = %land.rhs.i.i189, %while.body26.i.i194
+  %skip.1.i.i186.ph = phi i64 [ %skip.239.i.i190, %land.rhs.i.i189 ], [ %call3.i142, %while.body26.i.i194 ]
+  %21 = freeze i64 %skip.1.i.i186.ph
+  br label %if.end28.i.i185
+
+if.end28.i.i185:                                  ; preds = %if.end28.i.i185.loopexit, %if.then17.i.i183
+  %skip.1.i.i186 = phi i64 [ %skip.042.i.i169, %if.then17.i.i183 ], [ %21, %if.end28.i.i185.loopexit ]
   %add.ptr29.i.i187 = getelementptr i8, ptr %i.1.i.i171, i64 %skip.1.i.i186
   %cmp7.i.i188 = icmp ult ptr %add.ptr29.i.i187, %add.ptr.i.i162
   br i1 %cmp7.i.i188, label %while.cond8.preheader.i.i167, label %return, !llvm.loop !4

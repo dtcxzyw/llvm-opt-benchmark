@@ -294,18 +294,18 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit: ; preds = %_ZN4ab
   %83 = getelementptr inbounds nuw i8, ptr %68, i64 16
   store ptr %.0.i.i, ptr %83, align 8, !tbaa !10
   %.pre = load i64, ptr %12, align 8, !tbaa !12
+  %.pre.fr = freeze i64 %.pre
   br label %84
 
 84:                                               ; preds = %162, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit
-  %85 = phi i64 [ %.pre, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %163, %162 ]
+  %85 = phi i64 [ %.pre.fr, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %.fr221, %162 ]
   %.0103 = phi i32 [ 0, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %.1104.lcssa, %162 ]
   %.099 = phi i64 [ %4, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %86, %162 ]
   %.094 = phi i64 [ %7, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %.lcssa, %162 ]
   %.092 = phi ptr [ %9, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %.193.lcssa, %162 ]
   %.083 = phi ptr [ %68, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %.184.lcssa, %162 ]
   %.0 = phi i64 [ 1, %_ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit ], [ %.3, %162 ]
-  %.fr = freeze i64 %85
-  %86 = sub i64 %.099, %.fr
+  %86 = sub i64 %.099, %85
   %87 = add i64 %.094, 1
   %88 = getelementptr inbounds nuw i8, ptr %.092, i64 15
   %89 = load i8, ptr %88, align 1, !tbaa !4
@@ -457,7 +457,8 @@ _ZN4absl13cord_internal12CordRepBtree3NewEPNS0_7CordRepE.exit121: ; preds = %121
 162:                                              ; preds = %._crit_edge, %154
   %163 = phi i64 [ %.pre201, %154 ], [ %153, %._crit_edge ]
   %.3 = phi i64 [ %160, %154 ], [ %.1.lcssa, %._crit_edge ]
-  %.not115 = icmp ult i64 %86, %163
+  %.fr221 = freeze i64 %163
+  %.not115 = icmp ult i64 %86, %.fr221
   br i1 %.not115, label %164, label %84, !llvm.loop !33
 
 164:                                              ; preds = %162

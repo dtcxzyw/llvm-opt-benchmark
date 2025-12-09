@@ -106,7 +106,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
 40:                                               ; preds = %.lr.ph, %.thread164
   %.0276 = phi i64 [ 0, %.lr.ph ], [ %.1, %.thread164 ]
   %.095275 = phi i64 [ 0, %.lr.ph ], [ %.196, %.thread164 ]
-  %.0137274 = phi i32 [ 0, %.lr.ph ], [ %.1138, %.thread164 ]
+  %.0137274 = phi i32 [ 0, %.lr.ph ], [ %.1138.fr, %.thread164 ]
   %41 = load i8, ptr %24, align 2, !tbaa !7, !range !26, !noundef !27
   %42 = trunc nuw i8 %41 to i1
   br i1 %42, label %43, label %44
@@ -462,6 +462,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   %.1 = phi i64 [ %.0276, %46 ], [ %.3, %.thread172 ], [ %.2, %50 ]
   call void @_ZN7ArchiveD1Ev(ptr noundef nonnull align 8 dereferenceable(57108) %3) #6
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.1138.fr = freeze i32 %.1138
   %150 = call noundef zeroext i1 @_ZN11CommandData10GetArcNameEPwi(ptr noundef nonnull align 8 dereferenceable(100904) %0, ptr noundef nonnull %2, i32 noundef 2048)
   br i1 %150, label %40, label %._crit_edge.loopexit
 
@@ -473,7 +474,7 @@ define void @_Z11ListArchiveP11CommandData(ptr noundef %0) local_unnamed_addr #0
   resume { ptr, i32 } %.pn152.pn.pn.pn
 
 ._crit_edge.loopexit:                             ; preds = %.thread164
-  %152 = icmp ult i32 %.1138, 2
+  %152 = icmp ult i32 %.1138.fr, 2
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %19

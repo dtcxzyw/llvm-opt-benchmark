@@ -2638,15 +2638,15 @@ merge_compute_minrun.exit:                        ; preds = %.lr.ph.i208, %rever
   %.06.lcssa.i = phi i64 [ %.val192, %reverse_slice.exit207 ], [ %157, %.lr.ph.i208 ]
   %.0.lcssa.i = phi i64 [ 0, %reverse_slice.exit207 ], [ %156, %.lr.ph.i208 ]
   %159 = add nuw nsw i64 %.0.lcssa.i, %.06.lcssa.i
+  %.sroa.23.0.fr = freeze ptr %.sroa.23.0425
   %160 = getelementptr inbounds nuw i8, ptr %4, i64 4152
   %161 = getelementptr inbounds nuw i8, ptr %4, i64 56
   br label %162
 
 162:                                              ; preds = %found_new_run.exit, %merge_compute_minrun.exit
-  %.sroa.23.1 = phi ptr [ %.sroa.23.0425, %merge_compute_minrun.exit ], [ %spec.select295, %found_new_run.exit ]
+  %.sroa.23.1 = phi ptr [ %.sroa.23.0.fr, %merge_compute_minrun.exit ], [ %spec.select295, %found_new_run.exit ]
   %.sroa.0.1 = phi ptr [ %.sroa.0.0426, %merge_compute_minrun.exit ], [ %377, %found_new_run.exit ]
   %.0139 = phi i64 [ %.val192, %merge_compute_minrun.exit ], [ %379, %found_new_run.exit ]
-  %.8.val.fr.i = freeze ptr %.sroa.23.1
   %163 = icmp sgt i64 %.0139, 1
   br i1 %163, label %.lr.ph.i211, label %._crit_edge.thread182.i
 
@@ -2708,16 +2708,16 @@ merge_compute_minrun.exit:                        ; preds = %.lr.ph.i208, %rever
   br i1 %189, label %.lr.ph.i.i.i, label %reverse_slice.exit.i.i, !llvm.loop !142
 
 reverse_slice.exit.i.i:                           ; preds = %.lr.ph.i.i.i, %184
-  %.not.i.i = icmp ne ptr %.8.val.fr.i, null
-  %190 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.069141.i
+  %.not.i.i = icmp ne ptr %.sroa.23.1, null
+  %190 = getelementptr ptr, ptr %.sroa.23.1, i64 %.069141.i
   %.01011.i6.i.i = getelementptr i8, ptr %190, i64 -8
-  %191 = icmp ult ptr %.8.val.fr.i, %.01011.i6.i.i
+  %191 = icmp ult ptr %.sroa.23.1, %.01011.i6.i.i
   %or.cond.i.i = and i1 %.not.i.i, %191
   br i1 %or.cond.i.i, label %.lr.ph.i7.i.i, label %sortslice_reverse.exit.i
 
 .lr.ph.i7.i.i:                                    ; preds = %reverse_slice.exit.i.i, %.lr.ph.i7.i.i
   %.01013.i8.i.i = phi ptr [ %.010.i10.i.i, %.lr.ph.i7.i.i ], [ %.01011.i6.i.i, %reverse_slice.exit.i.i ]
-  %.012.i9.i.i = phi ptr [ %194, %.lr.ph.i7.i.i ], [ %.8.val.fr.i, %reverse_slice.exit.i.i ]
+  %.012.i9.i.i = phi ptr [ %194, %.lr.ph.i7.i.i ], [ %.sroa.23.1, %reverse_slice.exit.i.i ]
   %192 = load ptr, ptr %.012.i9.i.i, align 8, !tbaa !112
   %193 = load ptr, ptr %.01013.i8.i.i, align 8, !tbaa !112
   store ptr %193, ptr %.012.i9.i.i, align 8, !tbaa !112
@@ -2734,7 +2734,7 @@ sortslice_reverse.exit.i:                         ; preds = %.lr.ph.i7.i.i, %rev
   br i1 %196, label %.lr.ph148.i, label %sortslice_reverse.exit113.i
 
 .lr.ph148.i:                                      ; preds = %sortslice_reverse.exit.i
-  %.not.i83.i = icmp eq ptr %.8.val.fr.i, null
+  %.not.i83.i = icmp eq ptr %.sroa.23.1, null
   br label %197
 
 197:                                              ; preds = %sortslice_reverse.exit97.i, %.lr.ph148.i
@@ -2762,7 +2762,7 @@ sortslice_advance.exit.i:                         ; preds = %206
   %207 = add i64 %.0146.i, 1
   %208 = sub i64 %.170.in145.i, %.0146.i
   %209 = getelementptr ptr, ptr %.sroa.0.1, i64 %208
-  %210 = getelementptr ptr, ptr %.8.val.fr.i, i64 %208
+  %210 = getelementptr ptr, ptr %.sroa.23.1, i64 %208
   %spec.select.i209 = select i1 %.not.i83.i, ptr null, ptr %210
   %211 = getelementptr ptr, ptr %209, i64 %207
   %.01011.i.i84.i = getelementptr i8, ptr %211, i64 -8
@@ -2834,7 +2834,7 @@ sortslice_advance.exit99.i:                       ; preds = %._crit_edge149.i
   %232 = add i64 %.0.lcssa.i210, 1
   %233 = sub i64 %.170.in.lcssa.i, %.0.lcssa.i210
   %234 = getelementptr ptr, ptr %.sroa.0.1, i64 %233
-  %235 = getelementptr ptr, ptr %.8.val.fr.i, i64 %233
+  %235 = getelementptr ptr, ptr %.sroa.23.1, i64 %233
   %spec.select134.i = select i1 %.not.i83.i, ptr null, ptr %235
   %236 = getelementptr ptr, ptr %234, i64 %232
   %.01011.i.i100.i = getelementptr i8, ptr %236, i64 -8
@@ -2893,16 +2893,16 @@ sortslice_reverse.exit113.i:                      ; preds = %.lr.ph.i7.i105.i, %
   br i1 %253, label %.lr.ph.i.i123.i, label %reverse_slice.exit.i115.i, !llvm.loop !142
 
 reverse_slice.exit.i115.i:                        ; preds = %.lr.ph.i.i123.i, %sortslice_reverse.exit113.i
-  %.not.i116.i = icmp ne ptr %.8.val.fr.i, null
-  %254 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.170.lcssa191.i
+  %.not.i116.i = icmp ne ptr %.sroa.23.1, null
+  %254 = getelementptr ptr, ptr %.sroa.23.1, i64 %.170.lcssa191.i
   %.01011.i6.i117.i = getelementptr i8, ptr %254, i64 -8
-  %255 = icmp ult ptr %.8.val.fr.i, %.01011.i6.i117.i
+  %255 = icmp ult ptr %.sroa.23.1, %.01011.i6.i117.i
   %or.cond.i118.i = and i1 %.not.i116.i, %255
   br i1 %or.cond.i118.i, label %.lr.ph.i7.i119.i, label %sortslice_reverse.exit127.i
 
 .lr.ph.i7.i119.i:                                 ; preds = %reverse_slice.exit.i115.i, %.lr.ph.i7.i119.i
   %.01013.i8.i120.i = phi ptr [ %.010.i10.i122.i, %.lr.ph.i7.i119.i ], [ %.01011.i6.i117.i, %reverse_slice.exit.i115.i ]
-  %.012.i9.i121.i = phi ptr [ %258, %.lr.ph.i7.i119.i ], [ %.8.val.fr.i, %reverse_slice.exit.i115.i ]
+  %.012.i9.i121.i = phi ptr [ %258, %.lr.ph.i7.i119.i ], [ %.sroa.23.1, %reverse_slice.exit.i115.i ]
   %256 = load ptr, ptr %.012.i9.i121.i, align 8, !tbaa !112
   %257 = load ptr, ptr %.01013.i8.i120.i, align 8, !tbaa !112
   store ptr %257, ptr %.012.i9.i121.i, align 8, !tbaa !112
@@ -2953,7 +2953,7 @@ count_run.exit.thread277:                         ; preds = %._crit_edge.thread1
   br i1 %275, label %.lr.ph10.i, label %binarysort.exit.thread
 
 .lr.ph10.i:                                       ; preds = %273
-  %.not.i214 = icmp eq ptr %.8.val.fr.i, null
+  %.not.i214 = icmp eq ptr %.sroa.23.1, null
   br i1 %.not.i214, label %.lr.ph10.split.us.i, label %.lr.ph10.split.i
 
 .lr.ph10.split.us.i:                              ; preds = %.lr.ph10.i, %._crit_edge.us.i
@@ -3046,20 +3046,20 @@ count_run.exit.thread277:                         ; preds = %._crit_edge.thread1
 ._crit_edge.i216:                                 ; preds = %.preheader.i
   %316 = getelementptr ptr, ptr %.sroa.0.1, i64 %.149.i
   store ptr %298, ptr %316, align 8, !tbaa !112
-  %317 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1547.i
+  %317 = getelementptr ptr, ptr %.sroa.23.1, i64 %.1547.i
   %318 = load ptr, ptr %317, align 8, !tbaa !112
   br label %._crit_edge6.i
 
 .lr.ph5.preheader.i:                              ; preds = %.lr.ph.i218
   %319 = getelementptr ptr, ptr %.sroa.0.1, i64 %.149.i
   store ptr %298, ptr %319, align 8, !tbaa !112
-  %320 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1547.i
+  %320 = getelementptr ptr, ptr %.sroa.23.1, i64 %.1547.i
   %321 = load ptr, ptr %320, align 8, !tbaa !112
   br label %.lr.ph5.i
 
 .lr.ph5.i:                                        ; preds = %.lr.ph5.i, %.lr.ph5.preheader.i
   %.1513.i = phi i64 [ %325, %.lr.ph5.i ], [ %.1547.i, %.lr.ph5.preheader.i ]
-  %322 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.1513.i
+  %322 = getelementptr ptr, ptr %.sroa.23.1, i64 %.1513.i
   %323 = getelementptr i8, ptr %322, i64 -8
   %324 = load ptr, ptr %323, align 8, !tbaa !112
   store ptr %324, ptr %322, align 8, !tbaa !112
@@ -3069,7 +3069,7 @@ count_run.exit.thread277:                         ; preds = %._crit_edge.thread1
 
 ._crit_edge6.i:                                   ; preds = %.lr.ph5.i, %._crit_edge.i216
   %327 = phi ptr [ %318, %._crit_edge.i216 ], [ %321, %.lr.ph5.i ]
-  %328 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.149.i
+  %328 = getelementptr ptr, ptr %.sroa.23.1, i64 %.149.i
   store ptr %327, ptr %328, align 8, !tbaa !112
   %329 = add nuw nsw i64 %.1547.i, 1
   %exitcond.not.i217 = icmp eq i64 %329, %274
@@ -3077,6 +3077,7 @@ count_run.exit.thread277:                         ; preds = %._crit_edge.thread1
 
 binarysort.exit.thread:                           ; preds = %._crit_edge6.i, %._crit_edge.us.i, %273, %count_run.exit.thread277
   %.0136 = phi i64 [ %.068.i279, %count_run.exit.thread277 ], [ %274, %273 ], [ %274, %._crit_edge.us.i ], [ %274, %._crit_edge6.i ]
+  %.0136.fr = freeze i64 %.0136
   %330 = load i32, ptr %136, align 8, !tbaa !138
   %.not.i219 = icmp eq i32 %330, 0
   br i1 %.not.i219, label %found_new_run.exit, label %331
@@ -3095,7 +3096,7 @@ binarysort.exit.thread:                           ; preds = %._crit_edge6.i, %._
   %342 = load i64, ptr %137, align 8, !tbaa !140
   %343 = ashr exact i64 %339, 2
   %344 = add i64 %343, %341
-  %345 = add i64 %341, %.0136
+  %345 = add i64 %341, %.0136.fr
   %346 = add i64 %345, %344
   br label %347
 
@@ -3156,16 +3157,16 @@ found_new_run.exit:                               ; preds = %.thread.i, %binarys
   %374 = getelementptr %struct.s_slice, ptr %161, i64 %373
   store ptr %.sroa.0.1, ptr %374, align 8, !tbaa !156
   %.sroa.23.0..sroa_idx = getelementptr inbounds nuw i8, ptr %374, i64 8
-  store ptr %.8.val.fr.i, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !156
+  store ptr %.sroa.23.1, ptr %.sroa.23.0..sroa_idx, align 8, !tbaa !156
   %375 = getelementptr inbounds nuw i8, ptr %374, i64 16
-  store i64 %.0136, ptr %375, align 8, !tbaa !153
+  store i64 %.0136.fr, ptr %375, align 8, !tbaa !153
   %376 = add i32 %372, 1
   store i32 %376, ptr %136, align 8, !tbaa !138
-  %377 = getelementptr ptr, ptr %.sroa.0.1, i64 %.0136
-  %.not.i222 = icmp eq ptr %.8.val.fr.i, null
-  %378 = getelementptr ptr, ptr %.8.val.fr.i, i64 %.0136
+  %377 = getelementptr ptr, ptr %.sroa.0.1, i64 %.0136.fr
+  %.not.i222 = icmp eq ptr %.sroa.23.1, null
+  %378 = getelementptr ptr, ptr %.sroa.23.1, i64 %.0136.fr
   %spec.select295 = select i1 %.not.i222, ptr null, ptr %378
-  %379 = sub i64 %.0139, %.0136
+  %379 = sub i64 %.0139, %.0136.fr
   %.not182 = icmp eq i64 %379, 0
   br i1 %.not182, label %.preheader505, label %162, !llvm.loop !157
 

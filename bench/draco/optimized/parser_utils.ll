@@ -165,7 +165,7 @@ define dso_local void @_ZN5draco6parser8SkipLineEPNS_13DecoderBufferE(ptr nounde
 8:                                                ; preds = %20, %.lr.ph.split.us.i
   %9 = phi i64 [ %6, %.lr.ph.split.us.i ], [ %21, %20 ]
   %10 = phi i64 [ %5, %.lr.ph.split.us.i ], [ %9, %20 ]
-  %.02148.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.143.us.i, %20 ]
+  %.02148.us.i = phi i32 [ 0, %.lr.ph.split.us.i ], [ %.143.fr.us.i, %20 ]
   %.02247.us.i = phi i8 [ undef, %.lr.ph.split.us.i ], [ %.12341.us.i, %20 ]
   %11 = getelementptr inbounds i8, ptr %7, i64 %10
   %12 = load i8, ptr %11, align 1
@@ -207,6 +207,7 @@ switch.early.test.us.i:                           ; preds = %18, %.thread.us.i
   %.143.us.i = phi i32 [ %.144.us.i, %switch.early.test.us.i ], [ %.144.us.i, %switch.early.test.us.i ], [ %.02148.us.i, %18 ]
   %.12341.us.i = phi i8 [ %.12342.us.i, %switch.early.test.us.i ], [ %.12342.us.i, %switch.early.test.us.i ], [ %.02247.us.i, %18 ]
   store i64 %9, ptr %3, align 8, !tbaa !14
+  %.143.fr.us.i = freeze i32 %.143.us.i
   %21 = add i64 %9, 1
   %.not45.us.i = icmp slt i64 %4, %21
   br i1 %.not45.us.i, label %_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit, label %8, !llvm.loop !22
@@ -254,7 +255,7 @@ define dso_local void @_ZN5draco6parser9ParseLineEPNS_13DecoderBufferEPNSt7__cxx
 19:                                               ; preds = %31, %.lr.ph.split.us
   %20 = phi i64 [ %8, %.lr.ph.split.us ], [ %32, %31 ]
   %21 = phi i64 [ %7, %.lr.ph.split.us ], [ %20, %31 ]
-  %.02148.us = phi i32 [ 0, %.lr.ph.split.us ], [ %.143.us, %31 ]
+  %.02148.us = phi i32 [ 0, %.lr.ph.split.us ], [ %.143.fr.us, %31 ]
   %.02247.us = phi i8 [ undef, %.lr.ph.split.us ], [ %.12341.us, %31 ]
   %22 = getelementptr inbounds i8, ptr %18, i64 %21
   %23 = load i8, ptr %22, align 1
@@ -296,6 +297,7 @@ switch.early.test.us:                             ; preds = %29, %.thread.us
   %.143.us = phi i32 [ %.144.us, %switch.early.test.us ], [ %.144.us, %switch.early.test.us ], [ %.02148.us, %29 ]
   %.12341.us = phi i8 [ %.12342.us, %switch.early.test.us ], [ %.12342.us, %switch.early.test.us ], [ %.02247.us, %29 ]
   store i64 %20, ptr %5, align 8, !tbaa !14
+  %.143.fr.us = freeze i32 %.143.us
   %32 = add i64 %20, 1
   %.not45.us = icmp slt i64 %6, %32
   br i1 %.not45.us, label %.critedge, label %19, !llvm.loop !22
@@ -304,7 +306,7 @@ switch.early.test.us:                             ; preds = %29, %.thread.us
   %33 = phi i64 [ %63, %61 ], [ %13, %.lr.ph.split.preheader ]
   %34 = phi i64 [ %64, %61 ], [ %15, %.lr.ph.split.preheader ]
   %35 = phi i64 [ %62, %61 ], [ %14, %.lr.ph.split.preheader ]
-  %.02148 = phi i32 [ %.143, %61 ], [ 0, %.lr.ph.split.preheader ]
+  %.02148 = phi i32 [ %.143.fr, %61 ], [ 0, %.lr.ph.split.preheader ]
   %.02247 = phi i8 [ %.12341, %61 ], [ undef, %.lr.ph.split.preheader ]
   %36 = load ptr, ptr %0, align 8, !tbaa !15
   %37 = getelementptr inbounds i8, ptr %36, i64 %35
@@ -390,6 +392,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit: ; preds 
 61:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit, %switch.early.test30, %switch.early.test30
   %62 = phi i64 [ %.pre52, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %34, %switch.early.test30 ], [ %34, %switch.early.test30 ]
   %63 = phi i64 [ %.pre, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9push_backEc.exit ], [ %33, %switch.early.test30 ], [ %33, %switch.early.test30 ]
+  %.143.fr = freeze i32 %.143
   %64 = add i64 %62, 1
   %.not45 = icmp slt i64 %63, %64
   br i1 %.not45, label %.critedge, label %.lr.ph.split, !llvm.loop !22

@@ -175,17 +175,17 @@ _ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNee
   %11 = load i64, ptr %10, align 8, !tbaa !27
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %11, i64 9223372036854775807)
   %12 = load atomic i64, ptr %9 monotonic, align 8
+  %.fr.i = freeze i64 %12
   br label %13
 
 13:                                               ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i, %_ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNeededEPPS1_.exit
-  %.0.i = phi i64 [ %12, %_ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNeededEPPS1_.exit ], [ %20, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i ]
-  %.0.fr.i = freeze i64 %.0.i
-  %14 = icmp slt i64 %.0.fr.i, -9223372036854774808
+  %.0.i = phi i64 [ %.fr.i, %_ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNeededEPPS1_.exit ], [ %20, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i ]
+  %14 = icmp slt i64 %.0.i, -9223372036854774808
   br i1 %14, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i
 
 _ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i:  ; preds = %13
-  %15 = add nsw i64 %.0.fr.i, -1000
-  %16 = icmp slt i64 %.0.fr.i, 1000
+  %15 = add nsw i64 %.0.i, -1000
+  %16 = icmp slt i64 %.0.i, 1000
   %..i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.speculated, i64 %15)
   br i1 %16, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i
 
@@ -194,12 +194,13 @@ _ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i: ; preds = %13, %_ZN9grpc
 
 _ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i: ; preds = %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i, %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i
   %17 = phi i64 [ 0, %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i ], [ %..i.i, %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i ]
-  %18 = cmpxchg weak ptr %9, i64 %.0.fr.i, i64 %17 monotonic monotonic, align 8
-  %19 = extractvalue { i64, i1 } %18, 1
+  %18 = cmpxchg weak ptr %9, i64 %.0.i, i64 %17 monotonic monotonic, align 8
+  %.fr19.i = freeze { i64, i1 } %18
+  %19 = extractvalue { i64, i1 } %.fr19.i, 1
   br i1 %19, label %_ZN9grpc_core8internal12_GLOBAL__N_110ClampedAddIlEET_RSt6atomicIS3_ES3_S3_S3_.exit, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i: ; preds = %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i
-  %20 = extractvalue { i64, i1 } %18, 0
+  %20 = extractvalue { i64, i1 } %.fr19.i, 0
   br label %13, !llvm.loop !28
 
 _ZN9grpc_core8internal12_GLOBAL__N_110ClampedAddIlEET_RSt6atomicIS3_ES3_S3_S3_.exit: ; preds = %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i
@@ -232,26 +233,26 @@ _ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNee
   %13 = load i64, ptr %12, align 8, !tbaa !27
   %.sroa.speculated = tail call i64 @llvm.umin.i64(i64 %13, i64 9223372036854775807)
   %14 = load atomic i64, ptr %9 monotonic, align 8
+  %.fr.i = freeze i64 %14
   br label %15
 
 15:                                               ; preds = %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i, %_ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNeededEPPS1_.exit
-  %.0.i = phi i64 [ %14, %_ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNeededEPPS1_.exit ], [ %28, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i ]
-  %.0.fr.i = freeze i64 %.0.i
-  %16 = icmp sgt i64 %.0.fr.i, 0
+  %.0.i = phi i64 [ %.fr.i, %_ZN9grpc_core8internal23ServerRetryThrottleData34GetReplacementThrottleDataIfNeededEPPS1_.exit ], [ %28, %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i ]
+  %16 = icmp sgt i64 %.0.i, 0
   br i1 %16, label %17, label %20
 
 17:                                               ; preds = %15
-  %18 = sub nuw nsw i64 9223372036854775807, %.0.fr.i
+  %18 = sub nuw nsw i64 9223372036854775807, %.0.i
   %19 = icmp sgt i64 %11, %18
   br i1 %19, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i
 
 20:                                               ; preds = %15
-  %21 = sub nsw i64 -9223372036854775808, %.0.fr.i
+  %21 = sub nsw i64 -9223372036854775808, %.0.i
   %22 = icmp slt i64 %11, %21
   br i1 %22, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i
 
 _ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i:  ; preds = %20, %17
-  %23 = add i64 %.0.fr.i, %11
+  %23 = add i64 %.0.i, %11
   %24 = icmp slt i64 %23, 0
   %..i.i = tail call i64 @llvm.smin.i64(i64 %.sroa.speculated, i64 %23)
   br i1 %24, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i, label %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i
@@ -261,12 +262,13 @@ _ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i: ; preds = %_ZN9grpc_core
 
 _ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i: ; preds = %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i, %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i, %17
   %25 = phi i64 [ 0, %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread.i ], [ %..i.i, %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.i ], [ %.sroa.speculated, %17 ]
-  %26 = cmpxchg weak ptr %9, i64 %.0.fr.i, i64 %25 monotonic monotonic, align 8
-  %27 = extractvalue { i64, i1 } %26, 1
+  %26 = cmpxchg weak ptr %9, i64 %.0.i, i64 %25 monotonic monotonic, align 8
+  %.fr19.i = freeze { i64, i1 } %26
+  %27 = extractvalue { i64, i1 } %.fr19.i, 1
   br i1 %27, label %_ZN9grpc_core8internal12_GLOBAL__N_110ClampedAddIlEET_RSt6atomicIS3_ES3_S3_S3_.exit, label %_ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i
 
 _ZNSt13__atomic_baseIlE21compare_exchange_weakERllSt12memory_orderS2_.exit.i: ; preds = %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i
-  %28 = extractvalue { i64, i1 } %26, 0
+  %28 = extractvalue { i64, i1 } %.fr19.i, 0
   br label %15, !llvm.loop !28
 
 _ZN9grpc_core8internal12_GLOBAL__N_110ClampedAddIlEET_RSt6atomicIS3_ES3_S3_S3_.exit: ; preds = %_ZN9grpc_core13SaturatingAddIlEET_S1_S1_.exit.thread13.i

@@ -15484,7 +15484,8 @@ max_block_wide.exit:                              ; preds = %90, %max_block_high
   %133 = load i32, ptr %132, align 4
   %134 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %131
   %135 = load i32, ptr %134, align 4
-  %136 = mul nsw i32 %135, %133
+  %.fr = freeze i32 %135
+  %136 = mul nsw i32 %.fr, %133
   %137 = getelementptr inbounds nuw i32, ptr @tx_size_high_unit, i64 %128
   %138 = load i32, ptr %137, align 4
   %139 = getelementptr inbounds nuw i32, ptr @tx_size_wide_unit, i64 %128
@@ -15494,8 +15495,7 @@ max_block_wide.exit:                              ; preds = %90, %max_block_high
 .preheader.us:                                    ; preds = %.preheader.us.preheader, %._crit_edge.us
   %.0108.us = phi i32 [ %.us-phi.us, %._crit_edge.us ], [ %8, %.preheader.us.preheader ]
   %.084107.us = phi i32 [ %148, %._crit_edge.us ], [ 0, %.preheader.us.preheader ]
-  %.084107.us.fr = freeze i32 %.084107.us
-  %141 = add i32 %.084107.us.fr, %6
+  %141 = add i32 %.084107.us, %6
   %.not96.us = icmp slt i32 %141, %phi.call
   br i1 %.not96.us, label %.lr.ph.split.us111, label %._crit_edge.us
 
@@ -15519,7 +15519,7 @@ max_block_wide.exit:                              ; preds = %90, %max_block_high
 
 ._crit_edge.us:                                   ; preds = %145, %.preheader.us
   %.us-phi.us = phi i32 [ %.0108.us, %.preheader.us ], [ %.2.us, %145 ]
-  %148 = add nsw i32 %.084107.us.fr, %135
+  %148 = add i32 %.084107.us, %.fr
   %149 = icmp slt i32 %148, %138
   br i1 %149, label %.preheader.us, label %.loopexit, !llvm.loop !134
 

@@ -6129,7 +6129,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %6 = load ptr, ptr %1, align 8
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %8 = load ptr, ptr %7, align 8
-  %.fr229 = freeze ptr %8
+  %.fr230 = freeze ptr %8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i32 0, ptr %5, align 4, !annotation !9
@@ -6185,9 +6185,9 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 34:                                               ; preds = %23
   store i32 -107, ptr %5, align 4
-  %35 = getelementptr inbounds nuw i8, ptr %.fr229, i64 864
+  %35 = getelementptr inbounds nuw i8, ptr %.fr230, i64 864
   call void @_raw_spin_lock(ptr noundef nonnull %35) #19
-  %36 = getelementptr inbounds nuw i8, ptr %.fr229, i64 832
+  %36 = getelementptr inbounds nuw i8, ptr %.fr230, i64 832
   %37 = load ptr, ptr %36, align 64
   %38 = icmp eq ptr %37, null
   br i1 %38, label %303, label %39
@@ -6229,20 +6229,20 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %60, label %68, label %61
 
 61:                                               ; preds = %57, %50
-  %62 = getelementptr inbounds nuw i8, ptr %.fr229, i64 744
+  %62 = getelementptr inbounds nuw i8, ptr %.fr230, i64 744
   %63 = load ptr, ptr %62, align 8
   %64 = icmp eq ptr %63, null
   br i1 %64, label %65, label %68
 
 65:                                               ; preds = %61
-  %66 = call fastcc i32 @unix_autobind(ptr noundef %.fr229)
+  %66 = call fastcc i32 @unix_autobind(ptr noundef %.fr230)
   store i32 %66, ptr %5, align 4
   %67 = icmp eq i32 %66, 0
   br i1 %67, label %68, label %304
 
 68:                                               ; preds = %65, %61, %57
   store i32 -90, ptr %5, align 4
-  %69 = getelementptr inbounds nuw i8, ptr %.fr229, i64 332
+  %69 = getelementptr inbounds nuw i8, ptr %.fr230, i64 332
   %70 = load i32, ptr %69, align 4
   %71 = add i32 %70, -32
   %72 = sext i32 %71 to i64
@@ -6267,7 +6267,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %85 = sub i64 %2, %84
   %86 = load i32, ptr %19, align 4
   %87 = and i32 %86, 64
-  %88 = call ptr @sock_alloc_send_pskb(ptr noundef %.fr229, i64 noundef %85, i64 noundef %84, i32 noundef %87, ptr noundef nonnull %5, i32 noundef 3) #19
+  %88 = call ptr @sock_alloc_send_pskb(ptr noundef %.fr230, i64 noundef %85, i64 noundef %84, i32 noundef %87, ptr noundef nonnull %5, i32 noundef 3) #19
   %89 = icmp eq ptr %88, null
   br i1 %89, label %304, label %90
 
@@ -6343,29 +6343,29 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %129 = load i32, ptr %19, align 4
   %130 = and i32 %129, 64
   %131 = icmp eq i32 %130, 0
-  br i1 %131, label %132, label %135
+  br i1 %131, label %132, label %136
 
 132:                                              ; preds = %128
-  %133 = getelementptr inbounds nuw i8, ptr %.fr229, i64 400
+  %133 = getelementptr inbounds nuw i8, ptr %.fr230, i64 400
   %134 = load i64, ptr %133, align 8
-  br label %135
+  %135 = freeze i64 %134
+  br label %136
 
-135:                                              ; preds = %132, %128
-  %136 = phi i64 [ %134, %132 ], [ 0, %128 ]
+136:                                              ; preds = %132, %128
+  %.fr229 = phi i64 [ %135, %132 ], [ 0, %128 ]
   %137 = icmp eq ptr %52, null
-  %138 = getelementptr inbounds nuw i8, ptr %.fr229, i64 48
-  %139 = getelementptr inbounds nuw i8, ptr %.fr229, i64 514
-  %140 = getelementptr inbounds nuw i8, ptr %.fr229, i64 624
-  %141 = getelementptr inbounds nuw i8, ptr %.fr229, i64 832
-  %142 = getelementptr inbounds nuw i8, ptr %.fr229, i64 864
-  %143 = getelementptr inbounds nuw i8, ptr %.fr229, i64 18
+  %138 = getelementptr inbounds nuw i8, ptr %.fr230, i64 48
+  %139 = getelementptr inbounds nuw i8, ptr %.fr230, i64 514
+  %140 = getelementptr inbounds nuw i8, ptr %.fr230, i64 624
+  %141 = getelementptr inbounds nuw i8, ptr %.fr230, i64 832
+  %142 = getelementptr inbounds nuw i8, ptr %.fr230, i64 864
+  %143 = getelementptr inbounds nuw i8, ptr %.fr230, i64 18
   br label %144
 
-144:                                              ; preds = %276, %135
-  %145 = phi i64 [ %268, %276 ], [ %136, %135 ]
-  %146 = phi ptr [ %163, %276 ], [ %51, %135 ]
-  %.fr228 = freeze i64 %145
-  %147 = icmp eq i64 %.fr228, 0
+144:                                              ; preds = %276, %136
+  %145 = phi i64 [ %.fr228, %276 ], [ %.fr229, %136 ]
+  %146 = phi ptr [ %163, %276 ], [ %51, %136 ]
+  %147 = icmp eq i64 %145, 0
   br label %148
 
 148:                                              ; preds = %246, %144
@@ -6409,7 +6409,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   store i32 -1, ptr %5, align 4
   %170 = load ptr, ptr %169, align 64
   %171 = icmp ne ptr %170, null
-  %172 = icmp ne ptr %170, %.fr229
+  %172 = icmp ne ptr %170, %.fr230
   %173 = and i1 %171, %172
   br i1 %173, label %.loopexit28, label %174
 
@@ -6417,7 +6417,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %175 = getelementptr inbounds nuw i8, ptr %163, i64 96
   %176 = getelementptr inbounds nuw i8, ptr %163, i64 620
   %177 = getelementptr inbounds nuw i8, ptr %163, i64 624
-  %178 = icmp eq ptr %163, %.fr229
+  %178 = icmp eq ptr %163, %.fr230
   %179 = getelementptr inbounds nuw i8, ptr %163, i64 232
   %180 = getelementptr inbounds nuw i8, ptr %163, i64 556
   br i1 %178, label %.split.us, label %.split
@@ -6477,15 +6477,15 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   %211 = call i32 @security_unix_may_send(ptr noundef %209, ptr noundef %210) #19
   store i32 %211, ptr %5, align 4
   %212 = icmp eq i32 %211, 0
-  br i1 %212, label %._crit_edge321, label %.split71.us
+  br i1 %212, label %._crit_edge322, label %.split71.us
 
-._crit_edge321:                                   ; preds = %208
-  %.pre322 = load ptr, ptr %169, align 64
+._crit_edge322:                                   ; preds = %208
+  %.pre323 = load ptr, ptr %169, align 64
   br label %213
 
-213:                                              ; preds = %._crit_edge321, %205
-  %214 = phi ptr [ %.pre322, %._crit_edge321 ], [ %196, %205 ]
-  %215 = icmp eq ptr %214, %.fr229
+213:                                              ; preds = %._crit_edge322, %205
+  %214 = phi ptr [ %.pre323, %._crit_edge322 ], [ %196, %205 ]
+  %215 = icmp eq ptr %214, %.fr230
   br i1 %215, label %.split136.us, label %216
 
 216:                                              ; preds = %213
@@ -6499,7 +6499,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 221:                                              ; preds = %220
   call void @_raw_spin_unlock(ptr noundef nonnull %168) #19
-  call fastcc void @unix_state_double_lock(ptr noundef %.fr229, ptr noundef %163)
+  call fastcc void @unix_state_double_lock(ptr noundef %.fr230, ptr noundef %163)
   br label %222
 
 222:                                              ; preds = %221, %220
@@ -6508,7 +6508,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %224, label %225, label %.split142.us
 
 225:                                              ; preds = %222
-  %226 = call fastcc i32 @unix_dgram_peer_wake_me(ptr noundef %.fr229, ptr noundef %163), !range !57
+  %226 = call fastcc i32 @unix_dgram_peer_wake_me(ptr noundef %.fr230, ptr noundef %163), !range !57
   %227 = icmp eq i32 %226, 0
   br i1 %227, label %228, label %.split142.us
 
@@ -6519,7 +6519,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   store i32 -1, ptr %5, align 4
   %230 = load ptr, ptr %169, align 64
   %231 = icmp ne ptr %230, null
-  %232 = icmp ne ptr %230, %.fr229
+  %232 = icmp ne ptr %230, %.fr230
   %233 = and i1 %231, %232
   br i1 %233, label %.thread22, label %.split.split.us
 
@@ -6561,10 +6561,10 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 245:                                              ; preds = %242
   store ptr null, ptr %141, align 64
-  call fastcc void @unix_dgram_peer_wake_disconnect_wakeup(ptr noundef %.fr229, ptr noundef %163)
+  call fastcc void @unix_dgram_peer_wake_disconnect_wakeup(ptr noundef %.fr230, ptr noundef %163)
   store volatile i8 7, ptr %143, align 2
   call void @_raw_spin_unlock(ptr noundef nonnull %142) #19
-  call fastcc void @unix_dgram_disconnected(ptr noundef %.fr229, ptr noundef %163)
+  call fastcc void @unix_dgram_disconnected(ptr noundef %.fr230, ptr noundef %163)
   call fastcc void @sock_put(ptr noundef %163)
   store i32 -111, ptr %5, align 4
   br label %.critedge
@@ -6601,7 +6601,7 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
 
 260:                                              ; preds = %._crit_edge, %252
   %261 = phi ptr [ %.pre, %._crit_edge ], [ %170, %252 ]
-  %262 = icmp eq ptr %261, %.fr229
+  %262 = icmp eq ptr %261, %.fr230
   br i1 %262, label %.loopexit, label %263
 
 263:                                              ; preds = %260
@@ -6611,8 +6611,9 @@ define internal i32 @unix_dgram_sendmsg(ptr noundef %0, ptr noundef %1, i64 noun
   br i1 %266, label %267, label %.loopexit, !prof !7
 
 267:                                              ; preds = %263
-  %268 = call fastcc i64 @unix_wait_for_peer(ptr noundef %163, i64 noundef %.fr228)
-  %269 = icmp eq i64 %268, 9223372036854775807
+  %268 = call fastcc i64 @unix_wait_for_peer(ptr noundef %163, i64 noundef %145)
+  %.fr228 = freeze i64 %268
+  %269 = icmp eq i64 %.fr228, 9223372036854775807
   %270 = select i1 %269, i32 -512, i32 -4
   store i32 %270, ptr %5, align 4
   %271 = call i64 asm "movq %gs:${1:P}, $0", "=r,p,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @pcpu_hot) #20, !srcloc !18

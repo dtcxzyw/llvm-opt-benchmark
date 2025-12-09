@@ -4349,21 +4349,22 @@ _ZN4cvc58internal4expr9NodeValue3decEv.exit.i:    ; preds = %265, %259, %256
 _ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit: ; preds = %278, %272, %253, %280
   %282 = phi ptr [ %266, %278 ], [ %266, %272 ], [ %248, %253 ], [ %266, %280 ]
   %283 = load ptr, ptr %154, align 8, !tbaa !14
-  %.not10.i.i.i274 = icmp eq ptr %283, null
+  %.fr = freeze ptr %283
+  %.not10.i.i.i274 = icmp eq ptr %.fr, null
   br i1 %.not10.i.i.i274, label %_ZN4cvc58internal11Cvc5ostreamlsEPFRSoS2_E.exit319, label %.lr.ph.i.i.i275
 
 .lr.ph.i.i.i275:                                  ; preds = %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit, %.lr.ph.i.i.i275
-  %.012.i.i.i276 = phi ptr [ %.1.i.i.i281, %.lr.ph.i.i.i275 ], [ %283, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
+  %.012.i.i.i276 = phi ptr [ %.1.i.i.i281.fr, %.lr.ph.i.i.i275 ], [ %.fr, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
   %.0811.i.i.i277 = phi ptr [ %.19.i.i.i278, %.lr.ph.i.i.i275 ], [ %153, %_ZN4cvc58internal12NodeTemplateILb1EEaSERKS2_.exit ]
-  %.012.i.i.i276.fr = freeze ptr %.012.i.i.i276
-  %284 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276.fr, i64 32
+  %284 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276, i64 32
   %285 = load i8, ptr %284, align 1, !tbaa !26, !range !109, !noundef !110
   %.not1302.not = icmp eq i8 %285, 0
-  %.19.i.i.i278 = select i1 %.not1302.not, ptr %.0811.i.i.i277, ptr %.012.i.i.i276.fr
+  %.19.i.i.i278 = select i1 %.not1302.not, ptr %.0811.i.i.i277, ptr %.012.i.i.i276
   %.1.in.v.i.i.i279 = select i1 %.not1302.not, i64 24, i64 16
-  %.1.in.i.i.i280 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276.fr, i64 %.1.in.v.i.i.i279
+  %.1.in.i.i.i280 = getelementptr inbounds nuw i8, ptr %.012.i.i.i276, i64 %.1.in.v.i.i.i279
   %.1.i.i.i281 = load ptr, ptr %.1.in.i.i.i280, align 8, !tbaa !18
-  %.not.i.i.i282 = icmp eq ptr %.1.i.i.i281, null
+  %.1.i.i.i281.fr = freeze ptr %.1.i.i.i281
+  %.not.i.i.i282 = icmp eq ptr %.1.i.i.i281.fr, null
   br i1 %.not.i.i.i282, label %_ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286, label %.lr.ph.i.i.i275, !llvm.loop !108
 
 _ZNSt3mapIbN4cvc58internal12NodeTemplateILb1EEESt4lessIbESaISt4pairIKbS3_EEE4findERS7_.exit286: ; preds = %.lr.ph.i.i.i275

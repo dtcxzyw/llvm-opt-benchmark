@@ -727,22 +727,23 @@ define range(i32 0, 2) i32 @nk_strfilter(ptr noundef readonly %0, ptr noundef re
 ; Function Attrs: nofree nosync nounwind memory(argmem: read) uwtable
 define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readonly %0, ptr noundef readonly %1) unnamed_addr #9 {
   %3 = load i8, ptr %0, align 1, !tbaa !9
-  %4 = icmp eq i8 %3, 0
+  %.fr42 = freeze i8 %3
+  %4 = icmp eq i8 %.fr42, 0
   br i1 %4, label %nk_str_match_star.exit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %tailrecurse
-  %5 = phi i8 [ %7, %tailrecurse ], [ %3, %2 ]
+  %5 = phi i8 [ %.fr41, %tailrecurse ], [ %.fr42, %2 ]
   %.tr1929 = phi ptr [ %33, %tailrecurse ], [ %1, %2 ]
   %.tr28 = phi ptr [ %6, %tailrecurse ], [ %0, %2 ]
-  %.fr41 = freeze i8 %5
   %6 = getelementptr inbounds nuw i8, ptr %.tr28, i64 1
   %7 = load i8, ptr %6, align 1, !tbaa !9
-  %8 = icmp eq i8 %7, 42
+  %.fr41 = freeze i8 %7
+  %8 = icmp eq i8 %.fr41, 42
   br i1 %8, label %9, label %22
 
 9:                                                ; preds = %.lr.ph
   %10 = getelementptr inbounds nuw i8, ptr %.tr28, i64 2
-  %11 = icmp eq i8 %.fr41, 46
+  %11 = icmp eq i8 %5, 46
   br i1 %11, label %.split.us, label %.split
 
 .split.us:                                        ; preds = %9
@@ -771,12 +772,12 @@ define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readon
 18:                                               ; preds = %.split
   %19 = load i8, ptr %.0.i, align 1, !tbaa !9
   %20 = getelementptr inbounds nuw i8, ptr %.0.i, i64 1
-  %21 = icmp eq i8 %.fr41, %19
+  %21 = icmp eq i8 %5, %19
   br i1 %21, label %.split, label %nk_str_match_star.exit, !llvm.loop !24
 
 22:                                               ; preds = %.lr.ph
-  %23 = icmp eq i8 %.fr41, 36
-  %24 = icmp eq i8 %7, 0
+  %23 = icmp eq i8 %5, 36
+  %24 = icmp eq i8 %.fr41, 0
   %or.cond = and i1 %23, %24
   %25 = load i8, ptr %.tr1929, align 1, !tbaa !9
   %26 = icmp eq i8 %25, 0
@@ -790,14 +791,15 @@ define internal fastcc range(i32 0, 2) i32 @nk_str_match_here(ptr noundef readon
   br i1 %26, label %nk_str_match_star.exit, label %30
 
 30:                                               ; preds = %29
-  %31 = icmp eq i8 %.fr41, 46
-  %32 = icmp eq i8 %.fr41, %25
+  %31 = icmp eq i8 %5, 46
+  %32 = icmp eq i8 %5, %25
   %or.cond18 = or i1 %31, %32
   br i1 %or.cond18, label %tailrecurse, label %nk_str_match_star.exit
 
 tailrecurse:                                      ; preds = %30
   %33 = getelementptr inbounds nuw i8, ptr %.tr1929, i64 1
-  br i1 %24, label %nk_str_match_star.exit, label %.lr.ph
+  %34 = icmp eq i8 %.fr41, 0
+  br i1 %34, label %nk_str_match_star.exit, label %.lr.ph
 
 nk_str_match_star.exit:                           ; preds = %tailrecurse, %30, %29, %.split, %18, %13, %.lr.ph35, %2, %.split.us, %27
   %.0 = phi i32 [ %28, %27 ], [ 1, %.split.us ], [ 1, %2 ], [ 0, %.lr.ph35 ], [ 1, %13 ], [ 0, %18 ], [ 1, %.split ], [ 1, %tailrecurse ], [ 0, %30 ], [ 0, %29 ]
@@ -49860,7 +49862,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   br label %.loopexit.i.i
 
 .loopexit.i.i:                                    ; preds = %.loopexit.i.i, %.lr.ph.i.i
-  %.05177.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select236.i, %.loopexit.i.i ]
+  %.05177.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %spec.select235.i, %.loopexit.i.i ]
   %.05575.i.i = phi i32 [ 0, %.lr.ph.i.i ], [ %59, %.loopexit.i.i ]
   %.06072.i.i = phi i32 [ %54, %.lr.ph.i.i ], [ %68, %.loopexit.i.i ]
   %59 = add nsw i32 %.06072.i.i, %.05575.i.i
@@ -49871,7 +49873,7 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   %64 = load i32, ptr %6, align 4
   %.fr.i = freeze i32 %64
   %.not65.i.i = icmp eq i32 %.fr.i, 32
-  %spec.select236.i = select i1 %.not65.i.i, i32 %59, i32 %.05177.i.i
+  %spec.select235.i = select i1 %.not65.i.i, i32 %59, i32 %.05177.i.i
   %65 = sext i32 %59 to i64
   %66 = getelementptr inbounds i8, ptr %1, i64 %65
   %67 = sub nsw i32 %2, %59
@@ -49884,8 +49886,8 @@ nk_text_clamp.exit.thread.thread.i:               ; preds = %nk_rgb_factor.exit
   br i1 %or.cond66.i.i, label %.loopexit.i.i, label %nk_text_clamp.exit.thread.i, !llvm.loop !214
 
 nk_text_clamp.exit.thread.i:                      ; preds = %.loopexit.i.i
-  %.not64.i.i = icmp eq i32 %spec.select236.i, 0
-  %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select236.i
+  %.not64.i.i = icmp eq i32 %spec.select235.i, 0
+  %spec.select.i = select i1 %.not64.i.i, i32 %59, i32 %spec.select235.i
   %71 = select i1 %70, i32 %spec.select.i, i32 %59
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.not18 = icmp eq i32 %71, 0
@@ -49960,22 +49962,21 @@ nk_text_clamp.exit111.thread.thread.i:            ; preds = %80
   %107 = load ptr, ptr %37, align 8
   %108 = call float %106(ptr %107, float noundef %97, ptr noundef %101, i32 noundef %103) #56
   %.not65.i110.us.i = icmp eq i32 %.promoted.fr.i, 32
-  %spec.select237.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
+  %spec.select236.i = select i1 %.not65.i110.us.i, i32 %103, i32 0
   br label %nk_utf_decode.exit.thread.i, !llvm.loop !1114
 
 .lr.ph.i86.i:                                     ; preds = %.lr.ph.i86.preheader.i, %nk_utf_decode.exit.i
-  %109 = phi i32 [ %166, %nk_utf_decode.exit.i ], [ %.promoted.fr.i, %.lr.ph.i86.preheader.i ]
-  %.05177.i89.i = phi i32 [ %spec.select238.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
+  %109 = phi i32 [ %.fr182.i, %nk_utf_decode.exit.i ], [ %.promoted.fr.i, %.lr.ph.i86.preheader.i ]
+  %.05177.i89.i = phi i32 [ %spec.select237.i, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.05575.i91.i = phi i32 [ %110, %nk_utf_decode.exit.i ], [ 0, %.lr.ph.i86.preheader.i ]
   %.06072.i94.i = phi i32 [ %.023.i.i, %nk_utf_decode.exit.i ], [ %103, %.lr.ph.i86.preheader.i ]
-  %.fr182.i = freeze i32 %109
   %110 = add nsw i32 %.06072.i94.i, %.05575.i91.i
   %111 = load ptr, ptr %58, align 8, !tbaa !211
   %112 = load float, ptr %51, align 8, !tbaa !213
   %113 = load ptr, ptr %37, align 8
   %114 = call float %111(ptr %113, float noundef %112, ptr noundef nonnull %101, i32 noundef %110) #56
-  %.not65.i110.i = icmp eq i32 %.fr182.i, 32
-  %spec.select238.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
+  %.not65.i110.i = icmp eq i32 %109, 32
+  %spec.select237.i = select i1 %.not65.i110.i, i32 %110, i32 %.05177.i89.i
   %115 = sext i32 %110 to i64
   %116 = getelementptr inbounds i8, ptr %101, i64 %115
   %117 = sub i32 %102, %110
@@ -50097,7 +50098,7 @@ nk_utf_validate.exit.loopexit92.i.i:              ; preds = %nk_utf_decode_byte.
   br label %nk_utf_decode.exit.i
 
 nk_utf_decode.exit.thread.i:                      ; preds = %._crit_edge.i.i, %._crit_edge.loopexit.i.i, %.lr.ph.i86.i, %.lr.ph.i86.preheader.split.us.i
-  %.us-phi174.i = phi i32 [ %spec.select237.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select238.i, %.lr.ph.i86.i ], [ %spec.select238.i, %._crit_edge.loopexit.i.i ], [ %spec.select238.i, %._crit_edge.i.i ]
+  %.us-phi174.i = phi i32 [ %spec.select236.i, %.lr.ph.i86.preheader.split.us.i ], [ %spec.select237.i, %.lr.ph.i86.i ], [ %spec.select237.i, %._crit_edge.loopexit.i.i ], [ %spec.select237.i, %._crit_edge.i.i ]
   %.us-phi175.i = phi i32 [ %103, %.lr.ph.i86.preheader.split.us.i ], [ %110, %._crit_edge.i.i ], [ %110, %._crit_edge.loopexit.i.i ], [ %102, %.lr.ph.i86.i ]
   %165 = icmp slt i32 %.us-phi175.i, %102
   br label %nk_text_clamp.exit111.thread.i
@@ -50105,6 +50106,7 @@ nk_utf_decode.exit.thread.i:                      ; preds = %._crit_edge.i.i, %.
 nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_validate.exit.loopexit92.i.i, %nk_utf_validate.exit.loopexit.i.i, %164, %159, %nk_utf_decode_byte.exit.i.i
   %166 = phi i32 [ 65533, %nk_utf_decode_byte.exit.i.i ], [ 65533, %164 ], [ %.0.lcssa91.i.i, %159 ], [ 65533, %nk_utf_validate.exit.loopexit.i.i ], [ 65533, %nk_utf_validate.exit.loopexit92.i.i ], [ 65533, %127 ]
   %.023.i.i = phi i32 [ 1, %nk_utf_decode_byte.exit.i.i ], [ %128, %164 ], [ %128, %159 ], [ %indvars83.le103.i.i, %nk_utf_validate.exit.loopexit.i.i ], [ %indvars83.le.i.i, %nk_utf_validate.exit.loopexit92.i.i ], [ 1, %127 ]
+  %.fr182.i = freeze i32 %166
   %.not.i107.i = icmp ne i32 %.023.i.i, 0
   %167 = fcmp olt float %114, %50
   %or.cond.i108.i = select i1 %.not.i107.i, i1 %167, i1 false
@@ -50113,7 +50115,7 @@ nk_utf_decode.exit.i:                             ; preds = %127, %nk_utf_valida
   br i1 %or.cond66.i109.i, label %.lr.ph.i86.i, label %nk_text_clamp.exit111.thread.i, !llvm.loop !214
 
 nk_text_clamp.exit111.thread.i:                   ; preds = %nk_utf_decode.exit.i, %nk_utf_decode.exit.thread.i
-  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select238.i, %nk_utf_decode.exit.i ]
+  %.152.i101160.i = phi i32 [ %.us-phi174.i, %nk_utf_decode.exit.thread.i ], [ %spec.select237.i, %nk_utf_decode.exit.i ]
   %169 = phi i32 [ %.us-phi175.i, %nk_utf_decode.exit.thread.i ], [ %110, %nk_utf_decode.exit.i ]
   %.lcssa.i81.i = phi i1 [ %165, %nk_utf_decode.exit.thread.i ], [ %168, %nk_utf_decode.exit.i ]
   %.not64.i82.i = icmp eq i32 %.152.i101160.i, 0

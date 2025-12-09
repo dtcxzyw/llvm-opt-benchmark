@@ -9459,15 +9459,15 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
 .split31.us.preheader:                            ; preds = %173
   %.pre57 = load ptr, ptr @doms_cur, align 8
   %.pre59 = load ptr, ptr @dattr_cur, align 8
+  %.pre59.fr = freeze ptr %.pre59
   br label %.split31.us
 
 .split31.us:                                      ; preds = %.split31.us.preheader, %.loopexit.split.us.us
-  %180 = phi ptr [ %194, %.loopexit.split.us.us ], [ %.pre59, %.split31.us.preheader ]
-  %181 = phi ptr [ %195, %.loopexit.split.us.us ], [ %.pre57, %.split31.us.preheader ]
-  %182 = phi i64 [ %196, %.loopexit.split.us.us ], [ 0, %.split31.us.preheader ]
-  %.fr41 = freeze ptr %180
+  %180 = phi ptr [ %.fr86, %.loopexit.split.us.us ], [ %.pre59.fr, %.split31.us.preheader ]
+  %181 = phi ptr [ %194, %.loopexit.split.us.us ], [ %.pre57, %.split31.us.preheader ]
+  %182 = phi i64 [ %195, %.loopexit.split.us.us ], [ 0, %.split31.us.preheader ]
   %183 = getelementptr [1 x %struct.cpumask], ptr %171, i64 %182
-  %184 = icmp ne ptr %.fr41, null
+  %184 = icmp ne ptr %180, null
   %185 = or i1 %176, %184
   %186 = getelementptr %struct.sched_domain_attr, ptr %2, i64 %182
   %187 = select i1 %176, ptr %186, ptr %4
@@ -9487,17 +9487,18 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
   br i1 %exitcond54.not, label %.loopexit18.us, label %.split.us34, !llvm.loop !231
 
 .loopexit.split.us.us:                            ; preds = %.split.us34, %204, %212, %.loopexit18.us
-  %194 = phi ptr [ %.pre58, %.loopexit18.us ], [ %.fr41, %212 ], [ %.fr41, %204 ], [ %.fr41, %.split.us34 ]
-  %195 = phi ptr [ %.pre, %.loopexit18.us ], [ %181, %212 ], [ %181, %204 ], [ %181, %.split.us34 ]
-  %196 = add nuw nsw i64 %182, 1
-  %197 = icmp eq i64 %196, %179
-  br i1 %197, label %.loopexit19, label %.split31.us, !llvm.loop !232
+  %.fr86 = phi ptr [ %199, %.loopexit18.us ], [ %180, %212 ], [ %180, %204 ], [ %180, %.split.us34 ]
+  %194 = phi ptr [ %.pre, %.loopexit18.us ], [ %181, %212 ], [ %181, %204 ], [ %181, %.split.us34 ]
+  %195 = add nuw nsw i64 %182, 1
+  %196 = icmp eq i64 %195, %179
+  br i1 %196, label %.loopexit19, label %.split31.us, !llvm.loop !232
 
 .loopexit18.us:                                   ; preds = %192, %206, %215
-  %198 = select i1 %177, ptr null, ptr %186
-  %199 = tail call fastcc i32 @build_sched_domains(ptr noundef %183, ptr noundef %198)
+  %197 = select i1 %177, ptr null, ptr %186
+  %198 = tail call fastcc i32 @build_sched_domains(ptr noundef %183, ptr noundef %197)
   %.pre = load ptr, ptr @doms_cur, align 8
   %.pre58 = load ptr, ptr @dattr_cur, align 8
+  %199 = freeze ptr %.pre58
   br label %.loopexit.split.us.us
 
 .split.us.us35:                                   ; preds = %.split31.us
@@ -9533,7 +9534,7 @@ define dso_local void @partition_sched_domains_locked(i32 noundef %0, ptr nounde
 212:                                              ; preds = %.split.us.split.us.us40
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 -1, ptr %4, align 4
-  %213 = getelementptr %struct.sched_domain_attr, ptr %.fr41, i64 %208
+  %213 = getelementptr %struct.sched_domain_attr, ptr %180, i64 %208
   %214 = call i32 @bcmp(ptr noundef dereferenceable(4) %187, ptr noundef dereferenceable(4) %213, i64 4)
   %.not17.us.us.us = icmp eq i32 %214, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)

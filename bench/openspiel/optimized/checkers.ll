@@ -1196,8 +1196,8 @@ _ZNSt6vectorIN10open_spiel8checkers9CellStateESaIS2_EED2Ev.exit: ; preds = %.lr.
 
 _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit: ; preds = %_ZNSt6vectorIN10open_spiel8checkers9CellStateESaIS2_EED2Ev.exit
   %117 = load i32, ptr %73, align 8
-  %.fr = freeze i32 %117
-  %118 = icmp sgt i32 %.fr, 0
+  %.fr46 = freeze i32 %117
+  %118 = icmp sgt i32 %.fr46, 0
   %119 = load i32, ptr %74, align 4
   %120 = icmp sgt i32 %119, 0
   %or.cond = select i1 %118, i1 %120, i1 false
@@ -1214,7 +1214,7 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_
   %125 = phi i32 [ %121, %.loopexit ], [ %119, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit ]
   %126 = phi i32 [ %122, %.loopexit ], [ %119, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit ]
   %127 = phi i32 [ %123, %.loopexit ], [ %119, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit ]
-  %.018.in44 = phi i32 [ %.01845, %.loopexit ], [ %.fr, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit ]
+  %.018.in44 = phi i32 [ %.01845, %.loopexit ], [ %.fr46, %_ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_listIS2_E.exit ]
   %.01845 = add nsw i32 %.018.in44, -1
   %128 = icmp sgt i32 %127, 0
   br i1 %128, label %.lr.ph, label %.loopexit
@@ -1239,11 +1239,11 @@ _ZNSt6vectorIN10open_spiel8checkers15TurnHistoryInfoESaIS2_EEaSESt16initializer_
   %139 = load ptr, ptr %75, align 8
   %140 = getelementptr inbounds i32, ptr %139, i64 %138
   store i32 2, ptr %140, align 4
-  %.pre48 = load i32, ptr %74, align 4
+  %.pre50 = load i32, ptr %74, align 4
   br label %141
 
 141:                                              ; preds = %135, %.lr.ph.split.us
-  %142 = phi i32 [ %.pre48, %135 ], [ %130, %.lr.ph.split.us ]
+  %142 = phi i32 [ %.pre50, %135 ], [ %130, %.lr.ph.split.us ]
   %143 = add nuw nsw i32 %.042.us, 1
   %144 = icmp slt i32 %143, %142
   br i1 %144, label %.lr.ph.split.us, label %.loopexit, !llvm.loop !7

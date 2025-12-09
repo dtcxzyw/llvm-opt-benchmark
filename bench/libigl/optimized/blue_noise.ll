@@ -5212,15 +5212,15 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   %.idx.i.i.i = mul nsw i64 %7, 12
   %9 = getelementptr i8, ptr %8, i64 %.idx.i.i.i
   %10 = load i32, ptr %9, align 4, !tbaa !40
-  %.fr181 = freeze i32 %10
+  %.fr179 = freeze i32 %10
   %11 = getelementptr i8, ptr %9, i64 4
   %12 = load i32, ptr %11, align 4, !tbaa !40
-  %.fr182 = freeze i32 %12
+  %.fr181 = freeze i32 %12
   %13 = getelementptr i8, ptr %9, i64 8
   %14 = load i32, ptr %13, align 4, !tbaa !40
-  %15 = tail call i32 @llvm.smax.i32(i32 %.fr181, i32 2)
+  %15 = tail call i32 @llvm.smax.i32(i32 %.fr179, i32 2)
   %.sroa.speculated124 = add nsw i32 %15, -2
-  %16 = add nsw i32 %.fr181, 2
+  %16 = add nsw i32 %.fr179, 2
   %17 = load i32, ptr %4, align 4, !tbaa !40
   %18 = add nsw i32 %17, -1
   %.sroa.speculated119 = tail call i32 @llvm.smin.i32(i32 %18, i32 %16)
@@ -5228,9 +5228,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   br i1 %.not147, label %.critedge74, label %.lr.ph150
 
 .lr.ph150:                                        ; preds = %6
-  %19 = tail call i32 @llvm.smax.i32(i32 %.fr182, i32 2)
+  %19 = tail call i32 @llvm.smax.i32(i32 %.fr181, i32 2)
   %.sroa.speculated114 = add nsw i32 %19, -2
-  %20 = add nsw i32 %.fr182, 2
+  %20 = add nsw i32 %.fr181, 2
   %.sroa.speculated109 = tail call i32 @llvm.smin.i32(i32 %18, i32 %20)
   %.not61140 = icmp sgt i32 %.sroa.speculated114, %.sroa.speculated109
   %21 = tail call i32 @llvm.smax.i32(i32 %14, i32 2)
@@ -5257,10 +5257,10 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN3igl21blue_noise_far_enough
   %32 = add nsw i64 %31, -2
   %33 = zext nneg i32 %19 to i64
   %34 = add nsw i64 %33, -2
-  %35 = zext i32 %.fr182 to i64
+  %35 = zext i32 %.fr181 to i64
   %36 = zext nneg i32 %15 to i64
   %37 = add nsw i64 %36, -2
-  %38 = zext i32 %.fr181 to i64
+  %38 = zext i32 %.fr179 to i64
   br i1 %.not.not.i.i, label %.lr.ph142.us157.preheader, label %.lr.ph142.preheader
 
 .lr.ph142.preheader:                              ; preds = %.lr.ph150.split.split

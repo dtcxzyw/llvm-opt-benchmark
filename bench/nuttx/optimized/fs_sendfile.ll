@@ -39,10 +39,9 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
 
 .preheader.i:                                     ; preds = %18, %.critedge.thread.i
   %.05886.i = phi i64 [ %.4.i, %.critedge.thread.i ], [ 0, %18 ]
-  %.05886.fr.i = freeze i64 %.05886.i
-  %20 = sub i64 %3, %.05886.fr.i
+  %20 = sub i64 %3, %.05886.i
   %spec.store.select.i = tail call i64 @llvm.smin.i64(i64 %20, i64 512)
-  %21 = icmp eq i64 %.05886.fr.i, 0
+  %21 = icmp eq i64 %.05886.i, 0
   br i1 %21, label %.preheader.split.us.i, label %.preheader.split.i
 
 .preheader.split.us.i:                            ; preds = %.preheader.i
@@ -73,20 +72,21 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %40
   %.062.i = phi i64 [ %.163.i, %40 ], [ %.062.i.ph, %.critedge.i.preheader ]
-  %.3.i = phi i64 [ %.4.i, %40 ], [ %.05886.fr.i, %.critedge.i.preheader ]
+  %.3.i = phi i64 [ %.4.i, %40 ], [ %.05886.i, %.critedge.i.preheader ]
   %.055.i = phi ptr [ %.1.i, %40 ], [ %19, %.critedge.i.preheader ]
   %31 = tail call i64 @file_write(ptr noundef %0, ptr noundef %.055.i, i64 noundef %.062.i) #5
-  %32 = icmp sgt i64 %31, -1
+  %.fr.i = freeze i64 %31
+  %32 = icmp sgt i64 %.fr.i, -1
   br i1 %32, label %33, label %37
 
 33:                                               ; preds = %.critedge.i
-  %34 = getelementptr inbounds nuw i8, ptr %.055.i, i64 %31
-  %35 = sub nsw i64 %.062.i, %31
-  %36 = add i64 %31, %.3.i
+  %34 = getelementptr inbounds nuw i8, ptr %.055.i, i64 %.fr.i
+  %35 = sub nsw i64 %.062.i, %.fr.i
+  %36 = add i64 %.fr.i, %.3.i
   br label %40
 
 37:                                               ; preds = %.critedge.i
-  %38 = icmp ne i64 %31, -4
+  %38 = icmp ne i64 %.fr.i, -4
   %39 = icmp eq i64 %.3.i, 0
   %or.cond3.i = select i1 %38, i1 true, i1 %39
   br i1 %or.cond3.i, label %.critedge.thread.thread.i, label %40
@@ -98,16 +98,21 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   %41 = icmp sgt i64 %.163.i, 0
   br i1 %41, label %.critedge.i, label %.critedge.thread.i, !llvm.loop !8
 
-.critedge.thread.i:                               ; preds = %40
-  %.not113.i = icmp ult i64 %.4.i, %3
-  br i1 %.not113.i, label %.preheader.i, label %.critedge.thread.thread.i, !llvm.loop !9
+.critedge.thread.thread.i:                        ; preds = %24, %.preheader.split.us.i, %30, %.preheader.split.i, %37
+  %.260.ph.i = phi i64 [ %.fr.i, %37 ], [ %.05886.i, %.preheader.split.i ], [ %26, %30 ], [ %22, %24 ], [ 0, %.preheader.split.us.i ]
+  %.260.fr106.i = freeze i64 %.260.ph.i
+  br label %.loopexit.i
 
-.critedge.thread.thread.i:                        ; preds = %.critedge.thread.i, %24, %.preheader.split.us.i, %30, %.preheader.split.i, %37
-  %.260107.i = phi i64 [ %31, %37 ], [ %.05886.fr.i, %.preheader.split.i ], [ %26, %30 ], [ %.4.i, %.critedge.thread.i ], [ %22, %24 ], [ 0, %.preheader.split.us.i ]
+.critedge.thread.i:                               ; preds = %40
+  %.not115.i = icmp ult i64 %.4.i, %3
+  br i1 %.not115.i, label %.preheader.i, label %.loopexit.i, !llvm.loop !9
+
+.loopexit.i:                                      ; preds = %.critedge.thread.i, %.critedge.thread.thread.i
+  %.260.fr108.i = phi i64 [ %.260.fr106.i, %.critedge.thread.thread.i ], [ %.4.i, %.critedge.thread.i ]
   tail call void @free(ptr noundef %19)
   br i1 %.not.i, label %copyfile.exit, label %42
 
-42:                                               ; preds = %.critedge.thread.thread.i
+42:                                               ; preds = %.loopexit.i
   %43 = tail call i32 @file_seek(ptr noundef %1, i32 noundef 0, i32 noundef 1) #5
   %44 = icmp slt i32 %43, 0
   br i1 %44, label %45, label %47
@@ -121,11 +126,11 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   %48 = tail call i32 @file_seek(ptr noundef %1, i32 noundef %.061.i, i32 noundef 0) #5
   %49 = icmp slt i32 %48, 0
   %50 = sext i32 %48 to i64
-  %spec.select.i = select i1 %49, i64 %50, i64 %.260107.i
+  %spec.select.i = select i1 %49, i64 %50, i64 %.260.fr108.i
   br label %copyfile.exit
 
-copyfile.exit:                                    ; preds = %47, %45, %.critedge.thread.thread.i, %18, %16, %10, %4
-  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.260107.i, %.critedge.thread.thread.i ], [ %spec.select.i, %47 ]
+copyfile.exit:                                    ; preds = %47, %45, %.loopexit.i, %18, %16, %10, %4
+  %.0 = phi i64 [ 0, %4 ], [ %11, %10 ], [ %17, %16 ], [ %46, %45 ], [ -12, %18 ], [ %.260.fr108.i, %.loopexit.i ], [ %spec.select.i, %47 ]
   ret i64 %.0
 }
 
