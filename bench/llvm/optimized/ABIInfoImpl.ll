@@ -1907,18 +1907,17 @@ _ZN4llvm7PHINode11addIncomingEPNS_5ValueEPNS_10BasicBlockE.exit21: ; preds = %_Z
   %.sroa.01.0.copyload.sroa.speculated = call i64 @llvm.smin.i64(i64 %.sroa.0.0.copyload.i22, i64 %.sroa.0.0.copyload.i)
   %116 = load ptr, ptr %9, align 8, !tbaa !985
   %117 = ptrtoint ptr %19 to i64
-  %118 = and i64 %117, -5
-  store i64 %118, ptr %0, align 8
-  %119 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %116, ptr %119, align 8, !tbaa !985
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 %.sroa.01.0.copyload.sroa.speculated, ptr %120, align 8, !tbaa !974
-  %121 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %122 = load i8, ptr %121, align 8
-  %123 = and i8 %122, -64
-  store i8 %123, ptr %121, align 8
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %124, i8 0, i64 16, i1 false)
+  store i64 %117, ptr %0, align 8
+  %118 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %116, ptr %118, align 8, !tbaa !985
+  %119 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 %.sroa.01.0.copyload.sroa.speculated, ptr %119, align 8, !tbaa !974
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %121 = load i8, ptr %120, align 8
+  %122 = and i8 %121, -64
+  store i8 %122, ptr %120, align 8
+  %123 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %123, i8 0, i64 16, i1 false)
   ret void
 }
 

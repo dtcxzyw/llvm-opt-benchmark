@@ -446,18 +446,17 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm3
   store ptr %45, ptr %219, align 8, !tbaa !105
   %220 = getelementptr inbounds nuw i8, ptr %21, i64 56
   %221 = ptrtoint ptr %30 to i64
-  %222 = and i64 %221, -5
-  store i64 %222, ptr %220, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %21, i64 64
-  store ptr %45, ptr %223, align 8, !tbaa !105
-  %224 = getelementptr inbounds nuw i8, ptr %21, i64 72
-  %225 = ptrtoint ptr %1 to i64
-  %226 = and i64 %225, -5
-  store i64 %226, ptr %224, align 8
-  %227 = getelementptr inbounds nuw i8, ptr %21, i64 80
-  store ptr %0, ptr %227, align 8, !tbaa !105
-  %228 = getelementptr inbounds nuw i8, ptr %21, i64 88
-  store i64 %222, ptr %228, align 8
+  store i64 %221, ptr %220, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %21, i64 64
+  store ptr %45, ptr %222, align 8, !tbaa !105
+  %223 = getelementptr inbounds nuw i8, ptr %21, i64 72
+  %224 = ptrtoint ptr %1 to i64
+  %225 = and i64 %224, -5
+  store i64 %225, ptr %223, align 8
+  %226 = getelementptr inbounds nuw i8, ptr %21, i64 80
+  store ptr %0, ptr %226, align 8, !tbaa !105
+  %227 = getelementptr inbounds nuw i8, ptr %21, i64 88
+  store i64 %221, ptr %227, align 8
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE22applyUpdatesPermissiveENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEE(ptr noundef nonnull align 8 dereferenceable(658) %7, ptr nonnull %21, i64 6) #11
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %8, ptr noundef nonnull %30, ptr noundef nonnull align 8 dereferenceable(144) %9) #11

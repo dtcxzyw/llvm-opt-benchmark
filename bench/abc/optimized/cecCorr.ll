@@ -3754,7 +3754,7 @@ define void @Gia_ManCorrReduce_rec(ptr noundef %0, ptr noundef %1, ptr noundef %
   %or.cond = or i1 %.not, %15
   br i1 %or.cond, label %Gia_ObjReprObj.exit.thread, label %16
 
-common.ret23:                                     ; preds = %Gia_ObjReprObj.exit.thread, %41, %16
+common.ret23:                                     ; preds = %Gia_ObjReprObj.exit.thread, %39, %16
   ret void
 
 16:                                               ; preds = %3
@@ -3764,66 +3764,64 @@ common.ret23:                                     ; preds = %Gia_ObjReprObj.exit
   %19 = getelementptr inbounds nuw i8, ptr %18, i64 8
   %20 = load i32, ptr %19, align 4, !tbaa !94
   %21 = ptrtoint ptr %18 to i64
-  %22 = and i64 %21, -2
-  %23 = inttoptr i64 %22 to ptr
-  %24 = load i64, ptr %23, align 4
-  %25 = lshr i64 %24, 63
-  %26 = trunc nuw nsw i64 %25 to i32
-  %27 = and i64 %5, -2
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load i64, ptr %28, align 4
-  %30 = lshr i64 %29, 63
-  %31 = trunc nuw nsw i64 %30 to i32
-  %32 = xor i64 %21, %5
-  %33 = trunc i64 %32 to i32
-  %34 = and i32 %33, 1
-  %35 = xor i32 %34, %20
-  %36 = xor i32 %35, %26
-  %37 = xor i32 %36, %31
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  store i32 %37, ptr %38, align 4, !tbaa !94
+  %22 = load i64, ptr %18, align 4
+  %23 = lshr i64 %22, 63
+  %24 = trunc nuw nsw i64 %23 to i32
+  %25 = and i64 %5, -2
+  %26 = inttoptr i64 %25 to ptr
+  %27 = load i64, ptr %26, align 4
+  %28 = lshr i64 %27, 63
+  %29 = trunc nuw nsw i64 %28 to i32
+  %30 = xor i64 %21, %5
+  %31 = trunc i64 %30 to i32
+  %32 = and i32 %31, 1
+  %33 = xor i32 %32, %20
+  %34 = xor i32 %33, %24
+  %35 = xor i32 %34, %29
+  %36 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  store i32 %35, ptr %36, align 4, !tbaa !94
   br label %common.ret23
 
 Gia_ObjReprObj.exit.thread:                       ; preds = %3
-  %39 = getelementptr inbounds nuw i8, ptr %2, i64 8
-  %40 = load i32, ptr %39, align 4, !tbaa !94
-  %.not21 = icmp eq i32 %40, -1
-  br i1 %.not21, label %41, label %common.ret23
+  %37 = getelementptr inbounds nuw i8, ptr %2, i64 8
+  %38 = load i32, ptr %37, align 4, !tbaa !94
+  %.not21 = icmp eq i32 %38, -1
+  br i1 %.not21, label %39, label %common.ret23
 
-41:                                               ; preds = %Gia_ObjReprObj.exit.thread
-  %42 = load i64, ptr %2, align 4
-  %43 = and i64 %42, 536870911
-  %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %44
-  tail call void @Gia_ManCorrReduce_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45)
-  %46 = load i64, ptr %2, align 4
-  %47 = lshr i64 %46, 32
-  %48 = and i64 %47, 536870911
-  %49 = sub nsw i64 0, %48
-  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %49
-  tail call void @Gia_ManCorrReduce_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %50)
-  %51 = load i64, ptr %2, align 4
-  %52 = and i64 %51, 536870911
-  %53 = sub nsw i64 0, %52
-  %54 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %53
-  %55 = getelementptr inbounds nuw i8, ptr %54, i64 8
-  %56 = load i32, ptr %55, align 4, !tbaa !94
-  %57 = trunc i64 %51 to i32
-  %58 = lshr i32 %57, 29
-  %59 = and i32 %58, 1
-  %60 = xor i32 %59, %56
-  %61 = lshr i64 %51, 32
-  %62 = and i64 %61, 536870911
-  %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %63
-  %65 = getelementptr inbounds nuw i8, ptr %64, i64 8
-  %66 = load i32, ptr %65, align 4, !tbaa !94
-  %67 = lshr i64 %51, 61
-  %68 = trunc nuw nsw i64 %67 to i32
-  %69 = and i32 %68, 1
-  %70 = xor i32 %69, %66
-  %71 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %60, i32 noundef %70) #24
-  store i32 %71, ptr %39, align 4, !tbaa !94
+39:                                               ; preds = %Gia_ObjReprObj.exit.thread
+  %40 = load i64, ptr %2, align 4
+  %41 = and i64 %40, 536870911
+  %42 = sub nsw i64 0, %41
+  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %42
+  tail call void @Gia_ManCorrReduce_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %43)
+  %44 = load i64, ptr %2, align 4
+  %45 = lshr i64 %44, 32
+  %46 = and i64 %45, 536870911
+  %47 = sub nsw i64 0, %46
+  %48 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %47
+  tail call void @Gia_ManCorrReduce_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %48)
+  %49 = load i64, ptr %2, align 4
+  %50 = and i64 %49, 536870911
+  %51 = sub nsw i64 0, %50
+  %52 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %51
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  %54 = load i32, ptr %53, align 4, !tbaa !94
+  %55 = trunc i64 %49 to i32
+  %56 = lshr i32 %55, 29
+  %57 = and i32 %56, 1
+  %58 = xor i32 %57, %54
+  %59 = lshr i64 %49, 32
+  %60 = and i64 %59, 536870911
+  %61 = sub nsw i64 0, %60
+  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %61
+  %63 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  %64 = load i32, ptr %63, align 4, !tbaa !94
+  %65 = lshr i64 %49, 61
+  %66 = trunc nuw nsw i64 %65 to i32
+  %67 = and i32 %66, 1
+  %68 = xor i32 %67, %64
+  %69 = tail call i32 @Gia_ManHashAnd(ptr noundef %0, i32 noundef %58, i32 noundef %68) #24
+  store i32 %69, ptr %37, align 4, !tbaa !94
   br label %common.ret23
 }
 

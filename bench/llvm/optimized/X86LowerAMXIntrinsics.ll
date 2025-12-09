@@ -20166,34 +20166,33 @@ _ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit: ; preds = %_ZN4llvm3
   store ptr %39, ptr %215, align 8, !tbaa !505
   %216 = getelementptr inbounds nuw i8, ptr %18, i64 56
   %217 = ptrtoint ptr %26 to i64
-  %218 = and i64 %217, -5
-  store i64 %218, ptr %216, align 8
-  %219 = getelementptr inbounds nuw i8, ptr %18, i64 64
-  store ptr %39, ptr %219, align 8, !tbaa !505
-  %220 = getelementptr inbounds nuw i8, ptr %18, i64 72
-  %221 = ptrtoint ptr %2 to i64
-  %222 = and i64 %221, -5
-  store i64 %222, ptr %220, align 8
-  %223 = getelementptr inbounds nuw i8, ptr %18, i64 80
-  store ptr %1, ptr %223, align 8, !tbaa !505
-  %224 = getelementptr inbounds nuw i8, ptr %18, i64 88
-  store i64 %218, ptr %224, align 8
+  store i64 %217, ptr %216, align 8
+  %218 = getelementptr inbounds nuw i8, ptr %18, i64 64
+  store ptr %39, ptr %218, align 8, !tbaa !505
+  %219 = getelementptr inbounds nuw i8, ptr %18, i64 72
+  %220 = ptrtoint ptr %2 to i64
+  %221 = and i64 %220, -5
+  store i64 %221, ptr %219, align 8
+  %222 = getelementptr inbounds nuw i8, ptr %18, i64 80
+  store ptr %1, ptr %222, align 8, !tbaa !505
+  %223 = getelementptr inbounds nuw i8, ptr %18, i64 88
+  store i64 %217, ptr %223, align 8
   call void @_ZN4llvm21GenericDomTreeUpdaterINS_14DomTreeUpdaterENS_13DominatorTreeENS_17PostDominatorTreeEE22applyUpdatesPermissiveENS_8ArrayRefINS_3cfg6UpdateIPNS_10BasicBlockEEEEE(ptr noundef nonnull align 8 dereferenceable(658) %203, ptr nonnull %18, i64 6) #21
   call void @llvm.lifetime.end.p0(ptr nonnull %18)
-  %225 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %226 = load ptr, ptr %225, align 8, !tbaa !210
-  %.not = icmp eq ptr %226, null
-  br i1 %.not, label %230, label %227
+  %224 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %225 = load ptr, ptr %224, align 8, !tbaa !210
+  %.not = icmp eq ptr %225, null
+  br i1 %.not, label %229, label %226
 
-227:                                              ; preds = %_ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit
-  call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(144) %226) #21
-  %228 = load ptr, ptr %225, align 8, !tbaa !210
-  call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(144) %228) #21
-  %229 = load ptr, ptr %225, align 8, !tbaa !210
-  call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(144) %229) #21
-  br label %230
+226:                                              ; preds = %_ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit
+  call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %26, ptr noundef nonnull align 8 dereferenceable(144) %225) #21
+  %227 = load ptr, ptr %224, align 8, !tbaa !210
+  call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %33, ptr noundef nonnull align 8 dereferenceable(144) %227) #21
+  %228 = load ptr, ptr %224, align 8, !tbaa !210
+  call void @_ZN4llvm8LoopBaseINS_10BasicBlockENS_4LoopEE19addBasicBlockToLoopEPS1_RNS_12LoopInfoBaseIS1_S2_EE(ptr noundef nonnull align 8 dereferenceable(144) %6, ptr noundef nonnull %39, ptr noundef nonnull align 8 dereferenceable(144) %228) #21
+  br label %229
 
-230:                                              ; preds = %227, %_ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit
+229:                                              ; preds = %226, %_ZN4llvm10BranchInst12setSuccessorEjPNS_10BasicBlockE.exit
   ret ptr %33
 }
 

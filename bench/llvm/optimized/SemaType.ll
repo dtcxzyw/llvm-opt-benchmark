@@ -32642,9 +32642,7 @@ _ZN4llvm20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096ELm128EE8Alloca
   store i16 %35, ptr %32, align 1
   %36 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 24
   store ptr %2, ptr %36, align 8, !tbaa !1260
-  %37 = and i64 %29, -16
-  %38 = inttoptr i64 %37 to ptr
-  ret ptr %38
+  ret ptr %.0.i.i
 }
 
 ; Function Attrs: mustprogress nofree norecurse noreturn nosync nounwind willreturn memory(none) uwtable
@@ -32778,12 +32776,10 @@ _ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE.exit: ; pred
   store i16 %66, ptr %63, align 1
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store ptr %4, ptr %67, align 8, !tbaa !1260
-  %68 = and i64 %60, -16
-  %69 = inttoptr i64 %68 to ptr
   br label %_ZNK5clang10Declarator13isInvalidTypeEv.exit.thread
 
 _ZNK5clang10Declarator13isInvalidTypeEv.exit.thread: ; preds = %2, %_ZNK5clang10Declarator13isInvalidTypeEv.exit, %_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE.exit
-  %.sroa.020.0 = phi ptr [ %69, %_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE.exit ], [ null, %_ZNK5clang10Declarator13isInvalidTypeEv.exit ], [ null, %2 ]
+  %.sroa.020.0 = phi ptr [ %.0.i.i.i, %_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE.exit ], [ null, %_ZNK5clang10Declarator13isInvalidTypeEv.exit ], [ null, %2 ]
   %.sroa.3.0 = phi i8 [ 0, %_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE.exit ], [ 1, %_ZNK5clang10Declarator13isInvalidTypeEv.exit ], [ 1, %2 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.020.0, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 %.sroa.3.0, 1

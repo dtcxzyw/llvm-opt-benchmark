@@ -19587,9 +19587,8 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %19, %22
   store i32 0, ptr %30, align 8, !tbaa !18
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %32 = ptrtoint ptr %.0.i.i.i.i to i64
-  %33 = and i64 %32, -7
-  %34 = or disjoint i64 %33, 2
-  store i64 %34, ptr %31, align 8, !tbaa !390
+  %33 = or disjoint i64 %32, 2
+  store i64 %33, ptr %31, align 8, !tbaa !390
   ret void
 }
 

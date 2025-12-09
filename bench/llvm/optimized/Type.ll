@@ -3555,10 +3555,9 @@ define dso_local void @_ZN5clang19DependentBitIntTypeC2EbPNS_4ExprE(ptr noundef 
   store ptr null, ptr %19, align 8, !tbaa !439
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = ptrtoint ptr %2 to i64
-  %22 = and i64 %21, -3
-  %23 = select i1 %1, i64 2, i64 0
-  %24 = or disjoint i64 %22, %23
-  store i64 %24, ptr %20, align 16
+  %22 = select i1 %1, i64 2, i64 0
+  %23 = or disjoint i64 %22, %21
+  store i64 %23, ptr %20, align 16
   ret void
 }
 
@@ -34675,8 +34674,7 @@ _ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE7recurs
   %44 = inttoptr i64 %.sroa.0.0.copyload.i.i9 to ptr
   %45 = select i1 %.not.i.i8, ptr %44, ptr %1
   %46 = icmp eq ptr %45, %40
-  %47 = and i64 %12, -16
-  %spec.select = select i1 %46, i64 %47, i64 %.sroa.03.0.i25
+  %spec.select = select i1 %46, i64 %12, i64 %.sroa.03.0.i25
   br label %_ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE7recurseEN5clang8QualTypeE.exit.thread
 
 _ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE7recurseEN5clang8QualTypeE.exit.thread: ; preds = %39, %_ZNK5clang8QualType5splitEv.exit.i, %_ZN12_GLOBAL__N_122SimpleTransformVisitorINS_24SubstObjCTypeArgsVisitorEE7recurseEN5clang8QualTypeE.exit, %7
@@ -39052,8 +39050,7 @@ _ZN12_GLOBAL__N_122SimpleTransformVisitorINS_26StripObjCKindOfTypeVisitorEE7recu
   %44 = inttoptr i64 %.sroa.0.0.copyload.i.i9 to ptr
   %45 = select i1 %.not.i.i8, ptr %44, ptr %1
   %46 = icmp eq ptr %45, %40
-  %47 = and i64 %12, -16
-  %spec.select = select i1 %46, i64 %47, i64 %.sroa.03.0.i25
+  %spec.select = select i1 %46, i64 %12, i64 %.sroa.03.0.i25
   br label %_ZN12_GLOBAL__N_122SimpleTransformVisitorINS_26StripObjCKindOfTypeVisitorEE7recurseEN5clang8QualTypeE.exit.thread
 
 _ZN12_GLOBAL__N_122SimpleTransformVisitorINS_26StripObjCKindOfTypeVisitorEE7recurseEN5clang8QualTypeE.exit.thread: ; preds = %39, %_ZNK5clang8QualType5splitEv.exit.i, %_ZN12_GLOBAL__N_122SimpleTransformVisitorINS_26StripObjCKindOfTypeVisitorEE7recurseEN5clang8QualTypeE.exit, %7

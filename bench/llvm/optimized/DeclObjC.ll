@@ -4747,9 +4747,7 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %17, %20
   %32 = and i64 %.0.copyload.i.i.i, 7
   %33 = or i64 %32, %31
   store i64 %33, ptr %22, align 8
-  %34 = and i64 %31, -8
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %0, ptr %35, align 8, !tbaa !104
+  store ptr %0, ptr %.0.i.i.i.i, align 8, !tbaa !104
   ret void
 }
 
@@ -4809,41 +4807,39 @@ _ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit: ; preds = %17, %20
   %32 = and i64 %.0.copyload.i.i.i.i, 7
   %33 = or i64 %32, %31
   store i64 %33, ptr %22, align 8
-  %34 = and i64 %31, -8
-  %35 = inttoptr i64 %34 to ptr
-  store ptr %0, ptr %35, align 8, !tbaa !104
-  br label %36
+  store ptr %0, ptr %.0.i.i.i.i.i, align 8, !tbaa !104
+  br label %34
 
-_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15redecl_iteratorppEv.exit.thread: ; preds = %43, %40
+_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15redecl_iteratorppEv.exit.thread: ; preds = %41, %38
   ret void
 
-36:                                               ; preds = %43, %_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit
-  %.sroa.8.014 = phi i1 [ false, %_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit ], [ %.sroa.8.0.mux, %43 ]
-  %.sroa.06.013 = phi ptr [ %0, %_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit ], [ %44, %43 ]
+34:                                               ; preds = %41, %_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit
+  %.sroa.8.014 = phi i1 [ false, %_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit ], [ %.sroa.8.0.mux, %41 ]
+  %.sroa.06.013 = phi ptr [ %0, %_ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit ], [ %42, %41 ]
   %.not = icmp eq ptr %.sroa.06.013, %0
-  br i1 %.not, label %40, label %37
+  br i1 %.not, label %38, label %35
 
-37:                                               ; preds = %36
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 120
-  %39 = load i64, ptr %22, align 8, !tbaa !60
-  store i64 %39, ptr %38, align 8, !tbaa !60
-  br label %40
+35:                                               ; preds = %34
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 120
+  %37 = load i64, ptr %22, align 8, !tbaa !60
+  store i64 %37, ptr %36, align 8, !tbaa !60
+  br label %38
 
-40:                                               ; preds = %37, %36
-  %41 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 88
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %41, align 8
-  %42 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
-  %.not4.i = icmp ne i64 %42, 0
+38:                                               ; preds = %35, %34
+  %39 = getelementptr inbounds nuw i8, ptr %.sroa.06.013, i64 88
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %39, align 8
+  %40 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
+  %.not4.i = icmp ne i64 %40, 0
   %brmerge.not = select i1 %.not4.i, i1 %.sroa.8.014, i1 false
-  br i1 %brmerge.not, label %_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15redecl_iteratorppEv.exit.thread, label %43
+  br i1 %brmerge.not, label %_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15redecl_iteratorppEv.exit.thread, label %41
 
-43:                                               ; preds = %40
+41:                                               ; preds = %38
   %.sroa.8.0.mux = select i1 %.not4.i, i1 true, i1 %.sroa.8.014
-  %44 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterfaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %41, ptr noundef nonnull %.sroa.06.013)
-  %.not.i = icmp eq ptr %44, %0
-  %.not12 = icmp eq ptr %44, null
+  %42 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_17ObjCInterfaceDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %39, ptr noundef nonnull %.sroa.06.013)
+  %.not.i = icmp eq ptr %42, %0
+  %.not12 = icmp eq ptr %42, null
   %or.cond = or i1 %.not.i, %.not12
-  br i1 %or.cond, label %_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15redecl_iteratorppEv.exit.thread, label %36
+  br i1 %or.cond, label %_ZN5clang12RedeclarableINS_17ObjCInterfaceDeclEE15redecl_iteratorppEv.exit.thread, label %34
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -4902,9 +4898,7 @@ _ZN5clang17ObjCInterfaceDecl22allocateDefinitionDataEv.exit: ; preds = %19, %22
   %33 = and i64 %.0.copyload.i.i.i.i, 7
   %34 = or i64 %33, %32
   store i64 %34, ptr %2, align 8
-  %35 = and i64 %32, -8
-  %36 = inttoptr i64 %35 to ptr
-  store ptr %0, ptr %36, align 8, !tbaa !104
+  store ptr %0, ptr %.0.i.i.i.i.i, align 8, !tbaa !104
   ret void
 }
 
@@ -12103,16 +12097,14 @@ _ZnwmRKN5clang10ASTContextEm.exit:                ; preds = %17, %20
   %28 = and i64 %.0.copyload.i.i.i, 7
   %29 = or i64 %28, %27
   store i64 %29, ptr %22, align 8
-  %30 = and i64 %27, -8
-  %31 = inttoptr i64 %30 to ptr
-  store ptr %0, ptr %31, align 8, !tbaa !57
+  store ptr %0, ptr %.0.i.i.i.i, align 8, !tbaa !57
   %.0.copyload.i.i.i2 = load i64, ptr %22, align 8
-  %32 = and i64 %.0.copyload.i.i.i2, -8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, -2
-  store i8 %36, ptr %34, align 8
+  %30 = and i64 %.0.copyload.i.i.i2, -8
+  %31 = inttoptr i64 %30 to ptr
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load i8, ptr %32, align 8
+  %34 = and i8 %33, -2
+  store i8 %34, ptr %32, align 8
   ret void
 }
 
@@ -12163,41 +12155,39 @@ _ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit: ; preds = %17, %20
   %28 = and i64 %.0.copyload.i.i.i.i, 7
   %29 = or i64 %28, %27
   store i64 %29, ptr %22, align 8
-  %30 = and i64 %27, -8
-  %31 = inttoptr i64 %30 to ptr
-  store ptr %0, ptr %31, align 8, !tbaa !57
+  store ptr %0, ptr %.0.i.i.i.i.i, align 8, !tbaa !57
   %.0.copyload.i.i.i2.i = load i64, ptr %22, align 8
-  %32 = and i64 %.0.copyload.i.i.i2.i, -8
-  %33 = inttoptr i64 %32 to ptr
-  %34 = getelementptr inbounds nuw i8, ptr %33, i64 32
-  %35 = load i8, ptr %34, align 8
-  %36 = and i8 %35, -2
-  store i8 %36, ptr %34, align 8
-  br label %37
+  %30 = and i64 %.0.copyload.i.i.i2.i, -8
+  %31 = inttoptr i64 %30 to ptr
+  %32 = getelementptr inbounds nuw i8, ptr %31, i64 32
+  %33 = load i8, ptr %32, align 8
+  %34 = and i8 %33, -2
+  store i8 %34, ptr %32, align 8
+  br label %35
 
-_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15redecl_iteratorppEv.exit.thread: ; preds = %42, %37
+_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15redecl_iteratorppEv.exit.thread: ; preds = %40, %35
   ret void
 
-37:                                               ; preds = %42, %_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit
-  %.sroa.8.011 = phi i1 [ false, %_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit ], [ %.sroa.8.0.mux, %42 ]
-  %.sroa.04.010 = phi ptr [ %0, %_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit ], [ %43, %42 ]
-  %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.010, i64 104
-  %39 = load i64, ptr %22, align 8, !tbaa !60
-  store i64 %39, ptr %38, align 8, !tbaa !60
-  %40 = getelementptr inbounds nuw i8, ptr %.sroa.04.010, i64 88
-  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %40, align 8
-  %41 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
-  %.not4.i = icmp ne i64 %41, 0
+35:                                               ; preds = %40, %_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit
+  %.sroa.8.011 = phi i1 [ false, %_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit ], [ %.sroa.8.0.mux, %40 ]
+  %.sroa.04.010 = phi ptr [ %0, %_ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit ], [ %41, %40 ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.04.010, i64 104
+  %37 = load i64, ptr %22, align 8, !tbaa !60
+  store i64 %37, ptr %36, align 8, !tbaa !60
+  %38 = getelementptr inbounds nuw i8, ptr %.sroa.04.010, i64 88
+  %.0.copyload.i.i.i.i.i.i.i.i.i.i = load i64, ptr %38, align 8
+  %39 = and i64 %.0.copyload.i.i.i.i.i.i.i.i.i.i, 3
+  %.not4.i = icmp ne i64 %39, 0
   %brmerge.not = select i1 %.not4.i, i1 %.sroa.8.011, i1 false
-  br i1 %brmerge.not, label %_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15redecl_iteratorppEv.exit.thread, label %42
+  br i1 %brmerge.not, label %_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15redecl_iteratorppEv.exit.thread, label %40
 
-42:                                               ; preds = %37
+40:                                               ; preds = %35
   %.sroa.8.0.mux = select i1 %.not4.i, i1 true, i1 %.sroa.8.011
-  %43 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtocolDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %40, ptr noundef nonnull %.sroa.04.010)
-  %.not.i = icmp eq ptr %43, %0
-  %.not = icmp eq ptr %43, null
+  %41 = tail call noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtocolDeclEE8DeclLink11getPreviousEPKS1_(ptr noundef nonnull align 8 dereferenceable(16) %38, ptr noundef nonnull %.sroa.04.010)
+  %.not.i = icmp eq ptr %41, %0
+  %.not = icmp eq ptr %41, null
   %or.cond = or i1 %.not.i, %.not
-  br i1 %or.cond, label %_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15redecl_iteratorppEv.exit.thread, label %37
+  br i1 %or.cond, label %_ZN5clang12RedeclarableINS_16ObjCProtocolDeclEE15redecl_iteratorppEv.exit.thread, label %35
 }
 
 ; Function Attrs: mustprogress nounwind uwtable
@@ -12250,16 +12240,14 @@ _ZN5clang16ObjCProtocolDecl22allocateDefinitionDataEv.exit: ; preds = %19, %22
   %29 = and i64 %.0.copyload.i.i.i.i, 7
   %30 = or i64 %29, %28
   store i64 %30, ptr %2, align 8
-  %31 = and i64 %28, -8
-  %32 = inttoptr i64 %31 to ptr
-  store ptr %0, ptr %32, align 8, !tbaa !57
+  store ptr %0, ptr %.0.i.i.i.i.i, align 8, !tbaa !57
   %.0.copyload.i.i.i2.i = load i64, ptr %2, align 8
-  %33 = and i64 %.0.copyload.i.i.i2.i, -8
-  %34 = inttoptr i64 %33 to ptr
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 32
-  %36 = load i8, ptr %35, align 8
-  %37 = and i8 %36, -2
-  store i8 %37, ptr %35, align 8
+  %31 = and i64 %.0.copyload.i.i.i2.i, -8
+  %32 = inttoptr i64 %31 to ptr
+  %33 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %34 = load i8, ptr %33, align 8
+  %35 = and i8 %34, -2
+  store i8 %35, ptr %33, align 8
   ret void
 }
 

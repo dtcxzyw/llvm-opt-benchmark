@@ -48405,7 +48405,7 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpeckENS1_30Trian
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !684
-  br label %68
+  br label %67
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -48414,20 +48414,19 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpeckENS1_30Trian
   %63 = inttoptr i64 %62 to ptr
   store ptr %63, ptr %47, align 8, !tbaa !685
   %64 = ptrtoint ptr %47 to i64
-  %65 = and i64 %64, -4
-  %66 = or disjoint i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  br label %68
+  %65 = or disjoint i64 %64, 1
+  %66 = inttoptr i64 %65 to ptr
+  br label %67
 
-68:                                               ; preds = %59, %57
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %67, %59 ]
+67:                                               ; preds = %59, %57
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %66, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Triangulation_vertex_base_2", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 16
   store ptr %.sink20, ptr %46, align 8, !tbaa !683
   store ptr %.sink, ptr %11, align 8, !tbaa !685
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !685
-  %69 = add i64 %40, 16
-  store i64 %69, ptr %2, align 8, !tbaa !1031
+  %68 = add i64 %40, 16
+  store i64 %68, ptr %2, align 8, !tbaa !1031
   ret void
 }
 
@@ -48568,7 +48567,7 @@ _ZNSt6vectorISt4pairIPN4CGAL37Constrained_triangulation_face_base_2INS1_5EpeckEN
 58:                                               ; preds = %45
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %59, align 8, !tbaa !890
-  br label %70
+  br label %69
 
 60:                                               ; preds = %45
   %61 = ptrtoint ptr %11 to i64
@@ -48578,22 +48577,21 @@ _ZNSt6vectorISt4pairIPN4CGAL37Constrained_triangulation_face_base_2INS1_5EpeckEN
   %65 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %64, ptr %65, align 8, !tbaa !685
   %66 = ptrtoint ptr %47 to i64
-  %67 = and i64 %66, -4
-  %68 = or disjoint i64 %67, 1
-  %69 = inttoptr i64 %68 to ptr
-  br label %70
+  %67 = or disjoint i64 %66, 1
+  %68 = inttoptr i64 %67 to ptr
+  br label %69
 
-70:                                               ; preds = %60, %58
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %58 ], [ %69, %60 ]
+69:                                               ; preds = %60, %58
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %58 ], [ %68, %60 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Constrained_triangulation_face_base_2", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 56
   store ptr %.sink20, ptr %46, align 8, !tbaa !729
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %.sink, ptr %71, align 8, !tbaa !685
-  %72 = getelementptr inbounds nuw i8, ptr %.pn, i64 80
-  store ptr inttoptr (i64 3 to ptr), ptr %72, align 8, !tbaa !685
-  %73 = add i64 %40, 16
-  store i64 %73, ptr %2, align 8, !tbaa !1042
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %.sink, ptr %70, align 8, !tbaa !685
+  %71 = getelementptr inbounds nuw i8, ptr %.pn, i64 80
+  store ptr inttoptr (i64 3 to ptr), ptr %71, align 8, !tbaa !685
+  %72 = add i64 %40, 16
+  store i64 %72, ptr %2, align 8, !tbaa !1042
   ret void
 }
 
@@ -74119,7 +74117,7 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpickENS1_30Trian
 57:                                               ; preds = %45
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %58, align 8, !tbaa !1822
-  br label %68
+  br label %67
 
 59:                                               ; preds = %45
   %60 = ptrtoint ptr %11 to i64
@@ -74128,20 +74126,19 @@ _ZNSt6vectorISt4pairIPN4CGAL27Triangulation_vertex_base_2INS1_5EpickENS1_30Trian
   %63 = inttoptr i64 %62 to ptr
   store ptr %63, ptr %47, align 8, !tbaa !1823
   %64 = ptrtoint ptr %47 to i64
-  %65 = and i64 %64, -4
-  %66 = or disjoint i64 %65, 1
-  %67 = inttoptr i64 %66 to ptr
-  br label %68
+  %65 = or disjoint i64 %64, 1
+  %66 = inttoptr i64 %65 to ptr
+  br label %67
 
-68:                                               ; preds = %59, %57
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %67, %59 ]
+67:                                               ; preds = %59, %57
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %57 ], [ %66, %59 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Triangulation_vertex_base_2.577", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 24
   store ptr %.sink20, ptr %46, align 8, !tbaa !1821
   store ptr %.sink, ptr %11, align 8, !tbaa !1823
   store ptr inttoptr (i64 3 to ptr), ptr %.sink20, align 8, !tbaa !1823
-  %69 = add i64 %40, 16
-  store i64 %69, ptr %2, align 8, !tbaa !1924
+  %68 = add i64 %40, 16
+  store i64 %68, ptr %2, align 8, !tbaa !1924
   ret void
 }
 
@@ -74282,7 +74279,7 @@ _ZNSt6vectorISt4pairIPN4CGAL37Constrained_triangulation_face_base_2INS1_5EpickEN
 58:                                               ; preds = %45
   %59 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %11, ptr %59, align 8, !tbaa !1870
-  br label %70
+  br label %69
 
 60:                                               ; preds = %45
   %61 = ptrtoint ptr %11 to i64
@@ -74292,22 +74289,21 @@ _ZNSt6vectorISt4pairIPN4CGAL37Constrained_triangulation_face_base_2INS1_5EpickEN
   %65 = getelementptr inbounds nuw i8, ptr %47, i64 24
   store ptr %64, ptr %65, align 8, !tbaa !1823
   %66 = ptrtoint ptr %47 to i64
-  %67 = and i64 %66, -4
-  %68 = or disjoint i64 %67, 1
-  %69 = inttoptr i64 %68 to ptr
-  br label %70
+  %67 = or disjoint i64 %66, 1
+  %68 = inttoptr i64 %67 to ptr
+  br label %69
 
-70:                                               ; preds = %60, %58
-  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %58 ], [ %69, %60 ]
+69:                                               ; preds = %60, %58
+  %.sink = phi ptr [ inttoptr (i64 3 to ptr), %58 ], [ %68, %60 ]
   %.pn = getelementptr inbounds nuw %"class.CGAL::Constrained_triangulation_face_base_2.579", ptr %11, i64 %40
   %.sink20 = getelementptr inbounds nuw i8, ptr %.pn, i64 56
   store ptr %.sink20, ptr %46, align 8, !tbaa !1831
-  %71 = getelementptr inbounds nuw i8, ptr %11, i64 24
-  store ptr %.sink, ptr %71, align 8, !tbaa !1823
-  %72 = getelementptr inbounds nuw i8, ptr %.pn, i64 80
-  store ptr inttoptr (i64 3 to ptr), ptr %72, align 8, !tbaa !1823
-  %73 = add i64 %40, 16
-  store i64 %73, ptr %2, align 8, !tbaa !1935
+  %70 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  store ptr %.sink, ptr %70, align 8, !tbaa !1823
+  %71 = getelementptr inbounds nuw i8, ptr %.pn, i64 80
+  store ptr inttoptr (i64 3 to ptr), ptr %71, align 8, !tbaa !1823
+  %72 = add i64 %40, 16
+  store i64 %72, ptr %2, align 8, !tbaa !1935
   ret void
 }
 

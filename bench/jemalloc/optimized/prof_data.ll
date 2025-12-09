@@ -562,14 +562,14 @@ prof_tdata_comp.exit.i:                           ; preds = %16, %10
   %.not30268.i = icmp ult ptr %135, %3
   br i1 %.not30268.i, label %._crit_edge.i, label %.lr.ph71.i
 
-.lr.ph71.i:                                       ; preds = %134, %425
-  %.469.i = phi ptr [ %426, %425 ], [ %135, %134 ]
+.lr.ph71.i:                                       ; preds = %134, %418
+  %.469.i = phi ptr [ %419, %418 ], [ %135, %134 ]
   %136 = getelementptr inbounds nuw i8, ptr %.469.i, i64 8
   %137 = load i32, ptr %136, align 8, !tbaa !38
   %138 = icmp slt i32 %137, 0
   %139 = getelementptr inbounds nuw i8, ptr %.469.i, i64 16
   %140 = load ptr, ptr %139, align 8, !tbaa !34
-  br i1 %138, label %141, label %243
+  br i1 %138, label %141, label %239
 
 141:                                              ; preds = %.lr.ph71.i
   %142 = load ptr, ptr %.469.i, align 8, !tbaa !34
@@ -580,7 +580,7 @@ prof_tdata_comp.exit.i:                           ; preds = %16, %10
   %146 = ptrtoint ptr %145 to i64
   %147 = and i64 %146, 1
   %.not311.i = icmp eq i64 %147, 0
-  br i1 %.not311.i, label %199, label %148
+  br i1 %.not311.i, label %197, label %148
 
 148:                                              ; preds = %141
   %149 = and i64 %146, -2
@@ -588,7 +588,7 @@ prof_tdata_comp.exit.i:                           ; preds = %16, %10
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
   %152 = load ptr, ptr %151, align 8, !tbaa !39
   %.not314.i = icmp eq ptr %152, null
-  br i1 %.not314.i, label %178, label %153
+  br i1 %.not314.i, label %176, label %153
 
 153:                                              ; preds = %148
   %154 = getelementptr inbounds nuw i8, ptr %152, i64 32
@@ -596,7 +596,7 @@ prof_tdata_comp.exit.i:                           ; preds = %16, %10
   %156 = ptrtoint ptr %155 to i64
   %157 = and i64 %156, 1
   %.not315.i = icmp eq i64 %157, 0
-  br i1 %.not315.i, label %178, label %158
+  br i1 %.not315.i, label %176, label %158
 
 158:                                              ; preds = %153
   store ptr %150, ptr %144, align 8, !tbaa !40
@@ -613,600 +613,593 @@ prof_tdata_comp.exit.i:                           ; preds = %16, %10
   %167 = load ptr, ptr %144, align 8, !tbaa !40
   %168 = ptrtoint ptr %167 to i64
   %169 = or i64 %168, %166
-  %170 = and i64 %166, -2
-  %171 = inttoptr i64 %170 to ptr
-  %172 = getelementptr inbounds nuw i8, ptr %171, i64 24
-  %173 = load ptr, ptr %172, align 8, !tbaa !39
-  %174 = ptrtoint ptr %173 to i64
-  %175 = and i64 %169, 1
-  %176 = or i64 %175, %174
-  %177 = inttoptr i64 %176 to ptr
-  store ptr %177, ptr %144, align 8, !tbaa !40
-  store ptr %142, ptr %172, align 8, !tbaa !39
-  br label %182
+  %170 = getelementptr inbounds nuw i8, ptr %152, i64 24
+  %171 = load ptr, ptr %170, align 8, !tbaa !39
+  %172 = ptrtoint ptr %171 to i64
+  %173 = and i64 %169, 1
+  %174 = or i64 %173, %172
+  %175 = inttoptr i64 %174 to ptr
+  store ptr %175, ptr %144, align 8, !tbaa !40
+  store ptr %142, ptr %170, align 8, !tbaa !39
+  br label %180
 
-178:                                              ; preds = %153, %148
-  %179 = ptrtoint ptr %152 to i64
-  %180 = or i64 %179, 1
-  %181 = inttoptr i64 %180 to ptr
-  store ptr %181, ptr %144, align 8, !tbaa !40
+176:                                              ; preds = %153, %148
+  %177 = ptrtoint ptr %152 to i64
+  %178 = or i64 %177, 1
+  %179 = inttoptr i64 %178 to ptr
+  store ptr %179, ptr %144, align 8, !tbaa !40
   store ptr %142, ptr %151, align 8, !tbaa !39
-  br label %182
+  br label %180
 
-182:                                              ; preds = %178, %158
-  %.0280.i = phi ptr [ %171, %158 ], [ %150, %178 ]
-  %183 = getelementptr inbounds i8, ptr %.469.i, i64 -16
-  %184 = getelementptr inbounds i8, ptr %.469.i, i64 -8
-  %185 = load i32, ptr %184, align 8, !tbaa !38
-  %186 = icmp slt i32 %185, 0
-  br i1 %186, label %187, label %190
+180:                                              ; preds = %176, %158
+  %.0280.i = phi ptr [ %152, %158 ], [ %150, %176 ]
+  %181 = getelementptr inbounds i8, ptr %.469.i, i64 -16
+  %182 = getelementptr inbounds i8, ptr %.469.i, i64 -8
+  %183 = load i32, ptr %182, align 8, !tbaa !38
+  %184 = icmp slt i32 %183, 0
+  br i1 %184, label %185, label %188
 
-187:                                              ; preds = %182
-  %188 = load ptr, ptr %183, align 8, !tbaa !34
-  %189 = getelementptr inbounds nuw i8, ptr %188, i64 24
-  store ptr %.0280.i, ptr %189, align 8, !tbaa !39
+185:                                              ; preds = %180
+  %186 = load ptr, ptr %181, align 8, !tbaa !34
+  %187 = getelementptr inbounds nuw i8, ptr %186, i64 24
+  store ptr %.0280.i, ptr %187, align 8, !tbaa !39
   br label %tdata_tree_remove.exit
 
-190:                                              ; preds = %182
-  %191 = ptrtoint ptr %.0280.i to i64
-  %192 = load ptr, ptr %183, align 8, !tbaa !34
-  %193 = getelementptr inbounds nuw i8, ptr %192, i64 32
-  %194 = load ptr, ptr %193, align 8, !tbaa !40
-  %195 = ptrtoint ptr %194 to i64
-  %196 = and i64 %195, 1
-  %197 = or i64 %196, %191
-  %198 = inttoptr i64 %197 to ptr
-  store ptr %198, ptr %193, align 8, !tbaa !40
+188:                                              ; preds = %180
+  %189 = ptrtoint ptr %.0280.i to i64
+  %190 = load ptr, ptr %181, align 8, !tbaa !34
+  %191 = getelementptr inbounds nuw i8, ptr %190, i64 32
+  %192 = load ptr, ptr %191, align 8, !tbaa !40
+  %193 = ptrtoint ptr %192 to i64
+  %194 = and i64 %193, 1
+  %195 = or i64 %194, %189
+  %196 = inttoptr i64 %195 to ptr
+  store ptr %196, ptr %191, align 8, !tbaa !40
   br label %tdata_tree_remove.exit
 
-199:                                              ; preds = %141
-  %200 = getelementptr inbounds nuw i8, ptr %145, i64 24
-  %201 = load ptr, ptr %200, align 8, !tbaa !39
-  %.not312.i = icmp eq ptr %201, null
-  br i1 %.not312.i, label %.critedge317.i, label %202
+197:                                              ; preds = %141
+  %198 = getelementptr inbounds nuw i8, ptr %145, i64 24
+  %199 = load ptr, ptr %198, align 8, !tbaa !39
+  %.not312.i = icmp eq ptr %199, null
+  br i1 %.not312.i, label %.critedge317.i, label %200
 
-202:                                              ; preds = %199
-  %203 = getelementptr inbounds nuw i8, ptr %201, i64 32
-  %204 = load ptr, ptr %203, align 8, !tbaa !40
-  %205 = ptrtoint ptr %204 to i64
-  %206 = and i64 %205, 1
-  %.not313.i = icmp eq i64 %206, 0
-  br i1 %.not313.i, label %.critedge317.i, label %207
+200:                                              ; preds = %197
+  %201 = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %202 = load ptr, ptr %201, align 8, !tbaa !40
+  %203 = ptrtoint ptr %202 to i64
+  %204 = and i64 %203, 1
+  %.not313.i = icmp eq i64 %204, 0
+  br i1 %.not313.i, label %.critedge317.i, label %205
 
-207:                                              ; preds = %202
-  %208 = getelementptr inbounds nuw i8, ptr %201, i64 32
-  %209 = and i64 %205, -2
-  %210 = inttoptr i64 %209 to ptr
-  store ptr %210, ptr %200, align 8, !tbaa !39
-  store ptr %145, ptr %208, align 8, !tbaa !40
-  %211 = ptrtoint ptr %201 to i64
-  %212 = load ptr, ptr %144, align 8, !tbaa !40
-  %213 = ptrtoint ptr %212 to i64
-  %214 = or i64 %213, %211
-  %215 = and i64 %211, -2
-  %216 = inttoptr i64 %215 to ptr
-  %217 = getelementptr inbounds nuw i8, ptr %216, i64 24
-  %218 = load ptr, ptr %217, align 8, !tbaa !39
-  %219 = ptrtoint ptr %218 to i64
-  %220 = and i64 %214, 1
-  %221 = or i64 %220, %219
-  %222 = inttoptr i64 %221 to ptr
-  store ptr %222, ptr %144, align 8, !tbaa !40
-  store ptr %142, ptr %217, align 8, !tbaa !39
-  %223 = icmp eq ptr %.469.i, %3
-  br i1 %223, label %224, label %225
+205:                                              ; preds = %200
+  %206 = getelementptr inbounds nuw i8, ptr %199, i64 32
+  %207 = and i64 %203, -2
+  %208 = inttoptr i64 %207 to ptr
+  store ptr %208, ptr %198, align 8, !tbaa !39
+  store ptr %145, ptr %206, align 8, !tbaa !40
+  %209 = ptrtoint ptr %199 to i64
+  %210 = load ptr, ptr %144, align 8, !tbaa !40
+  %211 = ptrtoint ptr %210 to i64
+  %212 = or i64 %211, %209
+  %213 = getelementptr inbounds nuw i8, ptr %199, i64 24
+  %214 = load ptr, ptr %213, align 8, !tbaa !39
+  %215 = ptrtoint ptr %214 to i64
+  %216 = and i64 %212, 1
+  %217 = or i64 %216, %215
+  %218 = inttoptr i64 %217 to ptr
+  store ptr %218, ptr %144, align 8, !tbaa !40
+  store ptr %142, ptr %213, align 8, !tbaa !39
+  %219 = icmp eq ptr %.469.i, %3
+  br i1 %219, label %220, label %221
 
-224:                                              ; preds = %207
-  store ptr %216, ptr @tdatas, align 8, !tbaa !4
+220:                                              ; preds = %205
+  store ptr %199, ptr @tdatas, align 8, !tbaa !4
   br label %tdata_tree_remove.exit
 
-225:                                              ; preds = %207
-  %226 = getelementptr inbounds i8, ptr %.469.i, i64 -16
-  %227 = getelementptr inbounds i8, ptr %.469.i, i64 -8
-  %228 = load i32, ptr %227, align 8, !tbaa !38
-  %229 = icmp slt i32 %228, 0
-  %230 = load ptr, ptr %226, align 8, !tbaa !34
-  br i1 %229, label %231, label %233
+221:                                              ; preds = %205
+  %222 = getelementptr inbounds i8, ptr %.469.i, i64 -16
+  %223 = getelementptr inbounds i8, ptr %.469.i, i64 -8
+  %224 = load i32, ptr %223, align 8, !tbaa !38
+  %225 = icmp slt i32 %224, 0
+  %226 = load ptr, ptr %222, align 8, !tbaa !34
+  br i1 %225, label %227, label %229
 
-231:                                              ; preds = %225
-  %232 = getelementptr inbounds nuw i8, ptr %230, i64 24
-  store ptr %216, ptr %232, align 8, !tbaa !39
+227:                                              ; preds = %221
+  %228 = getelementptr inbounds nuw i8, ptr %226, i64 24
+  store ptr %199, ptr %228, align 8, !tbaa !39
   br label %tdata_tree_remove.exit
 
-233:                                              ; preds = %225
-  %234 = getelementptr inbounds nuw i8, ptr %230, i64 32
-  %235 = load ptr, ptr %234, align 8, !tbaa !40
-  %236 = ptrtoint ptr %235 to i64
-  %237 = and i64 %236, 1
-  %238 = or disjoint i64 %237, %215
-  %239 = inttoptr i64 %238 to ptr
-  store ptr %239, ptr %234, align 8, !tbaa !40
+229:                                              ; preds = %221
+  %230 = getelementptr inbounds nuw i8, ptr %226, i64 32
+  %231 = load ptr, ptr %230, align 8, !tbaa !40
+  %232 = ptrtoint ptr %231 to i64
+  %233 = and i64 %232, 1
+  %234 = or disjoint i64 %233, %209
+  %235 = inttoptr i64 %234 to ptr
+  store ptr %235, ptr %230, align 8, !tbaa !40
   br label %tdata_tree_remove.exit
 
-.critedge317.i:                                   ; preds = %202, %199
-  %240 = ptrtoint ptr %201 to i64
-  %241 = or i64 %240, 1
-  %242 = inttoptr i64 %241 to ptr
-  store ptr %242, ptr %144, align 8, !tbaa !40
-  store ptr %142, ptr %200, align 8, !tbaa !39
+.critedge317.i:                                   ; preds = %200, %197
+  %236 = ptrtoint ptr %199 to i64
+  %237 = or i64 %236, 1
+  %238 = inttoptr i64 %237 to ptr
+  store ptr %238, ptr %144, align 8, !tbaa !40
+  store ptr %142, ptr %198, align 8, !tbaa !39
   store ptr %145, ptr %.469.i, align 8, !tbaa !34
-  br label %425
+  br label %418
 
-243:                                              ; preds = %.lr.ph71.i
-  %244 = ptrtoint ptr %140 to i64
-  %245 = load ptr, ptr %.469.i, align 8, !tbaa !34
-  %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
-  %247 = load ptr, ptr %246, align 8, !tbaa !40
-  %248 = ptrtoint ptr %247 to i64
-  %249 = and i64 %248, 1
-  %250 = or i64 %249, %244
-  %251 = inttoptr i64 %250 to ptr
-  store ptr %251, ptr %246, align 8, !tbaa !40
-  %252 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %253 = load ptr, ptr %252, align 8, !tbaa !39
-  %254 = getelementptr inbounds nuw i8, ptr %253, i64 24
-  %255 = getelementptr inbounds nuw i8, ptr %253, i64 32
-  %256 = load ptr, ptr %255, align 8, !tbaa !40
-  %257 = ptrtoint ptr %256 to i64
-  %258 = and i64 %257, 1
-  %.not303.i = icmp eq i64 %258, 0
-  br i1 %.not303.i, label %330, label %259
+239:                                              ; preds = %.lr.ph71.i
+  %240 = ptrtoint ptr %140 to i64
+  %241 = load ptr, ptr %.469.i, align 8, !tbaa !34
+  %242 = getelementptr inbounds nuw i8, ptr %241, i64 32
+  %243 = load ptr, ptr %242, align 8, !tbaa !40
+  %244 = ptrtoint ptr %243 to i64
+  %245 = and i64 %244, 1
+  %246 = or i64 %245, %240
+  %247 = inttoptr i64 %246 to ptr
+  store ptr %247, ptr %242, align 8, !tbaa !40
+  %248 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %249 = load ptr, ptr %248, align 8, !tbaa !39
+  %250 = getelementptr inbounds nuw i8, ptr %249, i64 24
+  %251 = getelementptr inbounds nuw i8, ptr %249, i64 32
+  %252 = load ptr, ptr %251, align 8, !tbaa !40
+  %253 = ptrtoint ptr %252 to i64
+  %254 = and i64 %253, 1
+  %.not303.i = icmp eq i64 %254, 0
+  br i1 %.not303.i, label %323, label %255
 
-259:                                              ; preds = %243
-  %260 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %261 = and i64 %257, -2
-  %262 = inttoptr i64 %261 to ptr
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 24
-  %264 = load ptr, ptr %263, align 8, !tbaa !39
-  %.not309.i = icmp eq ptr %264, null
-  br i1 %.not309.i, label %297, label %265
+255:                                              ; preds = %239
+  %256 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %257 = and i64 %253, -2
+  %258 = inttoptr i64 %257 to ptr
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 24
+  %260 = load ptr, ptr %259, align 8, !tbaa !39
+  %.not309.i = icmp eq ptr %260, null
+  br i1 %.not309.i, label %293, label %261
 
-265:                                              ; preds = %259
-  %266 = getelementptr inbounds nuw i8, ptr %264, i64 32
-  %267 = load ptr, ptr %266, align 8, !tbaa !40
-  %268 = ptrtoint ptr %267 to i64
-  %269 = and i64 %268, 1
-  %.not310.i = icmp eq i64 %269, 0
-  br i1 %.not310.i, label %297, label %270
+261:                                              ; preds = %255
+  %262 = getelementptr inbounds nuw i8, ptr %260, i64 32
+  %263 = load ptr, ptr %262, align 8, !tbaa !40
+  %264 = ptrtoint ptr %263 to i64
+  %265 = and i64 %264, 1
+  %.not310.i = icmp eq i64 %265, 0
+  br i1 %.not310.i, label %293, label %266
 
-270:                                              ; preds = %265
-  %271 = and i64 %268, -2
+266:                                              ; preds = %261
+  %267 = and i64 %264, -2
+  %268 = inttoptr i64 %267 to ptr
+  store ptr %268, ptr %262, align 8, !tbaa !40
+  %269 = load ptr, ptr %251, align 8, !tbaa !40
+  %270 = ptrtoint ptr %269 to i64
+  %271 = and i64 %270, -2
   %272 = inttoptr i64 %271 to ptr
-  store ptr %272, ptr %266, align 8, !tbaa !40
-  %273 = load ptr, ptr %255, align 8, !tbaa !40
-  %274 = ptrtoint ptr %273 to i64
-  %275 = and i64 %274, -2
+  %273 = ptrtoint ptr %241 to i64
+  %274 = and i64 %270, 1
+  %275 = or i64 %274, %273
   %276 = inttoptr i64 %275 to ptr
-  %277 = ptrtoint ptr %245 to i64
-  %278 = and i64 %274, 1
-  %279 = or i64 %278, %277
-  %280 = inttoptr i64 %279 to ptr
-  store ptr %280, ptr %255, align 8, !tbaa !40
-  %281 = getelementptr inbounds nuw i8, ptr %276, i64 32
-  %282 = load ptr, ptr %281, align 8, !tbaa !40
-  %283 = ptrtoint ptr %282 to i64
-  %284 = and i64 %283, -2
-  %285 = inttoptr i64 %284 to ptr
-  store ptr %285, ptr %260, align 8, !tbaa !39
-  %286 = and i64 %283, 1
-  %287 = or i64 %286, %277
-  %288 = inttoptr i64 %287 to ptr
-  store ptr %288, ptr %281, align 8, !tbaa !40
-  %289 = load ptr, ptr %255, align 8, !tbaa !40
+  store ptr %276, ptr %251, align 8, !tbaa !40
+  %277 = getelementptr inbounds nuw i8, ptr %272, i64 32
+  %278 = load ptr, ptr %277, align 8, !tbaa !40
+  %279 = ptrtoint ptr %278 to i64
+  %280 = and i64 %279, -2
+  %281 = inttoptr i64 %280 to ptr
+  store ptr %281, ptr %256, align 8, !tbaa !39
+  %282 = and i64 %279, 1
+  %283 = or i64 %282, %273
+  %284 = inttoptr i64 %283 to ptr
+  store ptr %284, ptr %277, align 8, !tbaa !40
+  %285 = load ptr, ptr %251, align 8, !tbaa !40
+  %286 = ptrtoint ptr %285 to i64
+  %287 = and i64 %286, 1
+  %288 = getelementptr inbounds nuw i8, ptr %272, i64 24
+  %289 = load ptr, ptr %288, align 8, !tbaa !39
   %290 = ptrtoint ptr %289 to i64
-  %291 = and i64 %290, 1
-  %292 = getelementptr inbounds nuw i8, ptr %276, i64 24
-  %293 = load ptr, ptr %292, align 8, !tbaa !39
-  %294 = ptrtoint ptr %293 to i64
-  %295 = or i64 %291, %294
-  %296 = inttoptr i64 %295 to ptr
-  store ptr %296, ptr %255, align 8, !tbaa !40
-  store ptr %253, ptr %292, align 8, !tbaa !39
-  br label %310
+  %291 = or i64 %287, %290
+  %292 = inttoptr i64 %291 to ptr
+  store ptr %292, ptr %251, align 8, !tbaa !40
+  store ptr %249, ptr %288, align 8, !tbaa !39
+  br label %303
 
-297:                                              ; preds = %265, %259
-  %298 = getelementptr inbounds nuw i8, ptr %262, i64 32
-  %299 = load ptr, ptr %298, align 8, !tbaa !40
+293:                                              ; preds = %261, %255
+  %294 = getelementptr inbounds nuw i8, ptr %258, i64 32
+  %295 = load ptr, ptr %294, align 8, !tbaa !40
+  %296 = ptrtoint ptr %295 to i64
+  %297 = or i64 %296, 1
+  %298 = inttoptr i64 %297 to ptr
+  store ptr %298, ptr %294, align 8, !tbaa !40
+  %299 = load ptr, ptr %251, align 8, !tbaa !40
   %300 = ptrtoint ptr %299 to i64
-  %301 = or i64 %300, 1
+  %301 = and i64 %300, -2
   %302 = inttoptr i64 %301 to ptr
-  store ptr %302, ptr %298, align 8, !tbaa !40
-  %303 = load ptr, ptr %255, align 8, !tbaa !40
-  %304 = ptrtoint ptr %303 to i64
-  %305 = and i64 %304, -2
-  %306 = inttoptr i64 %305 to ptr
-  store ptr %306, ptr %260, align 8, !tbaa !39
-  %307 = ptrtoint ptr %245 to i64
-  %308 = and i64 %307, -2
-  %309 = inttoptr i64 %308 to ptr
-  store ptr %309, ptr %255, align 8, !tbaa !40
-  br label %310
+  store ptr %302, ptr %256, align 8, !tbaa !39
+  store ptr %241, ptr %251, align 8, !tbaa !40
+  br label %303
 
-310:                                              ; preds = %297, %270
-  %.0281.i = phi ptr [ %276, %270 ], [ %253, %297 ]
-  %311 = icmp eq ptr %.469.i, %3
-  br i1 %311, label %312, label %313
+303:                                              ; preds = %293, %266
+  %.0281.i = phi ptr [ %272, %266 ], [ %249, %293 ]
+  %304 = icmp eq ptr %.469.i, %3
+  br i1 %304, label %305, label %306
 
-312:                                              ; preds = %310
+305:                                              ; preds = %303
   store ptr %.0281.i, ptr @tdatas, align 8, !tbaa !4
   br label %tdata_tree_remove.exit
 
-313:                                              ; preds = %310
-  %314 = getelementptr inbounds i8, ptr %.469.i, i64 -16
-  %315 = getelementptr inbounds i8, ptr %.469.i, i64 -8
-  %316 = load i32, ptr %315, align 8, !tbaa !38
-  %317 = icmp slt i32 %316, 0
-  br i1 %317, label %318, label %321
+306:                                              ; preds = %303
+  %307 = getelementptr inbounds i8, ptr %.469.i, i64 -16
+  %308 = getelementptr inbounds i8, ptr %.469.i, i64 -8
+  %309 = load i32, ptr %308, align 8, !tbaa !38
+  %310 = icmp slt i32 %309, 0
+  br i1 %310, label %311, label %314
 
-318:                                              ; preds = %313
-  %319 = load ptr, ptr %314, align 8, !tbaa !34
-  %320 = getelementptr inbounds nuw i8, ptr %319, i64 24
-  store ptr %.0281.i, ptr %320, align 8, !tbaa !39
+311:                                              ; preds = %306
+  %312 = load ptr, ptr %307, align 8, !tbaa !34
+  %313 = getelementptr inbounds nuw i8, ptr %312, i64 24
+  store ptr %.0281.i, ptr %313, align 8, !tbaa !39
   br label %tdata_tree_remove.exit
 
-321:                                              ; preds = %313
-  %322 = ptrtoint ptr %.0281.i to i64
-  %323 = load ptr, ptr %314, align 8, !tbaa !34
-  %324 = getelementptr inbounds nuw i8, ptr %323, i64 32
-  %325 = load ptr, ptr %324, align 8, !tbaa !40
-  %326 = ptrtoint ptr %325 to i64
-  %327 = and i64 %326, 1
-  %328 = or i64 %327, %322
-  %329 = inttoptr i64 %328 to ptr
-  store ptr %329, ptr %324, align 8, !tbaa !40
+314:                                              ; preds = %306
+  %315 = ptrtoint ptr %.0281.i to i64
+  %316 = load ptr, ptr %307, align 8, !tbaa !34
+  %317 = getelementptr inbounds nuw i8, ptr %316, i64 32
+  %318 = load ptr, ptr %317, align 8, !tbaa !40
+  %319 = ptrtoint ptr %318 to i64
+  %320 = and i64 %319, 1
+  %321 = or i64 %320, %315
+  %322 = inttoptr i64 %321 to ptr
+  store ptr %322, ptr %317, align 8, !tbaa !40
   br label %tdata_tree_remove.exit
 
-330:                                              ; preds = %243
-  %331 = and i64 %250, 1
-  %.not304.i = icmp eq i64 %331, 0
-  br i1 %.not304.i, label %383, label %332
+323:                                              ; preds = %239
+  %324 = and i64 %246, 1
+  %.not304.i = icmp eq i64 %324, 0
+  br i1 %.not304.i, label %376, label %325
 
-332:                                              ; preds = %330
-  %333 = getelementptr inbounds nuw i8, ptr %245, i64 32
-  %334 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %335 = load ptr, ptr %254, align 8, !tbaa !39
-  %.not307.i = icmp eq ptr %335, null
-  br i1 %.not307.i, label %376, label %336
+325:                                              ; preds = %323
+  %326 = getelementptr inbounds nuw i8, ptr %241, i64 32
+  %327 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %328 = load ptr, ptr %250, align 8, !tbaa !39
+  %.not307.i = icmp eq ptr %328, null
+  br i1 %.not307.i, label %369, label %329
 
-336:                                              ; preds = %332
-  %337 = getelementptr inbounds nuw i8, ptr %335, i64 32
-  %338 = load ptr, ptr %337, align 8, !tbaa !40
-  %339 = ptrtoint ptr %338 to i64
-  %340 = and i64 %339, 1
-  %.not308.i = icmp eq i64 %340, 0
-  br i1 %.not308.i, label %376, label %341
+329:                                              ; preds = %325
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 32
+  %331 = load ptr, ptr %330, align 8, !tbaa !40
+  %332 = ptrtoint ptr %331 to i64
+  %333 = and i64 %332, 1
+  %.not308.i = icmp eq i64 %333, 0
+  br i1 %.not308.i, label %369, label %334
 
-341:                                              ; preds = %336
-  %342 = and i64 %244, -2
-  %343 = inttoptr i64 %342 to ptr
-  store ptr %343, ptr %333, align 8, !tbaa !40
-  %344 = load ptr, ptr %255, align 8, !tbaa !40
-  %345 = ptrtoint ptr %344 to i64
-  %346 = or i64 %345, 1
-  %347 = inttoptr i64 %346 to ptr
-  store ptr %347, ptr %255, align 8, !tbaa !40
-  %348 = load ptr, ptr %337, align 8, !tbaa !40
-  %349 = ptrtoint ptr %348 to i64
-  %350 = and i64 %349, -2
-  %351 = inttoptr i64 %350 to ptr
-  store ptr %351, ptr %337, align 8, !tbaa !40
-  %352 = load ptr, ptr %255, align 8, !tbaa !40
-  %353 = ptrtoint ptr %352 to i64
-  %354 = and i64 %353, -2
-  %355 = inttoptr i64 %354 to ptr
-  store ptr %355, ptr %334, align 8, !tbaa !39
-  %356 = ptrtoint ptr %245 to i64
-  %357 = and i64 %353, 1
-  %358 = or i64 %357, %356
-  %359 = inttoptr i64 %358 to ptr
-  store ptr %359, ptr %255, align 8, !tbaa !40
-  %360 = getelementptr inbounds i8, ptr %.469.i, i64 -16
-  %361 = getelementptr inbounds i8, ptr %.469.i, i64 -8
-  %362 = load i32, ptr %361, align 8, !tbaa !38
-  %363 = icmp slt i32 %362, 0
-  br i1 %363, label %364, label %367
+334:                                              ; preds = %329
+  %335 = and i64 %240, -2
+  %336 = inttoptr i64 %335 to ptr
+  store ptr %336, ptr %326, align 8, !tbaa !40
+  %337 = load ptr, ptr %251, align 8, !tbaa !40
+  %338 = ptrtoint ptr %337 to i64
+  %339 = or i64 %338, 1
+  %340 = inttoptr i64 %339 to ptr
+  store ptr %340, ptr %251, align 8, !tbaa !40
+  %341 = load ptr, ptr %330, align 8, !tbaa !40
+  %342 = ptrtoint ptr %341 to i64
+  %343 = and i64 %342, -2
+  %344 = inttoptr i64 %343 to ptr
+  store ptr %344, ptr %330, align 8, !tbaa !40
+  %345 = load ptr, ptr %251, align 8, !tbaa !40
+  %346 = ptrtoint ptr %345 to i64
+  %347 = and i64 %346, -2
+  %348 = inttoptr i64 %347 to ptr
+  store ptr %348, ptr %327, align 8, !tbaa !39
+  %349 = ptrtoint ptr %241 to i64
+  %350 = and i64 %346, 1
+  %351 = or i64 %350, %349
+  %352 = inttoptr i64 %351 to ptr
+  store ptr %352, ptr %251, align 8, !tbaa !40
+  %353 = getelementptr inbounds i8, ptr %.469.i, i64 -16
+  %354 = getelementptr inbounds i8, ptr %.469.i, i64 -8
+  %355 = load i32, ptr %354, align 8, !tbaa !38
+  %356 = icmp slt i32 %355, 0
+  br i1 %356, label %357, label %360
 
-364:                                              ; preds = %341
-  %365 = load ptr, ptr %360, align 8, !tbaa !34
-  %366 = getelementptr inbounds nuw i8, ptr %365, i64 24
-  store ptr %253, ptr %366, align 8, !tbaa !39
+357:                                              ; preds = %334
+  %358 = load ptr, ptr %353, align 8, !tbaa !34
+  %359 = getelementptr inbounds nuw i8, ptr %358, i64 24
+  store ptr %249, ptr %359, align 8, !tbaa !39
   br label %tdata_tree_remove.exit
 
-367:                                              ; preds = %341
-  %368 = ptrtoint ptr %253 to i64
-  %369 = load ptr, ptr %360, align 8, !tbaa !34
-  %370 = getelementptr inbounds nuw i8, ptr %369, i64 32
-  %371 = load ptr, ptr %370, align 8, !tbaa !40
-  %372 = ptrtoint ptr %371 to i64
-  %373 = and i64 %372, 1
-  %374 = or i64 %373, %368
+360:                                              ; preds = %334
+  %361 = ptrtoint ptr %249 to i64
+  %362 = load ptr, ptr %353, align 8, !tbaa !34
+  %363 = getelementptr inbounds nuw i8, ptr %362, i64 32
+  %364 = load ptr, ptr %363, align 8, !tbaa !40
+  %365 = ptrtoint ptr %364 to i64
+  %366 = and i64 %365, 1
+  %367 = or i64 %366, %361
+  %368 = inttoptr i64 %367 to ptr
+  store ptr %368, ptr %363, align 8, !tbaa !40
+  br label %tdata_tree_remove.exit
+
+369:                                              ; preds = %329, %325
+  %370 = or disjoint i64 %253, 1
+  %371 = inttoptr i64 %370 to ptr
+  store ptr %371, ptr %251, align 8, !tbaa !40
+  %372 = load ptr, ptr %326, align 8, !tbaa !40
+  %373 = ptrtoint ptr %372 to i64
+  %374 = and i64 %373, -2
   %375 = inttoptr i64 %374 to ptr
-  store ptr %375, ptr %370, align 8, !tbaa !40
+  store ptr %375, ptr %326, align 8, !tbaa !40
   br label %tdata_tree_remove.exit
 
-376:                                              ; preds = %336, %332
-  %377 = or disjoint i64 %257, 1
-  %378 = inttoptr i64 %377 to ptr
-  store ptr %378, ptr %255, align 8, !tbaa !40
-  %379 = load ptr, ptr %333, align 8, !tbaa !40
-  %380 = ptrtoint ptr %379 to i64
-  %381 = and i64 %380, -2
-  %382 = inttoptr i64 %381 to ptr
-  store ptr %382, ptr %333, align 8, !tbaa !40
+376:                                              ; preds = %323
+  %377 = load ptr, ptr %250, align 8, !tbaa !39
+  %.not305.i = icmp eq ptr %377, null
+  br i1 %.not305.i, label %415, label %378
+
+378:                                              ; preds = %376
+  %379 = getelementptr inbounds nuw i8, ptr %377, i64 32
+  %380 = load ptr, ptr %379, align 8, !tbaa !40
+  %381 = ptrtoint ptr %380 to i64
+  %382 = and i64 %381, 1
+  %.not306.i = icmp eq i64 %382, 0
+  br i1 %.not306.i, label %415, label %383
+
+383:                                              ; preds = %378
+  %384 = getelementptr inbounds nuw i8, ptr %241, i64 24
+  %385 = getelementptr inbounds nuw i8, ptr %377, i64 32
+  %386 = and i64 %381, -2
+  %387 = inttoptr i64 %386 to ptr
+  store ptr %387, ptr %385, align 8, !tbaa !40
+  %388 = load ptr, ptr %251, align 8, !tbaa !40
+  %389 = ptrtoint ptr %388 to i64
+  %390 = and i64 %389, -2
+  %391 = inttoptr i64 %390 to ptr
+  store ptr %391, ptr %384, align 8, !tbaa !39
+  %392 = ptrtoint ptr %241 to i64
+  %393 = and i64 %389, 1
+  %394 = or i64 %393, %392
+  %395 = inttoptr i64 %394 to ptr
+  store ptr %395, ptr %251, align 8, !tbaa !40
+  %396 = icmp eq ptr %.469.i, %3
+  br i1 %396, label %397, label %398
+
+397:                                              ; preds = %383
+  store ptr %249, ptr @tdatas, align 8, !tbaa !4
   br label %tdata_tree_remove.exit
 
-383:                                              ; preds = %330
-  %384 = load ptr, ptr %254, align 8, !tbaa !39
-  %.not305.i = icmp eq ptr %384, null
-  br i1 %.not305.i, label %422, label %385
+398:                                              ; preds = %383
+  %399 = getelementptr inbounds i8, ptr %.469.i, i64 -16
+  %400 = getelementptr inbounds i8, ptr %.469.i, i64 -8
+  %401 = load i32, ptr %400, align 8, !tbaa !38
+  %402 = icmp slt i32 %401, 0
+  br i1 %402, label %403, label %406
 
-385:                                              ; preds = %383
-  %386 = getelementptr inbounds nuw i8, ptr %384, i64 32
-  %387 = load ptr, ptr %386, align 8, !tbaa !40
-  %388 = ptrtoint ptr %387 to i64
-  %389 = and i64 %388, 1
-  %.not306.i = icmp eq i64 %389, 0
-  br i1 %.not306.i, label %422, label %390
-
-390:                                              ; preds = %385
-  %391 = getelementptr inbounds nuw i8, ptr %245, i64 24
-  %392 = getelementptr inbounds nuw i8, ptr %384, i64 32
-  %393 = and i64 %388, -2
-  %394 = inttoptr i64 %393 to ptr
-  store ptr %394, ptr %392, align 8, !tbaa !40
-  %395 = load ptr, ptr %255, align 8, !tbaa !40
-  %396 = ptrtoint ptr %395 to i64
-  %397 = and i64 %396, -2
-  %398 = inttoptr i64 %397 to ptr
-  store ptr %398, ptr %391, align 8, !tbaa !39
-  %399 = ptrtoint ptr %245 to i64
-  %400 = and i64 %396, 1
-  %401 = or i64 %400, %399
-  %402 = inttoptr i64 %401 to ptr
-  store ptr %402, ptr %255, align 8, !tbaa !40
-  %403 = icmp eq ptr %.469.i, %3
-  br i1 %403, label %404, label %405
-
-404:                                              ; preds = %390
-  store ptr %253, ptr @tdatas, align 8, !tbaa !4
+403:                                              ; preds = %398
+  %404 = load ptr, ptr %399, align 8, !tbaa !34
+  %405 = getelementptr inbounds nuw i8, ptr %404, i64 24
+  store ptr %249, ptr %405, align 8, !tbaa !39
   br label %tdata_tree_remove.exit
 
-405:                                              ; preds = %390
-  %406 = getelementptr inbounds i8, ptr %.469.i, i64 -16
-  %407 = getelementptr inbounds i8, ptr %.469.i, i64 -8
-  %408 = load i32, ptr %407, align 8, !tbaa !38
-  %409 = icmp slt i32 %408, 0
-  br i1 %409, label %410, label %413
-
-410:                                              ; preds = %405
-  %411 = load ptr, ptr %406, align 8, !tbaa !34
-  %412 = getelementptr inbounds nuw i8, ptr %411, i64 24
-  store ptr %253, ptr %412, align 8, !tbaa !39
+406:                                              ; preds = %398
+  %407 = ptrtoint ptr %249 to i64
+  %408 = load ptr, ptr %399, align 8, !tbaa !34
+  %409 = getelementptr inbounds nuw i8, ptr %408, i64 32
+  %410 = load ptr, ptr %409, align 8, !tbaa !40
+  %411 = ptrtoint ptr %410 to i64
+  %412 = and i64 %411, 1
+  %413 = or i64 %412, %407
+  %414 = inttoptr i64 %413 to ptr
+  store ptr %414, ptr %409, align 8, !tbaa !40
   br label %tdata_tree_remove.exit
 
-413:                                              ; preds = %405
-  %414 = ptrtoint ptr %253 to i64
-  %415 = load ptr, ptr %406, align 8, !tbaa !34
-  %416 = getelementptr inbounds nuw i8, ptr %415, i64 32
-  %417 = load ptr, ptr %416, align 8, !tbaa !40
-  %418 = ptrtoint ptr %417 to i64
-  %419 = and i64 %418, 1
-  %420 = or i64 %419, %414
-  %421 = inttoptr i64 %420 to ptr
-  store ptr %421, ptr %416, align 8, !tbaa !40
-  br label %tdata_tree_remove.exit
+415:                                              ; preds = %378, %376
+  %416 = or disjoint i64 %253, 1
+  %417 = inttoptr i64 %416 to ptr
+  store ptr %417, ptr %251, align 8, !tbaa !40
+  br label %418
 
-422:                                              ; preds = %385, %383
-  %423 = or disjoint i64 %257, 1
-  %424 = inttoptr i64 %423 to ptr
-  store ptr %424, ptr %255, align 8, !tbaa !40
-  br label %425
-
-425:                                              ; preds = %422, %.critedge317.i
-  %426 = getelementptr inbounds i8, ptr %.469.i, i64 -16
-  %.not302.i = icmp ult ptr %426, %3
+418:                                              ; preds = %415, %.critedge317.i
+  %419 = getelementptr inbounds i8, ptr %.469.i, i64 -16
+  %.not302.i = icmp ult ptr %419, %3
   br i1 %.not302.i, label %._crit_edge.i, label %.lr.ph71.i, !llvm.loop !44
 
-._crit_edge.i:                                    ; preds = %425, %134
-  %427 = load ptr, ptr %3, align 16, !tbaa !34
-  store ptr %427, ptr @tdatas, align 8, !tbaa !4
+._crit_edge.i:                                    ; preds = %418, %134
+  %420 = load ptr, ptr %3, align 16, !tbaa !34
+  store ptr %420, ptr @tdatas, align 8, !tbaa !4
   br label %tdata_tree_remove.exit
 
-tdata_tree_remove.exit:                           ; preds = %103, %109, %112, %123, %130, %187, %190, %224, %231, %233, %312, %318, %321, %364, %367, %376, %404, %410, %413, %._crit_edge.i
+tdata_tree_remove.exit:                           ; preds = %103, %109, %112, %123, %130, %185, %188, %220, %227, %229, %305, %311, %314, %357, %360, %369, %397, %403, %406, %._crit_edge.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %428 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  call void @je_ckh_delete(ptr noundef %0, ptr noundef nonnull %428) #11
-  %429 = icmp eq ptr %0, null
+  %421 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  call void @je_ckh_delete(ptr noundef %0, ptr noundef nonnull %421) #11
+  %422 = icmp eq ptr %0, null
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %429, label %430, label %431
+  br i1 %422, label %423, label %424
 
-430:                                              ; preds = %tdata_tree_remove.exit
+423:                                              ; preds = %tdata_tree_remove.exit
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #11
   br label %tsdn_rtree_ctx.exit
 
-431:                                              ; preds = %tdata_tree_remove.exit
-  %432 = getelementptr inbounds nuw i8, ptr %0, i64 504
+424:                                              ; preds = %tdata_tree_remove.exit
+  %425 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %tsdn_rtree_ctx.exit
 
-tsdn_rtree_ctx.exit:                              ; preds = %430, %431
-  %.0.i8 = phi ptr [ %5, %430 ], [ %432, %431 ]
-  %433 = ptrtoint ptr %1 to i64
-  %434 = lshr i64 %433, 30
-  %435 = and i64 %434, 15
-  %436 = and i64 %433, -1073741824
-  %437 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i8, i64 %435
-  %438 = load i64, ptr %437, align 8, !tbaa !45, !noalias !48
-  %439 = icmp eq i64 %438, %436
-  br i1 %439, label %440, label %446, !prof !17
+tsdn_rtree_ctx.exit:                              ; preds = %423, %424
+  %.0.i8 = phi ptr [ %5, %423 ], [ %425, %424 ]
+  %426 = ptrtoint ptr %1 to i64
+  %427 = lshr i64 %426, 30
+  %428 = and i64 %427, 15
+  %429 = and i64 %426, -1073741824
+  %430 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i8, i64 %428
+  %431 = load i64, ptr %430, align 8, !tbaa !45, !noalias !48
+  %432 = icmp eq i64 %431, %429
+  br i1 %432, label %433, label %439, !prof !17
 
-440:                                              ; preds = %tsdn_rtree_ctx.exit
-  %441 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  %442 = load ptr, ptr %441, align 8, !tbaa !51, !noalias !48
-  %443 = lshr i64 %433, 12
-  %444 = and i64 %443, 262143
-  %445 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %442, i64 %444
+433:                                              ; preds = %tsdn_rtree_ctx.exit
+  %434 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %435 = load ptr, ptr %434, align 8, !tbaa !51, !noalias !48
+  %436 = lshr i64 %426, 12
+  %437 = and i64 %436, 262143
+  %438 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %435, i64 %437
   br label %rtree_read.exit
 
-446:                                              ; preds = %tsdn_rtree_ctx.exit
-  %447 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 256
-  %448 = load i64, ptr %447, align 8, !tbaa !45, !noalias !48
-  %449 = icmp eq i64 %448, %436
-  br i1 %449, label %450, label %.preheader.i, !prof !17
+439:                                              ; preds = %tsdn_rtree_ctx.exit
+  %440 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 256
+  %441 = load i64, ptr %440, align 8, !tbaa !45, !noalias !48
+  %442 = icmp eq i64 %441, %429
+  br i1 %442, label %443, label %.preheader.i, !prof !17
 
-450:                                              ; preds = %446
-  %451 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 264
-  %452 = load ptr, ptr %451, align 8, !tbaa !51, !noalias !48
-  store i64 %438, ptr %447, align 8, !tbaa !45, !noalias !48
-  %453 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  %454 = load ptr, ptr %453, align 8, !tbaa !51, !noalias !48
-  store ptr %454, ptr %451, align 8, !tbaa !51, !noalias !48
-  store i64 %436, ptr %437, align 8, !tbaa !45, !noalias !48
-  store ptr %452, ptr %453, align 8, !tbaa !51, !noalias !48
-  %455 = lshr i64 %433, 12
-  %456 = and i64 %455, 262143
-  %457 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %452, i64 %456
+443:                                              ; preds = %439
+  %444 = getelementptr inbounds nuw i8, ptr %.0.i8, i64 264
+  %445 = load ptr, ptr %444, align 8, !tbaa !51, !noalias !48
+  store i64 %431, ptr %440, align 8, !tbaa !45, !noalias !48
+  %446 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %447 = load ptr, ptr %446, align 8, !tbaa !51, !noalias !48
+  store ptr %447, ptr %444, align 8, !tbaa !51, !noalias !48
+  store i64 %429, ptr %430, align 8, !tbaa !45, !noalias !48
+  store ptr %445, ptr %446, align 8, !tbaa !51, !noalias !48
+  %448 = lshr i64 %426, 12
+  %449 = and i64 %448, 262143
+  %450 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %445, i64 %449
   br label %rtree_read.exit
 
-458:                                              ; preds = %.preheader.i
+451:                                              ; preds = %.preheader.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.i = icmp eq i64 %indvars.iv.next.i, 8
-  br i1 %exitcond.i, label %474, label %.preheader.i, !llvm.loop !52
+  br i1 %exitcond.i, label %467, label %.preheader.i, !llvm.loop !52
 
-.preheader.i:                                     ; preds = %446, %458
-  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %458 ], [ 1, %446 ]
-  %459 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %447, i64 %indvars.iv.i
-  %460 = load i64, ptr %459, align 8, !tbaa !45, !noalias !48
-  %461 = icmp eq i64 %460, %436
-  br i1 %461, label %462, label %458, !prof !17
+.preheader.i:                                     ; preds = %439, %451
+  %indvars.iv.i = phi i64 [ %indvars.iv.next.i, %451 ], [ 1, %439 ]
+  %452 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %440, i64 %indvars.iv.i
+  %453 = load i64, ptr %452, align 8, !tbaa !45, !noalias !48
+  %454 = icmp eq i64 %453, %429
+  br i1 %454, label %455, label %451, !prof !17
 
-462:                                              ; preds = %.preheader.i
-  %463 = getelementptr inbounds nuw i8, ptr %459, i64 8
-  %464 = load ptr, ptr %463, align 8, !tbaa !51, !noalias !48
-  %465 = getelementptr i8, ptr %459, i64 -16
-  %466 = load i64, ptr %465, align 8, !tbaa !45, !noalias !48
-  store i64 %466, ptr %459, align 8, !tbaa !45, !noalias !48
-  %467 = getelementptr i8, ptr %459, i64 -8
-  %468 = load ptr, ptr %467, align 8, !tbaa !51, !noalias !48
-  store ptr %468, ptr %463, align 8, !tbaa !51, !noalias !48
-  store i64 %438, ptr %465, align 8, !tbaa !45, !noalias !48
-  %469 = getelementptr inbounds nuw i8, ptr %437, i64 8
-  %470 = load ptr, ptr %469, align 8, !tbaa !51, !noalias !48
-  store ptr %470, ptr %467, align 8, !tbaa !51, !noalias !48
-  store i64 %436, ptr %437, align 8, !tbaa !45, !noalias !48
-  store ptr %464, ptr %469, align 8, !tbaa !51, !noalias !48
-  %471 = lshr i64 %433, 12
-  %472 = and i64 %471, 262143
-  %473 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %464, i64 %472
+455:                                              ; preds = %.preheader.i
+  %456 = getelementptr inbounds nuw i8, ptr %452, i64 8
+  %457 = load ptr, ptr %456, align 8, !tbaa !51, !noalias !48
+  %458 = getelementptr i8, ptr %452, i64 -16
+  %459 = load i64, ptr %458, align 8, !tbaa !45, !noalias !48
+  store i64 %459, ptr %452, align 8, !tbaa !45, !noalias !48
+  %460 = getelementptr i8, ptr %452, i64 -8
+  %461 = load ptr, ptr %460, align 8, !tbaa !51, !noalias !48
+  store ptr %461, ptr %456, align 8, !tbaa !51, !noalias !48
+  store i64 %431, ptr %458, align 8, !tbaa !45, !noalias !48
+  %462 = getelementptr inbounds nuw i8, ptr %430, i64 8
+  %463 = load ptr, ptr %462, align 8, !tbaa !51, !noalias !48
+  store ptr %463, ptr %460, align 8, !tbaa !51, !noalias !48
+  store i64 %429, ptr %430, align 8, !tbaa !45, !noalias !48
+  store ptr %457, ptr %462, align 8, !tbaa !51, !noalias !48
+  %464 = lshr i64 %426, 12
+  %465 = and i64 %464, 262143
+  %466 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %457, i64 %465
   br label %rtree_read.exit
 
-474:                                              ; preds = %458
-  %475 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i8, i64 noundef %433, i1 noundef zeroext true, i1 noundef zeroext false) #11, !noalias !48
+467:                                              ; preds = %451
+  %468 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i8, i64 noundef %426, i1 noundef zeroext true, i1 noundef zeroext false) #11, !noalias !48
   br label %rtree_read.exit
 
-rtree_read.exit:                                  ; preds = %440, %450, %462, %474
-  %.0.i.i10 = phi ptr [ %445, %440 ], [ %457, %450 ], [ %475, %474 ], [ %473, %462 ]
-  %476 = load atomic i64, ptr %.0.i.i10 monotonic, align 8, !noalias !53
-  %477 = shl i64 %476, 16
-  %478 = ashr exact i64 %477, 16
-  %479 = and i64 %478, -128
-  %480 = inttoptr i64 %479 to ptr
+rtree_read.exit:                                  ; preds = %433, %443, %455, %467
+  %.0.i.i10 = phi ptr [ %438, %433 ], [ %450, %443 ], [ %468, %467 ], [ %466, %455 ]
+  %469 = load atomic i64, ptr %.0.i.i10 monotonic, align 8, !noalias !53
+  %470 = shl i64 %469, 16
+  %471 = ashr exact i64 %470, 16
+  %472 = and i64 %471, -128
+  %473 = inttoptr i64 %472 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.val = load i64, ptr %480, align 128, !tbaa !56
-  %481 = and i64 %.val, 4095
-  %482 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %481
-  %483 = load atomic i64, ptr %482 monotonic, align 8
+  %.val = load i64, ptr %473, align 128, !tbaa !56
+  %474 = and i64 %.val, 4095
+  %475 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %474
+  %476 = load atomic i64, ptr %475 monotonic, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %429, label %484, label %485, !prof !59
+  br i1 %422, label %477, label %478, !prof !59
 
-484:                                              ; preds = %rtree_read.exit
+477:                                              ; preds = %rtree_read.exit
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #11
   br label %emap_alloc_ctx_lookup.exit
 
-485:                                              ; preds = %rtree_read.exit
-  %486 = getelementptr inbounds nuw i8, ptr %0, i64 504
+478:                                              ; preds = %rtree_read.exit
+  %479 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %emap_alloc_ctx_lookup.exit
 
-emap_alloc_ctx_lookup.exit:                       ; preds = %484, %485
-  %.0.i.i = phi ptr [ %4, %484 ], [ %486, %485 ]
-  %487 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i, i64 %435
-  %488 = load i64, ptr %487, align 8, !tbaa !45
-  %489 = icmp eq i64 %488, %436
-  br i1 %489, label %490, label %496, !prof !17
+emap_alloc_ctx_lookup.exit:                       ; preds = %477, %478
+  %.0.i.i = phi ptr [ %4, %477 ], [ %479, %478 ]
+  %480 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i, i64 %428
+  %481 = load i64, ptr %480, align 8, !tbaa !45
+  %482 = icmp eq i64 %481, %429
+  br i1 %482, label %483, label %489, !prof !17
 
-490:                                              ; preds = %emap_alloc_ctx_lookup.exit
-  %491 = getelementptr inbounds nuw i8, ptr %487, i64 8
-  %492 = load ptr, ptr %491, align 8, !tbaa !51
-  %493 = lshr i64 %433, 12
-  %494 = and i64 %493, 262143
-  %495 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %492, i64 %494
+483:                                              ; preds = %emap_alloc_ctx_lookup.exit
+  %484 = getelementptr inbounds nuw i8, ptr %480, i64 8
+  %485 = load ptr, ptr %484, align 8, !tbaa !51
+  %486 = lshr i64 %426, 12
+  %487 = and i64 %486, 262143
+  %488 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %485, i64 %487
   br label %rtree_metadata_read.exit
 
-496:                                              ; preds = %emap_alloc_ctx_lookup.exit
-  %497 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 256
-  %498 = load i64, ptr %497, align 8, !tbaa !45
-  %499 = icmp eq i64 %498, %436
-  br i1 %499, label %500, label %.preheader.i11, !prof !17
+489:                                              ; preds = %emap_alloc_ctx_lookup.exit
+  %490 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 256
+  %491 = load i64, ptr %490, align 8, !tbaa !45
+  %492 = icmp eq i64 %491, %429
+  br i1 %492, label %493, label %.preheader.i11, !prof !17
 
-500:                                              ; preds = %496
-  %501 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 264
-  %502 = load ptr, ptr %501, align 8, !tbaa !51
-  store i64 %488, ptr %497, align 8, !tbaa !45
-  %503 = getelementptr inbounds nuw i8, ptr %487, i64 8
-  %504 = load ptr, ptr %503, align 8, !tbaa !51
-  store ptr %504, ptr %501, align 8, !tbaa !51
-  store i64 %436, ptr %487, align 8, !tbaa !45
-  store ptr %502, ptr %503, align 8, !tbaa !51
-  %505 = lshr i64 %433, 12
-  %506 = and i64 %505, 262143
-  %507 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %502, i64 %506
+493:                                              ; preds = %489
+  %494 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 264
+  %495 = load ptr, ptr %494, align 8, !tbaa !51
+  store i64 %481, ptr %490, align 8, !tbaa !45
+  %496 = getelementptr inbounds nuw i8, ptr %480, i64 8
+  %497 = load ptr, ptr %496, align 8, !tbaa !51
+  store ptr %497, ptr %494, align 8, !tbaa !51
+  store i64 %429, ptr %480, align 8, !tbaa !45
+  store ptr %495, ptr %496, align 8, !tbaa !51
+  %498 = lshr i64 %426, 12
+  %499 = and i64 %498, 262143
+  %500 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %495, i64 %499
   br label %rtree_metadata_read.exit
 
-508:                                              ; preds = %.preheader.i11
+501:                                              ; preds = %.preheader.i11
   %indvars.iv.next.i13 = add nuw nsw i64 %indvars.iv.i12, 1
   %exitcond.i14 = icmp eq i64 %indvars.iv.next.i13, 8
-  br i1 %exitcond.i14, label %524, label %.preheader.i11, !llvm.loop !52
+  br i1 %exitcond.i14, label %517, label %.preheader.i11, !llvm.loop !52
 
-.preheader.i11:                                   ; preds = %496, %508
-  %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %508 ], [ 1, %496 ]
-  %509 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %497, i64 %indvars.iv.i12
-  %510 = load i64, ptr %509, align 8, !tbaa !45
-  %511 = icmp eq i64 %510, %436
-  br i1 %511, label %512, label %508, !prof !17
+.preheader.i11:                                   ; preds = %489, %501
+  %indvars.iv.i12 = phi i64 [ %indvars.iv.next.i13, %501 ], [ 1, %489 ]
+  %502 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %490, i64 %indvars.iv.i12
+  %503 = load i64, ptr %502, align 8, !tbaa !45
+  %504 = icmp eq i64 %503, %429
+  br i1 %504, label %505, label %501, !prof !17
 
-512:                                              ; preds = %.preheader.i11
-  %513 = getelementptr inbounds nuw i8, ptr %509, i64 8
-  %514 = load ptr, ptr %513, align 8, !tbaa !51
-  %515 = getelementptr i8, ptr %509, i64 -16
-  %516 = load i64, ptr %515, align 8, !tbaa !45
-  store i64 %516, ptr %509, align 8, !tbaa !45
-  %517 = getelementptr i8, ptr %509, i64 -8
-  %518 = load ptr, ptr %517, align 8, !tbaa !51
-  store ptr %518, ptr %513, align 8, !tbaa !51
-  store i64 %488, ptr %515, align 8, !tbaa !45
-  %519 = getelementptr inbounds nuw i8, ptr %487, i64 8
-  %520 = load ptr, ptr %519, align 8, !tbaa !51
-  store ptr %520, ptr %517, align 8, !tbaa !51
-  store i64 %436, ptr %487, align 8, !tbaa !45
-  store ptr %514, ptr %519, align 8, !tbaa !51
-  %521 = lshr i64 %433, 12
-  %522 = and i64 %521, 262143
-  %523 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %514, i64 %522
+505:                                              ; preds = %.preheader.i11
+  %506 = getelementptr inbounds nuw i8, ptr %502, i64 8
+  %507 = load ptr, ptr %506, align 8, !tbaa !51
+  %508 = getelementptr i8, ptr %502, i64 -16
+  %509 = load i64, ptr %508, align 8, !tbaa !45
+  store i64 %509, ptr %502, align 8, !tbaa !45
+  %510 = getelementptr i8, ptr %502, i64 -8
+  %511 = load ptr, ptr %510, align 8, !tbaa !51
+  store ptr %511, ptr %506, align 8, !tbaa !51
+  store i64 %481, ptr %508, align 8, !tbaa !45
+  %512 = getelementptr inbounds nuw i8, ptr %480, i64 8
+  %513 = load ptr, ptr %512, align 8, !tbaa !51
+  store ptr %513, ptr %510, align 8, !tbaa !51
+  store i64 %429, ptr %480, align 8, !tbaa !45
+  store ptr %507, ptr %512, align 8, !tbaa !51
+  %514 = lshr i64 %426, 12
+  %515 = and i64 %514, 262143
+  %516 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %507, i64 %515
   br label %rtree_metadata_read.exit
 
-524:                                              ; preds = %508
-  %525 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %433, i1 noundef zeroext true, i1 noundef zeroext false) #11
+517:                                              ; preds = %501
+  %518 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i, i64 noundef %426, i1 noundef zeroext true, i1 noundef zeroext false) #11
   br label %rtree_metadata_read.exit
 
-rtree_metadata_read.exit:                         ; preds = %490, %500, %512, %524
-  %.0.i.i15 = phi ptr [ %495, %490 ], [ %507, %500 ], [ %525, %524 ], [ %523, %512 ]
-  %526 = inttoptr i64 %483 to ptr
-  %527 = load atomic i64, ptr %.0.i.i15 monotonic, align 8, !noalias !60
-  %528 = lshr i64 %527, 48
+rtree_metadata_read.exit:                         ; preds = %483, %493, %505, %517
+  %.0.i.i15 = phi ptr [ %488, %483 ], [ %500, %493 ], [ %518, %517 ], [ %516, %505 ]
+  %519 = inttoptr i64 %476 to ptr
+  %520 = load atomic i64, ptr %.0.i.i15 monotonic, align 8, !noalias !60
+  %521 = lshr i64 %520, 48
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %529 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %528
-  %530 = load i64, ptr %529, align 8, !tbaa !10
-  %531 = getelementptr inbounds nuw i8, ptr %526, i64 72
-  %532 = atomicrmw sub ptr %531, i64 %530 monotonic, align 8
+  %522 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %521
+  %523 = load i64, ptr %522, align 8, !tbaa !10
+  %524 = getelementptr inbounds nuw i8, ptr %519, i64 72
+  %525 = atomicrmw sub ptr %524, i64 %523 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef nonnull %1)
   ret void
 }
@@ -1344,7 +1337,7 @@ malloc_mutex_lock.exit.i:                         ; preds = %58, %52
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 132
   %63 = load i32, ptr %62, align 4, !tbaa !77
   %64 = icmp eq i32 %63, 1
-  br i1 %64, label %65, label %512
+  br i1 %64, label %65, label %505
 
 65:                                               ; preds = %malloc_mutex_lock.exit.i
   %66 = getelementptr inbounds nuw i8, ptr %19, i64 16
@@ -1583,14 +1576,14 @@ prof_tctx_comp.exit.i.i:                          ; preds = %84, %78, %72
   %.not302387.i.i = icmp ult ptr %203, %3
   br i1 %.not302387.i.i, label %._crit_edge.i.i, label %.lr.ph390.i.i
 
-.lr.ph390.i.i:                                    ; preds = %202, %493
-  %.4388.i.i = phi ptr [ %494, %493 ], [ %203, %202 ]
+.lr.ph390.i.i:                                    ; preds = %202, %486
+  %.4388.i.i = phi ptr [ %487, %486 ], [ %203, %202 ]
   %204 = getelementptr inbounds nuw i8, ptr %.4388.i.i, i64 8
   %205 = load i32, ptr %204, align 8, !tbaa !84
   %206 = icmp slt i32 %205, 0
   %207 = getelementptr inbounds nuw i8, ptr %.4388.i.i, i64 16
   %208 = load ptr, ptr %207, align 8, !tbaa !79
-  br i1 %206, label %209, label %311
+  br i1 %206, label %209, label %307
 
 209:                                              ; preds = %.lr.ph390.i.i
   %210 = load ptr, ptr %.4388.i.i, align 8, !tbaa !79
@@ -1601,7 +1594,7 @@ prof_tctx_comp.exit.i.i:                          ; preds = %84, %78, %72
   %214 = ptrtoint ptr %213 to i64
   %215 = and i64 %214, 1
   %.not311.i.i = icmp eq i64 %215, 0
-  br i1 %.not311.i.i, label %267, label %216
+  br i1 %.not311.i.i, label %265, label %216
 
 216:                                              ; preds = %209
   %217 = and i64 %214, -2
@@ -1609,7 +1602,7 @@ prof_tctx_comp.exit.i.i:                          ; preds = %84, %78, %72
   %219 = getelementptr inbounds nuw i8, ptr %218, i64 112
   %220 = load ptr, ptr %219, align 8, !tbaa !85
   %.not314.i.i = icmp eq ptr %220, null
-  br i1 %.not314.i.i, label %246, label %221
+  br i1 %.not314.i.i, label %244, label %221
 
 221:                                              ; preds = %216
   %222 = getelementptr inbounds nuw i8, ptr %220, i64 120
@@ -1617,7 +1610,7 @@ prof_tctx_comp.exit.i.i:                          ; preds = %84, %78, %72
   %224 = ptrtoint ptr %223 to i64
   %225 = and i64 %224, 1
   %.not315.i.i = icmp eq i64 %225, 0
-  br i1 %.not315.i.i, label %246, label %226
+  br i1 %.not315.i.i, label %244, label %226
 
 226:                                              ; preds = %221
   store ptr %218, ptr %212, align 8, !tbaa !86
@@ -1634,650 +1627,643 @@ prof_tctx_comp.exit.i.i:                          ; preds = %84, %78, %72
   %235 = load ptr, ptr %212, align 8, !tbaa !86
   %236 = ptrtoint ptr %235 to i64
   %237 = or i64 %236, %234
-  %238 = and i64 %234, -2
-  %239 = inttoptr i64 %238 to ptr
-  %240 = getelementptr inbounds nuw i8, ptr %239, i64 112
-  %241 = load ptr, ptr %240, align 8, !tbaa !85
-  %242 = ptrtoint ptr %241 to i64
-  %243 = and i64 %237, 1
-  %244 = or i64 %243, %242
-  %245 = inttoptr i64 %244 to ptr
-  store ptr %245, ptr %212, align 8, !tbaa !86
-  store ptr %210, ptr %240, align 8, !tbaa !85
-  br label %250
+  %238 = getelementptr inbounds nuw i8, ptr %220, i64 112
+  %239 = load ptr, ptr %238, align 8, !tbaa !85
+  %240 = ptrtoint ptr %239 to i64
+  %241 = and i64 %237, 1
+  %242 = or i64 %241, %240
+  %243 = inttoptr i64 %242 to ptr
+  store ptr %243, ptr %212, align 8, !tbaa !86
+  store ptr %210, ptr %238, align 8, !tbaa !85
+  br label %248
 
-246:                                              ; preds = %221, %216
-  %247 = ptrtoint ptr %220 to i64
-  %248 = or i64 %247, 1
-  %249 = inttoptr i64 %248 to ptr
-  store ptr %249, ptr %212, align 8, !tbaa !86
+244:                                              ; preds = %221, %216
+  %245 = ptrtoint ptr %220 to i64
+  %246 = or i64 %245, 1
+  %247 = inttoptr i64 %246 to ptr
+  store ptr %247, ptr %212, align 8, !tbaa !86
   store ptr %210, ptr %219, align 8, !tbaa !85
-  br label %250
+  br label %248
 
-250:                                              ; preds = %246, %226
-  %.0280.i.i = phi ptr [ %239, %226 ], [ %218, %246 ]
-  %251 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
-  %252 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
-  %253 = load i32, ptr %252, align 8, !tbaa !84
-  %254 = icmp slt i32 %253, 0
-  br i1 %254, label %255, label %258
+248:                                              ; preds = %244, %226
+  %.0280.i.i = phi ptr [ %220, %226 ], [ %218, %244 ]
+  %249 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
+  %250 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
+  %251 = load i32, ptr %250, align 8, !tbaa !84
+  %252 = icmp slt i32 %251, 0
+  br i1 %252, label %253, label %256
 
-255:                                              ; preds = %250
-  %256 = load ptr, ptr %251, align 8, !tbaa !79
-  %257 = getelementptr inbounds nuw i8, ptr %256, i64 112
-  store ptr %.0280.i.i, ptr %257, align 8, !tbaa !85
+253:                                              ; preds = %248
+  %254 = load ptr, ptr %249, align 8, !tbaa !79
+  %255 = getelementptr inbounds nuw i8, ptr %254, i64 112
+  store ptr %.0280.i.i, ptr %255, align 8, !tbaa !85
   br label %tctx_tree_remove.exit.i
 
-258:                                              ; preds = %250
-  %259 = ptrtoint ptr %.0280.i.i to i64
-  %260 = load ptr, ptr %251, align 8, !tbaa !79
-  %261 = getelementptr inbounds nuw i8, ptr %260, i64 120
-  %262 = load ptr, ptr %261, align 8, !tbaa !86
-  %263 = ptrtoint ptr %262 to i64
-  %264 = and i64 %263, 1
-  %265 = or i64 %264, %259
-  %266 = inttoptr i64 %265 to ptr
-  store ptr %266, ptr %261, align 8, !tbaa !86
+256:                                              ; preds = %248
+  %257 = ptrtoint ptr %.0280.i.i to i64
+  %258 = load ptr, ptr %249, align 8, !tbaa !79
+  %259 = getelementptr inbounds nuw i8, ptr %258, i64 120
+  %260 = load ptr, ptr %259, align 8, !tbaa !86
+  %261 = ptrtoint ptr %260 to i64
+  %262 = and i64 %261, 1
+  %263 = or i64 %262, %257
+  %264 = inttoptr i64 %263 to ptr
+  store ptr %264, ptr %259, align 8, !tbaa !86
   br label %tctx_tree_remove.exit.i
 
-267:                                              ; preds = %209
-  %268 = getelementptr inbounds nuw i8, ptr %213, i64 112
-  %269 = load ptr, ptr %268, align 8, !tbaa !85
-  %.not312.i.i = icmp eq ptr %269, null
-  br i1 %.not312.i.i, label %.critedge317.i.i, label %270
+265:                                              ; preds = %209
+  %266 = getelementptr inbounds nuw i8, ptr %213, i64 112
+  %267 = load ptr, ptr %266, align 8, !tbaa !85
+  %.not312.i.i = icmp eq ptr %267, null
+  br i1 %.not312.i.i, label %.critedge317.i.i, label %268
 
-270:                                              ; preds = %267
-  %271 = getelementptr inbounds nuw i8, ptr %269, i64 120
-  %272 = load ptr, ptr %271, align 8, !tbaa !86
-  %273 = ptrtoint ptr %272 to i64
-  %274 = and i64 %273, 1
-  %.not313.i.i = icmp eq i64 %274, 0
-  br i1 %.not313.i.i, label %.critedge317.i.i, label %275
+268:                                              ; preds = %265
+  %269 = getelementptr inbounds nuw i8, ptr %267, i64 120
+  %270 = load ptr, ptr %269, align 8, !tbaa !86
+  %271 = ptrtoint ptr %270 to i64
+  %272 = and i64 %271, 1
+  %.not313.i.i = icmp eq i64 %272, 0
+  br i1 %.not313.i.i, label %.critedge317.i.i, label %273
 
-275:                                              ; preds = %270
-  %276 = getelementptr inbounds nuw i8, ptr %269, i64 120
-  %277 = and i64 %273, -2
-  %278 = inttoptr i64 %277 to ptr
-  store ptr %278, ptr %268, align 8, !tbaa !85
-  store ptr %213, ptr %276, align 8, !tbaa !86
-  %279 = ptrtoint ptr %269 to i64
-  %280 = load ptr, ptr %212, align 8, !tbaa !86
-  %281 = ptrtoint ptr %280 to i64
-  %282 = or i64 %281, %279
-  %283 = and i64 %279, -2
-  %284 = inttoptr i64 %283 to ptr
-  %285 = getelementptr inbounds nuw i8, ptr %284, i64 112
-  %286 = load ptr, ptr %285, align 8, !tbaa !85
-  %287 = ptrtoint ptr %286 to i64
-  %288 = and i64 %282, 1
-  %289 = or i64 %288, %287
-  %290 = inttoptr i64 %289 to ptr
-  store ptr %290, ptr %212, align 8, !tbaa !86
-  store ptr %210, ptr %285, align 8, !tbaa !85
-  %291 = icmp eq ptr %.4388.i.i, %3
-  br i1 %291, label %292, label %293
+273:                                              ; preds = %268
+  %274 = getelementptr inbounds nuw i8, ptr %267, i64 120
+  %275 = and i64 %271, -2
+  %276 = inttoptr i64 %275 to ptr
+  store ptr %276, ptr %266, align 8, !tbaa !85
+  store ptr %213, ptr %274, align 8, !tbaa !86
+  %277 = ptrtoint ptr %267 to i64
+  %278 = load ptr, ptr %212, align 8, !tbaa !86
+  %279 = ptrtoint ptr %278 to i64
+  %280 = or i64 %279, %277
+  %281 = getelementptr inbounds nuw i8, ptr %267, i64 112
+  %282 = load ptr, ptr %281, align 8, !tbaa !85
+  %283 = ptrtoint ptr %282 to i64
+  %284 = and i64 %280, 1
+  %285 = or i64 %284, %283
+  %286 = inttoptr i64 %285 to ptr
+  store ptr %286, ptr %212, align 8, !tbaa !86
+  store ptr %210, ptr %281, align 8, !tbaa !85
+  %287 = icmp eq ptr %.4388.i.i, %3
+  br i1 %287, label %288, label %289
 
-292:                                              ; preds = %275
-  store ptr %284, ptr %66, align 8, !tbaa !78
+288:                                              ; preds = %273
+  store ptr %267, ptr %66, align 8, !tbaa !78
   br label %tctx_tree_remove.exit.i
 
-293:                                              ; preds = %275
-  %294 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
-  %295 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
-  %296 = load i32, ptr %295, align 8, !tbaa !84
-  %297 = icmp slt i32 %296, 0
-  %298 = load ptr, ptr %294, align 8, !tbaa !79
-  br i1 %297, label %299, label %301
+289:                                              ; preds = %273
+  %290 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
+  %291 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
+  %292 = load i32, ptr %291, align 8, !tbaa !84
+  %293 = icmp slt i32 %292, 0
+  %294 = load ptr, ptr %290, align 8, !tbaa !79
+  br i1 %293, label %295, label %297
 
-299:                                              ; preds = %293
-  %300 = getelementptr inbounds nuw i8, ptr %298, i64 112
-  store ptr %284, ptr %300, align 8, !tbaa !85
+295:                                              ; preds = %289
+  %296 = getelementptr inbounds nuw i8, ptr %294, i64 112
+  store ptr %267, ptr %296, align 8, !tbaa !85
   br label %tctx_tree_remove.exit.i
 
-301:                                              ; preds = %293
-  %302 = getelementptr inbounds nuw i8, ptr %298, i64 120
-  %303 = load ptr, ptr %302, align 8, !tbaa !86
-  %304 = ptrtoint ptr %303 to i64
-  %305 = and i64 %304, 1
-  %306 = or disjoint i64 %305, %283
-  %307 = inttoptr i64 %306 to ptr
-  store ptr %307, ptr %302, align 8, !tbaa !86
+297:                                              ; preds = %289
+  %298 = getelementptr inbounds nuw i8, ptr %294, i64 120
+  %299 = load ptr, ptr %298, align 8, !tbaa !86
+  %300 = ptrtoint ptr %299 to i64
+  %301 = and i64 %300, 1
+  %302 = or disjoint i64 %301, %277
+  %303 = inttoptr i64 %302 to ptr
+  store ptr %303, ptr %298, align 8, !tbaa !86
   br label %tctx_tree_remove.exit.i
 
-.critedge317.i.i:                                 ; preds = %270, %267
-  %308 = ptrtoint ptr %269 to i64
-  %309 = or i64 %308, 1
-  %310 = inttoptr i64 %309 to ptr
-  store ptr %310, ptr %212, align 8, !tbaa !86
-  store ptr %210, ptr %268, align 8, !tbaa !85
+.critedge317.i.i:                                 ; preds = %268, %265
+  %304 = ptrtoint ptr %267 to i64
+  %305 = or i64 %304, 1
+  %306 = inttoptr i64 %305 to ptr
+  store ptr %306, ptr %212, align 8, !tbaa !86
+  store ptr %210, ptr %266, align 8, !tbaa !85
   store ptr %213, ptr %.4388.i.i, align 8, !tbaa !79
-  br label %493
+  br label %486
 
-311:                                              ; preds = %.lr.ph390.i.i
-  %312 = ptrtoint ptr %208 to i64
-  %313 = load ptr, ptr %.4388.i.i, align 8, !tbaa !79
-  %314 = getelementptr inbounds nuw i8, ptr %313, i64 120
-  %315 = load ptr, ptr %314, align 8, !tbaa !86
-  %316 = ptrtoint ptr %315 to i64
-  %317 = and i64 %316, 1
-  %318 = or i64 %317, %312
-  %319 = inttoptr i64 %318 to ptr
-  store ptr %319, ptr %314, align 8, !tbaa !86
-  %320 = getelementptr inbounds nuw i8, ptr %313, i64 112
-  %321 = load ptr, ptr %320, align 8, !tbaa !85
-  %322 = getelementptr inbounds nuw i8, ptr %321, i64 112
-  %323 = getelementptr inbounds nuw i8, ptr %321, i64 120
-  %324 = load ptr, ptr %323, align 8, !tbaa !86
-  %325 = ptrtoint ptr %324 to i64
-  %326 = and i64 %325, 1
-  %.not303.i.i = icmp eq i64 %326, 0
-  br i1 %.not303.i.i, label %398, label %327
+307:                                              ; preds = %.lr.ph390.i.i
+  %308 = ptrtoint ptr %208 to i64
+  %309 = load ptr, ptr %.4388.i.i, align 8, !tbaa !79
+  %310 = getelementptr inbounds nuw i8, ptr %309, i64 120
+  %311 = load ptr, ptr %310, align 8, !tbaa !86
+  %312 = ptrtoint ptr %311 to i64
+  %313 = and i64 %312, 1
+  %314 = or i64 %313, %308
+  %315 = inttoptr i64 %314 to ptr
+  store ptr %315, ptr %310, align 8, !tbaa !86
+  %316 = getelementptr inbounds nuw i8, ptr %309, i64 112
+  %317 = load ptr, ptr %316, align 8, !tbaa !85
+  %318 = getelementptr inbounds nuw i8, ptr %317, i64 112
+  %319 = getelementptr inbounds nuw i8, ptr %317, i64 120
+  %320 = load ptr, ptr %319, align 8, !tbaa !86
+  %321 = ptrtoint ptr %320 to i64
+  %322 = and i64 %321, 1
+  %.not303.i.i = icmp eq i64 %322, 0
+  br i1 %.not303.i.i, label %391, label %323
 
-327:                                              ; preds = %311
-  %328 = getelementptr inbounds nuw i8, ptr %313, i64 112
-  %329 = and i64 %325, -2
-  %330 = inttoptr i64 %329 to ptr
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 112
-  %332 = load ptr, ptr %331, align 8, !tbaa !85
-  %.not309.i.i = icmp eq ptr %332, null
-  br i1 %.not309.i.i, label %365, label %333
+323:                                              ; preds = %307
+  %324 = getelementptr inbounds nuw i8, ptr %309, i64 112
+  %325 = and i64 %321, -2
+  %326 = inttoptr i64 %325 to ptr
+  %327 = getelementptr inbounds nuw i8, ptr %326, i64 112
+  %328 = load ptr, ptr %327, align 8, !tbaa !85
+  %.not309.i.i = icmp eq ptr %328, null
+  br i1 %.not309.i.i, label %361, label %329
 
-333:                                              ; preds = %327
-  %334 = getelementptr inbounds nuw i8, ptr %332, i64 120
-  %335 = load ptr, ptr %334, align 8, !tbaa !86
-  %336 = ptrtoint ptr %335 to i64
-  %337 = and i64 %336, 1
-  %.not310.i.i = icmp eq i64 %337, 0
-  br i1 %.not310.i.i, label %365, label %338
+329:                                              ; preds = %323
+  %330 = getelementptr inbounds nuw i8, ptr %328, i64 120
+  %331 = load ptr, ptr %330, align 8, !tbaa !86
+  %332 = ptrtoint ptr %331 to i64
+  %333 = and i64 %332, 1
+  %.not310.i.i = icmp eq i64 %333, 0
+  br i1 %.not310.i.i, label %361, label %334
 
-338:                                              ; preds = %333
-  %339 = and i64 %336, -2
+334:                                              ; preds = %329
+  %335 = and i64 %332, -2
+  %336 = inttoptr i64 %335 to ptr
+  store ptr %336, ptr %330, align 8, !tbaa !86
+  %337 = load ptr, ptr %319, align 8, !tbaa !86
+  %338 = ptrtoint ptr %337 to i64
+  %339 = and i64 %338, -2
   %340 = inttoptr i64 %339 to ptr
-  store ptr %340, ptr %334, align 8, !tbaa !86
-  %341 = load ptr, ptr %323, align 8, !tbaa !86
-  %342 = ptrtoint ptr %341 to i64
-  %343 = and i64 %342, -2
+  %341 = ptrtoint ptr %309 to i64
+  %342 = and i64 %338, 1
+  %343 = or i64 %342, %341
   %344 = inttoptr i64 %343 to ptr
-  %345 = ptrtoint ptr %313 to i64
-  %346 = and i64 %342, 1
-  %347 = or i64 %346, %345
-  %348 = inttoptr i64 %347 to ptr
-  store ptr %348, ptr %323, align 8, !tbaa !86
-  %349 = getelementptr inbounds nuw i8, ptr %344, i64 120
-  %350 = load ptr, ptr %349, align 8, !tbaa !86
-  %351 = ptrtoint ptr %350 to i64
-  %352 = and i64 %351, -2
-  %353 = inttoptr i64 %352 to ptr
-  store ptr %353, ptr %328, align 8, !tbaa !85
-  %354 = and i64 %351, 1
-  %355 = or i64 %354, %345
-  %356 = inttoptr i64 %355 to ptr
-  store ptr %356, ptr %349, align 8, !tbaa !86
-  %357 = load ptr, ptr %323, align 8, !tbaa !86
+  store ptr %344, ptr %319, align 8, !tbaa !86
+  %345 = getelementptr inbounds nuw i8, ptr %340, i64 120
+  %346 = load ptr, ptr %345, align 8, !tbaa !86
+  %347 = ptrtoint ptr %346 to i64
+  %348 = and i64 %347, -2
+  %349 = inttoptr i64 %348 to ptr
+  store ptr %349, ptr %324, align 8, !tbaa !85
+  %350 = and i64 %347, 1
+  %351 = or i64 %350, %341
+  %352 = inttoptr i64 %351 to ptr
+  store ptr %352, ptr %345, align 8, !tbaa !86
+  %353 = load ptr, ptr %319, align 8, !tbaa !86
+  %354 = ptrtoint ptr %353 to i64
+  %355 = and i64 %354, 1
+  %356 = getelementptr inbounds nuw i8, ptr %340, i64 112
+  %357 = load ptr, ptr %356, align 8, !tbaa !85
   %358 = ptrtoint ptr %357 to i64
-  %359 = and i64 %358, 1
-  %360 = getelementptr inbounds nuw i8, ptr %344, i64 112
-  %361 = load ptr, ptr %360, align 8, !tbaa !85
-  %362 = ptrtoint ptr %361 to i64
-  %363 = or i64 %359, %362
-  %364 = inttoptr i64 %363 to ptr
-  store ptr %364, ptr %323, align 8, !tbaa !86
-  store ptr %321, ptr %360, align 8, !tbaa !85
-  br label %378
+  %359 = or i64 %355, %358
+  %360 = inttoptr i64 %359 to ptr
+  store ptr %360, ptr %319, align 8, !tbaa !86
+  store ptr %317, ptr %356, align 8, !tbaa !85
+  br label %371
 
-365:                                              ; preds = %333, %327
-  %366 = getelementptr inbounds nuw i8, ptr %330, i64 120
-  %367 = load ptr, ptr %366, align 8, !tbaa !86
+361:                                              ; preds = %329, %323
+  %362 = getelementptr inbounds nuw i8, ptr %326, i64 120
+  %363 = load ptr, ptr %362, align 8, !tbaa !86
+  %364 = ptrtoint ptr %363 to i64
+  %365 = or i64 %364, 1
+  %366 = inttoptr i64 %365 to ptr
+  store ptr %366, ptr %362, align 8, !tbaa !86
+  %367 = load ptr, ptr %319, align 8, !tbaa !86
   %368 = ptrtoint ptr %367 to i64
-  %369 = or i64 %368, 1
+  %369 = and i64 %368, -2
   %370 = inttoptr i64 %369 to ptr
-  store ptr %370, ptr %366, align 8, !tbaa !86
-  %371 = load ptr, ptr %323, align 8, !tbaa !86
-  %372 = ptrtoint ptr %371 to i64
-  %373 = and i64 %372, -2
-  %374 = inttoptr i64 %373 to ptr
-  store ptr %374, ptr %328, align 8, !tbaa !85
-  %375 = ptrtoint ptr %313 to i64
-  %376 = and i64 %375, -2
-  %377 = inttoptr i64 %376 to ptr
-  store ptr %377, ptr %323, align 8, !tbaa !86
-  br label %378
+  store ptr %370, ptr %324, align 8, !tbaa !85
+  store ptr %309, ptr %319, align 8, !tbaa !86
+  br label %371
 
-378:                                              ; preds = %365, %338
-  %.0281.i.i = phi ptr [ %344, %338 ], [ %321, %365 ]
-  %379 = icmp eq ptr %.4388.i.i, %3
-  br i1 %379, label %380, label %381
+371:                                              ; preds = %361, %334
+  %.0281.i.i = phi ptr [ %340, %334 ], [ %317, %361 ]
+  %372 = icmp eq ptr %.4388.i.i, %3
+  br i1 %372, label %373, label %374
 
-380:                                              ; preds = %378
+373:                                              ; preds = %371
   store ptr %.0281.i.i, ptr %66, align 8, !tbaa !78
   br label %tctx_tree_remove.exit.i
 
-381:                                              ; preds = %378
-  %382 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
-  %383 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
-  %384 = load i32, ptr %383, align 8, !tbaa !84
-  %385 = icmp slt i32 %384, 0
-  br i1 %385, label %386, label %389
+374:                                              ; preds = %371
+  %375 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
+  %376 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
+  %377 = load i32, ptr %376, align 8, !tbaa !84
+  %378 = icmp slt i32 %377, 0
+  br i1 %378, label %379, label %382
 
-386:                                              ; preds = %381
-  %387 = load ptr, ptr %382, align 8, !tbaa !79
-  %388 = getelementptr inbounds nuw i8, ptr %387, i64 112
-  store ptr %.0281.i.i, ptr %388, align 8, !tbaa !85
+379:                                              ; preds = %374
+  %380 = load ptr, ptr %375, align 8, !tbaa !79
+  %381 = getelementptr inbounds nuw i8, ptr %380, i64 112
+  store ptr %.0281.i.i, ptr %381, align 8, !tbaa !85
   br label %tctx_tree_remove.exit.i
 
-389:                                              ; preds = %381
-  %390 = ptrtoint ptr %.0281.i.i to i64
-  %391 = load ptr, ptr %382, align 8, !tbaa !79
-  %392 = getelementptr inbounds nuw i8, ptr %391, i64 120
-  %393 = load ptr, ptr %392, align 8, !tbaa !86
-  %394 = ptrtoint ptr %393 to i64
-  %395 = and i64 %394, 1
-  %396 = or i64 %395, %390
-  %397 = inttoptr i64 %396 to ptr
-  store ptr %397, ptr %392, align 8, !tbaa !86
+382:                                              ; preds = %374
+  %383 = ptrtoint ptr %.0281.i.i to i64
+  %384 = load ptr, ptr %375, align 8, !tbaa !79
+  %385 = getelementptr inbounds nuw i8, ptr %384, i64 120
+  %386 = load ptr, ptr %385, align 8, !tbaa !86
+  %387 = ptrtoint ptr %386 to i64
+  %388 = and i64 %387, 1
+  %389 = or i64 %388, %383
+  %390 = inttoptr i64 %389 to ptr
+  store ptr %390, ptr %385, align 8, !tbaa !86
   br label %tctx_tree_remove.exit.i
 
-398:                                              ; preds = %311
-  %399 = and i64 %318, 1
-  %.not304.i.i = icmp eq i64 %399, 0
-  br i1 %.not304.i.i, label %451, label %400
+391:                                              ; preds = %307
+  %392 = and i64 %314, 1
+  %.not304.i.i = icmp eq i64 %392, 0
+  br i1 %.not304.i.i, label %444, label %393
 
-400:                                              ; preds = %398
-  %401 = getelementptr inbounds nuw i8, ptr %313, i64 120
-  %402 = getelementptr inbounds nuw i8, ptr %313, i64 112
-  %403 = load ptr, ptr %322, align 8, !tbaa !85
-  %.not307.i.i = icmp eq ptr %403, null
-  br i1 %.not307.i.i, label %444, label %404
+393:                                              ; preds = %391
+  %394 = getelementptr inbounds nuw i8, ptr %309, i64 120
+  %395 = getelementptr inbounds nuw i8, ptr %309, i64 112
+  %396 = load ptr, ptr %318, align 8, !tbaa !85
+  %.not307.i.i = icmp eq ptr %396, null
+  br i1 %.not307.i.i, label %437, label %397
 
-404:                                              ; preds = %400
-  %405 = getelementptr inbounds nuw i8, ptr %403, i64 120
-  %406 = load ptr, ptr %405, align 8, !tbaa !86
-  %407 = ptrtoint ptr %406 to i64
-  %408 = and i64 %407, 1
-  %.not308.i.i = icmp eq i64 %408, 0
-  br i1 %.not308.i.i, label %444, label %409
+397:                                              ; preds = %393
+  %398 = getelementptr inbounds nuw i8, ptr %396, i64 120
+  %399 = load ptr, ptr %398, align 8, !tbaa !86
+  %400 = ptrtoint ptr %399 to i64
+  %401 = and i64 %400, 1
+  %.not308.i.i = icmp eq i64 %401, 0
+  br i1 %.not308.i.i, label %437, label %402
 
-409:                                              ; preds = %404
-  %410 = and i64 %312, -2
-  %411 = inttoptr i64 %410 to ptr
-  store ptr %411, ptr %401, align 8, !tbaa !86
-  %412 = load ptr, ptr %323, align 8, !tbaa !86
-  %413 = ptrtoint ptr %412 to i64
-  %414 = or i64 %413, 1
-  %415 = inttoptr i64 %414 to ptr
-  store ptr %415, ptr %323, align 8, !tbaa !86
-  %416 = load ptr, ptr %405, align 8, !tbaa !86
-  %417 = ptrtoint ptr %416 to i64
-  %418 = and i64 %417, -2
-  %419 = inttoptr i64 %418 to ptr
-  store ptr %419, ptr %405, align 8, !tbaa !86
-  %420 = load ptr, ptr %323, align 8, !tbaa !86
-  %421 = ptrtoint ptr %420 to i64
-  %422 = and i64 %421, -2
-  %423 = inttoptr i64 %422 to ptr
-  store ptr %423, ptr %402, align 8, !tbaa !85
-  %424 = ptrtoint ptr %313 to i64
-  %425 = and i64 %421, 1
-  %426 = or i64 %425, %424
-  %427 = inttoptr i64 %426 to ptr
-  store ptr %427, ptr %323, align 8, !tbaa !86
-  %428 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
-  %429 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
-  %430 = load i32, ptr %429, align 8, !tbaa !84
-  %431 = icmp slt i32 %430, 0
-  br i1 %431, label %432, label %435
+402:                                              ; preds = %397
+  %403 = and i64 %308, -2
+  %404 = inttoptr i64 %403 to ptr
+  store ptr %404, ptr %394, align 8, !tbaa !86
+  %405 = load ptr, ptr %319, align 8, !tbaa !86
+  %406 = ptrtoint ptr %405 to i64
+  %407 = or i64 %406, 1
+  %408 = inttoptr i64 %407 to ptr
+  store ptr %408, ptr %319, align 8, !tbaa !86
+  %409 = load ptr, ptr %398, align 8, !tbaa !86
+  %410 = ptrtoint ptr %409 to i64
+  %411 = and i64 %410, -2
+  %412 = inttoptr i64 %411 to ptr
+  store ptr %412, ptr %398, align 8, !tbaa !86
+  %413 = load ptr, ptr %319, align 8, !tbaa !86
+  %414 = ptrtoint ptr %413 to i64
+  %415 = and i64 %414, -2
+  %416 = inttoptr i64 %415 to ptr
+  store ptr %416, ptr %395, align 8, !tbaa !85
+  %417 = ptrtoint ptr %309 to i64
+  %418 = and i64 %414, 1
+  %419 = or i64 %418, %417
+  %420 = inttoptr i64 %419 to ptr
+  store ptr %420, ptr %319, align 8, !tbaa !86
+  %421 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
+  %422 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
+  %423 = load i32, ptr %422, align 8, !tbaa !84
+  %424 = icmp slt i32 %423, 0
+  br i1 %424, label %425, label %428
 
-432:                                              ; preds = %409
-  %433 = load ptr, ptr %428, align 8, !tbaa !79
-  %434 = getelementptr inbounds nuw i8, ptr %433, i64 112
-  store ptr %321, ptr %434, align 8, !tbaa !85
+425:                                              ; preds = %402
+  %426 = load ptr, ptr %421, align 8, !tbaa !79
+  %427 = getelementptr inbounds nuw i8, ptr %426, i64 112
+  store ptr %317, ptr %427, align 8, !tbaa !85
   br label %tctx_tree_remove.exit.i
 
-435:                                              ; preds = %409
-  %436 = ptrtoint ptr %321 to i64
-  %437 = load ptr, ptr %428, align 8, !tbaa !79
-  %438 = getelementptr inbounds nuw i8, ptr %437, i64 120
-  %439 = load ptr, ptr %438, align 8, !tbaa !86
-  %440 = ptrtoint ptr %439 to i64
-  %441 = and i64 %440, 1
-  %442 = or i64 %441, %436
+428:                                              ; preds = %402
+  %429 = ptrtoint ptr %317 to i64
+  %430 = load ptr, ptr %421, align 8, !tbaa !79
+  %431 = getelementptr inbounds nuw i8, ptr %430, i64 120
+  %432 = load ptr, ptr %431, align 8, !tbaa !86
+  %433 = ptrtoint ptr %432 to i64
+  %434 = and i64 %433, 1
+  %435 = or i64 %434, %429
+  %436 = inttoptr i64 %435 to ptr
+  store ptr %436, ptr %431, align 8, !tbaa !86
+  br label %tctx_tree_remove.exit.i
+
+437:                                              ; preds = %397, %393
+  %438 = or disjoint i64 %321, 1
+  %439 = inttoptr i64 %438 to ptr
+  store ptr %439, ptr %319, align 8, !tbaa !86
+  %440 = load ptr, ptr %394, align 8, !tbaa !86
+  %441 = ptrtoint ptr %440 to i64
+  %442 = and i64 %441, -2
   %443 = inttoptr i64 %442 to ptr
-  store ptr %443, ptr %438, align 8, !tbaa !86
+  store ptr %443, ptr %394, align 8, !tbaa !86
   br label %tctx_tree_remove.exit.i
 
-444:                                              ; preds = %404, %400
-  %445 = or disjoint i64 %325, 1
-  %446 = inttoptr i64 %445 to ptr
-  store ptr %446, ptr %323, align 8, !tbaa !86
-  %447 = load ptr, ptr %401, align 8, !tbaa !86
-  %448 = ptrtoint ptr %447 to i64
-  %449 = and i64 %448, -2
-  %450 = inttoptr i64 %449 to ptr
-  store ptr %450, ptr %401, align 8, !tbaa !86
+444:                                              ; preds = %391
+  %445 = load ptr, ptr %318, align 8, !tbaa !85
+  %.not305.i.i = icmp eq ptr %445, null
+  br i1 %.not305.i.i, label %483, label %446
+
+446:                                              ; preds = %444
+  %447 = getelementptr inbounds nuw i8, ptr %445, i64 120
+  %448 = load ptr, ptr %447, align 8, !tbaa !86
+  %449 = ptrtoint ptr %448 to i64
+  %450 = and i64 %449, 1
+  %.not306.i.i = icmp eq i64 %450, 0
+  br i1 %.not306.i.i, label %483, label %451
+
+451:                                              ; preds = %446
+  %452 = getelementptr inbounds nuw i8, ptr %309, i64 112
+  %453 = getelementptr inbounds nuw i8, ptr %445, i64 120
+  %454 = and i64 %449, -2
+  %455 = inttoptr i64 %454 to ptr
+  store ptr %455, ptr %453, align 8, !tbaa !86
+  %456 = load ptr, ptr %319, align 8, !tbaa !86
+  %457 = ptrtoint ptr %456 to i64
+  %458 = and i64 %457, -2
+  %459 = inttoptr i64 %458 to ptr
+  store ptr %459, ptr %452, align 8, !tbaa !85
+  %460 = ptrtoint ptr %309 to i64
+  %461 = and i64 %457, 1
+  %462 = or i64 %461, %460
+  %463 = inttoptr i64 %462 to ptr
+  store ptr %463, ptr %319, align 8, !tbaa !86
+  %464 = icmp eq ptr %.4388.i.i, %3
+  br i1 %464, label %465, label %466
+
+465:                                              ; preds = %451
+  store ptr %317, ptr %66, align 8, !tbaa !78
   br label %tctx_tree_remove.exit.i
 
-451:                                              ; preds = %398
-  %452 = load ptr, ptr %322, align 8, !tbaa !85
-  %.not305.i.i = icmp eq ptr %452, null
-  br i1 %.not305.i.i, label %490, label %453
+466:                                              ; preds = %451
+  %467 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
+  %468 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
+  %469 = load i32, ptr %468, align 8, !tbaa !84
+  %470 = icmp slt i32 %469, 0
+  br i1 %470, label %471, label %474
 
-453:                                              ; preds = %451
-  %454 = getelementptr inbounds nuw i8, ptr %452, i64 120
-  %455 = load ptr, ptr %454, align 8, !tbaa !86
-  %456 = ptrtoint ptr %455 to i64
-  %457 = and i64 %456, 1
-  %.not306.i.i = icmp eq i64 %457, 0
-  br i1 %.not306.i.i, label %490, label %458
-
-458:                                              ; preds = %453
-  %459 = getelementptr inbounds nuw i8, ptr %313, i64 112
-  %460 = getelementptr inbounds nuw i8, ptr %452, i64 120
-  %461 = and i64 %456, -2
-  %462 = inttoptr i64 %461 to ptr
-  store ptr %462, ptr %460, align 8, !tbaa !86
-  %463 = load ptr, ptr %323, align 8, !tbaa !86
-  %464 = ptrtoint ptr %463 to i64
-  %465 = and i64 %464, -2
-  %466 = inttoptr i64 %465 to ptr
-  store ptr %466, ptr %459, align 8, !tbaa !85
-  %467 = ptrtoint ptr %313 to i64
-  %468 = and i64 %464, 1
-  %469 = or i64 %468, %467
-  %470 = inttoptr i64 %469 to ptr
-  store ptr %470, ptr %323, align 8, !tbaa !86
-  %471 = icmp eq ptr %.4388.i.i, %3
-  br i1 %471, label %472, label %473
-
-472:                                              ; preds = %458
-  store ptr %321, ptr %66, align 8, !tbaa !78
+471:                                              ; preds = %466
+  %472 = load ptr, ptr %467, align 8, !tbaa !79
+  %473 = getelementptr inbounds nuw i8, ptr %472, i64 112
+  store ptr %317, ptr %473, align 8, !tbaa !85
   br label %tctx_tree_remove.exit.i
 
-473:                                              ; preds = %458
-  %474 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
-  %475 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -8
-  %476 = load i32, ptr %475, align 8, !tbaa !84
-  %477 = icmp slt i32 %476, 0
-  br i1 %477, label %478, label %481
-
-478:                                              ; preds = %473
-  %479 = load ptr, ptr %474, align 8, !tbaa !79
-  %480 = getelementptr inbounds nuw i8, ptr %479, i64 112
-  store ptr %321, ptr %480, align 8, !tbaa !85
+474:                                              ; preds = %466
+  %475 = ptrtoint ptr %317 to i64
+  %476 = load ptr, ptr %467, align 8, !tbaa !79
+  %477 = getelementptr inbounds nuw i8, ptr %476, i64 120
+  %478 = load ptr, ptr %477, align 8, !tbaa !86
+  %479 = ptrtoint ptr %478 to i64
+  %480 = and i64 %479, 1
+  %481 = or i64 %480, %475
+  %482 = inttoptr i64 %481 to ptr
+  store ptr %482, ptr %477, align 8, !tbaa !86
   br label %tctx_tree_remove.exit.i
 
-481:                                              ; preds = %473
-  %482 = ptrtoint ptr %321 to i64
-  %483 = load ptr, ptr %474, align 8, !tbaa !79
-  %484 = getelementptr inbounds nuw i8, ptr %483, i64 120
-  %485 = load ptr, ptr %484, align 8, !tbaa !86
-  %486 = ptrtoint ptr %485 to i64
-  %487 = and i64 %486, 1
-  %488 = or i64 %487, %482
-  %489 = inttoptr i64 %488 to ptr
-  store ptr %489, ptr %484, align 8, !tbaa !86
-  br label %tctx_tree_remove.exit.i
+483:                                              ; preds = %446, %444
+  %484 = or disjoint i64 %321, 1
+  %485 = inttoptr i64 %484 to ptr
+  store ptr %485, ptr %319, align 8, !tbaa !86
+  br label %486
 
-490:                                              ; preds = %453, %451
-  %491 = or disjoint i64 %325, 1
-  %492 = inttoptr i64 %491 to ptr
-  store ptr %492, ptr %323, align 8, !tbaa !86
-  br label %493
-
-493:                                              ; preds = %490, %.critedge317.i.i
-  %494 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
-  %.not302.i.i = icmp ult ptr %494, %3
+486:                                              ; preds = %483, %.critedge317.i.i
+  %487 = getelementptr inbounds i8, ptr %.4388.i.i, i64 -16
+  %.not302.i.i = icmp ult ptr %487, %3
   br i1 %.not302.i.i, label %._crit_edge.i.i, label %.lr.ph390.i.i, !llvm.loop !89
 
-._crit_edge.i.i:                                  ; preds = %493, %202
-  %495 = load ptr, ptr %3, align 16, !tbaa !79
-  store ptr %495, ptr %66, align 8, !tbaa !78
+._crit_edge.i.i:                                  ; preds = %486, %202
+  %488 = load ptr, ptr %3, align 16, !tbaa !79
+  store ptr %488, ptr %66, align 8, !tbaa !78
   br label %tctx_tree_remove.exit.i
 
-tctx_tree_remove.exit.i:                          ; preds = %._crit_edge.i.i, %481, %478, %472, %444, %435, %432, %389, %386, %380, %301, %299, %292, %258, %255, %198, %191, %180, %177, %171
+tctx_tree_remove.exit.i:                          ; preds = %._crit_edge.i.i, %474, %471, %465, %437, %428, %425, %382, %379, %373, %297, %295, %288, %256, %253, %198, %191, %180, %177, %171
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %496 = load i8, ptr @je_opt_prof_accum, align 1, !tbaa !12, !range !14, !noundef !15
-  %497 = trunc nuw i8 %496 to i1
-  br i1 %497, label %.thread56.i, label %498
+  %489 = load i8, ptr @je_opt_prof_accum, align 1, !tbaa !12, !range !14, !noundef !15
+  %490 = trunc nuw i8 %489 to i1
+  br i1 %490, label %.thread56.i, label %491
 
-498:                                              ; preds = %tctx_tree_remove.exit.i
+491:                                              ; preds = %tctx_tree_remove.exit.i
   %.val.i.i = load ptr, ptr %66, align 8, !tbaa !78
-  %499 = icmp eq ptr %.val.i.i, null
-  br i1 %499, label %prof_gctx_should_destroy.exit.i, label %.thread56.i
+  %492 = icmp eq ptr %.val.i.i, null
+  br i1 %492, label %prof_gctx_should_destroy.exit.i, label %.thread56.i
 
-prof_gctx_should_destroy.exit.i:                  ; preds = %498
-  %500 = getelementptr inbounds nuw i8, ptr %19, i64 8
-  %501 = load i32, ptr %500, align 8, !tbaa !90
-  %.not.i38.i = icmp eq i32 %501, 0
-  br i1 %.not.i38.i, label %502, label %.thread56.i
+prof_gctx_should_destroy.exit.i:                  ; preds = %491
+  %493 = getelementptr inbounds nuw i8, ptr %19, i64 8
+  %494 = load i32, ptr %493, align 8, !tbaa !90
+  %.not.i38.i = icmp eq i32 %494, 0
+  br i1 %.not.i38.i, label %495, label %.thread56.i
 
-502:                                              ; preds = %prof_gctx_should_destroy.exit.i
-  store i32 1, ptr %500, align 8, !tbaa !90
-  %503 = load ptr, ptr %19, align 8, !tbaa !72
-  %504 = getelementptr inbounds nuw i8, ptr %503, i64 64
-  store atomic i8 0, ptr %504 monotonic, align 1
-  %505 = getelementptr inbounds nuw i8, ptr %503, i64 72
-  %506 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %505) #11
+495:                                              ; preds = %prof_gctx_should_destroy.exit.i
+  store i32 1, ptr %493, align 8, !tbaa !90
+  %496 = load ptr, ptr %19, align 8, !tbaa !72
+  %497 = getelementptr inbounds nuw i8, ptr %496, i64 64
+  store atomic i8 0, ptr %497 monotonic, align 1
+  %498 = getelementptr inbounds nuw i8, ptr %496, i64 72
+  %499 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %498) #11
   unreachable
 
-.thread56.i:                                      ; preds = %prof_gctx_should_destroy.exit.i, %498, %tctx_tree_remove.exit.i
-  %507 = load ptr, ptr %19, align 8, !tbaa !72
-  %508 = getelementptr inbounds nuw i8, ptr %507, i64 64
-  store atomic i8 0, ptr %508 monotonic, align 1
-  %509 = getelementptr inbounds nuw i8, ptr %507, i64 72
-  %510 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %509) #11
-  %511 = icmp eq ptr %0, null
+.thread56.i:                                      ; preds = %prof_gctx_should_destroy.exit.i, %491, %tctx_tree_remove.exit.i
+  %500 = load ptr, ptr %19, align 8, !tbaa !72
+  %501 = getelementptr inbounds nuw i8, ptr %500, i64 64
+  store atomic i8 0, ptr %501 monotonic, align 1
+  %502 = getelementptr inbounds nuw i8, ptr %500, i64 72
+  %503 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %502) #11
+  %504 = icmp eq ptr %0, null
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  br i1 %511, label %517, label %518
+  br i1 %504, label %510, label %511
 
-512:                                              ; preds = %malloc_mutex_lock.exit.i
+505:                                              ; preds = %malloc_mutex_lock.exit.i
   store i32 3, ptr %62, align 4, !tbaa !77
-  %513 = load ptr, ptr %19, align 8, !tbaa !72
-  %514 = getelementptr inbounds nuw i8, ptr %513, i64 64
-  store atomic i8 0, ptr %514 monotonic, align 1
-  %515 = getelementptr inbounds nuw i8, ptr %513, i64 72
-  %516 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %515) #11
+  %506 = load ptr, ptr %19, align 8, !tbaa !72
+  %507 = getelementptr inbounds nuw i8, ptr %506, i64 64
+  store atomic i8 0, ptr %507 monotonic, align 1
+  %508 = getelementptr inbounds nuw i8, ptr %506, i64 72
+  %509 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %508) #11
   br label %prof_tctx_destroy.exit
 
-517:                                              ; preds = %.thread56.i
+510:                                              ; preds = %.thread56.i
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %5) #11
   br label %tsdn_rtree_ctx.exit.i
 
-518:                                              ; preds = %.thread56.i
-  %519 = getelementptr inbounds nuw i8, ptr %0, i64 504
+511:                                              ; preds = %.thread56.i
+  %512 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %tsdn_rtree_ctx.exit.i
 
-tsdn_rtree_ctx.exit.i:                            ; preds = %518, %517
-  %.0.i32.i = phi ptr [ %5, %517 ], [ %519, %518 ]
-  %520 = ptrtoint ptr %1 to i64
-  %521 = lshr i64 %520, 30
-  %522 = and i64 %521, 15
-  %523 = and i64 %520, -1073741824
-  %524 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i32.i, i64 %522
-  %525 = load i64, ptr %524, align 8, !tbaa !45, !noalias !91
-  %526 = icmp eq i64 %525, %523
-  br i1 %526, label %527, label %533, !prof !17
+tsdn_rtree_ctx.exit.i:                            ; preds = %511, %510
+  %.0.i32.i = phi ptr [ %5, %510 ], [ %512, %511 ]
+  %513 = ptrtoint ptr %1 to i64
+  %514 = lshr i64 %513, 30
+  %515 = and i64 %514, 15
+  %516 = and i64 %513, -1073741824
+  %517 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i32.i, i64 %515
+  %518 = load i64, ptr %517, align 8, !tbaa !45, !noalias !91
+  %519 = icmp eq i64 %518, %516
+  br i1 %519, label %520, label %526, !prof !17
 
-527:                                              ; preds = %tsdn_rtree_ctx.exit.i
-  %528 = getelementptr inbounds nuw i8, ptr %524, i64 8
-  %529 = load ptr, ptr %528, align 8, !tbaa !51, !noalias !91
-  %530 = lshr i64 %520, 12
-  %531 = and i64 %530, 262143
-  %532 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %529, i64 %531
+520:                                              ; preds = %tsdn_rtree_ctx.exit.i
+  %521 = getelementptr inbounds nuw i8, ptr %517, i64 8
+  %522 = load ptr, ptr %521, align 8, !tbaa !51, !noalias !91
+  %523 = lshr i64 %513, 12
+  %524 = and i64 %523, 262143
+  %525 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %522, i64 %524
   br label %rtree_read.exit.i
 
-533:                                              ; preds = %tsdn_rtree_ctx.exit.i
-  %534 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 256
-  %535 = load i64, ptr %534, align 8, !tbaa !45, !noalias !91
-  %536 = icmp eq i64 %535, %523
-  br i1 %536, label %537, label %.preheader.i.i, !prof !17
+526:                                              ; preds = %tsdn_rtree_ctx.exit.i
+  %527 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 256
+  %528 = load i64, ptr %527, align 8, !tbaa !45, !noalias !91
+  %529 = icmp eq i64 %528, %516
+  br i1 %529, label %530, label %.preheader.i.i, !prof !17
 
-537:                                              ; preds = %533
-  %538 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 264
-  %539 = load ptr, ptr %538, align 8, !tbaa !51, !noalias !91
-  store i64 %525, ptr %534, align 8, !tbaa !45, !noalias !91
-  %540 = getelementptr inbounds nuw i8, ptr %524, i64 8
-  %541 = load ptr, ptr %540, align 8, !tbaa !51, !noalias !91
-  store ptr %541, ptr %538, align 8, !tbaa !51, !noalias !91
-  store i64 %523, ptr %524, align 8, !tbaa !45, !noalias !91
-  store ptr %539, ptr %540, align 8, !tbaa !51, !noalias !91
-  %542 = lshr i64 %520, 12
-  %543 = and i64 %542, 262143
-  %544 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %539, i64 %543
+530:                                              ; preds = %526
+  %531 = getelementptr inbounds nuw i8, ptr %.0.i32.i, i64 264
+  %532 = load ptr, ptr %531, align 8, !tbaa !51, !noalias !91
+  store i64 %518, ptr %527, align 8, !tbaa !45, !noalias !91
+  %533 = getelementptr inbounds nuw i8, ptr %517, i64 8
+  %534 = load ptr, ptr %533, align 8, !tbaa !51, !noalias !91
+  store ptr %534, ptr %531, align 8, !tbaa !51, !noalias !91
+  store i64 %516, ptr %517, align 8, !tbaa !45, !noalias !91
+  store ptr %532, ptr %533, align 8, !tbaa !51, !noalias !91
+  %535 = lshr i64 %513, 12
+  %536 = and i64 %535, 262143
+  %537 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %532, i64 %536
   br label %rtree_read.exit.i
 
-545:                                              ; preds = %.preheader.i.i
+538:                                              ; preds = %.preheader.i.i
   %indvars.iv.next.i.i = add nuw nsw i64 %indvars.iv.i.i, 1
   %exitcond.i.i = icmp eq i64 %indvars.iv.next.i.i, 8
-  br i1 %exitcond.i.i, label %561, label %.preheader.i.i, !llvm.loop !52
+  br i1 %exitcond.i.i, label %554, label %.preheader.i.i, !llvm.loop !52
 
-.preheader.i.i:                                   ; preds = %533, %545
-  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %545 ], [ 1, %533 ]
-  %546 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %534, i64 %indvars.iv.i.i
-  %547 = load i64, ptr %546, align 8, !tbaa !45, !noalias !91
-  %548 = icmp eq i64 %547, %523
-  br i1 %548, label %549, label %545, !prof !17
+.preheader.i.i:                                   ; preds = %526, %538
+  %indvars.iv.i.i = phi i64 [ %indvars.iv.next.i.i, %538 ], [ 1, %526 ]
+  %539 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %527, i64 %indvars.iv.i.i
+  %540 = load i64, ptr %539, align 8, !tbaa !45, !noalias !91
+  %541 = icmp eq i64 %540, %516
+  br i1 %541, label %542, label %538, !prof !17
 
-549:                                              ; preds = %.preheader.i.i
-  %550 = getelementptr inbounds nuw i8, ptr %546, i64 8
-  %551 = load ptr, ptr %550, align 8, !tbaa !51, !noalias !91
-  %552 = getelementptr i8, ptr %546, i64 -16
-  %553 = load i64, ptr %552, align 8, !tbaa !45, !noalias !91
-  store i64 %553, ptr %546, align 8, !tbaa !45, !noalias !91
-  %554 = getelementptr i8, ptr %546, i64 -8
-  %555 = load ptr, ptr %554, align 8, !tbaa !51, !noalias !91
-  store ptr %555, ptr %550, align 8, !tbaa !51, !noalias !91
-  store i64 %525, ptr %552, align 8, !tbaa !45, !noalias !91
-  %556 = getelementptr inbounds nuw i8, ptr %524, i64 8
-  %557 = load ptr, ptr %556, align 8, !tbaa !51, !noalias !91
-  store ptr %557, ptr %554, align 8, !tbaa !51, !noalias !91
-  store i64 %523, ptr %524, align 8, !tbaa !45, !noalias !91
-  store ptr %551, ptr %556, align 8, !tbaa !51, !noalias !91
-  %558 = lshr i64 %520, 12
-  %559 = and i64 %558, 262143
-  %560 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %551, i64 %559
+542:                                              ; preds = %.preheader.i.i
+  %543 = getelementptr inbounds nuw i8, ptr %539, i64 8
+  %544 = load ptr, ptr %543, align 8, !tbaa !51, !noalias !91
+  %545 = getelementptr i8, ptr %539, i64 -16
+  %546 = load i64, ptr %545, align 8, !tbaa !45, !noalias !91
+  store i64 %546, ptr %539, align 8, !tbaa !45, !noalias !91
+  %547 = getelementptr i8, ptr %539, i64 -8
+  %548 = load ptr, ptr %547, align 8, !tbaa !51, !noalias !91
+  store ptr %548, ptr %543, align 8, !tbaa !51, !noalias !91
+  store i64 %518, ptr %545, align 8, !tbaa !45, !noalias !91
+  %549 = getelementptr inbounds nuw i8, ptr %517, i64 8
+  %550 = load ptr, ptr %549, align 8, !tbaa !51, !noalias !91
+  store ptr %550, ptr %547, align 8, !tbaa !51, !noalias !91
+  store i64 %516, ptr %517, align 8, !tbaa !45, !noalias !91
+  store ptr %544, ptr %549, align 8, !tbaa !51, !noalias !91
+  %551 = lshr i64 %513, 12
+  %552 = and i64 %551, 262143
+  %553 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %544, i64 %552
   br label %rtree_read.exit.i
 
-561:                                              ; preds = %545
-  %562 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i32.i, i64 noundef %520, i1 noundef zeroext true, i1 noundef zeroext false) #11, !noalias !91
+554:                                              ; preds = %538
+  %555 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i32.i, i64 noundef %513, i1 noundef zeroext true, i1 noundef zeroext false) #11, !noalias !91
   br label %rtree_read.exit.i
 
-rtree_read.exit.i:                                ; preds = %561, %549, %537, %527
-  %.0.i.i39.i = phi ptr [ %532, %527 ], [ %544, %537 ], [ %562, %561 ], [ %560, %549 ]
-  %563 = load atomic i64, ptr %.0.i.i39.i monotonic, align 8, !noalias !94
-  %564 = shl i64 %563, 16
-  %565 = ashr exact i64 %564, 16
-  %566 = and i64 %565, -128
-  %567 = inttoptr i64 %566 to ptr
+rtree_read.exit.i:                                ; preds = %554, %542, %530, %520
+  %.0.i.i39.i = phi ptr [ %525, %520 ], [ %537, %530 ], [ %555, %554 ], [ %553, %542 ]
+  %556 = load atomic i64, ptr %.0.i.i39.i monotonic, align 8, !noalias !94
+  %557 = shl i64 %556, 16
+  %558 = ashr exact i64 %557, 16
+  %559 = and i64 %558, -128
+  %560 = inttoptr i64 %559 to ptr
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.val.i = load i64, ptr %567, align 128, !tbaa !56
-  %568 = and i64 %.val.i, 4095
-  %569 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %568
-  %570 = load atomic i64, ptr %569 monotonic, align 8
-  %571 = inttoptr i64 %570 to ptr
+  %.val.i = load i64, ptr %560, align 128, !tbaa !56
+  %561 = and i64 %.val.i, 4095
+  %562 = getelementptr inbounds nuw %struct.atomic_p_t, ptr @je_arenas, i64 %561
+  %563 = load atomic i64, ptr %562 monotonic, align 8
+  %564 = inttoptr i64 %563 to ptr
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
-  br i1 %511, label %572, label %573, !prof !59
+  br i1 %504, label %565, label %566, !prof !59
 
-572:                                              ; preds = %rtree_read.exit.i
+565:                                              ; preds = %rtree_read.exit.i
   call void @je_rtree_ctx_data_init(ptr noundef nonnull %4) #11
   br label %emap_alloc_ctx_lookup.exit.i
 
-573:                                              ; preds = %rtree_read.exit.i
-  %574 = getelementptr inbounds nuw i8, ptr %0, i64 504
+566:                                              ; preds = %rtree_read.exit.i
+  %567 = getelementptr inbounds nuw i8, ptr %0, i64 504
   br label %emap_alloc_ctx_lookup.exit.i
 
-emap_alloc_ctx_lookup.exit.i:                     ; preds = %573, %572
-  %.0.i.i.i = phi ptr [ %4, %572 ], [ %574, %573 ]
-  %575 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i.i, i64 %522
-  %576 = load i64, ptr %575, align 8, !tbaa !45
-  %577 = icmp eq i64 %576, %523
-  br i1 %577, label %578, label %584, !prof !17
+emap_alloc_ctx_lookup.exit.i:                     ; preds = %566, %565
+  %.0.i.i.i = phi ptr [ %4, %565 ], [ %567, %566 ]
+  %568 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %.0.i.i.i, i64 %515
+  %569 = load i64, ptr %568, align 8, !tbaa !45
+  %570 = icmp eq i64 %569, %516
+  br i1 %570, label %571, label %577, !prof !17
 
-578:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
-  %579 = getelementptr inbounds nuw i8, ptr %575, i64 8
-  %580 = load ptr, ptr %579, align 8, !tbaa !51
-  %581 = lshr i64 %520, 12
-  %582 = and i64 %581, 262143
-  %583 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %580, i64 %582
+571:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
+  %572 = getelementptr inbounds nuw i8, ptr %568, i64 8
+  %573 = load ptr, ptr %572, align 8, !tbaa !51
+  %574 = lshr i64 %513, 12
+  %575 = and i64 %574, 262143
+  %576 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %573, i64 %575
   br label %rtree_metadata_read.exit.i
 
-584:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
-  %585 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 256
-  %586 = load i64, ptr %585, align 8, !tbaa !45
-  %587 = icmp eq i64 %586, %523
-  br i1 %587, label %588, label %.preheader.i40.i, !prof !17
+577:                                              ; preds = %emap_alloc_ctx_lookup.exit.i
+  %578 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 256
+  %579 = load i64, ptr %578, align 8, !tbaa !45
+  %580 = icmp eq i64 %579, %516
+  br i1 %580, label %581, label %.preheader.i40.i, !prof !17
 
-588:                                              ; preds = %584
-  %589 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 264
-  %590 = load ptr, ptr %589, align 8, !tbaa !51
-  store i64 %576, ptr %585, align 8, !tbaa !45
-  %591 = getelementptr inbounds nuw i8, ptr %575, i64 8
-  %592 = load ptr, ptr %591, align 8, !tbaa !51
-  store ptr %592, ptr %589, align 8, !tbaa !51
-  store i64 %523, ptr %575, align 8, !tbaa !45
-  store ptr %590, ptr %591, align 8, !tbaa !51
-  %593 = lshr i64 %520, 12
-  %594 = and i64 %593, 262143
-  %595 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %590, i64 %594
+581:                                              ; preds = %577
+  %582 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 264
+  %583 = load ptr, ptr %582, align 8, !tbaa !51
+  store i64 %569, ptr %578, align 8, !tbaa !45
+  %584 = getelementptr inbounds nuw i8, ptr %568, i64 8
+  %585 = load ptr, ptr %584, align 8, !tbaa !51
+  store ptr %585, ptr %582, align 8, !tbaa !51
+  store i64 %516, ptr %568, align 8, !tbaa !45
+  store ptr %583, ptr %584, align 8, !tbaa !51
+  %586 = lshr i64 %513, 12
+  %587 = and i64 %586, 262143
+  %588 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %583, i64 %587
   br label %rtree_metadata_read.exit.i
 
-596:                                              ; preds = %.preheader.i40.i
+589:                                              ; preds = %.preheader.i40.i
   %indvars.iv.next.i42.i = add nuw nsw i64 %indvars.iv.i41.i, 1
   %exitcond.i43.i = icmp eq i64 %indvars.iv.next.i42.i, 8
-  br i1 %exitcond.i43.i, label %612, label %.preheader.i40.i, !llvm.loop !52
+  br i1 %exitcond.i43.i, label %605, label %.preheader.i40.i, !llvm.loop !52
 
-.preheader.i40.i:                                 ; preds = %584, %596
-  %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %596 ], [ 1, %584 ]
-  %597 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %585, i64 %indvars.iv.i41.i
-  %598 = load i64, ptr %597, align 8, !tbaa !45
-  %599 = icmp eq i64 %598, %523
-  br i1 %599, label %600, label %596, !prof !17
+.preheader.i40.i:                                 ; preds = %577, %589
+  %indvars.iv.i41.i = phi i64 [ %indvars.iv.next.i42.i, %589 ], [ 1, %577 ]
+  %590 = getelementptr inbounds nuw %struct.rtree_ctx_cache_elm_s, ptr %578, i64 %indvars.iv.i41.i
+  %591 = load i64, ptr %590, align 8, !tbaa !45
+  %592 = icmp eq i64 %591, %516
+  br i1 %592, label %593, label %589, !prof !17
 
-600:                                              ; preds = %.preheader.i40.i
-  %601 = getelementptr inbounds nuw i8, ptr %597, i64 8
-  %602 = load ptr, ptr %601, align 8, !tbaa !51
-  %603 = getelementptr i8, ptr %597, i64 -16
-  %604 = load i64, ptr %603, align 8, !tbaa !45
-  store i64 %604, ptr %597, align 8, !tbaa !45
-  %605 = getelementptr i8, ptr %597, i64 -8
-  %606 = load ptr, ptr %605, align 8, !tbaa !51
-  store ptr %606, ptr %601, align 8, !tbaa !51
-  store i64 %576, ptr %603, align 8, !tbaa !45
-  %607 = getelementptr inbounds nuw i8, ptr %575, i64 8
-  %608 = load ptr, ptr %607, align 8, !tbaa !51
-  store ptr %608, ptr %605, align 8, !tbaa !51
-  store i64 %523, ptr %575, align 8, !tbaa !45
-  store ptr %602, ptr %607, align 8, !tbaa !51
-  %609 = lshr i64 %520, 12
-  %610 = and i64 %609, 262143
-  %611 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %602, i64 %610
+593:                                              ; preds = %.preheader.i40.i
+  %594 = getelementptr inbounds nuw i8, ptr %590, i64 8
+  %595 = load ptr, ptr %594, align 8, !tbaa !51
+  %596 = getelementptr i8, ptr %590, i64 -16
+  %597 = load i64, ptr %596, align 8, !tbaa !45
+  store i64 %597, ptr %590, align 8, !tbaa !45
+  %598 = getelementptr i8, ptr %590, i64 -8
+  %599 = load ptr, ptr %598, align 8, !tbaa !51
+  store ptr %599, ptr %594, align 8, !tbaa !51
+  store i64 %569, ptr %596, align 8, !tbaa !45
+  %600 = getelementptr inbounds nuw i8, ptr %568, i64 8
+  %601 = load ptr, ptr %600, align 8, !tbaa !51
+  store ptr %601, ptr %598, align 8, !tbaa !51
+  store i64 %516, ptr %568, align 8, !tbaa !45
+  store ptr %595, ptr %600, align 8, !tbaa !51
+  %602 = lshr i64 %513, 12
+  %603 = and i64 %602, 262143
+  %604 = getelementptr inbounds nuw %struct.rtree_leaf_elm_s, ptr %595, i64 %603
   br label %rtree_metadata_read.exit.i
 
-612:                                              ; preds = %596
-  %613 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %520, i1 noundef zeroext true, i1 noundef zeroext false) #11
+605:                                              ; preds = %589
+  %606 = call ptr @je_rtree_leaf_elm_lookup_hard(ptr noundef %0, ptr noundef nonnull @je_arena_emap_global, ptr noundef nonnull %.0.i.i.i, i64 noundef %513, i1 noundef zeroext true, i1 noundef zeroext false) #11
   br label %rtree_metadata_read.exit.i
 
-rtree_metadata_read.exit.i:                       ; preds = %612, %600, %588, %578
-  %.0.i.i44.i = phi ptr [ %583, %578 ], [ %595, %588 ], [ %613, %612 ], [ %611, %600 ]
-  %614 = load atomic i64, ptr %.0.i.i44.i monotonic, align 8, !noalias !97
-  %615 = lshr i64 %614, 48
+rtree_metadata_read.exit.i:                       ; preds = %605, %593, %581, %571
+  %.0.i.i44.i = phi ptr [ %576, %571 ], [ %588, %581 ], [ %606, %605 ], [ %604, %593 ]
+  %607 = load atomic i64, ptr %.0.i.i44.i monotonic, align 8, !noalias !97
+  %608 = lshr i64 %607, 48
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %616 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %615
-  %617 = load i64, ptr %616, align 8, !tbaa !10
-  %618 = getelementptr inbounds nuw i8, ptr %571, i64 72
-  %619 = atomicrmw sub ptr %618, i64 %617 monotonic, align 8
+  %609 = getelementptr inbounds nuw i64, ptr @je_sz_index2size_tab, i64 %608
+  %610 = load i64, ptr %609, align 8, !tbaa !10
+  %611 = getelementptr inbounds nuw i8, ptr %564, i64 72
+  %612 = atomicrmw sub ptr %611, i64 %610 monotonic, align 8
   call fastcc void @arena_dalloc_no_tcache(ptr noundef %0, ptr noundef nonnull %1)
   br label %prof_tctx_destroy.exit
 
 prof_tctx_should_destroy.exit.thread:             ; preds = %11, %8, %2, %prof_tctx_should_destroy.exit
-  %620 = load ptr, ptr %1, align 8, !tbaa !71
-  %621 = load ptr, ptr %620, align 8, !tbaa !26
-  %622 = getelementptr inbounds nuw i8, ptr %621, i64 64
-  store atomic i8 0, ptr %622 monotonic, align 1
-  %623 = getelementptr inbounds nuw i8, ptr %621, i64 72
-  %624 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %623) #11
+  %613 = load ptr, ptr %1, align 8, !tbaa !71
+  %614 = load ptr, ptr %613, align 8, !tbaa !26
+  %615 = getelementptr inbounds nuw i8, ptr %614, i64 64
+  store atomic i8 0, ptr %615 monotonic, align 1
+  %616 = getelementptr inbounds nuw i8, ptr %614, i64 72
+  %617 = tail call i32 @pthread_mutex_unlock(ptr noundef nonnull %616) #11
   br label %prof_tctx_destroy.exit
 
-prof_tctx_destroy.exit:                           ; preds = %rtree_metadata_read.exit.i, %512, %prof_tctx_should_destroy.exit.thread
+prof_tctx_destroy.exit:                           ; preds = %rtree_metadata_read.exit.i, %505, %prof_tctx_should_destroy.exit.thread
   ret void
 }
 
