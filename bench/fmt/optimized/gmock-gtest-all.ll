@@ -62410,9 +62410,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
   store i8 0, ptr %69, align 1, !tbaa !12
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.val.i = load ptr, ptr %5, align 8, !tbaa !4
+  %.val.i.fr = freeze ptr %.val.i
   %.val18.i = load i64, ptr %19, align 8, !tbaa !14
   %.val18.fr.i = freeze i64 %.val18.i
-  %70 = getelementptr inbounds nuw i8, ptr %.val.i, i64 %.val18.fr.i
+  %70 = getelementptr i8, ptr %.val.i.fr, i64 %.val18.fr.i
   %71 = icmp eq i64 %.val18.fr.i, 0
   br i1 %71, label %.split.i, label %.split.us.i
 
@@ -62435,10 +62436,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 .lr.ph.i.us.i:                                    ; preds = %.outer.backedge.i.us.i, %.lr.ph.i.preheader.us.i
   %78 = phi i1 [ %98, %.outer.backedge.i.us.i ], [ %77, %.lr.ph.i.preheader.us.i ]
   %79 = phi i1 [ %97, %.outer.backedge.i.us.i ], [ false, %.lr.ph.i.preheader.us.i ]
-  %.0.ph59.i.us.i = phi ptr [ %.014.i.us.i, %.outer.backedge.i.us.i ], [ %.val.i, %.lr.ph.i.preheader.us.i ]
+  %.0.ph59.i.us.i = phi ptr [ %.014.i.us.i, %.outer.backedge.i.us.i ], [ %.val.i.fr, %.lr.ph.i.preheader.us.i ]
   %.033.ph58.i.us.i = phi ptr [ %.03319.i.us.i, %.outer.backedge.i.us.i ], [ %.013.us.i, %.lr.ph.i.preheader.us.i ]
   %.035.ph57.i.us.i = phi ptr [ %.035.ph.be.i.us.i, %.outer.backedge.i.us.i ], [ %.013.us.i, %.lr.ph.i.preheader.us.i ]
-  %.036.ph56.i.us.i = phi ptr [ %.036.ph.be.i.us.i, %.outer.backedge.i.us.i ], [ %.val.i, %.lr.ph.i.preheader.us.i ]
+  %.036.ph56.i.us.i = phi ptr [ %.036.ph.be.i.us.i, %.outer.backedge.i.us.i ], [ %.val.i.fr, %.lr.ph.i.preheader.us.i ]
   %80 = getelementptr inbounds nuw i8, ptr %.036.ph56.i.us.i, i64 1
   %.fr.i.us.i = freeze i1 %79
   br i1 %.fr.i.us.i, label %.lr.ph.split.i.us.i, label %.lr.ph.split.us.i.us.i
@@ -62509,9 +62510,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 .loopexit1.i.us.i:                                ; preds = %82, %.lr.ph.split.i.us.i, %91, %.split.us.i.us.i, %.split41.us.i.us.i, %.lr.ph.split.us.i.us.i
   %.03320.i.us.i = phi ptr [ %.us-phi36.i.us.i, %91 ], [ %.us-phi36.i.us.i, %.split.us.i.us.i ], [ %.us-phi43.i.us.i, %.split41.us.i.us.i ], [ %.033.ph58.i.us.i, %.lr.ph.split.us.i.us.i ], [ %.03328.i.us.i, %.lr.ph.split.i.us.i ], [ %.03527.us50.i.us.i, %82 ]
   %.015.i.us.i = phi ptr [ %.us-phi37.i.us.i, %91 ], [ %.us-phi37.i.us.i, %.split.us.i.us.i ], [ %.us-phi44.i.us.i, %.split41.us.i.us.i ], [ %.0.ph59.i.us.i, %.lr.ph.split.us.i.us.i ], [ %.029.i.us.i, %.lr.ph.split.i.us.i ], [ %80, %82 ]
-  %96 = icmp uge ptr %.val.i, %.015.i.us.i
+  %96 = icmp uge ptr %.val.i.fr, %.015.i.us.i
   %.not.i.us.i = icmp ugt ptr %.015.i.us.i, %70
-  %or.cond.i.us.i = select i1 %96, i1 true, i1 %.not.i.us.i
+  %or.cond.i.us.i = or i1 %96, %.not.i.us.i
   br i1 %or.cond.i.us.i, label %99, label %.outer.backedge.i.us.i
 
 .outer.backedge.i.us.i:                           ; preds = %.loopexit1.i.us.i, %94, %89
@@ -62547,8 +62548,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 .lr.ph.split.i.i.preheader:                       ; preds = %105, %108
   %.03527.i.i = phi ptr [ %109, %108 ], [ %.013.i, %105 ]
   %107 = load i8, ptr %.03527.i.i, align 1, !tbaa !12
-  %cond477 = icmp eq i8 %107, 42
-  br i1 %cond477, label %108, label %.loopexit1.i.i
+  %cond479 = icmp eq i8 %107, 42
+  br i1 %cond479, label %108, label %.loopexit1.i.i
 
 108:                                              ; preds = %.lr.ph.split.i.i.preheader
   %109 = getelementptr inbounds nuw i8, ptr %.03527.i.i, i64 1
@@ -62561,9 +62562,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %._cri
 
 _ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEPKc.exit: ; preds = %99, %.loopexit1.i.i
   %.val.i59 = load ptr, ptr %6, align 8, !tbaa !4
+  %.val.i59.fr = freeze ptr %.val.i59
   %.val18.i60 = load i64, ptr %21, align 8, !tbaa !14
   %.val18.fr.i61 = freeze i64 %.val18.i60
-  %111 = getelementptr inbounds nuw i8, ptr %.val.i59, i64 %.val18.fr.i61
+  %111 = getelementptr i8, ptr %.val.i59.fr, i64 %.val18.fr.i61
   %112 = icmp eq i64 %.val18.fr.i61, 0
   br i1 %112, label %.split.i104, label %.split.us.i62
 
@@ -62586,10 +62588,10 @@ _ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_string
 .lr.ph.i.us.i66:                                  ; preds = %.outer.backedge.i.us.i83, %.lr.ph.i.preheader.us.i65
   %119 = phi i1 [ %139, %.outer.backedge.i.us.i83 ], [ %118, %.lr.ph.i.preheader.us.i65 ]
   %120 = phi i1 [ %138, %.outer.backedge.i.us.i83 ], [ false, %.lr.ph.i.preheader.us.i65 ]
-  %.0.ph59.i.us.i67 = phi ptr [ %.014.i.us.i85, %.outer.backedge.i.us.i83 ], [ %.val.i59, %.lr.ph.i.preheader.us.i65 ]
+  %.0.ph59.i.us.i67 = phi ptr [ %.014.i.us.i85, %.outer.backedge.i.us.i83 ], [ %.val.i59.fr, %.lr.ph.i.preheader.us.i65 ]
   %.033.ph58.i.us.i68 = phi ptr [ %.03319.i.us.i84, %.outer.backedge.i.us.i83 ], [ %.013.us.i63, %.lr.ph.i.preheader.us.i65 ]
   %.035.ph57.i.us.i69 = phi ptr [ %.035.ph.be.i.us.i87, %.outer.backedge.i.us.i83 ], [ %.013.us.i63, %.lr.ph.i.preheader.us.i65 ]
-  %.036.ph56.i.us.i70 = phi ptr [ %.036.ph.be.i.us.i86, %.outer.backedge.i.us.i83 ], [ %.val.i59, %.lr.ph.i.preheader.us.i65 ]
+  %.036.ph56.i.us.i70 = phi ptr [ %.036.ph.be.i.us.i86, %.outer.backedge.i.us.i83 ], [ %.val.i59.fr, %.lr.ph.i.preheader.us.i65 ]
   %121 = getelementptr inbounds nuw i8, ptr %.036.ph56.i.us.i70, i64 1
   %.fr.i.us.i71 = freeze i1 %120
   br i1 %.fr.i.us.i71, label %.lr.ph.split.i.us.i99, label %.lr.ph.split.us.i.us.i72
@@ -62660,9 +62662,9 @@ _ZN7testing8internal15UnitTestOptions13MatchesFilterERKNSt7__cxx1112basic_string
 .loopexit1.i.us.i78:                              ; preds = %123, %.lr.ph.split.i.us.i99, %132, %.split.us.i.us.i94, %.split41.us.i.us.i90, %.lr.ph.split.us.i.us.i72
   %.03320.i.us.i79 = phi ptr [ %.us-phi36.i.us.i97, %132 ], [ %.us-phi36.i.us.i97, %.split.us.i.us.i94 ], [ %.us-phi43.i.us.i92, %.split41.us.i.us.i90 ], [ %.033.ph58.i.us.i68, %.lr.ph.split.us.i.us.i72 ], [ %.03328.i.us.i101, %.lr.ph.split.i.us.i99 ], [ %.03527.us50.i.us.i74, %123 ]
   %.015.i.us.i80 = phi ptr [ %.us-phi37.i.us.i98, %132 ], [ %.us-phi37.i.us.i98, %.split.us.i.us.i94 ], [ %.us-phi44.i.us.i93, %.split41.us.i.us.i90 ], [ %.0.ph59.i.us.i67, %.lr.ph.split.us.i.us.i72 ], [ %.029.i.us.i100, %.lr.ph.split.i.us.i99 ], [ %121, %123 ]
-  %137 = icmp uge ptr %.val.i59, %.015.i.us.i80
+  %137 = icmp uge ptr %.val.i59.fr, %.015.i.us.i80
   %.not.i.us.i81 = icmp ugt ptr %.015.i.us.i80, %111
-  %or.cond.i.us.i82 = select i1 %137, i1 true, i1 %.not.i.us.i81
+  %or.cond.i.us.i82 = or i1 %137, %.not.i.us.i81
   br i1 %or.cond.i.us.i82, label %140, label %.outer.backedge.i.us.i83
 
 .outer.backedge.i.us.i83:                         ; preds = %.loopexit1.i.us.i78, %135, %130

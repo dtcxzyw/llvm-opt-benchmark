@@ -2763,8 +2763,7 @@ define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %
   %18 = load ptr, ptr %17, align 8, !tbaa !65
   %19 = tail call i32 %18(ptr noundef nonnull %.03.i) #15
   store i8 1, ptr %11, align 1, !tbaa !64
-  %.fr = freeze i32 %19
-  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %.fr, i32 %.0142.i)
+  %spec.select.i = tail call i32 @llvm.smin.i32(i32 %19, i32 %.0142.i)
   br label %20
 
 20:                                               ; preds = %16, %13, %.lr.ph.i
@@ -2777,7 +2776,9 @@ define internal range(i32 -2147483648, 1) i32 @_archive_read_close(ptr noundef %
   br i1 %.not.i, label %close_filters.exit, label %.lr.ph.i, !llvm.loop !68
 
 close_filters.exit:                               ; preds = %20
-  %spec.select = tail call i32 @llvm.smin.i32(i32 %.1.i, i32 0)
+  %23 = icmp slt i32 %.1.i, 0
+  %cond.fr = freeze i1 %23
+  %spec.select = select i1 %cond.fr, i32 %.1.i, i32 0
   br label %close_filters.exit.thread
 
 close_filters.exit.thread:                        ; preds = %close_filters.exit, %7, %3, %1

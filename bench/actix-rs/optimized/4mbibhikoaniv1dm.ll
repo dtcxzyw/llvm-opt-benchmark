@@ -257,7 +257,8 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   %64 = add i64 %.056.ph176, %22
   %65 = icmp ugt i64 %64, %4
   %66 = getelementptr inbounds i8, ptr %2, i64 %64
-  br i1 %65, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %65
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %.lr.ph.us
   %.us-phi182 = phi i64 [ %21, %.lr.ph.us ], [ %.056.ph176, %.lr.ph ]
@@ -287,7 +288,8 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %75 = icmp ult i64 %64, %3
-  br i1 %75, label %.lr.ph.split.split.us, label %.lr.ph.split.split, !prof !5
+  %.fr140 = freeze i1 %75
+  br i1 %.fr140, label %.lr.ph.split.split.us, label %.lr.ph.split.split, !prof !5
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %102
   %.sroa.0.084.us121 = phi i64 [ %76, %102 ], [ %.sroa.0.0.ph177, %.lr.ph.split ]
@@ -3347,7 +3349,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %90 = icmp ult i64 %.165108, %31
-  br i1 %90, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  %.fr = freeze i1 %90
+  br i1 %.fr, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %106
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]
@@ -3824,7 +3827,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %99 = add i64 %.165127, %21
   %100 = icmp ugt i64 %99, %4
   %101 = getelementptr inbounds i8, ptr %30, i64 %.165127
-  br i1 %100, label %.preheader.split.us, label %.preheader.split
+  %.fr = freeze i1 %100
+  br i1 %.fr, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %105
   %.263.us = phi i64 [ %102, %105 ], [ %.162128, %.preheader ]
@@ -3845,7 +3849,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %112 = icmp ult i64 %.165127, %31
-  br i1 %112, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  %.fr106 = freeze i1 %112
+  br i1 %.fr106, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %130
   %.263.us92 = phi i64 [ %113, %130 ], [ %.162128, %.preheader.split ]
@@ -4328,7 +4333,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %90 = add i64 %.165137, %20
   %91 = icmp ugt i64 %90, %4
   %92 = getelementptr inbounds i8, ptr %29, i64 %.165137
-  br i1 %91, label %.preheader.split.us, label %.preheader.split
+  %.fr = freeze i1 %91
+  br i1 %.fr, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %96
   %.263.us = phi i64 [ %93, %96 ], [ %.162138, %.preheader ]
@@ -4349,7 +4355,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %103 = icmp ult i64 %.165137, %30
-  br i1 %103, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  %.fr111 = freeze i1 %103
+  br i1 %.fr111, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %121
   %.263.us97 = phi i64 [ %104, %121 ], [ %.162138, %.preheader.split ]
@@ -4849,7 +4856,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %90 = icmp ult i64 %.165108, %31
-  br i1 %90, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
+  %.fr = freeze i1 %90
+  br i1 %.fr, label %.preheader.split.split.us, label %.preheader.split.split, !prof !5
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %106
   %.263.us81 = phi i64 [ %91, %106 ], [ %.162109, %.preheader.split ]

@@ -18083,19 +18083,18 @@ stbtt__GetGlyphShapeT2.exit.i:                    ; preds = %78, %75
 stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyphShapeT2.exit.i
   %.pre.pre = phi ptr [ %.pre.pre544, %stbtt__GetGlyphShapeT2.exit.i ], [ %.pre.pre.pre, %63 ]
   %.0.i = phi i32 [ %.0.i.i, %stbtt__GetGlyphShapeT2.exit.i ], [ %64, %63 ]
-  %.0.i.fr = freeze i32 %.0.i
   %79 = mul nsw i32 %51, %50
   %80 = sext i32 %79 to i64
   %81 = call noalias ptr @malloc(i64 noundef %80) #33
-  %82 = sext i32 %.0.i.fr to i64
+  %82 = sext i32 %.0.i to i64
   %83 = shl nsw i64 %82, 2
   %84 = call noalias ptr @malloc(i64 noundef %83) #33
-  %85 = icmp sgt i32 %.0.i.fr, 0
+  %85 = icmp sgt i32 %.0.i, 0
   br i1 %85, label %.lr.ph, label %.preheader514
 
 .lr.ph:                                           ; preds = %stbtt_GetGlyphShape.exit
-  %86 = add nsw i32 %.0.i.fr, -1
-  %wide.trip.count = zext nneg i32 %.0.i.fr to i64
+  %86 = add nsw i32 %.0.i, -1
+  %wide.trip.count = zext nneg i32 %.0.i to i64
   br label %431
 
 .preheader514:                                    ; preds = %493, %stbtt_GetGlyphShape.exit
@@ -18113,7 +18112,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
   br i1 %85, label %.preheader.us.us.preheader, label %.preheader.us
 
 .preheader.us.us.preheader:                       ; preds = %.preheader.lr.ph.split.us
-  %wide.trip.count538 = zext nneg i32 %.0.i.fr to i64
+  %wide.trip.count538 = zext nneg i32 %.0.i to i64
   br label %.preheader.us.us
 
 .preheader.us.us:                                 ; preds = %.preheader.us.us.preheader, %._crit_edge522.split.us.us.us
@@ -18132,7 +18131,7 @@ stbtt_GetGlyphShape.exit:                         ; preds = %63, %stbtt__GetGlyp
   %99 = sitofp i32 %98 to float
   %100 = fadd float %99, 5.000000e-01
   %101 = fdiv float %100, %1
-  %102 = call i32 @stbtt__compute_crossings_x(float noundef %101, float noundef %94, i32 noundef %.0.i.fr, ptr noundef %.pre.pre)
+  %102 = call i32 @stbtt__compute_crossings_x(float noundef %101, float noundef %94, i32 noundef %.0.i, ptr noundef %.pre.pre)
   br label %112
 
 103:                                              ; preds = %._crit_edge.us.us.us
@@ -18567,7 +18566,7 @@ stbtt__solve_cubic.exit.us.us.us:                 ; preds = %285, %282, %275, %2
   %413 = sitofp i32 %412 to float
   %414 = fadd float %413, 5.000000e-01
   %415 = fdiv float %414, %1
-  %416 = call i32 @stbtt__compute_crossings_x(float noundef %415, float noundef %407, i32 noundef %.0.i.fr, ptr noundef %.pre.pre)
+  %416 = call i32 @stbtt__compute_crossings_x(float noundef %415, float noundef %407, i32 noundef %.0.i, ptr noundef %.pre.pre)
   %417 = icmp eq i32 %416, 0
   %.10.us525 = select i1 %417, float -9.999990e+05, float 9.999990e+05
   %418 = call float @llvm.fmuladd.f32(float %5, float %.10.us525, float %89)

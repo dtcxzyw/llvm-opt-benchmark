@@ -600,9 +600,7 @@ get_private_data_from_node.exit:                  ; preds = %15, %17
   %22 = phi ptr [ %21, %17 ], [ null, %15 ]
   %23 = tail call i32 @dom_xml_serialize(ptr noundef nonnull %14, ptr noundef nonnull %7, ptr noundef %2, i1 noundef zeroext %3, i1 noundef zeroext false, ptr noundef %22) #11
   %24 = tail call i32 @xmlOutputBufferFlush(ptr noundef nonnull %7) #11
-  %.fr = freeze i32 %23
-  %.fr27 = freeze i32 %24
-  %25 = or i32 %.fr27, %.fr
+  %25 = or i32 %24, %23
   %26 = tail call i32 @xmlSaveClose(ptr noundef nonnull %14) #11
   br label %27
 
@@ -612,7 +610,8 @@ get_private_data_from_node.exit:                  ; preds = %15, %17
   %29 = tail call i32 @xmlOutputBufferClose(ptr noundef nonnull %7) #11
   %30 = icmp slt i32 %.023, 0
   %31 = sext i32 %.023 to i64
-  %spec.select = select i1 %30, i64 %31, i64 %28
+  %cond.fr = freeze i1 %30
+  %spec.select = select i1 %cond.fr, i64 %31, i64 %28
   br label %32
 
 32:                                               ; preds = %27, %8

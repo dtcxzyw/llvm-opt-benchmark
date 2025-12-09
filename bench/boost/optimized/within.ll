@@ -183957,20 +183957,18 @@ select.unfold30.i:                                ; preds = %79
   %89 = load i32, ptr %24, align 4, !tbaa !263
   %90 = getelementptr inbounds nuw i8, ptr %88, i64 8
   %91 = load double, ptr %90, align 8, !tbaa !1591
-  %.fr = freeze double %91
-  %.fr102 = freeze i32 %89
-  %92 = sitofp i32 %.fr102 to double
-  %93 = fcmp oeq double %.fr, %92
+  %92 = sitofp i32 %89 to double
+  %93 = fcmp oeq double %91, %92
   br i1 %93, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIdNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyINS7_IiS9_EENS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread, label %94
 
 94:                                               ; preds = %87
-  %95 = call double @llvm.fabs.f64(double %.fr)
+  %95 = call double @llvm.fabs.f64(double %91)
   %96 = fcmp ueq double %95, 0x7FF0000000000000
   br i1 %96, label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE10side_equalINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSC_IdSE_EEEEiRKT_RKT0_i.exit.thread43.i, label %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i
 
 _ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i: ; preds = %94
   %97 = call double @llvm.fabs.f64(double %92)
-  %98 = fsub double %92, %.fr
+  %98 = fsub double %92, %91
   %99 = call noundef double @llvm.fabs.f64(double %98)
   %100 = fcmp olt double %97, %95
   %101 = select i1 %100, double %95, double %97
@@ -183981,7 +183979,7 @@ _ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i: ; preds = %94
   br i1 %104, label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE10side_equalINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSC_IdSE_EEEEiRKT_RKT0_i.exit.thread43.i, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIdNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyINS7_IiS9_EENS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
 
 _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE10side_equalINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSC_IdSE_EEEEiRKT_RKT0_i.exit.thread43.i: ; preds = %_ZN5boost8geometry4math6equalsIidEEbRKT_RKT0_.exit.i.i, %94
-  %105 = fcmp ogt double %.fr, %92
+  %105 = fcmp ogt double %91, %92
   %106 = sub nsw i32 0, %.0.i.ph.i
   %107 = select i1 %105, i32 %106, i32 %.0.i.ph.i
   br label %120
@@ -184028,7 +184026,7 @@ _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16sid
   %121 = mul nsw i32 %.0.i3347.i, %.02448.i
   %122 = icmp sgt i32 %121, 0
   %123 = select i1 %122, i32 %.0.i3347.i, i32 0
-  %spec.select = add i32 %123, %.sroa.037.0
+  %spec.select = add nsw i32 %123, %.sroa.037.0
   br label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSC_IdSE_EEEEbRKT_RKT0_SM_RNS8_7counterE.exit
 
 _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSC_IdSE_EEEEbRKT_RKT0_SM_RNS8_7counterE.exit: ; preds = %120, %73, %83
@@ -184040,7 +184038,8 @@ _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16sid
 
 ._crit_edge.loopexit.i.i28.thread:                ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEENSC_IdSE_EEEEbRKT_RKT0_SM_RNS8_7counterE.exit
   %125 = icmp eq i32 %.sroa.037.1, 0
-  br i1 %125, label %._crit_edge, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIdNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyINS7_IiS9_EENS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
+  %cond.fr94 = freeze i1 %125
+  br i1 %cond.fr94, label %._crit_edge, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIdNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyINS7_IiS9_EENS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit.i.i28.thread
   %.pre = load ptr, ptr %22, align 8, !tbaa !174
@@ -193741,12 +193740,10 @@ _ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdL
 98:                                               ; preds = %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i, %select.unfold.i
   %.0.i32.ph.i = phi i32 [ %.0.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i ], [ %.0.i.i, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i ], [ %.0.i.ph.i, %select.unfold.i ]
   %.024.ph.i = phi i32 [ %97, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.i.i ], [ %93, %_ZN5boost8geometry4math6detail16equals_by_policyIddNS2_20equals_factor_policyIdLb1EEEEEbRKT_RKT0_RKT1_.exit.thread7.i.i ], [ %62, %select.unfold.i ]
-  %.0.i32.ph.i.fr = freeze i32 %.0.i32.ph.i
-  %.024.ph.i.fr = freeze i32 %.024.ph.i
-  %99 = mul i32 %.024.ph.i.fr, %.0.i32.ph.i.fr
+  %99 = mul nsw i32 %.024.ph.i, %.0.i32.ph.i
   %100 = icmp sgt i32 %99, 0
-  %101 = select i1 %100, i32 %.0.i32.ph.i.fr, i32 0
-  %spec.select = add i32 %101, %.sroa.037.0
+  %101 = select i1 %100, i32 %.0.i32.ph.i, i32 0
+  %spec.select = add nsw i32 %101, %.sroa.037.0
   br label %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit
 
 _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit: ; preds = %98, %43, %52
@@ -193758,7 +193755,8 @@ _ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16sid
 
 ._crit_edge.loopexit.i.i28.thread:                ; preds = %_ZN5boost8geometry8strategy6within6detail22cartesian_winding_baseINS1_4side16side_by_triangleIvEEvE5applyINS0_5model2d28point_xyIiNS0_2cs9cartesianEEESF_EEbRKT_RKT0_SL_RNS8_7counterE.exit
   %103 = icmp eq i32 %.sroa.037.1, 0
-  br i1 %103, label %.thread91, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
+  %cond.fr88 = freeze i1 %103
+  br i1 %cond.fr88, label %.thread91, label %_ZN5boost8geometry15detail_dispatch6within17point_in_geometryINS0_5model4ringINS4_2d28point_xyIiNS0_2cs9cartesianEEELb1ELb1ESt6vectorSaEENS0_8ring_tagEE5applyISA_NS0_10strategies6relate9cartesianIvEEEEiRKT_RKSC_RKT0_.exit.thread
 
 .thread91:                                        ; preds = %._crit_edge.loopexit.i.i28.thread, %26
   %104 = getelementptr inbounds nuw i8, ptr %.sroa.034.074, i64 24

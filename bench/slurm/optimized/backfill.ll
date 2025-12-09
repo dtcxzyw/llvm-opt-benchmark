@@ -7094,13 +7094,12 @@ define internal range(i32 -1, 1) i32 @_bf_reserve_running(ptr noundef %0, ptr no
 66:                                               ; preds = %53, %62, %50, %49
   %.046 = phi i64 [ %8, %50 ], [ %8, %49 ], [ %65, %62 ], [ %60, %53 ]
   %67 = load i32, ptr @backfill_resolution, align 4
-  %.fr60 = freeze i32 %67
-  %68 = sext i32 %.fr60 to i64
-  %.046.fr = freeze i64 %.046
-  %69 = add i64 %.046.fr, -1
+  %68 = sext i32 %67 to i64
+  %69 = add i64 %.046, -1
   %70 = add i64 %69, %68
-  %71 = srem i64 %70, %68
-  %72 = sub nsw i64 %70, %71
+  %.fr = freeze i64 %70
+  %71 = srem i64 %.fr, %68
+  %72 = sub nsw i64 %.fr, %71
   %or.cond6 = and i1 %44, %.not58
   br i1 %or.cond6, label %77, label %73
 
@@ -7124,21 +7123,21 @@ define internal range(i32 -1, 1) i32 @_bf_reserve_running(ptr noundef %0, ptr no
   %85 = getelementptr inbounds nuw i8, ptr %84, i64 480
   %86 = load i8, ptr %85, align 8
   %87 = and i8 %86, 8
-  %.not61 = icmp eq i8 %87, 0
-  br i1 %.not61, label %88, label %95
+  %.not60 = icmp eq i8 %87, 0
+  br i1 %.not60, label %88, label %95
 
 88:                                               ; preds = %81
   %89 = getelementptr inbounds nuw i8, ptr %0, i64 672
   %90 = load ptr, ptr %89, align 8
-  %.not62 = icmp eq ptr %90, null
-  br i1 %.not62, label %97, label %91
+  %.not61 = icmp eq ptr %90, null
+  br i1 %.not61, label %97, label %91
 
 91:                                               ; preds = %88
   %92 = getelementptr inbounds nuw i8, ptr %90, i64 168
   %93 = load i32, ptr %92, align 8
   %94 = and i32 %93, 65536
-  %.not63 = icmp eq i32 %94, 0
-  br i1 %.not63, label %97, label %95
+  %.not62 = icmp eq i32 %94, 0
+  br i1 %.not62, label %97, label %95
 
 95:                                               ; preds = %91, %81
   %96 = tail call i32 @topology_g_whole_topo(ptr noundef %82) #15
@@ -7148,8 +7147,8 @@ define internal range(i32 -1, 1) i32 @_bf_reserve_running(ptr noundef %0, ptr no
   tail call void @bit_not(ptr noundef %82) #15
   %98 = trunc i64 %72 to i32
   tail call fastcc void @_add_reservation(i32 noundef 0, i32 noundef %98, ptr noundef %82, ptr noundef nonnull %0, ptr noundef %4, ptr noundef nonnull %6)
-  %.not64 = icmp eq ptr %82, null
-  br i1 %.not64, label %100, label %99
+  %.not63 = icmp eq ptr %82, null
+  br i1 %.not63, label %100, label %99
 
 99:                                               ; preds = %97
   call void @slurm_bit_free(ptr noundef nonnull %3) #15

@@ -1606,49 +1606,48 @@ define range(i64 -554050779136, 554050782975) i64 @tjBufSize(i32 noundef %0, i32
   %10 = zext nneg i32 %2 to i64
   %11 = getelementptr inbounds nuw i32, ptr @tjMCUWidth, i64 %10
   %12 = load i32, ptr %11, align 4, !tbaa !88
-  %.fr14 = freeze i32 %12
   %13 = getelementptr inbounds nuw i32, ptr @tjMCUHeight, i64 %10
   %14 = load i32, ptr %13, align 4, !tbaa !88
-  %.fr13 = freeze i32 %14
   %15 = icmp eq i32 %2, 3
   br i1 %15, label %tj3JPEGBufSize.exit, label %16
 
 16:                                               ; preds = %9
-  %17 = mul i32 %.fr13, %.fr14
+  %17 = mul nsw i32 %14, %12
   %18 = sdiv i32 256, %17
   %narrow.i = add nsw i32 %18, 2
   %19 = sext i32 %narrow.i to i64
   br label %tj3JPEGBufSize.exit
 
 tj3JPEGBufSize.exit:                              ; preds = %9, %16
-  %.fr = phi i64 [ %19, %16 ], [ 2, %9 ]
-  %20 = add nsw i32 %0, -1
-  %21 = add i32 %20, %.fr14
-  %22 = sub i32 0, %.fr14
-  %23 = and i32 %21, %22
-  %24 = add nsw i32 %1, -1
-  %25 = add i32 %24, %.fr13
-  %26 = sub i32 0, %.fr13
-  %27 = and i32 %25, %26
-  %28 = mul i32 %27, %23
-  %29 = sext i32 %28 to i64
-  %30 = mul nsw i64 %.fr, %29
-  %31 = add nsw i64 %30, 2048
-  %32 = icmp eq i64 %31, 0
-  br i1 %32, label %tj3JPEGBufSize.exit.thread, label %35
+  %20 = phi i64 [ %19, %16 ], [ 2, %9 ]
+  %21 = add nsw i32 %0, -1
+  %22 = add i32 %21, %12
+  %23 = sub i32 0, %12
+  %24 = and i32 %22, %23
+  %25 = add nsw i32 %1, -1
+  %26 = add i32 %25, %14
+  %27 = sub i32 0, %14
+  %28 = and i32 %26, %27
+  %29 = mul nsw i32 %28, %24
+  %30 = sext i32 %29 to i64
+  %31 = mul nsw i64 %20, %30
+  %32 = add i64 %31, 2048
+  %33 = icmp eq i64 %32, 0
+  %cond.fr = freeze i1 %33
+  br i1 %cond.fr, label %tj3JPEGBufSize.exit.thread, label %36
 
 tj3JPEGBufSize.exit.thread.sink.split:            ; preds = %5, %3
   %tj3JPEGBufSize.FUNCTION_NAME.sink = phi ptr [ @tjBufSize.FUNCTION_NAME, %3 ], [ @tj3JPEGBufSize.FUNCTION_NAME, %5 ]
-  %33 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
-  %34 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %33, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull %tj3JPEGBufSize.FUNCTION_NAME.sink, ptr noundef nonnull @.str.1) #26
+  %34 = tail call align 16 ptr @llvm.threadlocal.address.p0(ptr align 16 @errStr)
+  %35 = tail call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull dereferenceable(1) %34, i64 noundef 200, ptr noundef nonnull @.str, ptr noundef nonnull %tj3JPEGBufSize.FUNCTION_NAME.sink, ptr noundef nonnull @.str.1) #26
   br label %tj3JPEGBufSize.exit.thread
 
 tj3JPEGBufSize.exit.thread:                       ; preds = %tj3JPEGBufSize.exit.thread.sink.split, %tj3JPEGBufSize.exit
-  br label %35
+  br label %36
 
-35:                                               ; preds = %tj3JPEGBufSize.exit, %tj3JPEGBufSize.exit.thread
-  %36 = phi i64 [ -1, %tj3JPEGBufSize.exit.thread ], [ %31, %tj3JPEGBufSize.exit ]
-  ret i64 %36
+36:                                               ; preds = %tj3JPEGBufSize.exit, %tj3JPEGBufSize.exit.thread
+  %37 = phi i64 [ -1, %tj3JPEGBufSize.exit.thread ], [ %32, %tj3JPEGBufSize.exit ]
+  ret i64 %37
 }
 
 ; Function Attrs: nofree nounwind uwtable
@@ -2126,8 +2125,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneWidth(i32 noundef %0, i32 noundef 
 
 27:                                               ; preds = %23, %10
   %.1.i = phi i64 [ %26, %23 ], [ %21, %10 ]
-  %.1.i.fr = freeze i64 %.1.i
-  %28 = icmp ugt i64 %.1.i.fr, 2147483647
+  %28 = icmp ugt i64 %.1.i, 2147483647
   br i1 %28, label %tj3YUVPlaneWidth.exit.thread, label %tj3YUVPlaneWidth.exit
 
 tj3YUVPlaneWidth.exit.thread:                     ; preds = %3, %7, %27
@@ -2137,9 +2135,10 @@ tj3YUVPlaneWidth.exit.thread:                     ; preds = %3, %7, %27
   br label %33
 
 tj3YUVPlaneWidth.exit:                            ; preds = %27
-  %31 = trunc nuw nsw i64 %.1.i.fr to i32
-  %32 = icmp eq i64 %.1.i.fr, 0
-  br i1 %32, label %33, label %34
+  %31 = trunc nuw nsw i64 %.1.i to i32
+  %32 = icmp eq i64 %.1.i, 0
+  %cond.fr = freeze i1 %32
+  br i1 %cond.fr, label %33, label %34
 
 33:                                               ; preds = %tj3YUVPlaneWidth.exit.thread, %tj3YUVPlaneWidth.exit
   br label %34
@@ -2187,8 +2186,7 @@ define range(i32 -1, -2147483648) i32 @tjPlaneHeight(i32 noundef %0, i32 noundef
 
 27:                                               ; preds = %23, %10
   %.1.i = phi i64 [ %26, %23 ], [ %21, %10 ]
-  %.1.i.fr = freeze i64 %.1.i
-  %28 = icmp ugt i64 %.1.i.fr, 2147483647
+  %28 = icmp ugt i64 %.1.i, 2147483647
   br i1 %28, label %tj3YUVPlaneHeight.exit.thread, label %tj3YUVPlaneHeight.exit
 
 tj3YUVPlaneHeight.exit.thread:                    ; preds = %3, %7, %27
@@ -2198,9 +2196,10 @@ tj3YUVPlaneHeight.exit.thread:                    ; preds = %3, %7, %27
   br label %33
 
 tj3YUVPlaneHeight.exit:                           ; preds = %27
-  %31 = trunc nuw nsw i64 %.1.i.fr to i32
-  %32 = icmp eq i64 %.1.i.fr, 0
-  br i1 %32, label %33, label %34
+  %31 = trunc nuw nsw i64 %.1.i to i32
+  %32 = icmp eq i64 %.1.i, 0
+  %cond.fr = freeze i1 %32
+  br i1 %cond.fr, label %33, label %34
 
 33:                                               ; preds = %tj3YUVPlaneHeight.exit.thread, %tj3YUVPlaneHeight.exit
   br label %34

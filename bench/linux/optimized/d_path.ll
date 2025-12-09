@@ -801,20 +801,14 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #9, !srcloc !15
   %61 = load volatile i32, ptr @rename_lock, align 4
   %.not = icmp eq i32 %61, %16
-  br i1 %.not, label %.critedge.loopexit, label %3
+  br i1 %.not, label %.critedge, label %3
 
 .critedge8:                                       ; preds = %.thread2
-  %.fr.le33.le83.le145 = freeze i32 %57
   tail call void @_raw_spin_unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @rename_lock, i64 4)) #9
   br label %.critedge
 
-.critedge.loopexit:                               ; preds = %60
-  %.fr.le33.le83.le = freeze i32 %57
-  br label %.critedge
-
-.critedge:                                        ; preds = %.critedge.loopexit, %.critedge8
-  %.fr.le33.le83141 = phi i32 [ %.fr.le33.le83.le, %.critedge.loopexit ], [ %.fr.le33.le83.le145, %.critedge8 ]
-  %62 = icmp eq i32 %.fr.le33.le83141, %.8.val
+.critedge:                                        ; preds = %60, %.critedge8
+  %62 = icmp eq i32 %57, %.8.val
   br i1 %62, label %63, label %66
 
 63:                                               ; preds = %.critedge
@@ -827,8 +821,9 @@ define internal fastcc ptr @__dentry_path(ptr noundef %0, ptr %.0.val, i32 %.8.v
   br label %.thread5
 
 66:                                               ; preds = %.critedge
-  %67 = icmp sgt i32 %.fr.le33.le83141, -1
-  %spec.select = select i1 %67, ptr %56, ptr inttoptr (i64 -36 to ptr), !prof !21
+  %67 = icmp sgt i32 %57, -1
+  %cond.fr = freeze i1 %67
+  %spec.select = select i1 %cond.fr, ptr %56, ptr inttoptr (i64 -36 to ptr), !prof !21
   br label %.thread5
 
 .thread5:                                         ; preds = %66, %63, %.thread3

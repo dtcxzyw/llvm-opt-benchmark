@@ -3898,20 +3898,21 @@ sw.epilog:                                        ; preds = %if.else85, %if.then
 if.end106:                                        ; preds = %sw.epilog
   %19 = and i32 %state.2, 52
   %20 = icmp eq i32 %19, 0
+  %21 = freeze i1 %20
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1, ptr noundef %pContext)
-  br i1 %20, label %.thread, label %21
+  br i1 %21, label %.thread, label %22
 
-21:                                               ; preds = %if.end106
-  %22 = add nsw i32 %nSpaceCount.2, -1
-  %23 = load i32, ptr %nReadCount, align 4
-  %add111 = add nsw i32 %22, %23
+22:                                               ; preds = %if.end106
+  %23 = add nsw i32 %nSpaceCount.2, -1
+  %24 = load i32, ptr %nReadCount, align 4
+  %add111 = add nsw i32 %23, %24
   br label %.thread
 
-.thread:                                          ; preds = %if.end106.thread, %21, %entry, %if.end106
-  %24 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %21 ], [ 0, %if.end106.thread ]
-  %25 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %21 ], [ 0, %if.end106.thread ]
-  store i32 %24, ptr %nReadCount, align 4
-  ret i64 %25
+.thread:                                          ; preds = %if.end106.thread, %22, %entry, %if.end106
+  %25 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %22 ], [ 0, %if.end106.thread ]
+  %26 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %22 ], [ 0, %if.end106.thread ]
+  store i32 %25, ptr %nReadCount, align 4
+  ret i64 %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -4364,9 +4365,9 @@ while.end236.loopexit:                            ; preds = %sw.epilog235, %sw.b
   %nExponent.1325.ph = phi i32 [ %nExponent.1, %sw.epilog235 ], [ %nExponent.0243, %sw.bb140 ], [ %nExponent.0243, %sw.bb99 ]
   %nFieldCount.1324.ph = phi i32 [ %nFieldCount.1, %sw.epilog235 ], [ %nFieldCount.0242, %sw.bb140 ], [ %nFieldCount.0242, %sw.bb99 ]
   %nSpaceCount.1323.ph = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ %nSpaceCount.0240, %sw.bb140 ], [ %nSpaceCount.0240, %sw.bb99 ]
-  %40 = freeze i32 %state.1329.ph
-  %41 = and i32 %40, 19532
-  %42 = icmp eq i32 %41, 0
+  %40 = and i32 %state.1329.ph, 19532
+  %41 = icmp eq i32 %40, 0
+  %42 = freeze i1 %41
   br label %while.end236
 
 while.end236:                                     ; preds = %while.end236.loopexit, %while.end197, %while.end218, %while.end
@@ -4380,8 +4381,8 @@ while.end236:                                     ; preds = %while.end236.loopex
   %nSpaceCount.1323 = phi i32 [ %nSpaceCount.0240, %while.end197 ], [ %nSpaceCount.0240, %while.end218 ], [ %nSpaceCount.0240, %while.end ], [ %nSpaceCount.1323.ph, %while.end236.loopexit ]
   %cond.fr361 = freeze i1 %bExponentNegative.1328
   %.pre = load i16, ptr %mSigLen.i, align 2
-  %bNegative.1327.fr = freeze i8 %bNegative.1327
-  %43 = trunc i8 %bNegative.1327.fr to i1
+  %43 = trunc i8 %bNegative.1327 to i1
+  %cond.fr382 = freeze i1 %43
   %call237 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1330, ptr noundef %pContext)
   %sub247360 = sub nsw i32 0, %nExponent.1325
   br i1 %state.1329, label %44, label %45
@@ -4456,7 +4457,7 @@ if.then267:                                       ; preds = %if.then267.loopexit
 
 if.else271:                                       ; preds = %while.end265
   store i32 0, ptr %bOverflow, align 4
-  br i1 %43, label %57, label %return
+  br i1 %cond.fr382, label %57, label %return
 
 57:                                               ; preds = %if.else271
   br label %return
@@ -4474,7 +4475,7 @@ if.then286:                                       ; preds = %if.end284.thread, %
   br i1 %bExponentNegative.0.lcssa349357, label %return, label %if.else289
 
 if.else289:                                       ; preds = %if.then286
-  %.152 = select i1 %43, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.152 = select i1 %cond.fr382, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %return
 
 if.end293:                                        ; preds = %if.end284
@@ -4592,7 +4593,7 @@ if.end303.sink.split:                             ; preds = %if.else297, %_ZNK2E
 if.end303:                                        ; preds = %if.end303.sink.split, %if.else297
   %dValue.2 = phi double [ %retval.0.i, %if.else297 ], [ %dValue.2.ph, %if.end303.sink.split ]
   %fneg306 = fneg double %dValue.2
-  %dValue.3 = select i1 %43, double %fneg306, double %dValue.2
+  %dValue.3 = select i1 %cond.fr382, double %fneg306, double %dValue.2
   br label %return
 
 return:                                           ; preds = %57, %if.else271, %if.else271.thread, %if.else289, %if.then286, %if.end303, %if.end224, %if.then171
@@ -5264,20 +5265,21 @@ sw.epilog:                                        ; preds = %if.else85, %if.then
 if.end106:                                        ; preds = %sw.epilog
   %19 = and i32 %state.2, 52
   %20 = icmp eq i32 %19, 0
+  %21 = freeze i1 %20
   %call105 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1, ptr noundef %pContext)
-  br i1 %20, label %.thread, label %21
+  br i1 %21, label %.thread, label %22
 
-21:                                               ; preds = %if.end106
-  %22 = add nsw i32 %nSpaceCount.2, -1
-  %23 = load i32, ptr %nReadCount, align 4
-  %add111 = add nsw i32 %22, %23
+22:                                               ; preds = %if.end106
+  %23 = add nsw i32 %nSpaceCount.2, -1
+  %24 = load i32, ptr %nReadCount, align 4
+  %add111 = add nsw i32 %23, %24
   br label %.thread
 
-.thread:                                          ; preds = %if.end106.thread, %21, %entry, %if.end106
-  %24 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %21 ], [ 0, %if.end106.thread ]
-  %25 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %21 ], [ 0, %if.end106.thread ]
-  store i32 %24, ptr %nReadCount, align 4
-  ret i64 %25
+.thread:                                          ; preds = %if.end106.thread, %22, %entry, %if.end106
+  %25 = phi i32 [ 0, %entry ], [ 0, %if.end106 ], [ %add111, %22 ], [ 0, %if.end106.thread ]
+  %26 = phi i64 [ 0, %entry ], [ 0, %if.end106 ], [ %nValue.2, %22 ], [ 0, %if.end106.thread ]
+  store i32 %25, ptr %nReadCount, align 4
+  ret i64 %26
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -5755,9 +5757,9 @@ while.end236.loopexit435:                         ; preds = %sw.epilog235, %_ZN2
   %nExponent.1345.ph = phi i32 [ %nExponent.1, %sw.epilog235 ], [ %nExponent.0261, %sw.bb99 ], [ %nExponent.0261, %sw.bb140 ], [ %nExponent.0261, %_ZN2EA4StdC7ToupperEDs.exit ]
   %nFieldCount.1344.ph = phi i32 [ %nFieldCount.1, %sw.epilog235 ], [ %nFieldCount.0260, %sw.bb99 ], [ %nFieldCount.0260, %sw.bb140 ], [ %nFieldCount.0260, %_ZN2EA4StdC7ToupperEDs.exit ]
   %nSpaceCount.1343.ph = phi i32 [ %nSpaceCount.1, %sw.epilog235 ], [ %nSpaceCount.0258, %sw.bb99 ], [ %nSpaceCount.0258, %sw.bb140 ], [ %nSpaceCount.0258, %_ZN2EA4StdC7ToupperEDs.exit ]
-  %29 = freeze i32 %state.1349.ph
-  %30 = and i32 %29, 19532
-  %31 = icmp eq i32 %30, 0
+  %29 = and i32 %state.1349.ph, 19532
+  %30 = icmp eq i32 %29, 0
+  %31 = freeze i1 %30
   br label %while.end236
 
 while.end236:                                     ; preds = %lor.rhs, %while.end236.loopexit435, %while.end197, %while.end218, %while.end
@@ -5771,8 +5773,8 @@ while.end236:                                     ; preds = %lor.rhs, %while.end
   %nSpaceCount.1343 = phi i32 [ %nSpaceCount.0258, %while.end197 ], [ %nSpaceCount.0258, %while.end218 ], [ %nSpaceCount.0258, %while.end ], [ %nSpaceCount.1343.ph, %while.end236.loopexit435 ], [ %nSpaceCount.0258, %lor.rhs ]
   %cond.fr381 = freeze i1 %bExponentNegative.1348
   %.pre = load i16, ptr %mSigLen.i, align 2
-  %bNegative.1347.fr = freeze i8 %bNegative.1347
-  %32 = trunc i8 %bNegative.1347.fr to i1
+  %32 = trunc i8 %bNegative.1347 to i1
+  %cond.fr402 = freeze i1 %32
   %call237 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1350, ptr noundef %pContext)
   %sub247380 = sub nsw i32 0, %nExponent.1345
   br i1 %state.1349, label %33, label %34
@@ -5847,7 +5849,7 @@ if.then267:                                       ; preds = %if.then267.loopexit
 
 if.else271:                                       ; preds = %while.end265
   store i32 0, ptr %bOverflow, align 4
-  br i1 %32, label %46, label %return
+  br i1 %cond.fr402, label %46, label %return
 
 46:                                               ; preds = %if.else271
   br label %return
@@ -5865,7 +5867,7 @@ if.then286:                                       ; preds = %if.end284.thread, %
   br i1 %bExponentNegative.0.lcssa369377, label %return, label %if.else289
 
 if.else289:                                       ; preds = %if.then286
-  %.152 = select i1 %32, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.152 = select i1 %cond.fr402, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %return
 
 if.end293:                                        ; preds = %if.end284
@@ -5983,7 +5985,7 @@ if.end303.sink.split:                             ; preds = %if.else297, %_ZNK2E
 if.end303:                                        ; preds = %if.end303.sink.split, %if.else297
   %dValue.2 = phi double [ %retval.0.i, %if.else297 ], [ %dValue.2.ph, %if.end303.sink.split ]
   %fneg306 = fneg double %dValue.2
-  %dValue.3 = select i1 %32, double %fneg306, double %dValue.2
+  %dValue.3 = select i1 %cond.fr402, double %fneg306, double %dValue.2
   br label %return
 
 return:                                           ; preds = %46, %if.else271, %if.else271.thread, %if.else289, %if.then286, %if.end303, %if.end224, %if.then171
@@ -6642,20 +6644,21 @@ sw.epilog:                                        ; preds = %if.else81, %if.then
 if.end102:                                        ; preds = %sw.epilog
   %17 = and i32 %state.2, 52
   %18 = icmp eq i32 %17, 0
+  %19 = freeze i1 %18
   %call101 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1, ptr noundef %pContext)
-  br i1 %18, label %.thread, label %19
+  br i1 %19, label %.thread, label %20
 
-19:                                               ; preds = %if.end102
-  %20 = add nsw i32 %nSpaceCount.2, -1
-  %21 = load i32, ptr %nReadCount, align 4
-  %add107 = add nsw i32 %20, %21
+20:                                               ; preds = %if.end102
+  %21 = add nsw i32 %nSpaceCount.2, -1
+  %22 = load i32, ptr %nReadCount, align 4
+  %add107 = add nsw i32 %21, %22
   br label %.thread
 
-.thread:                                          ; preds = %if.end102.thread, %19, %entry, %if.end102
-  %22 = phi i32 [ 0, %entry ], [ 0, %if.end102 ], [ %add107, %19 ], [ 0, %if.end102.thread ]
-  %23 = phi i64 [ 0, %entry ], [ 0, %if.end102 ], [ %nValue.2, %19 ], [ 0, %if.end102.thread ]
-  store i32 %22, ptr %nReadCount, align 4
-  ret i64 %23
+.thread:                                          ; preds = %if.end102.thread, %20, %entry, %if.end102
+  %23 = phi i32 [ 0, %entry ], [ 0, %if.end102 ], [ %add107, %20 ], [ 0, %if.end102.thread ]
+  %24 = phi i64 [ 0, %entry ], [ 0, %if.end102 ], [ %nValue.2, %20 ], [ 0, %if.end102.thread ]
+  store i32 %23, ptr %nReadCount, align 4
+  ret i64 %24
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -7114,9 +7117,9 @@ while.end221.loopexit441:                         ; preds = %sw.epilog220, %_ZN2
   %nExponent.1351.ph = phi i32 [ %nExponent.1, %sw.epilog220 ], [ %nExponent.0267, %sw.bb94 ], [ %nExponent.0267, %sw.bb132 ], [ %nExponent.0267, %_ZN2EA4StdC7ToupperEDi.exit ]
   %nFieldCount.1350.ph = phi i32 [ %nFieldCount.1, %sw.epilog220 ], [ %nFieldCount.0266, %sw.bb94 ], [ %nFieldCount.0266, %sw.bb132 ], [ %nFieldCount.0266, %_ZN2EA4StdC7ToupperEDi.exit ]
   %nSpaceCount.1349.ph = phi i32 [ %nSpaceCount.1, %sw.epilog220 ], [ %nSpaceCount.0264, %sw.bb94 ], [ %nSpaceCount.0264, %sw.bb132 ], [ %nSpaceCount.0264, %_ZN2EA4StdC7ToupperEDi.exit ]
-  %24 = freeze i32 %state.1355.ph
-  %25 = and i32 %24, 19532
-  %26 = icmp eq i32 %25, 0
+  %24 = and i32 %state.1355.ph, 19532
+  %25 = icmp eq i32 %24, 0
+  %26 = freeze i1 %25
   br label %while.end221
 
 while.end221:                                     ; preds = %lor.rhs, %while.end221.loopexit441, %while.end184, %while.end203, %while.end
@@ -7130,8 +7133,8 @@ while.end221:                                     ; preds = %lor.rhs, %while.end
   %nSpaceCount.1349 = phi i32 [ %nSpaceCount.0264, %while.end184 ], [ %nSpaceCount.0264, %while.end203 ], [ %nSpaceCount.0264, %while.end ], [ %nSpaceCount.1349.ph, %while.end221.loopexit441 ], [ %nSpaceCount.0264, %lor.rhs ]
   %cond.fr387 = freeze i1 %bExponentNegative.1354
   %.pre = load i16, ptr %mSigLen.i, align 2
-  %bNegative.1353.fr = freeze i8 %bNegative.1353
-  %27 = trunc i8 %bNegative.1353.fr to i1
+  %27 = trunc i8 %bNegative.1353 to i1
+  %cond.fr408 = freeze i1 %27
   %call222 = tail call noundef i32 %pReadFunction(i32 noundef 3, i32 noundef %c.1356, ptr noundef %pContext)
   %sub232386 = sub nsw i32 0, %nExponent.1351
   br i1 %state.1355, label %28, label %29
@@ -7206,7 +7209,7 @@ if.then252:                                       ; preds = %if.then252.loopexit
 
 if.else256:                                       ; preds = %while.end250
   store i32 0, ptr %bOverflow, align 4
-  br i1 %27, label %41, label %return
+  br i1 %cond.fr408, label %41, label %return
 
 41:                                               ; preds = %if.else256
   br label %return
@@ -7224,7 +7227,7 @@ if.then271:                                       ; preds = %if.end269.thread, %
   br i1 %bExponentNegative.0.lcssa375383, label %return, label %if.else274
 
 if.else274:                                       ; preds = %if.then271
-  %.152 = select i1 %27, double 0xFFF0000000000000, double 0x7FF0000000000000
+  %.152 = select i1 %cond.fr408, double 0xFFF0000000000000, double 0x7FF0000000000000
   br label %return
 
 if.end278:                                        ; preds = %if.end269
@@ -7342,7 +7345,7 @@ if.end288.sink.split:                             ; preds = %if.else282, %_ZNK2E
 if.end288:                                        ; preds = %if.end288.sink.split, %if.else282
   %dValue.2 = phi double [ %retval.0.i, %if.else282 ], [ %dValue.2.ph, %if.end288.sink.split ]
   %fneg291 = fneg double %dValue.2
-  %dValue.3 = select i1 %27, double %fneg291, double %dValue.2
+  %dValue.3 = select i1 %cond.fr408, double %fneg291, double %dValue.2
   br label %return
 
 return:                                           ; preds = %41, %if.else256, %if.else256.thread, %if.else274, %if.then271, %if.end288, %if.end209, %if.then160

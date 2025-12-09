@@ -5011,17 +5011,17 @@ define dso_local void @raxRecursiveShow(i32 noundef %0, i32 noundef %1, ptr noun
 
 tailrecurse:                                      ; preds = %._crit_edge48.loopexit, %3
   %.tr = phi i32 [ %0, %3 ], [ %46, %._crit_edge48.loopexit ]
-  %.tr68 = phi i32 [ %1, %3 ], [ %.0, %._crit_edge48.loopexit ]
-  %.tr69 = phi ptr [ %2, %3 ], [ %.0.copyload, %._crit_edge48.loopexit ]
-  %4 = load i32, ptr %.tr69, align 4
+  %.tr67 = phi i32 [ %1, %3 ], [ %.0, %._crit_edge48.loopexit ]
+  %.tr68 = phi ptr [ %2, %3 ], [ %.0.copyload, %._crit_edge48.loopexit ]
+  %4 = load i32, ptr %.tr68, align 4
   %5 = and i32 %4, 4
   %.not = icmp eq i32 %5, 0
   %6 = select i1 %.not, i32 91, i32 34
   %7 = lshr i32 %4, 3
-  %8 = getelementptr inbounds nuw i8, ptr %.tr69, i64 4
+  %8 = getelementptr inbounds nuw i8, ptr %.tr68, i64 4
   %9 = select i1 %.not, i32 93, i32 34
   %10 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.7, i32 noundef %6, i32 noundef %7, ptr noundef nonnull %8, i32 noundef %9)
-  %11 = load i32, ptr %.tr69, align 4
+  %11 = load i32, ptr %.tr68, align 4
   %12 = and i32 %11, 1
   %.not39 = icmp eq i32 %12, 0
   br i1 %.not39, label %29, label %13
@@ -5042,7 +5042,7 @@ tailrecurse:                                      ; preds = %._crit_edge48.loope
   %.not11.i = icmp eq i32 %21, 0
   %22 = shl nuw nsw i64 %17, 3
   %spec.select.i = select i1 %.not11.i, i64 %22, i64 8
-  %23 = getelementptr inbounds nuw i8, ptr %.tr69, i64 %17
+  %23 = getelementptr inbounds nuw i8, ptr %.tr68, i64 %17
   %24 = getelementptr inbounds nuw i8, ptr %23, i64 %20
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 %spec.select.i
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
@@ -5052,17 +5052,16 @@ tailrecurse:                                      ; preds = %._crit_edge48.loope
 raxGetData.exit:                                  ; preds = %13, %15
   %.0.i = phi ptr [ %.0.copyload.i, %15 ], [ null, %13 ]
   %27 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.8, ptr noundef %.0.i)
-  %28 = add i32 %27, %10
-  %.pre = load i32, ptr %.tr69, align 4
+  %28 = add nsw i32 %27, %10
+  %.pre = load i32, ptr %.tr68, align 4
   br label %29
 
 29:                                               ; preds = %raxGetData.exit, %tailrecurse
   %30 = phi i32 [ %.pre, %raxGetData.exit ], [ %11, %tailrecurse ]
   %.035 = phi i32 [ %28, %raxGetData.exit ], [ %10, %tailrecurse ]
-  %.fr = freeze i32 %30
-  %31 = and i32 %.fr, 4
+  %31 = and i32 %30, 4
   %.not40 = icmp eq i32 %31, 0
-  %32 = lshr i32 %.fr, 3
+  %32 = lshr i32 %30, 3
   %spec.select = select i1 %.not40, i32 %32, i32 1
   %.not41 = icmp eq i32 %.tr, 0
   br i1 %.not41, label %39, label %33
@@ -5070,14 +5069,14 @@ raxGetData.exit:                                  ; preds = %13, %15
 33:                                               ; preds = %29
   %34 = icmp samesign ugt i32 %spec.select, 1
   %35 = select i1 %34, i32 7, i32 4
-  %36 = add i32 %35, %.tr68
+  %36 = add nsw i32 %35, %.tr67
   %37 = icmp eq i32 %spec.select, 1
   %38 = select i1 %37, i32 %.035, i32 0
-  %spec.select42 = add i32 %36, %38
+  %spec.select42 = add nsw i32 %36, %38
   br label %39
 
 39:                                               ; preds = %33, %29
-  %.0 = phi i32 [ %.tr68, %29 ], [ %spec.select42, %33 ]
+  %.0 = phi i32 [ %.tr67, %29 ], [ %spec.select42, %33 ]
   %40 = zext nneg i32 %32 to i64
   %41 = getelementptr inbounds nuw i8, ptr %8, i64 %40
   %42 = xor i32 %32, 3
@@ -5095,12 +5094,21 @@ raxGetData.exit:                                  ; preds = %13, %15
 
 .lr.ph47.split.us:                                ; preds = %.lr.ph47
   %47 = icmp sgt i32 %.0, 0
-  %wide.trip.count59 = zext nneg i32 %spec.select to i64
-  br i1 %47, label %.lr.ph.us.us, label %.lr.ph47.split.us.split
+  %.fr = freeze i1 %47
+  br i1 %.fr, label %.lr.ph.us.us.preheader, label %.lr.ph47.split.us.split.preheader
 
-.lr.ph.us.us:                                     ; preds = %.lr.ph47.split.us, %._crit_edge.us.us
-  %indvars.iv56 = phi i64 [ %indvars.iv.next57, %._crit_edge.us.us ], [ 0, %.lr.ph47.split.us ]
-  %.03744.us.us = phi ptr [ %58, %._crit_edge.us.us ], [ %45, %.lr.ph47.split.us ]
+.lr.ph47.split.us.split.preheader:                ; preds = %.lr.ph47.split.us
+  %wide.trip.count = zext nneg i32 %spec.select to i64
+  br label %.lr.ph47.split.us.split
+
+.lr.ph.us.us.preheader:                           ; preds = %.lr.ph47.split.us
+  %smax = tail call i32 @llvm.smax.i32(i32 %.0, i32 1)
+  %wide.trip.count58 = zext nneg i32 %spec.select to i64
+  br label %.lr.ph.us.us
+
+.lr.ph.us.us:                                     ; preds = %.lr.ph.us.us.preheader, %._crit_edge.us.us
+  %indvars.iv55 = phi i64 [ 0, %.lr.ph.us.us.preheader ], [ %indvars.iv.next56, %._crit_edge.us.us ]
+  %.03744.us.us = phi ptr [ %45, %.lr.ph.us.us.preheader ], [ %58, %._crit_edge.us.us ]
   %48 = load ptr, ptr @stdout, align 8, !tbaa !48
   %49 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %48)
   br label %50
@@ -5110,24 +5118,24 @@ raxGetData.exit:                                  ; preds = %13, %15
   %51 = load ptr, ptr @stdout, align 8, !tbaa !48
   %52 = tail call noundef i32 @putc(i32 noundef 32, ptr noundef %51)
   %53 = add nuw nsw i32 %.03443.us.us, 1
-  %exitcond55.not = icmp eq i32 %53, %.0
-  br i1 %exitcond55.not, label %._crit_edge.us.us, label %50, !llvm.loop !50
+  %exitcond54.not = icmp eq i32 %53, %smax
+  br i1 %exitcond54.not, label %._crit_edge.us.us, label %50, !llvm.loop !50
 
 ._crit_edge.us.us:                                ; preds = %50
-  %54 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv56
+  %54 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv55
   %55 = load i8, ptr %54, align 1, !tbaa !15
   %56 = zext i8 %55 to i32
   %57 = tail call i32 (ptr, ...) @printf(ptr noundef nonnull dereferenceable(1) @.str.9, i32 noundef %56)
   %.0.copyload.us.us = load ptr, ptr %.03744.us.us, align 8
   tail call void @raxRecursiveShow(i32 noundef %46, i32 noundef %.0, ptr noundef %.0.copyload.us.us)
   %58 = getelementptr inbounds nuw i8, ptr %.03744.us.us, i64 8
-  %indvars.iv.next57 = add nuw nsw i64 %indvars.iv56, 1
-  %exitcond60.not = icmp eq i64 %indvars.iv.next57, %wide.trip.count59
-  br i1 %exitcond60.not, label %._crit_edge48, label %.lr.ph.us.us, !llvm.loop !51
+  %indvars.iv.next56 = add nuw nsw i64 %indvars.iv55, 1
+  %exitcond59.not = icmp eq i64 %indvars.iv.next56, %wide.trip.count58
+  br i1 %exitcond59.not, label %._crit_edge48, label %.lr.ph.us.us, !llvm.loop !51
 
-.lr.ph47.split.us.split:                          ; preds = %.lr.ph47.split.us, %.lr.ph47.split.us.split
-  %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph47.split.us.split ], [ 0, %.lr.ph47.split.us ]
-  %.03744.us = phi ptr [ %65, %.lr.ph47.split.us.split ], [ %45, %.lr.ph47.split.us ]
+.lr.ph47.split.us.split:                          ; preds = %.lr.ph47.split.us.split.preheader, %.lr.ph47.split.us.split
+  %indvars.iv = phi i64 [ 0, %.lr.ph47.split.us.split.preheader ], [ %indvars.iv.next, %.lr.ph47.split.us.split ]
+  %.03744.us = phi ptr [ %45, %.lr.ph47.split.us.split.preheader ], [ %65, %.lr.ph47.split.us.split ]
   %59 = load ptr, ptr @stdout, align 8, !tbaa !48
   %60 = tail call noundef i32 @putc(i32 noundef 10, ptr noundef %59)
   %61 = getelementptr inbounds nuw i8, ptr %8, i64 %indvars.iv
@@ -5138,7 +5146,7 @@ raxGetData.exit:                                  ; preds = %13, %15
   tail call void @raxRecursiveShow(i32 noundef %46, i32 noundef %.0, ptr noundef %.0.copyload.us)
   %65 = getelementptr inbounds nuw i8, ptr %.03744.us, i64 8
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count59
+  %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge48, label %.lr.ph47.split.us.split, !llvm.loop !51
 
 ._crit_edge48.loopexit:                           ; preds = %.lr.ph47
@@ -5353,6 +5361,9 @@ declare i64 @llvm.umin.i64(i64, i64) #23
 
 ; Function Attrs: nocallback nofree nosync nounwind willreturn memory(inaccessiblemem: write)
 declare void @llvm.assume(i1 noundef) #24
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #23
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: none, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nounwind uwtable "frame-pointer"="all" "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

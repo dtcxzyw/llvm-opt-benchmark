@@ -1146,12 +1146,12 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   unreachable
 
 115:                                              ; preds = %.preheader, %._crit_edge.i
-  %indvars.iv525.i = phi i64 [ %indvars.iv.next526.i, %._crit_edge.i ], [ 0, %.preheader ]
+  %indvars.iv524.i = phi i64 [ %indvars.iv.next525.i, %._crit_edge.i ], [ 0, %.preheader ]
   %.0282425.i = phi i32 [ %.1283.lcssa.i, %._crit_edge.i ], [ 0, %.preheader ]
   %.0284424.i = phi ptr [ %.1285.lcssa.i, %._crit_edge.i ], [ %0, %.preheader ]
   %.0288423.i = phi ptr [ %.1289.lcssa.i, %._crit_edge.i ], [ %64, %.preheader ]
   %.0291422.i = phi ptr [ %.1292.lcssa.i, %._crit_edge.i ], [ %71, %.preheader ]
-  %116 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv525.i
+  %116 = getelementptr inbounds nuw i64, ptr %5, i64 %indvars.iv524.i
   %117 = load i64, ptr %116, align 8, !tbaa !11
   %118 = add i64 %117, %51
   %119 = udiv i64 %118, %50
@@ -1205,8 +1205,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %.1289.lcssa.i = phi ptr [ %.0288423.i, %115 ], [ %138, %._crit_edge.loopexit.i ]
   %.1285.lcssa.i = phi ptr [ %.0284424.i, %115 ], [ %137, %._crit_edge.loopexit.i ]
   %.1283.lcssa.i = phi i32 [ %.0282425.i, %115 ], [ %142, %._crit_edge.loopexit.i ]
-  %indvars.iv.next526.i = add nuw nsw i64 %indvars.iv525.i, 1
-  %exitcond.not.i = icmp eq i64 %indvars.iv.next526.i, %wide.trip.count.i
+  %indvars.iv.next525.i = add nuw nsw i64 %indvars.iv524.i, 1
+  %exitcond.not.i = icmp eq i64 %indvars.iv.next525.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %143, label %115, !llvm.loop !42
 
 143:                                              ; preds = %._crit_edge.i
@@ -1214,16 +1214,17 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %144 = load i32, ptr @g_decodeOnly, align 4, !tbaa !4
   %.not358.i = icmp ne i32 %144, 0
   %145 = icmp ne i32 %.1283.lcssa.i, 0
-  %or.cond490.i = and i1 %145, %.not358.i
+  %.fr.i = freeze i1 %145
+  %or.cond490.i = and i1 %.fr.i, %.not358.i
   br i1 %or.cond490.i, label %.lr.ph427.preheader.i, label %.loopexit403.i
 
 .lr.ph427.preheader.i:                            ; preds = %143
-  %wide.trip.count532.i = zext i32 %.1283.lcssa.i to i64
+  %wide.trip.count531.i = zext i32 %.1283.lcssa.i to i64
   br label %.lr.ph427.i
 
 .lr.ph427.i:                                      ; preds = %.lr.ph427.i, %.lr.ph427.preheader.i
-  %indvars.iv528.i = phi i64 [ 0, %.lr.ph427.preheader.i ], [ %indvars.iv.next529.i, %.lr.ph427.i ]
-  %146 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv528.i
+  %indvars.iv527.i = phi i64 [ 0, %.lr.ph427.preheader.i ], [ %indvars.iv.next528.i, %.lr.ph427.i ]
+  %146 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv527.i
   %147 = getelementptr inbounds nuw i8, ptr %146, i64 16
   %148 = load ptr, ptr %147, align 8, !tbaa !37
   %149 = load ptr, ptr %146, align 8, !tbaa !35
@@ -1232,9 +1233,9 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %148, ptr align 1 %149, i64 %151, i1 false)
   %152 = getelementptr inbounds nuw i8, ptr %146, i64 32
   store i64 %151, ptr %152, align 8, !tbaa !43
-  %indvars.iv.next529.i = add nuw nsw i64 %indvars.iv528.i, 1
-  %exitcond533.not.i = icmp eq i64 %indvars.iv.next529.i, %wide.trip.count532.i
-  br i1 %exitcond533.not.i, label %.loopexit403.i, label %.lr.ph427.i, !llvm.loop !44
+  %indvars.iv.next528.i = add nuw nsw i64 %indvars.iv527.i, 1
+  %exitcond532.not.i = icmp eq i64 %indvars.iv.next528.i, %wide.trip.count531.i
+  br i1 %exitcond532.not.i, label %.loopexit403.i, label %.lr.ph427.i, !llvm.loop !44
 
 .loopexit403.i:                                   ; preds = %.lr.ph427.i, %143
   %153 = call i64 @XXH64(ptr noundef nonnull %0, i64 noundef range(i64 0, 2113929217) %1, i64 noundef 0) #19
@@ -1268,7 +1269,9 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %spec.select376.i = select i1 %174, i32 1, i32 %161
   %.not492.i = icmp eq i32 %.1283.lcssa.i, 0
   %175 = select i1 %.not354.i, i64 2147483647, i64 8421504
-  %wide.trip.count538.i = zext i32 %.1283.lcssa.i to i64
+  %umax.i = call i32 @llvm.umax.i32(i32 %.1283.lcssa.i, i32 1)
+  %wide.trip.count537.i = zext i32 %.1283.lcssa.i to i64
+  %wide.trip.count544.i = zext i32 %umax.i to i64
   br label %176
 
 176:                                              ; preds = %389, %172
@@ -1327,13 +1330,13 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br i1 %.not492.i, label %._crit_edge431.i, label %.lr.ph430.i
 
 .lr.ph430.i:                                      ; preds = %199, %.lr.ph430.i
-  %indvars.iv534.i = phi i64 [ %indvars.iv.next535.i, %.lr.ph430.i ], [ 0, %199 ]
-  %200 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv534.i
+  %indvars.iv533.i = phi i64 [ %indvars.iv.next534.i, %.lr.ph430.i ], [ 0, %199 ]
+  %200 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv533.i
   %201 = getelementptr inbounds nuw i8, ptr %200, i64 32
   store i64 0, ptr %201, align 8, !tbaa !43
-  %indvars.iv.next535.i = add nuw nsw i64 %indvars.iv534.i, 1
-  %exitcond539.not.i = icmp eq i64 %indvars.iv.next535.i, %wide.trip.count538.i
-  br i1 %exitcond539.not.i, label %._crit_edge431.i, label %.lr.ph430.i, !llvm.loop !45
+  %indvars.iv.next534.i = add nuw nsw i64 %indvars.iv533.i, 1
+  %exitcond538.not.i = icmp eq i64 %indvars.iv.next534.i, %wide.trip.count537.i
+  br i1 %exitcond538.not.i, label %._crit_edge431.i, label %.lr.ph430.i, !llvm.loop !45
 
 ._crit_edge431.i:                                 ; preds = %.lr.ph430.i, %199
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1343,11 +1346,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @TIME_waitForNextTick() #19
   %203 = call i64 @TIME_getTime() #19
-  %.not497.i = icmp eq i32 %.1312469.i, 0
-  br i1 %.not497.i, label %._crit_edge442.i, label %.lr.ph441.i
+  %.not496.i = icmp eq i32 %.1312469.i, 0
+  br i1 %.not496.i, label %._crit_edge442.i, label %.lr.ph441.i
 
 .lr.ph441.i:                                      ; preds = %._crit_edge431.i
-  br i1 %.not492.i, label %.lr.ph441.split.i, label %.lr.ph435.us.i
+  br i1 %.fr.i, label %.lr.ph435.us.i, label %.lr.ph441.split.i
 
 .lr.ph435.us.i:                                   ; preds = %.lr.ph441.i, %._crit_edge436.us.i
   %.3439.us.i = phi i32 [ %.5.us.i, %._crit_edge436.us.i ], [ %.0280474.i, %.lr.ph441.i ]
@@ -1386,7 +1389,7 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %225 = getelementptr inbounds nuw i8, ptr %207, i64 32
   store i64 %218, ptr %225, align 8, !tbaa !43
   %indvars.iv.next541.i = add nuw nsw i64 %indvars.iv540.i, 1
-  %exitcond545.not.i = icmp eq i64 %indvars.iv.next541.i, %wide.trip.count538.i
+  %exitcond545.not.i = icmp eq i64 %indvars.iv.next541.i, %wide.trip.count544.i
   br i1 %exitcond545.not.i, label %._crit_edge436.us.i, label %205, !llvm.loop !48
 
 ._crit_edge436.us.i:                              ; preds = %224
@@ -1399,11 +1402,11 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %227 = load ptr, ptr %35, align 8, !tbaa !30
   call void %227(ptr noundef nonnull %10) #19
   %228 = add nuw i32 %.0320438.i, 1
-  %exitcond547.not.i = icmp eq i32 %228, %.1312469.i
-  br i1 %exitcond547.not.i, label %._crit_edge442.i, label %.lr.ph441.split.i, !llvm.loop !49
+  %exitcond539.not.i = icmp eq i32 %228, %.1312469.i
+  br i1 %exitcond539.not.i, label %._crit_edge442.i, label %.lr.ph441.split.i, !llvm.loop !49
 
-._crit_edge442.i:                                 ; preds = %._crit_edge436.us.i, %.lr.ph441.split.i, %._crit_edge431.i
-  %.3.lcssa.i = phi i32 [ %.0280474.i, %._crit_edge431.i ], [ %.0280474.i, %.lr.ph441.split.i ], [ %.5.us.i, %._crit_edge436.us.i ]
+._crit_edge442.i:                                 ; preds = %.lr.ph441.split.i, %._crit_edge436.us.i, %._crit_edge431.i
+  %.3.lcssa.i = phi i32 [ %.0280474.i, %._crit_edge431.i ], [ %.5.us.i, %._crit_edge436.us.i ], [ %.0280474.i, %.lr.ph441.split.i ]
   %229 = call i64 @TIME_clockSpan_ns(i64 %203) #19
   %.not361.i = icmp eq i64 %229, 0
   br i1 %.not361.i, label %240, label %230
@@ -1437,15 +1440,15 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br i1 %.not492.i, label %._crit_edge448.i, label %.lr.ph447.i
 
 .lr.ph447.i:                                      ; preds = %242, %.lr.ph447.i
-  %indvars.iv548.i = phi i64 [ %indvars.iv.next549.i, %.lr.ph447.i ], [ 0, %242 ]
+  %indvars.iv547.i = phi i64 [ %indvars.iv.next548.i, %.lr.ph447.i ], [ 0, %242 ]
   %.3334444.i = phi i64 [ %248, %.lr.ph447.i ], [ 0, %242 ]
-  %245 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv548.i
+  %245 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv547.i
   %246 = getelementptr inbounds nuw i8, ptr %245, i64 32
   %247 = load i64, ptr %246, align 8, !tbaa !43
   %248 = add i64 %247, %.3334444.i
-  %indvars.iv.next549.i = add nuw nsw i64 %indvars.iv548.i, 1
-  %exitcond553.not.i = icmp eq i64 %indvars.iv.next549.i, %wide.trip.count538.i
-  br i1 %exitcond553.not.i, label %._crit_edge448.loopexit.i, label %.lr.ph447.i, !llvm.loop !50
+  %indvars.iv.next548.i = add nuw nsw i64 %indvars.iv547.i, 1
+  %exitcond552.not.i = icmp eq i64 %indvars.iv.next548.i, %wide.trip.count537.i
+  br i1 %exitcond552.not.i, label %._crit_edge448.loopexit.i, label %.lr.ph447.i, !llvm.loop !50
 
 ._crit_edge448.loopexit.i:                        ; preds = %.lr.ph447.i
   %249 = call i64 @llvm.umax.i64(i64 %248, i64 1)
@@ -1511,9 +1514,9 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %275 = select i1 %.not363.i, ptr @LZ4_decompress_safe_usingDict, ptr @LZ4F_decompress_binding
   %276 = select i1 %.not363.i, ptr @.str.31, ptr @.str.30
   %277 = call i64 @TIME_getTime() #19
-  %.not498.i = icmp eq i32 %.1316467.i, 0
-  %brmerge613.i = or i1 %.not492.i, %.not498.i
-  br i1 %brmerge613.i, label %._crit_edge454.i, label %.preheader.us.i
+  %.not497.i = icmp eq i32 %.1316467.i, 0
+  %brmerge612.i = select i1 %.not497.i, i1 true, i1 %.not492.i
+  br i1 %brmerge612.i, label %._crit_edge454.i, label %.preheader.us.i
 
 .preheader.us.i:                                  ; preds = %272, %.thread392.us.i
   %.7453.us.i = phi i32 [ %.9.us.i, %.thread392.us.i ], [ %.2.i, %272 ]
@@ -1521,8 +1524,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br label %278
 
 278:                                              ; preds = %295, %.preheader.us.i
-  %indvars.iv554.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next555.i, %295 ]
-  %279 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv554.i
+  %indvars.iv553.i = phi i64 [ 0, %.preheader.us.i ], [ %indvars.iv.next554.i, %295 ]
+  %279 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv553.i
   %280 = getelementptr inbounds nuw i8, ptr %279, i64 8
   %281 = load i64, ptr %280, align 8, !tbaa !39
   %282 = icmp ult i64 %281, %175
@@ -1544,12 +1547,12 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   %296 = zext nneg i32 %293 to i64
   %297 = getelementptr inbounds nuw i8, ptr %279, i64 48
   store i64 %296, ptr %297, align 8, !tbaa !52
-  %indvars.iv.next555.i = add nuw nsw i64 %indvars.iv554.i, 1
-  %exitcond559.not.i = icmp eq i64 %indvars.iv.next555.i, %wide.trip.count538.i
-  br i1 %exitcond559.not.i, label %.thread392.us.i, label %278, !llvm.loop !53
+  %indvars.iv.next554.i = add nuw nsw i64 %indvars.iv553.i, 1
+  %exitcond558.not.i = icmp eq i64 %indvars.iv.next554.i, %wide.trip.count537.i
+  br i1 %exitcond558.not.i, label %.thread392.us.i, label %278, !llvm.loop !53
 
 298:                                              ; preds = %278
-  %299 = trunc nuw i64 %indvars.iv554.i to i32
+  %299 = trunc nuw i64 %indvars.iv553.i to i32
   %300 = load ptr, ptr @stderr, align 8, !tbaa !8
   %301 = trunc i64 %281 to i32
   %302 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %300, ptr noundef nonnull @.str.32, ptr noundef nonnull %276, i32 noundef %299, i32 noundef %301) #17
@@ -1565,8 +1568,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 .thread392.us.i:                                  ; preds = %295, %304, %298
   %.9.us.i = phi i32 [ 1, %304 ], [ 1, %298 ], [ %.7453.us.i, %295 ]
   %307 = add nuw i32 %.0299452.us.i, 1
-  %exitcond560.not.i = icmp eq i32 %307, %.1316467.i
-  br i1 %exitcond560.not.i, label %._crit_edge454.i, label %.preheader.us.i, !llvm.loop !54
+  %exitcond559.not.i = icmp eq i32 %307, %.1316467.i
+  br i1 %exitcond559.not.i, label %._crit_edge454.i, label %.preheader.us.i, !llvm.loop !54
 
 ._crit_edge454.i:                                 ; preds = %.thread392.us.i, %272
   %.7.lcssa.i = phi i32 [ %.2.i, %272 ], [ %.9.us.i, %.thread392.us.i ]
@@ -1624,15 +1627,15 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br i1 %brmerge.i, label %.loopexit.i, label %.lr.ph459.i
 
 .lr.ph459.i:                                      ; preds = %325, %.lr.ph459.i
-  %indvars.iv561.i = phi i64 [ %indvars.iv.next562.i, %.lr.ph459.i ], [ 0, %325 ]
+  %indvars.iv560.i = phi i64 [ %indvars.iv.next561.i, %.lr.ph459.i ], [ 0, %325 ]
   %.2330457.i = phi i64 [ %330, %.lr.ph459.i ], [ 0, %325 ]
-  %327 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv561.i
+  %327 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv560.i
   %328 = getelementptr inbounds nuw i8, ptr %327, i64 48
   %329 = load i64, ptr %328, align 8, !tbaa !52
   %330 = add i64 %329, %.2330457.i
-  %indvars.iv.next562.i = add nuw nsw i64 %indvars.iv561.i, 1
-  %exitcond566.not.i = icmp eq i64 %indvars.iv.next562.i, %wide.trip.count538.i
-  br i1 %exitcond566.not.i, label %.loopexit.i, label %.lr.ph459.i, !llvm.loop !55
+  %indvars.iv.next561.i = add nuw nsw i64 %indvars.iv560.i, 1
+  %exitcond565.not.i = icmp eq i64 %indvars.iv.next561.i, %wide.trip.count537.i
+  br i1 %exitcond565.not.i, label %.loopexit.i, label %.lr.ph459.i, !llvm.loop !55
 
 .loopexit.i:                                      ; preds = %.lr.ph459.i, %325
   %.1329.i = phi i64 [ %.0328464.mux.i, %325 ], [ %330, %.lr.ph459.i ]
@@ -1695,9 +1698,9 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br i1 %.not492.i, label %._crit_edge484.i, label %.lr.ph483.i
 
 .lr.ph483.i:                                      ; preds = %366, %375
-  %indvars.iv568.i = phi i64 [ %indvars.iv.next569.i, %375 ], [ 0, %366 ]
+  %indvars.iv567.i = phi i64 [ %indvars.iv.next568.i, %375 ], [ 0, %366 ]
   %.0281481.i = phi i64 [ %373, %375 ], [ 0, %366 ]
-  %370 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv568.i
+  %370 = getelementptr inbounds nuw %struct.blockParam_t, ptr %58, i64 %indvars.iv567.i
   %371 = getelementptr inbounds nuw i8, ptr %370, i64 8
   %372 = load i64, ptr %371, align 8, !tbaa !39
   %373 = add i64 %372, %.0281481.i
@@ -1705,12 +1708,12 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
   br i1 %374, label %._crit_edge484.loopexit.split.loop.exit.i, label %375
 
 375:                                              ; preds = %.lr.ph483.i
-  %indvars.iv.next569.i = add nuw nsw i64 %indvars.iv568.i, 1
-  %exitcond573.not.i = icmp eq i64 %indvars.iv.next569.i, %wide.trip.count538.i
-  br i1 %exitcond573.not.i, label %._crit_edge484.i, label %.lr.ph483.i, !llvm.loop !57
+  %indvars.iv.next568.i = add nuw nsw i64 %indvars.iv567.i, 1
+  %exitcond572.not.i = icmp eq i64 %indvars.iv.next568.i, %wide.trip.count537.i
+  br i1 %exitcond572.not.i, label %._crit_edge484.i, label %.lr.ph483.i, !llvm.loop !57
 
 ._crit_edge484.loopexit.split.loop.exit.i:        ; preds = %.lr.ph483.i
-  %376 = trunc nuw i64 %indvars.iv568.i to i32
+  %376 = trunc nuw i64 %indvars.iv567.i to i32
   br label %._crit_edge484.i
 
 ._crit_edge484.i:                                 ; preds = %375, %._crit_edge484.loopexit.split.loop.exit.i, %366
@@ -1734,8 +1737,8 @@ LZ4_buildCompressionParameters.exit.i:            ; preds = %97, %96, %93, %92
 
 387:                                              ; preds = %384, %382
   %388 = add nuw nsw i64 %.0287477.i, 1
-  %exitcond567.not.i = icmp eq i64 %388, %1
-  br i1 %exitcond567.not.i, label %.thread396.i, label %.lr.ph479.i, !llvm.loop !58
+  %exitcond566.not.i = icmp eq i64 %388, %1
+  br i1 %exitcond566.not.i, label %.thread396.i, label %.lr.ph479.i, !llvm.loop !58
 
 389:                                              ; preds = %355, %352
   %390 = select i1 %.1340.i, i1 true, i1 %.1338.i
@@ -2075,6 +2078,9 @@ declare i64 @llvm.umax.i64(i64, i64) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i64 @llvm.umin.i64(i64, i64) #15
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.umax.i32(i32, i32) #15
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #15

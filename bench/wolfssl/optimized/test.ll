@@ -10253,10 +10253,11 @@ rsa_decode_test.exit.thread114:                   ; preds = %33, %39, %45, %51, 
 
 315:                                              ; preds = %rsa_decode_test.exit.thread114, %rsa_decode_test.exit.thread, %260, %313, %311, %309, %307, %247, %303, %289, %276, %256, %243, %236, %229, %222, %210, %25, %280, %293, %294
   %.9 = phi i32 [ %28, %25 ], [ %226, %222 ], [ %232, %229 ], [ %239, %236 ], [ %246, %243 ], [ %248, %247 ], [ %259, %256 ], [ %279, %276 ], [ %292, %289 ], [ %306, %303 ], [ %308, %307 ], [ %310, %309 ], [ %312, %311 ], [ %314, %313 ], [ %265, %260 ], [ %217, %210 ], [ -22120, %280 ], [ -22135, %293 ], [ -22138, %294 ], [ %205, %rsa_decode_test.exit.thread ], [ %.0.i.ph, %rsa_decode_test.exit.thread114 ]
-  %.9.fr = freeze i32 %.9
   %316 = call i32 @wc_FreeRsaKey(ptr noundef nonnull %17) #19
   %317 = call i32 @wc_FreeRng(ptr noundef nonnull %16) #19
-  %spec.select = call i32 @llvm.smin.i32(i32 %.9.fr, i32 0)
+  %318 = icmp sgt i32 %.9, -1
+  %cond.fr = freeze i1 %318
+  %spec.select = select i1 %cond.fr, i32 0, i32 %.9
   call void @llvm.lifetime.end.p0(ptr nonnull %23)
   call void @llvm.lifetime.end.p0(ptr nonnull %22)
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
@@ -16552,9 +16553,6 @@ declare i32 @bcmp(ptr captures(none), ptr captures(none), i64) local_unnamed_add
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.umin.i32(i32, i32) #16
-
-; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smin.i32(i32, i32) #16
 
 attributes #0 = { nounwind uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

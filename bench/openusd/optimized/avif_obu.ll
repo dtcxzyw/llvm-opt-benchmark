@@ -2363,8 +2363,7 @@ avifBitsRead.exit185.i.i:                         ; preds = %944
   %storemerge.i.i = phi i64 [ %964, %.thread229.i.i ], [ %973, %972 ]
   %.1228.in.in.i.i = phi i64 [ %962, %.thread229.i.i ], [ %.1.i.i193.i.i, %972 ]
   %.174227.i.i = phi i8 [ 1, %.thread229.i.i ], [ %957, %972 ]
-  %.1228.in.in.fr.i.i = freeze i64 %.1228.in.in.i.i
-  %.not84.i.i = icmp sgt i64 %.1228.in.in.fr.i.i, -1
+  %.not84.i.i = icmp sgt i64 %.1228.in.in.i.i, -1
   %spec.select.i.i = select i1 %.not84.i.i, i32 2, i32 3
   %976 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i32 %spec.select.i.i, ptr %976, align 4

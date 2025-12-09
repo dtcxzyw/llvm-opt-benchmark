@@ -2687,11 +2687,10 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
   %.0139 = phi i64 [ %.1, %117 ], [ 0, %83 ]
   %.0107138 = phi i64 [ %.1108, %117 ], [ -1, %83 ]
   %84 = load ptr, ptr %.025140, align 8, !tbaa !49
-  %.fr = freeze ptr %84
   %85 = getelementptr inbounds nuw i8, ptr %.025140, i64 8
   %86 = load ptr, ptr %85, align 8, !tbaa !95
   %87 = ptrtoint ptr %86 to i64
-  %88 = ptrtoint ptr %.fr to i64
+  %88 = ptrtoint ptr %84 to i64
   %89 = sub i64 %87, %88
   %90 = ashr i64 %89, 2
   %91 = icmp sgt i64 %90, 0
@@ -2699,12 +2698,12 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
 
 .lr.ph.preheader.i.i.i65:                         ; preds = %.lr.ph
   %92 = and i64 %89, -4
-  %scevgep.i.i.i66 = getelementptr i8, ptr %.fr, i64 %92
+  %scevgep.i.i.i66 = getelementptr i8, ptr %84, i64 %92
   br label %.lr.ph.i.i.i67
 
 .lr.ph.i.i.i67:                                   ; preds = %99, %.lr.ph.preheader.i.i.i65
   %.044.i.i.i68 = phi i64 [ %101, %99 ], [ %90, %.lr.ph.preheader.i.i.i65 ]
-  %.02943.i.i.i69 = phi ptr [ %100, %99 ], [ %.fr, %.lr.ph.preheader.i.i.i65 ]
+  %.02943.i.i.i69 = phi ptr [ %100, %99 ], [ %84, %.lr.ph.preheader.i.i.i65 ]
   %.029.val.i.i.i70 = load i8, ptr %.02943.i.i.i69, align 1, !tbaa !7
   switch i8 %.029.val.i.i.i70, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit" [
     i8 32, label %93
@@ -2747,7 +2746,7 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
 
 ._crit_edge.i.i.i56:                              ; preds = %._crit_edge.loopexit.i.i.i74, %.lr.ph
   %.pre-phi.i.i.i57 = phi i64 [ %.pre.i.i.i75, %._crit_edge.loopexit.i.i.i74 ], [ %88, %.lr.ph ]
-  %.029.lcssa.i.i.i58 = phi ptr [ %scevgep.i.i.i66, %._crit_edge.loopexit.i.i.i74 ], [ %.fr, %.lr.ph ]
+  %.029.lcssa.i.i.i58 = phi ptr [ %scevgep.i.i.i66, %._crit_edge.loopexit.i.i.i74 ], [ %84, %.lr.ph ]
   %103 = sub i64 %87, %.pre-phi.i.i.i57
   switch i64 %103, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.thread" [
     i64 3, label %104
@@ -2800,12 +2799,11 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
 
 "_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit": ; preds = %.lr.ph.i.i.i67, %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.loopexit.split.loop.exit", %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.loopexit.split.loop.exit190", %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.loopexit.split.loop.exit192", %110, %107, %104
   %.028.i.i.i61 = phi ptr [ %.029.lcssa.i.i.i58, %104 ], [ %.1.i.i.i62, %107 ], [ %.2.i.i.i59, %110 ], [ %111, %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.loopexit.split.loop.exit" ], [ %112, %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.loopexit.split.loop.exit190" ], [ %113, %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.loopexit.split.loop.exit192" ], [ %.02943.i.i.i69, %.lr.ph.i.i.i67 ]
-  %.028.i.i.i61.fr = freeze ptr %.028.i.i.i61
-  %.not35 = icmp eq ptr %.028.i.i.i61.fr, %86
+  %.not35 = icmp eq ptr %.028.i.i.i61, %86
   br i1 %.not35, label %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit.thread", label %114
 
 114:                                              ; preds = %"_ZSt7find_ifIPKcZN5folly15stripLeftMarginENSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE3$_2ET_SA_SA_T0_.exit"
-  %115 = ptrtoint ptr %.028.i.i.i61.fr to i64
+  %115 = ptrtoint ptr %.028.i.i.i61 to i64
   %116 = sub i64 %115, %88
   %.sroa.speculated85 = call i64 @llvm.umin.i64(i64 %116, i64 %.0107138)
   br label %117
@@ -2823,7 +2821,8 @@ _ZN5folly5RangeIPNS0_IPKcEEE5eraseES4_S4_.exit:   ; preds = %77, %77, %._crit_ed
 
 ._crit_edge:                                      ; preds = %117
   %119 = icmp eq i64 %.1108, -1
-  %spec.select = select i1 %119, i64 %.1, i64 %.1108
+  %cond.fr = freeze i1 %119
+  %spec.select = select i1 %cond.fr, i64 %.1, i64 %.1108
   br label %.lr.ph145
 
 .lr.ph145:                                        ; preds = %._crit_edge, %129

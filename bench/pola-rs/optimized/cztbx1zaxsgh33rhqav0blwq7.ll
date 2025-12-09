@@ -938,11 +938,13 @@ define internal fastcc noundef zeroext i1 @"_ZN113_$LT$brotli..enc..backward_ref
   %61 = add i64 %.sroa.034.0.ph162, %19
   %62 = icmp ugt i64 %61, %4
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 %61
-  br i1 %62, label %.outer27._crit_edge, label %.lr.ph.split
+  %.fr = freeze i1 %62
+  br i1 %.fr, label %.outer27._crit_edge, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %64 = icmp ult i64 %61, %3
-  br i1 %64, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.fr125 = freeze i1 %64
+  br i1 %.fr125, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %89
   %65 = phi i64 [ %91, %89 ], [ %60, %.lr.ph.split ]
@@ -4712,7 +4714,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %39 = add i64 %.sroa.028.0.ph163, %20
   %40 = icmp ugt i64 %39, %4
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.028.0.ph163
-  br i1 %40, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %40
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
   %42 = phi i64 [ %46, %44 ], [ %38, %.lr.ph ]
@@ -4727,7 +4730,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %47 = icmp ult i64 %.sroa.028.0.ph163, %31
-  br i1 %47, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.fr132 = freeze i1 %47
+  br i1 %.fr132, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %67
   %48 = phi i64 [ %69, %67 ], [ %38, %.lr.ph.split ]
@@ -4887,14 +4891,13 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.lr.ph:                                 ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.028.0.ph.lcssa73.fr = freeze i64 %.sroa.028.0.ph.lcssa73
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %168
   %.sroa.06.2215 = phi i1 [ %.sroa.06.0.ph.lcssa65, %.preheader.lr.ph ], [ %.sroa.06.3, %168 ]
   %.sroa.019.1214 = phi i64 [ %.sroa.019.0.ph.lcssa69, %.preheader.lr.ph ], [ %.sroa.019.2, %168 ]
   %.sroa.024.0213 = phi i64 [ %117, %.preheader.lr.ph ], [ %129, %168 ]
-  %.sroa.028.1212 = phi i64 [ %.sroa.028.0.ph.lcssa73.fr, %.preheader.lr.ph ], [ %.sroa.028.2, %168 ]
+  %.sroa.028.1212 = phi i64 [ %.sroa.028.0.ph.lcssa73, %.preheader.lr.ph ], [ %.sroa.028.2, %168 ]
   %119 = add i64 %.sroa.028.1212, %20
   %120 = icmp ugt i64 %119, %4
   %121 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.028.1212
@@ -4913,7 +4916,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %128 = icmp ult i64 %.sroa.028.1212, %31
-  br i1 %128, label %.preheader.split.split.us, label %.preheader.split.split
+  %.fr194 = freeze i1 %128
+  br i1 %.fr194, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %144
   %.sroa.024.1.us182 = phi i64 [ %129, %144 ], [ %.sroa.024.0213, %.preheader.split ]
@@ -5235,7 +5239,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %38 = add i64 %.sroa.028.0.ph171, %19
   %39 = icmp ugt i64 %38, %4
   %40 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.028.0.ph171
-  br i1 %39, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %39
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %43
   %41 = phi i64 [ %45, %43 ], [ %37, %.lr.ph ]
@@ -5250,7 +5255,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %46 = icmp ult i64 %.sroa.028.0.ph171, %30
-  br i1 %46, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.fr140 = freeze i1 %46
+  br i1 %.fr140, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %66
   %47 = phi i64 [ %68, %66 ], [ %37, %.lr.ph.split ]
@@ -5407,20 +5413,20 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.lr.ph:                                 ; preds = %115
   %120 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.028.0.ph.lcssa81.fr = freeze i64 %.sroa.028.0.ph.lcssa81
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %179
   %.sroa.06.2244 = phi i1 [ %.sroa.06.0.ph.lcssa73, %.preheader.lr.ph ], [ %.sroa.06.3, %179 ]
   %.sroa.019.1243 = phi i64 [ %.sroa.019.0.ph.lcssa77, %.preheader.lr.ph ], [ %.sroa.019.2, %179 ]
   %.sroa.024.0242 = phi i64 [ %119, %.preheader.lr.ph ], [ %136, %179 ]
-  %.sroa.028.1241 = phi i64 [ %.sroa.028.0.ph.lcssa81.fr, %.preheader.lr.ph ], [ %.sroa.028.2, %179 ]
+  %.sroa.028.1241 = phi i64 [ %.sroa.028.0.ph.lcssa81, %.preheader.lr.ph ], [ %.sroa.028.2, %179 ]
   %.val91 = load i32, ptr %107, align 8, !noundef !4
   %121 = zext i32 %.val91 to i64
   %122 = add i64 %.sroa.028.1241, %19
   %123 = icmp ugt i64 %122, %4
   %124 = getelementptr inbounds nuw i8, ptr %29, i64 %.sroa.028.1241
-  br i1 %123, label %.preheader.split.us, label %.preheader.split
+  %.fr182 = freeze i1 %123
+  br i1 %.fr182, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %128
   %.sroa.024.1.us = phi i64 [ %125, %128 ], [ %.sroa.024.0242, %.preheader ]
@@ -5441,7 +5447,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %135 = icmp ult i64 %.sroa.028.1241, %30
-  br i1 %135, label %.preheader.split.split.us, label %.preheader.split.split
+  %.fr215 = freeze i1 %135
+  br i1 %.fr215, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %153
   %.sroa.024.1.us201 = phi i64 [ %136, %153 ], [ %.sroa.024.0242, %.preheader.split ]
@@ -5795,7 +5802,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %39 = add i64 %.sroa.028.0.ph171, %20
   %40 = icmp ugt i64 %39, %4
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.028.0.ph171
-  br i1 %40, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %40
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
   %42 = phi i64 [ %46, %44 ], [ %38, %.lr.ph ]
@@ -5810,7 +5818,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %47 = icmp ult i64 %.sroa.028.0.ph171, %31
-  br i1 %47, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.fr140 = freeze i1 %47
+  br i1 %.fr140, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %67
   %48 = phi i64 [ %69, %67 ], [ %38, %.lr.ph.split ]
@@ -5990,18 +5999,18 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.lr.ph:                                 ; preds = %125
   %130 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.028.0.ph.lcssa81.fr = freeze i64 %.sroa.028.0.ph.lcssa81
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %188
   %.sroa.06.2234 = phi i1 [ %.sroa.06.0.ph.lcssa73, %.preheader.lr.ph ], [ %.sroa.06.3, %188 ]
   %.sroa.019.1233 = phi i64 [ %.sroa.019.0.ph.lcssa77, %.preheader.lr.ph ], [ %.sroa.019.2, %188 ]
   %.sroa.024.0232 = phi i64 [ %129, %.preheader.lr.ph ], [ %145, %188 ]
-  %.sroa.028.1231 = phi i64 [ %.sroa.028.0.ph.lcssa81.fr, %.preheader.lr.ph ], [ %.sroa.028.2, %188 ]
+  %.sroa.028.1231 = phi i64 [ %.sroa.028.0.ph.lcssa81, %.preheader.lr.ph ], [ %.sroa.028.2, %188 ]
   %131 = add i64 %.sroa.028.1231, %20
   %132 = icmp ugt i64 %131, %4
   %133 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.028.1231
-  br i1 %132, label %.preheader.split.us, label %.preheader.split
+  %.fr182 = freeze i1 %132
+  br i1 %.fr182, label %.preheader.split.us, label %.preheader.split
 
 .preheader.split.us:                              ; preds = %.preheader, %137
   %.sroa.024.1.us = phi i64 [ %134, %137 ], [ %.sroa.024.0232, %.preheader ]
@@ -6022,7 +6031,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %144 = icmp ult i64 %.sroa.028.1231, %31
-  br i1 %144, label %.preheader.split.split.us, label %.preheader.split.split
+  %.fr210 = freeze i1 %144
+  br i1 %.fr210, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %162
   %.sroa.024.1.us196 = phi i64 [ %145, %162 ], [ %.sroa.024.0232, %.preheader.split ]
@@ -6371,7 +6381,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
   %39 = add i64 %.sroa.028.0.ph163, %20
   %40 = icmp ugt i64 %39, %4
   %41 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.028.0.ph163
-  br i1 %40, label %.lr.ph.split.us, label %.lr.ph.split
+  %.fr = freeze i1 %40
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %44
   %42 = phi i64 [ %46, %44 ], [ %38, %.lr.ph ]
@@ -6386,7 +6397,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .lr.ph.split:                                     ; preds = %.lr.ph
   %47 = icmp ult i64 %.sroa.028.0.ph163, %31
-  br i1 %47, label %.lr.ph.split.split.us, label %.lr.ph.split.split
+  %.fr132 = freeze i1 %47
+  br i1 %.fr132, label %.lr.ph.split.split.us, label %.lr.ph.split.split
 
 .lr.ph.split.split.us:                            ; preds = %.lr.ph.split, %67
   %48 = phi i64 [ %69, %67 ], [ %38, %.lr.ph.split ]
@@ -6546,14 +6558,13 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.lr.ph:                                 ; preds = %113
   %118 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %.sroa.028.0.ph.lcssa73.fr = freeze i64 %.sroa.028.0.ph.lcssa73
   br label %.preheader
 
 .preheader:                                       ; preds = %.preheader.lr.ph, %168
   %.sroa.06.2215 = phi i1 [ %.sroa.06.0.ph.lcssa65, %.preheader.lr.ph ], [ %.sroa.06.3, %168 ]
   %.sroa.019.1214 = phi i64 [ %.sroa.019.0.ph.lcssa69, %.preheader.lr.ph ], [ %.sroa.019.2, %168 ]
   %.sroa.024.0213 = phi i64 [ %117, %.preheader.lr.ph ], [ %129, %168 ]
-  %.sroa.028.1212 = phi i64 [ %.sroa.028.0.ph.lcssa73.fr, %.preheader.lr.ph ], [ %.sroa.028.2, %168 ]
+  %.sroa.028.1212 = phi i64 [ %.sroa.028.0.ph.lcssa73, %.preheader.lr.ph ], [ %.sroa.028.2, %168 ]
   %119 = add i64 %.sroa.028.1212, %20
   %120 = icmp ugt i64 %119, %4
   %121 = getelementptr inbounds nuw i8, ptr %30, i64 %.sroa.028.1212
@@ -6572,7 +6583,8 @@ define internal fastcc noundef zeroext i1 @"_ZN137_$LT$brotli..enc..backward_ref
 
 .preheader.split:                                 ; preds = %.preheader
   %128 = icmp ult i64 %.sroa.028.1212, %31
-  br i1 %128, label %.preheader.split.split.us, label %.preheader.split.split
+  %.fr194 = freeze i1 %128
+  br i1 %.fr194, label %.preheader.split.split.us, label %.preheader.split.split
 
 .preheader.split.split.us:                        ; preds = %.preheader.split, %144
   %.sroa.024.1.us182 = phi i64 [ %129, %144 ], [ %.sroa.024.0213, %.preheader.split ]
@@ -29154,11 +29166,11 @@ _ZN6brotli3enc7command19GetInsertLengthCode17hf18659ac2766ba2cE.exit: ; preds = 
   %194 = getelementptr inbounds nuw float, ptr %.val117, i64 %.sroa.055.0250
   %195 = load float, ptr %194, align 4, !noundef !4
   %196 = fadd float %136, %195
-  %197 = add i64 %.sroa.020.0.ph285, 1
-  %.not.i123277 = icmp ugt i64 %197, %190
-  br i1 %.not.i123277, label %.loopexit, label %.lr.ph281
+  %.not.i123277.not = icmp ult i64 %.sroa.020.0.ph285, %190
+  br i1 %.not.i123277.not, label %.lr.ph281, label %.loopexit
 
 .lr.ph281:                                        ; preds = %193
+  %197 = add nuw i64 %.sroa.020.0.ph285, 1
   %198 = icmp eq i64 %.sroa.055.0250, 0
   %or.cond.i = and i1 %139, %198
   %.sroa.055.0.tr = trunc nuw nsw i64 %.sroa.055.0250 to i32
@@ -29177,7 +29189,7 @@ _ZN6brotli3enc7command19GetInsertLengthCode17hf18659ac2766ba2cE.exit: ; preds = 
   %204 = icmp uge i64 %.sroa.0.0127278, %190
   %not. = xor i1 %204, true
   %205 = zext i1 %not. to i64
-  %spec.select145 = add i64 %.sroa.0.0127278, %205
+  %spec.select145 = add nuw i64 %.sroa.0.0127278, %205
   %206 = icmp ult i64 %.sroa.0.0127278, 10
   br i1 %206, label %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit, label %207
 
@@ -29219,9 +29231,9 @@ _ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread: ; 
 
 _ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit: ; preds = %203, %211
   %.sroa.0.0127278.sink = phi i64 [ %221, %211 ], [ %.sroa.0.0127278, %203 ]
-  %.sink498 = phi i16 [ 4, %211 ], [ -2, %203 ]
+  %.sink497 = phi i16 [ 4, %211 ], [ -2, %203 ]
   %231 = trunc nuw nsw i64 %.sroa.0.0127278.sink to i16
-  %232 = add nsw i16 %.sink498, %231
+  %232 = add nsw i16 %.sink497, %231
   %233 = and i16 %232, 7
   %234 = or disjoint i16 %233, %138
   %235 = icmp ult i16 %232, 16
@@ -29243,9 +29255,9 @@ _ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit: ; preds =
 
 242:                                              ; preds = %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit
   %243 = phi i64 [ %230, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %240, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
-  %.sroa.0.0.i97429431 = phi i16 [ %.sroa.0.0.i97.ph, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %232, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
+  %.sroa.0.0.i97428430 = phi i16 [ %.sroa.0.0.i97.ph, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %232, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
   %244 = phi i16 [ %229, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit.thread ], [ %234, %_ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit ]
-  %245 = lshr i16 %.sroa.0.0.i97429431, 3
+  %245 = lshr i16 %.sroa.0.0.i97428430, 3
   %narrow4.i = add nuw nsw i16 %245, %narrow.i
   %246 = zext nneg i16 %narrow4.i to i32
   %247 = shl nuw nsw i32 %246, 6
@@ -29309,7 +29321,7 @@ _ZN6brotli3enc7command20combine_length_codes17hd8e630f4a22ffe5cE.exit: ; preds =
 283:                                              ; preds = %284, %281
   %.sroa.0.3 = phi i64 [ %.sroa.0.0.sroa.speculated.i125, %284 ], [ %.sroa.0.2279, %281 ]
   %.not.i123 = icmp ugt i64 %spec.select145, %190
-  %or.cond146 = or i1 %204, %.not.i123
+  %or.cond146 = select i1 %204, i1 true, i1 %.not.i123
   br i1 %or.cond146, label %.loopexit, label %203
 
 284:                                              ; preds = %281
@@ -29438,19 +29450,19 @@ _ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread: ; p
 
 _ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99: ; preds = %322, %328
   %.sroa.035.0.sink = phi i64 [ %338, %328 ], [ %.sroa.035.0, %322 ]
-  %.sink499 = phi i16 [ 4, %328 ], [ -2, %322 ]
+  %.sink498 = phi i16 [ 4, %328 ], [ -2, %322 ]
   %346 = trunc nuw nsw i64 %.sroa.035.0.sink to i16
-  %347 = add nsw i16 %.sink499, %346
+  %347 = add nsw i16 %.sink498, %346
   %348 = zext i16 %347 to i64
   %349 = icmp ult i16 %347, 24
   br i1 %349, label %350, label %367
 
 350:                                              ; preds = %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99
   %351 = phi i64 [ %345, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread ], [ %348, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99 ]
-  %.sroa.0.0.i98433 = phi i16 [ %.sroa.0.0.i98.ph, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread ], [ %347, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99 ]
-  %352 = and i16 %.sroa.0.0.i98433, 7
+  %.sroa.0.0.i98432 = phi i16 [ %.sroa.0.0.i98.ph, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99.thread ], [ %347, %_ZN6brotli3enc7command17GetCopyLengthCode17h3aa87dd79f5c7b88E.exit99 ]
+  %352 = and i16 %.sroa.0.0.i98432, 7
   %353 = or disjoint i16 %352, %154
-  %354 = lshr i16 %.sroa.0.0.i98433, 3
+  %354 = lshr i16 %.sroa.0.0.i98432, 3
   %narrow4.i105 = add nuw nsw i16 %354, %narrow.i104
   %355 = zext nneg i16 %narrow4.i105 to i32
   %356 = shl nuw nsw i32 %355, 6

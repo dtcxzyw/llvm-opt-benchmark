@@ -28030,9 +28030,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph:                                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h86465f0a18b43e22E.exit"
   %16 = icmp ugt i64 %.sroa.027.0188, %1
+  %.fr = freeze i1 %16
   %17 = add i64 %.sroa.02.0, -1
   %18 = icmp ult i64 %.sroa.027.0188, %17
-  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split, !prof !978
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split, !prof !978
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %18, label %.invoke354, label %.split153.us.invoke, !prof !978
@@ -28572,9 +28573,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph:                                           ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h86465f0a18b43e22E.exit"
   %16 = icmp ugt i64 %.sroa.027.0188, %1
+  %.fr = freeze i1 %16
   %17 = add i64 %.sroa.02.0, -1
   %18 = icmp ult i64 %.sroa.027.0188, %17
-  br i1 %16, label %.lr.ph.split.us, label %.lr.ph.split, !prof !978
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split, !prof !978
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   br i1 %18, label %.invoke354, label %.split153.us.invoke, !prof !978
@@ -56191,10 +56193,10 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
           to label %.critedge39 unwind label %232, !noalias !7051
 
 134:                                              ; preds = %130
-  %.fr283.i = freeze { i32, i32 } %131
-  %135 = extractvalue { i32, i32 } %.fr283.i, 0
+  %.fr275.i = freeze { i32, i32 } %131
+  %135 = extractvalue { i32, i32 } %.fr275.i, 0
   %136 = trunc i32 %135 to i1
-  %137 = extractvalue { i32, i32 } %.fr283.i, 1
+  %137 = extractvalue { i32, i32 } %.fr275.i, 1
   br i1 %136, label %139, label %138
 
 138:                                              ; preds = %134
@@ -56333,18 +56335,17 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
 
 .noexc77:                                         ; preds = %.noexc76
   %.not225.i = icmp eq i32 %176, 0
-  br i1 %.not225.i, label %.thread267.i, label %177
+  br i1 %.not225.i, label %.thread270.i, label %177
 
 177:                                              ; preds = %.noexc77
   %178 = getelementptr inbounds nuw i8, ptr %7, i64 4
   %179 = load i32, ptr %178, align 4, !noalias !7051
-  %.fr282.i = freeze i32 %179
   %180 = invoke fastcc noundef i32 @"_ZN75_$LT$chrono..naive..date..NaiveDate$u20$as$u20$chrono..traits..Datelike$GT$10with_month17h9c265210d8dec85cE"(i32 %176, i32 noundef %86)
           to label %.noexc78 unwind label %234
 
 .noexc78:                                         ; preds = %177
   %.not227.i = icmp eq i32 %180, 0
-  br i1 %.not227.i, label %.thread267.i, label %181
+  br i1 %.not227.i, label %.thread270.i, label %181
 
 181:                                              ; preds = %.noexc78
   %182 = invoke fastcc noundef i32 @"_ZN75_$LT$chrono..naive..date..NaiveDate$u20$as$u20$chrono..traits..Datelike$GT$8with_day17hb8db3b4bd39c4679E"(i32 %180, i32 noundef %103)
@@ -56352,19 +56353,20 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
 
 .noexc79:                                         ; preds = %181
   %.not229.i = icmp eq i32 %182, 0
-  br i1 %.not229.i, label %.thread267.i, label %183
+  br i1 %.not229.i, label %.thread270.i, label %183
 
 183:                                              ; preds = %.noexc79
   %184 = icmp ugt i32 %120, 23
   %185 = icmp ugt i32 %137, 59
   %or.cond.i = or i1 %184, %185
   %186 = icmp ugt i32 %154, 59
-  %or.cond284.i = select i1 %or.cond.i, i1 true, i1 %186
-  br i1 %or.cond284.i, label %.thread267.i, label %187
+  %or.cond276.i = select i1 %or.cond.i, i1 true, i1 %186
+  br i1 %or.cond276.i, label %.thread270.i, label %187
 
 187:                                              ; preds = %183
   %188 = mul nuw nsw i32 %120, 3600
-  %189 = urem i32 %.fr282.i, 3600
+  %.fr274.i = freeze i32 %179
+  %189 = urem i32 %.fr274.i, 3600
   %190 = add nuw nsw i32 %189, %188
   %191 = urem i32 %190, 3600
   %192 = mul nuw nsw i32 %137, 60
@@ -56380,7 +56382,7 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9
   %.sroa.4214.8.insert.ext.i = zext nneg i32 %173 to i64
   %.sroa.4214.8.insert.shift.i = shl nuw nsw i64 %.sroa.4214.8.insert.ext.i, 32
   %.sroa.4214.8.insert.insert.i = or disjoint i64 %.sroa.4214.8.insert.shift.i, %200
-  br i1 %201, label %.thread267.i, label %202
+  br i1 %201, label %.thread270.i, label %202
 
 202:                                              ; preds = %187
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !7051
@@ -56457,11 +56459,11 @@ default.unreachable:                              ; preds = %202
   store ptr null, ptr %.sroa.7159.sroa.7.0..sroa.7159.0..sroa_idx.sroa_idx.i, align 16, !noalias !7051
   store i64 -9223372036854775803, ptr %5, align 16, !noalias !7051
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !7051
-  %.sroa.0252.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0252.sroa.4.0..sroa_idx.i, i8 0, i64 15, i1 false), !noalias !7051
+  %.sroa.0251.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 8
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %.sroa.0251.sroa.4.0..sroa_idx.i, i8 0, i64 15, i1 false), !noalias !7051
   store i64 7308613718931431780, ptr %4, align 8, !noalias !7051
-  %.sroa.4253.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 23
-  store i8 -56, ptr %.sroa.4253.0..sroa_idx.i, align 1, !noalias !7051
+  %.sroa.4252.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 23
+  store i8 -56, ptr %.sroa.4252.0..sroa_idx.i, align 1, !noalias !7051
   invoke void @"_ZN11polars_plan3dsl46_$LT$impl$u20$polars_plan..dsl..expr..Expr$GT$5alias17hdbd7ac1b852a7d85E"(ptr noalias noundef nonnull sret([192 x i8]) align 16 captures(none) dereferenceable(192) %32, ptr noalias noundef nonnull align 16 captures(none) dereferenceable(192) %5, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(24) %4)
           to label %_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d631484E.exit unwind label %234
 
@@ -56471,7 +56473,7 @@ default.unreachable:                              ; preds = %202
   call void @_ZN4core9panicking16panic_in_cleanup17h6c71d900efd8fbf6E() #42, !noalias !7051
   unreachable
 
-.thread267.i:                                     ; preds = %187, %183, %.noexc79, %.noexc78, %.noexc77
+.thread270.i:                                     ; preds = %187, %183, %.noexc79, %.noexc78, %.noexc77
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !7051
   br label %_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d631484E.exit.thread
 
@@ -56524,7 +56526,7 @@ _ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d63
 238:                                              ; preds = %271, %237
   ret void
 
-_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d631484E.exit.thread: ; preds = %2, %_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9fda38E.exit.i, %.noexc74, %.noexc70, %.noexc66, %.noexc62, %.noexc58, %.noexc54, %.noexc50, %227, %.thread267.i, %_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d631484E.exit
+_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d631484E.exit.thread: ; preds = %2, %_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs11all_literal17h0bcd422a2b9fda38E.exit.i, %.noexc74, %.noexc70, %.noexc66, %.noexc62, %.noexc58, %.noexc54, %.noexc50, %227, %.thread270.i, %_ZN11polars_plan3dsl9functions8temporal12DatetimeArgs10as_literal17hd02819581d631484E.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %32)
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(192) %31, ptr noundef nonnull align 16 dereferenceable(192) %1, i64 192, i1 false)

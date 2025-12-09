@@ -1993,7 +1993,6 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
 171:                                              ; preds = %169, %162
   %storemerge.i.i = phi i64 [ %161, %169 ], [ %168, %162 ]
   %.185.i.i = phi ptr [ %170, %169 ], [ %163, %162 ]
-  %storemerge.i.fr.i = freeze i64 %storemerge.i.i
   %172 = and i32 %111, 4
   %.not106.i.i = icmp eq i32 %172, 0
   %173 = load i8, ptr %.185.i.i, align 1, !tbaa !65
@@ -2025,8 +2024,9 @@ pfr_lookup_bitmap_data.exit.thread.i:             ; preds = %149, %124, %110
 pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %storemerge113.i.i = phi i64 [ %188, %186 ], [ %185, %178 ]
   tail call void @FT_Stream_ExitFrame(ptr noundef %23) #12
-  %189 = icmp eq i64 %storemerge.i.fr.i, 0
-  br i1 %189, label %pfr_slot_load_bitmap.exit.thread, label %190
+  %189 = icmp eq i64 %storemerge.i.i, 0
+  %cond.fr.i = freeze i1 %189
+  br i1 %cond.fr.i, label %pfr_slot_load_bitmap.exit.thread, label %190
 
 190:                                              ; preds = %pfr_lookup_bitmap_data.exit.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -2081,7 +2081,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   br i1 %.not109.i, label %216, label %pfr_slot_load_bitmap.exit.thread103
 
 216:                                              ; preds = %202
-  %217 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %23, i64 noundef %storemerge.i.fr.i) #12
+  %217 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %23, i64 noundef %storemerge.i.i) #12
   %.not110.i = icmp eq i32 %217, 0
   br i1 %.not110.i, label %218, label %pfr_slot_load_bitmap.exit.thread103
 
@@ -2110,7 +2110,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %230 = mul nuw i64 %229, %227
   %231 = add nuw i64 %230, 7
   %232 = lshr i64 %231, 3
-  %.not151.i = icmp samesign ugt i64 %232, %storemerge.i.fr.i
+  %.not151.i = icmp samesign ugt i64 %232, %storemerge.i.i
   br i1 %.not151.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
 
 233:                                              ; preds = %223
@@ -2119,7 +2119,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %236 = load i32, ptr %9, align 4, !tbaa !49
   %237 = zext i32 %236 to i64
   %238 = mul nuw i64 %237, %235
-  %239 = mul nuw nsw i64 %storemerge.i.fr.i, 15
+  %239 = mul nuw nsw i64 %storemerge.i.i, 15
   %.not150.i = icmp ugt i64 %238, %239
   br i1 %.not150.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
 
@@ -2129,7 +2129,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %243 = load i32, ptr %9, align 4, !tbaa !49
   %244 = zext i32 %243 to i64
   %245 = mul nuw i64 %244, %242
-  %246 = add nuw nsw i64 %storemerge.i.fr.i, 1
+  %246 = add nuw nsw i64 %storemerge.i.i, 1
   %247 = lshr i64 %246, 1
   %248 = mul nuw nsw i64 %247, 255
   %.not.i = icmp ugt i64 %245, %248
@@ -4311,7 +4311,8 @@ pfr_bitwriter_init.exit:                          ; preds = %7
   %.sroa.5.1.i = phi i32 [ %.sroa.5.083.i, %.lr.ph.i13 ], [ %.sroa.5.4.i, %59 ]
   %.1.i = phi ptr [ %.03290.i, %.lr.ph.i13 ], [ %.4.i, %59 ]
   %.not60.i = icmp eq i32 %.150.i, 0
-  %61 = select i1 %.not60.i, i32 0, i32 %.03688.i
+  %cond.fr.i = freeze i1 %.not60.i
+  %61 = select i1 %cond.fr.i, i32 0, i32 %.03688.i
   br label %.thread66.i
 
 .thread66.i:                                      ; preds = %53, %.loopexit.i

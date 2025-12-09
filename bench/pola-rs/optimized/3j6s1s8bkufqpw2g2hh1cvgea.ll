@@ -70907,9 +70907,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph129:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit"
   %12 = icmp ugt i64 %.sroa.027.0161, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0161, %13
-  br i1 %12, label %.lr.ph129.split.us, label %.lr.ph129.split, !prof !6
+  br i1 %.fr, label %.lr.ph129.split.us, label %.lr.ph129.split, !prof !6
 
 .lr.ph129.split.us:                               ; preds = %.lr.ph129
   br i1 %14, label %.invoke287, label %.invoke, !prof !6
@@ -71424,9 +71425,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph125:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit"
   %12 = icmp ugt i64 %.sroa.027.0157, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0157, %13
-  br i1 %12, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
+  br i1 %.fr, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125
   br i1 %14, label %.invoke283, label %.invoke, !prof !6
@@ -71936,9 +71938,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph126:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit"
   %12 = icmp ugt i64 %.sroa.027.0158, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0158, %13
-  br i1 %12, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
+  br i1 %.fr, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
 
 .lr.ph126.split.us:                               ; preds = %.lr.ph126
   br i1 %14, label %.invoke284, label %.invoke, !prof !6
@@ -72448,9 +72451,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph125:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit"
   %12 = icmp ugt i64 %.sroa.027.0157, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0157, %13
-  br i1 %12, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
+  br i1 %.fr, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125
   br i1 %14, label %.invoke283, label %.invoke, !prof !6
@@ -72953,9 +72957,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph126:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit"
   %12 = icmp ugt i64 %.sroa.027.0158, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0158, %13
-  br i1 %12, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
+  br i1 %.fr, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
 
 .lr.ph126.split.us:                               ; preds = %.lr.ph126
   br i1 %14, label %.invoke284, label %.invoke, !prof !6
@@ -73458,9 +73463,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph125:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h910329ed93c3e381E.exit"
   %12 = icmp ugt i64 %.sroa.027.0157, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0157, %13
-  br i1 %12, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
+  br i1 %.fr, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125
   br i1 %14, label %.invoke283, label %.invoke, !prof !6
@@ -73963,9 +73969,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph130:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit"
   %12 = icmp ugt i64 %.sroa.027.0162, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0162, %13
-  br i1 %12, label %.lr.ph130.split.us, label %.lr.ph130.split, !prof !6
+  br i1 %.fr, label %.lr.ph130.split.us, label %.lr.ph130.split, !prof !6
 
 .lr.ph130.split.us:                               ; preds = %.lr.ph130
   br i1 %14, label %.invoke288, label %.invoke, !prof !6
@@ -74489,9 +74496,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph128:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17hc744b12b6156c464E.exit"
   %12 = icmp ugt i64 %.sroa.027.0160, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0160, %13
-  br i1 %12, label %.lr.ph128.split.us, label %.lr.ph128.split, !prof !6
+  br i1 %.fr, label %.lr.ph128.split.us, label %.lr.ph128.split, !prof !6
 
 .lr.ph128.split.us:                               ; preds = %.lr.ph128
   br i1 %14, label %.invoke286, label %.invoke, !prof !6
@@ -75011,9 +75019,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph129:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h0347d1ef10c3afb4E.exit"
   %12 = icmp ugt i64 %.sroa.027.0161, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0161, %13
-  br i1 %12, label %.lr.ph129.split.us, label %.lr.ph129.split, !prof !6
+  br i1 %.fr, label %.lr.ph129.split.us, label %.lr.ph129.split, !prof !6
 
 .lr.ph129.split.us:                               ; preds = %.lr.ph129
   br i1 %14, label %.invoke287, label %.invoke, !prof !6
@@ -75532,9 +75541,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph125:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h34c35e023e829630E.exit"
   %12 = icmp ugt i64 %.sroa.027.0157, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0157, %13
-  br i1 %12, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
+  br i1 %.fr, label %.lr.ph125.split.us, label %.lr.ph125.split, !prof !6
 
 .lr.ph125.split.us:                               ; preds = %.lr.ph125
   br i1 %14, label %.invoke283, label %.invoke, !prof !6
@@ -76044,9 +76054,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph126:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h6a3d11d360a51dffE.exit"
   %12 = icmp ugt i64 %.sroa.027.0158, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0158, %13
-  br i1 %12, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
+  br i1 %.fr, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
 
 .lr.ph126.split.us:                               ; preds = %.lr.ph126
   br i1 %14, label %.invoke284, label %.invoke, !prof !6
@@ -76556,9 +76567,10 @@ define internal fastcc noundef range(i8 0, 3) i8 @_ZN5rayon5slice9mergesort9merg
 
 .lr.ph126:                                        ; preds = %"_ZN4core5slice29_$LT$impl$u20$$u5b$T$u5d$$GT$7reverse17h59436248e32a8d6dE.exit"
   %12 = icmp ugt i64 %.sroa.027.0158, %1
+  %.fr = freeze i1 %12
   %13 = add i64 %.sroa.02.0, -1
   %14 = icmp ult i64 %.sroa.027.0158, %13
-  br i1 %12, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
+  br i1 %.fr, label %.lr.ph126.split.us, label %.lr.ph126.split, !prof !6
 
 .lr.ph126.split.us:                               ; preds = %.lr.ph126
   br i1 %14, label %.invoke284, label %.invoke, !prof !6

@@ -4232,9 +4232,10 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12hb_bit_set_t8is_equalERKS_(
 9:                                                ; preds = %5, %2
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %11 = load i32, ptr %10, align 4
+  %.fr148 = freeze i32 %11
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 36
   %13 = load i32, ptr %12, align 4
-  %14 = icmp ne i32 %11, 0
+  %14 = icmp ne i32 %.fr148, 0
   %15 = icmp ne i32 %13, 0
   %16 = select i1 %14, i1 %15, i1 false
   br i1 %16, label %.lr.ph.lr.ph, label %.preheader90
@@ -4253,7 +4254,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12hb_bit_set_t8is_equalERKS_(
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 20
   %28 = load i32, ptr %27, align 4
   %29 = zext i32 %26 to i64
-  %30 = zext i32 %11 to i64
+  %30 = zext i32 %.fr148 to i64
   br label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %.outer.backedge, %.lr.ph.lr.ph
@@ -4273,14 +4274,14 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12hb_bit_set_t8is_equalERKS_(
   %38 = trunc nuw i64 %indvars.iv to i32
   br label %.preheader90
 
-.preheader90.loopexit157:                         ; preds = %.outer.backedge
+.preheader90.loopexit158:                         ; preds = %.outer.backedge
   %39 = trunc nuw i64 %indvars.iv.next to i32
   br label %.preheader90
 
-.preheader90:                                     ; preds = %.preheader90.loopexit157, %.preheader90.loopexit, %9
-  %.030.ph.lcssa112 = phi i32 [ 0, %9 ], [ %38, %.preheader90.loopexit ], [ %39, %.preheader90.loopexit157 ]
-  %.0.lcssa = phi i32 [ 0, %9 ], [ %umax.le, %.preheader90.loopexit ], [ %.0.ph.be, %.preheader90.loopexit157 ]
-  %40 = icmp ult i32 %.030.ph.lcssa112, %11
+.preheader90:                                     ; preds = %.preheader90.loopexit158, %.preheader90.loopexit, %9
+  %.030.ph.lcssa112 = phi i32 [ 0, %9 ], [ %38, %.preheader90.loopexit ], [ %39, %.preheader90.loopexit158 ]
+  %.0.lcssa = phi i32 [ 0, %9 ], [ %umax.le, %.preheader90.loopexit ], [ %.0.ph.be, %.preheader90.loopexit158 ]
+  %40 = icmp ult i32 %.030.ph.lcssa112, %.fr148
   br i1 %40, label %.lr.ph142, label %.preheader
 
 .lr.ph142:                                        ; preds = %.preheader90
@@ -4289,7 +4290,7 @@ define linkonce_odr hidden noundef zeroext i1 @_ZNK12hb_bit_set_t8is_equalERKS_(
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %44 = load ptr, ptr %43, align 8
   %45 = zext i32 %.030.ph.lcssa112 to i64
-  %wide.trip.count = zext i32 %11 to i64
+  %wide.trip.count = zext i32 %.fr148 to i64
   br label %79
 
 .lr.ph.split:                                     ; preds = %.lr.ph.split.preheader, %_ZNK13hb_bit_page_t8is_emptyEv.exit45.thread
@@ -4318,7 +4319,7 @@ _ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i: ; preds = %.lr.ph.i.i.i
   %47 = icmp samesign ult i64 %indvars.iv.next, %30
   %48 = icmp ult i32 %.0.ph.be, %13
   %49 = select i1 %47, i1 %48, i1 false
-  br i1 %49, label %.lr.ph.split.preheader, label %.preheader90.loopexit157, !llvm.loop !38
+  br i1 %49, label %.lr.ph.split.preheader, label %.preheader90.loopexit158, !llvm.loop !38
 
 _ZNK13hb_bit_page_t8is_emptyEv.exit.thread76:     ; preds = %.lr.ph.i.i.i, %.lr.ph.split
   %50 = zext i32 %.0113 to i64
@@ -4396,12 +4397,12 @@ _ZNK13hb_bit_page_t8is_equalERKS_.exit:           ; preds = %66
   %76 = getelementptr inbounds nuw i8, ptr %1, i64 24
   %77 = load ptr, ptr %76, align 8
   %78 = zext i32 %.0.lcssa to i64
-  %wide.trip.count184 = zext i32 %13 to i64
+  %wide.trip.count185 = zext i32 %13 to i64
   br label %87
 
 79:                                               ; preds = %.lr.ph142, %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread
-  %indvars.iv178 = phi i64 [ %45, %.lr.ph142 ], [ %indvars.iv.next179, %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread ]
-  %80 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %44, i64 %indvars.iv178
+  %indvars.iv179 = phi i64 [ %45, %.lr.ph142 ], [ %indvars.iv.next180, %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread ]
+  %80 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %44, i64 %indvars.iv179
   %81 = getelementptr inbounds nuw i8, ptr %80, i64 4
   %82 = load i32, ptr %81, align 4
   %83 = zext i32 %82 to i64
@@ -4426,13 +4427,13 @@ _ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i60: ; preds = %.lr.ph.i.i.i54
   br i1 %.not.i.i.i61, label %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread, label %.lr.ph.i.i.i54, !llvm.loop !10
 
 _ZNK13hb_bit_page_t8is_emptyEv.exit62.thread:     ; preds = %_ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i60, %79
-  %indvars.iv.next179 = add nuw nsw i64 %indvars.iv178, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next179, %wide.trip.count
+  %indvars.iv.next180 = add nuw nsw i64 %indvars.iv179, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next180, %wide.trip.count
   br i1 %exitcond.not, label %.preheader, label %79, !llvm.loop !40
 
 87:                                               ; preds = %.lr.ph144, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread
-  %indvars.iv181 = phi i64 [ %78, %.lr.ph144 ], [ %indvars.iv.next182, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread ]
-  %88 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %77, i64 %indvars.iv181
+  %indvars.iv182 = phi i64 [ %78, %.lr.ph144 ], [ %indvars.iv.next183, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread ]
+  %88 = getelementptr inbounds nuw %"struct.hb_bit_set_t::page_map_t", ptr %77, i64 %indvars.iv182
   %89 = getelementptr inbounds nuw i8, ptr %88, i64 4
   %90 = load i32, ptr %89, align 4
   %91 = zext i32 %90 to i64
@@ -4457,9 +4458,9 @@ _ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i72: ; preds = %.lr.ph.i.i.i66
   br i1 %.not.i.i.i73, label %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread, label %.lr.ph.i.i.i66, !llvm.loop !10
 
 _ZNK13hb_bit_page_t8is_emptyEv.exit74.thread:     ; preds = %_ZNR9hb_iter_tI10hb_array_tIKyERS1_EppEv.exit.i.i.i72, %87
-  %indvars.iv.next182 = add nuw nsw i64 %indvars.iv181, 1
-  %exitcond185.not = icmp eq i64 %indvars.iv.next182, %wide.trip.count184
-  br i1 %exitcond185.not, label %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread82, label %87, !llvm.loop !41
+  %indvars.iv.next183 = add nuw nsw i64 %indvars.iv182, 1
+  %exitcond186.not = icmp eq i64 %indvars.iv.next183, %wide.trip.count185
+  br i1 %exitcond186.not, label %_ZNK13hb_bit_page_t8is_emptyEv.exit62.thread82, label %87, !llvm.loop !41
 
 _ZNK13hb_bit_page_t8is_emptyEv.exit62.thread82:   ; preds = %_ZNK13hb_bit_page_t8is_emptyEv.exit45.thread79, %_ZNK13hb_bit_page_t8is_equalERKS_.exit, %79, %.lr.ph.i.i.i54, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread, %87, %.lr.ph.i.i.i66, %.preheader, %5
   %.032 = phi i1 [ false, %5 ], [ true, %.preheader ], [ false, %.lr.ph.i.i.i66 ], [ true, %_ZNK13hb_bit_page_t8is_emptyEv.exit74.thread ], [ false, %87 ], [ false, %.lr.ph.i.i.i54 ], [ false, %79 ], [ false, %_ZNK13hb_bit_page_t8is_equalERKS_.exit ], [ false, %_ZNK13hb_bit_page_t8is_emptyEv.exit45.thread79 ]

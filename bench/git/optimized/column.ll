@@ -512,7 +512,6 @@ shrink_columns.exit.i:                            ; preds = %.lr.ph35.i39.i.i, %
   %.sroa.26.0.i = phi i32 [ %79, %layout.exit.i ], [ %174, %.thread.i.i ], [ %174, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %174, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %174, %.lr.ph35.i39.i.i ]
   %.sroa.38.0.i = phi i32 [ %spec.select.i.i, %layout.exit.i ], [ %.sroa.38.1.i, %.thread.i.i ], [ %.sroa.38.1.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %.sroa.38.1.i, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %.sroa.38.1.i, %.lr.ph35.i39.i.i ]
   %.sroa.60.0.i = phi ptr [ null, %layout.exit.i ], [ %.sroa.60.2.i, %.thread.i.i ], [ %.sroa.60.2.i, %._crit_edge.i41.i.loopexit.split.us.us.us.i ], [ %.sroa.60.2.i, %._crit_edge.i41.i.loopexit.split.us104.i ], [ %.sroa.60.2.i, %.lr.ph35.i39.i.i ]
-  %.sroa.60.0.fr.i = freeze ptr %.sroa.60.0.i
   %225 = tail call ptr @xmallocz(i64 noundef %73) #10
   tail call void @llvm.memset.p0.i64(ptr align 1 %225, i8 32, i64 %73, i1 false)
   %226 = icmp sgt i32 %.sroa.26.0.i, 0
@@ -520,7 +519,8 @@ shrink_columns.exit.i:                            ; preds = %.lr.ph35.i39.i.i, %
 
 .preheader.lr.ph.i:                               ; preds = %shrink_columns.exit.i
   %227 = icmp sgt i32 %.sroa.38.0.i, 0
-  %.not45.i.i = icmp eq ptr %.sroa.60.0.fr.i, null
+  %.not45.i.i = icmp eq ptr %.sroa.60.0.i, null
+  %.not45.i.fr.i = freeze i1 %.not45.i.i
   %228 = add nsw i32 %.sroa.38.0.i, -1
   br i1 %227, label %.preheader.lr.ph.split.us.i, label %display_table.exit
 
@@ -531,7 +531,7 @@ shrink_columns.exit.i:                            ; preds = %.lr.ph35.i39.i.i, %
 
 .preheader.lr.ph.split.us.split.us.i:             ; preds = %.preheader.lr.ph.split.us.i
   %230 = zext nneg i32 %.sroa.26.0.i to i64
-  br i1 %.not45.i.i, label %.preheader.us.us.us.i, label %.preheader.us.us.i
+  br i1 %.not45.i.fr.i, label %.preheader.us.us.us.i, label %.preheader.us.us.i
 
 .preheader.us.us.us.i:                            ; preds = %.preheader.lr.ph.split.us.split.us.i, %display_cell.exit.us.us.us.i
   %indvars.iv199.i = phi i64 [ %indvars.iv.next200.i, %display_cell.exit.us.us.us.i ], [ 0, %.preheader.lr.ph.split.us.split.us.i ]
@@ -588,7 +588,7 @@ display_cell.exit.us.us.i:                        ; preds = %251, %247
 251:                                              ; preds = %247
   %252 = getelementptr inbounds nuw i32, ptr %54, i64 %249
   %253 = load i32, ptr %252, align 4, !tbaa !23
-  %254 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.fr.i, i64 %indvars.iv184.i
+  %254 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.i, i64 %indvars.iv184.i
   %255 = load i32, ptr %254, align 4, !tbaa !23
   %256 = sext i32 %255 to i64
   %257 = getelementptr inbounds i32, ptr %54, i64 %256
@@ -615,7 +615,7 @@ display_cell.exit.us.us.i:                        ; preds = %251, %247
 .preheader.lr.ph.split.us.split.i:                ; preds = %.preheader.lr.ph.split.us.i
   %270 = zext nneg i32 %228 to i64
   %wide.trip.count182.i = zext nneg i32 %.sroa.26.0.i to i64
-  br i1 %.not45.i.i, label %.preheader.us.us129.i, label %.preheader.us.i
+  br i1 %.not45.i.fr.i, label %.preheader.us.us129.i, label %.preheader.us.i
 
 .preheader.us.us129.i:                            ; preds = %.preheader.lr.ph.split.us.split.i, %display_cell.exit.us.us131.i
   %indvars.iv179.i = phi i64 [ %indvars.iv.next180.i, %display_cell.exit.us.us131.i ], [ 0, %.preheader.lr.ph.split.us.split.i ]
@@ -674,7 +674,7 @@ display_cell.exit.us.i:                           ; preds = %293, %290
 293:                                              ; preds = %290
   %294 = getelementptr inbounds nuw i32, ptr %54, i64 %291
   %295 = load i32, ptr %294, align 4, !tbaa !23
-  %296 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.fr.i, i64 %indvars.iv165.i
+  %296 = getelementptr inbounds nuw i32, ptr %.sroa.60.0.i, i64 %indvars.iv165.i
   %297 = load i32, ptr %296, align 4, !tbaa !23
   %298 = sext i32 %297 to i64
   %299 = getelementptr inbounds i32, ptr %54, i64 %298
@@ -702,7 +702,7 @@ display_cell.exit.us.i:                           ; preds = %293, %290
 
 display_table.exit:                               ; preds = %display_cell.exit.us.i, %display_cell.exit.us.us131.i, %display_cell.exit.us.us.i, %display_cell.exit.us.us.us.i, %shrink_columns.exit.i, %.preheader.lr.ph.i
   tail call void @free(ptr noundef %54) #10
-  tail call void @free(ptr noundef %.sroa.60.0.fr.i) #10
+  tail call void @free(ptr noundef %.sroa.60.0.i) #10
   tail call void @free(ptr noundef %225) #10
   br label %display_plain.exit
 
@@ -887,11 +887,12 @@ define dso_local range(i32 -1, 1) i32 @parseopt_column_callback(ptr noundef read
 ; Function Attrs: nounwind uwtable
 define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(none) %0, ptr noundef nonnull %1) unnamed_addr #0 {
   %3 = load i8, ptr %1, align 1, !tbaa !31
-  %.not47 = icmp eq i8 %3, 0
+  %.fr51 = freeze i8 %3
+  %.not47 = icmp eq i8 %.fr51, 0
   br i1 %.not47, label %.critedge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %2, %65
-  %4 = phi i8 [ %68, %65 ], [ %3, %2 ]
+  %4 = phi i8 [ %.fr, %65 ], [ %.fr51, %2 ]
   %.01649 = phi ptr [ %67, %65 ], [ %1, %2 ]
   %.048 = phi i32 [ %.1, %65 ], [ 0, %2 ]
   %5 = tail call i64 @strcspn(ptr noundef nonnull %.01649, ptr noundef nonnull @.str.15) #11
@@ -907,8 +908,7 @@ define internal fastcc range(i32 -1, 1) i32 @parse_config(ptr noundef captures(n
   br i1 %8, label %.split.i.preheader, label %.split.us.i
 
 .split.i.preheader:                               ; preds = %7
-  %.fr = freeze i8 %4
-  %.not55.i = icmp eq i8 %.fr, 110
+  %.not55.i = icmp eq i8 %4, 110
   br i1 %.not55.i, label %.split.i, label %.split.i.us
 
 .split.i.us:                                      ; preds = %.split.i.preheader, %.critedge.i.us
@@ -1063,7 +1063,8 @@ parse_option.exit:                                ; preds = %.critedge.us.i, %.c
   %66 = tail call i64 @strspn(ptr noundef %.117, ptr noundef nonnull @.str.15) #11
   %67 = getelementptr inbounds nuw i8, ptr %.117, i64 %66
   %68 = load i8, ptr %67, align 1, !tbaa !31
-  %.not = icmp eq i8 %68, 0
+  %.fr = freeze i8 %68
+  %.not = icmp eq i8 %.fr, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph, !llvm.loop !40
 
 ._crit_edge:                                      ; preds = %65

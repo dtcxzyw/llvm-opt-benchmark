@@ -1898,18 +1898,20 @@ find_attribute.exit.thread:                       ; preds = %svg_units_convert.e
   %272 = trunc i8 %.sroa.044.3 to i1
   %273 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i32 0, ptr %273, align 8, !tbaa !27
+  %cond.fr = freeze i1 %272
   %274 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  br i1 %272, label %275, label %278
+  %cond.fr411419 = freeze i1 %271
+  br i1 %cond.fr, label %275, label %278
 
 275:                                              ; preds = %.critedge
   %276 = fptosi double %.sroa.13.3 to i32
   %277 = sitofp i32 %276 to double
   store double %277, ptr %274, align 8, !tbaa !28
-  br i1 %271, label %279, label %281
+  br i1 %cond.fr411419, label %279, label %281
 
 278:                                              ; preds = %.critedge
   store double 0.000000e+00, ptr %274, align 8, !tbaa !28
-  br i1 %271, label %279, label %281
+  br i1 %cond.fr411419, label %279, label %281
 
 279:                                              ; preds = %275, %.thread412, %278
   %.in.in = phi double [ %.sroa.1356.6, %.thread412 ], [ %.sroa.1356.3, %278 ], [ %.sroa.1356.3, %275 ]

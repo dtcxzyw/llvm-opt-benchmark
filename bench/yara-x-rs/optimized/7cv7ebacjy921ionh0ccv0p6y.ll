@@ -7615,7 +7615,8 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %23 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %24 = getelementptr inbounds nuw i8, ptr %5, i64 56
   %25 = load i64, ptr %24, align 8, !alias.scope !449, !noalias !458
-  %26 = icmp eq i64 %25, -1
+  %.fr.i = freeze i64 %25
+  %26 = icmp eq i64 %.fr.i, -1
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 88
   %28 = load ptr, ptr %27, align 8, !alias.scope !449, !noalias !458, !nonnull !4, !align !459
   %29 = getelementptr inbounds nuw i8, ptr %5, i64 96
@@ -7626,6 +7627,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   %34 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %.promoted.i = load i64, ptr %23, align 8, !alias.scope !449, !noalias !458
   %.promoted90.i = load i64, ptr %33, align 8, !alias.scope !449, !noalias !458
+  %.promoted90.fr.i = freeze i64 %.promoted90.i
   br i1 %7, label %.split.us.i, label %.split.i
 
 .split.us.i:                                      ; preds = %4
@@ -7637,9 +7639,9 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br label %37
 
 37:                                               ; preds = %67, %.lr.ph148.i
-  %.sink109.i.i.us.i76.lcssa7990 = phi i64 [ %.promoted90.i, %.lr.ph148.i ], [ %spec.select, %67 ]
+  %.sink109.i.i.us.i76.lcssa7990 = phi i64 [ %.promoted90.fr.i, %.lr.ph148.i ], [ %spec.select, %67 ]
   %.lcssa7083 = phi i64 [ %.promoted.i, %.lr.ph148.i ], [ %44, %67 ]
-  %.sink109.i.i94.us147.i = phi i64 [ %.promoted90.i, %.lr.ph148.i ], [ %spec.select98, %67 ]
+  %.sink109.i.i94.us147.i = phi i64 [ %.promoted90.fr.i, %.lr.ph148.i ], [ %spec.select98, %67 ]
   tail call void @llvm.experimental.noalias.scope.decl(metadata !460)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !461)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !464)
@@ -7648,6 +7650,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %39, label %.lr.ph.i.i.us.i, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit
 
 .lr.ph.i.i.us.i:                                  ; preds = %37
+  %.promoted54.i.fr.i.us.i = freeze i64 %.sink109.i.i94.us147.i
   %40 = sub i64 %.lcssa7083, %36
   %.neg.i.i.us.i = sub i64 %.lcssa7083, %.fr.i.i
   br label %41
@@ -7655,10 +7658,9 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 41:                                               ; preds = %82, %.lr.ph.i.i.us.i
   %.sink109.i.i.us.i76 = phi i64 [ %.sink109.i.i.us.i76.lcssa7990, %.lr.ph.i.i.us.i ], [ %.sink109.i.i.us.i75, %82 ]
   %42 = phi i64 [ %.lcssa7083, %.lr.ph.i.i.us.i ], [ %84, %82 ]
-  %.sink109.i.i93.us.i = phi i64 [ %.sink109.i.i94.us147.i, %.lr.ph.i.i.us.i ], [ %.sink109.i.i92.us.i, %82 ]
-  %43 = phi i64 [ %.sink109.i.i94.us147.i, %.lr.ph.i.i.us.i ], [ %83, %82 ]
+  %.sink109.i.i93.us.i = phi i64 [ %.promoted54.i.fr.i.us.i, %.lr.ph.i.i.us.i ], [ %.sink109.i.i92.us.i, %82 ]
+  %43 = phi i64 [ %.promoted54.i.fr.i.us.i, %.lr.ph.i.i.us.i ], [ %83, %82 ]
   %44 = phi i64 [ %38, %.lr.ph.i.i.us.i ], [ %85, %82 ]
-  %.fr57.i.us.i = freeze i64 %43
   %.not.i14.i.us.i = icmp eq i64 %.lcssa7083, %42
   br i1 %.not.i14.i.us.i, label %45, label %_ZN4core3str7pattern15ReverseSearcher16next_reject_back17h5d826ac6cc8a36ddE.exit
 
@@ -7673,11 +7675,12 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %52, label %81, label %53
 
 53:                                               ; preds = %45
-  %.sroa.0.0.sroa.speculated.i.i.i.us.i = tail call i64 @llvm.umin.i64(i64 %.fr57.i.us.i, i64 %.fr.i.i)
+  %.sroa.0.0.sroa.speculated.i.i.i.us.i = tail call i64 @llvm.umin.i64(i64 %43, i64 %.fr.i.i)
   %.sroa.03.0.i.i.us.i = select i1 %26, i64 %.fr.i.i, i64 %.sroa.0.0.sroa.speculated.i.i.i.us.i
   %54 = add i64 %.sroa.03.0.i.i.us.i, -1
   %.first_iter.i.i.us.i = icmp ult i64 %54, %30
-  br i1 %.first_iter.i.i.us.i, label %.split44.us.i.us.i, label %.split44.i.us.i
+  %.first_iter.i.fr.i.us.i = freeze i1 %.first_iter.i.i.us.i
+  br i1 %.first_iter.i.fr.i.us.i, label %.split44.us.i.us.i, label %.split44.i.us.i
 
 .split44.i.us.i:                                  ; preds = %53
   %.not24.i.i.us.i = icmp eq i64 %.sroa.03.0.i.i.us.i, 0
@@ -7707,7 +7710,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
   br i1 %26, label %82, label %.sink.split.i.i.us.i
 
 .split46.us.i.us.i:                               ; preds = %.split44.us.i.us.i, %.split44.i.us.i
-  %.sroa.09.0.i.i.us.i = select i1 %26, i64 %30, i64 %.fr57.i.us.i
+  %.sroa.09.0.i.i.us.i = select i1 %26, i64 %30, i64 %43
   br label %65
 
 65:                                               ; preds = %75, %.split46.us.i.us.i
@@ -7753,7 +7756,7 @@ define hidden { ptr, i64 } @"_ZN4core3str21_$LT$impl$u20$str$GT$16trim_end_match
 82:                                               ; preds = %.sink.split.i.i.us.i, %81, %80, %.split50.us.i.us.i
   %.sink109.i.i.us.i75 = phi i64 [ %.sink109.i.i.us.i76, %.split50.us.i.us.i ], [ %.sink109.i.i.us.i76, %80 ], [ %.sink109.i.i.us.i76, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
   %.sink109.i.i92.us.i = phi i64 [ %.sink109.i.i93.us.i, %.split50.us.i.us.i ], [ %.sink109.i.i93.us.i, %80 ], [ %.sink109.i.i93.us.i, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
-  %83 = phi i64 [ %.fr57.i.us.i, %.split50.us.i.us.i ], [ %.fr57.i.us.i, %80 ], [ %.fr57.i.us.i, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
+  %83 = phi i64 [ %43, %.split50.us.i.us.i ], [ %43, %80 ], [ %43, %81 ], [ %.sink109.i.i.us.i, %.sink.split.i.i.us.i ]
   %84 = phi i64 [ %64, %.split50.us.i.us.i ], [ %40, %80 ], [ %44, %81 ], [ %.ph108.i.i.us.i, %.sink.split.i.i.us.i ]
   %85 = sub i64 %84, %30
   %86 = icmp ult i64 %85, %13

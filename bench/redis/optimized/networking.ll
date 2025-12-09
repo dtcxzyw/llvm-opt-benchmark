@@ -5178,10 +5178,11 @@ _prepareClientToWrite.exit:                       ; preds = %16, %9, %7
 48:                                               ; preds = %2, %31, %clientHasPendingReplies.exit.i, %35, %38, %41, %44, %24, %21
   %49 = getelementptr inbounds i8, ptr %1, i64 -1
   %50 = load i8, ptr %49, align 1, !tbaa !12
-  %51 = zext i8 %50 to i32
+  %.fr = freeze i8 %50
+  %51 = zext i8 %.fr to i32
   %52 = and i32 %51, 7
   switch i32 %52, label %.thread [
-    i32 0, label %53
+    i32 0, label %sdslen.exit.thread
     i32 1, label %56
     i32 2, label %60
     i32 3, label %64
@@ -5192,10 +5193,13 @@ _prepareClientToWrite.exit:                       ; preds = %16, %9, %7
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   br label %73
 
-53:                                               ; preds = %48
-  %54 = lshr i32 %51, 3
-  %55 = zext nneg i32 %54 to i64
-  br label %sdslen.exit
+sdslen.exit.thread:                               ; preds = %48
+  %53 = lshr i32 %51, 3
+  %54 = zext nneg i32 %53 to i64
+  call void @llvm.lifetime.start.p0(ptr nonnull %3)
+  %55 = icmp ult i8 %.fr, 80
+  %.24 = select i1 %55, i64 4, i64 5
+  br label %73
 
 56:                                               ; preds = %48
   %57 = getelementptr inbounds i8, ptr %1, i64 -3
@@ -5220,18 +5224,18 @@ _prepareClientToWrite.exit:                       ; preds = %16, %9, %7
   %70 = load i64, ptr %69, align 1, !tbaa !16
   br label %sdslen.exit
 
-sdslen.exit:                                      ; preds = %53, %56, %60, %64, %68
-  %.0.i9 = phi i64 [ %55, %53 ], [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
-  %.0.i9.fr = freeze i64 %.0.i9
+sdslen.exit:                                      ; preds = %56, %60, %64, %68
+  %.0.i9 = phi i64 [ %59, %56 ], [ %63, %60 ], [ %67, %64 ], [ %70, %68 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %71 = icmp ult i64 %.0.i9.fr, 32
-  %72 = icmp samesign ult i64 %.0.i9.fr, 10
-  %. = select i1 %72, i64 4, i64 5
+  %71 = icmp ult i64 %.0.i9, 32
+  %72 = icmp slt i64 %.0.i9, 10
+  %cond.fr = freeze i1 %72
+  %. = select i1 %cond.fr, i64 4, i64 5
   br i1 %71, label %73, label %79
 
-73:                                               ; preds = %sdslen.exit, %.thread
-  %74 = phi i64 [ 4, %.thread ], [ %., %sdslen.exit ]
-  %.0.i91720 = phi i64 [ 0, %.thread ], [ %.0.i9.fr, %sdslen.exit ]
+73:                                               ; preds = %sdslen.exit.thread, %sdslen.exit, %.thread
+  %74 = phi i64 [ 4, %.thread ], [ %., %sdslen.exit ], [ %.24, %sdslen.exit.thread ]
+  %.0.i91720 = phi i64 [ 0, %.thread ], [ %.0.i9, %sdslen.exit ], [ %54, %sdslen.exit.thread ]
   %75 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @shared, i64 81136), i64 %.0.i91720
   %76 = load ptr, ptr %75, align 8, !tbaa !148
   %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
@@ -5242,7 +5246,7 @@ sdslen.exit:                                      ; preds = %53, %56, %60, %64, 
 79:                                               ; preds = %sdslen.exit
   store i8 36, ptr %3, align 16, !tbaa !12
   %80 = getelementptr inbounds nuw i8, ptr %3, i64 1
-  %81 = call i32 @ll2string(ptr noundef nonnull %80, i64 noundef 127, i64 noundef %.0.i9.fr) #26
+  %81 = call i32 @ll2string(ptr noundef nonnull %80, i64 noundef 127, i64 noundef %.0.i9) #26
   %82 = sext i32 %81 to i64
   %83 = getelementptr i8, ptr %3, i64 %82
   %84 = getelementptr i8, ptr %83, i64 1

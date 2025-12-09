@@ -3373,10 +3373,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr = freeze ptr %6
-  %8 = ptrtoint ptr %.fr to i64
-  %.fr46 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr46 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3401,7 +3399,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .noexc28:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
-  %22 = getelementptr i8, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %19, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
 
@@ -3420,7 +3418,8 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   %25 = ptrtoint ptr %.sroa.17.0 to i64
   %26 = ptrtoint ptr %.sroa.031.0 to i64
   %27 = sub i64 %25, %26
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %.01844.us = phi ptr [ %.119.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %2, %.lr.ph ]
@@ -3583,10 +3582,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr46 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr46 to i64
-  %.fr47 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr47 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3611,7 +3608,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .noexc28:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
-  %22 = getelementptr i8, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %19, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
 
@@ -3630,20 +3627,21 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc28, %_ZNSt6ve
   %25 = ptrtoint ptr %.sroa.17.0 to i64
   %26 = ptrtoint ptr %.sroa.031.0 to i64
   %27 = sub i64 %25, %26
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr49 = freeze ptr %29
-  %.fr48 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr48 to i64
-  %31 = ptrtoint ptr %.fr49 to i64
+  %.fr47 = freeze ptr %29
+  %.fr46 = freeze ptr %28
+  %30 = ptrtoint ptr %.fr46 to i64
+  %31 = ptrtoint ptr %.fr47 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.031.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr49, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -3697,7 +3695,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr49, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %.fr47, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -3820,10 +3818,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr47 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr47 to i64
-  %.fr48 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr48 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -3848,7 +3844,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .noexc29:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
-  %22 = getelementptr i8, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %19, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
 
@@ -3867,20 +3863,21 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc29, %_ZNSt6ve
   %25 = ptrtoint ptr %.sroa.17.0 to i64
   %26 = ptrtoint ptr %.sroa.032.0 to i64
   %27 = sub i64 %25, %26
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr50 = freeze ptr %29
-  %.fr49 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr49 to i64
-  %31 = ptrtoint ptr %.fr50 to i64
+  %.fr48 = freeze ptr %29
+  %.fr47 = freeze ptr %28
+  %30 = ptrtoint ptr %.fr47 to i64
+  %31 = ptrtoint ptr %.fr48 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -3934,7 +3931,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -4057,10 +4054,8 @@ define internal fastcc void @_ZN5arrow8internal12_GLOBAL__N_121ConvertRowMajorTe
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %6 = load ptr, ptr %5, align 8, !tbaa !55
   %7 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr47 = freeze ptr %6
-  %8 = ptrtoint ptr %.fr47 to i64
-  %.fr48 = freeze ptr %7
-  %9 = ptrtoint ptr %.fr48 to i64
+  %8 = ptrtoint ptr %6 to i64
+  %9 = ptrtoint ptr %7 to i64
   %10 = sub i64 %8, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %12 = load ptr, ptr %11, align 8, !tbaa !87
@@ -4085,7 +4080,7 @@ _ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
 
 .noexc29:                                         ; preds = %_ZNSt6vectorIhSaIhEE17_S_check_init_lenEmRKS0_.exit.i
   %21 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %19) #25
-  %22 = getelementptr i8, ptr %21, i64 %19
+  %22 = getelementptr inbounds nuw i8, ptr %21, i64 %19
   tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %21, i8 0, i64 %19, i1 false)
   br label %_ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit
 
@@ -4104,20 +4099,21 @@ _ZNSt6vectorIhSaIhEEC2EmRKhRKS0_.exit:            ; preds = %.noexc29, %_ZNSt6ve
   %25 = ptrtoint ptr %.sroa.17.0 to i64
   %26 = ptrtoint ptr %.sroa.032.0 to i64
   %27 = sub i64 %25, %26
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %28 = load ptr, ptr %5, align 8, !tbaa !55
   %29 = load ptr, ptr %4, align 8, !tbaa !58
-  %.fr50 = freeze ptr %29
-  %.fr49 = freeze ptr %28
-  %30 = ptrtoint ptr %.fr49 to i64
-  %31 = ptrtoint ptr %.fr50 to i64
+  %.fr48 = freeze ptr %29
+  %.fr47 = freeze ptr %28
+  %30 = ptrtoint ptr %.fr47 to i64
+  %31 = ptrtoint ptr %.fr48 to i64
   %32 = sub i64 %30, %31
   %33 = ashr i64 %32, 3
   %34 = add nsw i64 %33, -1
   %35 = getelementptr inbounds nuw i8, ptr %.sroa.032.0, i64 %34
-  %36 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %34
+  %36 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %34
   %37 = icmp sgt i64 %33, 1
   br i1 %37, label %.lr.ph.split.us.split, label %.lr.ph.split.us.split.us
 
@@ -4171,7 +4167,7 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPhSt6vectorIhSaIhEEEES2_ET0_T_S8_S7_.ex
   %53 = phi i8 [ %63, %58 ], [ %49, %47 ]
   %.017.i.us = phi i64 [ %60, %58 ], [ %34, %47 ]
   %54 = zext i8 %53 to i64
-  %55 = getelementptr inbounds nuw i64, ptr %.fr50, i64 %.017.i.us
+  %55 = getelementptr inbounds nuw i64, ptr %.fr48, i64 %.017.i.us
   %56 = load i64, ptr %55, align 8, !tbaa !10
   %57 = icmp eq i64 %56, %54
   br i1 %57, label %58, label %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIhEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
@@ -4323,7 +4319,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %22, i8 0, i64 %21, i1 false), !tbaa !6
   %23 = getelementptr inbounds nuw i16, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit
 
@@ -4343,7 +4339,8 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.033.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %.01842.us = phi ptr [ %.119.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexItEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %2, %.lr.ph ]
@@ -4533,7 +4530,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %22, i8 0, i64 %21, i1 false), !tbaa !6
   %23 = getelementptr inbounds nuw i16, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit
 
@@ -4553,7 +4550,8 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.033.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val28.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -4770,7 +4768,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %22, i8 0, i64 %21, i1 false), !tbaa !6
   %23 = getelementptr inbounds nuw i16, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit
 
@@ -4790,7 +4788,8 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.034.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -5014,7 +5013,7 @@ _ZNSt6vectorItSaItEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 2 %22, i8 0, i64 %21, i1 false), !tbaa !6
   %23 = getelementptr inbounds nuw i16, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit
 
@@ -5034,7 +5033,8 @@ _ZNSt6vectorItSaItEEC2EmRKtRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.034.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -5258,7 +5258,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %21, i1 false), !tbaa !8
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
@@ -5278,7 +5278,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.033.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %.01842.us = phi ptr [ %.119.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIjEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %2, %.lr.ph ]
@@ -5468,7 +5469,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %21, i1 false), !tbaa !8
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
@@ -5488,7 +5489,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.033.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val28.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -5712,7 +5714,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %21, i1 false), !tbaa !8
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
@@ -5732,7 +5734,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.034.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -5949,7 +5952,7 @@ _ZNSt6vectorIjSaIjEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %22, i8 0, i64 %21, i1 false), !tbaa !8
   %23 = getelementptr inbounds nuw i32, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit
 
@@ -5969,7 +5972,8 @@ _ZNSt6vectorIjSaIjEEC2EmRKjRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.034.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -6193,7 +6197,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %22, i8 0, i64 %21, i1 false), !tbaa !10
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -6213,7 +6217,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.033.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us
   %.01842.us = phi ptr [ %.119.us, %_ZN5arrow8internal12_GLOBAL__N_122IncrementRowMajorIndexIlEEvRSt6vectorIT_SaIS4_EERKS3_IlSaIlEE.exit.us ], [ %2, %.lr.ph ]
@@ -6399,7 +6404,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %22, i8 0, i64 %21, i1 false), !tbaa !10
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -6419,7 +6424,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc30, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.033.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val28.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -6638,7 +6644,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %22, i8 0, i64 %21, i1 false), !tbaa !10
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -6658,7 +6664,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.034.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58
@@ -6877,7 +6884,7 @@ _ZNSt6vectorIlSaIlEE17_S_check_init_lenEmRKS0_.exit.i: ; preds = %3
   %22 = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #25
   tail call void @llvm.memset.p0.i64(ptr nonnull align 8 %22, i8 0, i64 %21, i1 false), !tbaa !10
   %23 = getelementptr inbounds nuw i64, ptr %22, i64 %19
-  %24 = getelementptr i8, ptr %22, i64 %21
+  %24 = getelementptr inbounds nuw i8, ptr %22, i64 %21
   %25 = ptrtoint ptr %23 to i64
   br label %_ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit
 
@@ -6897,7 +6904,8 @@ _ZNSt6vectorIlSaIlEEC2EmRKlRKS0_.exit:            ; preds = %.noexc31, %_ZNSt6ve
   %28 = ptrtoint ptr %.0.i.i.i.i.i.i.i to i64
   %29 = ptrtoint ptr %.sroa.034.0 to i64
   %30 = sub i64 %28, %29
-  br i1 %.not.i.i.i.i.i, label %.lr.ph.split.us, label %.lr.ph.split
+  %.not.i.i.i.i.i.fr = freeze i1 %.not.i.i.i.i.i
+  br i1 %.not.i.i.i.i.i.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph
   %.val29.us = load ptr, ptr %4, align 8, !tbaa !58

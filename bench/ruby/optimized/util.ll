@@ -460,14 +460,14 @@ define dso_local void @ruby_each_words(ptr noundef %0, ptr noundef nonnull reado
 
 .preheader33:                                     ; preds = %3
   %4 = load i8, ptr %0, align 1, !tbaa !7
-  %.not2236 = icmp eq i8 %4, 0
-  br i1 %.not2236, label %.loopexit, label %.preheader32
+  %.fr36 = freeze i8 %4
+  %.not2237 = icmp eq i8 %.fr36, 0
+  br i1 %.not2237, label %.loopexit, label %.preheader32
 
 .preheader32:                                     ; preds = %.preheader33, %.preheader32.backedge
-  %5 = phi i8 [ %.be, %.preheader32.backedge ], [ %4, %.preheader33 ]
+  %5 = phi i8 [ %.be, %.preheader32.backedge ], [ %.fr36, %.preheader33 ]
   %.1 = phi ptr [ %.1.be, %.preheader32.backedge ], [ %0, %.preheader33 ]
-  %.fr = freeze i8 %5
-  switch i8 %.fr, label %.preheader [
+  switch i8 %5, label %.preheader [
     i8 44, label %.critedge
     i8 32, label %.critedge
     i8 13, label %.critedge
@@ -481,18 +481,18 @@ define dso_local void @ruby_each_words(ptr noundef %0, ptr noundef nonnull reado
 .critedge:                                        ; preds = %.preheader32, %.preheader32, %.preheader32, %.preheader32, %.preheader32, %.preheader32, %.preheader32
   %6 = getelementptr i8, ptr %.1, i64 1
   %.pr = load i8, ptr %6, align 1, !tbaa !7
+  %.pr.fr = freeze i8 %.pr
   br label %.preheader32.backedge
 
 .preheader32.backedge:                            ; preds = %.critedge, %.critedge2
-  %.be = phi i8 [ %.pr, %.critedge ], [ %14, %.critedge2 ]
+  %.be = phi i8 [ %.pr.fr, %.critedge ], [ %.fr42, %.critedge2 ]
   %.1.be = phi ptr [ %6, %.critedge ], [ %.019, %.critedge2 ]
   br label %.preheader32, !llvm.loop !29
 
 .preheader:                                       ; preds = %.preheader32, %8
-  %7 = phi i8 [ %.pre, %8 ], [ %.fr, %.preheader32 ]
+  %7 = phi i8 [ %.pre.fr, %8 ], [ %5, %.preheader32 ]
   %.019 = phi ptr [ %9, %8 ], [ %.1, %.preheader32 ]
-  %.fr31 = freeze i8 %7
-  switch i8 %.fr31, label %8 [
+  switch i8 %7, label %8 [
     i8 0, label %.critedge2
     i8 44, label %.critedge2
     i8 32, label %.critedge2
@@ -506,6 +506,7 @@ define dso_local void @ruby_each_words(ptr noundef %0, ptr noundef nonnull reado
 8:                                                ; preds = %.preheader
   %9 = getelementptr i8, ptr %.019, i64 1
   %.pre = load i8, ptr %9, align 1, !tbaa !7
+  %.pre.fr = freeze i8 %.pre
   br label %.preheader, !llvm.loop !30
 
 .critedge2:                                       ; preds = %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader, %.preheader
@@ -515,7 +516,8 @@ define dso_local void @ruby_each_words(ptr noundef %0, ptr noundef nonnull reado
   %13 = trunc i64 %12 to i32
   tail call void %1(ptr noundef nonnull %.1, i32 noundef %13, ptr noundef %2) #21
   %14 = load i8, ptr %.019, align 1, !tbaa !7
-  %.not22 = icmp eq i8 %14, 0
+  %.fr42 = freeze i8 %14
+  %.not22 = icmp eq i8 %.fr42, 0
   br i1 %.not22, label %.loopexit, label %.preheader32.backedge
 
 .loopexit:                                        ; preds = %.critedge2, %.preheader32, %.preheader33, %3

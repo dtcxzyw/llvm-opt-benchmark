@@ -5242,22 +5242,23 @@ _ZN10aiVector3tIdE9NormalizeEv.exit:              ; preds = %_ZN10aiVector3tIdEd
   %.sroa.0308.0 = phi double [ %346, %339 ], [ %354, %_ZN10aiVector3tIdEdVEd.exit.i ]
   %.sroa.11314.0 = phi double [ %347, %339 ], [ %355, %_ZN10aiVector3tIdEdVEd.exit.i ]
   %.sroa.19.0 = phi double [ %348, %339 ], [ %356, %_ZN10aiVector3tIdEdVEd.exit.i ]
-  %.sroa.19.0.fr = freeze double %.sroa.19.0
-  %.sroa.11314.0.fr = freeze double %.sroa.11314.0
-  %.sroa.0308.0.fr = freeze double %.sroa.0308.0
-  %357 = call double @llvm.fabs.f64(double %.sroa.0308.0.fr)
+  %357 = call double @llvm.fabs.f64(double %.sroa.0308.0)
   %358 = fcmp ogt double %357, 0x3EB0C6F7A0000000
   %359 = icmp eq i32 %.0125482, 1
-  %360 = call double @llvm.fabs.f64(double %.sroa.11314.0.fr)
+  %360 = call double @llvm.fabs.f64(double %.sroa.11314.0)
   %361 = fcmp ogt double %360, 0x3EB0C6F7A0000000
+  %.fr440 = freeze i1 %361
   %362 = icmp ne i32 %.0125482, 2
-  %363 = call double @llvm.fabs.f64(double %.sroa.19.0.fr)
-  %364 = fcmp ule double %363, 0x3EB0C6F7A0000000
-  br i1 %358, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.us
+  %363 = call double @llvm.fabs.f64(double %.sroa.19.0)
+  %364 = fcmp ogt double %363, 0x3EB0C6F7A0000000
+  %.fr449 = freeze i1 %364
+  %.fr = freeze i1 %358
+  br i1 %.fr, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.us
 
 _ZN10aiVector3tIdE9NormalizeEv.exit.split.us:     ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit
-  %brmerge619 = or i1 %362, %364
-  %or.cond = and i1 %361, %brmerge619
+  %.fr449.not = xor i1 %.fr449, true
+  %brmerge618 = or i1 %362, %.fr449.not
+  %or.cond = and i1 %.fr440, %brmerge618
   br i1 %or.cond, label %.split.us.split, label %.split418.us
 
 _ZN10aiVector3tIdE9NormalizeEv.exit.split:        ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit
@@ -5265,38 +5266,40 @@ _ZN10aiVector3tIdE9NormalizeEv.exit.split:        ; preds = %_ZN10aiVector3tIdE9
   br i1 %365, label %.split419, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split
 
 _ZN10aiVector3tIdE9NormalizeEv.exit.split.split:  ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split
-  br i1 %361, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.us
+  br i1 %.fr440, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.us
 
 _ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.us: ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split
-  %brmerge622 = or i1 %362, %364
-  br i1 %brmerge622, label %.split419, label %.split418.us
+  %.fr449.not620 = xor i1 %.fr449, true
+  %brmerge621 = or i1 %362, %.fr449.not620
+  br i1 %brmerge621, label %.split419, label %.split418.us
 
 _ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split: ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split
   br i1 %359, label %.split.us.split, label %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.split
 
 _ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.split: ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split
-  %brmerge625 = or i1 %362, %364
-  br i1 %brmerge625, label %.split419, label %.split418.us
+  %.fr449.not623 = xor i1 %.fr449, true
+  %brmerge624 = or i1 %362, %.fr449.not623
+  br i1 %brmerge624, label %.split419, label %.split418.us
 
 .split419:                                        ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.split, %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.us, %_ZN10aiVector3tIdE9NormalizeEv.exit.split
-  %366 = fmul double %.sroa.12.0459, %.sroa.19.0.fr
-  %367 = call double @llvm.fmuladd.f64(double %.sroa.11314.0.fr, double %.sroa.8.0462, double %366)
+  %366 = fmul double %.sroa.12.0459, %.sroa.19.0
+  %367 = call double @llvm.fmuladd.f64(double %.sroa.11314.0, double %.sroa.8.0462, double %366)
   %368 = fneg double %367
-  %369 = fdiv double %368, %.sroa.0308.0.fr
+  %369 = fdiv double %368, %.sroa.0308.0
   br label %.loopexit398
 
 .split.us.split:                                  ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split.us, %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split
-  %370 = fmul double %.sroa.12.0459, %.sroa.19.0.fr
-  %371 = call double @llvm.fmuladd.f64(double %.sroa.0308.0.fr, double %.sroa.0325.0465, double %370)
+  %370 = fmul double %.sroa.12.0459, %.sroa.19.0
+  %371 = call double @llvm.fmuladd.f64(double %.sroa.0308.0, double %.sroa.0325.0465, double %370)
   %372 = fneg double %371
-  %373 = fdiv double %372, %.sroa.11314.0.fr
+  %373 = fdiv double %372, %.sroa.11314.0
   br label %.loopexit398
 
 .split418.us:                                     ; preds = %_ZN10aiVector3tIdE9NormalizeEv.exit.split.us, %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.split, %_ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.us
-  %374 = fmul double %.sroa.0325.0465, %.sroa.0308.0.fr
-  %375 = call double @llvm.fmuladd.f64(double %.sroa.11314.0.fr, double %.sroa.8.0462, double %374)
+  %374 = fmul double %.sroa.0325.0465, %.sroa.0308.0
+  %375 = call double @llvm.fmuladd.f64(double %.sroa.11314.0, double %.sroa.8.0462, double %374)
   %376 = fneg double %375
-  %377 = fdiv double %376, %.sroa.19.0.fr
+  %377 = fdiv double %376, %.sroa.19.0
   br label %.loopexit398
 
 .loopexit398:                                     ; preds = %.split418.us, %.split.us.split, %.split419
@@ -5316,24 +5319,24 @@ _ZN10aiVector3tIdE9NormalizeEv.exit.split.split.split.split: ; preds = %_ZN10aiV
   %386 = call double @cos(double noundef %24) #32
   %387 = call double @sin(double noundef %24) #32
   %388 = fsub double 1.000000e+00, %386
-  %389 = fmul double %.sroa.0308.0.fr, %388
-  %390 = call double @llvm.fmuladd.f64(double %389, double %.sroa.0308.0.fr, double %386)
-  %391 = fmul double %.sroa.19.0.fr, %387
+  %389 = fmul double %.sroa.0308.0, %388
+  %390 = call double @llvm.fmuladd.f64(double %389, double %.sroa.0308.0, double %386)
+  %391 = fmul double %.sroa.19.0, %387
   %392 = fneg double %391
-  %393 = call double @llvm.fmuladd.f64(double %389, double %.sroa.11314.0.fr, double %392)
-  %394 = fmul double %.sroa.11314.0.fr, %387
-  %395 = call double @llvm.fmuladd.f64(double %389, double %.sroa.19.0.fr, double %394)
-  %396 = call double @llvm.fmuladd.f64(double %389, double %.sroa.11314.0.fr, double %391)
-  %397 = fmul double %.sroa.11314.0.fr, %388
-  %398 = call double @llvm.fmuladd.f64(double %397, double %.sroa.11314.0.fr, double %386)
-  %399 = fmul double %.sroa.0308.0.fr, %387
+  %393 = call double @llvm.fmuladd.f64(double %389, double %.sroa.11314.0, double %392)
+  %394 = fmul double %.sroa.11314.0, %387
+  %395 = call double @llvm.fmuladd.f64(double %389, double %.sroa.19.0, double %394)
+  %396 = call double @llvm.fmuladd.f64(double %389, double %.sroa.11314.0, double %391)
+  %397 = fmul double %.sroa.11314.0, %388
+  %398 = call double @llvm.fmuladd.f64(double %397, double %.sroa.11314.0, double %386)
+  %399 = fmul double %.sroa.0308.0, %387
   %400 = fneg double %399
-  %401 = call double @llvm.fmuladd.f64(double %397, double %.sroa.19.0.fr, double %400)
+  %401 = call double @llvm.fmuladd.f64(double %397, double %.sroa.19.0, double %400)
   %402 = fneg double %394
-  %403 = call double @llvm.fmuladd.f64(double %389, double %.sroa.19.0.fr, double %402)
-  %404 = call double @llvm.fmuladd.f64(double %397, double %.sroa.19.0.fr, double %399)
-  %405 = fmul double %.sroa.19.0.fr, %388
-  %406 = call double @llvm.fmuladd.f64(double %405, double %.sroa.19.0.fr, double %386)
+  %403 = call double @llvm.fmuladd.f64(double %389, double %.sroa.19.0, double %402)
+  %404 = call double @llvm.fmuladd.f64(double %397, double %.sroa.19.0, double %399)
+  %405 = fmul double %.sroa.19.0, %388
+  %406 = call double @llvm.fmuladd.f64(double %405, double %.sroa.19.0, double %386)
   br i1 %.not520, label %._crit_edge, label %.lr.ph
 
 ._crit_edge:                                      ; preds = %_ZNSt6vectorI10aiVector3tIdESaIS1_EE9push_backEOS1_.exit, %.loopexit398

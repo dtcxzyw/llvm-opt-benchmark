@@ -42458,7 +42458,7 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exi
   %.482 = phi i32 [ %.078120, %103 ], [ %.078120, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ], [ %spec.select, %104 ]
   %.4 = phi i1 [ %.076121, %103 ], [ false, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit ], [ %.076121, %104 ]
   %106 = add nsw i32 %.083119, 1
-  %107 = add i32 %.087118, 1
+  %107 = add nsw i32 %.087118, 1
   br label %108
 
 108:                                              ; preds = %62, %_ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exit, %105, %48
@@ -42480,7 +42480,8 @@ _ZN5boost2io6detail11format_itemIcSt11char_traitsIcESaIcEE14compute_statesEv.exi
   %113 = sext i32 %.188 to i64
   %114 = getelementptr %"struct.boost::io::detail::format_item", ptr %112, i64 %113
   %115 = getelementptr i8, ptr %114, i64 -96
-  %spec.select158 = select i1 %110, ptr %111, ptr %115
+  %cond.fr = freeze i1 %110
+  %spec.select158 = select i1 %cond.fr, ptr %111, ptr %115
   br label %._crit_edge.thread
 
 ._crit_edge.thread:                               ; preds = %._crit_edge, %_ZNKSt5ctypeIcE5widenEc.exit

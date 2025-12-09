@@ -20873,8 +20873,6 @@ _ZNSt6vectorIjSaIjEE6resizeEm.exit:               ; preds = %.preheader.i.i.i, %
   %.sroa.26.4 = phi ptr [ %.sroa.26.1, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.thread ], [ %137, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i ], [ %.sroa.26.1, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.26.1, %116 ], [ %.sroa.26.1, %139 ], [ %.sroa.26.1, %._crit_edge ], [ null, %4 ], [ %.sroa.26.1, %.preheader.i.i.i ]
   %.sroa.15.3 = phi ptr [ %.sroa.15.1, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.thread ], [ %136, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i ], [ %120, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %117, %116 ], [ %spec.select, %139 ], [ %.sroa.15.1, %._crit_edge ], [ null, %4 ], [ %.sroa.15.1, %.preheader.i.i.i ]
   %.sroa.074.4 = phi ptr [ %.sroa.074.1, %_ZSt6uniqueIN9__gnu_cxx17__normal_iteratorIPjSt6vectorIjSaIjEEEEET_S7_S7_.exit.thread ], [ %127, %_ZNSt12_Vector_baseIjSaIjEE13_M_deallocateEPjm.exit36.i ], [ %.sroa.074.1, %_ZSt6fill_nIPjmjET_S1_T0_RKT1_.exit.loopexit.i.i.i.i ], [ %.sroa.074.1, %116 ], [ %.sroa.074.1, %139 ], [ %.sroa.074.1, %._crit_edge ], [ null, %4 ], [ %.sroa.074.1, %.preheader.i.i.i ]
-  %.sroa.15.3.fr = freeze ptr %.sroa.15.3
-  %.sroa.074.4.fr = freeze ptr %.sroa.074.4
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %142 = load ptr, ptr %141, align 8, !tbaa !504
@@ -20919,12 +20917,13 @@ _ZN7xgboost8BatchSetINS_13SortedCSCPageEE5beginEv.exit: ; preds = %_ZN7xgboost7D
           to label %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit.preheader unwind label %176
 
 _ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit.preheader: ; preds = %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE5beginEv.exit
-  %.not91110 = icmp eq ptr %.sroa.074.4.fr, %.sroa.15.3.fr
+  %.not91110 = icmp eq ptr %.sroa.074.4, %.sroa.15.3
   %158 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %159 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %160 = getelementptr inbounds nuw i8, ptr %10, i64 16
   %161 = getelementptr inbounds nuw i8, ptr %10, i64 24
-  br i1 %.not91110, label %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit.us, label %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit
+  %.not91110.fr = freeze i1 %.not91110
+  br i1 %.not91110.fr, label %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit.us, label %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit
 
 _ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit.us: ; preds = %_ZN7xgboost8BatchSetINS_13SortedCSCPageEE3endEv.exit.preheader, %171
   %162 = invoke noundef zeroext i1 @_ZNK7xgboost13BatchIteratorINS_13SortedCSCPageEE5AtEndEv(ptr noundef nonnull align 8 dereferenceable(16) %6)
@@ -21131,14 +21130,14 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i: ; preds = %243, %
 
 _ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit: ; preds = %_ZN7xgboost13BatchIteratorINS_13SortedCSCPageEED2Ev.exit52, %231, %_ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i, %246
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not.i.i.i55 = icmp eq ptr %.sroa.074.4.fr, null
+  %.not.i.i.i55 = icmp eq ptr %.sroa.074.4, null
   br i1 %.not.i.i.i55, label %_ZNSt6vectorIjSaIjEED2Ev.exit, label %247
 
 247:                                              ; preds = %_ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit
   %248 = ptrtoint ptr %.sroa.26.4 to i64
-  %249 = ptrtoint ptr %.sroa.074.4.fr to i64
+  %249 = ptrtoint ptr %.sroa.074.4 to i64
   %250 = sub i64 %248, %249
-  call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.4.fr, i64 noundef %250) #39
+  call void @_ZdlPvm(ptr noundef nonnull %.sroa.074.4, i64 noundef %250) #39
   br label %_ZNSt6vectorIjSaIjEED2Ev.exit
 
 _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN7xgboost8BatchSetINS_13SortedCSCPageEED2Ev.exit, %247
@@ -21186,7 +21185,7 @@ _ZNSt6vectorIjSaIjEED2Ev.exit:                    ; preds = %_ZN7xgboost8BatchSe
   br i1 %.not130, label %.lr.ph113.split, label %.lr.ph113.split.us
 
 .lr.ph113.split.us:                               ; preds = %.lr.ph113, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit.us
-  %.sroa.063.0111.us = phi ptr [ %278, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit.us ], [ %.sroa.074.4.fr, %.lr.ph113 ]
+  %.sroa.063.0111.us = phi ptr [ %278, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit.us ], [ %.sroa.074.4, %.lr.ph113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %267 = load i32, ptr %.sroa.063.0111.us, align 4, !tbaa !93
   store i32 %267, ptr %8, align 4, !tbaa !93
@@ -21218,7 +21217,7 @@ _ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositi
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %278 = getelementptr inbounds nuw i8, ptr %.sroa.063.0111.us, i64 4
-  %.not91.us = icmp eq ptr %278, %.sroa.15.3.fr
+  %.not91.us = icmp eq ptr %278, %.sroa.15.3
   br i1 %.not91.us, label %._crit_edge114, label %.lr.ph113.split.us
 
 .split.us:                                        ; preds = %.lr.ph113.split.us
@@ -21246,7 +21245,7 @@ _ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositi
   br label %302
 
 .lr.ph113.split:                                  ; preds = %.lr.ph113, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit
-  %.sroa.063.0111 = phi ptr [ %297, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit ], [ %.sroa.074.4.fr, %.lr.ph113 ]
+  %.sroa.063.0111 = phi ptr [ %297, %_ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositionERKSt6vectorIiSaIiEEPNS_7DMatrixERKNS_7RegTreeEEUlT_E_EEvSF_iOT0_.exit ], [ %.sroa.074.4, %.lr.ph113 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %284 = load i32, ptr %.sroa.063.0111, align 4, !tbaa !93
   store i32 %284, ptr %8, align 4, !tbaa !93
@@ -21285,7 +21284,7 @@ _ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositi
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   %297 = getelementptr inbounds nuw i8, ptr %.sroa.063.0111, i64 4
-  %.not91 = icmp eq ptr %297, %.sroa.15.3.fr
+  %.not91 = icmp eq ptr %297, %.sroa.15.3
   br i1 %.not91, label %._crit_edge114, label %.lr.ph113.split
 
 .split:                                           ; preds = %292
@@ -21325,7 +21324,7 @@ _ZN7xgboost6common11ParallelForImZNS_4tree8ColMaker7Builder21SetNonDefaultPositi
 
 303:                                              ; preds = %.loopexit, %.loopexit.split-lp, %253, %255, %.body, %251
   %.sroa.26.2 = phi ptr [ %.sroa.26.4, %.body ], [ %.sroa.26.4, %255 ], [ %.sroa.26.1, %251 ], [ %.sroa.26.1, %253 ], [ %.sroa.15.0106, %.loopexit ], [ %.sroa.15.0106, %.loopexit.split-lp ]
-  %.sroa.074.2 = phi ptr [ %.sroa.074.4.fr, %.body ], [ %.sroa.074.4.fr, %255 ], [ %.sroa.074.1, %251 ], [ %.sroa.074.1, %253 ], [ %.sroa.074.0107, %.loopexit ], [ %.sroa.074.0107, %.loopexit.split-lp ]
+  %.sroa.074.2 = phi ptr [ %.sroa.074.4, %.body ], [ %.sroa.074.4, %255 ], [ %.sroa.074.1, %251 ], [ %.sroa.074.1, %253 ], [ %.sroa.074.0107, %.loopexit ], [ %.sroa.074.0107, %.loopexit.split-lp ]
   %.pn35 = phi { ptr, i32 } [ %.pn28.pn.pn.pn.pn, %.body ], [ %256, %255 ], [ %252, %251 ], [ %254, %253 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   %.not.i.i.i59 = icmp eq ptr %.sroa.074.2, null
   br i1 %.not.i.i.i59, label %_ZNSt6vectorIjSaIjEED2Ev.exit60, label %304

@@ -246,7 +246,7 @@ _ZL12get_cpucountv.exit.i:                        ; preds = %.thread.i.i, %7
   %20 = ptrtoint ptr %.sroa.0.1.i.i to i64
   %21 = sub i64 %19, %20
   call void @_ZdlPvm(ptr noundef nonnull %.sroa.0.1.i.i, i64 noundef %21) #25
-  %.pr.i = load i32, ptr @_ZL10g_cpucount, align 4, !tbaa !10
+  %.pre.i = load i32, ptr @_ZL10g_cpucount, align 4, !tbaa !10
   br label %_ZL21get_physical_cpucountv.exit.i
 
 .lr.ph62.i.i:                                     ; preds = %.loopexit.i.i, %_ZL12get_cpucountv.exit.i
@@ -349,7 +349,7 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   %.sroa.14.2.i.i = phi ptr [ %50, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.14.058.i.i, %36 ]
   %.sroa.0.2.i.i = phi ptr [ %45, %_ZNSt6vectorIiSaIiEE17_M_realloc_insertIJRKiEEEvN9__gnu_cxx17__normal_iteratorIPiS1_EEDpOT_.exit.i.i.i ], [ %.sroa.0.059.i.i, %36 ]
   %.sroa.10.2.i.i = getelementptr inbounds nuw i8, ptr %.pn33.i.i, i64 4
-  %51 = add i32 %.01660.i.i, 1
+  %51 = add nsw i32 %.01660.i.i, 1
   br label %.loopexit.i.i
 
 .loopexit34.i.i:                                  ; preds = %_ZNKSt6vectorIiSaIiEE12_M_check_lenEmPKc.exit.i.i.i.i
@@ -378,11 +378,11 @@ _ZNSt6vectorIiSaIiEE9push_backERKi.exit.i.i:      ; preds = %_ZNSt6vectorIiSaIiE
   br i1 %.not.i.i.i22.i.i, label %common.resume.i, label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %55
-  %.pre.i = ptrtoint ptr %.sroa.0.059.i.i to i64
+  %.pre117.i = ptrtoint ptr %.sroa.0.059.i.i to i64
   br label %56
 
 56:                                               ; preds = %._crit_edge.i, %.thread91.i.i
-  %.pre-phi.i = phi i64 [ %.pre.i, %._crit_edge.i ], [ %26, %.thread91.i.i ]
+  %.pre-phi.i = phi i64 [ %.pre117.i, %._crit_edge.i ], [ %26, %.thread91.i.i ]
   %.pn94.i.i = phi { ptr, i32 } [ %.pn.i.i, %._crit_edge.i ], [ %lpad.loopexit.split-lp.i.i, %.thread91.i.i ]
   %57 = ptrtoint ptr %.sroa.14.058.i.i to i64
   %58 = sub i64 %57, %.pre-phi.i
@@ -394,10 +394,11 @@ common.resume.i:                                  ; preds = %_ZNSt6vectorIiSaIiE
   resume { ptr, i32 } %common.resume.op.i
 
 _ZL21get_physical_cpucountv.exit.i:               ; preds = %18, %._crit_edge.i.i
-  %59 = phi i32 [ %53, %._crit_edge.i.i ], [ %.pr.i, %18 ]
+  %59 = phi i32 [ %53, %._crit_edge.i.i ], [ %.pre.i, %18 ]
   %60 = icmp eq i32 %.1.i.i, 0
   %61 = call i32 @llvm.smin.i32(i32 %.1.i.i, i32 %53)
-  %spec.select.i3.i = select i1 %60, i32 %53, i32 %61
+  %cond.fr.i.i = freeze i1 %60
+  %spec.select.i3.i = select i1 %cond.fr.i.i, i32 %53, i32 %61
   store i32 %spec.select.i3.i, ptr @_ZL19g_physical_cpucount, align 4, !tbaa !10
   store i32 0, ptr @_ZL11g_powersave, align 4, !tbaa !10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) @_ZL23g_cpu_affinity_mask_all, i8 0, i64 128, i1 false)
@@ -687,7 +688,7 @@ _ZL9x86_cpuidiPj.exit6.i.i:                       ; preds = %_ZL35initialize_cpu
   %150 = extractvalue { i32, i32, i32, i32 } %149, 2
   %151 = and i32 %150, 469762048
   %or.cond5.not.i.i = icmp eq i32 %151, 469762048
-  br i1 %or.cond5.not.i.i, label %_ZL23get_cpu_support_x86_avxv.exit.i, label %_ZL23get_cpu_support_x86_avxv.exit.thread137.i
+  br i1 %or.cond5.not.i.i, label %_ZL23get_cpu_support_x86_avxv.exit.i, label %_ZL23get_cpu_support_x86_avxv.exit.thread138.i
 
 _ZL23get_cpu_support_x86_avxv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.exit6.i.i
   %152 = call noundef i32 asm ".byte 0x0f, 0x01, 0xd0", "={ax},{cx},~{edx},~{dirflag},~{fpsr},~{flags}"(i32 0) #29, !srcloc !23
@@ -698,7 +699,7 @@ _ZL23get_cpu_support_x86_avxv.exit.i:             ; preds = %_ZL9x86_cpuidiPj.ex
   %154 = icmp samesign ult i32 %147, 7
   br i1 %154, label %_ZL23get_cpu_support_x86_fmav.exit.i, label %_ZL9x86_cpuidiPj.exit6.i17.i
 
-_ZL23get_cpu_support_x86_avxv.exit.thread137.i:   ; preds = %_ZL9x86_cpuidiPj.exit6.i.i
+_ZL23get_cpu_support_x86_avxv.exit.thread138.i:   ; preds = %_ZL9x86_cpuidiPj.exit6.i.i
   store i32 0, ptr @_ZL21g_cpu_support_x86_avx, align 4, !tbaa !10
   %155 = icmp samesign ult i32 %147, 7
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
@@ -708,9 +709,9 @@ _ZL9x86_cpuidiPj.exit6.i17.i:                     ; preds = %_ZL23get_cpu_suppor
   %spec.select.i21.i = select i1 %.not4.i.i, i32 %156, i32 0
   br label %_ZL23get_cpu_support_x86_fmav.exit.i
 
-_ZL23get_cpu_support_x86_fmav.exit.i:             ; preds = %_ZL9x86_cpuidiPj.exit6.i17.i, %_ZL23get_cpu_support_x86_avxv.exit.thread137.i, %_ZL23get_cpu_support_x86_avxv.exit.i, %_ZL23get_cpu_support_x86_avxv.exit.thread.i
-  %157 = phi i1 [ true, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ false, %_ZL9x86_cpuidiPj.exit6.i17.i ], [ true, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ %155, %_ZL23get_cpu_support_x86_avxv.exit.thread137.i ]
-  %.0.i19.i = phi i32 [ 0, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ %spec.select.i21.i, %_ZL9x86_cpuidiPj.exit6.i17.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread137.i ]
+_ZL23get_cpu_support_x86_fmav.exit.i:             ; preds = %_ZL9x86_cpuidiPj.exit6.i17.i, %_ZL23get_cpu_support_x86_avxv.exit.thread138.i, %_ZL23get_cpu_support_x86_avxv.exit.i, %_ZL23get_cpu_support_x86_avxv.exit.thread.i
+  %157 = phi i1 [ true, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ false, %_ZL9x86_cpuidiPj.exit6.i17.i ], [ true, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ %155, %_ZL23get_cpu_support_x86_avxv.exit.thread138.i ]
+  %.0.i19.i = phi i32 [ 0, %_ZL23get_cpu_support_x86_avxv.exit.i ], [ %spec.select.i21.i, %_ZL9x86_cpuidiPj.exit6.i17.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread.i ], [ 0, %_ZL23get_cpu_support_x86_avxv.exit.thread138.i ]
   store i32 %.0.i19.i, ptr @_ZL21g_cpu_support_x86_fma, align 4, !tbaa !10
   %158 = call { i32, i32, i32, i32 } asm "  xchg$(q$|$)  $(%$|$)rbx,${1:q}\0A  cpuid\0A  xchg$(q$|$)  $(%$|$)rbx,${1:q}", "={ax},=r,={cx},={dx},0,~{dirflag},~{fpsr},~{flags}"(i32 range(i32 0, -2147483646) -2147483648) #29, !srcloc !22
   %159 = extractvalue { i32, i32, i32, i32 } %158, 0

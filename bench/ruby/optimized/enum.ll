@@ -3655,18 +3655,22 @@ rb_num2long_inline.exit:                          ; preds = %16, %18
 
 rb_array_len.exit:                                ; preds = %28, %31
   %.0.i27 = phi i64 [ %30, %28 ], [ %33, %31 ]
-  %.0.i27.fr = freeze i64 %.0.i27
-  %34 = icmp eq i64 %.0.i27.fr, 0
+  %34 = icmp eq i64 %.0.i27, 0
   br i1 %34, label %.loopexit31, label %.preheader
 
 .preheader:                                       ; preds = %rb_array_len.exit
-  %35 = icmp sgt i64 %.0.i27.fr, 0
+  %35 = icmp sgt i64 %.0.i27, 0
   %36 = getelementptr inbounds nuw i8, ptr %23, i64 16
   %37 = getelementptr inbounds nuw i8, ptr %23, i64 32
-  br i1 %35, label %.preheader.split.us, label %.loopexit31
+  %.fr = freeze i1 %35
+  br i1 %.fr, label %.preheader.split.us.preheader, label %.loopexit31
 
-.preheader.split.us:                              ; preds = %.preheader, %..loopexit_crit_edge.us
-  %.1.us = phi i64 [ %.2.us, %..loopexit_crit_edge.us ], [ %.022, %.preheader ]
+.preheader.split.us.preheader:                    ; preds = %.preheader
+  %smax = tail call i64 @llvm.smax.i64(i64 %.0.i27, i64 1)
+  br label %.preheader.split.us
+
+.preheader.split.us:                              ; preds = %.preheader.split.us.preheader, %..loopexit_crit_edge.us
+  %.1.us = phi i64 [ %.2.us, %..loopexit_crit_edge.us ], [ %.022, %.preheader.split.us.preheader ]
   %38 = icmp slt i64 %.1.us, 0
   br i1 %38, label %.critedge.us, label %39
 
@@ -3747,7 +3751,7 @@ RARRAY_AREF.exit.i.us:                            ; preds = %66, %64
 
 enum_yield_array.exit.us:                         ; preds = %71, %RARRAY_AREF.exit.i.us, %61
   %73 = add nuw nsw i64 %.02132.us, 1
-  %exitcond.not = icmp eq i64 %73, %.0.i27.fr
+  %exitcond.not = icmp eq i64 %73, %smax
   br i1 %exitcond.not, label %..loopexit_crit_edge.us, label %42, !llvm.loop !88
 
 ..loopexit_crit_edge.us:                          ; preds = %enum_yield_array.exit.us
@@ -11261,6 +11265,9 @@ declare i64 @llvm.umin.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nofree nounwind willreturn memory(argmem: write)
 declare void @llvm.memset.p0.i64(ptr writeonly captures(none), i8, i64, i1 immarg) #14
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i64 @llvm.smax.i64(i64, i64) #13
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare i32 @llvm.smax.i32(i32, i32) #13

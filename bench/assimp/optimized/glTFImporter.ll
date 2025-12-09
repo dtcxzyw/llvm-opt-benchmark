@@ -41741,7 +41741,7 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN9
 25:                                               ; preds = %24
   %26 = load i32, ptr %8, align 8
   %.not42.i = icmp eq i32 %26, 0
-  br i1 %.not42.i, label %27, label %45, !prof !573
+  br i1 %.not42.i, label %27, label %.thread, !prof !573
 
 27:                                               ; preds = %25
   %.sroa.0.0.copyload.i.i36.i = load ptr, ptr %1, align 8
@@ -41765,62 +41765,61 @@ define linkonce_odr hidden noundef nonnull align 8 dereferenceable(96) ptr @_ZN9
   store ptr %.sroa.0.0.i.i37.i, ptr %1, align 8
   %32 = load i8, ptr %.sroa.0.0.i.i37.i, align 1
   %.not.i = icmp eq i8 %32, 0
-  br i1 %.not.i, label %.thread, label %.sink.split.i, !prof !573
-
-.thread:                                          ; preds = %31
-  %.sroa.725.0.i12 = load i64, ptr %9, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %34 = load ptr, ptr %33, align 8
-  %35 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %34, ptr %35, align 8
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 0, ptr %36, align 8
-  %.sroa.51.0..sroa_idx13 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.sroa.725.0.i12, ptr %.sroa.51.0..sroa_idx13, align 8
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %38 = load ptr, ptr %37, align 8
-  %39 = getelementptr inbounds i8, ptr %38, i64 -16
-  store ptr %39, ptr %37, align 8
-  %.not.i5 = icmp eq ptr %0, %39
-  br i1 %.not.i5, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit, label %50, !prof !5
+  br i1 %.not.i, label %42, label %.sink.split.i, !prof !573
 
 .sink.split.i:                                    ; preds = %31, %21
   %.sroa.0.0.i.i37.lcssa.sink.i = phi ptr [ %.sroa.0.0.i.i.i, %21 ], [ %.sroa.0.0.i.i37.i, %31 ]
   %.sink47.i = phi i32 [ 1, %21 ], [ 2, %31 ]
-  %40 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %41 = load ptr, ptr %40, align 8
-  %42 = ptrtoint ptr %.sroa.0.0.i.i37.lcssa.sink.i to i64
-  %43 = ptrtoint ptr %41 to i64
-  %44 = sub i64 %42, %43
+  %33 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %34 = load ptr, ptr %33, align 8
+  %35 = ptrtoint ptr %.sroa.0.0.i.i37.lcssa.sink.i to i64
+  %36 = ptrtoint ptr %34 to i64
+  %37 = sub i64 %35, %36
   store i32 %.sink47.i, ptr %8, align 8
-  store i64 %44, ptr %9, align 8
-  br label %45
+  store i64 %37, ptr %9, align 8
+  br label %.thread
 
-45:                                               ; preds = %.sink.split.i, %25
-  %.sroa.0.0.i = phi i32 [ %26, %25 ], [ %.sink47.i, %.sink.split.i ]
-  %.sroa.0.0.i.fr = freeze i32 %.sroa.0.0.i
-  %.sroa.725.0.i = load i64, ptr %9, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %47 = load ptr, ptr %46, align 8
-  %48 = getelementptr inbounds nuw i8, ptr %3, i64 24
-  store ptr %47, ptr %48, align 8
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 %.sroa.0.0.i.fr, ptr %49, align 8
-  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i64 %.sroa.725.0.i, ptr %.sroa.51.0..sroa_idx, align 8
+.thread:                                          ; preds = %25, %.sink.split.i
+  %.sroa.0.0.i.ph = phi i32 [ %.sink47.i, %.sink.split.i ], [ %26, %25 ]
+  %.sroa.725.0.i11 = load i64, ptr %9, align 8
+  %38 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %39 = load ptr, ptr %38, align 8
+  %40 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %39, ptr %40, align 8
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 %.sroa.0.0.i.ph, ptr %41, align 8
+  %.sroa.51.0..sroa_idx12 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %.sroa.725.0.i11, ptr %.sroa.51.0..sroa_idx12, align 8
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit
 
-50:                                               ; preds = %.thread
-  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %38, i64 -2
+42:                                               ; preds = %31
+  %.sroa.725.0.i = load i64, ptr %9, align 8
+  %43 = getelementptr inbounds nuw i8, ptr %3, i64 16
+  %44 = load ptr, ptr %43, align 8
+  %45 = getelementptr inbounds nuw i8, ptr %3, i64 24
+  store ptr %44, ptr %45, align 8
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 0, ptr %46, align 8
+  %.sroa.51.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i64 %.sroa.725.0.i, ptr %.sroa.51.0..sroa_idx, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %48 = load ptr, ptr %47, align 8
+  %49 = getelementptr inbounds i8, ptr %48, i64 -16
+  store ptr %49, ptr %47, align 8
+  %.not.i5 = icmp eq ptr %0, %49
+  br i1 %.not.i5, label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit, label %50, !prof !5
+
+50:                                               ; preds = %42
+  %.sroa.5.0..sroa_idx.i = getelementptr inbounds i8, ptr %48, i64 -2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 2
   store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 2
-  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %39, i64 14, i1 false)
+  call void @llvm.memmove.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %0, ptr noundef nonnull align 8 dereferenceable(16) %49, i64 14, i1 false)
   %.sroa.5.0..sroa_idx4.i = getelementptr inbounds nuw i8, ptr %0, i64 14
   store i16 %.sroa.5.0.copyload.i, ptr %.sroa.5.0..sroa_idx4.i, align 2
   br label %_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit
 
-_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit: ; preds = %45, %50, %.thread
-  %51 = phi ptr [ %33, %50 ], [ %33, %.thread ], [ %46, %45 ]
+_ZN9rapidjson12GenericValueINS_4UTF8IcEENS_19MemoryPoolAllocatorINS_12CrtAllocatorEEEEaSERS6_.exit: ; preds = %.thread, %50, %42
+  %51 = phi ptr [ %38, %.thread ], [ %43, %50 ], [ %43, %42 ]
   %52 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %53 = load ptr, ptr %52, align 8
   %54 = getelementptr inbounds nuw i8, ptr %0, i64 56

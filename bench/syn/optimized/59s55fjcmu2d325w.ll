@@ -2692,7 +2692,7 @@ _ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit72: ; preds = %24
   %77 = getelementptr inbounds nuw i8, ptr %.sroa.0.0104237, i64 1
   %78 = load i8, ptr %77, align 1, !alias.scope !315, !noundef !4
   %79 = icmp sgt i8 %78, -65
-  %80 = add nuw nsw i32 %.0.ph173, 1
+  %80 = add i32 %.0.ph173, 1
   br i1 %79, label %_ZN3syn3lit5value4byte17h2572aba12ded7ffdE.exit66.lr.ph, label %81
 
 81:                                               ; preds = %"_ZN4core3str21_$LT$impl$u20$str$GT$16is_char_boundary17ha20072214ca7ea98E.exit.i79"
@@ -3424,8 +3424,9 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
   %.0108.ph334 = phi i64 [ %44, %.outer ], [ %22, %23 ]
   %.val139 = load ptr, ptr %.sroa.0.sroa.4.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %48 = trunc nuw i8 %.0103.ph336 to i1
-  %49 = trunc nuw i8 %.0101.ph337 to i1
-  br i1 %49, label %.lr.ph.split, label %.lr.ph.split.us
+  %49 = trunc i8 %.0101.ph337 to i1
+  %.fr = freeze i1 %49
+  br i1 %.fr, label %.lr.ph.split, label %.lr.ph.split.us
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %52
   %.0106303.us = phi i64 [ %.1107.us, %52 ], [ %.0106.ph335, %.lr.ph ]
@@ -3472,7 +3473,7 @@ define hidden void @_ZN3syn3lit5value15parse_lit_float17h8473f019ae83b75bE(ptr n
   br i1 %or.cond129, label %63, label %.loopexit
 
 63:                                               ; preds = %61, %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hce8c1d7268b9b62bE.exit", %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hce8c1d7268b9b62bE.exit"
-  br i1 %49, label %66, label %64
+  br i1 %.fr, label %66, label %64
 
 64:                                               ; preds = %63
   %65 = icmp ult i64 %.0108.ph334, %47
@@ -3834,7 +3835,7 @@ _ZN5alloc6string6String8truncate17h3a054fa0b3278baeE.exit: ; preds = %"_ZN5alloc
   br i1 %172, label %173, label %.invoke, !prof !425
 
 173:                                              ; preds = %171
-  %spec.select131 = select i1 %49, i8 1, i8 %.0103.ph336
+  %spec.select131 = select i1 %.fr, i8 1, i8 %.0103.ph336
   br label %.outer
 
 .thread202:                                       ; preds = %143, %146, %122, %170, %92, %81, %174

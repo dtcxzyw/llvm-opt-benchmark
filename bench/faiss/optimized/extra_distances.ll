@@ -2035,7 +2035,8 @@ define internal void @_ZN5faiss12_GLOBAL__N_128Run_pairwise_extra_distances1fINS
   %57 = uitofp i64 %.1.i.us to float
   %58 = fdiv float %32, %57
   %59 = fmul float %.121.i.us, %58
-  %60 = select i1 %56, float 0x7FF8000000000000, float %59
+  %cond.fr.i.us = freeze i1 %56
+  %60 = select i1 %cond.fr.i.us, float 0x7FF8000000000000, float %59
   %61 = getelementptr inbounds nuw float, ptr %42, i64 %.031.us37
   store float %60, ptr %61, align 4, !tbaa !27
   %62 = getelementptr inbounds float, ptr %.02829.us38, i64 %33
@@ -6228,7 +6229,8 @@ _ZN5faiss12heap_heapifyINS_4CMaxIflEEEEvmPNT_1TEPNS3_2TIEPKS4_PKS6_m.exit: ; pre
   %55 = uitofp i64 %.1.i to float
   %56 = fdiv float %54, %55
   %57 = fmul float %.121.i, %56
-  br i1 %53, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit.thread, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
+  %cond.fr.i = freeze i1 %53
+  br i1 %cond.fr.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit.thread, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
 
 .lr.ph.i:                                         ; preds = %.lr.ph.split, %69
   %.01825.i = phi i64 [ %70, %69 ], [ 0, %.lr.ph.split ]
@@ -7634,7 +7636,8 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   %14 = uitofp i64 %.1.i to float
   %15 = fdiv float %13, %14
   %16 = fmul float %.121.i, %15
-  br i1 %12, label %._crit_edge.thread.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
+  %cond.fr.i = freeze i1 %12
+  br i1 %cond.fr.i, label %._crit_edge.thread.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %3
   br label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
@@ -7693,7 +7696,8 @@ define internal noundef float @_ZN5faiss12_GLOBAL__N_121ExtraDistanceComputerINS
   %9 = uitofp i64 %.1.i to float
   %10 = fdiv float %8, %9
   %11 = fmul float %.121.i, %10
-  br i1 %7, label %._crit_edge.thread.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
+  %cond.fr.i = freeze i1 %7
+  br i1 %cond.fr.i, label %._crit_edge.thread.i, label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %2
   br label %_ZNK5faiss14VectorDistanceILNS_10MetricTypeE24EEclEPKfS4_.exit

@@ -345,19 +345,17 @@ define linkonce_odr noundef i32 @_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE9find_zeroI
 10:                                               ; preds = %4
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %12 = load i32, ptr %11, align 4, !tbaa !13
-  %.fr58.i = freeze i32 %12
-  %.not40.i = icmp eq i32 %.fr58.i, 0
+  %.not40.i = icmp eq i32 %12, 0
   br i1 %.not40.i, label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE24find_internal_zero_arrayI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %10
   %13 = load i32, ptr %9, align 8, !tbaa !13
-  %.fr56.i = freeze i32 %13
-  %14 = add i32 %.fr56.i, %.fr58.i
+  %14 = add i32 %13, %12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %16
 
 16:                                               ; preds = %30, %.lr.ph.i
-  %.02444.i = phi i32 [ %.fr56.i, %.lr.ph.i ], [ %.1.i, %30 ]
+  %.02444.i = phi i32 [ %13, %.lr.ph.i ], [ %.1.i, %30 ]
   %.02543.i = phi i32 [ -1, %.lr.ph.i ], [ %.126.i, %30 ]
   %.02742.i = phi i32 [ -1, %.lr.ph.i ], [ %.128.i, %30 ]
   %.02941.i = phi i32 [ %14, %.lr.ph.i ], [ %.130.i, %30 ]
@@ -376,9 +374,7 @@ _ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.ex
   %26 = load ptr, ptr %21, align 8, !tbaa !46
   %27 = tail call i64 @_ZNK4toku8locktree11get_dict_idEv(ptr noundef nonnull align 8 dereferenceable(400) %26)
   %28 = load i64, ptr %1, align 8, !tbaa !48
-  %.fr.i = freeze i64 %27
-  %.fr55.i = freeze i64 %28
-  %.not39.i = icmp eq i64 %.fr.i, %.fr55.i
+  %.not39.i = icmp eq i64 %27, %28
   %.027..i = select i1 %.not39.i, i32 %.02742.i, i32 %18
   %..025.i = select i1 %.not39.i, i32 %18, i32 %.02543.i
   br label %30
@@ -421,7 +417,8 @@ _ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.ex
   %41 = load i32, ptr %11, align 4
   %42 = load i32, ptr %9, align 8
   %43 = sub i32 %.128.i, %42
-  %spec.select.i = select i1 %.not34.i, i32 %41, i32 %43
+  %cond.fr.i = freeze i1 %.not34.i
+  %spec.select.i = select i1 %cond.fr.i, i32 %41, i32 %43
   br label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE24find_internal_zero_arrayI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit
 
 _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE24find_internal_zero_arrayI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit: ; preds = %10, %37, %40
@@ -466,19 +463,17 @@ define linkonce_odr noundef i32 @_ZN4toku3omtIPNS_8locktreeES2_Lb0EE6insertI13DI
 9:                                                ; preds = %4
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %11 = load i32, ptr %10, align 4, !tbaa !13
-  %.fr58.i.i = freeze i32 %11
-  %.not40.i.i = icmp eq i32 %.fr58.i.i, 0
+  %.not40.i.i = icmp eq i32 %11, 0
   br i1 %.not40.i.i, label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE24find_internal_zero_arrayI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit.i, label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %9
   %12 = load i32, ptr %8, align 8, !tbaa !13
-  %.fr56.i.i = freeze i32 %12
-  %13 = add i32 %.fr56.i.i, %.fr58.i.i
+  %13 = add i32 %12, %11
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 16
   br label %15
 
 15:                                               ; preds = %29, %.lr.ph.i.i
-  %.02444.i.i = phi i32 [ %.fr56.i.i, %.lr.ph.i.i ], [ %.1.i.i, %29 ]
+  %.02444.i.i = phi i32 [ %12, %.lr.ph.i.i ], [ %.1.i.i, %29 ]
   %.02543.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.126.i.i, %29 ]
   %.02742.i.i = phi i32 [ -1, %.lr.ph.i.i ], [ %.128.i.i, %29 ]
   %.02941.i.i = phi i32 [ %13, %.lr.ph.i.i ], [ %.130.i.i, %29 ]
@@ -497,9 +492,7 @@ _ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.ex
   %25 = load ptr, ptr %20, align 8, !tbaa !46
   %26 = tail call i64 @_ZNK4toku8locktree11get_dict_idEv(ptr noundef nonnull align 8 dereferenceable(400) %25)
   %27 = load i64, ptr %2, align 8, !tbaa !48
-  %.fr.i.i = freeze i64 %26
-  %.fr55.i.i = freeze i64 %27
-  %.not39.i.i = icmp eq i64 %.fr.i.i, %.fr55.i.i
+  %.not39.i.i = icmp eq i64 %26, %27
   %.027..i.i = select i1 %.not39.i.i, i32 %.02742.i.i, i32 %17
   %..025.i.i = select i1 %.not39.i.i, i32 %17, i32 %.02543.i.i
   br label %29
@@ -530,7 +523,8 @@ _ZN4toku16locktree_manager15find_by_dict_idERKPNS_8locktreeERK13DICTIONARY_ID.ex
   %34 = load i32, ptr %10, align 4
   %35 = load i32, ptr %8, align 8
   %36 = sub i32 %.128.i.i, %35
-  %spec.select.i.i = select i1 %.not34.i.i, i32 %34, i32 %36
+  %cond.fr.i.i = freeze i1 %.not34.i.i
+  %spec.select.i.i = select i1 %cond.fr.i.i, i32 %34, i32 %36
   br label %_ZNK4toku3omtIPNS_8locktreeES2_Lb0EE24find_internal_zero_arrayI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit.i
 
 _ZNK4toku3omtIPNS_8locktreeES2_Lb0EE24find_internal_zero_arrayI13DICTIONARY_IDTnPFiRKS2_RKT_EXadL_ZNS_16locktree_manager15find_by_dict_idES7_RKS5_EEEEiSA_PS2_Pj.exit.i: ; preds = %33, %30, %9

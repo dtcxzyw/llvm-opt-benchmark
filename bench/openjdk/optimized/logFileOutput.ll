@@ -190,7 +190,7 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
 .lr.ph.lr.ph.lr.ph:                               ; preds = %.lr.ph.lr.ph.lr.ph.preheader, %.outer
   %.0.ph194 = phi i64 [ %120, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph.preheader ]
   %.059.ph193 = phi i64 [ %121, %.outer ], [ 0, %.lr.ph.lr.ph.lr.ph.preheader ]
-  %.062.ph192 = phi ptr [ %.062.ph84142254, %.outer ], [ %8, %.lr.ph.lr.ph.lr.ph.preheader ]
+  %.062.ph192 = phi ptr [ %.062.ph84142, %.outer ], [ %8, %.lr.ph.lr.ph.lr.ph.preheader ]
   %.063.ph191 = phi ptr [ %.063.ph79169, %.outer ], [ %7, %.lr.ph.lr.ph.lr.ph.preheader ]
   %.064.ph190 = phi i1 [ true, %.outer ], [ %37, %.lr.ph.lr.ph.lr.ph.preheader ]
   br i1 %.064.ph190, label %.lr.ph.lr.ph.us.preheader, label %.lr.ph.lr.ph
@@ -200,57 +200,54 @@ define hidden noundef ptr @_ZN13LogFileOutput14make_file_nameEPKcS1_S1_(ptr nonn
   br label %.lr.ph.lr.ph.us
 
 .lr.ph.lr.ph.us:                                  ; preds = %.lr.ph.lr.ph.us.preheader, %.outer78.us
-  %.0.ph82172.us = phi i64 [ %43, %.outer78.us ], [ %.0.ph194, %.lr.ph.lr.ph.us.preheader ]
-  %.059.ph81171.us = phi i64 [ %44, %.outer78.us ], [ %.059.ph193, %.lr.ph.lr.ph.us.preheader ]
+  %.0.ph82172.us = phi i64 [ %42, %.outer78.us ], [ %.0.ph194, %.lr.ph.lr.ph.us.preheader ]
+  %.059.ph81171.us = phi i64 [ %43, %.outer78.us ], [ %.059.ph193, %.lr.ph.lr.ph.us.preheader ]
   %.062.ph80170.us = phi ptr [ %.us-phi103.us, %.outer78.us ], [ %.062.ph192, %.lr.ph.lr.ph.us.preheader ]
   %.063.ph79169.us = phi i1 [ true, %.outer78.us ], [ %38, %.lr.ph.lr.ph.us.preheader ]
-  br i1 %.063.ph79169.us, label %.lr.ph.us.us.us.preheader, label %.lr.ph.us.us174
-
-.lr.ph.us.us.us.preheader:                        ; preds = %.lr.ph.lr.ph.us
-  %39 = icmp eq ptr %.062.ph80170.us, null
-  br label %.lr.ph.us.us.us
+  br i1 %.063.ph79169.us, label %.lr.ph.us.us.us, label %.lr.ph.us.us174
 
 .outer78.us:                                      ; preds = %.tail70.us.us, %.tail70.us129.us.us
-  %.us-phi103.us = phi ptr [ %.062.ph84142.us.us177, %.tail70.us129.us.us ], [ null, %.tail70.us.us ]
+  %.us-phi103.us = phi ptr [ %.062.ph84142.us.us177, %.tail70.us129.us.us ], [ %.us-phi166.us, %.tail70.us.us ]
   %.us-phi104.us = phi i64 [ %.05996.us126.us147.us, %.tail70.us129.us.us ], [ %.05996.us.us, %.tail70.us.us ]
   %.us-phi105.us = phi i64 [ %.097.us125.us146.us, %.tail70.us129.us.us ], [ %.097.us.us, %.tail70.us.us ]
-  %40 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105.us
-  %41 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %40, ptr noundef nonnull dereferenceable(1) %3) #13
-  %42 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
-  %43 = add i64 %42, %.us-phi105.us
-  %44 = add i64 %.us-phi104.us, 2
-  %45 = icmp ult i64 %43, %.2
-  br i1 %45, label %.lr.ph.lr.ph.us, label %.outer83._crit_edge, !llvm.loop !6
+  %39 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105.us
+  %40 = call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %39, ptr noundef nonnull dereferenceable(1) %3) #13
+  %41 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %3) #14
+  %42 = add i64 %41, %.us-phi105.us
+  %43 = add i64 %.us-phi104.us, 2
+  %44 = icmp ult i64 %42, %.2
+  br i1 %44, label %.lr.ph.lr.ph.us, label %.outer83._crit_edge, !llvm.loop !6
 
-.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.split.us.split.us.us.preheader, %52
-  %.097.us.us = phi i64 [ %54, %52 ], [ %.097.us.us.ph, %.lr.ph.split.us.split.us.us.preheader ]
-  %.05996.us.us = phi i64 [ %53, %52 ], [ %.05996.us.us.ph, %.lr.ph.split.us.split.us.us.preheader ]
+45:                                               ; preds = %.lr.ph.split.us.split.us.us, %52
+  %.097.us.us = phi i64 [ %.us-phi168.us, %.lr.ph.split.us.split.us.us ], [ %54, %52 ]
+  %.05996.us.us = phi i64 [ %.us-phi167.us, %.lr.ph.split.us.split.us.us ], [ %53, %52 ]
   %46 = getelementptr inbounds i8, ptr %1, i64 %.05996.us.us
   %47 = load i8, ptr %46, align 1
   %48 = icmp ne i8 %47, 37
   %brmerge = or i1 %48, %.063.ph79169.us
   br i1 %brmerge, label %52, label %.tail70.us.us
 
-.tail70.us.us:                                    ; preds = %.lr.ph.split.us.split.us.us
+.tail70.us.us:                                    ; preds = %45
   %49 = getelementptr inbounds nuw i8, ptr %46, i64 1
   %50 = load i8, ptr %49, align 1
   %51 = icmp eq i8 %50, 116
   br i1 %51, label %.outer78.us, label %52
 
-52:                                               ; preds = %.lr.ph.split.us.split.us.us, %.tail70.us.us
+52:                                               ; preds = %45, %.tail70.us.us
   %53 = add i64 %.05996.us.us, 1
   %54 = add nuw i64 %.097.us.us, 1
   %55 = getelementptr inbounds i8, ptr %36, i64 %.097.us.us
   store i8 %47, ptr %55, align 1
   %56 = icmp ult i64 %54, %.2
-  br i1 %56, label %.lr.ph.split.us.split.us.us, label %.outer83._crit_edge, !llvm.loop !6
+  br i1 %56, label %45, label %.outer83._crit_edge, !llvm.loop !6
 
 .lr.ph.us.us174:                                  ; preds = %.lr.ph.lr.ph.us, %.split137.us.split.us152.us
   %.0.ph86144.us.us175 = phi i64 [ %75, %.split137.us.split.us152.us ], [ %.0.ph82172.us, %.lr.ph.lr.ph.us ]
   %.059.ph85143.us.us176 = phi i64 [ %76, %.split137.us.split.us152.us ], [ %.059.ph81171.us, %.lr.ph.lr.ph.us ]
   %.062.ph84142.us.us177 = phi ptr [ null, %.split137.us.split.us152.us ], [ %.062.ph80170.us, %.lr.ph.lr.ph.us ]
   %.not69.us.us178 = icmp eq ptr %.062.ph84142.us.us177, null
-  br i1 %.not69.us.us178, label %.lr.ph.split.us.split.us.us.preheader, label %.lr.ph.split.us145.us180
+  %.not69.fr.us.us179 = freeze i1 %.not69.us.us178
+  br i1 %.not69.fr.us.us179, label %.lr.ph.split.us.split.us.us, label %.lr.ph.split.us145.us180
 
 .lr.ph.split.us145.us180:                         ; preds = %.lr.ph.us.us174, %.tail74.us.us151.us.thread
   %.097.us125.us146.us = phi i64 [ %69, %.tail74.us.us151.us.thread ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
@@ -295,16 +292,19 @@ sub_176.us.us149.us:                              ; preds = %.tail70.us129.us.us
   %77 = icmp ult i64 %75, %.2
   br i1 %77, label %.lr.ph.us.us174, label %.outer83._crit_edge, !llvm.loop !6
 
-.lr.ph.us.us.us:                                  ; preds = %.lr.ph.us.us.us.preheader, %.split137.us.split.us.us.us.us
-  %.0.ph86144.us.us.us = phi i64 [ %93, %.split137.us.split.us.us.us.us ], [ %.0.ph82172.us, %.lr.ph.us.us.us.preheader ]
-  %.059.ph85143.us.us.us = phi i64 [ %94, %.split137.us.split.us.us.us.us ], [ %.059.ph81171.us, %.lr.ph.us.us.us.preheader ]
-  %.062.ph84142.us.us.us = phi i1 [ true, %.split137.us.split.us.us.us.us ], [ %39, %.lr.ph.us.us.us.preheader ]
-  br i1 %.062.ph84142.us.us.us, label %.lr.ph.split.us.split.us.us.preheader, label %.lr.ph.split.us145.us.us
+.lr.ph.split.us.split.us.us:                      ; preds = %.lr.ph.us.us174, %.lr.ph.us.us.us
+  %.us-phi166.us = phi ptr [ %.062.ph84142.us.us.us, %.lr.ph.us.us.us ], [ %.062.ph84142.us.us177, %.lr.ph.us.us174 ]
+  %.us-phi167.us = phi i64 [ %.059.ph85143.us.us.us, %.lr.ph.us.us.us ], [ %.059.ph85143.us.us176, %.lr.ph.us.us174 ]
+  %.us-phi168.us = phi i64 [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
+  br label %45
 
-.lr.ph.split.us.split.us.us.preheader:            ; preds = %.lr.ph.us.us174, %.lr.ph.us.us.us
-  %.097.us.us.ph = phi i64 [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ], [ %.0.ph86144.us.us175, %.lr.ph.us.us174 ]
-  %.05996.us.us.ph = phi i64 [ %.059.ph85143.us.us.us, %.lr.ph.us.us.us ], [ %.059.ph85143.us.us176, %.lr.ph.us.us174 ]
-  br label %.lr.ph.split.us.split.us.us
+.lr.ph.us.us.us:                                  ; preds = %.lr.ph.lr.ph.us, %.split137.us.split.us.us.us.us
+  %.0.ph86144.us.us.us = phi i64 [ %93, %.split137.us.split.us.us.us.us ], [ %.0.ph82172.us, %.lr.ph.lr.ph.us ]
+  %.059.ph85143.us.us.us = phi i64 [ %94, %.split137.us.split.us.us.us.us ], [ %.059.ph81171.us, %.lr.ph.lr.ph.us ]
+  %.062.ph84142.us.us.us = phi ptr [ null, %.split137.us.split.us.us.us.us ], [ %.062.ph80170.us, %.lr.ph.lr.ph.us ]
+  %.not69.us.us.us = icmp eq ptr %.062.ph84142.us.us.us, null
+  %.not69.fr.us.us.us = freeze i1 %.not69.us.us.us
+  br i1 %.not69.fr.us.us.us, label %.lr.ph.split.us.split.us.us, label %.lr.ph.split.us145.us.us
 
 .lr.ph.split.us145.us.us:                         ; preds = %.lr.ph.us.us.us, %.tail74.us.us.us.us.us.thread
   %.097.us125.us.us.us.us = phi i64 [ %87, %.tail74.us.us.us.us.us.thread ], [ %.0.ph86144.us.us.us, %.lr.ph.us.us.us ]
@@ -346,7 +346,7 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
 .lr.ph.lr.ph:                                     ; preds = %.lr.ph.lr.ph.lr.ph, %.outer78
   %.0.ph82172 = phi i64 [ %130, %.outer78 ], [ %.0.ph194, %.lr.ph.lr.ph.lr.ph ]
   %.059.ph81171 = phi i64 [ %131, %.outer78 ], [ %.059.ph193, %.lr.ph.lr.ph.lr.ph ]
-  %.062.ph80170 = phi ptr [ %.062.ph84142255, %.outer78 ], [ %.062.ph192, %.lr.ph.lr.ph.lr.ph ]
+  %.062.ph80170 = phi ptr [ %.062.ph84142, %.outer78 ], [ %.062.ph192, %.lr.ph.lr.ph.lr.ph ]
   %.063.ph79169 = phi ptr [ null, %.outer78 ], [ %.063.ph191, %.lr.ph.lr.ph.lr.ph ]
   %.not68 = icmp eq ptr %.063.ph79169, null
   br label %.lr.ph
@@ -404,7 +404,6 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %116, label %.outer, label %123
 
 .outer:                                           ; preds = %.tail.us, %.tail
-  %.062.ph84142254 = phi ptr [ %.062.ph84142, %.tail ], [ null, %.tail.us ]
   %.us-phi99 = phi i64 [ %.05996, %.tail ], [ %.05996.us, %.tail.us ]
   %.us-phi100 = phi i64 [ %.097, %.tail ], [ %.097.us, %.tail.us ]
   %117 = getelementptr inbounds i8, ptr %36, i64 %.us-phi100
@@ -425,7 +424,6 @@ sub_176.us.us.us.us.us:                           ; preds = %.lr.ph.split.us145.
   br i1 %126, label %.outer78, label %sub_176
 
 .outer78:                                         ; preds = %.tail70.us, %.tail70
-  %.062.ph84142255 = phi ptr [ %.062.ph84142, %.tail70 ], [ null, %.tail70.us ]
   %.us-phi104 = phi i64 [ %.05996, %.tail70 ], [ %.05996.us, %.tail70.us ]
   %.us-phi105 = phi i64 [ %.097, %.tail70 ], [ %.097.us, %.tail70.us ]
   %127 = getelementptr inbounds i8, ptr %36, i64 %.us-phi105

@@ -10029,6 +10029,7 @@ _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit: ; preds = %entry, %if.th
   %idxprom.i = sext i32 %retval.0.i.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %0, i64 %idxprom.i
   %6 = load i32, ptr %arrayidx.i, align 4
+  %.fr = freeze i32 %6
   %data_.i7 = getelementptr inbounds nuw i8, ptr %stopVector, i64 16
   %7 = load ptr, ptr %data_.i7, align 8
   %isIdentityMapping_.i.i8 = getelementptr inbounds nuw i8, ptr %stopVector, i64 58
@@ -10057,7 +10058,7 @@ if.end4.i.i13:                                    ; preds = %if.end.i.i10
 
 _ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit22: ; preds = %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit, %if.then3.i.i20, %if.end4.i.i13
   %retval.0.i.i17 = phi i32 [ %10, %if.then3.i.i20 ], [ %12, %if.end4.i.i13 ], [ %row, %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit ]
-  %conv.i = sext i32 %6 to i64
+  %conv.i = sext i32 %.fr to i64
   %tobool.not.i = icmp eq ptr %stepVector, null
   br i1 %tobool.not.i, label %if.then.i, label %if.end.i
 
@@ -10065,7 +10066,7 @@ if.then.i:                                        ; preds = %_ZNK8facebook5velox
   %idxprom.i18 = sext i32 %retval.0.i.i17 to i64
   %arrayidx.i19 = getelementptr inbounds i32, ptr %7, i64 %idxprom.i18
   %13 = load i32, ptr %arrayidx.i19, align 4
-  %cmp.not.i = icmp slt i32 %13, %6
+  %cmp.not.i = icmp slt i32 %13, %.fr
   %cond.i = select i1 %cmp.not.i, i32 -1, i32 1
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit
 
@@ -10117,12 +10118,12 @@ if.then8.i:                                       ; preds = %if.end5.i
 
 _ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit: ; preds = %if.end5.i, %if.then.i, %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i
   %retval.0.i = phi i32 [ %cond.i, %if.then.i ], [ %20, %_ZNK8facebook5velox13DecodedVector7valueAtIiEET_i.exit.i ], [ %div5.i, %if.end5.i ]
-  %cmp29 = icmp sgt i32 %sequenceCount, 0
-  br i1 %cmp29, label %for.body.lr.ph, label %for.end
+  %cmp30 = icmp sgt i32 %sequenceCount, 0
+  br i1 %cmp30, label %for.body.lr.ph, label %for.end
 
 for.body.lr.ph:                                   ; preds = %_ZN8facebook5velox9functions12_GLOBAL__N_116SequenceFunctionIiiE7getStepEllPNS0_13DecodedVectorEibb.exit
   %add.i.i.i = add nsw i64 %conv.i, 719468
-  %cmp.i.i.i = icmp sgt i32 %6, -719469
+  %cmp.i.i.i = icmp sgt i32 %.fr, -719469
   %sub.i.i.i = add nsw i64 %conv.i, 573372
   %cond.i.i.i = select i1 %cmp.i.i.i, i64 %add.i.i.i, i64 %sub.i.i.i
   %div.i.i.i = sdiv i64 %cond.i.i.i, 146097
@@ -10260,7 +10261,8 @@ if.end44.i.i:                                     ; preds = %cond.true.i.i29.i, 
   %mul.neg.i.i46.i = mul nsw i32 %div.i.i45.i, -400
   %sub7.i.i.i = add nsw i32 %mul.neg.i.i46.i, %sub.i.i41.i
   %cmp8.i.i.i = icmp ugt i8 %outCalDate.i.sroa.5.0.extract.trunc.i, 2
-  %spec.select.i = select i1 %cmp8.i.i.i, i32 -3, i32 9
+  %cond.fr.i = freeze i1 %cmp8.i.i.i
+  %spec.select.i = select i1 %cond.fr.i, i32 -3, i32 9
   %cond13.i.i.i = add nsw i32 %spec.select.i, %.pre.i
   %mul14.i.i.i = mul nsw i32 %cond13.i.i.i, 153
   %add15.i.i.i = add nsw i32 %mul14.i.i.i, 2
@@ -10278,7 +10280,7 @@ if.end44.i.i:                                     ; preds = %cond.true.i.i29.i, 
   br label %_ZN8facebook5velox9functions12_GLOBAL__N_13addIiiEET_S4_T0_i.exit
 
 _ZN8facebook5velox9functions12_GLOBAL__N_13addIiiEET_S4_T0_i.exit: ; preds = %for.body, %if.end44.i.i
-  %retval.i.0.i = phi i32 [ %sub27.i.i.i, %if.end44.i.i ], [ %6, %for.body ]
+  %retval.i.0.i = phi i32 [ %sub27.i.i.i, %if.end44.i.i ], [ %.fr, %for.body ]
   %arrayidx = getelementptr inbounds nuw i32, ptr %elements, i64 %indvars.iv
   store i32 %retval.i.0.i, ptr %arrayidx, align 4
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
@@ -21494,7 +21496,8 @@ if.end44.i.i.i:                                   ; preds = %cond.true.i.i42.i, 
   %mul.neg.i.i59.i = mul nsw i32 %div.i.i58.i, -400
   %sub7.i.i.i = add nsw i32 %mul.neg.i.i59.i, %sub.i.i54.i
   %cmp8.i.i.i = icmp ugt i8 %outCalDate.i.i.sroa.5.0.extract.trunc.i, 2
-  %spec.select.i = select i1 %cmp8.i.i.i, i32 -3, i32 9
+  %cond.fr.i = freeze i1 %cmp8.i.i.i
+  %spec.select.i = select i1 %cond.fr.i, i32 -3, i32 9
   %cond13.i.i.i = add nsw i32 %spec.select.i, %.pre.i
   %mul14.i.i.i = mul nsw i32 %cond13.i.i.i, 153
   %add15.i.i.i = add nsw i32 %mul14.i.i.i, 2

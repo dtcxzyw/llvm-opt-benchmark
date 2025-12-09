@@ -1294,10 +1294,12 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.i: ; preds = %
 
 .lr.ph.i.i:                                       ; preds = %.preheader.i.i
   %509 = icmp sgt i32 %.3.i.i, 0
-  br i1 %509, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph.split.i.i
+  %.fr.i.i = freeze i1 %509
+  br i1 %.fr.i.i, label %.lr.ph.split.us.preheader.i.i, label %.lr.ph.split.i.i
 
 .lr.ph.split.us.preheader.i.i:                    ; preds = %.lr.ph.i.i
-  %wide.trip.count145.i.i = zext nneg i32 %.3.i.i to i64
+  %smax.i.i = call i32 @llvm.smax.i32(i32 %.3.i.i, i32 1)
+  %wide.trip.count145.i.i = zext nneg i32 %smax.i.i to i64
   br label %.lr.ph.split.us.i.i
 
 .lr.ph.split.us.i.i:                              ; preds = %.loopexit.us.i.i, %.lr.ph.split.us.preheader.i.i
@@ -1427,7 +1429,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit123.i: ; preds = %
   br i1 %exitcond.not.i.i, label %570, label %559, !llvm.loop !73
 
 570:                                              ; preds = %559
-  %571 = add i32 %.2102.i.i, 1
+  %571 = add nsw i32 %.2102.i.i, 1
   br label %572
 
 572:                                              ; preds = %570, %554
@@ -5134,6 +5136,9 @@ declare noundef i32 @puts(ptr noundef readonly captures(none)) local_unnamed_add
 
 ; Function Attrs: nofree nounwind
 declare noundef i32 @fputc(i32 noundef, ptr noundef captures(none)) local_unnamed_addr #16
+
+; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
+declare i32 @llvm.smax.i32(i32, i32) #17
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
 declare float @llvm.sqrt.f32(float) #17

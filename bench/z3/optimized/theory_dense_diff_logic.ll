@@ -4730,7 +4730,8 @@ _ZN6vectorIS_IN3smt23theory_dense_diff_logicINS0_6mi_extEE4cellELb1EjELb1EjE3end
   %63 = getelementptr inbounds nuw i8, ptr %3, i64 56
   %64 = getelementptr inbounds nuw i8, ptr %3, i64 60
   %65 = getelementptr inbounds nuw i8, ptr %3, i64 64
-  br i1 %.not80118, label %._crit_edge127, label %.lr.ph126.split
+  %.not80118.fr = freeze i1 %.not80118
+  br i1 %.not80118.fr, label %._crit_edge127, label %.lr.ph126.split
 
 66:                                               ; preds = %.lr.ph, %95
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %95 ]
@@ -4783,7 +4784,7 @@ _ZN12inf_rationalpLERKS_.exit:                    ; preds = %.noexc
           to label %89 unwind label %93
 
 89:                                               ; preds = %85
-  %90 = getelementptr i8, ptr %.068116, i64 72
+  %90 = getelementptr inbounds nuw i8, ptr %.068116, i64 72
   br label %95
 
 91:                                               ; preds = %.noexc, %70, %68
@@ -24558,7 +24559,8 @@ _ZN6vectorIS_IN3smt23theory_dense_diff_logicINS0_5i_extEE4cellELb1EjELb1EjE3endE
   %54 = getelementptr inbounds nuw i8, ptr %3, i64 24
   %55 = getelementptr inbounds nuw i8, ptr %3, i64 28
   %56 = getelementptr inbounds nuw i8, ptr %3, i64 32
-  br i1 %.not80125, label %._crit_edge134, label %.lr.ph133.split
+  %.not80125.fr = freeze i1 %.not80125
+  br i1 %.not80125.fr, label %._crit_edge134, label %.lr.ph133.split
 
 57:                                               ; preds = %.lr.ph, %149
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %149 ]
@@ -24722,7 +24724,7 @@ _ZN11mpq_managerILb1EE3setER3mpzRKS1_.exit.i.i99: ; preds = %133, %128
           to label %_ZN8rationalaSERKS_.exit102 unwind label %147
 
 _ZN8rationalaSERKS_.exit102:                      ; preds = %138, %143
-  %144 = getelementptr i8, ptr %.068123, i64 40
+  %144 = getelementptr inbounds nuw i8, ptr %.068123, i64 40
   br label %149
 
 145:                                              ; preds = %_ZN8rationalaSERKS_.exit, %76, %68
@@ -39112,7 +39114,8 @@ _ZN6vectorIS_IN3smt23theory_dense_diff_logicINS0_7smi_extEE4cellELb1EjELb1EjE3en
   %41 = zext i32 %13 to i64
   %.not6892 = icmp eq ptr %.fr123126, %.059.lcssa128
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  br i1 %.not6892, label %._crit_edge101, label %.lr.ph100.split
+  %.not6892.fr = freeze i1 %.not6892
+  br i1 %.not6892.fr, label %._crit_edge101, label %.lr.ph100.split
 
 43:                                               ; preds = %.lr.ph, %_ZltRK13inf_s_integerS1_.exit.thread86
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %_ZltRK13inf_s_integerS1_.exit.thread86 ]
@@ -39162,7 +39165,7 @@ _ZltRK13inf_s_integerS1_.exit.thread:             ; preds = %58, %_ZltRK13inf_s_
   store i32 %50, ptr %68, align 4, !tbaa !1112
   %69 = getelementptr inbounds nuw i8, ptr %.05990, i64 8
   store i32 %53, ptr %69, align 4, !tbaa !1113
-  %70 = getelementptr i8, ptr %.05990, i64 12
+  %70 = getelementptr inbounds nuw i8, ptr %.05990, i64 12
   br label %_ZltRK13inf_s_integerS1_.exit.thread86
 
 _ZltRK13inf_s_integerS1_.exit.thread86:           ; preds = %62, %_ZltRK13inf_s_integerS1_.exit, %_ZltRK13inf_s_integerS1_.exit.thread, %43
@@ -51438,7 +51441,8 @@ _ZN6vectorIS_IN3smt23theory_dense_diff_logicINS0_6si_extEE4cellELb1EjELb1EjE3end
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 208
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 76
-  br i1 %.not6887, label %._crit_edge96, label %.lr.ph95.split
+  %.not6887.fr = freeze i1 %.not6887
+  br i1 %.not6887.fr, label %._crit_edge96, label %.lr.ph95.split
 
 46:                                               ; preds = %.lr.ph, %65
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %65 ]
@@ -51472,7 +51476,7 @@ _ZN6vectorIS_IN3smt23theory_dense_diff_logicINS0_6si_extEE4cellELb1EjELb1EjE3end
   store i32 %62, ptr %.05985, align 4, !tbaa !1332
   %63 = getelementptr inbounds nuw i8, ptr %.05985, i64 4
   store i32 %52, ptr %63, align 4, !tbaa !24
-  %64 = getelementptr i8, ptr %.05985, i64 8
+  %64 = getelementptr inbounds nuw i8, ptr %.05985, i64 8
   br label %65
 
 65:                                               ; preds = %57, %61, %46

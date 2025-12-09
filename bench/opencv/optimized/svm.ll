@@ -16019,7 +16019,8 @@ define linkonce_odr hidden void @_ZN2cv2ml7SVMImpl6Solver8calc_rhoERdS3_(ptr nou
   %13 = fadd double %.144, %.142
   %14 = fmul double %13, 5.000000e-01
   %15 = icmp sgt i32 %.1, 0
-  br i1 %15, label %16, label %._crit_edge.thread
+  %cond.fr = freeze i1 %15
+  br i1 %cond.fr, label %16, label %._crit_edge.thread
 
 16:                                               ; preds = %._crit_edge
   %17 = uitofp nneg i32 %.1 to double
@@ -16082,7 +16083,7 @@ define linkonce_odr hidden void @_ZN2cv2ml7SVMImpl6Solver8calc_rhoERdS3_(ptr nou
   br label %49
 
 46:                                               ; preds = %37
-  %47 = add i32 %.052, 1
+  %47 = add nsw i32 %.052, 1
   %48 = fadd double %.04548, %25
   br label %49
 
@@ -18300,9 +18301,11 @@ define linkonce_odr hidden void @_ZN2cv2ml7SVMImpl6Solver15calc_rho_nu_svmERdS3_
   %17 = icmp sgt i32 %.1, 0
   %18 = uitofp nneg i32 %.1 to double
   %19 = fdiv double %.166, %18
-  %20 = select i1 %17, double %19, double %14
+  %cond.fr89 = freeze i1 %17
+  %20 = select i1 %cond.fr89, double %19, double %14
   %21 = icmp sgt i32 %.153, 0
-  br i1 %21, label %22, label %.thread
+  %cond.fr = freeze i1 %21
+  br i1 %cond.fr, label %22, label %.thread
 
 22:                                               ; preds = %._crit_edge
   %23 = uitofp nneg i32 %.153 to double
@@ -18358,7 +18361,7 @@ define linkonce_odr hidden void @_ZN2cv2ml7SVMImpl6Solver15calc_rho_nu_svmERdS3_
   br label %61
 
 47:                                               ; preds = %43
-  %48 = add i32 %.078, 1
+  %48 = add nsw i32 %.078, 1
   %49 = fadd double %.06570, %32
   br label %61
 
@@ -18380,7 +18383,7 @@ define linkonce_odr hidden void @_ZN2cv2ml7SVMImpl6Solver15calc_rho_nu_svmERdS3_
   br label %61
 
 58:                                               ; preds = %54
-  %59 = add i32 %.05277, 1
+  %59 = add nsw i32 %.05277, 1
   %60 = fadd double %.06371, %32
   br label %61
 

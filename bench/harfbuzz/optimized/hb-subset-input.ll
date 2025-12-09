@@ -1322,10 +1322,8 @@ _ZNK11hb_vector_tIN12hb_bit_set_t10page_map_tELb1EE5bfindIS1_Lb1ETnPN12hb_enable
   %.sink.i = load ptr, ptr %16, align 8, !tbaa !93
   %64 = getelementptr inbounds nuw i8, ptr %.sink30.i, i64 4
   %65 = load i32, ptr %64, align 4, !tbaa !100
-  %.fr = freeze i32 %65
-  %66 = zext i32 %.fr to i64
-  %.sink.i.fr = freeze ptr %.sink.i
-  %67 = getelementptr %struct.hb_bit_page_t, ptr %.sink.i.fr, i64 %66
+  %66 = zext i32 %65 to i64
+  %67 = getelementptr inbounds nuw %struct.hb_bit_page_t, ptr %.sink.i, i64 %66
   br label %_ZN12hb_bit_set_t8page_forEjb.exit
 
 _ZN12hb_bit_set_t8page_forEjb.exit:               ; preds = %43, %.sink.split.i
@@ -1340,7 +1338,8 @@ _ZN12hb_bit_set_t8page_forEjb.exit.thread:        ; preds = %_ZN12hb_bit_set_t8p
   %72 = add i32 %71, 512
   %or.cond = or i1 %1, %68
   %73 = getelementptr inbounds nuw i8, ptr %.1.i, i64 8
-  br i1 %or.cond, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us
+  %or.cond.fr = freeze i1 %or.cond
+  br i1 %or.cond.fr, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split, label %_ZN12hb_bit_set_t8page_forEjb.exit.thread.split.us
 
 _ZN12hb_bit_set_t8page_forEjb.exit.thread.thread: ; preds = %.loopexit.i
   %74 = and i32 %.03369, -512
@@ -2154,9 +2153,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   %.03143 = phi i32 [ %.03145, %36 ], [ %spec.select, %37 ]
   %.03041 = phi i32 [ %.03046, %36 ], [ %43, %37 ]
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
-  %.03143.fr = freeze i32 %.03143
-  %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %49 = icmp eq i32 %.03143, -1
+  %cond.fr = freeze i1 %49
+  %spec.select68 = select i1 %cond.fr, i32 %.03041, i32 %.03143
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
@@ -2401,9 +2400,9 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIj6TripleLb0E
   %.03143 = phi i32 [ %.03145, %36 ], [ %spec.select, %37 ]
   %.03041 = phi i32 [ %.03046, %36 ], [ %43, %37 ]
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
-  %.03143.fr = freeze i32 %.03143
-  %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %49 = icmp eq i32 %.03143, -1
+  %cond.fr = freeze i1 %49
+  %spec.select68 = select i1 %cond.fr, i32 %.03041, i32 %.03143
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge

@@ -3118,7 +3118,8 @@ define noalias noundef ptr @Sdb_StoFindInputs(ptr noundef readonly captures(none
   %28 = add nuw nsw i32 %.1109.lcssa, 1
   %29 = tail call noalias dereferenceable_or_null(16) ptr @malloc(i64 noundef 16) #23
   %or.cond.i.i = icmp ult i32 %.1109.lcssa, 15
-  %spec.select = select i1 %or.cond.i.i, i32 16, i32 %28
+  %cond.fr = freeze i1 %or.cond.i.i
+  %spec.select = select i1 %cond.fr, i32 16, i32 %28
   br label %Vec_IntAlloc.exit.i
 
 Vec_IntAlloc.exit.i:                              ; preds = %.critedge, %.critedge.thread

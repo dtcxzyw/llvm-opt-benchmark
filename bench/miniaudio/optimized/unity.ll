@@ -51337,15 +51337,14 @@ define i64 @ma_dr_wav_read_pcm_frames_f32(ptr noundef captures(address_is_null) 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i16, ptr %16, align 8, !tbaa !1159
-  %.fr64.i = freeze i16 %17
-  %18 = zext i16 %.fr64.i to i64
+  %18 = zext i16 %17 to i64
   %19 = mul i64 %1, %18
   %20 = and i64 %19, 4611686017353646080
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %15
-  %.rhs.trunc95 = zext i16 %.fr64.i to i32
+  %.rhs.trunc95 = zext i16 %17 to i32
   %22 = udiv i32 1073741823, %.rhs.trunc95
   %.zext96 = zext nneg i32 %22 to i64
   br label %23
@@ -51393,7 +51392,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %32, %38
   br i1 %.old.i, label %ma_dr_wav_read_pcm_frames_f32__pcm.exit, label %42
 
 42:                                               ; preds = %ma_dr_wav_get_bytes_per_pcm_frame.exit.i
-  %43 = zext i16 %.fr64.i to i32
+  %43 = zext i16 %17 to i32
   %44 = udiv i32 %.0.i.i, %43
   %45 = urem i32 %.0.i.i, %43
   %46 = icmp samesign uge i32 %.0.i.i, %43
@@ -51577,7 +51576,7 @@ ma_dr_wav_read_pcm_frames_f32__pcm.exit:          ; preds = %53, %56, %.loopexit
   br label %127
 
 127:                                              ; preds = %.loopexit.i37, %126
-  %128 = phi i16 [ %.fr64.i, %126 ], [ %134, %.loopexit.i37 ]
+  %128 = phi i16 [ %17, %126 ], [ %134, %.loopexit.i37 ]
   %.01932.i = phi i64 [ %.030, %126 ], [ %144, %.loopexit.i37 ]
   %.02031.i = phi ptr [ %2, %126 ], [ %143, %.loopexit.i37 ]
   %.02230.i = phi i64 [ 0, %126 ], [ %145, %.loopexit.i37 ]
@@ -51654,24 +51653,24 @@ ma_dr_wav_read_pcm_frames_f32__msadpcm_ima.exit:  ; preds = %127, %.loopexit.i37
 
 ma_dr_wav_get_bytes_per_pcm_frame.exit.i41:       ; preds = %155, %161
   %.0.i.i39 = phi i32 [ %160, %155 ], [ %164, %161 ]
-  %.0.i.fr.i = freeze i32 %.0.i.i39
-  %.old.i42 = icmp eq i32 %.0.i.fr.i, 0
+  %.old.i42 = icmp eq i32 %.0.i.i39, 0
   br i1 %.old.i42, label %ma_dr_wav_read_pcm_frames_f32__ieee.exit, label %165
 
 165:                                              ; preds = %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41
-  %166 = zext i16 %.fr64.i to i32
-  %167 = udiv i32 %.0.i.fr.i, %166
-  %168 = urem i32 %.0.i.fr.i, %166
-  %169 = icmp samesign uge i32 %.0.i.fr.i, %166
+  %166 = zext i16 %17 to i32
+  %167 = udiv i32 %.0.i.i39, %166
+  %168 = urem i32 %.0.i.i39, %166
+  %.fr.i = freeze i32 %167
+  %169 = icmp samesign uge i32 %.0.i.i39, %166
   %.not.i43 = icmp eq i32 %168, 0
   %or.cond170 = and i1 %169, %.not.i43
   br i1 %or.cond170, label %.preheader.i45, label %ma_dr_wav_read_pcm_frames_f32__ieee.exit
 
 .preheader.i45:                                   ; preds = %165
-  %170 = udiv i32 4096, %.0.i.fr.i
+  %170 = udiv i32 4096, %.0.i.i39
   %171 = zext nneg i32 %170 to i64
-  %172 = zext nneg i32 %167 to i64
-  switch i32 %167, label %.preheader.split.i [
+  %172 = zext nneg i32 %.fr.i to i64
+  switch i32 %.fr.i, label %.preheader.split.i [
     i32 4, label %.preheader.split.us.i
     i32 8, label %.preheader.split.us56.i
   ]
@@ -51824,10 +51823,10 @@ ma_dr_wav_read_pcm_frames_f32__ieee.exit:         ; preds = %.preheader.split.us
   br i1 %or.cond.i61, label %ma_dr_wav_read_pcm_frames_f32__alaw.exit, label %239
 
 239:                                              ; preds = %237
-  %240 = zext i16 %.fr64.i to i32
+  %240 = zext i16 %17 to i32
   %.lhs.trunc = trunc nuw i32 %.0.i.i48 to i16
-  %241 = udiv i16 %.lhs.trunc, %.fr64.i
-  %242 = urem i16 %.lhs.trunc, %.fr64.i
+  %241 = udiv i16 %.lhs.trunc, %17
+  %242 = urem i16 %.lhs.trunc, %17
   %243 = icmp samesign uge i32 %.0.i.i48, %240
   %.not.i52 = icmp eq i16 %242, 0
   %or.cond171 = select i1 %243, i1 %.not.i52, i1 false
@@ -51924,10 +51923,10 @@ ma_dr_wav_read_pcm_frames_f32__alaw.exit:         ; preds = %247, %250, %.loopex
   br i1 %or.cond.i81, label %ma_dr_wav_read_pcm_frames_f32__mulaw.exit, label %287
 
 287:                                              ; preds = %285
-  %288 = zext i16 %.fr64.i to i32
+  %288 = zext i16 %17 to i32
   %.lhs.trunc87 = trunc nuw i32 %.0.i.i62 to i16
-  %289 = udiv i16 %.lhs.trunc87, %.fr64.i
-  %290 = urem i16 %.lhs.trunc87, %.fr64.i
+  %289 = udiv i16 %.lhs.trunc87, %17
+  %290 = urem i16 %.lhs.trunc87, %17
   %291 = icmp samesign uge i32 %.0.i.i62, %288
   %.not.i66 = icmp eq i16 %290, 0
   %or.cond172 = select i1 %291, i1 %.not.i66, i1 false
@@ -52015,15 +52014,14 @@ define i64 @ma_dr_wav_read_pcm_frames_s16(ptr noundef captures(address_is_null) 
 14:                                               ; preds = %10
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %16 = load i16, ptr %15, align 8, !tbaa !1159
-  %.fr62.i = freeze i16 %16
-  %17 = zext i16 %.fr62.i to i64
+  %17 = zext i16 %16 to i64
   %18 = mul i64 %1, %17
   %19 = and i64 %18, 9223372034707292160
   %.not = icmp eq i64 %19, 0
   br i1 %.not, label %22, label %20
 
 20:                                               ; preds = %14
-  %.rhs.trunc89 = zext i16 %.fr62.i to i32
+  %.rhs.trunc89 = zext i16 %16 to i32
   %21 = udiv i32 2147483647, %.rhs.trunc89
   %.zext90 = zext nneg i32 %21 to i64
   br label %22
@@ -52079,7 +52077,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %33, %39
   br i1 %.old.i, label %ma_dr_wav_read_pcm_frames_s16__pcm.exit, label %43
 
 43:                                               ; preds = %ma_dr_wav_get_bytes_per_pcm_frame.exit.i
-  %44 = zext i16 %.fr62.i to i32
+  %44 = zext i16 %16 to i32
   %45 = udiv i32 %.0.i.i, %44
   %46 = urem i32 %.0.i.i, %44
   %47 = icmp samesign uge i32 %.0.i.i, %44
@@ -52261,24 +52259,24 @@ ma_dr_wav_read_pcm_frames_s16__pcm.exit:          ; preds = %54, %57, %.loopexit
 
 ma_dr_wav_get_bytes_per_pcm_frame.exit.i40:       ; preds = %114, %120
   %.0.i.i38 = phi i32 [ %119, %114 ], [ %123, %120 ]
-  %.0.i.fr.i = freeze i32 %.0.i.i38
-  %.old.i41 = icmp eq i32 %.0.i.fr.i, 0
+  %.old.i41 = icmp eq i32 %.0.i.i38, 0
   br i1 %.old.i41, label %ma_dr_wav_read_pcm_frames_s16__ieee.exit, label %124
 
 124:                                              ; preds = %ma_dr_wav_get_bytes_per_pcm_frame.exit.i40
-  %125 = zext i16 %.fr62.i to i32
-  %126 = udiv i32 %.0.i.fr.i, %125
-  %127 = urem i32 %.0.i.fr.i, %125
-  %128 = icmp samesign uge i32 %.0.i.fr.i, %125
+  %125 = zext i16 %16 to i32
+  %126 = udiv i32 %.0.i.i38, %125
+  %127 = urem i32 %.0.i.i38, %125
+  %.fr.i = freeze i32 %126
+  %128 = icmp samesign uge i32 %.0.i.i38, %125
   %.not.i42 = icmp eq i32 %127, 0
   %or.cond161 = and i1 %128, %.not.i42
   br i1 %or.cond161, label %.preheader.i44, label %ma_dr_wav_read_pcm_frames_s16__ieee.exit
 
 .preheader.i44:                                   ; preds = %124
-  %129 = udiv i32 4096, %.0.i.fr.i
+  %129 = udiv i32 4096, %.0.i.i38
   %130 = zext nneg i32 %129 to i64
-  %131 = zext nneg i32 %126 to i64
-  switch i32 %126, label %.preheader.split.i [
+  %131 = zext nneg i32 %.fr.i to i64
+  switch i32 %.fr.i, label %.preheader.split.i [
     i32 4, label %.preheader.split.us.i
     i32 8, label %.preheader.split.us54.i
   ]
@@ -52456,10 +52454,10 @@ ma_dr_wav_read_pcm_frames_s16__ieee.exit:         ; preds = %.preheader.split.us
   br i1 %or.cond.i56, label %ma_dr_wav_read_pcm_frames_s16__alaw.exit, label %217
 
 217:                                              ; preds = %215
-  %218 = zext i16 %.fr62.i to i32
+  %218 = zext i16 %16 to i32
   %.lhs.trunc = trunc nuw i32 %.0.i.i47 to i16
-  %219 = udiv i16 %.lhs.trunc, %.fr62.i
-  %220 = urem i16 %.lhs.trunc, %.fr62.i
+  %219 = udiv i16 %.lhs.trunc, %16
+  %220 = urem i16 %.lhs.trunc, %16
   %221 = icmp samesign uge i32 %.0.i.i47, %218
   %.not.i51 = icmp eq i16 %220, 0
   %or.cond162 = select i1 %221, i1 %.not.i51, i1 false
@@ -52553,10 +52551,10 @@ ma_dr_wav_read_pcm_frames_s16__alaw.exit:         ; preds = %225, %228, %.loopex
   br i1 %or.cond.i75, label %ma_dr_wav_read_pcm_frames_s16__mulaw.exit, label %263
 
 263:                                              ; preds = %261
-  %264 = zext i16 %.fr62.i to i32
+  %264 = zext i16 %16 to i32
   %.lhs.trunc81 = trunc nuw i32 %.0.i.i57 to i16
-  %265 = udiv i16 %.lhs.trunc81, %.fr62.i
-  %266 = urem i16 %.lhs.trunc81, %.fr62.i
+  %265 = udiv i16 %.lhs.trunc81, %16
+  %266 = urem i16 %.lhs.trunc81, %16
   %267 = icmp samesign uge i32 %.0.i.i57, %264
   %.not.i61 = icmp eq i16 %266, 0
   %or.cond163 = select i1 %267, i1 %.not.i61, i1 false
@@ -52650,15 +52648,14 @@ define i64 @ma_dr_wav_read_pcm_frames_s32(ptr noundef captures(address_is_null) 
 15:                                               ; preds = %11
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 112
   %17 = load i16, ptr %16, align 8, !tbaa !1159
-  %.fr59.i = freeze i16 %17
-  %18 = zext i16 %.fr59.i to i64
+  %18 = zext i16 %17 to i64
   %19 = mul i64 %1, %18
   %20 = and i64 %19, 4611686017353646080
   %.not = icmp eq i64 %20, 0
   br i1 %.not, label %23, label %21
 
 21:                                               ; preds = %15
-  %.rhs.trunc95 = zext i16 %.fr59.i to i32
+  %.rhs.trunc95 = zext i16 %17 to i32
   %22 = udiv i32 1073741823, %.rhs.trunc95
   %.zext96 = zext nneg i32 %22 to i64
   br label %23
@@ -52714,7 +52711,7 @@ ma_dr_wav_get_bytes_per_pcm_frame.exit.i:         ; preds = %35, %41
   br i1 %.old.i, label %ma_dr_wav_read_pcm_frames_s32__pcm.exit, label %45
 
 45:                                               ; preds = %ma_dr_wav_get_bytes_per_pcm_frame.exit.i
-  %46 = zext i16 %.fr59.i to i32
+  %46 = zext i16 %17 to i32
   %47 = udiv i32 %.0.i.i, %46
   %48 = urem i32 %.0.i.i, %46
   %49 = icmp samesign uge i32 %.0.i.i, %46
@@ -52892,7 +52889,7 @@ ma_dr_wav_read_pcm_frames_s32__pcm.exit:          ; preds = %56, %59, %.loopexit
   br label %124
 
 124:                                              ; preds = %.loopexit.i37, %123
-  %125 = phi i16 [ %.fr59.i, %123 ], [ %131, %.loopexit.i37 ]
+  %125 = phi i16 [ %17, %123 ], [ %131, %.loopexit.i37 ]
   %.01932.i = phi i64 [ %.030, %123 ], [ %141, %.loopexit.i37 ]
   %.02031.i = phi ptr [ %2, %123 ], [ %140, %.loopexit.i37 ]
   %.02230.i = phi i64 [ 0, %123 ], [ %142, %.loopexit.i37 ]
@@ -52961,24 +52958,24 @@ ma_dr_wav_read_pcm_frames_s32__msadpcm_ima.exit:  ; preds = %124, %.loopexit.i37
 
 ma_dr_wav_get_bytes_per_pcm_frame.exit.i41:       ; preds = %149, %155
   %.0.i.i39 = phi i32 [ %154, %149 ], [ %158, %155 ]
-  %.0.i.fr.i = freeze i32 %.0.i.i39
-  %.old.i42 = icmp eq i32 %.0.i.fr.i, 0
+  %.old.i42 = icmp eq i32 %.0.i.i39, 0
   br i1 %.old.i42, label %ma_dr_wav_read_pcm_frames_s32__ieee.exit, label %159
 
 159:                                              ; preds = %ma_dr_wav_get_bytes_per_pcm_frame.exit.i41
-  %160 = zext i16 %.fr59.i to i32
-  %161 = udiv i32 %.0.i.fr.i, %160
-  %162 = urem i32 %.0.i.fr.i, %160
-  %163 = icmp samesign uge i32 %.0.i.fr.i, %160
+  %160 = zext i16 %17 to i32
+  %161 = udiv i32 %.0.i.i39, %160
+  %162 = urem i32 %.0.i.i39, %160
+  %.fr.i = freeze i32 %161
+  %163 = icmp samesign uge i32 %.0.i.i39, %160
   %.not.i43 = icmp eq i32 %162, 0
   %or.cond170 = and i1 %163, %.not.i43
   br i1 %or.cond170, label %.preheader.i45, label %ma_dr_wav_read_pcm_frames_s32__ieee.exit
 
 .preheader.i45:                                   ; preds = %159
-  %164 = udiv i32 4096, %.0.i.fr.i
+  %164 = udiv i32 4096, %.0.i.i39
   %165 = zext nneg i32 %164 to i64
-  %166 = zext nneg i32 %161 to i64
-  switch i32 %161, label %.preheader.split.i [
+  %166 = zext nneg i32 %.fr.i to i64
+  switch i32 %.fr.i, label %.preheader.split.i [
     i32 4, label %.preheader.split.us.i
     i32 8, label %.preheader.split.us51.i
   ]
@@ -53133,10 +53130,10 @@ ma_dr_wav_read_pcm_frames_s32__ieee.exit:         ; preds = %.preheader.split.us
   br i1 %or.cond.i61, label %ma_dr_wav_read_pcm_frames_s32__alaw.exit, label %235
 
 235:                                              ; preds = %233
-  %236 = zext i16 %.fr59.i to i32
+  %236 = zext i16 %17 to i32
   %.lhs.trunc = trunc nuw i32 %.0.i.i48 to i16
-  %237 = udiv i16 %.lhs.trunc, %.fr59.i
-  %238 = urem i16 %.lhs.trunc, %.fr59.i
+  %237 = udiv i16 %.lhs.trunc, %17
+  %238 = urem i16 %.lhs.trunc, %17
   %239 = icmp samesign uge i32 %.0.i.i48, %236
   %.not.i52 = icmp eq i16 %238, 0
   %or.cond171 = select i1 %239, i1 %.not.i52, i1 false
@@ -53233,10 +53230,10 @@ ma_dr_wav_read_pcm_frames_s32__alaw.exit:         ; preds = %243, %246, %.loopex
   br i1 %or.cond.i81, label %ma_dr_wav_read_pcm_frames_s32__mulaw.exit, label %283
 
 283:                                              ; preds = %281
-  %284 = zext i16 %.fr59.i to i32
+  %284 = zext i16 %17 to i32
   %.lhs.trunc87 = trunc nuw i32 %.0.i.i62 to i16
-  %285 = udiv i16 %.lhs.trunc87, %.fr59.i
-  %286 = urem i16 %.lhs.trunc87, %.fr59.i
+  %285 = udiv i16 %.lhs.trunc87, %17
+  %286 = urem i16 %.lhs.trunc87, %17
   %287 = icmp samesign uge i32 %.0.i.i62, %284
   %.not.i66 = icmp eq i16 %286, 0
   %or.cond172 = select i1 %287, i1 %.not.i66, i1 false
@@ -59673,13 +59670,13 @@ ma_mp3_get_data_format.exit:                      ; preds = %6
 
 ma_dr_mp3_read_pcm_frames_s16.exit:               ; preds = %18, %11
   %.0 = phi i64 [ %13, %11 ], [ %20, %18 ]
-  %.0.fr = freeze i64 %.0
-  %21 = icmp eq i64 %.0.fr, 0
-  %spec.select = select i1 %21, i32 -17, i32 0
+  %21 = icmp eq i64 %.0, 0
+  %cond.fr = freeze i1 %21
+  %spec.select = select i1 %cond.fr, i32 -17, i32 0
   br label %ma_dr_mp3_read_pcm_frames_s16.exit.thread
 
 ma_dr_mp3_read_pcm_frames_s16.exit.thread:        ; preds = %ma_dr_mp3_read_pcm_frames_s16.exit, %14
-  %.026 = phi i64 [ 0, %14 ], [ %.0.fr, %ma_dr_mp3_read_pcm_frames_s16.exit ]
+  %.026 = phi i64 [ 0, %14 ], [ %.0, %ma_dr_mp3_read_pcm_frames_s16.exit ]
   %22 = phi i32 [ -17, %14 ], [ %spec.select, %ma_dr_mp3_read_pcm_frames_s16.exit ]
   br i1 %.not, label %24, label %23
 
@@ -108426,7 +108423,6 @@ ma_resource_manager_post_job.exit44.thread:       ; preds = %ma_resource_manager
 
 .thread:                                          ; preds = %16, %33
   %.03352 = phi i32 [ %.033, %33 ], [ %18, %16 ]
-  %.03352.fr = freeze i32 %.03352
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %36 = load ptr, ptr %35, align 8, !tbaa !7
   %37 = call i32 @ma_decoder_uninit(ptr noundef %36)
@@ -108454,20 +108450,21 @@ ma_resource_manager_post_job.exit44.thread:       ; preds = %ma_resource_manager
   br label %ma_free.exit
 
 ma_free.exit:                                     ; preds = %46, %44, %41, %.thread
-  %47 = icmp eq i32 %.03352.fr, -17
-  br i1 %47, label %.thread67, label %49
+  %47 = icmp eq i32 %.03352, -17
+  %cond.fr = freeze i1 %47
+  br i1 %cond.fr, label %.thread67, label %49
 
 .thread67:                                        ; preds = %ma_free.exit
   %48 = cmpxchg volatile ptr %17, i32 -19, i32 0 seq_cst seq_cst, align 4
   br label %51
 
 49:                                               ; preds = %ma_free.exit
-  %50 = cmpxchg volatile ptr %17, i32 -19, i32 %.03352.fr seq_cst seq_cst, align 4
-  %.not40 = icmp eq i32 %.03352.fr, -19
+  %50 = cmpxchg volatile ptr %17, i32 -19, i32 %.03352 seq_cst seq_cst, align 4
+  %.not40 = icmp eq i32 %.03352, -19
   br i1 %.not40, label %ma_fence_release.exit, label %51
 
 51:                                               ; preds = %.thread67, %49
-  %52 = phi i32 [ 0, %.thread67 ], [ %.03352.fr, %49 ]
+  %52 = phi i32 [ 0, %.thread67 ], [ %.03352, %49 ]
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %54 = load ptr, ptr %53, align 8, !tbaa !7
   %.not41 = icmp eq ptr %54, null
@@ -114425,15 +114422,16 @@ ma_is_capture_device_blacklisted__alsa.exit.sink.split: ; preds = %ma_is_common_
 
 ma_is_capture_device_blacklisted__alsa.exit:      ; preds = %ma_is_common_device_name__alsa.exit.thread, %ma_is_capture_device_blacklisted__alsa.exit.sink.split, %ma_is_common_device_name__alsa.exit
   %.4 = phi i32 [ %.3, %ma_is_common_device_name__alsa.exit ], [ %176, %ma_is_capture_device_blacklisted__alsa.exit.sink.split ], [ %.3, %ma_is_common_device_name__alsa.exit.thread ]
-  %.4.fr = freeze i32 %.4
-  %177 = icmp ne i32 %.4.fr, 0
+  %177 = icmp eq i32 %.4, 0
+  %cond.fr = freeze i1 %177
+  %not.cond.fr = xor i1 %cond.fr, true
   br label %ma_does_id_exist_in_list__alsa.exit
 
 ma_does_id_exist_in_list__alsa.exit:              ; preds = %.lr.ph.i, %ma_is_capture_device_blacklisted__alsa.exit, %ma_is_device_blacklisted__alsa.exit, %.loopexit164, %ma_realloc.exit
   %.187 = phi i32 [ %.086, %ma_realloc.exit ], [ %.086, %.loopexit164 ], [ %.490, %ma_is_device_blacklisted__alsa.exit ], [ %.490, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.086, %.lr.ph.i ]
   %.283 = phi ptr [ %.081, %ma_realloc.exit ], [ %.081, %.loopexit164 ], [ %.5, %ma_is_device_blacklisted__alsa.exit ], [ %.5, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.081, %.lr.ph.i ]
-  %.not115 = phi i1 [ true, %ma_realloc.exit ], [ true, %.loopexit164 ], [ false, %ma_is_device_blacklisted__alsa.exit ], [ %177, %ma_is_capture_device_blacklisted__alsa.exit ], [ true, %.lr.ph.i ]
-  %.1 = phi i32 [ %.075, %ma_realloc.exit ], [ %.075, %.loopexit164 ], [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.4.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075, %.lr.ph.i ]
+  %.not115 = phi i1 [ true, %ma_realloc.exit ], [ true, %.loopexit164 ], [ false, %ma_is_device_blacklisted__alsa.exit ], [ %not.cond.fr, %ma_is_capture_device_blacklisted__alsa.exit ], [ true, %.lr.ph.i ]
+  %.1 = phi i32 [ %.075, %ma_realloc.exit ], [ %.075, %.loopexit164 ], [ 0, %ma_is_device_blacklisted__alsa.exit ], [ %.4, %ma_is_capture_device_blacklisted__alsa.exit ], [ %.075, %.lr.ph.i ]
   call void @free(ptr noundef %34) #66
   call void @free(ptr noundef %37) #66
   call void @free(ptr noundef %40) #66
@@ -122942,13 +122940,13 @@ ma_mp3_get_data_format.exit.i:                    ; preds = %6
 
 ma_dr_mp3_read_pcm_frames_s16.exit.i:             ; preds = %18, %11
   %.0.i = phi i64 [ %13, %11 ], [ %20, %18 ]
-  %.0.fr.i = freeze i64 %.0.i
-  %21 = icmp eq i64 %.0.fr.i, 0
-  %spec.select.i = select i1 %21, i32 -17, i32 0
+  %21 = icmp eq i64 %.0.i, 0
+  %cond.fr.i = freeze i1 %21
+  %spec.select.i = select i1 %cond.fr.i, i32 -17, i32 0
   br label %ma_dr_mp3_read_pcm_frames_s16.exit.thread.i
 
 ma_dr_mp3_read_pcm_frames_s16.exit.thread.i:      ; preds = %ma_dr_mp3_read_pcm_frames_s16.exit.i, %14
-  %.026.i = phi i64 [ 0, %14 ], [ %.0.fr.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ]
+  %.026.i = phi i64 [ 0, %14 ], [ %.0.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ]
   %22 = phi i32 [ -17, %14 ], [ %spec.select.i, %ma_dr_mp3_read_pcm_frames_s16.exit.i ]
   br i1 %.not.i, label %ma_mp3_read_pcm_frames.exit, label %23
 

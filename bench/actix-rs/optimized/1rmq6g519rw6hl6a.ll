@@ -7001,9 +7001,11 @@ default.unreachable:                              ; preds = %1
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit: ; preds = %7, %11, %14
   %.0.i = phi i8 [ %spec.select.i.i.i, %7 ], [ %13, %11 ], [ %16, %14 ]
   %switch.selectcmp = icmp eq i8 %.0.i, 1
-  %spec.select = select i1 %switch.selectcmp, i16 403, i16 500
+  %cond.fr4 = freeze i1 %switch.selectcmp
+  %spec.select = select i1 %cond.fr4, i16 403, i16 500
   %switch.selectcmp2 = icmp eq i8 %.0.i, 0
-  br i1 %switch.selectcmp2, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread20, label %.thread
+  %cond.fr = freeze i1 %switch.selectcmp2
+  br i1 %cond.fr, label %_ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread20, label %.thread
 
 _ZN3std2io5error5Error4kind17h86902a500789bccbE.exit.thread.thread: ; preds = %4
   br label %.thread

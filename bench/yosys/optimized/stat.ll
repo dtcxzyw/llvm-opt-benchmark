@@ -17409,7 +17409,6 @@ _ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit: ; preds 
 
 64:                                               ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE0_clEv.exit
   %65 = load i32, ptr %63, align 4, !tbaa !43
-  %.fr137 = freeze i32 %65
   %66 = load i32, ptr %3, align 4, !tbaa !54
   %67 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !60, !range !62, !noundef !63
   %68 = trunc nuw i8 %67 to i1
@@ -17488,7 +17487,6 @@ _ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit: ; preds 
 
 100:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE1_clEv.exit
   %101 = load i32, ptr %99, align 4, !tbaa !43
-  %.fr138 = freeze i32 %101
   %102 = load i32, ptr %4, align 4, !tbaa !54
   %103 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !60, !range !62, !noundef !63
   %104 = trunc nuw i8 %103 to i1
@@ -17723,7 +17721,6 @@ _ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit: ; preds 
 
 208:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit
   %209 = load i32, ptr %207, align 4, !tbaa !43
-  %.fr136 = freeze i32 %209
   %210 = load i32, ptr %7, align 4, !tbaa !54
   %211 = load i8, ptr @_ZN5Yosys5RTLIL8IdString17destruct_guard_okE, align 1, !tbaa !60, !range !62, !noundef !63
   %212 = trunc nuw i8 %211 to i1
@@ -17754,8 +17751,10 @@ _ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE4_clEv.exit: ; preds 
 
 _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %.not31.not = icmp ugt i32 %.fr136, %.fr137
-  br i1 %.not31.not, label %237, label %.thread
+  %.not = icmp ne i32 %209, 0
+  %.not31.not = icmp ugt i32 %209, %65
+  %or.cond = select i1 %.not, i1 %.not31.not, i1 false
+  br i1 %or.cond, label %237, label %.thread
 
 225:                                              ; preds = %_ZZN12_GLOBAL__N_110statdata_t18estimate_xilinx_lcEvENKUlvE_clEv.exit
   %226 = landingpad { ptr, i32 }
@@ -17800,14 +17799,14 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   br label %common.resume
 
 237:                                              ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55
-  %238 = sub nuw i32 %.fr136, %.fr137
-  %.sroa.speculated70 = call i32 @llvm.umin.i32(i32 %238, i32 %.fr138)
-  %239 = sub i32 %.fr138, %.sroa.speculated70
+  %238 = sub nuw i32 %209, %65
+  %.sroa.speculated70 = call i32 @llvm.umin.i32(i32 %238, i32 %101)
+  %239 = sub i32 %101, %.sroa.speculated70
   %240 = sub i32 %238, %.sroa.speculated70
   br label %.thread
 
 .thread:                                          ; preds = %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55, %237
-  %.0129 = phi i32 [ %239, %237 ], [ %.fr138, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
+  %.0129 = phi i32 [ %239, %237 ], [ %101, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
   %.1 = phi i32 [ %240, %237 ], [ 0, %_ZN5Yosys5RTLIL8IdStringD2Ev.exit55 ]
   %.fr = freeze i32 %137
   %.not32 = icmp eq i32 %173, 0
@@ -17815,16 +17814,18 @@ _ZN5Yosys5RTLIL8IdStringD2Ev.exit55:              ; preds = %208, %214, %221
   %.0130 = select i1 %.not32, i32 0, i32 %241
   %.sroa.speculated = call i32 @llvm.umin.i32(i32 %.1, i32 %.fr)
   %.0132 = sub i32 %.fr, %.sroa.speculated
+  %.0132.fr = freeze i32 %.0132
   %.not34 = icmp eq i32 %.0130, 0
-  %242 = call i32 @llvm.usub.sat.i32(i32 %.0130, i32 %.0132)
+  %242 = call i32 @llvm.usub.sat.i32(i32 %.0130, i32 %.0132.fr)
   %.1131 = select i1 %.not34, i32 0, i32 %242
   %.not33 = icmp eq i32 %.1, 0
   %243 = sub i32 %.1, %.sroa.speculated
-  %244 = add i32 %.fr137, %29
-  %245 = add i32 %244, %.fr138
+  %244 = add i32 %65, %29
+  %245 = add i32 %244, %101
   %246 = add i32 %245, %.fr
   %247 = add i32 %243, 1
-  %spec.select = select i1 %.not33, i32 1, i32 %247
+  %cond.fr = freeze i1 %.not33
+  %spec.select = select i1 %cond.fr, i32 1, i32 %247
   %248 = add i32 %spec.select, %.1131
   %249 = lshr i32 %248, 1
   %250 = add i32 %246, %249

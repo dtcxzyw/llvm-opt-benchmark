@@ -4750,14 +4750,16 @@ define internal range(i32 1, 4) i32 @gtk2_copy_image(ptr noundef writeonly captu
 
 ._crit_edge98.loopexit:                           ; preds = %._crit_edge.us
   %64 = icmp eq i32 %.352.us, 0
-  %65 = icmp eq i32 %.3.us, 0
-  %66 = select i1 %65, i32 3, i32 2
-  %67 = select i1 %64, i32 %66, i32 1
+  %65 = freeze i1 %64
+  %66 = icmp eq i32 %.3.us, 0
+  %67 = freeze i1 %66
+  %68 = select i1 %67, i32 3, i32 2
+  %69 = select i1 %65, i32 %68, i32 1
   br label %.thread71
 
 .thread71:                                        ; preds = %._crit_edge98.loopexit, %.preheader.lr.ph, %3
-  %68 = phi i32 [ 1, %3 ], [ %67, %._crit_edge98.loopexit ], [ 1, %.preheader.lr.ph ]
-  ret i32 %68
+  %70 = phi i32 [ 1, %3 ], [ %69, %._crit_edge98.loopexit ], [ 1, %.preheader.lr.ph ]
+  ret i32 %70
 }
 
 ; Function Attrs: nounwind uwtable

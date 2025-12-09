@@ -8245,8 +8245,7 @@ _ZN8aiStringaSERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit: ; pr
   %.07.i = phi i64 [ %61, %.lr.ph.i ], [ 0, %53 ]
   %.sroa.02.06.i = phi ptr [ %62, %.lr.ph.i ], [ %56, %53 ]
   %60 = load i64, ptr %.sroa.02.06.i, align 8
-  %.fr = freeze i64 %60
-  %61 = add i64 %.fr, %.07.i
+  %61 = add i64 %60, %.07.i
   %62 = getelementptr inbounds nuw i8, ptr %.sroa.02.06.i, i64 8
   %.not.i = icmp eq ptr %62, %59
   br i1 %.not.i, label %_ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET0_T_S9_S8_.exit, label %.lr.ph.i, !llvm.loop !75
@@ -8272,8 +8271,9 @@ _ZSt10accumulateIN9__gnu_cxx17__normal_iteratorIPKmSt6vectorImSaImEEEEmET0_T_S9_
 
 71:                                               ; preds = %69
   %72 = add i64 %66, -12
-  %73 = urem i64 %72, 12
-  %74 = sub i64 %72, %73
+  %.fr = freeze i64 %72
+  %73 = urem i64 %.fr, 12
+  %74 = sub nuw i64 %.fr, %73
   %75 = add i64 %74, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %68, i8 0, i64 %75, i1 false)
   store ptr %68, ptr %20, align 8
@@ -8308,8 +8308,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEE
 
 90:                                               ; preds = %88
   %91 = add i64 %66, -12
-  %92 = urem i64 %91, 12
-  %93 = sub i64 %91, %92
+  %.fr1136 = freeze i64 %91
+  %92 = urem i64 %.fr1136, 12
+  %93 = sub nuw i64 %.fr1136, %92
   %94 = add i64 %93, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %87, i8 0, i64 %94, i1 false)
   %95 = getelementptr inbounds nuw i8, ptr %17, i64 24
@@ -8349,8 +8350,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEE
 
 111:                                              ; preds = %109
   %112 = add i64 %66, -12
-  %113 = urem i64 %112, 12
-  %114 = sub i64 %112, %113
+  %.fr1137 = freeze i64 %112
+  %113 = urem i64 %.fr1137, 12
+  %114 = sub nuw i64 %.fr1137, %113
   %115 = add i64 %114, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %108, i8 0, i64 %115, i1 false)
   %116 = getelementptr inbounds nuw i8, ptr %17, i64 32
@@ -8385,8 +8387,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEE
 
 130:                                              ; preds = %128
   %131 = add i64 %66, -12
-  %132 = urem i64 %131, 12
-  %133 = sub i64 %131, %132
+  %.fr1138 = freeze i64 %131
+  %132 = urem i64 %.fr1138, 12
+  %133 = sub nuw i64 %.fr1138, %132
   %134 = add i64 %133, 12
   tail call void @llvm.memset.p0.i64(ptr nonnull align 4 %127, i8 0, i64 %134, i1 false)
   %135 = getelementptr inbounds nuw i8, ptr %17, i64 40
@@ -8399,8 +8402,9 @@ _ZSt4copyIN9__gnu_cxx17__normal_iteratorIPK10aiVector3tIfESt6vectorIS3_SaIS3_EEE
   %137 = getelementptr inbounds nuw i8, ptr %2, i64 216
   %138 = getelementptr inbounds nuw i8, ptr %2, i64 600
   %139 = add i64 %66, -12
-  %140 = urem i64 %139, 12
-  %141 = sub i64 %139, %140
+  %.fr1139 = freeze i64 %139
+  %140 = urem i64 %.fr1139, 12
+  %141 = sub nuw i64 %.fr1139, %140
   %142 = add i64 %141, 12
   br label %148
 

@@ -1393,21 +1393,17 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 50:                                               ; preds = %37, %32, %27
   %.045 = phi i32 [ %29, %27 ], [ %34, %32 ], [ %43, %37 ]
   %.044 = phi i32 [ %31, %27 ], [ %36, %32 ], [ %49, %37 ]
-  %.045.fr = freeze i32 %.045
-  %51 = add i32 %.045.fr, %3
+  %51 = add nsw i32 %.045, %3
   %.not = icmp slt i32 %51, %1
   %.not51 = icmp sgt i32 %51, %2
   %or.cond = or i1 %.not, %.not51
   br i1 %or.cond, label %57, label %52
 
 52:                                               ; preds = %50
-  %.044.fr = freeze i32 %.044
-  %53 = sub i32 %51, %.044.fr
+  %53 = sub nsw i32 %51, %.044
   %54 = tail call i32 @llvm.abs.i32(i32 %53, i1 true)
   %55 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 true)
-  %.fr = freeze i32 %54
-  %.fr62 = freeze i32 %55
-  %56 = icmp ult i32 %.fr, %.fr62
+  %56 = icmp samesign ult i32 %54, %55
   %spec.select = select i1 %56, i32 %53, i32 %.04754
   br label %57
 
@@ -1420,7 +1416,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 ._crit_edge:                                      ; preds = %57
   %58 = icmp eq i32 %.1, 536870911
   %59 = sub nsw i32 0, %.1
-  br i1 %58, label %._crit_edge.thread, label %60
+  %cond.fr = freeze i1 %58
+  br i1 %cond.fr, label %._crit_edge.thread, label %60
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
   br label %60
@@ -1509,21 +1506,17 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 48:                                               ; preds = %36, %31, %26
   %.045 = phi i32 [ %28, %26 ], [ %33, %31 ], [ %41, %36 ]
   %.044 = phi i32 [ %30, %26 ], [ %35, %31 ], [ %47, %36 ]
-  %.045.fr = freeze i32 %.045
-  %49 = add i32 %.045.fr, %3
+  %49 = add nsw i32 %.045, %3
   %.not = icmp slt i32 %49, %1
   %.not51 = icmp sgt i32 %49, %2
   %or.cond = or i1 %.not, %.not51
   br i1 %or.cond, label %55, label %50
 
 50:                                               ; preds = %48
-  %.044.fr = freeze i32 %.044
-  %51 = sub i32 %49, %.044.fr
+  %51 = sub nsw i32 %49, %.044
   %52 = tail call i32 @llvm.abs.i32(i32 %51, i1 true)
   %53 = tail call i32 @llvm.abs.i32(i32 %.04754, i1 true)
-  %.fr = freeze i32 %52
-  %.fr62 = freeze i32 %53
-  %54 = icmp ult i32 %.fr, %.fr62
+  %54 = icmp samesign ult i32 %52, %53
   %spec.select = select i1 %54, i32 %51, i32 %.04754
   br label %55
 
@@ -1536,7 +1529,8 @@ define internal fastcc range(i32 -2147483647, -2147483648) i32 @find_snap_point_
 ._crit_edge:                                      ; preds = %55
   %56 = icmp eq i32 %.1, 536870911
   %57 = sub nsw i32 0, %.1
-  br i1 %56, label %._crit_edge.thread, label %58
+  %cond.fr = freeze i1 %56
+  br i1 %cond.fr, label %._crit_edge.thread, label %58
 
 ._crit_edge.thread:                               ; preds = %7, %._crit_edge
   br label %58

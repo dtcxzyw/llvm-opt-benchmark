@@ -951,15 +951,16 @@ define internal fastcc range(i32 -1, 1) i32 @eval_file(ptr noundef nonnull %0, p
 11:                                               ; preds = %9
   %12 = load i64, ptr %4, align 8, !tbaa !24
   %13 = call i32 @JS_DetectModule(ptr noundef nonnull %5, i64 noundef %12) #17
-  %.fr = freeze i32 %13
-  %14 = icmp ne i32 %.fr, 0
+  %14 = icmp ne i32 %13, 0
   %15 = zext i1 %14 to i32
   br label %16
 
 16:                                               ; preds = %11, %7
   %.014 = phi i32 [ %2, %7 ], [ %15, %11 ]
-  %.not18 = icmp ne i32 %.014, 0
-  %spec.select = zext i1 %.not18 to i32
+  %.not18 = icmp eq i32 %.014, 0
+  %cond.fr = freeze i1 %.not18
+  %not.cond.fr = xor i1 %cond.fr, true
+  %spec.select = zext i1 %not.cond.fr to i32
   br label %.thread
 
 .thread:                                          ; preds = %16, %9

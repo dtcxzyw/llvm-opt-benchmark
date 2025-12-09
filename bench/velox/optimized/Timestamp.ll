@@ -556,22 +556,21 @@ entry:
 while.cond20:                                     ; preds = %entry, %while.body26
   %y.0 = phi i64 [ %sub, %while.body26 ], [ 1970, %entry ]
   %days.1 = phi i64 [ %sub38, %while.body26 ], [ %days.0.lcssa, %entry ]
-  %y.0.fr = freeze i64 %y.0
   %cmp21 = icmp slt i64 %days.1, 0
   br i1 %cmp21, label %while.body26, label %lor.rhs
 
 lor.rhs:                                          ; preds = %while.cond20
-  %1 = and i64 %y.0.fr, 3
+  %1 = and i64 %y.0, 3
   %cmp.i = icmp eq i64 %1, 0
   br i1 %cmp.i, label %land.rhs.i, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
 
 land.rhs.i:                                       ; preds = %lor.rhs
-  %rem1.i = srem i64 %y.0.fr, 100
+  %rem1.i = srem i64 %y.0, 100
   %cmp2.not.i = icmp eq i64 %rem1.i, 0
   br i1 %cmp2.not.i, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit, label %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
 
 _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit:   ; preds = %land.rhs.i
-  %rem3.i = srem i64 %y.0.fr, 400
+  %rem3.i = srem i64 %y.0, 400
   %cmp4.i = icmp eq i64 %rem3.i, 0
   %spec.select54 = select i1 %cmp4.i, i64 366, i64 365
   %2 = zext i1 %cmp4.i to i64
@@ -585,16 +584,16 @@ _ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50: ; preds = %_ZN8facebook
 
 while.body26:                                     ; preds = %while.cond20, %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
   %div27 = sdiv i64 %days.1, 365
-  %add28 = add nsw i64 %div27, %y.0.fr
+  %add28 = add i64 %div27, %y.0
   %days.1.lobit.neg = ashr i64 %days.1, 63
   %sub = add i64 %add28, %days.1.lobit.neg
-  %sub31 = sub nsw i64 %sub, %y.0.fr
+  %sub31 = sub i64 %sub, %y.0
   %mul.neg = mul i64 %sub31, -365
-  %add.i = add nsw i64 %sub, 3999999999
+  %add.i = add i64 %sub, 3999999999
   %div.i.neg = sdiv i64 %add.i, -4
   %div1.neg.i.neg = sdiv i64 %add.i, 100
   %div2.i.neg = sdiv i64 %add.i, -400
-  %add.i43 = add nsw i64 %y.0.fr, 3999999999
+  %add.i43 = add i64 %y.0, 3999999999
   %div.i44 = sdiv i64 %add.i43, 4
   %div1.neg.i45 = sdiv i64 %add.i43, -100
   %div2.i47 = sdiv i64 %add.i43, 400
@@ -608,12 +607,12 @@ while.body26:                                     ; preds = %while.cond20, %_ZN8
   br label %while.cond20, !llvm.loop !4
 
 while.end39:                                      ; preds = %_ZN8facebook5velox12_GLOBAL__N_16isLeapEl.exit.thread50
-  %4 = add i64 %y.0.fr, -2147485548
+  %4 = add i64 %y.0, -2147485548
   %or.cond = icmp ult i64 %4, -4294967296
   br i1 %or.cond, label %return, label %if.end48
 
 if.end48:                                         ; preds = %while.end39
-  %5 = trunc i64 %y.0.fr to i32
+  %5 = trunc i64 %y.0 to i32
   %conv49 = add i32 %5, -1900
   %tm_year = getelementptr inbounds nuw i8, ptr %tm, i64 20
   store i32 %conv49, ptr %tm_year, align 4

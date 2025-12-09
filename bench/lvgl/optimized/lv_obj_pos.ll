@@ -349,20 +349,18 @@ lv_obj_is_layout_positioned.exit.thread.i:        ; preds = %lv_obj_is_layout_po
 
 120:                                              ; preds = %114, %107, %102, %96
   %.179.i = phi i32 [ %119, %114 ], [ %113, %107 ], [ -536870911, %102 ], [ %101, %96 ]
-  %.179.fr.i = freeze i32 %.179.i
   %121 = call ptr @lv_obj_get_style_prop(ptr noundef %84, i32 noundef 0, i8 noundef zeroext 26) #8
   %122 = ptrtoint ptr %121 to i64
   %.sroa.0.0.extract.trunc.i93.i = trunc i64 %122 to i32
-  %123 = add nsw i32 %.179.fr.i, %.sroa.0.0.extract.trunc.i93.i
+  %123 = add nsw i32 %.179.i, %.sroa.0.0.extract.trunc.i93.i
   %124 = icmp sgt i32 %.073112.i, %123
   br i1 %124, label %129, label %125
 
 125:                                              ; preds = %120
   %126 = call ptr @lv_obj_get_style_prop(ptr noundef %84, i32 noundef 0, i8 noundef zeroext 26) #8
-  %.fr137.i = freeze ptr %126
-  %127 = ptrtoint ptr %.fr137.i to i64
+  %127 = ptrtoint ptr %126 to i64
   %.sroa.0.0.extract.trunc.i94.i = trunc i64 %127 to i32
-  %128 = add i32 %.179.fr.i, %.sroa.0.0.extract.trunc.i94.i
+  %128 = add nsw i32 %.179.i, %.sroa.0.0.extract.trunc.i94.i
   br label %129
 
 129:                                              ; preds = %125, %120, %80
@@ -374,7 +372,8 @@ lv_obj_is_layout_positioned.exit.thread.i:        ; preds = %lv_obj_is_layout_po
 ._crit_edge114.i:                                 ; preds = %129
   %.not83.i = icmp eq i32 %.1.i, -536870911
   %130 = add nsw i32 %.1.i, %70
-  br i1 %.not83.i, label %._crit_edge114.thread.i, label %182
+  %cond.fr.i = freeze i1 %.not83.i
+  br i1 %cond.fr.i, label %._crit_edge114.thread.i, label %182
 
 ._crit_edge114.thread.i:                          ; preds = %._crit_edge114.i, %.preheader.i111
   br label %182
@@ -451,20 +450,18 @@ lv_obj_is_layout_positioned.exit97.thread.i:      ; preds = %lv_obj_is_layout_po
 
 171:                                              ; preds = %165, %158, %153, %147
   %.175.i = phi i32 [ %170, %165 ], [ %164, %158 ], [ -536870911, %153 ], [ %152, %147 ]
-  %.175.fr.i = freeze i32 %.175.i
   %172 = call ptr @lv_obj_get_style_prop(ptr noundef %135, i32 noundef 0, i8 noundef zeroext 27) #8
   %173 = ptrtoint ptr %172 to i64
   %.sroa.0.0.extract.trunc.i101.i = trunc i64 %173 to i32
-  %174 = add nsw i32 %.175.fr.i, %.sroa.0.0.extract.trunc.i101.i
+  %174 = add nsw i32 %.175.i, %.sroa.0.0.extract.trunc.i101.i
   %175 = icmp sgt i32 %.3110.i, %174
   br i1 %175, label %180, label %176
 
 176:                                              ; preds = %171
   %177 = call ptr @lv_obj_get_style_prop(ptr noundef %135, i32 noundef 0, i8 noundef zeroext 27) #8
-  %.fr.i = freeze ptr %177
-  %178 = ptrtoint ptr %.fr.i to i64
+  %178 = ptrtoint ptr %177 to i64
   %.sroa.0.0.extract.trunc.i102.i = trunc i64 %178 to i32
-  %179 = add i32 %.175.fr.i, %.sroa.0.0.extract.trunc.i102.i
+  %179 = add nsw i32 %.175.i, %.sroa.0.0.extract.trunc.i102.i
   br label %180
 
 180:                                              ; preds = %176, %171, %131
@@ -476,7 +473,8 @@ lv_obj_is_layout_positioned.exit97.thread.i:      ; preds = %lv_obj_is_layout_po
 ._crit_edge.i:                                    ; preds = %180
   %.not82.i = icmp eq i32 %.4.i, -536870911
   %181 = add nsw i32 %.4.i, %61
-  br i1 %.not82.i, label %._crit_edge.thread.i, label %182
+  %cond.fr133.i = freeze i1 %.not82.i
+  br i1 %cond.fr133.i, label %._crit_edge.thread.i, label %182
 
 ._crit_edge.thread.i:                             ; preds = %._crit_edge.i, %.preheader108.i
   br label %182

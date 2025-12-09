@@ -1325,7 +1325,6 @@ _ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i: ; p
 _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEC2ES6_.exit.i: ; preds = %27, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i
   %.sroa.924.0 = phi ptr [ %23, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i ], [ %29, %27 ]
   %.sroa.021.0 = phi ptr [ null, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i ], [ %28, %27 ]
-  %.sroa.924.0.fr = freeze ptr %.sroa.924.0
   %.not.i.i.i.i = icmp eq ptr %19, null
   br i1 %.not.i.i.i.i, label %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEE5beginEv.exit, label %30
 
@@ -1378,7 +1377,6 @@ _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__nor
   %.sroa.0.0 = phi ptr [ null, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i11 ], [ %45, %44 ]
   %.sroa.9.0 = phi ptr [ %40, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i11 ], [ %46, %44 ]
   %48 = phi i64 [ 0, %_ZNSt12_Vector_baseIPN4LIEF3DEX7MapItemESaIS3_EEC2EmRKS4_.exit.i.i.thread.i11 ], [ %47, %44 ]
-  %.sroa.9.0.fr = freeze ptr %.sroa.9.0
   %.not.i.i.i.i10 = icmp eq ptr %36, null
   br i1 %.not.i.i.i.i10, label %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEE3endEv.exit, label %49
 
@@ -1387,21 +1385,22 @@ _ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__nor
   br label %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEE3endEv.exit
 
 _ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEE3endEv.exit: ; preds = %_ZN4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEEC2ES6_.exit.i9, %49
-  %50 = ptrtoint ptr %.sroa.9.0.fr to i64
+  %50 = ptrtoint ptr %.sroa.9.0 to i64
   %51 = sub i64 %50, %48
   %52 = ashr exact i64 %51, 3
-  %53 = ptrtoint ptr %.sroa.924.0.fr to i64
+  %53 = ptrtoint ptr %.sroa.924.0 to i64
   %54 = ptrtoint ptr %.sroa.021.0 to i64
   %55 = sub i64 %53, %54
   %56 = ptrtoint ptr %.sroa.0.0 to i64
   %57 = sub i64 %50, %56
   %58 = icmp ne i64 %55, %57
+  %.fr = freeze i1 %58
   %59 = icmp ne i64 %48, %50
-  %.not3.i30 = or i1 %58, %59
+  %.not3.i30 = or i1 %.fr, %59
   br i1 %.not3.i30, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %_ZNK4LIEF12ref_iteratorIKSt6vectorIPNS_3DEX7MapItemESaIS4_EES4_N9__gnu_cxx17__normal_iteratorIPKS4_S6_EEE3endEv.exit
-  br i1 %58, label %.lr.ph.split.us, label %.lr.ph.split
+  br i1 %.fr, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.us
   %.sroa.1225.032.us = phi ptr [ %72, %_ZStlsISt11char_traitsIcEERSt13basic_ostreamIcT_ES5_c.exit.us ], [ %.sroa.021.0, %.lr.ph ]

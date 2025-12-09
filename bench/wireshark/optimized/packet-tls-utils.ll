@@ -6886,13 +6886,13 @@ copy_address_wmem.exit:                           ; preds = %4, %13
 ; Function Attrs: null_pointer_is_valid sspstrong uwtable
 define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly captures(address_is_null) %0, ptr noundef %1, ptr noundef readonly captures(none) %2) local_unnamed_addr #1 {
   %.not = icmp eq ptr %0, null
-  br i1 %.not, label %addresses_equal.exit, label %4
+  br i1 %.not, label %39, label %4
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %6 = load i32, ptr %5, align 8
   %.not12 = icmp eq i32 %6, 0
-  br i1 %.not12, label %addresses_equal.exit, label %7
+  br i1 %.not12, label %39, label %7
 
 7:                                                ; preds = %4
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 144
@@ -6914,7 +6914,7 @@ define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly c
   %20 = getelementptr inbounds nuw i8, ptr %2, i64 208
   %21 = load i32, ptr %20, align 8
   %22 = icmp eq i32 %6, %21
-  br i1 %22, label %23, label %.thread
+  br i1 %22, label %23, label %38
 
 23:                                               ; preds = %19
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 124
@@ -6922,11 +6922,11 @@ define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly c
   %26 = getelementptr inbounds nuw i8, ptr %2, i64 212
   %27 = load i32, ptr %26, align 4
   %28 = icmp eq i32 %25, %27
-  br i1 %28, label %29, label %.thread
+  br i1 %28, label %29, label %38
 
 29:                                               ; preds = %23
   %30 = icmp eq i32 %25, 0
-  br i1 %30, label %addresses_equal.exit.thread, label %31
+  br i1 %30, label %addresses_equal.exit, label %31
 
 31:                                               ; preds = %29
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -6936,25 +6936,30 @@ define hidden range(i32 0, 2) i32 @ssl_packet_from_server(ptr noundef readonly c
   %36 = sext i32 %25 to i64
   %bcmp.i = tail call i32 @bcmp(ptr %33, ptr %35, i64 %36)
   %37 = icmp eq i32 %bcmp.i, 0
-  br i1 %37, label %addresses_equal.exit.thread, label %.thread
+  br i1 %37, label %addresses_equal.exit, label %38
 
-addresses_equal.exit.thread:                      ; preds = %31, %29
+38:                                               ; preds = %31, %23, %19
+  br label %addresses_equal.exit
+
+39:                                               ; preds = %4, %3
+  %40 = getelementptr inbounds nuw i8, ptr %2, i64 284
+  %41 = load i32, ptr %40, align 4
+  %42 = tail call ptr @dissector_get_uint_handle(ptr noundef %1, i32 noundef %41)
+  %43 = icmp ne ptr %42, null
+  %44 = zext i1 %43 to i32
+  br label %addresses_equal.exit
+
+addresses_equal.exit:                             ; preds = %38, %31, %29, %39
+  %.0 = phi i32 [ %44, %39 ], [ 0, %38 ], [ 1, %31 ], [ 1, %29 ]
+  %.not13 = icmp eq i32 %.0, 0
+  %cond.fr = freeze i1 %.not13
+  %spec.select = select i1 %cond.fr, ptr @.str.631, ptr @.str.630
   br label %.thread
 
-addresses_equal.exit:                             ; preds = %3, %4
-  %38 = getelementptr inbounds nuw i8, ptr %2, i64 284
-  %39 = load i32, ptr %38, align 4
-  %40 = tail call ptr @dissector_get_uint_handle(ptr noundef %1, i32 noundef %39)
-  %.fr = freeze ptr %40
-  %.not30 = icmp ne ptr %.fr, null
-  %spec.select = zext i1 %.not30 to i32
-  %spec.select29 = select i1 %.not30, ptr @.str.630, ptr @.str.631
-  br label %.thread
-
-.thread:                                          ; preds = %addresses_equal.exit, %31, %23, %19, %addresses_equal.exit.thread, %7, %13
-  %.017 = phi i32 [ 0, %13 ], [ 0, %7 ], [ 1, %addresses_equal.exit.thread ], [ 0, %19 ], [ 0, %23 ], [ 0, %31 ], [ %spec.select, %addresses_equal.exit ]
-  %41 = phi ptr [ @.str.631, %13 ], [ @.str.631, %7 ], [ @.str.630, %addresses_equal.exit.thread ], [ @.str.631, %19 ], [ @.str.631, %23 ], [ @.str.631, %31 ], [ %spec.select29, %addresses_equal.exit ]
-  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.629, ptr noundef nonnull %41)
+.thread:                                          ; preds = %addresses_equal.exit, %7, %13
+  %.017 = phi i32 [ 0, %13 ], [ 0, %7 ], [ %.0, %addresses_equal.exit ]
+  %45 = phi ptr [ @.str.631, %13 ], [ @.str.631, %7 ], [ %spec.select, %addresses_equal.exit ]
+  tail call void (ptr, ...) @ssl_debug_printf(ptr noundef nonnull @.str.629, ptr noundef nonnull %45)
   ret i32 %.017
 }
 

@@ -1902,68 +1902,59 @@ define hidden void @_Py_FinishPendingCalls(ptr noundef %0) local_unnamed_addr #3
   %4 = tail call i64 @PyThread_get_thread_ident() #14
   %5 = load i64, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 728), align 8, !tbaa !184
   %.not = icmp eq i64 %4, %5
-  br i1 %.not, label %6, label %.thread
+  br i1 %.not, label %6, label %.split.us.preheader
 
 6:                                                ; preds = %1
   %7 = load ptr, ptr %2, align 8, !tbaa !9
   %8 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 712), align 8, !tbaa !94
-  %.fr16 = freeze ptr %7
-  %.fr17 = freeze ptr %8
-  %.not13 = icmp eq ptr %.fr16, %.fr17
-  br i1 %.not13, label %10, label %.thread
+  %.not13 = icmp eq ptr %7, %8
+  br i1 %.not13, label %.split.preheader, label %.split.us.preheader
 
-.thread:                                          ; preds = %1, %6
+.split.preheader:                                 ; preds = %6
   %9 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  br label %.split.us.preheader
+  br label %.split
 
-10:                                               ; preds = %6
-  %.fr18 = freeze ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2712)
-  %11 = getelementptr inbounds nuw i8, ptr %3, i64 44
-  %.not12 = icmp eq ptr %.fr18, null
-  %12 = getelementptr inbounds nuw i8, ptr %.fr18, i64 12
-  br i1 %.not12, label %.split.us.preheader, label %.split
-
-.split.us.preheader:                              ; preds = %.thread, %10
-  %13 = phi ptr [ %9, %.thread ], [ %11, %10 ]
+.split.us.preheader:                              ; preds = %1, %6
+  %10 = getelementptr inbounds nuw i8, ptr %3, i64 44
   br label %.split.us
 
-.split.us:                                        ; preds = %.split.us.preheader, %18
-  %14 = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
-  %15 = icmp slt i32 %14, 0
-  br i1 %15, label %16, label %18
+.split.us:                                        ; preds = %.split.us.preheader, %15
+  %11 = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
+  %12 = icmp slt i32 %11, 0
+  br i1 %12, label %13, label %15
 
-16:                                               ; preds = %.split.us
-  %17 = tail call ptr @_PyErr_GetRaisedException(ptr noundef %0) #14
+13:                                               ; preds = %.split.us
+  %14 = tail call ptr @_PyErr_GetRaisedException(ptr noundef %0) #14
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str, i32 noundef 1015) #14
-  tail call void @_PyErr_ChainExceptions1(ptr noundef %17) #14
+  tail call void @_PyErr_ChainExceptions1(ptr noundef %14) #14
   tail call void @_PyErr_Print(ptr noundef %0) #14
-  br label %18
+  br label %15
 
-18:                                               ; preds = %16, %.split.us
-  %19 = load atomic i32, ptr %13 monotonic, align 4
-  %20 = icmp sgt i32 %19, 0
-  br i1 %20, label %.split.us, label %.split15.us, !llvm.loop !199
+15:                                               ; preds = %13, %.split.us
+  %16 = load atomic i32, ptr %10 monotonic, align 4
+  %17 = icmp sgt i32 %16, 0
+  br i1 %17, label %.split.us, label %.split15.us, !llvm.loop !199
 
-.split:                                           ; preds = %10, %25
-  %21 = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
-  %22 = icmp slt i32 %21, 0
-  br i1 %22, label %23, label %25
+.split:                                           ; preds = %.split.preheader, %22
+  %18 = tail call fastcc i32 @make_pending_calls(ptr noundef %0)
+  %19 = icmp slt i32 %18, 0
+  br i1 %19, label %20, label %22
 
-23:                                               ; preds = %.split
-  %24 = tail call ptr @_PyErr_GetRaisedException(ptr noundef %0) #14
+20:                                               ; preds = %.split
+  %21 = tail call ptr @_PyErr_GetRaisedException(ptr noundef %0) #14
   tail call void @_PyErr_BadInternalCall(ptr noundef nonnull @.str, i32 noundef 1015) #14
-  tail call void @_PyErr_ChainExceptions1(ptr noundef %24) #14
+  tail call void @_PyErr_ChainExceptions1(ptr noundef %21) #14
   tail call void @_PyErr_Print(ptr noundef %0) #14
-  br label %25
+  br label %22
 
-25:                                               ; preds = %23, %.split
-  %26 = load atomic i32, ptr %11 monotonic, align 4
-  %27 = load atomic i32, ptr %12 monotonic, align 4
-  %28 = add i32 %27, %26
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %.split, label %.split15.us, !llvm.loop !199
+22:                                               ; preds = %20, %.split
+  %23 = load atomic i32, ptr %9 monotonic, align 4
+  %24 = load atomic i32, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 2724) monotonic, align 4
+  %25 = add i32 %24, %23
+  %26 = icmp sgt i32 %25, 0
+  br i1 %26, label %.split, label %.split15.us, !llvm.loop !199
 
-.split15.us:                                      ; preds = %25, %18
+.split15.us:                                      ; preds = %15, %22
   ret void
 }
 

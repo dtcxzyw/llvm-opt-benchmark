@@ -8882,7 +8882,6 @@ oe_set_type.exit.i.thread:                        ; preds = %21
 
 38:                                               ; preds = %37, %34
   %.pre = phi i32 [ %35, %34 ], [ %.pre.pre, %37 ]
-  %.pre.fr = freeze i32 %.pre
   %39 = load i32, ptr @stdin_packs_found_nr, align 4, !tbaa !30
   %40 = add nsw i32 %39, 1
   store i32 %40, ptr @stdin_packs_found_nr, align 4, !tbaa !30
@@ -8890,7 +8889,7 @@ oe_set_type.exit.i.thread:                        ; preds = %21
   %41 = call ptr @packlist_alloc(ptr noundef nonnull @to_pack, ptr noundef %0) #25
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 64
   store i32 0, ptr %42, align 8, !tbaa !197
-  %43 = icmp sgt i32 %.pre.fr, 7
+  %43 = icmp sgt i32 %.pre, 7
   br i1 %43, label %44, label %oe_set_type.exit.i
 
 44:                                               ; preds = %38
@@ -8898,9 +8897,10 @@ oe_set_type.exit.i.thread:                        ; preds = %21
   unreachable
 
 oe_set_type.exit.i:                               ; preds = %38
-  %45 = icmp sgt i32 %.pre.fr, -1
-  %spec.select = select i1 %45, i64 1073741824, i64 0
-  %46 = and i32 %.pre.fr, 7
+  %45 = icmp sgt i32 %.pre, -1
+  %cond.fr = freeze i1 %45
+  %spec.select = select i1 %cond.fr, i64 1073741824, i64 0
+  %46 = and i32 %.pre, 7
   %47 = zext nneg i32 %46 to i64
   %48 = shl nuw nsw i64 %47, 32
   br label %49
@@ -12448,13 +12448,13 @@ oe_delta.exit122:                                 ; preds = %oe_delta_size.exit1
   br label %168
 
 .thread.sink.split.sink.split:                    ; preds = %oe_delta.exit, %oe_delta.exit122
-  %.sink214 = phi i32 [ %129, %oe_delta.exit122 ], [ %68, %oe_delta.exit ]
+  %.sink212 = phi i32 [ %129, %oe_delta.exit122 ], [ %68, %oe_delta.exit ]
   %.1136144.ph.ph = phi ptr [ %98, %oe_delta.exit122 ], [ %50, %oe_delta.exit ]
   %137 = getelementptr inbounds nuw i8, ptr %1, i64 88
   %138 = load i64, ptr %137, align 8
   %139 = and i64 %138, 36028797018963968
   %.not8.i120 = icmp eq i64 %139, 0
-  %140 = add i32 %.sink214, -1
+  %140 = add i32 %.sink212, -1
   %141 = zext i32 %140 to i64
   %142 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 112), align 8
   %143 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @to_pack, i64 8), align 8
@@ -12706,7 +12706,8 @@ oe_delta.exit130:                                 ; preds = %225, %234, %237
   %254 = load i32, ptr @pack_compression_level, align 4, !tbaa !30
   call void @git_deflate_init(ptr noundef nonnull %5, i32 noundef %254) #25
   %255 = call i64 @read_istream(ptr noundef nonnull %.2145, ptr noundef nonnull %6, i64 noundef 16384) #25
-  %256 = icmp eq i64 %255, -1
+  %.fr38.i = freeze i64 %255
+  %256 = icmp eq i64 %.fr38.i, -1
   br i1 %256, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %253
@@ -12724,12 +12725,11 @@ oe_delta.exit130:                                 ; preds = %225, %234, %237
   unreachable
 
 264:                                              ; preds = %.thread.i, %.lr.ph.i
-  %265 = phi i64 [ %255, %.lr.ph.i ], [ %294, %.thread.i ]
+  %265 = phi i64 [ %.fr38.i, %.lr.ph.i ], [ %.fr39.i, %.thread.i ]
   %.01737.i = phi i64 [ 0, %.lr.ph.i ], [ %288, %.thread.i ]
-  %.fr38.i = freeze i64 %265
   store ptr %6, ptr %257, align 8, !tbaa !334
-  store i64 %.fr38.i, ptr %258, align 8, !tbaa !338
-  %266 = icmp eq i64 %.fr38.i, 0
+  store i64 %265, ptr %258, align 8, !tbaa !338
+  %266 = icmp eq i64 %265, 0
   %267 = select i1 %266, i32 4, i32 0
   br i1 %266, label %.split.us.i, label %.split.i
 
@@ -12780,8 +12780,8 @@ oe_delta.exit130:                                 ; preds = %225, %234, %237
   %287 = sub i64 %.132.i, %261
   %288 = add i64 %287, %286
   %.pr.i = load i64, ptr %258, align 8, !tbaa !338
-  %.not39.i = icmp eq i64 %.pr.i, 0
-  br i1 %.not39.i, label %.thread.i, label %.split.i, !llvm.loop !353
+  %.not40.i = icmp eq i64 %.pr.i, 0
+  br i1 %.not40.i, label %.thread.i, label %.split.i, !llvm.loop !353
 
 .critedge.i:                                      ; preds = %.split.us.i
   %289 = icmp eq i64 %268, 0
@@ -12804,7 +12804,8 @@ oe_delta.exit130:                                 ; preds = %225, %234, %237
 
 .thread.i:                                        ; preds = %279
   %294 = call i64 @read_istream(ptr noundef nonnull %.2145, ptr noundef nonnull %6, i64 noundef 16384) #25
-  %295 = icmp eq i64 %294, -1
+  %.fr39.i = freeze i64 %294
+  %295 = icmp eq i64 %.fr39.i, -1
   br i1 %295, label %._crit_edge.i, label %264
 
 write_large_blob_data.exit:                       ; preds = %291

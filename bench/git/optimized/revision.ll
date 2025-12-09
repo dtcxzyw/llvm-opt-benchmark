@@ -7423,8 +7423,8 @@ handle_commit.exit.thread:                        ; preds = %108, %.split126.us.
   %.not = icmp ne i64 %245, 0
   %246 = and i64 %244, 274878431372
   %or.cond = icmp eq i64 %246, 524300
-  %or.cond479 = or i1 %.not, %or.cond
-  br i1 %or.cond479, label %247, label %249
+  %or.cond478 = or i1 %.not, %or.cond
+  br i1 %or.cond478, label %247, label %249
 
 247:                                              ; preds = %._crit_edge
   %248 = getelementptr inbounds nuw i8, ptr %0, i64 2712
@@ -7936,7 +7936,8 @@ mark_parents_uninteresting.exit.i:                ; preds = %mark_one_parent_uni
 still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
   %447 = add i32 %.051239.i, -1
   %.not72.i = icmp eq i32 %447, 0
-  br i1 %.not72.i, label %.thread.i, label %still_interesting.exit.thread.i
+  %cond.fr.i = freeze i1 %.not72.i
+  br i1 %cond.fr.i, label %.thread.i, label %still_interesting.exit.thread.i
 
 448:                                              ; preds = %380
   %449 = load i64, ptr %364, align 8, !tbaa !215
@@ -7944,8 +7945,8 @@ still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
   %.phi.trans.insert.i.phi.trans.insert = getelementptr inbounds nuw i8, ptr %367, i64 40
   %.pre.i72.pre = load i64, ptr %.phi.trans.insert.i.phi.trans.insert, align 8, !tbaa !321
   %450 = icmp ugt i64 %.pre.i72.pre, %449
-  %or.cond480 = select i1 %.not67.i, i1 %450, i1 false
-  br i1 %or.cond480, label %451, label %._crit_edge355
+  %or.cond479 = select i1 %.not67.i, i1 %450, i1 false
+  br i1 %or.cond479, label %451, label %._crit_edge355
 
 451:                                              ; preds = %448
   %452 = load i64, ptr %243, align 8
@@ -7957,8 +7958,8 @@ still_interesting.exit.i:                         ; preds = %.critedge.i.i.i
   %454 = load i64, ptr %365, align 8, !tbaa !214
   %.not69.i = icmp ne i64 %454, -1
   %455 = icmp ult i64 %.pre.i72.pre, %454
-  %or.cond320.i = select i1 %.not69.i, i1 %455, i1 false
-  br i1 %or.cond320.i, label %456, label %._crit_edge.i73
+  %or.cond319.i = select i1 %.not69.i, i1 %455, i1 false
+  br i1 %or.cond319.i, label %456, label %._crit_edge.i73
 
 456:                                              ; preds = %._crit_edge355
   %457 = load i64, ptr %243, align 8
@@ -7998,10 +7999,10 @@ still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_
 .thread.thread.i:                                 ; preds = %362
   %467 = load i64, ptr %243, align 8
   %468 = and i64 %467, 25769803776
-  %or.cond286.i = icmp eq i64 %468, 0
-  br i1 %or.cond286.i, label %limit_left_right.exit.thread.i, label %.thread288.i
+  %or.cond285.i = icmp eq i64 %468, 0
+  br i1 %or.cond285.i, label %limit_left_right.exit.thread.i, label %.thread287.i
 
-.thread288.i:                                     ; preds = %.thread.thread.i
+.thread287.i:                                     ; preds = %.thread.thread.i
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   br label %cherry_pick_list.exit.i
 
@@ -8136,9 +8137,9 @@ still_interesting.exit.thread.i:                  ; preds = %441, %462, %._crit_
   %.pre255.pre.i = load ptr, ptr %9, align 8
   br label %cherry_pick_list.exit.i
 
-cherry_pick_list.exit.i:                          ; preds = %._crit_edge70.i.i, %._crit_edge.i90.i, %469, %.thread288.i
-  %.pre255.i = phi ptr [ null, %469 ], [ %.pre256.pre.i, %._crit_edge.i90.i ], [ %.pre255.pre.i, %._crit_edge70.i.i ], [ null, %.thread288.i ]
-  %.pre254.i = phi i64 [ %465, %469 ], [ %465, %._crit_edge.i90.i ], [ %.pre254.pre.i, %._crit_edge70.i.i ], [ %467, %.thread288.i ]
+cherry_pick_list.exit.i:                          ; preds = %._crit_edge70.i.i, %._crit_edge.i90.i, %469, %.thread287.i
+  %.pre255.i = phi ptr [ null, %469 ], [ %.pre256.pre.i, %._crit_edge.i90.i ], [ %.pre255.pre.i, %._crit_edge70.i.i ], [ null, %.thread287.i ]
+  %.pre254.i = phi i64 [ %465, %469 ], [ %465, %._crit_edge.i90.i ], [ %.pre254.pre.i, %._crit_edge70.i.i ], [ %467, %.thread287.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %526
 
@@ -8188,10 +8189,10 @@ limit_left_right.exit.i:                          ; preds = %limit_left_right.ex
 
 limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   %542 = and i64 %467, 68719476736
-  %.not77296.i = icmp eq i64 %542, 0
-  br i1 %.not77296.i, label %.loopexit, label %.thread298.i
+  %.not77295.i = icmp eq i64 %542, 0
+  br i1 %.not77295.i, label %.loopexit, label %.thread297.i
 
-.thread298.i:                                     ; preds = %limit_left_right.exit.thread.i
+.thread297.i:                                     ; preds = %limit_left_right.exit.thread.i
   %543 = getelementptr inbounds nuw i8, ptr %0, i64 2896
   %544 = load ptr, ptr %543, align 8, !tbaa !272
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -8206,10 +8207,10 @@ limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   %.not49.i96.i = icmp eq ptr %.049241.pre259.i, null
   br i1 %.not49.i96.i, label %.preheader48.i.i, label %.lr.ph.i97.i
 
-.preheader48.i.i:                                 ; preds = %.lr.ph.i97.i, %545, %.thread298.i
-  %.not49.i96302.i = phi i1 [ true, %.thread298.i ], [ true, %545 ], [ false, %.lr.ph.i97.i ]
-  %548 = phi ptr [ %544, %.thread298.i ], [ %547, %545 ], [ %547, %.lr.ph.i97.i ]
-  %.049241.pre259297301.i = phi ptr [ null, %.thread298.i ], [ null, %545 ], [ %.049241.pre259.i, %.lr.ph.i97.i ]
+.preheader48.i.i:                                 ; preds = %.lr.ph.i97.i, %545, %.thread297.i
+  %.not49.i96301.i = phi i1 [ true, %.thread297.i ], [ true, %545 ], [ false, %.lr.ph.i97.i ]
+  %548 = phi ptr [ %544, %.thread297.i ], [ %547, %545 ], [ %547, %.lr.ph.i97.i ]
+  %.049241.pre259296300.i = phi ptr [ null, %.thread297.i ], [ null, %545 ], [ %.049241.pre259.i, %.lr.ph.i97.i ]
   %.not3551.i.i = icmp eq ptr %548, null
   br i1 %.not3551.i.i, label %.preheader47.i.i, label %.lr.ph53.i.i
 
@@ -8302,10 +8303,10 @@ limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   br i1 %or.cond245.i, label %.preheader46.i.i, label %.lr.ph62.outer.i.i.backedge
 
 .preheader46.i.i:                                 ; preds = %._crit_edge.i100.i, %.preheader47.splitthread-pre-split.i.i, %.preheader47.i.i
-  br i1 %.not49.i96302.i, label %.preheader.i.i, label %.lr.ph65.i.i
+  br i1 %.not49.i96301.i, label %.preheader.i.i, label %.lr.ph65.i.i
 
 .lr.ph65.i.i:                                     ; preds = %.preheader46.i.i, %579
-  %.364.i.i = phi ptr [ %581, %579 ], [ %.049241.pre259297301.i, %.preheader46.i.i ]
+  %.364.i.i = phi ptr [ %581, %579 ], [ %.049241.pre259296300.i, %.preheader46.i.i ]
   %574 = load ptr, ptr %.364.i.i, align 8, !tbaa !59
   %575 = load i32, ptr %574, align 8
   %576 = and i32 %575, -2147483392
@@ -8327,7 +8328,7 @@ limit_left_right.exit.thread.i:                   ; preds = %.thread.thread.i
   br i1 %.not3551.i.i, label %limit_to_ancestry.exit.i, label %.lr.ph71.i.i
 
 .lr.ph68.i.i:                                     ; preds = %579, %.lr.ph68.i.i
-  %.467.i.i = phi ptr [ %586, %.lr.ph68.i.i ], [ %.049241.pre259297301.i, %579 ]
+  %.467.i.i = phi ptr [ %586, %.lr.ph68.i.i ], [ %.049241.pre259296300.i, %579 ]
   %582 = load ptr, ptr %.467.i.i, align 8, !tbaa !59
   %583 = load i32, ptr %582, align 8
   %584 = and i32 %583, 2147483391
