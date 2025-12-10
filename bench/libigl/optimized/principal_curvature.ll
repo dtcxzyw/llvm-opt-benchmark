@@ -1170,7 +1170,7 @@ _ZN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEC2ImiEERKT_RKT0_.exit.thread: ; preds
   br i1 %18, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i, label %23
 
 _ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i: ; preds = %17
-  %19 = mul i64 %12, 40
+  %19 = mul nuw i64 %12, 40
   %20 = tail call noalias ptr @malloc(i64 noundef %19) #35
   %21 = icmp eq ptr %20, null
   br i1 %21, label %.noexc54, label %_ZN5Eigen8internal23check_size_for_overflowIdEEvm.exit.i.i58
