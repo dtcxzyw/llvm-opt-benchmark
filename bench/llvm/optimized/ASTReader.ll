@@ -90816,8 +90816,8 @@ _ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i:      ; preds = %_ZNK4llvm13TinyPtrV
   %.not.i.i.i.i.i = icmp eq i64 %36, 0
   %37 = and i64 %35, -8
   %.not = icmp eq i64 %37, 0
-  %or.cond154 = or i1 %.not.i.i.i.i.i, %.not
-  br i1 %or.cond154, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exitthread-pre-split, label %38
+  %or.cond156 = or i1 %.not.i.i.i.i.i, %.not
+  br i1 %or.cond156, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exitthread-pre-split, label %38
 
 38:                                               ; preds = %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i
   %39 = inttoptr i64 %37 to ptr
@@ -90884,8 +90884,8 @@ _ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang13serialization18DeclarationNameKeyEN
   %77 = load i32, ptr %42, align 8, !tbaa !3636
   %78 = zext i32 %77 to i64
   %79 = getelementptr inbounds nuw %"struct.llvm::detail::DenseMapPair.3666", ptr %76, i64 %78
-  %.not155 = icmp eq ptr %.sroa.0.1.i, %79
-  br i1 %.not155, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exitthread-pre-split, label %80
+  %.not157 = icmp eq ptr %.sroa.0.1.i, %79
+  br i1 %.not157, label %_ZN4llvm11SmallVectorIN5clang12GlobalDeclIDELj4EEaSERKS3_.exitthread-pre-split, label %80
 
 80:                                               ; preds = %_ZN4llvm12DenseMapBaseINS_8DenseMapIN5clang13serialization18DeclarationNameKeyENS_11SmallVectorINS2_12GlobalDeclIDELj4EEENS_12DenseMapInfoIS4_vEENS_6detail12DenseMapPairIS4_S7_EEEES4_S7_S9_SC_E4findERKS4_.exit
   %81 = getelementptr inbounds nuw i8, ptr %.sroa.0.1.i, i64 16
@@ -91010,8 +91010,8 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
   %.0.i2228.i = phi ptr [ %.0.i222736.i, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ %1, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ %116, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
   %.not.i = phi i64 [ %126, %_ZNK4llvm13TinyPtrVectorIPvE5beginEv.exit.i.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.i ], [ 0, %_ZN4llvm13TinyPtrVectorIPvE3endEv.exit.thread.i ]
   %spec.select.i = getelementptr inbounds nuw i8, ptr %.0.i2228.i, i64 %.not.i
-  %.not156182 = icmp eq ptr %spec.select.i, %.0.i1830.i
-  br i1 %.not156182, label %._crit_edge, label %.lr.ph
+  %.not158184 = icmp eq ptr %spec.select.i, %.0.i1830.i
+  br i1 %.not158184, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLookupTraitEE6tablesEv.exit
   %127 = getelementptr inbounds nuw i8, ptr %7, i64 16
@@ -91021,8 +91021,8 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
 
 ._crit_edge.loopexit:                             ; preds = %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit
   %.pre = load ptr, ptr %109, align 8, !tbaa !3533
-  %.pre208 = load i32, ptr %128, align 8, !tbaa !3539
-  %130 = zext i32 %.pre208 to i64
+  %.pre210 = load i32, ptr %128, align 8, !tbaa !3539
+  %130 = zext i32 %.pre210 to i64
   %131 = shl nuw nsw i64 %130, 3
   br label %._crit_edge
 
@@ -91035,8 +91035,8 @@ _ZN5clang13serialization20MultiOnDiskHashTableINS0_6reader29ASTDeclContextNameLo
   ret void
 
 134:                                              ; preds = %.lr.ph, %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit
-  %.sroa.0114.0183 = phi ptr [ %spec.select.i, %.lr.ph ], [ %503, %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit ]
-  %135 = load ptr, ptr %.sroa.0114.0183, align 8, !tbaa !1748
+  %.sroa.0114.0185 = phi ptr [ %spec.select.i, %.lr.ph ], [ %503, %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit ]
+  %135 = load ptr, ptr %.sroa.0114.0185, align 8, !tbaa !1748
   %136 = ptrtoint ptr %135 to i64
   %137 = and i64 %136, -8
   %138 = inttoptr i64 %137 to ptr
@@ -91740,9 +91740,9 @@ _ZN5clang13serialization6reader33ASTDeclContextNameLookupTraitBase17data_type_bu
   br i1 %.not.i.i41, label %_ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit, label %276, !llvm.loop !1308
 
 _ZN5clang13serialization6reader29ASTDeclContextNameLookupTrait12ReadDataIntoENS0_18DeclarationNameKeyEPKhjRNS1_33ASTDeclContextNameLookupTraitBase17data_type_builderE.exit: ; preds = %.critedge.i, %_ZN5clang13serialization6reader33ASTDeclContextNameLookupTraitBase17data_type_builder6insertENS_12GlobalDeclIDE.exit, %150, %134, %_ZN4llvm22OnDiskChainedHashTableIN5clang13serialization6reader29ASTDeclContextNameLookupTraitEE11find_hashedERKNS2_18DeclarationNameKeyEjPS4_.exit
-  %503 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0183, i64 8
-  %.not156 = icmp eq ptr %503, %.0.i1830.i
-  br i1 %.not156, label %._crit_edge.loopexit, label %134
+  %503 = getelementptr inbounds nuw i8, ptr %.sroa.0114.0185, i64 8
+  %.not158 = icmp eq ptr %503, %.0.i1830.i
+  br i1 %.not158, label %._crit_edge.loopexit, label %134
 }
 
 declare noundef ptr @_ZNK5clang4Decl28getTopLevelOwningNamedModuleEv(ptr noundef nonnull align 8 dereferenceable(33)) local_unnamed_addr #4

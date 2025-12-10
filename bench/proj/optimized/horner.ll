@@ -1219,45 +1219,45 @@ define internal fastcc noundef range(i32 0, 2) i32 @_ZL11parse_coefsP8PJconstsPd
   br i1 %25, label %.lr.ph.preheader, label %.loopexit
 
 .lr.ph.preheader:                                 ; preds = %20
-  %26 = inttoptr i64 %24 to ptr
+  %.sroa.0.0..sroa.0.0..cast = inttoptr i64 %24 to ptr
   %wide.trip.count = zext nneg i32 %3 to i64
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %35
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %34
   %indvars.iv = phi i64 [ 0, %.lr.ph.preheader ], [ %indvars.iv.next, %35 ]
-  %.02936 = phi ptr [ %26, %.lr.ph.preheader ], [ %.1, %35 ]
+  %.02936 = phi ptr [ %.sroa.0.0..sroa.0.0..cast, %.lr.ph.preheader ], [ %.1, %35 ]
   %.not = icmp eq i64 %indvars.iv, 0
-  br i1 %.not, label %35, label %27
+  br i1 %.not, label %34, label %26
 
-27:                                               ; preds = %.lr.ph
-  %28 = load ptr, ptr %5, align 8, !tbaa !75
-  %29 = icmp eq ptr %28, null
-  br i1 %29, label %32, label %30
+26:                                               ; preds = %.lr.ph
+  %27 = load ptr, ptr %5, align 8, !tbaa !75
+  %28 = icmp eq ptr %27, null
+  br i1 %28, label %31, label %29
 
-30:                                               ; preds = %27
-  %31 = load i8, ptr %28, align 1, !tbaa !76
-  %.not34 = icmp eq i8 %31, 44
-  br i1 %.not34, label %33, label %32
+29:                                               ; preds = %26
+  %30 = load i8, ptr %27, align 1, !tbaa !76
+  %.not34 = icmp eq i8 %30, 44
+  br i1 %.not34, label %32, label %31
 
-32:                                               ; preds = %30, %27
+31:                                               ; preds = %29, %26
   call void (ptr, ptr, ...) @_Z14proj_log_errorPK8PJconstsPKcz(ptr noundef nonnull %0, ptr noundef nonnull @.str.30, ptr noundef nonnull %2, i32 noundef %3)
   br label %.loopexit
 
-33:                                               ; preds = %30
-  %34 = getelementptr inbounds nuw i8, ptr %28, i64 1
-  store ptr %34, ptr %5, align 8, !tbaa !75
-  br label %35
+32:                                               ; preds = %29
+  %33 = getelementptr inbounds nuw i8, ptr %27, i64 1
+  store ptr %33, ptr %5, align 8, !tbaa !75
+  br label %34
 
-35:                                               ; preds = %33, %.lr.ph
-  %.1 = phi ptr [ %34, %33 ], [ %.02936, %.lr.ph ]
-  %36 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.1, ptr noundef nonnull %5)
-  %37 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
-  store double %36, ptr %37, align 8, !tbaa !62
+34:                                               ; preds = %32, %.lr.ph
+  %.1 = phi ptr [ %33, %33 ], [ %.02936, %.lr.ph ]
+  %35 = call noundef double @_Z9pj_strtodPKcPPc(ptr noundef %.1, ptr noundef nonnull %5)
+  %36 = getelementptr inbounds nuw double, ptr %1, i64 %indvars.iv
+  store double %35, ptr %36, align 8, !tbaa !62
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %.lr.ph, !llvm.loop !77
 
-.loopexit:                                        ; preds = %35, %20, %32, %19, %10
+.loopexit:                                        ; preds = %34, %20, %31, %19, %10
   %.0 = phi i32 [ 0, %10 ], [ 0, %19 ], [ 0, %32 ], [ 1, %20 ], [ 1, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0
