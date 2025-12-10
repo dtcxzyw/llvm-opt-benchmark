@@ -9473,8 +9473,8 @@ define internal fastcc void @handle_tds_sql_datetime(ptr noundef nonnull %0, i32
   %33 = add nsw i64 %32, %.zext
   store i64 %33, ptr %5, align 8
   %34 = urem i32 %.0.shrunk, 300
-  %narrow = mul nuw i32 %34, 10000000
-  %35 = udiv i32 %narrow, 3
+  %.lhs.trunc26 = mul nuw i32 %34, 10000000
+  %35 = udiv i32 %.lhs.trunc26, 3
   %36 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i32 %35, ptr %36, align 8
   %37 = load i32, ptr @hf_tds_type_varbyte_data_absdatetime, align 4

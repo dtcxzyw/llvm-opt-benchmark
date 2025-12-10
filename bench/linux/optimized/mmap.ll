@@ -164,11 +164,11 @@ define dso_local void @arch_pick_mmap_layout(ptr noundef writeonly captures(none
   %63 = xor i64 %62, -1
   %64 = and i64 %60, %63
   %65 = shl i64 %64, 12
-  %.pre7 = load i32, ptr @sysctl_legacy_va_layout, align 4
+  %.pre6 = load i32, ptr @sysctl_legacy_va_layout, align 4
   br label %66
 
 66:                                               ; preds = %58, %52
-  %67 = phi i32 [ %.pre7, %58 ], [ %29, %52 ]
+  %67 = phi i32 [ %.pre6, %58 ], [ %29, %52 ]
   %68 = phi i64 [ %65, %58 ], [ 0, %52 ]
   %69 = load i32, ptr %5, align 8
   %70 = and i32 %69, 134217728
