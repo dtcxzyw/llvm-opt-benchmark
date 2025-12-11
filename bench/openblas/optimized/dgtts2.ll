@@ -291,7 +291,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %181 = add nuw i32 %22, 1
   %wide.trip.count405 = zext i32 %181 to i64
   %wide.trip.count = zext i32 %178 to i64
-  %182 = add nsw i64 %28, %17
+  %182 = or i64 %28, %17
   %183 = shl nsw i64 %182, 3
   %184 = shl nsw i64 %28, 3
   %185 = getelementptr i8, ptr %8, i64 %183
@@ -324,7 +324,7 @@ define void @dgtts2_(ptr noundef readonly captures(none) %0, ptr noundef readonl
   %wide.trip.count410 = zext i32 %178 to i64
   %invariant.gep472 = getelementptr double, ptr %18, i64 %28
   %invariant.gep476 = getelementptr double, ptr %18, i64 %28
-  %202 = add nsw i64 %28, %17
+  %202 = or i64 %28, %17
   %203 = shl nsw i64 %202, 3
   %204 = getelementptr i8, ptr %8, i64 %203
   %scevgep = getelementptr i8, ptr %204, i64 16

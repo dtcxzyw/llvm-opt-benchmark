@@ -675,8 +675,8 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br label %.lr.ph21.i
 
 .lr.ph21.i:                                       ; preds = %._crit_edge.thread.i, %.lr.ph21.preheader.i
-  %.09119.i = phi i64 [ %143, %._crit_edge.thread.i ], [ 0, %.lr.ph21.preheader.i ]
-  %.09218.i = phi ptr [ %144, %._crit_edge.thread.i ], [ %42, %.lr.ph21.preheader.i ]
+  %.09119.i = phi i64 [ %142, %._crit_edge.thread.i ], [ 0, %.lr.ph21.preheader.i ]
+  %.09218.i = phi ptr [ %143, %._crit_edge.thread.i ], [ %42, %.lr.ph21.preheader.i ]
   %.19417.i = phi ptr [ %.6.i, %._crit_edge.thread.i ], [ %.093.i, %.lr.ph21.preheader.i ]
   %43 = load i32, ptr %.09218.i, align 8, !tbaa !24
   %44 = trunc i32 %43 to i8
@@ -785,79 +785,78 @@ define internal range(i32 -1, 1) i32 @H5O__pline_shared_encode(ptr noundef %0, i
   br i1 %or.cond22.i, label %.loopexit.i, label %.lr.ph.preheader.i
 
 .lr.ph.preheader.i:                               ; preds = %100
-  %105 = xor i64 %104, 7
-  %106 = sub nuw nsw i64 8, %104
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %101, i8 0, i64 %106, i1 false), !tbaa !14
+  %105 = sub nuw nsw i64 8, %104
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(1) %101, i8 0, i64 %105, i1 false), !tbaa !14
   %scevgep.i = getelementptr i8, ptr %.295.i, i64 5
-  %107 = getelementptr i8, ptr %scevgep.i, i64 %.0.i
-  %scevgep28.i = getelementptr i8, ptr %107, i64 %105
+  %106 = or i64 %.0.i, 7
+  %scevgep28.i = getelementptr i8, ptr %scevgep.i, i64 %106
   br label %.loopexit.i
 
 .loopexit.i:                                      ; preds = %.lr.ph.preheader.i, %100, %83
   %.3.i = phi ptr [ %101, %100 ], [ %99, %83 ], [ %scevgep28.i, %.lr.ph.preheader.i ]
-  %108 = load i64, ptr %92, align 8, !tbaa !29
-  %.not24.i = icmp eq i64 %108, 0
+  %107 = load i64, ptr %92, align 8, !tbaa !29
+  %.not24.i = icmp eq i64 %107, 0
   br i1 %.not24.i, label %._crit_edge.thread.i, label %.lr.ph14.i
 
 .lr.ph14.i:                                       ; preds = %.loopexit.i
-  %109 = getelementptr inbounds nuw i8, ptr %.09218.i, i64 56
-  br label %110
+  %108 = getelementptr inbounds nuw i8, ptr %.09218.i, i64 56
+  br label %109
 
-110:                                              ; preds = %110, %.lr.ph14.i
-  %.09013.i = phi i64 [ 0, %.lr.ph14.i ], [ %134, %110 ]
-  %.512.i = phi ptr [ %.3.i, %.lr.ph14.i ], [ %133, %110 ]
-  %111 = load ptr, ptr %109, align 8, !tbaa !31
-  %112 = getelementptr inbounds nuw i32, ptr %111, i64 %.09013.i
-  %113 = load i32, ptr %112, align 4, !tbaa !12
-  %114 = trunc i32 %113 to i8
-  store i8 %114, ptr %.512.i, align 1, !tbaa !14
-  %115 = getelementptr inbounds nuw i8, ptr %.512.i, i64 1
-  %116 = load ptr, ptr %109, align 8, !tbaa !31
-  %117 = getelementptr inbounds nuw i32, ptr %116, i64 %.09013.i
-  %118 = load i32, ptr %117, align 4, !tbaa !12
-  %119 = lshr i32 %118, 8
-  %120 = trunc i32 %119 to i8
-  store i8 %120, ptr %115, align 1, !tbaa !14
-  %121 = getelementptr inbounds nuw i8, ptr %.512.i, i64 2
-  %122 = load ptr, ptr %109, align 8, !tbaa !31
-  %123 = getelementptr inbounds nuw i32, ptr %122, i64 %.09013.i
-  %124 = load i32, ptr %123, align 4, !tbaa !12
-  %125 = lshr i32 %124, 16
-  %126 = trunc i32 %125 to i8
-  store i8 %126, ptr %121, align 1, !tbaa !14
-  %127 = getelementptr inbounds nuw i8, ptr %.512.i, i64 3
-  %128 = load ptr, ptr %109, align 8, !tbaa !31
-  %129 = getelementptr inbounds nuw i32, ptr %128, i64 %.09013.i
-  %130 = load i32, ptr %129, align 4, !tbaa !12
-  %131 = lshr i32 %130, 24
-  %132 = trunc nuw i32 %131 to i8
-  store i8 %132, ptr %127, align 1, !tbaa !14
-  %133 = getelementptr inbounds nuw i8, ptr %.512.i, i64 4
-  %134 = add nuw i64 %.09013.i, 1
-  %135 = load i64, ptr %92, align 8, !tbaa !29
-  %136 = icmp ult i64 %134, %135
-  br i1 %136, label %110, label %._crit_edge.i, !llvm.loop !42
+109:                                              ; preds = %109, %.lr.ph14.i
+  %.09013.i = phi i64 [ 0, %.lr.ph14.i ], [ %133, %109 ]
+  %.512.i = phi ptr [ %.3.i, %.lr.ph14.i ], [ %132, %109 ]
+  %110 = load ptr, ptr %108, align 8, !tbaa !31
+  %111 = getelementptr inbounds nuw i32, ptr %110, i64 %.09013.i
+  %112 = load i32, ptr %111, align 4, !tbaa !12
+  %113 = trunc i32 %112 to i8
+  store i8 %113, ptr %.512.i, align 1, !tbaa !14
+  %114 = getelementptr inbounds nuw i8, ptr %.512.i, i64 1
+  %115 = load ptr, ptr %108, align 8, !tbaa !31
+  %116 = getelementptr inbounds nuw i32, ptr %115, i64 %.09013.i
+  %117 = load i32, ptr %116, align 4, !tbaa !12
+  %118 = lshr i32 %117, 8
+  %119 = trunc i32 %118 to i8
+  store i8 %119, ptr %114, align 1, !tbaa !14
+  %120 = getelementptr inbounds nuw i8, ptr %.512.i, i64 2
+  %121 = load ptr, ptr %108, align 8, !tbaa !31
+  %122 = getelementptr inbounds nuw i32, ptr %121, i64 %.09013.i
+  %123 = load i32, ptr %122, align 4, !tbaa !12
+  %124 = lshr i32 %123, 16
+  %125 = trunc i32 %124 to i8
+  store i8 %125, ptr %120, align 1, !tbaa !14
+  %126 = getelementptr inbounds nuw i8, ptr %.512.i, i64 3
+  %127 = load ptr, ptr %108, align 8, !tbaa !31
+  %128 = getelementptr inbounds nuw i32, ptr %127, i64 %.09013.i
+  %129 = load i32, ptr %128, align 4, !tbaa !12
+  %130 = lshr i32 %129, 24
+  %131 = trunc nuw i32 %130 to i8
+  store i8 %131, ptr %126, align 1, !tbaa !14
+  %132 = getelementptr inbounds nuw i8, ptr %.512.i, i64 4
+  %133 = add nuw i64 %.09013.i, 1
+  %134 = load i64, ptr %92, align 8, !tbaa !29
+  %135 = icmp ult i64 %133, %134
+  br i1 %135, label %109, label %._crit_edge.i, !llvm.loop !42
 
-._crit_edge.i:                                    ; preds = %110
-  %137 = and i64 %135, 1
-  %138 = icmp eq i64 %137, 0
-  %139 = load i32, ptr %27, align 8, !tbaa !15
-  %140 = icmp ne i32 %139, 1
-  %or.cond.i = or i1 %138, %140
-  br i1 %or.cond.i, label %._crit_edge.thread.i, label %141
+._crit_edge.i:                                    ; preds = %109
+  %136 = and i64 %134, 1
+  %137 = icmp eq i64 %136, 0
+  %138 = load i32, ptr %27, align 8, !tbaa !15
+  %139 = icmp ne i32 %138, 1
+  %or.cond.i = or i1 %137, %139
+  br i1 %or.cond.i, label %._crit_edge.thread.i, label %140
 
-141:                                              ; preds = %._crit_edge.i
-  %142 = getelementptr inbounds nuw i8, ptr %.512.i, i64 8
-  store i32 0, ptr %133, align 1
+140:                                              ; preds = %._crit_edge.i
+  %141 = getelementptr inbounds nuw i8, ptr %.512.i, i64 8
+  store i32 0, ptr %132, align 1
   br label %._crit_edge.thread.i
 
-._crit_edge.thread.i:                             ; preds = %141, %._crit_edge.i, %.loopexit.i
-  %.6.i = phi ptr [ %142, %141 ], [ %133, %._crit_edge.i ], [ %.3.i, %.loopexit.i ]
-  %143 = add nuw i64 %.09119.i, 1
-  %144 = getelementptr inbounds nuw i8, ptr %.09218.i, i64 64
-  %145 = load i64, ptr %31, align 8, !tbaa !21
-  %146 = icmp ult i64 %143, %145
-  br i1 %146, label %.lr.ph21.i, label %H5O__pline_encode.exit, !llvm.loop !43
+._crit_edge.thread.i:                             ; preds = %140, %._crit_edge.i, %.loopexit.i
+  %.6.i = phi ptr [ %141, %140 ], [ %132, %._crit_edge.i ], [ %.3.i, %.loopexit.i ]
+  %142 = add nuw i64 %.09119.i, 1
+  %143 = getelementptr inbounds nuw i8, ptr %.09218.i, i64 64
+  %144 = load i64, ptr %31, align 8, !tbaa !21
+  %145 = icmp ult i64 %142, %144
+  br i1 %145, label %.lr.ph21.i, label %H5O__pline_encode.exit, !llvm.loop !43
 
 H5O__pline_encode.exit:                           ; preds = %._crit_edge.thread.i, %39, %22, %19, %5
   %.0 = phi i32 [ -1, %22 ], [ 0, %19 ], [ 0, %5 ], [ 0, %39 ], [ 0, %._crit_edge.thread.i ]

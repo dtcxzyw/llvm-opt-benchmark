@@ -497,7 +497,7 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   br label %15
 
 15:                                               ; preds = %94, %2
-  %.070 = phi ptr [ %14, %2 ], [ %57, %94 ]
+  %.070 = phi ptr [ %14, %2 ], [ %58, %94 ]
   %.068 = phi i32 [ %5, %2 ], [ %.169, %94 ]
   %.066 = phi i32 [ %7, %2 ], [ %.167, %94 ]
   %.064 = phi i32 [ %11, %2 ], [ %.165, %94 ]
@@ -510,10 +510,10 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %19 = xor i32 %.064, -1
   %20 = and i32 %.068, %19
   %21 = and i32 %.064, %.066
-  %22 = getelementptr inbounds i8, ptr %.070, i64 -4
-  %23 = load i32, ptr %.070, align 4, !tbaa !11
-  %24 = add nuw nsw i32 %20, %21
-  %25 = add i32 %24, %23
+  %22 = or i32 %20, %21
+  %23 = getelementptr inbounds i8, ptr %.070, i64 -4
+  %24 = load i32, ptr %.070, align 4, !tbaa !11
+  %25 = add i32 %22, %24
   %26 = sub i32 %18, %25
   %27 = and i32 %26, 65535
   %28 = shl nuw nsw i32 %.064, 13
@@ -522,10 +522,10 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %31 = xor i32 %.066, -1
   %32 = and i32 %26, %31
   %33 = and i32 %.066, %.068
-  %34 = getelementptr inbounds i8, ptr %.070, i64 -8
-  %35 = load i32, ptr %22, align 4, !tbaa !11
-  %36 = add i32 %33, %35
-  %37 = add i32 %36, %32
+  %34 = or i32 %32, %33
+  %35 = getelementptr inbounds i8, ptr %.070, i64 -8
+  %36 = load i32, ptr %23, align 4, !tbaa !11
+  %37 = add i32 %36, %34
   %38 = sub i32 %30, %37
   %39 = and i32 %38, 65535
   %40 = shl i32 %.066, 14
@@ -534,10 +534,10 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %43 = xor i32 %.068, -1
   %44 = and i32 %38, %43
   %45 = and i32 %26, %.068
-  %46 = getelementptr inbounds i8, ptr %.070, i64 -12
-  %47 = load i32, ptr %34, align 4, !tbaa !11
-  %48 = add i32 %45, %47
-  %49 = add i32 %48, %44
+  %46 = or i32 %44, %45
+  %47 = getelementptr inbounds i8, ptr %.070, i64 -12
+  %48 = load i32, ptr %35, align 4, !tbaa !11
+  %49 = add i32 %48, %46
   %50 = sub i32 %42, %49
   %51 = shl nuw nsw i32 %.068, 15
   %52 = lshr i32 %.068, 1
@@ -545,10 +545,10 @@ define void @RC2_decrypt(ptr noundef captures(none) %0, ptr noundef readonly cap
   %54 = xor i32 %27, -1
   %55 = and i32 %50, %54
   %56 = and i32 %38, %26
-  %57 = getelementptr inbounds i8, ptr %.070, i64 -16
-  %58 = load i32, ptr %46, align 4, !tbaa !11
-  %59 = add i32 %58, %56
-  %60 = add i32 %59, %55
+  %57 = or i32 %55, %56
+  %58 = getelementptr inbounds i8, ptr %.070, i64 -16
+  %59 = load i32, ptr %47, align 4, !tbaa !11
+  %60 = add i32 %59, %57
   %61 = sub i32 %53, %60
   %62 = and i32 %61, 65535
   %63 = add nsw i32 %.0, -1
