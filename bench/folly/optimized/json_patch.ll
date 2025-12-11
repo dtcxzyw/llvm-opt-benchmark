@@ -3314,9 +3314,9 @@ define void @_ZNK5folly10json_patch5applyERNS_7dynamicE(ptr dead_on_unwind noali
   %23 = getelementptr inbounds nuw i8, ptr %8, i64 40
   br label %24
 
-24:                                               ; preds = %.lr.ph, %121
-  %.sroa.7232.0276 = phi i64 [ 0, %.lr.ph ], [ %123, %121 ]
-  %.sroa.0229.0275 = phi ptr [ %9, %.lr.ph ], [ %122, %121 ]
+24:                                               ; preds = %.lr.ph, %119
+  %.sroa.7232.0276 = phi i64 [ 0, %.lr.ph ], [ %121, %121 ]
+  %.sroa.0229.0275 = phi ptr [ %9, %.lr.ph ], [ %120, %121 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   %25 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 8
   call void @llvm.experimental.noalias.scope.decl(metadata !122)
@@ -3361,11 +3361,11 @@ _ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit: ; preds = %_ZNR5folly
   switch i8 %36, label %121 [
     i8 1, label %37
     i8 2, label %49
-    i8 3, label %54
-    i8 4, label %67
-    i8 5, label %78
-    i8 6, label %101
-    i8 0, label %119
+    i8 3, label %53
+    i8 4, label %66
+    i8 5, label %77
+    i8 6, label %99
+    i8 0, label %117
   ]
 
 37:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
@@ -3393,7 +3393,7 @@ _ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_poin
 _ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit:      ; preds = %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit
   %45 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 64
   %46 = call noundef zeroext i1 @_ZN5follyeqERKNS_7dynamicES2_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %45)
-  br i1 %46, label %121, label %47
+  br i1 %46, label %119, label %47
 
 47:                                               ; preds = %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit
   store i8 3, ptr %0, align 8, !tbaa !141
@@ -3406,8 +3406,8 @@ _ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit:      ; preds = %_ZN5folly8ExpectedI
 49:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
   %50 = call fastcc i24 @_ZN5folly12_GLOBAL__N_19do_removeERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %7)
   %51 = and i24 %50, 255
-  %52 = icmp eq i24 %51, 2
-  br i1 %52, label %.thread, label %121
+  %51 = icmp eq i24 %51, 2
+  br i1 %51, label %.thread, label %119
 
 .thread:                                          ; preds = %49
   %.sroa.5213.0.extract.shift = lshr i24 %50, 8
@@ -3415,215 +3415,215 @@ _ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit:      ; preds = %_ZN5folly8ExpectedI
   store i8 %.sroa.5213.0.extract.trunc, ptr %0, align 8, !tbaa !141
   %.sroa.4210.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7232.0276, ptr %.sroa.4210.0..sroa_idx, align 8, !tbaa !61
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %53, align 8, !tbaa !143
+  %52 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %52, align 8, !tbaa !143
   br label %.thread245
 
-54:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 104
-  %56 = load i8, ptr %55, align 8, !tbaa !50, !range !51, !noundef !52
-  %57 = trunc nuw i8 %56 to i1
-  br i1 %57, label %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81, label %58
+53:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 104
+  %55 = load i8, ptr %54, align 8, !tbaa !50, !range !51, !noundef !52
+  %56 = trunc nuw i8 %55 to i1
+  br i1 %56, label %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81, label %57
 
-58:                                               ; preds = %54
+57:                                               ; preds = %53
   call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #9
   unreachable
 
-_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81:    ; preds = %54
-  %59 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 64
-  %60 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
-  %61 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  %62 = load ptr, ptr %61, align 8, !tbaa !77
-  %63 = getelementptr inbounds i8, ptr %62, i64 -32
-  %64 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %59, ptr noundef nonnull align 8 dereferenceable(32) %63)
-  %65 = icmp eq i24 %64, 2
-  br i1 %65, label %.thread239, label %121
+_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81:    ; preds = %53
+  %58 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 64
+  %59 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %60 = getelementptr inbounds nuw i8, ptr %59, i64 8
+  %61 = load ptr, ptr %60, align 8, !tbaa !77
+  %62 = getelementptr inbounds i8, ptr %61, i64 -32
+  %63 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(32) %62)
+  %64 = icmp eq i24 %63, 2
+  br i1 %64, label %.thread239, label %119
 
 .thread239:                                       ; preds = %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81
   store i8 0, ptr %0, align 8, !tbaa !141
   %.sroa.4200.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7232.0276, ptr %.sroa.4200.0..sroa_idx, align 8, !tbaa !61
-  %66 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %66, align 8, !tbaa !143
+  %65 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %65, align 8, !tbaa !143
   br label %.thread245
 
-67:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
-  %68 = icmp eq i8 %26, 1
-  br i1 %68, label %69, label %76
+66:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
+  %67 = icmp eq i8 %26, 1
+  br i1 %67, label %68, label %75
 
-69:                                               ; preds = %67
-  %70 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 104
-  %71 = load i8, ptr %70, align 8, !tbaa !50, !range !51, !noundef !52
-  %72 = trunc nuw i8 %71 to i1
-  br i1 %72, label %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit89, label %73
+68:                                               ; preds = %66
+  %69 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 104
+  %70 = load i8, ptr %69, align 8, !tbaa !50, !range !51, !noundef !52
+  %71 = trunc nuw i8 %70 to i1
+  br i1 %71, label %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit89, label %72
 
-73:                                               ; preds = %69
+72:                                               ; preds = %68
   call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #9
   unreachable
 
-_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit89: ; preds = %69
-  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 64
-  %75 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %74)
-  br label %121
+_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit89: ; preds = %68
+  %73 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 64
+  %74 = call noundef nonnull align 8 dereferenceable(40) ptr @_ZN5folly7dynamicaSERKS0_(ptr noundef nonnull align 8 dereferenceable(40) %35, ptr noundef nonnull align 8 dereferenceable(40) %73)
+  br label %119
 
-76:                                               ; preds = %67
+75:                                               ; preds = %66
   store i8 2, ptr %0, align 8, !tbaa !141
   %.sroa.4194.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7232.0276, ptr %.sroa.4194.0..sroa_idx, align 8, !tbaa !61
-  %77 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %77, align 8, !tbaa !143
+  %76 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %76, align 8, !tbaa !143
   br label %.thread245
 
-78:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
+77:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  %79 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 56
-  %80 = load i8, ptr %79, align 8, !tbaa !53, !range !51, !noundef !52
-  %81 = trunc nuw i8 %80 to i1
-  br i1 %81, label %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit, label %82
+  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 56
+  %79 = load i8, ptr %78, align 8, !tbaa !53, !range !51, !noundef !52
+  %80 = trunc nuw i8 %79 to i1
+  br i1 %80, label %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit, label %81
 
-82:                                               ; preds = %78
+81:                                               ; preds = %77
   call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #9
   unreachable
 
-_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit: ; preds = %78
-  %83 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 32
+_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit: ; preds = %77
+  %82 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 32
   call void @llvm.experimental.noalias.scope.decl(metadata !145)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !145
-  call void @_ZNKR5folly7dynamic11try_get_ptrERKNS_12json_pointerE(ptr dead_on_unwind nonnull writable sret(%"class.folly::Expected.63") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %83), !noalias !145
-  %84 = load i8, ptr %19, align 8, !tbaa !125, !noalias !145
-  switch i8 %84, label %85 [
+  call void @_ZNKR5folly7dynamic11try_get_ptrERKNS_12json_pointerE(ptr dead_on_unwind nonnull writable sret(%"class.folly::Expected.63") align 8 %5, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %82), !noalias !145
+  %83 = load i8, ptr %19, align 8, !tbaa !125, !noalias !145
+  switch i8 %83, label %85 [
     i8 1, label %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108
-    i8 2, label %86
+    i8 2, label %85
   ], !prof !127
 
-85:                                               ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit
+84:                                               ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #9, !noalias !145
   unreachable
 
-86:                                               ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit
+85:                                               ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !145
   br label %.thread241
 
 _ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108: ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit
-  %87 = load ptr, ptr %5, align 8, !tbaa !128, !noalias !145
-  %88 = load ptr, ptr %20, align 8, !tbaa !131, !noalias !145
+  %86 = load ptr, ptr %5, align 8, !tbaa !128, !noalias !145
+  %87 = load ptr, ptr %20, align 8, !tbaa !131, !noalias !145
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.513.0..sroa_idx.i99, ptr noundef nonnull align 8 dereferenceable(16) %21, i64 16, i1 false)
-  %89 = load i64, ptr %22, align 8, !tbaa !132, !noalias !145
-  store ptr %87, ptr %8, align 8, !tbaa !14, !alias.scope !145
-  store ptr %88, ptr %.sroa.412.0..sroa_idx.i100, align 8, !tbaa !14, !alias.scope !145
-  store i64 %89, ptr %.sroa.614.0..sroa_idx.i101, align 8, !tbaa !61, !alias.scope !145
+  %88 = load i64, ptr %22, align 8, !tbaa !132, !noalias !145
+  store ptr %86, ptr %8, align 8, !tbaa !14, !alias.scope !145
+  store ptr %87, ptr %.sroa.412.0..sroa_idx.i100, align 8, !tbaa !14, !alias.scope !145
+  store i64 %88, ptr %.sroa.614.0..sroa_idx.i101, align 8, !tbaa !61, !alias.scope !145
   store i8 1, ptr %23, align 8, !tbaa !133, !alias.scope !145
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !145
-  %90 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8, !tbaa !77
-  %93 = getelementptr inbounds i8, ptr %92, i64 -32
-  %94 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull align 8 dereferenceable(32) %93)
-  %95 = icmp eq i24 %94, 2
-  br i1 %95, label %.thread241, label %.critedge
+  %89 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %90 = getelementptr inbounds nuw i8, ptr %89, i64 8
+  %91 = load ptr, ptr %90, align 8, !tbaa !77
+  %92 = getelementptr inbounds i8, ptr %91, i64 -32
+  %93 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(32) %92)
+  %94 = icmp eq i24 %93, 2
+  br i1 %94, label %.thread241, label %.critedge
 
 .critedge:                                        ; preds = %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108
-  %96 = call fastcc i24 @_ZN5folly12_GLOBAL__N_19do_removeERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %8)
-  %97 = and i24 %96, 255
-  %98 = icmp eq i24 %97, 2
-  br i1 %98, label %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit115, label %100
+  %95 = call fastcc i24 @_ZN5folly12_GLOBAL__N_19do_removeERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEE(ptr noundef nonnull align 8 dereferenceable(48) %8)
+  %97 = and i24 %95, 255
+  %96 = icmp eq i24 %97, 2
+  br i1 %96, label %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit115, label %98
 
 _ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit115: ; preds = %.critedge
-  %.sroa.5172.0.extract.shift = lshr i24 %96, 8
+  %.sroa.5172.0.extract.shift = lshr i24 %95, 8
   %.sroa.5172.0.extract.trunc = trunc nuw nsw i24 %.sroa.5172.0.extract.shift to i8
   br label %.thread241
 
-.thread241:                                       ; preds = %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108, %86, %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit115
+.thread241:                                       ; preds = %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108, %85, %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit115
   %.sink = phi i8 [ 1, %86 ], [ %.sroa.5172.0.extract.trunc, %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit115 ], [ 0, %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit108 ]
   store i8 %.sink, ptr %0, align 8, !tbaa !141
   %.sroa.4179.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7232.0276, ptr %.sroa.4179.0..sroa_idx, align 8, !tbaa !61
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %99, align 8, !tbaa !143
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %97, align 8, !tbaa !143
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.thread245
 
-100:                                              ; preds = %.critedge
+98:                                               ; preds = %.critedge
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %121
+  br label %119
 
-101:                                              ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
-  %102 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 56
-  %103 = load i8, ptr %102, align 8, !tbaa !53, !range !51, !noundef !52
-  %104 = trunc nuw i8 %103 to i1
-  br i1 %104, label %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121, label %105
+99:                                               ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
+  %100 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 56
+  %101 = load i8, ptr %100, align 8, !tbaa !53, !range !51, !noundef !52
+  %102 = trunc nuw i8 %101 to i1
+  br i1 %102, label %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121, label %103
 
-105:                                              ; preds = %101
+103:                                              ; preds = %99
   call void @_ZN5folly6detail16throw_exception_INS_22OptionalEmptyExceptionEJEEEvDpT0_() #9
   unreachable
 
-_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121: ; preds = %101
-  %106 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 32
+_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121: ; preds = %99
+  %104 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !148
-  call void @_ZNKR5folly7dynamic11try_get_ptrERKNS_12json_pointerE(ptr dead_on_unwind nonnull writable sret(%"class.folly::Expected.63") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %106), !noalias !148
-  %107 = load i8, ptr %17, align 8, !tbaa !125, !noalias !148
-  switch i8 %107, label %108 [
+  call void @_ZNKR5folly7dynamic11try_get_ptrERKNS_12json_pointerE(ptr dead_on_unwind nonnull writable sret(%"class.folly::Expected.63") align 8 %4, ptr noundef nonnull align 8 dereferenceable(40) %2, ptr noundef nonnull align 8 dereferenceable(24) %104), !noalias !148
+  %105 = load i8, ptr %17, align 8, !tbaa !125, !noalias !148
+  switch i8 %105, label %108 [
     i8 1, label %_ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit
-    i8 2, label %109
+    i8 2, label %107
   ], !prof !127
 
-108:                                              ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121
+106:                                              ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121
   call void @_ZN5folly6detail16throw_exception_INS_17BadExpectedAccessIvEEJEEEvDpT0_() #9, !noalias !148
   unreachable
 
-109:                                              ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121
+107:                                              ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !148
   store i8 1, ptr %0, align 8, !tbaa !141
   %.sroa.4163.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7232.0276, ptr %.sroa.4163.0..sroa_idx, align 8, !tbaa !61
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %110, align 8, !tbaa !143
+  %108 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %108, align 8, !tbaa !143
   br label %.thread245
 
 _ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit: ; preds = %_ZNKR5folly8OptionalINS_12json_pointerEEdeEv.exit121
-  %111 = load ptr, ptr %18, align 8, !tbaa !131, !noalias !148
+  %109 = load ptr, ptr %18, align 8, !tbaa !131, !noalias !148
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !148
-  %112 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
-  %113 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  %114 = load ptr, ptr %113, align 8, !tbaa !77
-  %115 = getelementptr inbounds i8, ptr %114, i64 -32
-  %116 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %111, ptr noundef nonnull align 8 dereferenceable(32) %115)
-  %117 = icmp eq i24 %116, 2
-  br i1 %117, label %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, label %121
+  %110 = call noundef nonnull align 8 dereferenceable(24) ptr @_ZNK5folly12json_pointer6tokensB5cxx11Ev(ptr noundef nonnull align 8 dereferenceable(24) %25)
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 8
+  %112 = load ptr, ptr %111, align 8, !tbaa !77
+  %113 = getelementptr inbounds i8, ptr %112, i64 -32
+  %114 = call fastcc i24 @_ZN5folly12_GLOBAL__N_16do_addERNS_8ExpectedINS_7dynamic27json_pointer_resolved_valueIS2_EENS2_29json_pointer_resolution_errorIS2_EEEERKS2_RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(48) %7, ptr noundef nonnull align 8 dereferenceable(40) %109, ptr noundef nonnull align 8 dereferenceable(32) %113)
+  %115 = icmp eq i24 %114, 2
+  br i1 %115, label %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, label %119
 
 _ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135: ; preds = %_ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit
   store i8 0, ptr %0, align 8, !tbaa !141
   %.sroa.4155.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %.sroa.7232.0276, ptr %.sroa.4155.0..sroa_idx, align 8, !tbaa !61
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 2, ptr %116, align 8, !tbaa !143
+  br label %.thread245
+
+117:                                              ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
+  store i8 0, ptr %0, align 8, !tbaa !141
+  %.sroa.4149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.7232.0276, ptr %.sroa.4149.0..sroa_idx, align 8, !tbaa !61
   %118 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i8 2, ptr %118, align 8, !tbaa !143
   br label %.thread245
 
-119:                                              ; preds = %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
-  store i8 0, ptr %0, align 8, !tbaa !141
-  %.sroa.4149.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.7232.0276, ptr %.sroa.4149.0..sroa_idx, align 8, !tbaa !61
-  %120 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 2, ptr %120, align 8, !tbaa !143
-  br label %.thread245
-
-121:                                              ; preds = %_ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit, %100, %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81, %49, %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit, %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit89, %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
+119:                                              ; preds = %_ZNK5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit, %98, %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit81, %49, %_ZNKR5folly8OptionalINS_7dynamicEEdeEv.exit, %_ZN5folly8ExpectedINS_7dynamic27json_pointer_resolved_valueIS1_EENS1_29json_pointer_resolution_errorIS1_EEEptEv.exit89, %_ZNR5folly7dynamic11try_get_ptrERKNS_12json_pointerE.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %122 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 112
-  %123 = add i64 %.sroa.7232.0276, 1
-  %.not = icmp eq ptr %122, %11
+  %120 = getelementptr inbounds nuw i8, ptr %.sroa.0229.0275, i64 112
+  %121 = add i64 %.sroa.7232.0276, 1
+  %.not = icmp eq ptr %120, %11
   br i1 %.not, label %._crit_edge, label %24
 
-.thread245:                                       ; preds = %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, %109, %47, %39, %76, %119, %.thread, %.thread239, %.thread241
+.thread245:                                       ; preds = %_ZNR5folly8ExpectedINS_4UnitENS_10json_patch28patch_application_error_codeEE5errorEv.exit135, %107, %47, %39, %75, %117, %.thread, %.thread239, %.thread241
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %125
+  br label %123
 
-._crit_edge:                                      ; preds = %121, %3
-  %124 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i8 1, ptr %124, align 8, !tbaa !143
-  br label %125
+._crit_edge:                                      ; preds = %119, %3
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i8 1, ptr %122, align 8, !tbaa !143
+  br label %123
 
-125:                                              ; preds = %.thread245, %._crit_edge
+123:                                              ; preds = %.thread245, %._crit_edge
   ret void
 }
 

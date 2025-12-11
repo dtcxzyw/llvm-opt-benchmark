@@ -4718,12 +4718,12 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
 .loopexit:                                        ; preds = %23
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %71
 
 .loopexit.split-lp:                               ; preds = %53, %54, %40, %43
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %72
+  br label %71
 
 48:                                               ; preds = %.noexc10, %40
   %.sink25.i = phi ptr [ %47, %.noexc10 ], [ %42, %40 ]
@@ -4747,7 +4747,7 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17h38ae87c0006482bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #25
-          to label %72 unwind label %69
+          to label %72 unwind label %68
 
 52:                                               ; preds = %48
   br i1 %49, label %54, label %53
@@ -4777,7 +4777,7 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   %63 = or i1 %59, %62
   br i1 %63, label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13", label %64
 
-"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13": ; preds = %68, %66, %64, %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit", %56
+"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13": ; preds = %67, %65, %64, %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit", %56
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
@@ -4788,17 +4788,17 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
     i64 1, label %68
   ]
 
-66:                                               ; preds = %64
-  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @"_ZN4core3ptr39drop_in_place$LT$quiche..Connection$GT$17hb5ef83b4646cb2e1E"(ptr noalias noundef nonnull align 16 dereferenceable(15216) %67)
+65:                                               ; preds = %64
+  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @"_ZN4core3ptr39drop_in_place$LT$quiche..Connection$GT$17hb5ef83b4646cb2e1E"(ptr noalias noundef nonnull align 16 dereferenceable(15216) %66)
   br label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13"
 
-68:                                               ; preds = %64
+67:                                               ; preds = %64
   call void @"_ZN4core3ptr77drop_in_place$LT$tokio_quiche..quic..router..connector..PendingConnection$GT$17hc5c2459a741d0a7fE"(ptr noalias noundef nonnull align 16 dereferenceable(15248) %6)
   br label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13"
 
-69:                                               ; preds = %81, %80, %50
-  %70 = landingpad { ptr, i32 }
+68:                                               ; preds = %80, %79, %50
+  %69 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
@@ -4808,28 +4808,28 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   store i128 2, ptr %0, align 16
   br label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13"
 
-71:                                               ; preds = %81, %80
+70:                                               ; preds = %80, %79
   resume { ptr, i32 } %.pn.ph
 
-72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %50
+71:                                               ; preds = %.loopexit, %.loopexit.split-lp, %50
   %.pn.ph = phi { ptr, i32 } [ %51, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %73 = load i128, ptr %6, align 16, !range !39, !noundef !8
-  %74 = add nsw i128 %73, -2
-  %75 = icmp ugt i128 %74, 2
-  %76 = icmp ne i128 %74, 1
+  %72 = load i128, ptr %6, align 16, !range !39, !noundef !8
+  %73 = add nsw i128 %72, -2
+  %75 = icmp ugt i128 %73, 2
+  %75 = icmp ne i128 %73, 1
   call void @llvm.assume(i1 %76)
   %77 = and i128 %74, 18446744073709551615
   %78 = icmp eq i128 %77, 1
   %79 = or i1 %75, %78
   br i1 %79, label %81, label %80
 
-80:                                               ; preds = %72
+79:                                               ; preds = %71
   invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E"(ptr noalias noundef align 16 dereferenceable(15248) %6) #25
-          to label %71 unwind label %69
+          to label %71 unwind label %68
 
-81:                                               ; preds = %72
+80:                                               ; preds = %71
   invoke void @"_ZN4core3ptr77drop_in_place$LT$tokio_quiche..quic..router..connector..PendingConnection$GT$17hc5c2459a741d0a7fE"(ptr noalias noundef nonnull align 16 dereferenceable(15248) %6) #25
-          to label %71 unwind label %69
+          to label %71 unwind label %68
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

@@ -13275,10 +13275,10 @@ define hidden void @_ZN14regex_automata4util8alphabet11ByteClasses15representati
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %5, ptr %10, align 8
   store i64 1, ptr %0, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.415.0, ptr %11, align 8
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %12, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.415.0, ptr %10, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %11, align 8
   ret void
 }
 

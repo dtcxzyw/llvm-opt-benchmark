@@ -6541,17 +6541,17 @@ common.resume:                                    ; preds = %.body, %32
   %common.resume.op = phi { ptr, i32 } [ %33, %32 ], [ %eh.lpad-body, %.body ]
   resume { ptr, i32 } %common.resume.op
 
-"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread": ; preds = %3
+"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread.critedge": ; preds = %3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br label %36
 
-36:                                               ; preds = %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread"
-  %.sroa.0.0.i2245.off8 = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread" ], [ %extract.t, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
-  %.sroa.0.0.i2245.off16 = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread" ], [ %16, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
+36:                                               ; preds = %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread.critedge"
+  %.sroa.0.0.i2237.off8 = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread" ], [ %extract.t, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
+  %.sroa.0.0.i2237.off16 = phi i8 [ 0, %"_ZN4core6result19Result$LT$T$C$E$GT$9unwrap_or17h0d10c9902a5736f0E.exit.thread" ], [ %16, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  store i8 %.sroa.0.0.i2245.off8, ptr %10, align 1
+  store i8 %.sroa.0.0.i2237.off8, ptr %10, align 1
   %37 = getelementptr inbounds nuw i8, ptr %10, i64 1
-  store i8 %.sroa.0.0.i2245.off16, ptr %37, align 1
+  store i8 %.sroa.0.0.i2237.off16, ptr %37, align 1
   %38 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 416
   call void @llvm.experimental.noalias.scope.decl(metadata !1157)
@@ -16847,8 +16847,8 @@ _ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i: 
   br label %.thread
 
 35:                                               ; preds = %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i, %.critedge.i.i.i
-  %.sroa.3.0.i.ph = phi i16 [ 0, %.critedge.i.i.i ], [ %28, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
-  %.sroa.0.0.i.ph = phi i1 [ true, %.critedge.i.i.i ], [ false, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
+  %.sroa.3.0.i = phi i16 [ 0, %.critedge.i.i.i ], [ %28, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
+  %.sroa.0.0.i = phi i1 [ true, %.critedge.i.i.i ], [ false, %_ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i ]
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i24 0, ptr %4, align 4
   %36 = getelementptr inbounds nuw i8, ptr %4, i64 1
@@ -16857,17 +16857,17 @@ _ZN5tokio7runtime7context7current12with_current17h4cad30c869e4ca50E.exit.i.i.i: 
 
 37:                                               ; preds = %35
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %extract.t = trunc i16 %.sroa.3.0.i.ph to i8
-  %38 = lshr i16 %.sroa.3.0.i.ph, 8
-  %extract.t59 = trunc nuw i16 %38 to i8
-  br i1 %.sroa.0.0.i.ph, label %41, label %.thread54
+  %extract.t = trunc i16 %.sroa.3.0.i to i8
+  %38 = lshr i16 %.sroa.3.0.i, 8
+  %extract.t49 = trunc nuw i16 %38 to i8
+  br i1 %.sroa.0.0.i, label %41, label %.thread44.critedge
 
-.thread54:                                        ; preds = %3, %37
-  %.sroa.0.0.i2957.off8 = phi i8 [ %extract.t, %37 ], [ 0, %3 ]
-  %.sroa.0.0.i2957.off16 = phi i8 [ %extract.t59, %37 ], [ 0, %3 ]
-  store i8 %.sroa.0.0.i2957.off8, ptr %6, align 1
+.thread44.critedge:                               ; preds = %3, %37
+  %.sroa.0.0.i2947.off8 = phi i8 [ %extract.t, %37 ], [ 0, %3 ]
+  %.sroa.0.0.i2947.off16 = phi i8 [ %extract.t49, %37 ], [ 0, %3 ]
+  store i8 %.sroa.0.0.i2947.off8, ptr %6, align 1
   %39 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %.sroa.0.0.i2957.off16, ptr %39, align 1
+  store i8 %.sroa.0.0.i2947.off16, ptr %39, align 1
   %40 = load ptr, ptr %1, align 8, !nonnull !5, !noundef !5
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17hb0166c77892e800fE(ptr noundef nonnull %40, ptr noundef nonnull %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %71 unwind label %69
@@ -16946,13 +16946,13 @@ common.resume:                                    ; preds = %.thread, %65
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17haf9f165a48dcb552E.llvm.12494526139044184965"(ptr noalias noundef nonnull align 8 dereferenceable(24) %58)
   br label %"_ZN4core3ptr189drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$bytes..bytes..Bytes$C$object_store..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17ha4283a583f6d5ac4E.llvm.15769799167173126418.exit"
 
-69:                                               ; preds = %.thread54
+69:                                               ; preds = %.thread44.critedge
   %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hc15400bc6d097873E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %6)
           to label %.thread unwind label %74
 
-71:                                               ; preds = %.thread54
+71:                                               ; preds = %.thread44.critedge
   %72 = load i64, ptr %7, align 8, !range !277, !noundef !5
   %.not = icmp eq i64 %72, 18
   br i1 %.not, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h48075dc500bc2e09E.exit33", label %73

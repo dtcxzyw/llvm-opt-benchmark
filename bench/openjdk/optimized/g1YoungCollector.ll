@@ -5715,14 +5715,14 @@ define linkonce_odr hidden void @_ZN20G1ParScanThreadState20write_ref_field_post
   %30 = load ptr, ptr %29, align 8
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
   %32 = load ptr, ptr %31, align 8
-  %33 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %31 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
   %34 = zext nneg i32 %33 to i64
   %35 = lshr i64 %4, %34
   %36 = getelementptr inbounds i8, ptr %32, i64 %35
-  %37 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %35 = getelementptr inbounds nuw i8, ptr %30, i64 40
   %38 = load ptr, ptr %37, align 8
   %39 = ptrtoint ptr %36 to i64
-  %40 = ptrtoint ptr %38 to i64
+  %38 = ptrtoint ptr %38 to i64
   %41 = sub i64 %39, %40
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 432
   %43 = load i64, ptr %42, align 8
@@ -5731,7 +5731,7 @@ define linkonce_odr hidden void @_ZN20G1ParScanThreadState20write_ref_field_post
 
 44:                                               ; preds = %28
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %46 = getelementptr inbounds i8, ptr %38, i64 %41
+  %44 = getelementptr inbounds i8, ptr %38, i64 %41
   tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef %46) #19
   store i64 %41, ptr %42, align 8
   %47 = getelementptr inbounds nuw i8, ptr %0, i64 624
@@ -5740,13 +5740,13 @@ define linkonce_odr hidden void @_ZN20G1ParScanThreadState20write_ref_field_post
   store i64 %49, ptr %47, align 8
   br label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit
 
-50:                                               ; preds = %23
+49:                                               ; preds = %23
   %51 = and i24 %.sroa.0.0.copyload.i.i.i10, 255
   %.not.i = icmp eq i24 %51, 0
-  br i1 %.not.i, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %52
+  br i1 %.not.i, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %50
 
-52:                                               ; preds = %50
-  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
+50:                                               ; preds = %49
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load ptr, ptr %53, align 8
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
   %56 = load ptr, ptr %55, align 8
@@ -5764,14 +5764,14 @@ define linkonce_odr hidden void @_ZN20G1ParScanThreadState20write_ref_field_post
   %.not.i.not.i11 = icmp eq i64 %67, %65
   br i1 %.not.i.not.i11, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %68
 
-68:                                               ; preds = %52
+68: ; preds = %50
   %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %70 = getelementptr inbounds i8, ptr %62, i64 %65
   tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef %70) #19
   store i64 %65, ptr %66, align 8
   br label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit
 
-_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit: ; preds = %68, %52, %50, %44, %28, %11, %3
+_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit: ; preds = %68, %50, %49, %44, %28, %11, %3
   ret void
 }
 

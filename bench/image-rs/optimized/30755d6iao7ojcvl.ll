@@ -1130,7 +1130,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17hb6c705
   store i8 2, ptr %0, align 8
   br label %22
 
-22:                                               ; preds = %88, %67, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit", %37, %35, %21
+22:                                               ; preds = %87, %67, %"_ZN4core6result19Result$LT$T$C$E$GT$7map_err17h52037b248420b245E.exit", %37, %35, %21
   ret void
 
 23:                                               ; preds = %16, %19
@@ -1215,7 +1215,7 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17hb6c705
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %55
 
-55:                                               ; preds = %87, %54
+55:                                               ; preds = %86, %54
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !274
   store i8 0, ptr %5, align 1, !noalias !274
   call void @llvm.experimental.noalias.scope.decl(metadata !277)
@@ -1271,41 +1271,41 @@ define hidden void @"_ZN3gif7encoder16Encoder$LT$W$GT$15write_extension17hb6c705
   %73 = getelementptr inbounds nuw i8, ptr %7, i64 22
   store i8 1, ptr %73, align 2, !alias.scope !334, !noalias !341
   %74 = and i48 %2, 4294901760
-  %75 = icmp eq i48 %74, 0
-  %.4.extract.trunc. = select i1 %75, i16 %.4.extract.trunc, i16 0
+  %74 = icmp eq i48 %74, 0
+  %.4.extract.trunc. = select i1 %74, i16 %.4.extract.trunc, i16 0
   call void @llvm.experimental.noalias.scope.decl(metadata !345)
-  %76 = getelementptr inbounds nuw i8, ptr %7, i64 23
-  store i16 %.4.extract.trunc., ptr %76, align 1, !alias.scope !348, !noalias !353
+  %75 = getelementptr inbounds nuw i8, ptr %7, i64 23
+  store i16 %.4.extract.trunc., ptr %75, align 1, !alias.scope !348, !noalias !353
   store i64 17, ptr %7, align 8, !alias.scope !357, !noalias !359
   call void @llvm.experimental.noalias.scope.decl(metadata !361)
-  %77 = load i64, ptr %14, align 8, !alias.scope !361, !noalias !364, !noundef !13
-  %78 = load i64, ptr %25, align 8, !alias.scope !361, !noalias !364, !noundef !13
-  %79 = sub i64 %77, %78
-  %80 = icmp ugt i64 %79, 17
-  br i1 %80, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177"
+  %76 = load i64, ptr %14, align 8, !alias.scope !361, !noalias !364, !noundef !13
+  %77 = load i64, ptr %25, align 8, !alias.scope !361, !noalias !364, !noundef !13
+  %78 = sub i64 %76, %77
+  %79 = icmp ugt i64 %78, 17
+  br i1 %79, label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177.thread", label %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177"
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177.thread": ; preds = %68
-  %81 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %82 = load ptr, ptr %81, align 8, !alias.scope !361, !noalias !364, !nonnull !13, !noundef !13
-  %83 = getelementptr inbounds i8, ptr %82, i64 %78
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %83, ptr noundef nonnull readonly align 8 dereferenceable(17) %69, i64 17, i1 false), !noalias !371
-  %84 = add i64 %78, 17
-  store i64 %84, ptr %25, align 8, !alias.scope !361, !noalias !364
-  br label %87
+  %80 = getelementptr inbounds nuw i8, ptr %14, i64 8
+  %81 = load ptr, ptr %80, align 8, !alias.scope !361, !noalias !364, !nonnull !13, !noundef !13
+  %82 = getelementptr inbounds i8, ptr %81, i64 %77
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(17) %82, ptr noundef nonnull readonly align 8 dereferenceable(17) %69, i64 17, i1 false), !noalias !371
+  %83 = add i64 %77, 17
+  store i64 %83, ptr %25, align 8, !alias.scope !361, !noalias !364
+  br label %86
 
 "_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177": ; preds = %68
-  %85 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef 17), !noalias !372
-  %86 = icmp eq ptr %85, null
-  br i1 %86, label %87, label %88
+  %84 = call noundef ptr @"_ZN3std2io8buffered9bufwriter18BufWriter$LT$W$GT$14write_all_cold17hd8406cb176d99a6fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %14, ptr noalias noundef nonnull readonly align 1 %69, i64 noundef 17), !noalias !372
+  %85 = icmp eq ptr %84, null
+  br i1 %85, label %86, label %87
 
-87:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177"
+86:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177.thread", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177"
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %55
 
-88:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177"
+87:                                               ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hfe69d63a1f9513c8E.exit177"
   store i8 1, ptr %0, align 8
   %.sroa.4232.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %85, ptr %.sroa.4232.0..sroa_idx, align 8
+  store ptr %84, ptr %.sroa.4232.0..sroa_idx, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %22
 }

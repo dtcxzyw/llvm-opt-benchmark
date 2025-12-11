@@ -13244,8 +13244,8 @@ _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit, %entry
-  %2 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
-  ret i64 %2
+  %1 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13308,8 +13308,8 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %2 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
-  ret i64 %2
+  %1 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13939,8 +13939,8 @@ _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit, %entry
-  %2 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
-  ret i64 %2
+  %1 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14004,8 +14004,8 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %2 = phi i64 [ 33, %entry ], [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
-  ret i64 %2
+  %1 = phi i64 [ 33, %entry ], [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14646,8 +14646,8 @@ _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit, %entry
-  %2 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
-  ret i64 %2
+  %1 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14711,8 +14711,8 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %2 = phi i64 [ 65, %entry ], [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
-  ret i64 %2
+  %1 = phi i64 [ 65, %entry ], [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
+  ret i64 %1
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15514,15 +15514,15 @@ if.then:                                          ; preds = %_ZN5eastl11GetFirst
 
 if.end:                                           ; preds = %entry, %_ZN5eastl11GetFirstBitEo.exit
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i128, ptr %arrayidx3, align 16
-  %tobool.not.i8 = icmp eq i128 %2, 0
+  %1 = load i128, ptr %arrayidx3, align 16
+  %tobool.not.i8 = icmp eq i128 %1, 0
   br i1 %tobool.not.i8, label %return, label %_ZN5eastl11GetFirstBitEo.exit47
 
 _ZN5eastl11GetFirstBitEo.exit47:                  ; preds = %if.end
-  %coerce4.sroa.2.0.extract.shift = lshr i128 %2, 64
-  %3 = and i128 %2, 18446744073709551615
+  %coerce4.sroa.2.0.extract.shift = lshr i128 %1, 64
+  %3 = and i128 %1, 18446744073709551615
   %cmp.i10 = icmp eq i128 %3, 0
-  %x.addr.0.i11 = select i1 %cmp.i10, i128 %coerce4.sroa.2.0.extract.shift, i128 %2
+  %x.addr.0.i11 = select i1 %cmp.i10, i128 %coerce4.sroa.2.0.extract.shift, i128 %1
   %n.0.i12 = select i1 %cmp.i10, i32 65, i32 1
   %and3.i13 = and i128 %x.addr.0.i11, 4294967295
   %cmp4.i14 = icmp eq i128 %and3.i13, 0
@@ -15641,15 +15641,15 @@ if.then3:                                         ; preds = %_ZN5eastl11GetFirst
 
 if.end:                                           ; preds = %if.then, %_ZN5eastl11GetFirstBitEo.exit
   %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i128, ptr %arrayidx5, align 16
-  %tobool.not.i13 = icmp eq i128 %2, 0
+  %1 = load i128, ptr %arrayidx5, align 16
+  %tobool.not.i13 = icmp eq i128 %1, 0
   br i1 %tobool.not.i13, label %return, label %_ZN5eastl11GetFirstBitEo.exit52
 
 _ZN5eastl11GetFirstBitEo.exit52:                  ; preds = %if.end
-  %coerce6.sroa.2.0.extract.shift = lshr i128 %2, 64
-  %3 = and i128 %2, 18446744073709551615
+  %coerce6.sroa.2.0.extract.shift = lshr i128 %1, 64
+  %3 = and i128 %1, 18446744073709551615
   %cmp.i15 = icmp eq i128 %3, 0
-  %x.addr.0.i16 = select i1 %cmp.i15, i128 %coerce6.sroa.2.0.extract.shift, i128 %2
+  %x.addr.0.i16 = select i1 %cmp.i15, i128 %coerce6.sroa.2.0.extract.shift, i128 %1
   %n.0.i17 = select i1 %cmp.i15, i32 65, i32 1
   %and3.i18 = and i128 %x.addr.0.i16, 4294967295
   %cmp4.i19 = icmp eq i128 %and3.i18, 0
@@ -15699,10 +15699,10 @@ if.else:                                          ; preds = %entry
 if.then13:                                        ; preds = %if.else
   %sub = add nsw i64 %last_find, -127
   %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %4 = load i128, ptr %arrayidx16, align 16
+  %2 = load i128, ptr %arrayidx16, align 16
   %sh_prom17 = zext nneg i64 %sub to i128
   %shl18 = shl nsw i128 -1, %sh_prom17
-  %and19 = and i128 %4, %shl18
+  %and19 = and i128 %2, %shl18
   %tobool.not.i57 = icmp eq i128 %and19, 0
   br i1 %tobool.not.i57, label %return, label %_ZN5eastl11GetFirstBitEo.exit96
 

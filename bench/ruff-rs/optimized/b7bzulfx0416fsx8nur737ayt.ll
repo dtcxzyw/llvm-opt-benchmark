@@ -9568,7 +9568,7 @@ define void @"_ZN95_$LT$ruff_workspace..options..DeprecatedTopLevelLintOptions$u
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define range(i40 0, 4328521728) i40 @_ZN14ruff_workspace7options24Flake8AnnotationsOptions13into_settings17hbe575e803fe4509aE(i40 %0) unnamed_addr #3 {
-  %2 = and i40 %0, 255
+  %.sroa.02.0.insert.insert = and i40 %0, 255
   %.not = icmp eq i40 %2, 2
   %3 = and i40 %0, 65280
   %.not22 = icmp eq i40 %3, 512
@@ -15013,7 +15013,7 @@ define range(i48 0, 8589934592) i48 @_ZN14ruff_workspace7options18PycodestyleOpt
   %.sroa.01.0.extract.trunc = trunc i48 %0 to i16
   %.not = icmp eq i16 %.sroa.01.0.extract.trunc, 0
   %spec.select = select i1 %.not, i16 %1, i16 %.sroa.01.0.extract.trunc
-  %3 = and i48 %0, 1095216660480
+  %.sroa.24.0.insert.insert = and i48 %0, 1095216660480
   %.not12 = icmp eq i48 %3, 8589934592
   %4 = and i48 %0, 4294967296
   %.sroa.35.0.insert.ext = select i1 %.not12, i48 0, i48 %4
