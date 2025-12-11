@@ -514,29 +514,25 @@ define dso_local range(i32 -5, 65536) i32 @pci_status_get_and_clear_errors(ptr n
   store i16 0, ptr %2, align 2, !annotation !8
   %3 = call i32 @pci_read_config_word(ptr noundef %0, i32 noundef 6, ptr noundef nonnull %2) #27
   %4 = icmp eq i32 %3, 0
-  br i1 %4, label %5, label %14
+  br i1 %4, label %5, label %12
 
 5:                                                ; preds = %1
   %6 = load i16, ptr %2, align 2
   %7 = and i16 %6, -1792
   store i16 %7, ptr %2, align 2
   %8 = icmp eq i16 %7, 0
-  br i1 %8, label %11, label %9
+  br i1 %8, label %12, label %9
 
 9:                                                ; preds = %5
   %10 = call i32 @pci_write_config_word(ptr noundef %0, i32 noundef 6, i16 noundef zeroext %7) #27
   %.pre = load i16, ptr %2, align 2
-  br label %11
+  %11 = zext i16 %.pre to i32
+  br label %12
 
-11:                                               ; preds = %9, %5
-  %12 = phi i16 [ %.pre, %9 ], [ 0, %5 ]
-  %13 = zext i16 %12 to i32
-  br label %14
-
-14:                                               ; preds = %11, %1
-  %15 = phi i32 [ %13, %11 ], [ -5, %1 ]
+12:                                               ; preds = %5, %9, %1
+  %13 = phi i32 [ -5, %1 ], [ %11, %9 ], [ 0, %5 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret i32 %15
+  ret i32 %13
 }
 
 ; Function Attrs: null_pointer_is_valid
@@ -5303,7 +5299,7 @@ define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr noundef readonly c
   %4 = load i24, ptr %3, align 1
   %5 = and i24 %4, 5120
   %6 = icmp eq i24 %5, 4096
-  br i1 %6, label %7, label %31
+  br i1 %6, label %7, label %32
 
 7:                                                ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 404
@@ -5325,7 +5321,7 @@ define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr noundef readonly c
   %20 = and i24 %4, 32
   %21 = icmp eq i24 %20, 0
   %22 = or i1 %21, %19
-  br i1 %22, label %31, label %23
+  br i1 %22, label %32, label %23
 
 23:                                               ; preds = %16, %12, %7
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 24
@@ -5334,20 +5330,20 @@ define internal range(i32 0, 2) i32 @pci_dev_check_d3cold(ptr noundef readonly c
   %27 = and i24 %4, 2048
   %28 = icmp ne i24 %27, 0
   %29 = or i1 %28, %26
-  br i1 %29, label %._crit_edge, label %31
+  br i1 %29, label %._crit_edge, label %32
 
 ._crit_edge:                                      ; preds = %23
   %.pre = load i8, ptr %1, align 1, !range !21
   %30 = xor i8 %.pre, 1
-  br label %32
+  %31 = zext nneg i8 %30 to i32
+  br label %33
 
-31:                                               ; preds = %23, %16, %2
+32:                                               ; preds = %23, %16, %2
   store i8 0, ptr %1, align 1
-  br label %32
+  br label %33
 
-32:                                               ; preds = %._crit_edge, %31
-  %33 = phi i8 [ %30, %._crit_edge ], [ 1, %31 ]
-  %34 = zext nneg i8 %33 to i32
+33:                                               ; preds = %._crit_edge, %32
+  %34 = phi i32 [ %31, %._crit_edge ], [ 1, %32 ]
   ret i32 %34
 }
 
