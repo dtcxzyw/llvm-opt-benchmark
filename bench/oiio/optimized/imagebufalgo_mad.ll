@@ -11833,8 +11833,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN3fmt2v86detail9dragonbox10to_decimal
   %18 = trunc nsw i32 %13 to i16
   %.lhs.trunc161 = sub nsw i16 292, %18
   %19 = udiv i16 %.lhs.trunc161, 27
-  %.zext162 = zext nneg i16 %19 to i32
-  %20 = mul nuw nsw i32 %.zext162, 27
+  %narrow = mul nuw nsw i16 %19, 27
+  %20 = zext nneg i16 %narrow to i32
   %21 = add nsw i32 %20, -292
   %22 = zext nneg i16 %19 to i64
   %23 = getelementptr inbounds nuw %"struct.fmt::v8::detail::uint128_wrapper", ptr @_ZZN3fmt2v86detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %22
@@ -11922,28 +11922,28 @@ _ZN3fmt2v86detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; preds
 80:                                               ; preds = %77
   %81 = lshr i64 %78, 8
   %82 = trunc i64 %81 to i32
-  %.not197 = icmp eq i64 %74, 8
-  br i1 %.not197, label %._crit_edge, label %.lr.ph.preheader
+  %.not198 = icmp eq i64 %74, 8
+  br i1 %.not198, label %._crit_edge, label %.lr.ph.preheader
 
 .lr.ph.preheader:                                 ; preds = %80
   %umax = tail call i32 @llvm.umin.i32(i32 %75, i32 16)
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %85
-  %.063.i182 = phi i32 [ %86, %85 ], [ 8, %.lr.ph.preheader ]
-  %.064.i181 = phi i32 [ %83, %85 ], [ %82, %.lr.ph.preheader ]
-  %83 = mul i32 %.064.i181, -858993459
+  %.063.i183 = phi i32 [ %86, %85 ], [ 8, %.lr.ph.preheader ]
+  %.064.i182 = phi i32 [ %83, %85 ], [ %82, %.lr.ph.preheader ]
+  %83 = mul i32 %.064.i182, -858993459
   %84 = icmp ugt i32 %83, 858993459
   br i1 %84, label %._crit_edge, label %85
 
 85:                                               ; preds = %.lr.ph
-  %86 = add nuw nsw i32 %.063.i182, 1
+  %86 = add nuw nsw i32 %.063.i183, 1
   %exitcond.not = icmp eq i32 %86, %umax
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !233
 
 ._crit_edge:                                      ; preds = %.lr.ph, %85, %80
-  %.064.i.lcssa = phi i32 [ %82, %80 ], [ %83, %85 ], [ %.064.i181, %.lr.ph ]
-  %.063.i.lcssa = phi i32 [ 8, %80 ], [ %umax, %85 ], [ %.063.i182, %.lr.ph ]
+  %.064.i.lcssa = phi i32 [ %82, %80 ], [ %83, %85 ], [ %.064.i182, %.lr.ph ]
+  %.063.i.lcssa = phi i32 [ 8, %80 ], [ %umax, %85 ], [ %.063.i183, %.lr.ph ]
   %87 = add nsw i32 %.063.i.lcssa, -8
   %88 = lshr i32 %.064.i.lcssa, %87
   %89 = zext i32 %88 to i64
@@ -12117,8 +12117,8 @@ _ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit: ; preds = %._crit_ed
   %192 = sub nsw i32 294, %189
   %.lhs.trunc = trunc nuw nsw i32 %192 to i16
   %193 = udiv i16 %.lhs.trunc, 27
-  %.zext = zext nneg i16 %193 to i32
-  %194 = mul nuw nsw i32 %.zext, 27
+  %narrow170 = mul nuw nsw i16 %193, 27
+  %194 = zext nneg i16 %narrow170 to i32
   %195 = add nsw i32 %194, -292
   %196 = zext nneg i16 %193 to i64
   %197 = getelementptr inbounds nuw %"struct.fmt::v8::detail::uint128_wrapper", ptr @_ZZN3fmt2v86detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %196
@@ -12131,7 +12131,7 @@ _ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit: ; preds = %._crit_ed
   %.sroa.3.0.extract.shift129.i83 = lshr i128 %.sroa.0124.0.copyload.i69, 64
   %.sroa.3.0.extract.trunc130.i84 = trunc nuw i128 %.sroa.3.0.extract.shift129.i83 to i64
   %.pre = mul nsw i32 %191, 1741647
-  %.pre201 = ashr i32 %.pre, 19
+  %.pre202 = ashr i32 %.pre, 19
   br label %_ZN3fmt2v86detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit85
 
 200:                                              ; preds = %185
@@ -12190,10 +12190,10 @@ _ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit: ; preds = %._crit_ed
   br label %_ZN3fmt2v86detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit85
 
 _ZN3fmt2v86detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit85: ; preds = %199, %200
-  %.pre-phi202 = phi i32 [ %.pre201, %199 ], [ %203, %200 ]
+  %.pre-phi203 = phi i32 [ %.pre202, %199 ], [ %203, %200 ]
   %.sroa.0127.0.i78 = phi i64 [ %.sroa.0127.0.extract.trunc128.i82, %199 ], [ %243, %200 ]
   %.sroa.3.0.i79 = phi i64 [ %.sroa.3.0.extract.trunc130.i84, %199 ], [ %.sroa.15.0.i77, %200 ]
-  %244 = add nsw i32 %.pre-phi202, %.049
+  %244 = add nsw i32 %.pre-phi203, %.049
   %.sroa.7.0.insert.ext = zext i64 %.sroa.3.0.i79 to i128
   %.sroa.0.0.insert.ext = zext i64 %.sroa.0127.0.i78 to i128
   %245 = sub nsw i32 63, %244
@@ -12246,8 +12246,8 @@ _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carri
   %277 = mul i64 %276, %250
   %278 = getelementptr inbounds nuw i8, ptr %275, i64 8
   %279 = load i64, ptr %278, align 8, !tbaa !236
-  %.not173 = icmp ugt i64 %277, %279
-  br i1 %.not173, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread141
+  %.not174 = icmp ugt i64 %277, %279
+  br i1 %.not174, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread141
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread141: ; preds = %270, %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit
   %280 = add nsw i64 %261, -1
@@ -12274,8 +12274,8 @@ _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carri
   %291 = mul i64 %290, %282
   %292 = getelementptr inbounds nuw i8, ptr %289, i64 8
   %293 = load i64, ptr %292, align 8, !tbaa !236
-  %.not171 = icmp ugt i64 %291, %293
-  br i1 %.not171, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit88.thread, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread
+  %.not172 = icmp ugt i64 %291, %293
+  br i1 %.not172, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit88.thread, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit88.thread: ; preds = %286, %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit88, %281
   %294 = mul i64 %.sroa.3.0.i79, %282
@@ -12288,8 +12288,8 @@ _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carri
   %301 = zext nneg i32 %300 to i64
   %302 = shl nuw i64 1, %301
   %303 = and i64 %299, %302
-  %.not172 = icmp eq i64 %303, 0
-  br i1 %.not172, label %394, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread
+  %.not173 = icmp eq i64 %303, 0
+  br i1 %.not173, label %394, label %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread
 
 _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread: ; preds = %284, %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit88.thread, %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit88, %272, %_ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit, %267
   %304 = add nsw i32 %189, 1
@@ -12306,28 +12306,28 @@ _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carri
 311:                                              ; preds = %308
   %312 = lshr i64 %309, 8
   %313 = trunc i64 %312 to i32
-  %.not198 = icmp eq i64 %305, 8
-  br i1 %.not198, label %._crit_edge191, label %.lr.ph190.preheader
+  %.not199 = icmp eq i64 %305, 8
+  br i1 %.not199, label %._crit_edge192, label %.lr.ph191.preheader
 
-.lr.ph190.preheader:                              ; preds = %311
-  %umax199 = tail call i32 @llvm.umin.i32(i32 %306, i32 16)
-  br label %.lr.ph190
+.lr.ph191.preheader:                              ; preds = %311
+  %umax200 = tail call i32 @llvm.umin.i32(i32 %306, i32 16)
+  br label %.lr.ph191
 
-.lr.ph190:                                        ; preds = %.lr.ph190.preheader, %316
-  %.063.i63188 = phi i32 [ %317, %316 ], [ 8, %.lr.ph190.preheader ]
-  %.064.i62187 = phi i32 [ %314, %316 ], [ %313, %.lr.ph190.preheader ]
-  %314 = mul i32 %.064.i62187, -858993459
+.lr.ph191:                                        ; preds = %.lr.ph191.preheader, %316
+  %.063.i63189 = phi i32 [ %317, %316 ], [ 8, %.lr.ph191.preheader ]
+  %.064.i62188 = phi i32 [ %314, %316 ], [ %313, %.lr.ph191.preheader ]
+  %314 = mul i32 %.064.i62188, -858993459
   %315 = icmp ugt i32 %314, 858993459
-  br i1 %315, label %._crit_edge191, label %316
+  br i1 %315, label %._crit_edge192, label %316
 
-316:                                              ; preds = %.lr.ph190
-  %317 = add nuw nsw i32 %.063.i63188, 1
-  %exitcond200.not = icmp eq i32 %317, %umax199
-  br i1 %exitcond200.not, label %._crit_edge191, label %.lr.ph190, !llvm.loop !233
+316:                                              ; preds = %.lr.ph191
+  %317 = add nuw nsw i32 %.063.i63189, 1
+  %exitcond201.not = icmp eq i32 %317, %umax200
+  br i1 %exitcond201.not, label %._crit_edge192, label %.lr.ph191, !llvm.loop !233
 
-._crit_edge191:                                   ; preds = %.lr.ph190, %316, %311
-  %.064.i62.lcssa = phi i32 [ %313, %311 ], [ %314, %316 ], [ %.064.i62187, %.lr.ph190 ]
-  %.063.i63.lcssa = phi i32 [ 8, %311 ], [ %umax199, %316 ], [ %.063.i63188, %.lr.ph190 ]
+._crit_edge192:                                   ; preds = %.lr.ph191, %316, %311
+  %.064.i62.lcssa = phi i32 [ %313, %311 ], [ %314, %316 ], [ %.064.i62188, %.lr.ph191 ]
+  %.063.i63.lcssa = phi i32 [ 8, %311 ], [ %umax200, %316 ], [ %.063.i63189, %.lr.ph191 ]
   %318 = add nsw i32 %.063.i63.lcssa, -8
   %319 = lshr i32 %.064.i62.lcssa, %318
   %320 = zext i32 %319 to i64
@@ -12449,9 +12449,9 @@ _ZN3fmt2v86detail9dragonbox19is_endpoint_integerIdEEbNS2_10float_infoIT_E12carri
   %392 = add nuw nsw i64 %391, %390
   br label %_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit65
 
-_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit65: ; preds = %._crit_edge191, %321, %.thread151, %333, %343, %353, %363, %373, %383, %388
-  %.sroa.099.6 = phi i64 [ %261, %321 ], [ %261, %.thread151 ], [ %337, %333 ], [ %347, %343 ], [ %357, %353 ], [ %367, %363 ], [ %377, %373 ], [ %387, %383 ], [ %392, %388 ], [ %320, %._crit_edge191 ]
-  %.1.i61 = phi i32 [ 0, %321 ], [ 0, %.thread151 ], [ 1, %333 ], [ 2, %343 ], [ 3, %353 ], [ 4, %363 ], [ 5, %373 ], [ 6, %383 ], [ 7, %388 ], [ %.063.i63.lcssa, %._crit_edge191 ]
+_ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit65: ; preds = %._crit_edge192, %321, %.thread151, %333, %343, %353, %363, %373, %383, %388
+  %.sroa.099.6 = phi i64 [ %261, %321 ], [ %261, %.thread151 ], [ %337, %333 ], [ %347, %343 ], [ %357, %353 ], [ %367, %363 ], [ %377, %373 ], [ %387, %383 ], [ %392, %388 ], [ %320, %._crit_edge192 ]
+  %.1.i61 = phi i32 [ 0, %321 ], [ 0, %.thread151 ], [ 1, %333 ], [ 2, %343 ], [ 3, %353 ], [ 4, %363 ], [ 5, %373 ], [ 6, %383 ], [ 7, %388 ], [ %.063.i63.lcssa, %._crit_edge192 ]
   %393 = add nsw i32 %304, %.1.i61
   br label %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread155
 
@@ -12511,8 +12511,8 @@ _ZN3fmt2v86detail9dragonbox21remove_trailing_zerosERm.exit65: ; preds = %._crit_
   %433 = mul i64 %432, %249
   %434 = getelementptr inbounds nuw i8, ptr %431, i64 8
   %435 = load i64, ptr %434, align 8, !tbaa !236
-  %.not174 = icmp ugt i64 %433, %435
-  br i1 %.not174, label %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread155, label %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread
+  %.not175 = icmp ugt i64 %433, %435
+  br i1 %.not175, label %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread155, label %_ZN3fmt2v86detail9dragonbox17is_center_integerIdEEbNS2_10float_infoIT_E12carrier_uintEii.exit.thread
 
 436:                                              ; preds = %427
   %437 = icmp sgt i32 %.049, -5

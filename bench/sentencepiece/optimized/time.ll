@@ -317,11 +317,11 @@ _ZN6google8protobuf8internal12_GLOBAL__N_116ValidateDateTimeERKNS1_8DateTimeE.ex
   %35 = trunc nuw i32 %.fr.i to i16
   %.lhs.trunc = add nsw i16 %35, -1
   %36 = udiv i16 %.lhs.trunc, 400
-  %.zext = zext nneg i16 %36 to i32
   %37 = zext nneg i16 %36 to i64
   %38 = mul nuw nsw i64 %37, 12622780800
-  %39 = mul nuw nsw i32 %.zext, 400
-  %40 = or disjoint i32 %39, 1
+  %narrow32 = mul nuw i16 %36, 400
+  %39 = or disjoint i16 %narrow32, 1
+  %40 = zext i16 %39 to i32
   br label %41
 
 41:                                               ; preds = %34, %32

@@ -176729,22 +176729,22 @@ define hidden void @_ZN11polars_core13chunked_array7logical11categorical5merge32
 define noundef range(i64 0, 4294969203294967296) i64 @_ZN11polars_core13chunked_array8temporal4time16time_to_time64ns17h75a007ffb0380b94E(ptr noalias noundef readonly align 4 captures(none) dereferenceable(8) %0) unnamed_addr #22 {
   %2 = load i32, ptr %0, align 4, !noundef !3
   %3 = udiv i32 %2, 60
-  %4 = udiv i32 %2, 3600
-  %5 = zext nneg i32 %4 to i64
-  %6 = mul nuw nsw i64 %5, 3600
-  %7 = urem i32 %3, 60
-  %narrow = mul nuw nsw i32 %7, 60
-  %8 = zext nneg i32 %narrow to i64
-  %9 = urem i32 %2, 60
-  %10 = zext nneg i32 %9 to i64
-  %11 = add nuw nsw i64 %6, %10
-  %12 = add nuw nsw i64 %11, %8
-  %13 = mul nuw nsw i64 %12, 1000000000
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %15 = load i32, ptr %14, align 4, !noundef !3
-  %16 = zext i32 %15 to i64
-  %17 = add nuw nsw i64 %13, %16
-  ret i64 %17
+  %4 = urem i32 %2, 3600
+  %narrow = sub nuw i32 %2, %4
+  %5 = zext i32 %narrow to i64
+  %6 = urem i32 %3, 60
+  %narrow1 = mul nuw nsw i32 %6, 60
+  %7 = zext nneg i32 %narrow1 to i64
+  %8 = urem i32 %2, 60
+  %9 = zext nneg i32 %8 to i64
+  %10 = add nuw nsw i64 %5, %9
+  %11 = add nuw nsw i64 %10, %7
+  %12 = mul nuw nsw i64 %11, 1000000000
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %14 = load i32, ptr %13, align 4, !noundef !3
+  %15 = zext i32 %14 to i64
+  %16 = add nuw nsw i64 %12, %15
+  ret i64 %16
 }
 
 ; Function Attrs: nonlazybind uwtable

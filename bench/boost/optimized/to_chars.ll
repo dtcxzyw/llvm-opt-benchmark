@@ -253,8 +253,8 @@ define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd12
   %44 = trunc nsw i32 %37 to i16
   %.lhs.trunc.i.i = add nsw i16 %44, 55
   %45 = udiv i16 %.lhs.trunc.i.i, 56
-  %.zext.i.i = zext nneg i16 %45 to i32
-  %46 = mul nuw nsw i32 %.zext.i.i, 56
+  %narrow.i.i = mul nuw nsw i16 %45, 56
+  %46 = zext nneg i16 %narrow.i.i to i32
   %47 = zext nneg i16 %45 to i64
   %48 = getelementptr inbounds nuw [4 x i64], ptr @_ZN5boost8charconv6detail3ryu19ryu_tables_templateILb1EE22GENERIC_POW5_INV_SPLITE, i64 %47
   %49 = icmp eq i32 %37, %46
@@ -282,7 +282,7 @@ define internal fastcc void @_ZN5boost8charconv6detail3ryuL20long_double_to_fd12
   %63 = sub nsw i32 %46, %37
   %64 = zext i32 %63 to i64
   %65 = getelementptr inbounds nuw [2 x i64], ptr @_ZN5boost8charconv6detail3ryu19ryu_tables_templateILb1EE18GENERIC_POW5_TABLEE, i64 %64
-  %66 = zext nneg i32 %46 to i64
+  %66 = zext nneg i16 %narrow.i.i to i64
   %67 = mul nuw nsw i64 %66, 163391164108059
   %68 = lshr i64 %67, 46
   %69 = trunc nuw nsw i64 %68 to i32

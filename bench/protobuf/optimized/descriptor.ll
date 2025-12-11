@@ -67889,10 +67889,10 @@ if.then9:                                         ; preds = %if.end
 if.then12:                                        ; preds = %if.then9
   %11 = shl nuw nsw i8 %8, 1
   %12 = tail call i8 @llvm.umin.i8(i8 %11, i8 10)
-  %conv.i.i = zext nneg i8 %12 to i64
-  %mul.i.i.i.i.i = mul nuw nsw i64 %conv.i.i, 24
+  %narrow = mul nuw i8 %12, 24
+  %mul.i.i.i.i.i = zext i8 %narrow to i64
   %add.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i, 19
-  %div1.i.i.i.i = and i64 %add.i.i.i.i.i, 1008
+  %div1.i.i.i.i = and i64 %add.i.i.i.i.i, 496
   %call5.i.i2.i.i.i.i = tail call noalias noundef nonnull ptr @_Znwm(i64 noundef %div1.i.i.i.i) #42
   store ptr %call5.i.i2.i.i.i.i, ptr %call5.i.i2.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i.i5 = getelementptr i8, ptr %call5.i.i2.i.i.i.i, i64 8

@@ -3050,11 +3050,11 @@ if.then13:                                        ; preds = %if.end
 if.then16:                                        ; preds = %if.then13
   %10 = shl nuw nsw i8 %7, 1
   %11 = tail call i8 @llvm.umin.i8(i8 %10, i8 10)
-  %conv.i.i = zext nneg i8 %11 to i64
-  %mul.i.i.i.i.i = mul nuw nsw i64 %conv.i.i, 24
+  %narrow = mul nuw i8 %11, 24
+  %mul.i.i.i.i.i = zext i8 %narrow to i64
   %add.i.i.i.i.i = add nuw nsw i64 %mul.i.i.i.i.i, 19
   %12 = load ptr, ptr %rightmost_.i, align 8
-  %div1.i.i.i.i = and i64 %add.i.i.i.i.i, 1008
+  %div1.i.i.i.i = and i64 %add.i.i.i.i.i, 496
   %cmp.i.i.i.i.i.i = icmp eq ptr %12, null
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.else.i.i.i.i.i.i.i
 

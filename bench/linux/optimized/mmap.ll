@@ -164,11 +164,11 @@ define dso_local void @arch_pick_mmap_layout(ptr noundef writeonly captures(none
   %63 = xor i64 %62, -1
   %64 = and i64 %60, %63
   %65 = shl i64 %64, 12
-  %.pre6 = load i32, ptr @sysctl_legacy_va_layout, align 4
+  %.pre7 = load i32, ptr @sysctl_legacy_va_layout, align 4
   br label %66
 
 66:                                               ; preds = %58, %52
-  %67 = phi i32 [ %.pre6, %58 ], [ %29, %52 ]
+  %67 = phi i32 [ %.pre7, %58 ], [ %29, %52 ]
   %68 = phi i64 [ %65, %58 ], [ 0, %52 ]
   %69 = load i32, ptr %5, align 8
   %70 = and i32 %69, 134217728
@@ -203,8 +203,8 @@ define dso_local void @arch_pick_mmap_layout(ptr noundef writeonly captures(none
   %94 = add i64 %93, %91
   %95 = tail call i64 @llvm.umax.i64(i64 %94, i64 %83)
   %96 = udiv i32 %.lhs.trunc, 6
-  %.zext2 = zext nneg i32 %96 to i64
-  %97 = mul nuw nsw i64 %.zext2, 5
+  %narrow3 = mul nuw i32 %96, 5
+  %97 = zext i32 %narrow3 to i64
   %98 = icmp ult i64 %95, 134217728
   %99 = tail call i64 @llvm.umin.i64(i64 %95, i64 %97)
   %100 = select i1 %98, i64 134217728, i64 %99

@@ -3856,9 +3856,9 @@ _ZNSt6vectorIN2cv3MatESaIS1_EE9push_backERKS1_.exit: ; preds = %.noexc, %341
   %.0139819 = phi i32 [ 0, %.preheader797 ], [ %532, %531 ]
   %.lhs.trunc1046 = trunc i32 %.0139819 to i8
   %519 = udiv i8 %.lhs.trunc1046, 7
-  %.zext1047 = zext nneg i8 %519 to i64
-  %520 = mul nuw nsw i64 %.zext1047, 5
-  %521 = add i64 %520, %516
+  %narrow = mul nuw i8 %519, 5
+  %520 = zext i8 %narrow to i64
+  %521 = add i64 %516, %520
   br label %534
 
 522:                                              ; preds = %531

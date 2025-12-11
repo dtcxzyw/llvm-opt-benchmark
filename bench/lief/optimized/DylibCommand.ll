@@ -11617,8 +11617,8 @@ define linkonce_odr hidden { i64, i32 } @_ZN3fmt3v106detail9dragonbox10to_decima
   %18 = trunc nsw i32 %13 to i16
   %.lhs.trunc159 = sub nsw i16 292, %18
   %19 = udiv i16 %.lhs.trunc159, 27
-  %.zext160 = zext nneg i16 %19 to i32
-  %20 = mul nuw nsw i32 %.zext160, 27
+  %narrow = mul nuw nsw i16 %19, 27
+  %20 = zext nneg i16 %narrow to i32
   %21 = add nsw i32 %20, -292
   %22 = zext nneg i16 %19 to i64
   %23 = getelementptr inbounds nuw %"class.fmt::v10::detail::uint128_fallback", ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %22
@@ -11688,7 +11688,7 @@ _ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit: ; pred
   %74 = icmp eq i128 %73, 0
   %75 = icmp ult i64 %72, -6067343680855748867
   %or.cond = and i1 %75, %74
-  br i1 %or.cond, label %76, label %.preheader180
+  br i1 %or.cond, label %76, label %.preheader181
 
 76:                                               ; preds = %68
   %77 = lshr i128 %71, 90
@@ -11714,16 +11714,16 @@ _ZN3fmt3v106detail9dragonbox21remove_trailing_zerosERji.exit.i: ; preds = %79
   %87 = zext i32 %spec.select to i64
   br label %_ZN3fmt3v106detail9dragonbox21remove_trailing_zerosERm.exit
 
-.preheader180:                                    ; preds = %68, %.preheader180
-  %.sroa.0111.1 = phi i64 [ %89, %.preheader180 ], [ %66, %68 ]
-  %.017.i = phi i32 [ %91, %.preheader180 ], [ 0, %68 ]
+.preheader181:                                    ; preds = %68, %.preheader181
+  %.sroa.0111.1 = phi i64 [ %89, %.preheader181 ], [ %66, %68 ]
+  %.017.i = phi i32 [ %91, %.preheader181 ], [ 0, %68 ]
   %88 = mul i64 %.sroa.0111.1, -8116567392432202711
   %89 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0111.1, i64 %88, i64 62)
   %90 = icmp ugt i64 %89, 184467440737095516
   %91 = add nuw nsw i32 %.017.i, 2
-  br i1 %90, label %92, label %.preheader180
+  br i1 %90, label %92, label %.preheader181
 
-92:                                               ; preds = %.preheader180
+92:                                               ; preds = %.preheader181
   %93 = mul i64 %.sroa.0111.1, -3689348814741910323
   %94 = tail call i64 @llvm.fshl.i64(i64 %.sroa.0111.1, i64 %93, i64 63)
   %.not.i53 = icmp ult i64 %94, 1844674407370955162
@@ -11774,8 +11774,8 @@ _ZN3fmt3v106detail9dragonbox21remove_trailing_zerosERm.exit: ; preds = %92, %_ZN
   %116 = trunc nsw i32 %114 to i16
   %.lhs.trunc = sub nsw i16 294, %116
   %117 = udiv i16 %.lhs.trunc, 27
-  %.zext = zext nneg i16 %117 to i32
-  %118 = mul nuw nsw i32 %.zext, 27
+  %narrow171 = mul nuw nsw i16 %117, 27
+  %118 = zext nneg i16 %narrow171 to i32
   %119 = add nsw i32 %118, -292
   %120 = zext nneg i16 %117 to i64
   %121 = getelementptr inbounds nuw %"class.fmt::v10::detail::uint128_fallback", ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %120
@@ -11787,7 +11787,7 @@ _ZN3fmt3v106detail9dragonbox21remove_trailing_zerosERm.exit: ; preds = %92, %_ZN
 
 ._ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77_crit_edge: ; preds = %112
   %.pre = mul nsw i32 %115, 1741647
-  %.pre181 = ashr i32 %.pre, 19
+  %.pre182 = ashr i32 %.pre, 19
   br label %_ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77
 
 123:                                              ; preds = %112
@@ -11830,10 +11830,10 @@ _ZN3fmt3v106detail9dragonbox21remove_trailing_zerosERm.exit: ; preds = %92, %_ZN
   br label %_ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77
 
 _ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77: ; preds = %._ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77_crit_edge, %123
-  %.pre-phi182 = phi i32 [ %.pre181, %._ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77_crit_edge ], [ %126, %123 ]
+  %.pre-phi183 = phi i32 [ %.pre182, %._ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77_crit_edge ], [ %126, %123 ]
   %.sroa.038.0.i73 = phi i64 [ %.sroa.034.0.copyload.i70, %._ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77_crit_edge ], [ %159, %123 ]
   %.sroa.3.0.i74 = phi i64 [ %.sroa.5.0.copyload.i72, %._ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77_crit_edge ], [ %156, %123 ]
-  %160 = add nsw i32 %.pre-phi182, %.040
+  %160 = add nsw i32 %.pre-phi183, %.040
   %161 = sub nsw i32 63, %160
   %162 = zext nneg i32 %161 to i64
   %163 = lshr i64 %.sroa.3.0.i74, %162
@@ -11874,8 +11874,8 @@ _ZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEi.exit77: ; pr
 
 193:                                              ; preds = %191
   %194 = and i64 %.0, 1
-  %.not49171 = icmp eq i64 %194, 0
-  %.not49 = select i1 %184, i1 true, i1 %.not49171
+  %.not49172 = icmp eq i64 %194, 0
+  %.not49 = select i1 %184, i1 true, i1 %.not49172
   br i1 %.not49, label %221, label %195
 
 195:                                              ; preds = %193
@@ -12012,8 +12012,8 @@ _ZN3fmt3v106detail9dragonbox21remove_trailing_zerosERm.exit65: ; preds = %244, %
   %279 = or i64 %276, %278
   %280 = icmp eq i64 %279, 0
   %281 = and i32 %254, 65536
-  %.not52172 = icmp ne i32 %281, 0
-  %.not52.not = and i1 %280, %.not52172
+  %.not52173 = icmp ne i32 %281, 0
+  %.not52.not = and i1 %280, %.not52173
   %282 = sext i1 %.not52.not to i64
   %spec.select170 = add nsw i64 %259, %282
   br label %_ZN3fmt3v106detail9dragonbox21shorter_interval_caseIdEENS2_10decimal_fpIT_EEi.exit
@@ -26605,8 +26605,8 @@ _ZN3fmt3v106detail6bufferIcE10try_resizeEm.exit:  ; preds = %27, %32
   %79 = trunc nsw i32 %72 to i16
   %.lhs.trunc = sub nsw i16 294, %79
   %80 = udiv i16 %.lhs.trunc, 27
-  %.zext = zext nneg i16 %80 to i32
-  %81 = mul nuw nsw i32 %.zext, 27
+  %narrow = mul nuw nsw i16 %80, 27
+  %81 = zext nneg i16 %narrow to i32
   %82 = add nsw i32 %81, -292
   %83 = zext nneg i16 %80 to i64
   %84 = getelementptr inbounds nuw %"class.fmt::v10::detail::uint128_fallback", ptr @_ZZN3fmt3v106detail9dragonbox14cache_accessorIdE16get_cached_powerEiE18pow10_significands, i64 %83
