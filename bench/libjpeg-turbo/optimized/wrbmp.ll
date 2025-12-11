@@ -170,56 +170,56 @@ define dso_local noundef ptr @jinit_write_bmp(ptr noundef %0, i32 noundef %1, i3
   store i32 %82, ptr %80, align 4, !tbaa !54
   br label %83
 
-83:                                               ; preds = %.lr.ph.preheader, %.loopexit
+83:; preds = %.lr.ph.preheader, %.loopexit
   %.lcssa = phi i32 [ %82, %.lr.ph.preheader ], [ %78, %.loopexit ]
   %84 = sub i32 %.lcssa, %78
   %85 = getelementptr inbounds nuw i8, ptr %16, i64 96
   store i32 %84, ptr %85, align 8, !tbaa !56
   %.not86 = icmp eq i32 %2, 0
-  %86 = load ptr, ptr %13, align 8, !tbaa !37
-  br i1 %.not86, label %101, label %87
+  %88 = load ptr, ptr %13, align 8, !tbaa !37
+  br i1 %.not86, label %103, label %89
 
-87:                                               ; preds = %83
-  %88 = getelementptr inbounds nuw i8, ptr %86, i64 32
-  %89 = load ptr, ptr %88, align 8, !tbaa !57
-  %90 = getelementptr inbounds nuw i8, ptr %0, i64 140
-  %91 = load i32, ptr %90, align 4, !tbaa !58
-  %92 = tail call ptr %89(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef %.lcssa, i32 noundef %91, i32 noundef 1) #7
-  %93 = getelementptr inbounds nuw i8, ptr %16, i64 80
-  store ptr %92, ptr %93, align 8, !tbaa !59
-  %94 = getelementptr inbounds nuw i8, ptr %16, i64 100
-  store i32 0, ptr %94, align 4, !tbaa !60
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %96 = load ptr, ptr %95, align 8, !tbaa !61
-  %.not87 = icmp eq ptr %96, null
-  br i1 %.not87, label %106, label %97
+89:                                               ; preds = %83
+  %90 = getelementptr inbounds nuw i8, ptr %88, i64 32
+  %91 = load ptr, ptr %90, align 8, !tbaa !57
+  %92 = getelementptr inbounds nuw i8, ptr %0, i64 140
+  %93 = load i32, ptr %92, align 4, !tbaa !58
+  %94 = tail call ptr %89(ptr noundef nonnull %0, i32 noundef 1, i32 noundef 0, i32 noundef %.lcssa, i32 noundef %93, i32 noundef 1) #7
+  %95 = getelementptr inbounds nuw i8, ptr %16, i64 80
+  store ptr %94, ptr %95, align 8, !tbaa !59
+  %96 = getelementptr inbounds nuw i8, ptr %16, i64 100
+  store i32 0, ptr %96, align 4, !tbaa !60
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %98 = load ptr, ptr %97, align 8, !tbaa !61
+  %.not87 = icmp eq ptr %98, null
+  br i1 %.not87, label %108, label %99
 
-97:                                               ; preds = %87
-  %98 = getelementptr inbounds nuw i8, ptr %96, i64 36
-  %99 = load i32, ptr %98, align 4, !tbaa !62
-  %100 = add nsw i32 %99, 1
-  store i32 %100, ptr %98, align 4, !tbaa !62
-  br label %106
+99:                                               ; preds = %89
+  %100 = getelementptr inbounds nuw i8, ptr %98, i64 36
+  %101 = load i32, ptr %100, align 4, !tbaa !62
+  %102 = add nsw i32 %101, 1
+  store i32 %102, ptr %100, align 4, !tbaa !62
+  br label %108
 
-101:                                              ; preds = %83
-  %102 = load ptr, ptr %86, align 8, !tbaa !38
-  %103 = zext i32 %.lcssa to i64
-  %104 = tail call ptr %102(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %103) #7
-  %105 = getelementptr inbounds nuw i8, ptr %16, i64 112
-  store ptr %104, ptr %105, align 8, !tbaa !65
-  br label %106
+103:                                              ; preds = %83
+  %104 = load ptr, ptr %88, align 8, !tbaa !38
+  %105 = zext i32 %.lcssa to i64
+  %106 = tail call ptr %102(ptr noundef nonnull %0, i32 noundef 1, i64 noundef %105) #7
+  %107 = getelementptr inbounds nuw i8, ptr %16, i64 112
+  store ptr %106, ptr %107, align 8, !tbaa !65
+  br label %108
 
-106:                                              ; preds = %87, %97, %101
-  %107 = getelementptr inbounds nuw i8, ptr %16, i64 104
-  store i32 %2, ptr %107, align 8, !tbaa !66
-  %108 = load ptr, ptr %13, align 8, !tbaa !37
-  %109 = getelementptr inbounds nuw i8, ptr %108, i64 16
-  %110 = load ptr, ptr %109, align 8, !tbaa !67
-  %111 = tail call ptr %110(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.1, i32 noundef 1) #7
-  %112 = getelementptr inbounds nuw i8, ptr %16, i64 40
-  store ptr %111, ptr %112, align 8, !tbaa !68
-  %113 = getelementptr inbounds nuw i8, ptr %16, i64 64
-  store i32 1, ptr %113, align 8, !tbaa !69
+108:                                              ; preds = %89, %99, %103
+  %109 = getelementptr inbounds nuw i8, ptr %16, i64 104
+  store i32 %2, ptr %109, align 8, !tbaa !66
+  %110 = load ptr, ptr %13, align 8, !tbaa !37
+  %111 = getelementptr inbounds nuw i8, ptr %110, i64 16
+  %112 = load ptr, ptr %111, align 8, !tbaa !67
+  %113 = tail call ptr %110(ptr noundef nonnull %0, i32 noundef 1, i32 noundef %.1, i32 noundef 1) #7
+  %114 = getelementptr inbounds nuw i8, ptr %16, i64 40
+  store ptr %113, ptr %114, align 8, !tbaa !68
+  %115 = getelementptr inbounds nuw i8, ptr %16, i64 64
+  store i32 1, ptr %115, align 8, !tbaa !69
   ret ptr %16
 }
 

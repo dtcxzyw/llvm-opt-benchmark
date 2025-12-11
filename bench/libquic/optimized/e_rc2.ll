@@ -670,7 +670,7 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   br label %.outer
 
 .outer:                                           ; preds = %64, %2
-  %.070.ph = phi ptr [ %54, %64 ], [ %8, %2 ]
+  %.070.ph = phi ptr [ %55, %64 ], [ %8, %2 ]
   %.068.ph = phi i32 [ %87, %64 ], [ %3, %2 ]
   %.066.ph = phi i32 [ %.pre, %64 ], [ %4, %2 ]
   %.064.ph = phi i32 [ %77, %64 ], [ %6, %2 ]
@@ -680,11 +680,11 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   br label %9
 
 9:                                                ; preds = %.outer, %9
-  %.070 = phi ptr [ %54, %9 ], [ %.070.ph, %.outer ]
+  %.070 = phi ptr [ %55, %9 ], [ %.070.ph, %.outer ]
   %.068 = phi i32 [ %58, %9 ], [ %.068.ph, %.outer ]
   %.066 = phi i32 [ %49, %9 ], [ %.066.ph, %.outer ]
   %.064 = phi i32 [ %37, %9 ], [ %.064.ph, %.outer ]
-  %.062 = phi i32 [ %23, %9 ], [ %.062.ph, %.outer ]
+  %.062 = phi i32 [ %24, %9 ], [ %.062.ph, %.outer ]
   %.0 = phi i32 [ %59, %9 ], [ %.0.ph, %.outer ]
   %10 = shl nuw nsw i32 %.062, 11
   %11 = lshr i32 %.062, 5
@@ -698,46 +698,46 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %19 = load i16, ptr %.070, align 2, !tbaa !21
   %20 = zext i16 %19 to i32
   %.neg74 = or disjoint i32 %10, %11
-  %21 = add i32 %17, %20
-  %22 = sub i32 %.neg74, %21
-  %23 = and i32 %22, 65535
-  %24 = shl nuw nsw i32 %13, 13
-  %25 = lshr i32 %13, 3
-  %26 = xor i32 %.066, -1
-  %27 = and i32 %22, %26
-  %28 = and i32 %.066, %.068
+  %22 = add i32 %17, %20
+  %23 = sub i32 %.neg74, %22
+  %24 = and i32 %23, 65535
+  %25 = shl nuw nsw i32 %13, 13
+  %26 = lshr i32 %13, 3
+  %27 = xor i32 %.066, -1
+  %28 = and i32 %23, %27
+  %29 = and i32 %.066, %.068
   %29 = or i32 %27, %28
   %30 = getelementptr inbounds i8, ptr %.070, i64 -4
   %31 = load i16, ptr %18, align 2, !tbaa !21
   %32 = zext i16 %31 to i32
-  %.neg77 = or disjoint i32 %24, %25
-  %33 = add i32 %29, %32
-  %34 = sub i32 %.neg77, %33
+  %33 = or disjoint i32 %24, %25
+  %34 = add i32 %29, %32
+  %34 = sub i32 %34, %33
   %35 = shl nuw nsw i32 %.066, 14
   %36 = lshr i32 %.066, 2
   %37 = and i32 %34, 65535
   %38 = xor i32 %12, -1
   %39 = and i32 %34, %38
-  %40 = and i32 %22, %.068
+  %41 = and i32 %23, %.068
   %41 = or i32 %39, %40
-  %42 = getelementptr inbounds i8, ptr %.070, i64 -6
-  %43 = load i16, ptr %30, align 2, !tbaa !21
-  %44 = zext i16 %43 to i32
-  %.neg80 = or disjoint i32 %35, %36
-  %45 = add i32 %41, %44
+  %43 = getelementptr inbounds i8, ptr %.070, i64 -6
+  %44 = load i16, ptr %30, align 2, !tbaa !21
+  %45 = zext i16 %44 to i32
+  %.neg85 = or disjoint i32 %35, %36
+  %46 = add i32 %41, %45
   %46 = sub i32 %.neg80, %45
   %47 = shl nuw nsw i32 %12, 15
   %48 = lshr i32 %12, 1
   %49 = and i32 %46, 65535
-  %50 = xor i32 %23, -1
+  %50 = xor i32 %24, -1
   %51 = and i32 %46, %50
-  %52 = and i32 %34, %22
+  %53 = and i32 %34, %22
   %53 = or i32 %51, %52
-  %54 = getelementptr inbounds i8, ptr %.070, i64 -8
-  %55 = load i16, ptr %42, align 2, !tbaa !21
-  %56 = zext i16 %55 to i32
-  %.neg83 = or disjoint i32 %47, %48
-  %57 = add i32 %53, %56
+  %55 = getelementptr inbounds i8, ptr %.070, i64 -8
+  %56 = load i16, ptr %43, align 2, !tbaa !21
+  %57 = zext i16 %56 to i32
+  %.neg90 = or disjoint i32 %47, %48
+  %58 = add i32 %53, %57
   %58 = sub i32 %.neg83, %57
   %59 = add nsw i32 %.0, -1
   %60 = icmp eq i32 %59, 0
@@ -779,14 +779,14 @@ define internal fastcc void @RC2_decrypt(ptr noundef nonnull captures(none) %0, 
   %.pre = zext i16 %.narrow94 to i32
   br label %.outer
 
-88:                                               ; preds = %61
-  %89 = and i32 %58, 65535
-  %90 = shl nuw i32 %49, 16
-  %91 = or disjoint i32 %89, %90
-  store i32 %91, ptr %0, align 4, !tbaa !26
-  %92 = shl nuw i32 %23, 16
-  %93 = or disjoint i32 %37, %92
-  store i32 %93, ptr %5, align 4, !tbaa !26
+90:                                               ; preds = %61
+  %91 = and i32 %58, 65535
+  %92 = shl nuw i32 %49, 16
+  %93 = or disjoint i32 %91, %92
+  store i32 %93, ptr %0, align 4, !tbaa !26
+  %94 = shl nuw i32 %24, 16
+  %95 = or disjoint i32 %37, %94
+  store i32 %95, ptr %5, align 4, !tbaa !26
   ret void
 }
 
