@@ -6563,7 +6563,7 @@ define dso_local void @_ZN5Catch21makeCommandLineParserERNS_10ConfigDataE(ptr de
   %255 = getelementptr inbounds nuw i8, ptr %252, i64 16
   %256 = getelementptr inbounds nuw i8, ptr %252, i64 32
   store ptr %256, ptr %255, align 8, !tbaa !46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %256, ptr noundef nonnull align 1 dereferenceable(13) @.str.342, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %256, ptr noundef nonnull align 1 dereferenceable(13) @.str.342, i64 12, i1 false)
   %257 = getelementptr inbounds nuw i8, ptr %120, i64 16
   %258 = getelementptr inbounds nuw i8, ptr %252, i64 24
   store i64 12, ptr %258, align 8, !tbaa !38
@@ -6732,7 +6732,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %320 = getelementptr inbounds nuw i8, ptr %.pre, i64 16
   store ptr %320, ptr %.pre, align 8, !tbaa !46
   %321 = load ptr, ptr %124, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %320, ptr noundef nonnull align 1 dereferenceable(12) %321, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %320, ptr noundef nonnull align 1 dereferenceable(12) %321, i64 12, i1 false)
   %322 = getelementptr inbounds nuw i8, ptr %.pre, i64 8
   store i64 12, ptr %322, align 8, !tbaa !38
   %323 = getelementptr inbounds nuw i8, ptr %.pre, i64 28
@@ -6934,7 +6934,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %393 = getelementptr inbounds nuw i8, ptr %.pre2411, i64 16
   store ptr %393, ptr %.pre2411, align 8, !tbaa !46
   %394 = load ptr, ptr %128, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %393, ptr noundef nonnull align 1 dereferenceable(11) %394, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %393, ptr noundef nonnull align 1 dereferenceable(11) %394, i64 11, i1 false)
   %395 = getelementptr inbounds nuw i8, ptr %.pre2411, i64 8
   store i64 11, ptr %395, align 8, !tbaa !38
   %396 = getelementptr inbounds nuw i8, ptr %.pre2411, i64 27
@@ -7136,7 +7136,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %466 = getelementptr inbounds nuw i8, ptr %.pre2413, i64 16
   store ptr %466, ptr %.pre2413, align 8, !tbaa !46
   %467 = load ptr, ptr %132, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %466, ptr noundef nonnull align 1 dereferenceable(9) %467, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %466, ptr noundef nonnull align 1 dereferenceable(9) %467, i64 9, i1 false)
   %468 = getelementptr inbounds nuw i8, ptr %.pre2413, i64 8
   store i64 9, ptr %468, align 8, !tbaa !38
   %469 = getelementptr inbounds nuw i8, ptr %.pre2413, i64 25
@@ -7337,7 +7337,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %538 = getelementptr inbounds nuw i8, ptr %.pre2415, i64 16
   store ptr %538, ptr %.pre2415, align 8, !tbaa !46
   %539 = load ptr, ptr %136, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %538, ptr noundef nonnull align 1 dereferenceable(7) %539, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %538, ptr noundef nonnull align 1 dereferenceable(7) %539, i64 7, i1 false)
   %540 = getelementptr inbounds nuw i8, ptr %.pre2415, i64 8
   store i64 7, ptr %540, align 8, !tbaa !38
   %541 = getelementptr inbounds nuw i8, ptr %.pre2415, i64 23
@@ -7539,7 +7539,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %611 = getelementptr inbounds nuw i8, ptr %.pre2417, i64 16
   store ptr %611, ptr %.pre2417, align 8, !tbaa !46
   %612 = load ptr, ptr %140, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %611, ptr noundef nonnull align 1 dereferenceable(9) %612, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %611, ptr noundef nonnull align 1 dereferenceable(9) %612, i64 9, i1 false)
   %613 = getelementptr inbounds nuw i8, ptr %.pre2417, i64 8
   store i64 9, ptr %613, align 8, !tbaa !38
   %614 = getelementptr inbounds nuw i8, ptr %.pre2417, i64 25
@@ -7741,7 +7741,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %684 = getelementptr inbounds nuw i8, ptr %.pre2419, i64 16
   store ptr %684, ptr %.pre2419, align 8, !tbaa !46
   %685 = load ptr, ptr %144, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %684, ptr noundef nonnull align 1 dereferenceable(12) %685, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %684, ptr noundef nonnull align 1 dereferenceable(12) %685, i64 12, i1 false)
   %686 = getelementptr inbounds nuw i8, ptr %.pre2419, i64 8
   store i64 12, ptr %686, align 8, !tbaa !38
   %687 = getelementptr inbounds nuw i8, ptr %.pre2419, i64 28
@@ -7898,7 +7898,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %738 = getelementptr inbounds nuw i8, ptr %.pre2421, i64 16
   store ptr %738, ptr %.pre2421, align 8, !tbaa !46
   %739 = load ptr, ptr %149, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %738, ptr noundef nonnull align 1 dereferenceable(5) %739, i64 5, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %738, ptr noundef nonnull align 1 dereferenceable(5) %739, i64 5, i1 false)
   %740 = getelementptr inbounds nuw i8, ptr %.pre2421, i64 8
   store i64 5, ptr %740, align 8, !tbaa !38
   %741 = getelementptr inbounds nuw i8, ptr %.pre2421, i64 21
@@ -8044,7 +8044,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %789 = getelementptr inbounds nuw i8, ptr %.pre2423, i64 16
   store ptr %789, ptr %.pre2423, align 8, !tbaa !46
   %790 = load ptr, ptr %154, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %789, ptr noundef nonnull align 1 dereferenceable(10) %790, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %789, ptr noundef nonnull align 1 dereferenceable(10) %790, i64 10, i1 false)
   %791 = getelementptr inbounds nuw i8, ptr %.pre2423, i64 8
   store i64 10, ptr %791, align 8, !tbaa !38
   %792 = getelementptr inbounds nuw i8, ptr %.pre2423, i64 26
@@ -8200,7 +8200,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %842 = getelementptr inbounds nuw i8, ptr %.pre2425, i64 16
   store ptr %842, ptr %.pre2425, align 8, !tbaa !46
   %843 = load ptr, ptr %159, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %842, ptr noundef nonnull align 1 dereferenceable(6) %843, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %842, ptr noundef nonnull align 1 dereferenceable(6) %843, i64 6, i1 false)
   %844 = getelementptr inbounds nuw i8, ptr %.pre2425, i64 8
   store i64 6, ptr %844, align 8, !tbaa !38
   %845 = getelementptr inbounds nuw i8, ptr %.pre2425, i64 22
@@ -8390,7 +8390,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %911 = getelementptr inbounds nuw i8, ptr %.pre2427, i64 16
   store ptr %911, ptr %.pre2427, align 8, !tbaa !46
   %912 = load ptr, ptr %163, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %911, ptr noundef nonnull align 1 dereferenceable(7) %912, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %911, ptr noundef nonnull align 1 dereferenceable(7) %912, i64 7, i1 false)
   %913 = getelementptr inbounds nuw i8, ptr %.pre2427, i64 8
   store i64 7, ptr %913, align 8, !tbaa !38
   %914 = getelementptr inbounds nuw i8, ptr %.pre2427, i64 23
@@ -8701,7 +8701,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %1016 = getelementptr inbounds nuw i8, ptr %.pre2431, i64 16
   store ptr %1016, ptr %.pre2431, align 8, !tbaa !46
   %1017 = load ptr, ptr %173, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %1016, ptr noundef nonnull align 1 dereferenceable(6) %1017, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %1016, ptr noundef nonnull align 1 dereferenceable(6) %1017, i64 6, i1 false)
   %1018 = getelementptr inbounds nuw i8, ptr %.pre2431, i64 8
   store i64 6, ptr %1018, align 8, !tbaa !38
   %1019 = getelementptr inbounds nuw i8, ptr %.pre2431, i64 22
@@ -8845,7 +8845,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %1065 = getelementptr inbounds nuw i8, ptr %.pre2433, i64 16
   store ptr %1065, ptr %.pre2433, align 8, !tbaa !46
   %1066 = load ptr, ptr %178, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %1065, ptr noundef nonnull align 1 dereferenceable(11) %1066, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1065, ptr noundef nonnull align 1 dereferenceable(11) %1066, i64 11, i1 false)
   %1067 = getelementptr inbounds nuw i8, ptr %.pre2433, i64 8
   store i64 11, ptr %1067, align 8, !tbaa !38
   %1068 = getelementptr inbounds nuw i8, ptr %.pre2433, i64 27
@@ -9001,7 +9001,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %1118 = getelementptr inbounds nuw i8, ptr %.pre2435, i64 16
   store ptr %1118, ptr %.pre2435, align 8, !tbaa !46
   %1119 = load ptr, ptr %183, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %1118, ptr noundef nonnull align 1 dereferenceable(14) %1119, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %1118, ptr noundef nonnull align 1 dereferenceable(14) %1119, i64 14, i1 false)
   %1120 = getelementptr inbounds nuw i8, ptr %.pre2435, i64 8
   store i64 14, ptr %1120, align 8, !tbaa !38
   %1121 = getelementptr inbounds nuw i8, ptr %.pre2435, i64 30
@@ -9156,7 +9156,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %1170 = getelementptr inbounds nuw i8, ptr %.pre2437, i64 16
   store ptr %1170, ptr %.pre2437, align 8, !tbaa !46
   %1171 = load ptr, ptr %188, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %1170, ptr noundef nonnull align 1 dereferenceable(12) %1171, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %1170, ptr noundef nonnull align 1 dereferenceable(12) %1171, i64 12, i1 false)
   %1172 = getelementptr inbounds nuw i8, ptr %.pre2437, i64 8
   store i64 12, ptr %1172, align 8, !tbaa !38
   %1173 = getelementptr inbounds nuw i8, ptr %.pre2437, i64 28
@@ -9559,7 +9559,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %1311 = getelementptr inbounds nuw i8, ptr %.pre2439, i64 16
   store ptr %1311, ptr %.pre2439, align 8, !tbaa !46
   %1312 = load ptr, ptr %197, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %1311, ptr noundef nonnull align 1 dereferenceable(9) %1312, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %1311, ptr noundef nonnull align 1 dereferenceable(9) %1312, i64 9, i1 false)
   %1313 = getelementptr inbounds nuw i8, ptr %.pre2439, i64 8
   store i64 9, ptr %1313, align 8, !tbaa !38
   %1314 = getelementptr inbounds nuw i8, ptr %.pre2439, i64 25
@@ -9768,7 +9768,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %1379 = getelementptr inbounds nuw i8, ptr %.pre2441, i64 16
   store ptr %1379, ptr %.pre2441, align 8, !tbaa !46
   %1380 = load ptr, ptr %202, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %1379, ptr noundef nonnull align 1 dereferenceable(11) %1380, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %1379, ptr noundef nonnull align 1 dereferenceable(11) %1380, i64 11, i1 false)
   %1381 = getelementptr inbounds nuw i8, ptr %.pre2441, i64 8
   store i64 11, ptr %1381, align 8, !tbaa !38
   %1382 = getelementptr inbounds nuw i8, ptr %.pre2441, i64 27
@@ -16370,7 +16370,7 @@ define linkonce_odr dso_local void @_ZNK5Catch5clara6detail20ComposableParserImp
   %12 = getelementptr inbounds nuw i8, ptr %9, i64 16
   %13 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store ptr %13, ptr %12, align 8, !tbaa !46
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str.342, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %13, ptr noundef nonnull align 1 dereferenceable(13) @.str.342, i64 12, i1 false)
   %14 = getelementptr inbounds nuw i8, ptr %6, i64 24
   %15 = getelementptr inbounds nuw i8, ptr %9, i64 24
   store i64 12, ptr %15, align 8, !tbaa !38
@@ -16681,7 +16681,7 @@ _ZNSt16allocator_traitsISaINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE
   %86 = getelementptr inbounds nuw i8, ptr %81, i64 16
   store ptr %86, ptr %81, align 8, !tbaa !46
   %87 = load ptr, ptr %7, align 8, !tbaa !34
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(6) %86, ptr noundef nonnull align 1 dereferenceable(6) %87, i64 6, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(6) %86, ptr noundef nonnull align 1 dereferenceable(6) %87, i64 6, i1 false)
   %88 = getelementptr inbounds nuw i8, ptr %81, i64 8
   store i64 6, ptr %88, align 8, !tbaa !38
   %89 = getelementptr inbounds nuw i8, ptr %81, i64 22

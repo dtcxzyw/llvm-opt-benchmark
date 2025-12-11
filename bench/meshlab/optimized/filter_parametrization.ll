@@ -7242,9 +7242,9 @@ _ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14C
 
 11:                                               ; preds = %4
   %12 = icmp sgt i32 %1, 0
-  br i1 %12, label %13, label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread139
+  br i1 %12, label %13, label %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread140
 
-_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread139: ; preds = %11
+_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread140: ; preds = %11
   store i64 %9, ptr %10, align 8
   br label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit
 
@@ -7281,7 +7281,7 @@ common.resume:                                    ; preds = %.body, %19
   tail call void @free(ptr noundef %21) #21
   br label %common.resume
 
-_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit: ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread139, %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit.loopexit
+_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit: ; preds = %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread140, %_ZN5Eigen8internal17resize_if_allowedINS_6MatrixIiLin1ELi1ELi0ELin1ELi1EEENS_14CwiseNullaryOpINS0_18scalar_constant_opIiEES3_EEiiEEvRT_RKT0_RKNS0_9assign_opIT1_T2_EE.exit.i.i.i.i.i.i.thread, %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2INS_14CwiseNullaryOpINS_8internal18scalar_constant_opIiEES1_EEEERKNS_9EigenBaseIT_EE.exit.loopexit
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %23 = load i64, ptr %22, align 8
   %24 = icmp sgt i64 %23, 0
@@ -7542,24 +7542,24 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSIS1_EERS1_RKNS_9DenseBaseIT_EE.exit: 
 
 129:                                              ; preds = %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEaSIS1_EERS1_RKNS_9DenseBaseIT_EE.exit
   %130 = icmp samesign ugt i64 %127, 4611686018427387903
-  br i1 %130, label %.invoke141, label %131
+  br i1 %130, label %.invoke142, label %131
 
 131:                                              ; preds = %129
   %132 = mul i64 %126, 12
   %133 = call noalias ptr @malloc(i64 noundef %132) #43
   %134 = icmp eq ptr %133, null
-  br i1 %134, label %.invoke141, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit
+  br i1 %134, label %.invoke142, label %_ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IliEERKT_RKT0_.exit
 
-.invoke141:                                       ; preds = %131, %129
+.invoke142:                                       ; preds = %131, %129
   %135 = call ptr @__cxa_allocate_exception(i64 8) #21
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %135, align 8
   invoke void @__cxa_throw(ptr nonnull %135, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #42
-          to label %.cont142 unwind label %136
+          to label %.cont143 unwind label %136
 
-.cont142:                                         ; preds = %.invoke141
+.cont143:                                         ; preds = %.invoke142
   unreachable
 
-136:                                              ; preds = %.invoke141
+136:                                              ; preds = %.invoke142
   %137 = landingpad { ptr, i32 }
           cleanup
   br label %.body
@@ -40548,7 +40548,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit38: ; preds = %_ZN5Eigen
 
 147:                                              ; preds = %145
   store i32 -3, ptr %143, align 4
-  store i32 %10, ptr %142, align 4
+  store i32 %10, ptr %142, align 16
   br label %182
 
 148:                                              ; preds = %145
@@ -40556,7 +40556,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit38: ; preds = %_ZN5Eigen
 
 149:                                              ; preds = %148
   store i32 -4, ptr %143, align 4
-  store i32 %13, ptr %142, align 4
+  store i32 %13, ptr %142, align 16
   br label %182
 
 150:                                              ; preds = %148
@@ -40568,7 +40568,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit38: ; preds = %_ZN5Eigen
 
 155:                                              ; preds = %150
   store i32 -5, ptr %143, align 4
-  store i32 %153, ptr %142, align 4
+  store i32 %153, ptr %142, align 16
   br label %182
 
 156:                                              ; preds = %150
@@ -40578,7 +40578,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit38: ; preds = %_ZN5Eigen
 
 158:                                              ; preds = %156
   store i32 -6, ptr %143, align 4
-  store i32 %157, ptr %142, align 4
+  store i32 %157, ptr %142, align 16
   br label %182
 
 159:                                              ; preds = %156
@@ -40595,7 +40595,7 @@ _ZN5Eigen6MatrixIiLin1ELi1ELi0ELin1ELi1EEC2IiEERKT_.exit38: ; preds = %_ZN5Eigen
 
 169:                                              ; preds = %159
   store i32 -7, ptr %143, align 4
-  store i32 %167, ptr %142, align 4
+  store i32 %167, ptr %142, align 16
   store i32 %.0.i37, ptr %141, align 4
   br label %182
 

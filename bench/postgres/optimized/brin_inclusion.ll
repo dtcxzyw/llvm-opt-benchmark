@@ -25,21 +25,17 @@ define dso_local noundef i64 @brin_inclusion_opcinfo(ptr noundef readonly captur
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 2
   store i8 1, ptr %7, align 2
   %8 = getelementptr inbounds nuw i8, ptr %6, i64 40
-  %9 = ptrtoint ptr %8 to i64
-  %10 = add i64 %9, 7
-  %11 = and i64 %10, -8
-  %12 = inttoptr i64 %11 to ptr
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 8
-  store ptr %12, ptr %13, align 8
-  %14 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
-  %15 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %14, ptr %15, align 8
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 24
-  store ptr %5, ptr %16, align 8
-  %17 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %5, ptr %17, align 8
-  %18 = ptrtoint ptr %6 to i64
-  ret i64 %18
+  %9 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  store ptr %8, ptr %9, align 8
+  %10 = tail call ptr @lookup_type_cache(i32 noundef %4, i32 noundef 0) #3
+  %11 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  store ptr %10, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
+  store ptr %5, ptr %12, align 8
+  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %5, ptr %13, align 8
+  %14 = ptrtoint ptr %6 to i64
+  ret i64 %14
 }
 
 declare ptr @lookup_type_cache(i32 noundef, i32 noundef) local_unnamed_addr #1

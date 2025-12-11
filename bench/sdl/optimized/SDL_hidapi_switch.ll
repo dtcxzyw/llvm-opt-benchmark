@@ -3740,7 +3740,7 @@ ReadInput.exit.thread:                            ; preds = %34
   %1730 = load i8, ptr %1729, align 4, !range !3, !noundef !4
   %1731 = trunc nuw i8 %1730 to i1
   %1732 = select i1 %1731, i64 49, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %2, ptr noundef nonnull align 1 dereferenceable(10) %1721, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %2, ptr noundef nonnull align 2 dereferenceable(10) %1721, i64 10, i1 false)
   %1733 = getelementptr inbounds nuw i8, ptr %2, i64 10
   %1734 = add nsw i64 %1732, -10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %1733, i8 0, i64 %1734, i1 false)
@@ -4921,7 +4921,7 @@ define internal zeroext i1 @HIDAPI_DriverSwitch_SendJoystickEffect(ptr noundef r
   %30 = load i8, ptr %29, align 4, !range !3, !noundef !4
   %31 = trunc nuw i8 %30 to i1
   %32 = select i1 %31, i64 49, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %5, ptr noundef nonnull align 1 dereferenceable(10) %20, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %5, ptr noundef nonnull align 2 dereferenceable(10) %20, i64 10, i1 false)
   %33 = getelementptr inbounds nuw i8, ptr %5, i64 10
   %34 = add nsw i64 %32, -10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %33, i8 0, i64 %34, i1 false)
@@ -6258,7 +6258,7 @@ EncodeRumble.exit28:                              ; preds = %EncodeRumbleLowAmpl
   %52 = load i8, ptr %51, align 4, !range !3, !noundef !4
   %53 = trunc nuw i8 %52 to i1
   %54 = select i1 %53, i64 49, i64 64
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %4, ptr noundef nonnull align 1 dereferenceable(10) %42, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(10) %4, ptr noundef nonnull align 2 dereferenceable(10) %42, i64 10, i1 false)
   %55 = getelementptr inbounds nuw i8, ptr %4, i64 10
   %56 = add nsw i64 %54, -10
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 2 dereferenceable(1) %55, i8 0, i64 %56, i1 false)

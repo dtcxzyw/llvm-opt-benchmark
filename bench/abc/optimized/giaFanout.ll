@@ -29,53 +29,32 @@ define void @Gia_ManFanoutStart(ptr noundef captures(none) initializes((232, 244
   %13 = icmp sgt i32 %.val, 0
   br i1 %13, label %.lr.ph, label %.critedge
 
-.lr.ph:                                           ; preds = %1, %34
-  %indvars.iv = phi i64 [ %indvars.iv.next, %34 ], [ 0, %1 ]
+.lr.ph:                                           ; preds = %1, %14
+  %indvars.iv = phi i64 [ %indvars.iv.next, %14 ], [ 0, %1 ]
   %.val23 = load ptr, ptr %12, align 8, !tbaa !30
-  %14 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
   %.not = icmp eq ptr %.val23, null
-  br i1 %.not, label %.critedge, label %15
+  br i1 %.not, label %.critedge, label %14
 
-15:                                               ; preds = %.lr.ph
-  %16 = load i64, ptr %14, align 4
+14:                                               ; preds = %.lr.ph
+  %15 = getelementptr inbounds nuw %struct.Gia_Obj_t_, ptr %.val23, i64 %indvars.iv
+  %16 = load i64, ptr %15, align 4
   %17 = and i64 %16, 536870911
   %18 = sub nsw i64 0, %17
-  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %18
-  %20 = lshr i64 %16, 29
-  %21 = and i64 %20, 1
-  %22 = ptrtoint ptr %19 to i64
-  %.not21 = icmp eq i64 %21, %22
-  br i1 %.not21, label %24, label %23
-
-23:                                               ; preds = %15
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %14)
-  %.pre = load i64, ptr %14, align 4
-  br label %24
-
-24:                                               ; preds = %23, %15
-  %25 = phi i64 [ %.pre, %23 ], [ %16, %15 ]
-  %26 = lshr i64 %25, 32
-  %27 = and i64 %26, 536870911
-  %28 = sub nsw i64 0, %27
-  %29 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %14, i64 %28
-  %30 = lshr i64 %25, 61
-  %31 = and i64 %30, 1
-  %32 = ptrtoint ptr %29 to i64
-  %.not22 = icmp eq i64 %31, %32
-  br i1 %.not22, label %34, label %33
-
-33:                                               ; preds = %24
-  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %29, ptr noundef nonnull %14)
-  br label %34
-
-34:                                               ; preds = %24, %33
+  %19 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %15, i64 %18
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %19, ptr noundef nonnull %15)
+  %20 = load i64, ptr %15, align 4
+  %21 = lshr i64 %20, 32
+  %22 = and i64 %21, 536870911
+  %23 = sub nsw i64 0, %22
+  %24 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %15, i64 %23
+  tail call void @Gia_ObjAddFanout(ptr noundef nonnull %0, ptr noundef nonnull %24, ptr noundef nonnull %15)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %35 = load i32, ptr %2, align 8, !tbaa !3
-  %36 = sext i32 %35 to i64
-  %37 = icmp slt i64 %indvars.iv.next, %36
-  br i1 %37, label %.lr.ph, label %.critedge, !llvm.loop !31
+  %25 = load i32, ptr %2, align 8, !tbaa !3
+  %26 = sext i32 %25 to i64
+  %27 = icmp slt i64 %indvars.iv.next, %26
+  br i1 %27, label %.lr.ph, label %.critedge, !llvm.loop !31
 
-.critedge:                                        ; preds = %.lr.ph, %34, %1
+.critedge:                                        ; preds = %.lr.ph, %14, %1
   ret void
 }
 

@@ -35485,7 +35485,6 @@ define dso_local noundef zeroext i1 @_ZN5clang4Sema20tryToRecoverWithCallERNS_12
 
 63:                                               ; preds = %59
   %.1.i.i.i.i = getelementptr inbounds nuw i8, ptr %.015.i, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %.1.i.i.i.i, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i = load i64, ptr %.1.i.i.i.i, align 8
   %64 = and i64 %.0.copyload.i.i.i.i.i.i.i, -8
   %65 = inttoptr i64 %64 to ptr
@@ -36029,7 +36028,6 @@ _ZN5clang9FixItHintD2Ev.exit:                     ; preds = %_ZNK5clang8SemaBase
 
 326:                                              ; preds = %322
   %.1.i.i.i.i49 = getelementptr inbounds nuw i8, ptr %.015.i47, i64 64
-  call void @llvm.assume(i1 true) [ "align"(ptr %.1.i.i.i.i49, i64 8) ]
   %.0.copyload.i.i.i.i.i.i.i50 = load i64, ptr %.1.i.i.i.i49, align 8
   %327 = and i64 %.0.copyload.i.i.i.i.i.i.i50, -8
   %328 = inttoptr i64 %327 to ptr
@@ -39130,7 +39128,7 @@ _ZnwIN4llvm15MallocAllocatorELm4096ELm4096ELm128EEPvmRNS0_20BumpPtrAllocatorImpl
   %50 = getelementptr inbounds nuw i8, ptr %.0.i.i.i, i64 24
   store i64 0, ptr %50, align 8
   %51 = ptrtoint ptr %.0.i.i.i to i64
-  %52 = or i64 %51, 4
+  %52 = or disjoint i64 %51, 4
   store i64 %52, ptr %0, align 8, !tbaa !937
   %.pre27 = load ptr, ptr %17, align 8, !tbaa !2631
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %.pre27, i64 48
@@ -39220,7 +39218,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_19Translatio
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !2659
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10
@@ -39935,7 +39933,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDe
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !2659
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10
@@ -40048,7 +40046,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7VarDeclEE8D
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !2659
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10
@@ -40657,7 +40655,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !2659
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10

@@ -694,39 +694,38 @@ define dso_local noundef ptr @statext_ndistinct_serialize(ptr noundef readonly c
   %21 = getelementptr inbounds nuw i8, ptr %13, i64 12
   %22 = load i32, ptr %2, align 8
   store i32 %22, ptr %21, align 4
-  %23 = load i32, ptr %2, align 8
-  %.not44 = icmp eq i32 %23, 0
+  %.not44 = icmp eq i32 %22, 0
   br i1 %.not44, label %._crit_edge43, label %.lr.ph42
 
 .lr.ph42:                                         ; preds = %._crit_edge
-  %24 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br label %26
+  %23 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  br label %25
 
-26:                                               ; preds = %.lr.ph42, %26
-  %.140 = phi i32 [ 0, %.lr.ph42 ], [ %34, %26 ]
-  %.03539 = phi ptr [ %24, %.lr.ph42 ], [ %33, %26 ]
-  %27 = sext i32 %.140 to i64
-  %28 = getelementptr inbounds %struct.MVNDistinctItem, ptr %25, i64 %27
-  %.sroa.0.0.copyload = load double, ptr %28, align 8
-  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 8
+25:                                               ; preds = %.lr.ph42, %25
+  %.140 = phi i32 [ 0, %.lr.ph42 ], [ %33, %25 ]
+  %.03539 = phi ptr [ %23, %.lr.ph42 ], [ %32, %25 ]
+  %26 = sext i32 %.140 to i64
+  %27 = getelementptr inbounds %struct.MVNDistinctItem, ptr %24, i64 %26
+  %.sroa.0.0.copyload = load double, ptr %27, align 8
+  %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 8
   %.sroa.4.0.copyload = load i32, ptr %.sroa.4.0..sroa_idx, align 8
-  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %28, i64 16
+  %.sroa.53.0..sroa_idx = getelementptr inbounds nuw i8, ptr %27, i64 16
   %.sroa.53.0.copyload = load ptr, ptr %.sroa.53.0..sroa_idx, align 8
   store double %.sroa.0.0.copyload, ptr %.03539, align 1
-  %29 = getelementptr inbounds nuw i8, ptr %.03539, i64 8
-  store i32 %.sroa.4.0.copyload, ptr %29, align 1
-  %30 = getelementptr inbounds nuw i8, ptr %.03539, i64 12
-  %31 = sext i32 %.sroa.4.0.copyload to i64
-  %32 = shl nsw i64 %31, 1
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %30, ptr align 2 %.sroa.53.0.copyload, i64 %32, i1 false)
-  %33 = getelementptr inbounds nuw i8, ptr %30, i64 %32
-  %34 = add nuw i32 %.140, 1
-  %35 = load i32, ptr %2, align 8
-  %36 = icmp ult i32 %34, %35
-  br i1 %36, label %26, label %._crit_edge43, !llvm.loop !17
+  %28 = getelementptr inbounds nuw i8, ptr %.03539, i64 8
+  store i32 %.sroa.4.0.copyload, ptr %28, align 1
+  %29 = getelementptr inbounds nuw i8, ptr %.03539, i64 12
+  %30 = sext i32 %.sroa.4.0.copyload to i64
+  %31 = shl nsw i64 %30, 1
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %29, ptr align 2 %.sroa.53.0.copyload, i64 %31, i1 false)
+  %32 = getelementptr inbounds nuw i8, ptr %29, i64 %31
+  %33 = add nuw i32 %.140, 1
+  %34 = load i32, ptr %2, align 8
+  %35 = icmp ult i32 %33, %34
+  br i1 %35, label %25, label %._crit_edge43, !llvm.loop !17
 
-._crit_edge43:                                    ; preds = %26, %._crit_edge
+._crit_edge43:                                    ; preds = %25, %._crit_edge
   ret ptr %13
 }
 

@@ -150,7 +150,7 @@ _ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE6createERNS0_7RuntimeEjj.ex
   store i64 251658312, ptr %cond.i.i.i.i.i.i.i, align 4
   %2 = ptrtoint ptr %cond.i.i.i.i.i.i.i to i64
   %or.i.i.i.i.i = or i64 %2, -281474976710656
-  %and.i.i.i = and i64 %2, 281474976710655
+  %and.i.i.i = and i64 %2, 281474976710652
   %3 = inttoptr i64 %and.i.i.i to ptr
   %heapStorage_.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 840
   tail call void @_ZN6hermes2vm16ArrayStorageBaseINS0_13HermesValue32EE20resizeWithinCapacityEPS3_RNS0_7HadesGCEj(ptr noundef %3, ptr noundef nonnull align 8 dereferenceable(8152) %heapStorage_.i.i.i, i32 noundef 16) #4
@@ -1077,10 +1077,6 @@ _ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit: ; preds = %cond.true.i.i
   %value.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %cond.i.i.i.i.i.i, i64 16
   store i64 -1688849860263936, ptr %value.i.i.i.i.i.i.i, align 8
   store i32 369098792, ptr %cond.i.i.i.i.i.i, align 8
-  %cmp.i.i.not = icmp eq ptr %cond.i.i.i.i.i.i, inttoptr (i64 -1 to ptr)
-  br i1 %cmp.i.i.not, label %return, label %if.end29
-
-if.end29:                                         ; preds = %_ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit
   %10 = ptrtoint ptr %cond.i.i.i.i.i.i to i64
   %or.i.i.i.i.i = or i64 %10, -281474976710656
   %topGCScope_.i.i.i.i = getelementptr inbounds nuw i8, ptr %runtime, i64 8
@@ -1092,13 +1088,13 @@ if.end29:                                         ; preds = %_ZN6hermes2vm12Hash
   %cmp.i.i.i.i.i.i = icmp ult ptr %12, %13
   br i1 %cmp.i.i.i.i.i.i, label %if.then.i.i.i.i.i.i, label %if.end.i.i.i.i.i.i
 
-if.then.i.i.i.i.i.i:                              ; preds = %if.end29
+if.then.i.i.i.i.i.i:                              ; preds = %_ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit
   %incdec.ptr.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %12, i64 8
   store ptr %incdec.ptr.i.i.i.i.i.i, ptr %next_.i.i.i.i.i.i.i, align 8
   store i64 %or.i.i.i.i.i, ptr %12, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12HashMapEntryEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
 
-if.end.i.i.i.i.i.i:                               ; preds = %if.end29
+if.end.i.i.i.i.i.i:                               ; preds = %_ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit
   %call7.i.i.i.i.i.i = tail call noundef ptr @_ZN6hermes2vm7GCScope15_newChunkAndPHVENS0_11HermesValueE(ptr noundef nonnull align 8 dereferenceable(212) %11, i64 %or.i.i.i.i.i) #4
   %agg.tmp.sroa.0.0.copyload.i.i37.pre = load i64, ptr %call7.i.i.i.i.i.i, align 8
   br label %_ZN6hermes2vm15HandleRootOwner10makeHandleINS0_12HashMapEntryEEENS0_6HandleIT_EEONS0_12PseudoHandleIS5_EE.exit
@@ -1382,8 +1378,8 @@ if.end101:                                        ; preds = %_ZN6hermes2vm9GCPoi
   %call107 = tail call noundef i32 @_ZN6hermes2vm14OrderedHashMap17rehashIfNecessaryENS0_6HandleIS1_EERNS0_7RuntimeE(ptr nonnull %self.coerce, ptr noundef nonnull align 8 dereferenceable(9832) %runtime)
   br label %return
 
-return:                                           ; preds = %_ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit, %if.end101, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit
-  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit ], [ %call107, %if.end101 ], [ 0, %_ZN6hermes2vm12HashMapEntry6createERNS0_7RuntimeE.exit ]
+return:                                           ; preds = %if.end101, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit
+  %retval.0 = phi i32 [ 1, %_ZN6hermes2vm17GCHermesValueBaseINS0_11HermesValueEE3setISt17integral_constantIbLb1EEEEvS2_RNS0_7HadesGCE.exit ], [ %call107, %if.end101 ]
   ret i32 %retval.0
 }
 

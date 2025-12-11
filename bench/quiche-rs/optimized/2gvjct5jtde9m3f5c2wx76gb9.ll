@@ -1026,7 +1026,7 @@ define internal fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h42
   store i64 %25, ptr %16, align 8
   br label %26
 
-26:                                               ; preds = %93, %20
+26:                                               ; preds = %92, %20
   %27 = getelementptr i8, ptr %10, i64 16
   %.sroa.0.0.val = load i64, ptr %27, align 8, !noundef !3
   %28 = and i64 %.sroa.0.0.val, -2
@@ -1170,160 +1170,155 @@ _ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit: ; preds
   %.val59 = load i64, ptr %88, align 8, !noundef !3
   %89 = and i64 %.val59, 1
   %.not.i81.not = icmp eq i64 %89, 0
-  br i1 %.not.i81.not, label %93, label %90
+  br i1 %.not.i81.not, label %92, label %90
 
 90:                                               ; preds = %87, %14
   %.val62 = load ptr, ptr %6, align 8, !noundef !3
   %91 = icmp eq ptr %.val62, %.sroa.0.020
   br i1 %91, label %._crit_edge, label %.critedge53
 
-._crit_edge:                                      ; preds = %90
-  %92 = and i64 %.sroa.0.2.val.pre, -2
-  br label %122
-
-93:                                               ; preds = %87
-  %94 = or disjoint i64 %.val61, 1
-  store i64 %94, ptr %7, align 8
-  %95 = getelementptr i8, ptr %10, i64 16
-  %.val55 = load i64, ptr %95, align 8, !noundef !3
-  %96 = and i64 %.val55, -2
-  %.8 = tail call i64 @llvm.umax.i64(i64 %96, i64 1)
-  store i64 %.8, ptr %95, align 8
-  %97 = load i64, ptr %88, align 8, !noundef !3
-  %98 = or i64 %97, 1
-  store i64 %98, ptr %88, align 8
+92:                                               ; preds = %87
+  %93 = or disjoint i64 %.val61, 1
+  store i64 %93, ptr %7, align 8
+  %94 = getelementptr i8, ptr %10, i64 16
+  %.val55 = load i64, ptr %94, align 8, !noundef !3
+  %95 = and i64 %.val55, -2
+  %.8 = tail call i64 @llvm.umax.i64(i64 %95, i64 1)
+  store i64 %.8, ptr %94, align 8
+  %96 = load i64, ptr %88, align 8, !noundef !3
+  %97 = or i64 %96, 1
+  store i64 %97, ptr %88, align 8
   br label %26
 
 .critedge53:                                      ; preds = %90
   tail call void @llvm.experimental.noalias.scope.decl(metadata !234)
-  %99 = getelementptr i8, ptr %6, i64 8
-  %.val15.i82 = load ptr, ptr %99, align 8, !noalias !234, !nonnull !3, !noundef !3
+  %98 = getelementptr i8, ptr %6, i64 8
+  %.val15.i82 = load ptr, ptr %98, align 8, !noalias !234, !nonnull !3, !noundef !3
   %.val19.i83 = load ptr, ptr %.val15.i82, align 8, !noalias !234, !noundef !3
-  store ptr %.val19.i83, ptr %99, align 8, !noalias !234
+  store ptr %.val19.i83, ptr %98, align 8, !noalias !234
   %.not.i84 = icmp eq ptr %.val19.i83, null
-  br i1 %.not.i84, label %105, label %100
+  br i1 %.not.i84, label %104, label %99
 
-100:                                              ; preds = %.critedge53
-  %101 = getelementptr inbounds nuw i8, ptr %.val19.i83, i64 16
-  %102 = load i64, ptr %101, align 8, !noalias !234, !noundef !3
-  %103 = and i64 %102, 1
-  %104 = or disjoint i64 %103, %5
-  store i64 %104, ptr %101, align 8, !noalias !234
+99:                                               ; preds = %.critedge53
+  %100 = getelementptr inbounds nuw i8, ptr %.val19.i83, i64 16
+  %101 = load i64, ptr %100, align 8, !noalias !234, !noundef !3
+  %102 = and i64 %101, 1
+  %103 = or disjoint i64 %102, %5
+  store i64 %103, ptr %100, align 8, !noalias !234
   %.val17.i85.pre = load i64, ptr %7, align 8, !noalias !234
-  br label %105
+  br label %104
 
-105:                                              ; preds = %100, %.critedge53
-  %.val17.i85 = phi i64 [ %.val17.i85.pre, %100 ], [ %.val61, %.critedge53 ]
-  %106 = and i64 %.val17.i85, -2
-  %107 = getelementptr inbounds nuw i8, ptr %.val15.i82, i64 16
-  %108 = load i64, ptr %107, align 8, !noalias !234, !noundef !3
-  %109 = and i64 %108, 1
-  %110 = or disjoint i64 %109, %106
-  store i64 %110, ptr %107, align 8, !noalias !234
+104:                                              ; preds = %99, %.critedge53
+  %.val17.i85 = phi i64 [ %.val17.i85.pre, %99 ], [ %.val61, %.critedge53 ]
+  %105 = and i64 %.val17.i85, -2
+  %106 = getelementptr inbounds nuw i8, ptr %.val15.i82, i64 16
+  %107 = load i64, ptr %106, align 8, !noalias !234, !noundef !3
+  %108 = and i64 %107, 1
+  %109 = or disjoint i64 %108, %105
+  store i64 %109, ptr %106, align 8, !noalias !234
   %.val16.i86 = load i64, ptr %7, align 8, !noalias !234, !noundef !3
-  %111 = and i64 %.val16.i86, -2
-  %112 = inttoptr i64 %111 to ptr
-  %.not13.i87 = icmp eq i64 %111, 0
-  br i1 %.not13.i87, label %115, label %113
+  %110 = and i64 %.val16.i86, -2
+  %111 = inttoptr i64 %110 to ptr
+  %.not13.i87 = icmp eq i64 %110, 0
+  br i1 %.not13.i87, label %114, label %112
 
-113:                                              ; preds = %105
-  %.val18.i88 = load ptr, ptr %112, align 8, !noalias !234, !noundef !3
-  %114 = icmp eq ptr %.val18.i88, %6
-  br i1 %114, label %117, label %.critedge.i89
+112:                                              ; preds = %104
+  %.val18.i88 = load ptr, ptr %111, align 8, !noalias !234, !noundef !3
+  %113 = icmp eq ptr %.val18.i88, %6
+  br i1 %113, label %116, label %.critedge.i89
 
-115:                                              ; preds = %105
+114:                                              ; preds = %104
   store ptr %.val15.i82, ptr %1, align 8, !alias.scope !234
   br label %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90
 
-.critedge.i89:                                    ; preds = %113
-  %116 = getelementptr inbounds nuw i8, ptr %112, i64 8
-  store ptr %.val15.i82, ptr %116, align 8, !noalias !234
+.critedge.i89:                                    ; preds = %112
+  %115 = getelementptr inbounds nuw i8, ptr %111, i64 8
+  store ptr %.val15.i82, ptr %115, align 8, !noalias !234
   br label %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90
 
-117:                                              ; preds = %113
-  store ptr %.val15.i82, ptr %112, align 8, !noalias !234
+116:                                              ; preds = %112
+  store ptr %.val15.i82, ptr %111, align 8, !noalias !234
   br label %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90
 
-_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90: ; preds = %115, %.critedge.i89, %117
+_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90: ; preds = %114, %.critedge.i89, %116
   store ptr %6, ptr %.val15.i82, align 8, !noalias !234
-  %118 = load i64, ptr %7, align 8, !noalias !234, !noundef !3
-  %119 = and i64 %118, 1
-  %120 = ptrtoint ptr %.val15.i82 to i64
-  %121 = or disjoint i64 %119, %120
-  store i64 %121, ptr %7, align 8, !noalias !234
-  br label %122
+  %117 = load i64, ptr %7, align 8, !noalias !234, !noundef !3
+  %118 = and i64 %117, 1
+  %119 = ptrtoint ptr %.val15.i82 to i64
+  %120 = or disjoint i64 %118, %119
+  store i64 %120, ptr %7, align 8, !noalias !234
+  br label %._crit_edge
 
-122:                                              ; preds = %._crit_edge, %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90
-  %.sroa.0.3.val = phi i64 [ %120, %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90 ], [ %92, %._crit_edge ]
-  %123 = inttoptr i64 %.sroa.0.3.val to ptr
-  %124 = icmp ne i64 %.sroa.0.3.val, 0
-  tail call void @llvm.assume(i1 %124)
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 16
-  %126 = load i64, ptr %125, align 8, !noundef !3
-  %127 = and i64 %126, -2
-  %128 = or i64 %126, 1
-  store i64 %128, ptr %125, align 8
-  %129 = inttoptr i64 %127 to ptr
-  %130 = getelementptr inbounds nuw i8, ptr %129, i64 16
-  %131 = load i64, ptr %130, align 8, !noundef !3
-  %132 = and i64 %131, -2
-  store i64 %132, ptr %130, align 8
+._crit_edge:                                      ; preds = %90, %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90
+  %.sroa.0.3.val = phi i64 [ %120, %_ZN21intrusive_collections6rbtree11rotate_left17hb91f995d1d88c2ddE.exit90 ], [ %.sroa.0.2.val.pre, %90 ]
+  %121 = and i64 %.sroa.0.3.val, -2
+  %122 = inttoptr i64 %121 to ptr
+  %123 = getelementptr inbounds nuw i8, ptr %122, i64 16
+  %124 = load i64, ptr %123, align 8, !noundef !3
+  %125 = and i64 %124, -2
+  %126 = or i64 %124, 1
+  store i64 %126, ptr %123, align 8
+  %127 = inttoptr i64 %125 to ptr
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 16
+  %129 = load i64, ptr %128, align 8, !noundef !3
+  %130 = and i64 %129, -2
+  store i64 %130, ptr %128, align 8
   tail call void @llvm.experimental.noalias.scope.decl(metadata !237)
-  %.val19.i91 = load ptr, ptr %129, align 8, !noalias !237, !nonnull !3, !noundef !3
-  %133 = getelementptr i8, ptr %.val19.i91, i64 8
-  %.val.i92 = load ptr, ptr %133, align 8, !noalias !237, !noundef !3
-  store ptr %.val.i92, ptr %129, align 8, !noalias !237
+  %.val19.i91 = load ptr, ptr %127, align 8, !noalias !237, !nonnull !3, !noundef !3
+  %131 = getelementptr i8, ptr %.val19.i91, i64 8
+  %.val.i92 = load ptr, ptr %131, align 8, !noalias !237, !noundef !3
+  store ptr %.val.i92, ptr %127, align 8, !noalias !237
   %.not.i93 = icmp eq ptr %.val.i92, null
-  br i1 %.not.i93, label %140, label %134
+  br i1 %.not.i93, label %138, label %132
 
-134:                                              ; preds = %122
-  %135 = getelementptr inbounds nuw i8, ptr %.val.i92, i64 16
-  %136 = load i64, ptr %135, align 8, !noalias !237, !noundef !3
-  %137 = and i64 %136, 1
-  %138 = or disjoint i64 %137, %127
-  store i64 %138, ptr %135, align 8, !noalias !237
-  %.val16.i94.pre = load i64, ptr %130, align 8, !noalias !237
-  %139 = and i64 %.val16.i94.pre, -2
-  br label %140
+132:                                              ; preds = %._crit_edge
+  %133 = getelementptr inbounds nuw i8, ptr %.val.i92, i64 16
+  %134 = load i64, ptr %133, align 8, !noalias !237, !noundef !3
+  %135 = and i64 %134, 1
+  %136 = or disjoint i64 %135, %125
+  store i64 %136, ptr %133, align 8, !noalias !237
+  %.val16.i94.pre = load i64, ptr %128, align 8, !noalias !237
+  %137 = and i64 %.val16.i94.pre, -2
+  br label %138
 
-140:                                              ; preds = %134, %122
-  %.val16.i94 = phi i64 [ %139, %134 ], [ %132, %122 ]
-  %141 = getelementptr inbounds nuw i8, ptr %.val19.i91, i64 16
-  %142 = load i64, ptr %141, align 8, !noalias !237, !noundef !3
-  %143 = and i64 %142, 1
-  %144 = or disjoint i64 %143, %.val16.i94
-  store i64 %144, ptr %141, align 8, !noalias !237
-  %.val15.i95 = load i64, ptr %130, align 8, !noalias !237, !noundef !3
-  %145 = and i64 %.val15.i95, -2
-  %146 = inttoptr i64 %145 to ptr
-  %.not13.i96 = icmp eq i64 %145, 0
-  br i1 %.not13.i96, label %149, label %147
+138:                                              ; preds = %132, %._crit_edge
+  %.val16.i94 = phi i64 [ %137, %132 ], [ %130, %._crit_edge ]
+  %139 = getelementptr inbounds nuw i8, ptr %.val19.i91, i64 16
+  %140 = load i64, ptr %139, align 8, !noalias !237, !noundef !3
+  %141 = and i64 %140, 1
+  %142 = or disjoint i64 %141, %.val16.i94
+  store i64 %142, ptr %139, align 8, !noalias !237
+  %.val15.i95 = load i64, ptr %128, align 8, !noalias !237, !noundef !3
+  %143 = and i64 %.val15.i95, -2
+  %144 = inttoptr i64 %143 to ptr
+  %.not13.i96 = icmp eq i64 %143, 0
+  br i1 %.not13.i96, label %147, label %145
 
-147:                                              ; preds = %140
-  %.val17.i97 = load ptr, ptr %146, align 8, !noalias !237, !noundef !3
-  %148 = icmp eq ptr %.val17.i97, %129
-  br i1 %148, label %151, label %.critedge.i98
+145:                                              ; preds = %138
+  %.val17.i97 = load ptr, ptr %144, align 8, !noalias !237, !noundef !3
+  %146 = icmp eq ptr %.val17.i97, %127
+  br i1 %146, label %149, label %.critedge.i98
 
-149:                                              ; preds = %140
+147:                                              ; preds = %138
   store ptr %.val19.i91, ptr %1, align 8, !alias.scope !237
   br label %_ZN21intrusive_collections6rbtree12rotate_right17hf681ea4ff92585b0E.exit99
 
-.critedge.i98:                                    ; preds = %147
-  %150 = getelementptr inbounds nuw i8, ptr %146, i64 8
-  store ptr %.val19.i91, ptr %150, align 8, !noalias !237
+.critedge.i98:                                    ; preds = %145
+  %148 = getelementptr inbounds nuw i8, ptr %144, i64 8
+  store ptr %.val19.i91, ptr %148, align 8, !noalias !237
   br label %_ZN21intrusive_collections6rbtree12rotate_right17hf681ea4ff92585b0E.exit99
 
-151:                                              ; preds = %147
-  store ptr %.val19.i91, ptr %146, align 8, !noalias !237
+149:                                              ; preds = %145
+  store ptr %.val19.i91, ptr %144, align 8, !noalias !237
   br label %_ZN21intrusive_collections6rbtree12rotate_right17hf681ea4ff92585b0E.exit99
 
-_ZN21intrusive_collections6rbtree12rotate_right17hf681ea4ff92585b0E.exit99: ; preds = %149, %.critedge.i98, %151
-  store ptr %129, ptr %133, align 8, !noalias !237
-  %152 = load i64, ptr %130, align 8, !noalias !237, !noundef !3
-  %153 = and i64 %152, 1
-  %154 = ptrtoint ptr %.val19.i91 to i64
-  %155 = or disjoint i64 %153, %154
-  store i64 %155, ptr %130, align 8, !noalias !237
+_ZN21intrusive_collections6rbtree12rotate_right17hf681ea4ff92585b0E.exit99: ; preds = %147, %.critedge.i98, %149
+  store ptr %127, ptr %131, align 8, !noalias !237
+  %150 = load i64, ptr %128, align 8, !noalias !237, !noundef !3
+  %151 = and i64 %150, 1
+  %152 = ptrtoint ptr %.val19.i91 to i64
+  %153 = or disjoint i64 %151, %152
+  store i64 %153, ptr %128, align 8, !noalias !237
   br label %.loopexit
 }
 
@@ -1438,7 +1433,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !245
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !245
   store ptr %17, ptr %0, align 8, !alias.scope !245
-  br label %38
+  br label %37
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -1468,7 +1463,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h4237a17a8ca6845fE(ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %37
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !3
@@ -1481,13 +1476,12 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 
 35:                                               ; preds = %34
   %36 = ptrtoint ptr %.sroa.04.0 to i64
-  %37 = and i64 %36, -2
-  store i64 %37, ptr %6, align 8, !noalias !251
+  store i64 %36, ptr %6, align 8, !noalias !251
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !251
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !251
   br label %33
 
-38:                                               ; preds = %33, %22
+37:                                               ; preds = %33, %22
   ret void
 }
 
@@ -1540,7 +1534,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !259
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !259
   store ptr %17, ptr %0, align 8, !alias.scope !259
-  br label %38
+  br label %37
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -1570,7 +1564,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h4237a17a8ca6845fE(ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %37
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !3
@@ -1583,13 +1577,12 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 
 35:                                               ; preds = %34
   %36 = ptrtoint ptr %.sroa.04.0 to i64
-  %37 = and i64 %36, -2
-  store i64 %37, ptr %6, align 8, !noalias !265
+  store i64 %36, ptr %6, align 8, !noalias !265
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !265
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !265
   br label %33
 
-38:                                               ; preds = %33, %22
+37:                                               ; preds = %33, %22
   ret void
 }
 
@@ -1642,7 +1635,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !273
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !273
   store ptr %17, ptr %0, align 8, !alias.scope !273
-  br label %38
+  br label %37
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -1672,7 +1665,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call fastcc void @_ZN21intrusive_collections6rbtree11post_insert17h4237a17a8ca6845fE(ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %38
+  br label %37
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !3
@@ -1685,13 +1678,12 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 
 35:                                               ; preds = %34
   %36 = ptrtoint ptr %.sroa.04.0 to i64
-  %37 = and i64 %36, -2
-  store i64 %37, ptr %6, align 8, !noalias !279
+  store i64 %36, ptr %6, align 8, !noalias !279
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !279
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !279
   br label %33
 
-38:                                               ; preds = %33, %22
+37:                                               ; preds = %33, %22
   ret void
 }
 

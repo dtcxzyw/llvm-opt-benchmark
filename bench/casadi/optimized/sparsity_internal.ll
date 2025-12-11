@@ -40909,7 +40909,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit:           ; preds = %_ZNSt6vectorIxSaIxE
   %.lcssa = phi ptr [ %.promoted84, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit ], [ %106, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit35 ]
   %.lcssa62 = phi ptr [ %7, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit ], [ %107, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit35 ]
   %.lcssa57 = phi i64 [ %10, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit ], [ %109, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit35 ]
-  store ptr %.lcssa, ptr %26, align 1
+  store ptr %.lcssa, ptr %26, align 8
   store ptr %.lcssa90, ptr %17, align 8
   store ptr %.lcssa96, ptr %4, align 8
   %30 = load i64, ptr %.lcssa62, align 8, !tbaa !3
@@ -40974,7 +40974,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit:           ; preds = %_ZNSt6vectorIxSaIxE
   br i1 %54, label %55, label %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i.i27
 
 55:                                               ; preds = %50
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.146) #30
@@ -41048,7 +41048,7 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS
   br i1 %83, label %84, label %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i
 
 84:                                               ; preds = %79
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   store ptr %70, ptr %28, align 8
@@ -41099,7 +41099,7 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIP
 .loopexit:                                        ; preds = %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   store ptr %70, ptr %28, align 8
@@ -41135,7 +41135,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit35:         ; preds = %_ZNSt6vectorIxSaIxE
 .loopexit50:                                      ; preds = %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i.i27
   %lpad.loopexit52 = landingpad { ptr, i32 }
           cleanup
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   br label %125
@@ -41291,7 +41291,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit:           ; preds = %_ZNSt6vectorIxSaIxE
   %.lcssa = phi ptr [ %.promoted84, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit ], [ %106, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit35 ]
   %.lcssa62 = phi ptr [ %7, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit ], [ %107, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit35 ]
   %.lcssa57 = phi i64 [ %10, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit ], [ %109, %_ZNSt6vectorIxSaIxEE9push_backEOx.exit35 ]
-  store ptr %.lcssa, ptr %26, align 1
+  store ptr %.lcssa, ptr %26, align 8
   store ptr %.lcssa90, ptr %17, align 8
   store ptr %.lcssa96, ptr %4, align 8
   %30 = load i64, ptr %.lcssa62, align 8, !tbaa !3
@@ -41356,7 +41356,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit:           ; preds = %_ZNSt6vectorIxSaIxE
   br i1 %54, label %55, label %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i.i27
 
 55:                                               ; preds = %50
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   invoke void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.146) #30
@@ -41430,7 +41430,7 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJxEEEvN9__gnu_cxx17__normal_iteratorIPxS
   br i1 %83, label %84, label %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i
 
 84:                                               ; preds = %79
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   store ptr %70, ptr %28, align 8
@@ -41481,7 +41481,7 @@ _ZNSt6vectorIxSaIxEE17_M_realloc_insertIJRKxEEEvN9__gnu_cxx17__normal_iteratorIP
 .loopexit:                                        ; preds = %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   store ptr %70, ptr %28, align 8
@@ -41517,7 +41517,7 @@ _ZNSt6vectorIxSaIxEE9push_backEOx.exit35:         ; preds = %_ZNSt6vectorIxSaIxE
 .loopexit50:                                      ; preds = %_ZNKSt6vectorIxSaIxEE12_M_check_lenEmPKc.exit.i.i.i27
   %lpad.loopexit52 = landingpad { ptr, i32 }
           cleanup
-  store ptr %35, ptr %26, align 1
+  store ptr %35, ptr %26, align 8
   store ptr %36, ptr %17, align 8
   store ptr %37, ptr %4, align 8
   br label %125

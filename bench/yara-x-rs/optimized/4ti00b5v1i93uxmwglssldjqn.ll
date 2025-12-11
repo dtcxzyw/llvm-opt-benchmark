@@ -19508,7 +19508,7 @@ define hidden void @"_ZN5serde2de5impls75_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %27, align 8, !noalias !1456
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(104) %28, ptr noundef nonnull align 8 dereferenceable(104) %8, i64 104, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 104, i64 noundef 8) #38
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.i.i.i.i.i.i.i, ptr %29, align 8
@@ -19592,7 +19592,7 @@ define hidden void @"_ZN5serde2de5impls75_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %27, align 8, !noalias !1459
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %28, ptr noundef nonnull align 8 dereferenceable(32) %8, i64 32, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 32, i64 noundef 8) #38
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.i.i.i.i.i.i.i, ptr %29, align 8
@@ -19676,7 +19676,7 @@ define hidden void @"_ZN5serde2de5impls75_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %27, align 8, !noalias !1462
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 96, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(96) %28, ptr noundef nonnull align 8 dereferenceable(96) %8, i64 96, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 96, i64 noundef 8) #38
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.i.i.i.i.i.i.i, ptr %29, align 8
@@ -19760,7 +19760,7 @@ define hidden void @"_ZN5serde2de5impls75_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %27, align 8, !noalias !1465
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(128) %28, ptr noundef nonnull align 8 dereferenceable(128) %8, i64 128, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 128, i64 noundef 8) #38
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.i.i.i.i.i.i.i, ptr %29, align 8
@@ -19844,7 +19844,7 @@ define hidden void @"_ZN5serde2de5impls75_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %27, align 8, !noalias !1468
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %28, ptr noundef nonnull align 8 dereferenceable(24) %8, i64 24, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 24, i64 noundef 8) #38
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.i.i.i.i.i.i.i, ptr %29, align 8
@@ -19928,7 +19928,7 @@ define hidden void @"_ZN5serde2de5impls75_$LT$impl$u20$serde..de..Deserialize$u2
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 8
   store i64 1, ptr %27, align 8, !noalias !1471
   %28 = getelementptr inbounds nuw i8, ptr %.sroa.07.0.i.i.i.i.i.i.i, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %28, ptr noundef nonnull align 8 dereferenceable(48) %8, i64 48, i1 false)
   tail call void @_RNvCs73fAdSrgOJL_7___rustc14___rust_dealloc(ptr noundef nonnull align 8 %8, i64 noundef 48, i64 noundef 8) #38
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.07.0.i.i.i.i.i.i.i, ptr %29, align 8
@@ -27453,7 +27453,7 @@ define internal fastcc noundef i64 @"_ZN8wasmtime7runtime6linker15Linker$LT$T$GT
   %27 = getelementptr inbounds nuw i8, ptr %24, i64 8
   store i64 1, ptr %27, align 8, !noalias !2797
   %28 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %28, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 8 %28, ptr nonnull readonly align 1 %1, i64 %2, i1 false)
   store ptr %24, ptr %7, align 8
   %29 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store i64 %2, ptr %29, align 8

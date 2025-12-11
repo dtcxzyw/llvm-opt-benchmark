@@ -14647,7 +14647,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc94.i:                                       ; preds = %787
   %794 = getelementptr inbounds nuw i8, ptr %793, i64 16
   store ptr %794, ptr %793, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %794, ptr noundef nonnull align 1 dereferenceable(4) @.str.112, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %794, ptr noundef nonnull align 1 dereferenceable(4) @.str.112, i64 3, i1 false)
   %795 = getelementptr inbounds nuw i8, ptr %793, i64 8
   store i64 3, ptr %795, align 8, !tbaa !13
   %796 = getelementptr inbounds nuw i8, ptr %793, i64 19
@@ -14676,7 +14676,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc101.i:                                      ; preds = %798
   %805 = getelementptr inbounds nuw i8, ptr %804, i64 16
   store ptr %805, ptr %804, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %805, ptr noundef nonnull align 1 dereferenceable(10) @.str.115, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %805, ptr noundef nonnull align 1 dereferenceable(10) @.str.115, i64 9, i1 false)
   %806 = getelementptr inbounds nuw i8, ptr %804, i64 8
   store i64 9, ptr %806, align 8, !tbaa !13
   %807 = getelementptr inbounds nuw i8, ptr %804, i64 25
@@ -14705,7 +14705,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc109.i:                                      ; preds = %809
   %816 = getelementptr inbounds nuw i8, ptr %815, i64 16
   store ptr %816, ptr %815, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %816, ptr noundef nonnull align 1 dereferenceable(10) @.str.118, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %816, ptr noundef nonnull align 1 dereferenceable(10) @.str.118, i64 9, i1 false)
   %817 = getelementptr inbounds nuw i8, ptr %815, i64 8
   store i64 9, ptr %817, align 8, !tbaa !13
   %818 = getelementptr inbounds nuw i8, ptr %815, i64 25
@@ -14734,7 +14734,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %826 = getelementptr inbounds nuw i8, ptr %10, i64 8
   %827 = getelementptr inbounds nuw i8, ptr %825, i64 16
   store ptr %827, ptr %825, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %827, ptr noundef nonnull align 1 dereferenceable(11) @.str.31, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %827, ptr noundef nonnull align 1 dereferenceable(11) @.str.31, i64 10, i1 false)
   %828 = getelementptr inbounds nuw i8, ptr %825, i64 8
   store i64 10, ptr %828, align 8, !tbaa !13
   %829 = getelementptr inbounds nuw i8, ptr %825, i64 26
@@ -14887,7 +14887,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
   %889 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %890 = getelementptr inbounds nuw i8, ptr %888, i64 16
   store ptr %890, ptr %888, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %890, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %890, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
   %891 = getelementptr inbounds nuw i8, ptr %888, i64 8
   store i64 11, ptr %891, align 8, !tbaa !13
   %892 = getelementptr inbounds nuw i8, ptr %888, i64 27
@@ -14907,7 +14907,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc162.i:                                      ; preds = %.noexc155.i
   %898 = getelementptr inbounds nuw i8, ptr %897, i64 16
   store ptr %898, ptr %897, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %898, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %898, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
   %899 = getelementptr inbounds nuw i8, ptr %897, i64 8
   store i64 11, ptr %899, align 8, !tbaa !13
   %900 = getelementptr inbounds nuw i8, ptr %897, i64 27
@@ -14927,7 +14927,7 @@ _ZNSt10unique_ptrINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEZN13proj_n
 .noexc171.i:                                      ; preds = %.noexc162.i
   %906 = getelementptr inbounds nuw i8, ptr %905, i64 16
   store ptr %906, ptr %905, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %906, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %906, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
   %907 = getelementptr inbounds nuw i8, ptr %905, i64 8
   store i64 11, ptr %907, align 8, !tbaa !13
   %908 = getelementptr inbounds nuw i8, ptr %905, i64 27
@@ -20519,7 +20519,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1859:                                       ; preds = %2752
   %2755 = getelementptr inbounds nuw i8, ptr %2754, i64 16
   store ptr %2755, ptr %2754, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %2755, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2755, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
   %2756 = getelementptr inbounds nuw i8, ptr %2754, i64 8
   store i64 11, ptr %2756, align 8, !tbaa !13
   %2757 = getelementptr inbounds nuw i8, ptr %2754, i64 27
@@ -20539,7 +20539,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1866:                                       ; preds = %.noexc1859
   %2763 = getelementptr inbounds nuw i8, ptr %2762, i64 16
   store ptr %2763, ptr %2762, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %2763, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2763, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
   %2764 = getelementptr inbounds nuw i8, ptr %2762, i64 8
   store i64 11, ptr %2764, align 8, !tbaa !13
   %2765 = getelementptr inbounds nuw i8, ptr %2762, i64 27
@@ -20559,7 +20559,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc1875:                                       ; preds = %.noexc1866
   %2771 = getelementptr inbounds nuw i8, ptr %2770, i64 16
   store ptr %2771, ptr %2770, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %2771, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %2771, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
   %2772 = getelementptr inbounds nuw i8, ptr %2770, i64 8
   store i64 11, ptr %2772, align 8, !tbaa !13
   %2773 = getelementptr inbounds nuw i8, ptr %2770, i64 27
@@ -23073,7 +23073,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2134:                                       ; preds = %3640
   %3643 = getelementptr inbounds nuw i8, ptr %3642, i64 16
   store ptr %3643, ptr %3642, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3643, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3643, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
   %3644 = getelementptr inbounds nuw i8, ptr %3642, i64 8
   store i64 11, ptr %3644, align 8, !tbaa !13
   %3645 = getelementptr inbounds nuw i8, ptr %3642, i64 27
@@ -23093,7 +23093,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2142:                                       ; preds = %.noexc2134
   %3651 = getelementptr inbounds nuw i8, ptr %3650, i64 16
   store ptr %3651, ptr %3650, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3651, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3651, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
   %3652 = getelementptr inbounds nuw i8, ptr %3650, i64 8
   store i64 11, ptr %3652, align 8, !tbaa !13
   %3653 = getelementptr inbounds nuw i8, ptr %3650, i64 27
@@ -23113,7 +23113,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2151:                                       ; preds = %.noexc2142
   %3659 = getelementptr inbounds nuw i8, ptr %3658, i64 16
   store ptr %3659, ptr %3658, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %3659, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %3659, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
   %3660 = getelementptr inbounds nuw i8, ptr %3658, i64 8
   store i64 11, ptr %3660, align 8, !tbaa !13
   %3661 = getelementptr inbounds nuw i8, ptr %3658, i64 27
@@ -25480,7 +25480,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
   %4466 = getelementptr inbounds nuw i8, ptr %320, i64 8
   %4467 = getelementptr inbounds nuw i8, ptr %4464, i64 16
   store ptr %4467, ptr %4464, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %4467, ptr noundef nonnull align 1 dereferenceable(11) @.str.31, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %4467, ptr noundef nonnull align 1 dereferenceable(11) @.str.31, i64 10, i1 false)
   %4468 = getelementptr inbounds nuw i8, ptr %4464, i64 8
   store i64 10, ptr %4468, align 8, !tbaa !13
   %4469 = getelementptr inbounds nuw i8, ptr %4464, i64 26
@@ -25686,7 +25686,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2436:                                       ; preds = %4550
   %4553 = getelementptr inbounds nuw i8, ptr %4552, i64 16
   store ptr %4553, ptr %4552, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4553, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4553, ptr noundef nonnull align 1 dereferenceable(12) @.str.52, i64 11, i1 false)
   %4554 = getelementptr inbounds nuw i8, ptr %4552, i64 8
   store i64 11, ptr %4554, align 8, !tbaa !13
   %4555 = getelementptr inbounds nuw i8, ptr %4552, i64 27
@@ -25706,7 +25706,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2444:                                       ; preds = %.noexc2436
   %4561 = getelementptr inbounds nuw i8, ptr %4560, i64 16
   store ptr %4561, ptr %4560, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4561, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4561, ptr noundef nonnull align 1 dereferenceable(12) @.str.53, i64 11, i1 false)
   %4562 = getelementptr inbounds nuw i8, ptr %4560, i64 8
   store i64 11, ptr %4562, align 8, !tbaa !13
   %4563 = getelementptr inbounds nuw i8, ptr %4560, i64 27
@@ -25726,7 +25726,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2453:                                       ; preds = %.noexc2444
   %4569 = getelementptr inbounds nuw i8, ptr %4568, i64 16
   store ptr %4569, ptr %4568, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %4569, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %4569, ptr noundef nonnull align 1 dereferenceable(12) @.str.54, i64 11, i1 false)
   %4570 = getelementptr inbounds nuw i8, ptr %4568, i64 8
   store i64 11, ptr %4570, align 8, !tbaa !13
   %4571 = getelementptr inbounds nuw i8, ptr %4568, i64 27
@@ -28534,7 +28534,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit2702: ; preds = %_ZNSt7__cxx1112bas
 .noexc2706:                                       ; preds = %5539
   %5542 = getelementptr inbounds nuw i8, ptr %5541, i64 16
   store ptr %5542, ptr %5541, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5542, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5542, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
   %5543 = getelementptr inbounds nuw i8, ptr %5541, i64 8
   store i64 3, ptr %5543, align 8, !tbaa !13
   %5544 = getelementptr inbounds nuw i8, ptr %5541, i64 19
@@ -28563,7 +28563,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit2702: ; preds = %_ZNSt7__cxx1112bas
 .noexc2713:                                       ; preds = %5546
   %5553 = getelementptr inbounds nuw i8, ptr %5552, i64 16
   store ptr %5553, ptr %5552, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %5553, ptr noundef nonnull align 1 dereferenceable(8) @.str.149, i64 7, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(7) %5553, ptr noundef nonnull align 1 dereferenceable(8) @.str.149, i64 7, i1 false)
   %5554 = getelementptr inbounds nuw i8, ptr %5552, i64 8
   store i64 7, ptr %5554, align 8, !tbaa !13
   %5555 = getelementptr inbounds nuw i8, ptr %5552, i64 23
@@ -28954,7 +28954,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit2745: ; preds = %_ZNSt7__cxx1112bas
 .noexc2750:                                       ; preds = %5689
   %5692 = getelementptr inbounds nuw i8, ptr %5691, i64 16
   store ptr %5692, ptr %5691, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5692, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5692, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
   %5693 = getelementptr inbounds nuw i8, ptr %5691, i64 8
   store i64 3, ptr %5693, align 8, !tbaa !13
   %5694 = getelementptr inbounds nuw i8, ptr %5691, i64 19
@@ -28983,7 +28983,7 @@ _ZN7testing8internal14TrueWithStringD2Ev.exit2745: ; preds = %_ZNSt7__cxx1112bas
 .noexc2758:                                       ; preds = %5696
   %5703 = getelementptr inbounds nuw i8, ptr %5702, i64 16
   store ptr %5703, ptr %5702, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5703, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5703, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 12, i1 false)
   %5704 = getelementptr inbounds nuw i8, ptr %5702, i64 8
   store i64 12, ptr %5704, align 8, !tbaa !13
   %5705 = getelementptr inbounds nuw i8, ptr %5702, i64 28
@@ -29327,7 +29327,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2798:                                       ; preds = %5811
   %5814 = getelementptr inbounds nuw i8, ptr %5813, i64 16
   store ptr %5814, ptr %5813, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %5814, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %5814, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
   %5815 = getelementptr inbounds nuw i8, ptr %5813, i64 8
   store i64 3, ptr %5815, align 8, !tbaa !13
   %5816 = getelementptr inbounds nuw i8, ptr %5813, i64 19
@@ -29356,7 +29356,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2807:                                       ; preds = %5818
   %5825 = getelementptr inbounds nuw i8, ptr %5824, i64 16
   store ptr %5825, ptr %5824, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %5825, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %5825, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 12, i1 false)
   %5826 = getelementptr inbounds nuw i8, ptr %5824, i64 8
   store i64 12, ptr %5826, align 8, !tbaa !13
   %5827 = getelementptr inbounds nuw i8, ptr %5824, i64 28
@@ -29975,7 +29975,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2849:                                       ; preds = %6066
   %6069 = getelementptr inbounds nuw i8, ptr %6068, i64 16
   store ptr %6069, ptr %6068, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %6069, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %6069, ptr noundef nonnull align 1 dereferenceable(4) @.str.9, i64 3, i1 false)
   %6070 = getelementptr inbounds nuw i8, ptr %6068, i64 8
   store i64 3, ptr %6070, align 8, !tbaa !13
   %6071 = getelementptr inbounds nuw i8, ptr %6068, i64 19
@@ -30004,7 +30004,7 @@ _ZNSt10unique_ptrIN12TestTINShift12TINShiftFileESt14default_deleteIS1_EED2Ev.exi
 .noexc2858:                                       ; preds = %6073
   %6080 = getelementptr inbounds nuw i8, ptr %6079, i64 16
   store ptr %6080, ptr %6079, align 8, !tbaa !12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %6080, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 12, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %6080, ptr noundef nonnull align 1 dereferenceable(13) @.str.11, i64 12, i1 false)
   %6081 = getelementptr inbounds nuw i8, ptr %6079, i64 8
   store i64 12, ptr %6081, align 8, !tbaa !13
   %6082 = getelementptr inbounds nuw i8, ptr %6079, i64 28

@@ -1240,7 +1240,7 @@ define void @_ZN6duckdb27ParquetMetaDataOperatorData12BindMetaDataERNS_6vectorIN
 ._crit_edge.i.i.i.i.i:                            ; preds = %2
   %22 = getelementptr inbounds nuw i8, ptr %19, i64 16
   store ptr %22, ptr %19, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %22, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
   %23 = getelementptr inbounds nuw i8, ptr %19, i64 8
   store i64 9, ptr %23, align 8, !tbaa !12
   %24 = getelementptr inbounds nuw i8, ptr %19, i64 25
@@ -1282,7 +1282,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i59:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 16
   store ptr %38, ptr %36, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %38, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %38, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 12, i1 false)
   %39 = getelementptr inbounds nuw i8, ptr %36, i64 8
   store i64 12, ptr %39, align 8, !tbaa !12
   %40 = getelementptr inbounds nuw i8, ptr %36, i64 28
@@ -1418,7 +1418,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i74:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit72
   %86 = getelementptr inbounds nuw i8, ptr %84, i64 16
   store ptr %86, ptr %84, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %86, ptr noundef nonnull align 1 dereferenceable(16) @.str.4, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %86, ptr noundef nonnull align 1 dereferenceable(16) @.str.4, i64 15, i1 false)
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 15, ptr %87, align 8, !tbaa !12
   %88 = getelementptr inbounds nuw i8, ptr %84, i64 31
@@ -1458,7 +1458,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i79:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit77
   %100 = getelementptr inbounds nuw i8, ptr %98, i64 16
   store ptr %100, ptr %98, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %100, ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %100, ptr noundef nonnull align 1 dereferenceable(10) @.str.5, i64 9, i1 false)
   %101 = getelementptr inbounds nuw i8, ptr %98, i64 8
   store i64 9, ptr %101, align 8, !tbaa !12
   %102 = getelementptr inbounds nuw i8, ptr %98, i64 25
@@ -1498,7 +1498,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i86:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit84
   %114 = getelementptr inbounds nuw i8, ptr %112, i64 16
   store ptr %114, ptr %112, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %114, ptr noundef nonnull align 1 dereferenceable(12) @.str.6, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %114, ptr noundef nonnull align 1 dereferenceable(12) @.str.6, i64 11, i1 false)
   %115 = getelementptr inbounds nuw i8, ptr %112, i64 8
   store i64 11, ptr %115, align 8, !tbaa !12
   %116 = getelementptr inbounds nuw i8, ptr %112, i64 27
@@ -1538,7 +1538,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i91:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit89
   %128 = getelementptr inbounds nuw i8, ptr %126, i64 16
   store ptr %128, ptr %126, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %128, ptr noundef nonnull align 1 dereferenceable(11) @.str.7, i64 10, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %128, ptr noundef nonnull align 1 dereferenceable(11) @.str.7, i64 10, i1 false)
   %129 = getelementptr inbounds nuw i8, ptr %126, i64 8
   store i64 10, ptr %129, align 8, !tbaa !12
   %130 = getelementptr inbounds nuw i8, ptr %126, i64 26
@@ -1578,7 +1578,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i96:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit94
   %142 = getelementptr inbounds nuw i8, ptr %140, i64 16
   store ptr %142, ptr %140, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %142, ptr noundef nonnull align 1 dereferenceable(15) @.str.8, i64 14, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %142, ptr noundef nonnull align 1 dereferenceable(15) @.str.8, i64 14, i1 false)
   %143 = getelementptr inbounds nuw i8, ptr %140, i64 8
   store i64 14, ptr %143, align 8, !tbaa !12
   %144 = getelementptr inbounds nuw i8, ptr %140, i64 30
@@ -1658,7 +1658,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i106:                         ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit104
   %170 = getelementptr inbounds nuw i8, ptr %168, i64 16
   store ptr %170, ptr %168, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %170, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %170, ptr noundef nonnull align 1 dereferenceable(10) @.str.10, i64 9, i1 false)
   %171 = getelementptr inbounds nuw i8, ptr %168, i64 8
   store i64 9, ptr %171, align 8, !tbaa !12
   %172 = getelementptr inbounds nuw i8, ptr %168, i64 25
@@ -1698,7 +1698,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i113:                         ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit111
   %184 = getelementptr inbounds nuw i8, ptr %182, i64 16
   store ptr %184, ptr %182, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %184, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %184, ptr noundef nonnull align 1 dereferenceable(10) @.str.11, i64 9, i1 false)
   %185 = getelementptr inbounds nuw i8, ptr %182, i64 8
   store i64 9, ptr %185, align 8, !tbaa !12
   %186 = getelementptr inbounds nuw i8, ptr %182, i64 25
@@ -1834,7 +1834,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i130:                         ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit128
   %232 = getelementptr inbounds nuw i8, ptr %230, i64 16
   store ptr %232, ptr %230, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %232, ptr noundef nonnull align 1 dereferenceable(16) @.str.14, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %232, ptr noundef nonnull align 1 dereferenceable(16) @.str.14, i64 15, i1 false)
   %233 = getelementptr inbounds nuw i8, ptr %230, i64 8
   store i64 15, ptr %233, align 8, !tbaa !12
   %234 = getelementptr inbounds nuw i8, ptr %230, i64 31
@@ -1874,7 +1874,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i137:                         ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit135
   %246 = getelementptr inbounds nuw i8, ptr %244, i64 16
   store ptr %246, ptr %244, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %246, ptr noundef nonnull align 1 dereferenceable(16) @.str.15, i64 15, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %246, ptr noundef nonnull align 1 dereferenceable(16) @.str.15, i64 15, i1 false)
   %247 = getelementptr inbounds nuw i8, ptr %244, i64 8
   store i64 15, ptr %247, align 8, !tbaa !12
   %248 = getelementptr inbounds nuw i8, ptr %244, i64 31
@@ -1914,7 +1914,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i144:                         ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit142
   %260 = getelementptr inbounds nuw i8, ptr %258, i64 16
   store ptr %260, ptr %258, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %260, ptr noundef nonnull align 1 dereferenceable(12) @.str.16, i64 11, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %260, ptr noundef nonnull align 1 dereferenceable(12) @.str.16, i64 11, i1 false)
   %261 = getelementptr inbounds nuw i8, ptr %258, i64 8
   store i64 11, ptr %261, align 8, !tbaa !12
   %262 = getelementptr inbounds nuw i8, ptr %258, i64 27
@@ -1954,7 +1954,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i151:                         ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit149
   %274 = getelementptr inbounds nuw i8, ptr %272, i64 16
   store ptr %274, ptr %272, align 8, !tbaa !3
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %274, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 9, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %274, ptr noundef nonnull align 1 dereferenceable(10) @.str.17, i64 9, i1 false)
   %275 = getelementptr inbounds nuw i8, ptr %272, i64 8
   store i64 9, ptr %275, align 8, !tbaa !12
   %276 = getelementptr inbounds nuw i8, ptr %272, i64 25
@@ -6654,7 +6654,7 @@ define void @_ZN6duckdb27ParquetMetaDataOperatorData10BindSchemaERNS_6vectorINS_
 ._crit_edge.i.i.i.i.i:                            ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %4, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 9, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
@@ -6776,7 +6776,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i36:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit34
   %51 = getelementptr inbounds nuw i8, ptr %49, i64 16
   store ptr %51, ptr %49, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(11) %51, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 11, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(11) %51, ptr noundef nonnull align 1 dereferenceable(12) @.str.29, i64 11, i1 false)
   %52 = getelementptr inbounds nuw i8, ptr %49, i64 8
   store i64 11, ptr %52, align 8, !tbaa !12
   %53 = getelementptr inbounds nuw i8, ptr %49, i64 27
@@ -6816,7 +6816,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i41:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit39
   %65 = getelementptr inbounds nuw i8, ptr %63, i64 16
   store ptr %65, ptr %63, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(15) %65, ptr noundef nonnull align 1 dereferenceable(16) @.str.30, i64 15, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(15) %65, ptr noundef nonnull align 1 dereferenceable(16) @.str.30, i64 15, i1 false)
   %66 = getelementptr inbounds nuw i8, ptr %63, i64 8
   store i64 15, ptr %66, align 8, !tbaa !12
   %67 = getelementptr inbounds nuw i8, ptr %63, i64 31
@@ -6856,7 +6856,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i46:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit44
   %79 = getelementptr inbounds nuw i8, ptr %77, i64 16
   store ptr %79, ptr %77, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %79, ptr noundef nonnull align 1 dereferenceable(13) @.str.31, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %79, ptr noundef nonnull align 1 dereferenceable(13) @.str.31, i64 12, i1 false)
   %80 = getelementptr inbounds nuw i8, ptr %77, i64 8
   store i64 12, ptr %80, align 8, !tbaa !12
   %81 = getelementptr inbounds nuw i8, ptr %77, i64 28
@@ -6896,7 +6896,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i51:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit49
   %93 = getelementptr inbounds nuw i8, ptr %91, i64 16
   store ptr %93, ptr %91, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %93, ptr noundef nonnull align 1 dereferenceable(15) @.str.32, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %93, ptr noundef nonnull align 1 dereferenceable(15) @.str.32, i64 14, i1 false)
   %94 = getelementptr inbounds nuw i8, ptr %91, i64 8
   store i64 14, ptr %94, align 8, !tbaa !12
   %95 = getelementptr inbounds nuw i8, ptr %91, i64 30
@@ -6936,7 +6936,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i56:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit54
   %107 = getelementptr inbounds nuw i8, ptr %105, i64 16
   store ptr %107, ptr %105, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %107, ptr noundef nonnull align 1 dereferenceable(6) @.str.33, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %107, ptr noundef nonnull align 1 dereferenceable(6) @.str.33, i64 5, i1 false)
   %108 = getelementptr inbounds nuw i8, ptr %105, i64 8
   store i64 5, ptr %108, align 8, !tbaa !12
   %109 = getelementptr inbounds nuw i8, ptr %105, i64 21
@@ -6976,7 +6976,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i61:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit59
   %121 = getelementptr inbounds nuw i8, ptr %119, i64 16
   store ptr %121, ptr %119, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %121, ptr noundef nonnull align 1 dereferenceable(10) @.str.34, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %121, ptr noundef nonnull align 1 dereferenceable(10) @.str.34, i64 9, i1 false)
   %122 = getelementptr inbounds nuw i8, ptr %119, i64 8
   store i64 9, ptr %122, align 8, !tbaa !12
   %123 = getelementptr inbounds nuw i8, ptr %119, i64 25
@@ -7056,7 +7056,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i73:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit71
   %149 = getelementptr inbounds nuw i8, ptr %147, i64 16
   store ptr %149, ptr %147, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %149, ptr noundef nonnull align 1 dereferenceable(13) @.str.36, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %149, ptr noundef nonnull align 1 dereferenceable(13) @.str.36, i64 12, i1 false)
   %150 = getelementptr inbounds nuw i8, ptr %147, i64 8
   store i64 12, ptr %150, align 8, !tbaa !12
   %151 = getelementptr inbounds nuw i8, ptr %147, i64 28
@@ -10219,7 +10219,7 @@ define void @_ZN6duckdb27ParquetMetaDataOperatorData20BindKeyValueMetaDataERNS_6
 ._crit_edge.i.i.i.i.i:                            ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %4, i64 16
   store ptr %7, ptr %4, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %7, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
   %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
   store i64 9, ptr %8, align 8, !tbaa !12
   %9 = getelementptr inbounds nuw i8, ptr %4, i64 25
@@ -10261,7 +10261,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i8:                           ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit
   %23 = getelementptr inbounds nuw i8, ptr %21, i64 16
   store ptr %23, ptr %21, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(3) %23, ptr noundef nonnull align 1 dereferenceable(4) @.str.37, i64 3, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(3) %23, ptr noundef nonnull align 1 dereferenceable(4) @.str.37, i64 3, i1 false)
   %24 = getelementptr inbounds nuw i8, ptr %21, i64 8
   store i64 3, ptr %24, align 8, !tbaa !12
   %25 = getelementptr inbounds nuw i8, ptr %21, i64 19
@@ -10301,7 +10301,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i13:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit11
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   store ptr %37, ptr %35, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %37, ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %37, ptr noundef nonnull align 1 dereferenceable(6) @.str.38, i64 5, i1 false)
   %38 = getelementptr inbounds nuw i8, ptr %35, i64 8
   store i64 5, ptr %38, align 8, !tbaa !12
   %39 = getelementptr inbounds nuw i8, ptr %35, i64 21
@@ -10733,7 +10733,7 @@ define void @_ZN6duckdb27ParquetMetaDataOperatorData16BindFileMetaDataERNS_6vect
 ._crit_edge.i.i.i.i.i:                            ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store ptr %9, ptr %6, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %9, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
   %10 = getelementptr inbounds nuw i8, ptr %6, i64 8
   store i64 9, ptr %10, align 8, !tbaa !12
   %11 = getelementptr inbounds nuw i8, ptr %6, i64 25
@@ -10775,7 +10775,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i16:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit
   %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
   store ptr %25, ptr %23, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(10) %25, ptr noundef nonnull align 1 dereferenceable(11) @.str.39, i64 10, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(10) %25, ptr noundef nonnull align 1 dereferenceable(11) @.str.39, i64 10, i1 false)
   %26 = getelementptr inbounds nuw i8, ptr %23, i64 8
   store i64 10, ptr %26, align 8, !tbaa !12
   %27 = getelementptr inbounds nuw i8, ptr %23, i64 26
@@ -10855,7 +10855,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i26:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit24
   %53 = getelementptr inbounds nuw i8, ptr %51, i64 16
   store ptr %53, ptr %51, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %53, ptr noundef nonnull align 1 dereferenceable(15) @.str.41, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %53, ptr noundef nonnull align 1 dereferenceable(15) @.str.41, i64 14, i1 false)
   %54 = getelementptr inbounds nuw i8, ptr %51, i64 8
   store i64 14, ptr %54, align 8, !tbaa !12
   %55 = getelementptr inbounds nuw i8, ptr %51, i64 30
@@ -10895,7 +10895,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i31:                          ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit29
   %67 = getelementptr inbounds nuw i8, ptr %65, i64 16
   store ptr %67, ptr %65, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(14) %67, ptr noundef nonnull align 1 dereferenceable(15) @.str.42, i64 14, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(14) %67, ptr noundef nonnull align 1 dereferenceable(15) @.str.42, i64 14, i1 false)
   %68 = getelementptr inbounds nuw i8, ptr %65, i64 8
   store i64 14, ptr %68, align 8, !tbaa !12
   %69 = getelementptr inbounds nuw i8, ptr %65, i64 30
@@ -11485,7 +11485,7 @@ define void @_ZN6duckdb27ParquetMetaDataOperatorData14BindBloomProbeERNS_6vector
 ._crit_edge.i.i.i.i.i:                            ; preds = %2
   %8 = getelementptr inbounds nuw i8, ptr %5, i64 16
   store ptr %8, ptr %5, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(9) %8, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(9) %8, ptr noundef nonnull align 1 dereferenceable(10) @.str, i64 9, i1 false)
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 8
   store i64 9, ptr %9, align 8, !tbaa !12
   %10 = getelementptr inbounds nuw i8, ptr %5, i64 25
@@ -11527,7 +11527,7 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeId
 ._crit_edge.i.i.i.i.i8:                           ; preds = %_ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKNS0_13LogicalTypeIdEEEEvDpOT_.exit
   %24 = getelementptr inbounds nuw i8, ptr %22, i64 16
   store ptr %24, ptr %22, align 8, !tbaa !3
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 12, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %24, ptr noundef nonnull align 1 dereferenceable(13) @.str.1, i64 12, i1 false)
   %25 = getelementptr inbounds nuw i8, ptr %22, i64 8
   store i64 12, ptr %25, align 8, !tbaa !12
   %26 = getelementptr inbounds nuw i8, ptr %22, i64 28

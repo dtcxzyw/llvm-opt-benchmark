@@ -21993,9 +21993,9 @@ define dso_local void @nvgFill(ptr noundef %0) local_unnamed_addr #3 {
   %36 = load ptr, ptr %35, align 8
   %37 = getelementptr inbounds nuw i8, ptr %33, i64 24
   %38 = load i32, ptr %37, align 8
-  %39 = load i64, ptr %7, align 4
+  %39 = load i64, ptr %7, align 8
   %40 = getelementptr i8, ptr %6, i64 -128
-  %41 = load i64, ptr %40, align 4
+  %41 = load i64, ptr %40, align 8
   call void %27(ptr noundef %28, ptr noundef nonnull %2, i64 %39, i64 %41, ptr noundef nonnull %29, float noundef %31, ptr noundef nonnull %34, ptr noundef %36, i32 noundef %38) #60
   %42 = load ptr, ptr %32, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 24
@@ -23008,9 +23008,9 @@ define dso_local void @nvgStroke(ptr noundef %0) local_unnamed_addr #3 {
   %86 = load ptr, ptr %85, align 8
   %87 = getelementptr inbounds nuw i8, ptr %84, i64 24
   %88 = load i32, ptr %87, align 8
-  %89 = load i64, ptr %7, align 4
+  %89 = load i64, ptr %7, align 8
   %90 = getelementptr i8, ptr %6, i64 -128
-  %91 = load i64, ptr %90, align 4
+  %91 = load i64, ptr %90, align 8
   call void %79(ptr noundef %80, ptr noundef nonnull %2, i64 %89, i64 %91, ptr noundef nonnull %81, float noundef %82, float noundef %.0, ptr noundef %86, i32 noundef %88) #60
   %92 = load ptr, ptr %83, align 8
   %93 = getelementptr inbounds nuw i8, ptr %92, i64 24
@@ -24520,9 +24520,9 @@ nvg__allocTempVerts.exit:                         ; preds = %48, %112
   %166 = load ptr, ptr %134, align 8
   %167 = load ptr, ptr %0, align 8
   %168 = getelementptr i8, ptr %153, i64 80
-  %169 = load i64, ptr %154, align 4
+  %169 = load i64, ptr %154, align 8
   %170 = getelementptr i8, ptr %153, i64 -128
-  %171 = load i64, ptr %170, align 4
+  %171 = load i64, ptr %170, align 8
   call void %166(ptr noundef %167, ptr noundef nonnull %7, i64 %169, i64 %171, ptr noundef nonnull %168, ptr noundef nonnull %119, i32 noundef %.092) #60
   %172 = load i32, ptr %135, align 4
   %173 = add nsw i32 %172, 1
@@ -24728,9 +24728,9 @@ nvg__flushTextTexture.exit:                       ; preds = %._crit_edge, %259, 
   %306 = load ptr, ptr %305, align 8
   %307 = load ptr, ptr %0, align 8
   %308 = getelementptr i8, ptr %287, i64 80
-  %309 = load i64, ptr %288, align 4
+  %309 = load i64, ptr %288, align 8
   %310 = getelementptr i8, ptr %287, i64 -128
-  %311 = load i64, ptr %310, align 4
+  %311 = load i64, ptr %310, align 8
   call void %306(ptr noundef %307, ptr noundef nonnull %6, i64 %309, i64 %311, ptr noundef nonnull %308, ptr noundef nonnull %119, i32 noundef %.1) #60
   %312 = getelementptr inbounds nuw i8, ptr %0, i64 8900
   %313 = load i32, ptr %312, align 4

@@ -1972,7 +1972,7 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
   store i8 %168, ptr %169, align 1, !tbaa !71
   call void @_ZNK12gjkepa2_impl3GJK10getsupportERK9btVector3RNS0_3sSVE(ptr noundef nonnull align 8 dereferenceable(460) %1, ptr noundef nonnull align 4 dereferenceable(16) %.074310, ptr noundef nonnull align 4 dereferenceable(32) %166)
   %170 = getelementptr inbounds nuw i8, ptr %166, i64 16
-  %171 = load float, ptr %.074310, align 4, !tbaa !23
+  %171 = load float, ptr %.074310, align 8, !tbaa !23
   %172 = load float, ptr %170, align 4, !tbaa !23
   %173 = getelementptr inbounds nuw i8, ptr %.074310, i64 4
   %174 = load float, ptr %173, align 4, !tbaa !23
@@ -1981,7 +1981,7 @@ _ZN12gjkepa2_impl3EPA8findbestEv.exit:            ; preds = %.lr.ph.i, %122
   %177 = fmul float %174, %176
   %178 = call float @llvm.fmuladd.f32(float %171, float %172, float %177)
   %179 = getelementptr inbounds nuw i8, ptr %.074310, i64 8
-  %180 = load float, ptr %179, align 4, !tbaa !23
+  %180 = load float, ptr %179, align 8, !tbaa !23
   %181 = getelementptr inbounds nuw i8, ptr %166, i64 24
   %182 = load float, ptr %181, align 4, !tbaa !23
   %183 = call noundef float @llvm.fmuladd.f32(float %180, float %182, float %178)

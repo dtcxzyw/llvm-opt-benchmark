@@ -677,18 +677,18 @@ _ZNK5clang13CXXMethodDecl30getFunctionObjectParameterTypeEv.exit: ; preds = %46,
 define dso_local void @_ZN5clang4sema17checkInitLifetimeERNS_4SemaERKNS_17InitializedEntityEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull align 8 dereferenceable(48) %1, ptr noundef %2) local_unnamed_addr #0 {
   br label %tailrecurse.outer.i
 
-tailrecurse.outer.i:                              ; preds = %9, %3
-  %.tr.ph.i = phi ptr [ %11, %9 ], [ %1, %3 ]
-  %.tr16.ph.i = phi ptr [ %.tr.i, %9 ], [ null, %3 ]
+tailrecurse.outer.i:                              ; preds = %8, %3
+  %.tr.ph.i = phi ptr [ %10, %8 ], [ %1, %3 ]
+  %.tr16.ph.i = phi ptr [ %.tr.i, %8 ], [ null, %3 ]
   br label %tailrecurse.i
 
 tailrecurse.i:                                    ; preds = %tailrecurse.i.backedge, %tailrecurse.outer.i
   %.tr.i = phi ptr [ %.tr.ph.i, %tailrecurse.outer.i ], [ %.tr.i.be, %tailrecurse.i.backedge ]
   %4 = load i32, ptr %.tr.i, align 8, !tbaa !92
-  switch i32 %4, label %38 [
+  switch i32 %4, label %36 [
     i32 0, label %5
-    i32 6, label %9
-    i32 20, label %20
+    i32 6, label %8
+    i32 20, label %19
     i32 1, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
     i32 19, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
     i32 2, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
@@ -698,9 +698,9 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
     i32 9, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
     i32 17, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
     i32 18, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
-    i32 7, label %24
-    i32 10, label %27
-    i32 11, label %34
+    i32 7, label %22
+    i32 10, label %25
+    i32 11, label %32
     i32 13, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
     i32 14, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
     i32 16, label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
@@ -712,60 +712,58 @@ tailrecurse.i:                                    ; preds = %tailrecurse.i.backe
 
 5:                                                ; preds = %tailrecurse.i
   %6 = ptrtoint ptr %.tr.i to i64
-  %7 = and i64 %6, -8
-  %8 = or disjoint i64 %7, 1
+  %7 = or disjoint i64 %6, 1
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
-9:                                                ; preds = %tailrecurse.i
-  %10 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !96
-  %.not15.i = icmp eq ptr %11, null
-  br i1 %.not15.i, label %12, label %tailrecurse.outer.i
+8:                                                ; preds = %tailrecurse.i
+  %9 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+  %10 = load ptr, ptr %9, align 8, !tbaa !96
+  %.not15.i = icmp eq ptr %10, null
+  br i1 %.not15.i, label %11, label %tailrecurse.outer.i
 
-12:                                               ; preds = %9
-  %13 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 41
-  %14 = load i8, ptr %13, align 1, !range !97
-  %15 = trunc nuw i8 %14 to i1
-  %16 = ptrtoint ptr %.tr.i to i64
-  %17 = select i1 %15, i64 1, i64 6
-  %18 = and i64 %16, -8
-  %19 = or disjoint i64 %17, %18
+11:                                               ; preds = %8
+  %12 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 41
+  %13 = load i8, ptr %12, align 1, !range !97
+  %14 = trunc nuw i8 %13 to i1
+  %15 = ptrtoint ptr %.tr.i to i64
+  %16 = select i1 %14, i64 1, i64 6
+  %17 = and i64 %15, -8
+  %18 = or disjoint i64 %16, %17
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
-20:                                               ; preds = %tailrecurse.i
-  %21 = ptrtoint ptr %.tr.i to i64
-  %22 = and i64 %21, -8
-  %23 = or disjoint i64 %22, 1
+19:                                               ; preds = %tailrecurse.i
+  %20 = ptrtoint ptr %.tr.i to i64
+  %21 = or disjoint i64 %20, 1
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
-24:                                               ; preds = %tailrecurse.i
-  %25 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
-  %26 = load ptr, ptr %25, align 8, !tbaa !96
+22:                                               ; preds = %tailrecurse.i
+  %23 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+  %24 = load ptr, ptr %23, align 8, !tbaa !96
   br label %tailrecurse.i.backedge
 
-27:                                               ; preds = %tailrecurse.i
-  %28 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
-  %29 = load ptr, ptr %28, align 8, !tbaa !96
-  %.not.i = icmp eq ptr %29, null
-  br i1 %.not.i, label %30, label %tailrecurse.i.backedge
+25:                                               ; preds = %tailrecurse.i
+  %26 = getelementptr inbounds nuw i8, ptr %.tr.i, i64 8
+  %27 = load ptr, ptr %26, align 8, !tbaa !96
+  %.not.i = icmp eq ptr %27, null
+  br i1 %.not.i, label %28, label %tailrecurse.i.backedge
 
-tailrecurse.i.backedge:                           ; preds = %27, %24
-  %.tr.i.be = phi ptr [ %26, %24 ], [ %29, %27 ]
+tailrecurse.i.backedge:                           ; preds = %25, %22
+  %.tr.i.be = phi ptr [ %24, %22 ], [ %27, %25 ]
   br label %tailrecurse.i
 
-30:                                               ; preds = %27
-  %31 = ptrtoint ptr %.tr16.ph.i to i64
-  %32 = and i64 %31, -8
-  %33 = or disjoint i64 %32, 6
+28:                                               ; preds = %25
+  %29 = ptrtoint ptr %.tr16.ph.i to i64
+  %30 = and i64 %29, -8
+  %31 = or disjoint i64 %30, 6
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
-34:                                               ; preds = %tailrecurse.i
-  %35 = ptrtoint ptr %.tr16.ph.i to i64
-  %36 = and i64 %35, -8
-  %37 = or disjoint i64 %36, 6
+32:                                               ; preds = %tailrecurse.i
+  %33 = ptrtoint ptr %.tr16.ph.i to i64
+  %34 = and i64 %33, -8
+  %35 = or disjoint i64 %34, 6
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
-38:                                               ; preds = %tailrecurse.i
+36:                                               ; preds = %tailrecurse.i
   unreachable
 
 _ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit45: ; preds = %tailrecurse.i
@@ -777,13 +775,13 @@ _ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit64:
 _ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit: ; preds = %tailrecurse.i
   br label %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit
 
-_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit64, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit45, %5, %12, %20, %30, %34
-  %.sroa.0.0.i = phi i64 [ %8, %5 ], [ %19, %12 ], [ %23, %20 ], [ %33, %30 ], [ %37, %34 ], [ 3, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit45 ], [ 5, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit64 ], [ 2, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ]
-  %39 = trunc i64 %.sroa.0.0.i to i32
-  %40 = and i32 %39, 7
-  %41 = and i64 %.sroa.0.0.i, -8
-  %42 = inttoptr i64 %41 to ptr
-  tail call fastcc void @_ZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPKNS0_15CapturingEntityEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef %42, i32 noundef %40, ptr noundef null, ptr noundef null, ptr noundef %2)
+_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit: ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit64, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit45, %5, %11, %19, %28, %32
+  %.sroa.0.0.i = phi i64 [ %7, %5 ], [ %18, %11 ], [ %21, %19 ], [ %31, %28 ], [ %35, %32 ], [ 3, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit45 ], [ 5, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit64 ], [ 2, %_ZN5clang4semaL17getEntityLifetimeEPKNS_17InitializedEntityES3_.exit.loopexit ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ], [ 0, %tailrecurse.i ]
+  %37 = trunc i64 %.sroa.0.0.i to i32
+  %38 = and i32 %37, 7
+  %39 = and i64 %.sroa.0.0.i, -8
+  %40 = inttoptr i64 %39 to ptr
+  tail call fastcc void @_ZN5clang4semaL21checkExprLifetimeImplERNS_4SemaEPKNS_17InitializedEntityES5_NS0_12_GLOBAL__N_112LifetimeKindEPKNS0_14AssignedEntityEPKNS0_15CapturingEntityEPNS_4ExprE(ptr noundef nonnull align 8 dereferenceable(17504) %0, ptr noundef nonnull %1, ptr noundef %40, i32 noundef %38, ptr noundef null, ptr noundef null, ptr noundef %2)
   ret void
 }
 
@@ -1284,7 +1282,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_12FunctionDe
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !797
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10
@@ -12421,7 +12419,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_7TagDeclEE8D
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !797
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10

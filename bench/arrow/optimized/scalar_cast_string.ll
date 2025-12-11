@@ -48727,7 +48727,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 114:                                              ; preds = %.lr.ph.i.i
   %115 = sext i32 %108 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %113, i64 %115, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr align 1 %113, i64 %115, i1 false)
   br label %119
 
 116:                                              ; preds = %.lr.ph.i.i
@@ -48790,7 +48790,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 142:                                              ; preds = %.lr.ph.i10.i
   %143 = sext i32 %136 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr align 1 %141, i64 %143, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %139, ptr align 1 %141, i64 %143, i1 false)
   br label %147
 
 144:                                              ; preds = %.lr.ph.i10.i
@@ -49547,7 +49547,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 114:                                              ; preds = %.lr.ph.i.i
   %115 = sext i32 %108 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %113, i64 %115, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr align 1 %113, i64 %115, i1 false)
   br label %119
 
 116:                                              ; preds = %.lr.ph.i.i
@@ -49610,7 +49610,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 142:                                              ; preds = %.lr.ph.i10.i
   %143 = sext i32 %136 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr align 1 %141, i64 %143, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %139, ptr align 1 %141, i64 %143, i1 false)
   br label %147
 
 144:                                              ; preds = %.lr.ph.i10.i
@@ -50110,7 +50110,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %155, label %159, label %160
 
 159:                                              ; preds = %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %157, ptr align 1 %158, i64 %153, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr align 1 %158, i64 %153, i1 false)
   br label %164
 
 160:                                              ; preds = %.lr.ph.i.i
@@ -50173,7 +50173,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %183, label %187, label %188
 
 187:                                              ; preds = %.lr.ph.i10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %185, ptr align 1 %186, i64 %181, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %185, ptr align 1 %186, i64 %181, i1 false)
   br label %192
 
 188:                                              ; preds = %.lr.ph.i10.i
@@ -50763,7 +50763,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %155, label %159, label %160
 
 159:                                              ; preds = %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %157, ptr align 1 %158, i64 %153, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr align 1 %158, i64 %153, i1 false)
   br label %164
 
 160:                                              ; preds = %.lr.ph.i.i
@@ -50826,7 +50826,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %183, label %187, label %188
 
 187:                                              ; preds = %.lr.ph.i10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %185, ptr align 1 %186, i64 %181, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %185, ptr align 1 %186, i64 %181, i1 false)
   br label %192
 
 188:                                              ; preds = %.lr.ph.i10.i
@@ -51593,7 +51593,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit111: ; preds = %_Z
   store i32 %15, ptr %275, align 8, !tbaa !51
   %276 = getelementptr inbounds nuw i8, ptr %275, i64 4
   %277 = getelementptr inbounds i8, ptr %219, i64 %indvars.iv138
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %276, ptr align 1 %277, i64 %272, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %276, ptr align 1 %277, i64 %272, i1 false)
   %indvars.iv.next139 = add nsw i64 %indvars.iv138, %272
   %278 = add nuw nsw i64 %.071134, 1
   %279 = load i64, ptr %18, align 8, !tbaa !325
@@ -156120,7 +156120,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 114:                                              ; preds = %.lr.ph.i.i
   %115 = sext i32 %108 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %111, ptr align 1 %113, i64 %115, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %111, ptr align 1 %113, i64 %115, i1 false)
   br label %119
 
 116:                                              ; preds = %.lr.ph.i.i
@@ -156183,7 +156183,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 142:                                              ; preds = %.lr.ph.i10.i
   %143 = sext i32 %136 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %139, ptr align 1 %141, i64 %143, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %139, ptr align 1 %141, i64 %143, i1 false)
   br label %147
 
 144:                                              ; preds = %.lr.ph.i10.i
@@ -156596,7 +156596,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 123:                                              ; preds = %.lr.ph.i.i
   %124 = sext i32 %117 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %120, ptr align 1 %122, i64 %124, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %120, ptr align 1 %122, i64 %124, i1 false)
   br label %128
 
 125:                                              ; preds = %.lr.ph.i.i
@@ -156659,7 +156659,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
 
 151:                                              ; preds = %.lr.ph.i10.i
   %152 = sext i32 %145 to i64
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %148, ptr align 1 %150, i64 %152, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %148, ptr align 1 %150, i64 %152, i1 false)
   br label %156
 
 153:                                              ; preds = %.lr.ph.i10.i
@@ -157184,7 +157184,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %155, label %159, label %160
 
 159:                                              ; preds = %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %157, ptr align 1 %158, i64 %153, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %157, ptr align 1 %158, i64 %153, i1 false)
   br label %164
 
 160:                                              ; preds = %.lr.ph.i.i
@@ -157247,7 +157247,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %183, label %187, label %188
 
 187:                                              ; preds = %.lr.ph.i10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %185, ptr align 1 %186, i64 %181, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %185, ptr align 1 %186, i64 %181, i1 false)
   br label %192
 
 188:                                              ; preds = %.lr.ph.i10.i
@@ -157761,7 +157761,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %164, label %168, label %169
 
 168:                                              ; preds = %.lr.ph.i.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %166, ptr align 1 %167, i64 %162, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %166, ptr align 1 %167, i64 %162, i1 false)
   br label %173
 
 169:                                              ; preds = %.lr.ph.i.i
@@ -157824,7 +157824,7 @@ _ZN5arrow9ArrayData16GetMutableValuesINS_14BinaryViewType6c_typeEEEPT_i.exit: ; 
   br i1 %192, label %196, label %197
 
 196:                                              ; preds = %.lr.ph.i10.i
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %194, ptr align 1 %195, i64 %190, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %194, ptr align 1 %195, i64 %190, i1 false)
   br label %201
 
 197:                                              ; preds = %.lr.ph.i10.i
@@ -158611,7 +158611,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit125: ; preds = %_Z
   store i32 %23, ptr %283, align 8, !tbaa !51
   %284 = getelementptr inbounds nuw i8, ptr %283, i64 4
   %285 = getelementptr inbounds i8, ptr %227, i64 %indvars.iv152
-  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %284, ptr align 1 %285, i64 %280, i1 false)
+  call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 4 %284, ptr align 1 %285, i64 %280, i1 false)
   %indvars.iv.next153 = add nsw i64 %indvars.iv152, %280
   %286 = add nuw nsw i64 %.074148, 1
   %287 = load i64, ptr %26, align 8, !tbaa !325

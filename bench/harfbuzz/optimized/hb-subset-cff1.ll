@@ -1314,7 +1314,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -1893,7 +1893,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -1984,7 +1984,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -2072,7 +2072,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -2162,7 +2162,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -2521,7 +2521,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -2994,7 +2994,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -3363,7 +3363,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71
@@ -5555,7 +5555,7 @@ define linkonce_odr dso_local noundef nonnull ptr @_ZN22hb_serialize_context_t4p
   %28 = phi ptr [ %18, %.thread.i ], [ %7, %5 ]
   %29 = load ptr, ptr %28, align 8, !tbaa !158
   store ptr %29, ptr %6, align 8, !tbaa !154
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %28, i8 0, i64 56, i1 false)
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %28, i8 0, i64 56, i1 false)
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %31 = load ptr, ptr %30, align 8, !tbaa !65
   store ptr %31, ptr %28, align 8, !tbaa !71

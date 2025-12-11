@@ -54,7 +54,7 @@ _ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit.i: ; preds = %3, %_ZN5folly8Execu
   %.sink.i.i12 = phi i1 [ %10, %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit ], [ true, %3 ]
   %.sink.i.i.i = phi i64 [ %spec.select.i.i.i, %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit ], [ 0, %3 ]
   %17 = invoke noalias noundef nonnull dereferenceable(32) ptr @_Znwm(i64 noundef 32) #13
-          to label %.noexc.i unwind label %40, !noalias !17
+          to label %.noexc.i unwind label %36, !noalias !17
 
 .noexc.i:                                         ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit.i
   %18 = and i64 %.sink.i.i.i, -4
@@ -81,74 +81,70 @@ _ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit.i: ; preds = %3, %_ZN5folly8Execu
   store i64 %.sink.i.i.i.i, ptr %27, align 8, !tbaa !7, !noalias !28
   %28 = getelementptr inbounds nuw i8, ptr %17, i64 24
   store i8 %2, ptr %28, align 8, !tbaa !31, !noalias !28
-  %29 = load ptr, ptr %17, align 8, !tbaa !12, !noalias !17
-  %30 = getelementptr i8, ptr %29, i64 -72
-  %31 = load i64, ptr %30, align 8, !noalias !17
-  %32 = getelementptr inbounds i8, ptr %17, i64 %31
-  %33 = ptrtoint ptr %32 to i64
-  store i64 %33, ptr %0, align 8, !tbaa !7, !alias.scope !17
-  %34 = and i64 %.sink.i.i.i, 3
-  %.not3.i.i.i = icmp eq i64 %34, 0
+  %29 = ptrtoint ptr %17 to i64
+  store i64 %29, ptr %0, align 8, !tbaa !7, !alias.scope !17
+  %30 = and i64 %.sink.i.i.i, 3
+  %.not3.i.i.i = icmp eq i64 %30, 0
   %or.cond.i = and i1 %.not.i.i.i.i, %.not3.i.i.i
-  br i1 %or.cond.i, label %35, label %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit"
+  br i1 %or.cond.i, label %31, label %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit"
 
-35:                                               ; preds = %"_ZN5folly8Executor9KeepAliveINS_6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS1_IS0_EEaE3$_0EEED2Ev.exit.i"
-  %36 = inttoptr i64 %18 to ptr
-  %37 = load ptr, ptr %36, align 8, !tbaa !12, !noalias !17
-  %38 = getelementptr inbounds nuw i8, ptr %37, i64 48
-  %39 = load ptr, ptr %38, align 8, !noalias !17
-  tail call void %39(ptr noundef nonnull align 8 dereferenceable(8) %36) #12, !noalias !17
+31:                                               ; preds = %"_ZN5folly8Executor9KeepAliveINS_6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS1_IS0_EEaE3$_0EEED2Ev.exit.i"
+  %32 = inttoptr i64 %18 to ptr
+  %33 = load ptr, ptr %32, align 8, !tbaa !12, !noalias !17
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 48
+  %35 = load ptr, ptr %34, align 8, !noalias !17
+  tail call void %35(ptr noundef nonnull align 8 dereferenceable(8) %32) #12, !noalias !17
   br label %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit"
 
-40:                                               ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit.i
-  %41 = landingpad { ptr, i32 }
+36:                                               ; preds = %_ZN5folly8Executor9KeepAliveIS0_EC2ERKS2_.exit.i
+  %37 = landingpad { ptr, i32 }
           cleanup
-  %42 = and i64 %.sink.i.i.i, -4
-  %.not.i.i3.i = icmp ne i64 %42, 0
-  %43 = and i64 %.sink.i.i.i, 3
-  %.not3.i.i4.i = icmp eq i64 %43, 0
+  %38 = and i64 %.sink.i.i.i, -4
+  %.not.i.i3.i = icmp ne i64 %38, 0
+  %39 = and i64 %.sink.i.i.i, 3
+  %.not3.i.i4.i = icmp eq i64 %39, 0
   %or.cond7.i = and i1 %.not.i.i3.i, %.not3.i.i4.i
-  br i1 %or.cond7.i, label %44, label %.body
+  br i1 %or.cond7.i, label %40, label %.body
 
-44:                                               ; preds = %40
-  %45 = inttoptr i64 %42 to ptr
-  %46 = load ptr, ptr %45, align 8, !tbaa !12, !noalias !17
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
-  %48 = load ptr, ptr %47, align 8, !noalias !17
-  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %45) #12, !noalias !17
+40:                                               ; preds = %36
+  %41 = inttoptr i64 %38 to ptr
+  %42 = load ptr, ptr %41, align 8, !tbaa !12, !noalias !17
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 48
+  %44 = load ptr, ptr %43, align 8, !noalias !17
+  tail call void %44(ptr noundef nonnull align 8 dereferenceable(8) %41) #12, !noalias !17
   %.sink.i.i12.not = xor i1 %.sink.i.i12, true
   %brmerge = or i1 %.not.i.i, %.sink.i.i12.not
   br i1 %brmerge, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6, label %.thread
 
-"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit": ; preds = %35, %"_ZN5folly8Executor9KeepAliveINS_6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS1_IS0_EEaE3$_0EEED2Ev.exit.i"
+"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit": ; preds = %31, %"_ZN5folly8Executor9KeepAliveINS_6detail24ExecutorWithPriorityImplIZNS_20ExecutorWithPriority6createENS1_IS0_EEaE3$_0EEED2Ev.exit.i"
   %.not.i.i.i14.not = xor i1 %.not.i.i, true
   %or.cond = and i1 %.sink.i.i12, %.not.i.i.i14.not
-  br i1 %or.cond, label %49, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
+  br i1 %or.cond, label %45, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
 
-49:                                               ; preds = %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit"
-  %50 = load ptr, ptr %16, align 8, !tbaa !12
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 48
-  %52 = load ptr, ptr %51, align 8
-  tail call void %52(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+45:                                               ; preds = %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit"
+  %46 = load ptr, ptr %16, align 8, !tbaa !12
+  %47 = getelementptr inbounds nuw i8, ptr %46, i64 48
+  %48 = load ptr, ptr %47, align 8
+  tail call void %48(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit:       ; preds = %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit", %49
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit:       ; preds = %"_ZN5folly20ExecutorWithPriority13createDynamicIZNS0_6createENS_8Executor9KeepAliveIS2_EEaE3$_0EES4_S4_OT_.exit", %45
   ret void
 
-.body:                                            ; preds = %40
+.body:                                            ; preds = %36
   %.sink.i.i12.not26 = xor i1 %.sink.i.i12, true
   %brmerge27 = or i1 %.not.i.i, %.sink.i.i12.not26
   br i1 %brmerge27, label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6, label %.thread
 
-.thread:                                          ; preds = %.body, %44
-  %53 = load ptr, ptr %16, align 8, !tbaa !12
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 48
-  %55 = load ptr, ptr %54, align 8
-  tail call void %55(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
+.thread:                                          ; preds = %.body, %40
+  %49 = load ptr, ptr %16, align 8, !tbaa !12
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 48
+  %51 = load ptr, ptr %50, align 8
+  tail call void %51(ptr noundef nonnull align 8 dereferenceable(8) %16) #12
   br label %_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6
 
-_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6:      ; preds = %.body, %44, %.thread
-  resume { ptr, i32 } %41
+_ZN5folly8Executor9KeepAliveIS0_ED2Ev.exit6:      ; preds = %.body, %40, %.thread
+  resume { ptr, i32 } %37
 }
 
 declare i32 @__gxx_personality_v0(...)

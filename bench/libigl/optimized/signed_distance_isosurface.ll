@@ -65978,7 +65978,7 @@ _ZNK4CGAL19Small_unordered_mapISt4pairINS_8internal11CC_iteratorINS_17Compact_co
   %224 = getelementptr inbounds nuw i32, ptr %37, i64 %208
   store i32 -1, ptr %224, align 4, !tbaa !160
   %225 = getelementptr inbounds nuw i8, ptr %213, i64 16
-  %226 = load i16, ptr %225, align 1
+  %226 = load i16, ptr %225, align 8
   %.sroa.485.0.extract.shift = lshr i16 %226, 8
   %227 = and i16 %226, 255
   %228 = zext nneg i16 %227 to i64
@@ -91819,7 +91819,7 @@ define linkonce_odr dso_local void @_ZN5boost11multi_index6detail23ordered_index
 72:                                               ; preds = %63
   %73 = ptrtoint ptr %.0100124 to i64
   %74 = and i64 %69, 1
-  %75 = or i64 %74, %73
+  %75 = or disjoint i64 %74, %73
   store i64 %75, ptr %5, align 8, !tbaa !22
   %.pre.i = load i64, ptr %22, align 8, !tbaa !22
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit
@@ -91847,14 +91847,12 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   store ptr %22, ptr %57, align 8, !tbaa !237
   %87 = ptrtoint ptr %.0100124 to i64
   %88 = and i64 %86, 1
-  %89 = or i64 %88, %87
+  %89 = or disjoint i64 %88, %87
   store i64 %89, ptr %22, align 8, !tbaa !22
-  %.pre104 = and i64 %87, -2
-  %.pre105 = inttoptr i64 %.pre104 to ptr
   br label %90
 
 90:                                               ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit, %.critedge2
-  %.pre-phi106 = phi ptr [ %.pre105, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %22, %.critedge2 ]
+  %.pre-phi106 = phi ptr [ %.0100124, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %22, %.critedge2 ]
   %.2 = phi ptr [ %22, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE11rotate_leftEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit ], [ %.0100124, %.critedge2 ]
   %91 = load i64, ptr %.pre-phi106, align 8, !tbaa !22
   %92 = or i64 %91, 1
@@ -92005,7 +92003,7 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
 184:                                              ; preds = %175
   %185 = ptrtoint ptr %.0100124 to i64
   %186 = and i64 %181, 1
-  %187 = or i64 %186, %185
+  %187 = or disjoint i64 %186, %185
   store i64 %187, ptr %5, align 8, !tbaa !22
   %.pre.i44 = load i64, ptr %22, align 8, !tbaa !22
   br label %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45
@@ -92033,14 +92031,12 @@ _ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policy
   store ptr %22, ptr %169, align 8, !tbaa !237
   %199 = ptrtoint ptr %.0100124 to i64
   %200 = and i64 %198, 1
-  %201 = or i64 %200, %199
+  %201 = or disjoint i64 %200, %199
   store i64 %201, ptr %22, align 8, !tbaa !22
-  %.pre107 = and i64 %199, -2
-  %.pre109 = inttoptr i64 %.pre107 to ptr
   br label %202
 
 202:                                              ; preds = %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45, %.critedge4
-  %.pre-phi110 = phi ptr [ %.pre109, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45 ], [ %22, %.critedge4 ]
+  %.pre-phi110 = phi ptr [ %.0100124, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45 ], [ %22, %.critedge4 ]
   %.5 = phi ptr [ %22, %_ZN5boost11multi_index6detail23ordered_index_node_implINS1_19null_augment_policyESaIcEE12rotate_rightEPS5_NS1_34ordered_index_node_compressed_baseIS3_S4_E10parent_refE.exit45 ], [ %.0100124, %.critedge4 ]
   %203 = load i64, ptr %.pre-phi110, align 8, !tbaa !22
   %204 = or i64 %203, 1
@@ -101968,7 +101964,7 @@ define linkonce_odr dso_local noundef ptr @_ZN5boost11multi_index6detail23ordere
   store ptr %35, ptr %16, align 8, !tbaa !237
   %36 = load i64, ptr %35, align 8, !tbaa !22
   %37 = and i64 %36, 1
-  %38 = or i64 %37, %20
+  %38 = or disjoint i64 %37, %20
   store i64 %38, ptr %35, align 8, !tbaa !22
   br label %39
 

@@ -4472,7 +4472,7 @@ new_label_body.exit.i:                            ; preds = %._crit_edge.i.i.i.i
   %150 = getelementptr inbounds nuw i8, ptr %136, i64 28
   store i32 -1, ptr %150, align 4, !tbaa !106
   %151 = ptrtoint ptr %136 to i64
-  %152 = or i64 %151, 1
+  %152 = or disjoint i64 %151, 1
   %153 = call i64 @rb_ary_push(i64 noundef %105, i64 noundef %152) #40
   %154 = load ptr, ptr %4, align 8, !tbaa !7
   %155 = getelementptr inbounds nuw i8, ptr %136, i64 16
@@ -4589,7 +4589,7 @@ new_label_body.exit190.i:                         ; preds = %._crit_edge.i.i.i.i
   %208 = getelementptr inbounds nuw i8, ptr %194, i64 28
   store i32 -1, ptr %208, align 4, !tbaa !106
   %209 = ptrtoint ptr %194 to i64
-  %210 = or i64 %209, 1
+  %210 = or disjoint i64 %209, 1
   %211 = call i64 @rb_ary_push(i64 noundef %105, i64 noundef %210) #40
   %212 = load ptr, ptr %4, align 8, !tbaa !7
   %213 = getelementptr inbounds nuw i8, ptr %194, i64 16
@@ -16062,18 +16062,16 @@ rb_obj_write.exit:                                ; preds = %ibf_load_location_s
   %3002 = and i64 %3001, -262145
   store i64 %3002, ptr %0, align 8, !tbaa !35
   store ptr null, ptr %5, align 8, !tbaa !19
-  %3003 = icmp ne i64 %2974, 0
-  %3004 = and i64 %3001, 31
-  %.not.i14 = icmp eq i64 %3004, 27
-  %or.cond = select i1 %3003, i1 true, i1 %.not.i14
-  br i1 %or.cond, label %RB_FL_UNSET.exit, label %3005
+  %3003 = and i64 %3001, 31
+  %.not.i14 = icmp eq i64 %3003, 27
+  br i1 %.not.i14, label %RB_FL_UNSET.exit, label %3004
 
-3005:                                             ; preds = %rb_obj_write.exit
-  %3006 = and i64 %3001, -393217
-  store i64 %3006, ptr %0, align 8, !tbaa !80
+3004:                                             ; preds = %rb_obj_write.exit
+  %3005 = and i64 %3001, -393217
+  store i64 %3005, ptr %0, align 8, !tbaa !80
   br label %RB_FL_UNSET.exit
 
-RB_FL_UNSET.exit:                                 ; preds = %rb_obj_write.exit, %3005
+RB_FL_UNSET.exit:                                 ; preds = %rb_obj_write.exit, %3004
   call void @rb_iseq_init_trace(ptr noundef nonnull %0) #40
   store ptr %11, ptr %10, align 8, !tbaa !336
   ret void
@@ -85399,7 +85397,7 @@ new_label_body.exit51:                            ; preds = %ISEQ_COMPILE_DATA.e
   %182 = ptrtoint ptr %93 to i64
   %183 = or i64 %182, 1
   %184 = ptrtoint ptr %137 to i64
-  %185 = or i64 %184, 1
+  %185 = or disjoint i64 %184, 1
   %186 = ptrtoint ptr %167 to i64
   %187 = load ptr, ptr %57, align 8, !tbaa !976
   %188 = ptrtoint ptr %187 to i64
@@ -86906,7 +86904,7 @@ pm_compile_retry_end_label.exit:                  ; preds = %ELEM_INSERT_NEXT.ex
   %504 = ptrtoint ptr %.0208 to i64
   %505 = or i64 %504, 1
   %506 = ptrtoint ptr %.0209 to i64
-  %507 = or i64 %506, 1
+  %507 = or disjoint i64 %506, 1
   %508 = call i64 (i64, ...) @rb_ary_new_from_args(i64 noundef 5, i32 noundef 9, i64 noundef %505, i64 noundef %507, i64 noundef %478, i64 noundef %507) #40
   %.not231 = icmp eq ptr %.0208, null
   br i1 %.not231, label %516, label %509

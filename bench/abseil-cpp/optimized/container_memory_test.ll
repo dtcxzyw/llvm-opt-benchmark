@@ -9912,7 +9912,7 @@ define internal void @_ZN4absl18container_internal12_GLOBAL__N_128Fixture_Constr
   %.val6 = load ptr, ptr %4, align 8, !tbaa !341
   %5 = getelementptr inbounds nuw i8, ptr %.val6, i64 16
   store ptr %5, ptr %.val6, align 8, !tbaa !48
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.110, i64 5, i1 false)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(5) %5, ptr noundef nonnull align 1 dereferenceable(6) @.str.110, i64 5, i1 false)
   %6 = getelementptr inbounds nuw i8, ptr %.val6, i64 8
   store i64 5, ptr %6, align 8, !tbaa !50
   %7 = getelementptr inbounds nuw i8, ptr %.val6, i64 21

@@ -35024,7 +35024,6 @@ define noalias nonnull ptr @l___private_Std_Sync_Channel_0__Std_CloseableChannel
 
 lean_alloc_closure.exit:                          ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %2, align 4, !tbaa !4
   store i32 -184549352, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_recvReady_x27___at___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_recvSelector___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !10
@@ -35059,8 +35058,8 @@ lean_alloc_closure.exit34:                        ; preds = %lean_alloc_closure.
   store ptr %9, ptr %18, align 8, !tbaa !10
   %19 = ptrtoint ptr %0 to i64
   %20 = and i64 %19, 1
-  %.not46 = icmp eq i64 %20, 0
-  br i1 %.not46, label %21, label %lean_inc.exit32
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %21, label %lean_inc.exit32
 
 21:                                               ; preds = %lean_alloc_closure.exit34
   %.val.i35 = load i32, ptr %0, align 4, !tbaa !4
@@ -35105,7 +35104,7 @@ lean_alloc_closure.exit38:                        ; preds = %lean_inc.exit32
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %10, ptr %35, align 8, !tbaa !10
   %36 = load ptr, ptr @l___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_recvSelector___rarg___closed__2, align 8, !tbaa !10
-  br i1 %.not46, label %37, label %lean_inc.exit
+  br i1 %.not, label %37, label %lean_inc.exit
 
 37:                                               ; preds = %lean_alloc_closure.exit38
   %.val.i39 = load i32, ptr %0, align 4, !tbaa !4
@@ -75908,7 +75907,6 @@ define noalias nonnull ptr @l___private_Std_Sync_Channel_0__Std_CloseableChannel
 
 lean_alloc_closure.exit:                          ; preds = %1
   %5 = getelementptr inbounds nuw i8, ptr %2, i64 4
-  store i32 1, ptr %2, align 4, !tbaa !4
   store i32 -184549352, ptr %5, align 4
   %6 = getelementptr inbounds nuw i8, ptr %2, i64 8
   store ptr @l___private_Std_Sync_Channel_0__Std_CloseableChannel_Zero_recvReady_x27___at___private_Std_Sync_Channel_0__Std_CloseableChannel_Zero_recvSelector___spec__1___rarg___boxed, ptr %6, align 8, !tbaa !10
@@ -75943,8 +75941,8 @@ lean_alloc_closure.exit34:                        ; preds = %lean_alloc_closure.
   store ptr %9, ptr %18, align 8, !tbaa !10
   %19 = ptrtoint ptr %0 to i64
   %20 = and i64 %19, 1
-  %.not46 = icmp eq i64 %20, 0
-  br i1 %.not46, label %21, label %lean_inc.exit32
+  %.not = icmp eq i64 %20, 0
+  br i1 %.not, label %21, label %lean_inc.exit32
 
 21:                                               ; preds = %lean_alloc_closure.exit34
   %.val.i35 = load i32, ptr %0, align 4, !tbaa !4
@@ -75989,7 +75987,7 @@ lean_alloc_closure.exit38:                        ; preds = %lean_inc.exit32
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 32
   store ptr %10, ptr %35, align 8, !tbaa !10
   %36 = load ptr, ptr @l___private_Std_Sync_Channel_0__Std_CloseableChannel_Unbounded_recvSelector___rarg___closed__2, align 8, !tbaa !10
-  br i1 %.not46, label %37, label %lean_inc.exit
+  br i1 %.not, label %37, label %lean_inc.exit
 
 37:                                               ; preds = %lean_alloc_closure.exit38
   %.val.i39 = load i32, ptr %0, align 4, !tbaa !4

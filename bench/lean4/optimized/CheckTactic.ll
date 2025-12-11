@@ -37522,7 +37522,6 @@ lean_inc.exit75:                                  ; preds = %101, %100, %98, %le
 
 lean_alloc_ctor.exit104:                          ; preds = %lean_inc.exit75
   %105 = getelementptr inbounds nuw i8, ptr %102, i64 4
-  store i32 1, ptr %102, align 4, !tbaa !8
   store i32 16973856, ptr %105, align 4
   %106 = getelementptr inbounds nuw i8, ptr %102, i64 8
   store ptr %39, ptr %106, align 8, !tbaa !4
@@ -37607,17 +37606,17 @@ lean_inc.exit:                                    ; preds = %128, %127, %125, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_dec.exit81
-  %.sink134 = phi ptr [ %24, %lean_dec.exit81 ], [ %132, %lean_inc.exit ]
-  %.sink131 = phi i32 [ 16908312, %lean_dec.exit81 ], [ 131096, %lean_inc.exit ]
+  %.sink133 = phi ptr [ %24, %lean_dec.exit81 ], [ %132, %lean_inc.exit ]
+  %.sink130 = phi i32 [ 16908312, %lean_dec.exit81 ], [ 131096, %lean_inc.exit ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit81 ], [ %131, %lean_inc.exit ]
-  %135 = getelementptr inbounds nuw i8, ptr %.sink134, i64 4
-  store i32 1, ptr %.sink134, align 4, !tbaa !8
-  store i32 %.sink131, ptr %135, align 4
-  %136 = getelementptr inbounds nuw i8, ptr %.sink134, i64 8
+  %135 = getelementptr inbounds nuw i8, ptr %.sink133, i64 4
+  store i32 1, ptr %.sink133, align 4, !tbaa !8
+  store i32 %.sink130, ptr %135, align 4
+  %136 = getelementptr inbounds nuw i8, ptr %.sink133, i64 8
   store ptr %.sink, ptr %136, align 8, !tbaa !4
-  %137 = getelementptr inbounds nuw i8, ptr %.sink134, i64 16
+  %137 = getelementptr inbounds nuw i8, ptr %.sink133, i64 16
   store ptr %2, ptr %137, align 8, !tbaa !4
-  ret ptr %.sink134
+  ret ptr %.sink133
 }
 
 declare ptr @l_Lean_SourceInfo_fromRef(ptr noundef, i8 noundef zeroext) local_unnamed_addr #2
@@ -37920,7 +37919,6 @@ lean_inc.exit66:                                  ; preds = %88, %87, %85, %lean
 
 lean_alloc_ctor.exit90:                           ; preds = %lean_inc.exit66
   %92 = getelementptr inbounds nuw i8, ptr %89, i64 4
-  store i32 1, ptr %89, align 4, !tbaa !8
   store i32 16973856, ptr %92, align 4
   %93 = getelementptr inbounds nuw i8, ptr %89, i64 8
   store ptr %39, ptr %93, align 8, !tbaa !4
@@ -38005,17 +38003,17 @@ lean_inc.exit:                                    ; preds = %115, %114, %112, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_dec.exit71
-  %.sink120 = phi ptr [ %25, %lean_dec.exit71 ], [ %119, %lean_inc.exit ]
-  %.sink117 = phi i32 [ 16908312, %lean_dec.exit71 ], [ 131096, %lean_inc.exit ]
+  %.sink119 = phi ptr [ %25, %lean_dec.exit71 ], [ %119, %lean_inc.exit ]
+  %.sink116 = phi i32 [ 16908312, %lean_dec.exit71 ], [ 131096, %lean_inc.exit ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit71 ], [ %118, %lean_inc.exit ]
-  %122 = getelementptr inbounds nuw i8, ptr %.sink120, i64 4
-  store i32 1, ptr %.sink120, align 4, !tbaa !8
-  store i32 %.sink117, ptr %122, align 4
-  %123 = getelementptr inbounds nuw i8, ptr %.sink120, i64 8
+  %122 = getelementptr inbounds nuw i8, ptr %.sink119, i64 4
+  store i32 1, ptr %.sink119, align 4, !tbaa !8
+  store i32 %.sink116, ptr %122, align 4
+  %123 = getelementptr inbounds nuw i8, ptr %.sink119, i64 8
   store ptr %.sink, ptr %123, align 8, !tbaa !4
-  %124 = getelementptr inbounds nuw i8, ptr %.sink120, i64 16
+  %124 = getelementptr inbounds nuw i8, ptr %.sink119, i64 16
   store ptr %2, ptr %124, align 8, !tbaa !4
-  ret ptr %.sink120
+  ret ptr %.sink119
 }
 
 declare ptr @l_Lean_Syntax_node4(ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef, ptr noundef) local_unnamed_addr #2

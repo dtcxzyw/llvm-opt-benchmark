@@ -615,7 +615,7 @@ define ptr @cuddDynamicAllocNode(ptr noundef captures(none) %0) local_unnamed_ad
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 400
   %3 = load ptr, ptr %2, align 8, !tbaa !65
   %4 = icmp eq ptr %3, null
-  br i1 %4, label %5, label %50
+  br i1 %4, label %5, label %49
 
 5:                                                ; preds = %1
   %6 = load ptr, ptr @Extra_UtilMMoutOfMemory, align 8, !tbaa !66
@@ -676,7 +676,7 @@ define ptr @cuddDynamicAllocNode(ptr noundef captures(none) %0) local_unnamed_ad
   tail call void %31(i64 noundef 40920) #12
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 624
   store i32 1, ptr %32, align 8, !tbaa !74
-  br label %54
+  br label %53
 
 .thread49:                                        ; preds = %5, %._crit_edge
   %.04451 = phi ptr [ %29, %._crit_edge ], [ %7, %5 ]
@@ -689,39 +689,38 @@ define ptr @cuddDynamicAllocNode(ptr noundef captures(none) %0) local_unnamed_ad
   store ptr %37, ptr %.04451, align 8, !tbaa !35
   store ptr %.04451, ptr %36, align 8, !tbaa !76
   %38 = ptrtoint ptr %.04451 to i64
-  %39 = and i64 %38, 31
+  %39 = and i64 %38, 24
   %40 = sub nuw nsw i64 32, %39
-  %41 = lshr i64 %40, 3
-  %42 = getelementptr inbounds nuw ptr, ptr %.04451, i64 %41
-  br label %43
+  %41 = getelementptr inbounds nuw i8, ptr %.04451, i64 %40
+  br label %42
 
-43:                                               ; preds = %43, %.thread49
-  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %43 ], [ 1, %.thread49 ]
-  %44 = getelementptr %struct.DdNode, ptr %42, i64 %indvars.iv54
-  %45 = getelementptr i8, ptr %44, i64 -36
-  store i32 0, ptr %45, align 4, !tbaa !36
-  %46 = getelementptr i8, ptr %44, i64 -32
-  store ptr %44, ptr %46, align 8, !tbaa !77
+42:                                               ; preds = %42, %.thread49
+  %indvars.iv54 = phi i64 [ %indvars.iv.next55, %42 ], [ 1, %.thread49 ]
+  %43 = getelementptr %struct.DdNode, ptr %41, i64 %indvars.iv54
+  %44 = getelementptr i8, ptr %43, i64 -36
+  store i32 0, ptr %44, align 4, !tbaa !36
+  %45 = getelementptr i8, ptr %43, i64 -32
+  store ptr %43, ptr %45, align 8, !tbaa !77
   %indvars.iv.next55 = add nuw nsw i64 %indvars.iv54, 1
   %exitcond57.not = icmp eq i64 %indvars.iv.next55, 1022
-  br i1 %exitcond57.not, label %47, label %43, !llvm.loop !78
+  br i1 %exitcond57.not, label %46, label %42, !llvm.loop !78
 
-47:                                               ; preds = %43
-  %48 = getelementptr inbounds nuw i8, ptr %42, i64 40844
-  store i32 0, ptr %48, align 4, !tbaa !36
-  %49 = getelementptr inbounds nuw i8, ptr %42, i64 40848
-  store ptr null, ptr %49, align 8, !tbaa !77
-  br label %50
+46:                                               ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %41, i64 40844
+  store i32 0, ptr %47, align 4, !tbaa !36
+  %48 = getelementptr inbounds nuw i8, ptr %41, i64 40848
+  store ptr null, ptr %48, align 8, !tbaa !77
+  br label %49
 
-50:                                               ; preds = %47, %1
-  %51 = phi ptr [ %42, %47 ], [ %3, %1 ]
-  %52 = getelementptr inbounds nuw i8, ptr %51, i64 8
-  %53 = load ptr, ptr %52, align 8, !tbaa !77
-  store ptr %53, ptr %2, align 8, !tbaa !65
-  br label %54
+49:                                               ; preds = %46, %1
+  %50 = phi ptr [ %41, %46 ], [ %3, %1 ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load ptr, ptr %51, align 8, !tbaa !77
+  store ptr %52, ptr %2, align 8, !tbaa !65
+  br label %53
 
-54:                                               ; preds = %50, %.thread
-  %.0 = phi ptr [ null, %.thread ], [ %51, %50 ]
+53:                                               ; preds = %49, %.thread
+  %.0 = phi ptr [ null, %.thread ], [ %50, %49 ]
   ret ptr %.0
 }
 

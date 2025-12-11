@@ -3488,69 +3488,32 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %47 = phi ptr [ %23, %22 ], [ %44, %43 ]
   %48 = load ptr, ptr %47, align 8, !tbaa !195
   %.not28 = icmp eq ptr %48, null
-  br i1 %.not28, label %50, label %49
+  br i1 %.not28, label %.preheader23.i35, label %49
 
 49:                                               ; preds = %46
   tail call void @wolfSSL_Free(ptr noundef nonnull %48) #28
-  %.pre63 = load ptr, ptr %3, align 8, !tbaa !163
-  br label %50
+  %.pre58 = load ptr, ptr %3, align 8, !tbaa !163
+  br label %.preheader23.i35
 
-50:                                               ; preds = %49, %46
-  %51 = phi ptr [ %.pre63, %49 ], [ %47, %46 ]
-  store ptr null, ptr %51, align 8, !tbaa !195
-  %52 = ptrtoint ptr %51 to i64
-  %53 = trunc i64 %52 to i32
-  %54 = sub i32 0, %53
-  %55 = and i32 %54, 7
-  %56 = sub nuw nsw i32 224, %55
-  %.not24.i30 = icmp eq i32 %55, 0
-  br i1 %.not24.i30, label %.lr.ph29.i45.preheader, label %.lr.ph.i31
-
-.lr.ph29.i45.preheader:                           ; preds = %.lr.ph.i31, %50
-  %.01528.i46.ph = phi ptr [ %51, %50 ], [ %58, %.lr.ph.i31 ]
+.preheader23.i35:                                 ; preds = %49, %46
+  %.pr = phi ptr [ %.pre58, %49 ], [ %47, %46 ]
+  store ptr null, ptr %.pr, align 8, !tbaa !195
   br label %.lr.ph29.i45
 
-.lr.ph.i31:                                       ; preds = %50, %.lr.ph.i31
-  %.126.i32 = phi i32 [ %57, %.lr.ph.i31 ], [ %55, %50 ]
-  %.01625.i33 = phi ptr [ %58, %.lr.ph.i31 ], [ %51, %50 ]
-  %57 = add nsw i32 %.126.i32, -1
-  %58 = getelementptr inbounds nuw i8, ptr %.01625.i33, i64 1
-  store volatile i8 0, ptr %.01625.i33, align 1, !tbaa !45
-  %.not.i34 = icmp eq i32 %57, 0
-  br i1 %.not.i34, label %.lr.ph29.i45.preheader, label %.lr.ph.i31, !llvm.loop !79
-
-.preheader.i37:                                   ; preds = %.lr.ph29.i45
-  %.not2232.i40 = icmp eq i32 %60, 0
-  br i1 %.not2232.i40, label %ForceZero.exit48, label %.lr.ph35.i41
-
-.lr.ph29.i45:                                     ; preds = %.lr.ph29.i45.preheader, %.lr.ph29.i45
-  %.01528.i46 = phi ptr [ %59, %.lr.ph29.i45 ], [ %.01528.i46.ph, %.lr.ph29.i45.preheader ]
-  %.01827.i47 = phi i32 [ %60, %.lr.ph29.i45 ], [ %56, %.lr.ph29.i45.preheader ]
-  %59 = getelementptr inbounds nuw i8, ptr %.01528.i46, i64 8
+.lr.ph29.i45:                                     ; preds = %.preheader23.i35, %.lr.ph29.i45
+  %.01528.i46 = phi ptr [ %50, %.lr.ph29.i45 ], [ %.pr, %.preheader23.i35 ]
+  %.01827.i47 = phi i32 [ %51, %.lr.ph29.i45 ], [ 224, %.preheader23.i35 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.01528.i46, i64 8
   store volatile i64 0, ptr %.01528.i46, align 8, !tbaa !81
-  %60 = add nsw i32 %.01827.i47, -8
-  %61 = icmp ugt i32 %60, 7
-  br i1 %61, label %.lr.ph29.i45, label %.preheader.i37, !llvm.loop !82
+  %51 = add nsw i32 %.01827.i47, -8
+  %.not53 = icmp eq i32 %51, 0
+  br i1 %.not53, label %ForceZero.exit48, label %.lr.ph29.i45, !llvm.loop !82
 
-.lr.ph35.i41:                                     ; preds = %.preheader.i37, %.lr.ph35.i41
-  %.11734.i42 = phi ptr [ %63, %.lr.ph35.i41 ], [ %59, %.preheader.i37 ]
-  %.11933.i43 = phi i32 [ %62, %.lr.ph35.i41 ], [ %60, %.preheader.i37 ]
-  %62 = add i32 %.11933.i43, -1
-  %63 = getelementptr inbounds nuw i8, ptr %.11734.i42, i64 1
-  store volatile i8 0, ptr %.11734.i42, align 1, !tbaa !45
-  %.not22.i44 = icmp eq i32 %62, 0
-  br i1 %.not22.i44, label %ForceZero.exit48, label %.lr.ph35.i41, !llvm.loop !83
-
-ForceZero.exit48:                                 ; preds = %.lr.ph35.i41, %.preheader.i37
-  %.pr = load ptr, ptr %3, align 8, !tbaa !163
-  %.not29 = icmp eq ptr %.pr, null
-  br i1 %.not29, label %ForceZero.exit48.thread, label %64
-
-64:                                               ; preds = %ForceZero.exit48
+ForceZero.exit48:                                 ; preds = %.lr.ph29.i45
   tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit48.thread
 
-ForceZero.exit48.thread:                          ; preds = %2, %64, %ForceZero.exit48
+ForceZero.exit48.thread:                          ; preds = %2, %ForceZero.exit48
   store ptr null, ptr %3, align 8, !tbaa !163
   ret void
 }

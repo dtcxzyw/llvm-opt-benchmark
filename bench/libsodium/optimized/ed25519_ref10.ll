@@ -4443,16 +4443,16 @@ slide_vartime.exit54:                             ; preds = %.loopexit56.i32
   store i64 %128, ptr %132, align 8
   %133 = getelementptr inbounds nuw i8, ptr %8, i64 80
   %134 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %133, ptr noundef nonnull readonly align 1 dereferenceable(40) %134, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %133, ptr noundef nonnull readonly align 8 dereferenceable(40) %134, i64 noundef 40, i1 noundef false) #12
   %135 = getelementptr inbounds nuw i8, ptr %8, i64 120
   %136 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %135, ptr noundef nonnull readonly %136, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull readonly align 1 dereferenceable(40) %2, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %5, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 noundef 40, i1 noundef false) #12
   %137 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull readonly align 1 dereferenceable(40) %79, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %137, ptr noundef nonnull readonly align 8 dereferenceable(40) %79, i64 noundef 40, i1 noundef false) #12
   %138 = getelementptr inbounds nuw i8, ptr %5, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %138, ptr noundef nonnull readonly align 1 dereferenceable(40) %134, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %138, ptr noundef nonnull readonly align 8 dereferenceable(40) %134, i64 noundef 40, i1 noundef false) #12
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %9, ptr noundef nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %139 = getelementptr inbounds nuw i8, ptr %9, i64 120
@@ -6430,16 +6430,16 @@ define hidden void @_sodium_ge25519_scalarmult(ptr noundef %0, ptr noundef reado
   store i64 %76, ptr %80, align 8
   %81 = getelementptr inbounds nuw i8, ptr %25, i64 80
   %82 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %81, ptr noundef nonnull readonly align 1 dereferenceable(40) %82, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %81, ptr noundef nonnull readonly align 8 dereferenceable(40) %82, i64 noundef 40, i1 noundef false) #12
   %83 = getelementptr inbounds nuw i8, ptr %25, i64 120
   %84 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %83, ptr noundef nonnull readonly %84, ptr noundef nonnull @ed25519_d2)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 1 dereferenceable(40) %2, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %7, ptr noundef nonnull readonly align 8 dereferenceable(40) %2, i64 noundef 40, i1 noundef false) #12
   %85 = getelementptr inbounds nuw i8, ptr %7, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull readonly align 1 dereferenceable(40) %27, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %85, ptr noundef nonnull readonly align 8 dereferenceable(40) %27, i64 noundef 40, i1 noundef false) #12
   %86 = getelementptr inbounds nuw i8, ptr %7, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull readonly align 1 dereferenceable(40) %82, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %86, ptr noundef nonnull readonly align 8 dereferenceable(40) %82, i64 noundef 40, i1 noundef false) #12
   call fastcc void @ge25519_p2_dbl(ptr noundef nonnull %11, ptr noundef nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   %87 = getelementptr inbounds nuw i8, ptr %11, i64 120
@@ -7176,17 +7176,17 @@ define internal fastcc void @ge25519_cmov8_cached(ptr noundef nonnull initialize
   %9 = sub i8 %2, %8
   store i64 1, ptr %0, align 8
   %10 = getelementptr i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %10, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 1, ptr %11, align 8
   %12 = getelementptr i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 1, ptr %13, align 8
   %14 = getelementptr i8, ptr %0, i64 88
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %15, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
   %16 = sext i8 %9 to i32
   %17 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 1) #13, !srcloc !31
   %18 = extractvalue { i32, i32 } %17, 0
@@ -7275,11 +7275,11 @@ define internal fastcc void @ge25519_cmov8_cached(ptr noundef nonnull initialize
   %101 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %100, i32 %96) #12, !srcloc !13
   %102 = getelementptr i8, ptr %1, i64 1240
   %103 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %102, i32 %96) #12, !srcloc !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 1 dereferenceable(40) %11, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %11, i64 noundef 40, i1 noundef false) #12
   %104 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull readonly align 1 dereferenceable(40) %0, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %104, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef 40, i1 noundef false) #12
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull readonly align 1 dereferenceable(40) %13, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %105, ptr noundef nonnull readonly align 8 dereferenceable(40) %13, i64 noundef 40, i1 noundef false) #12
   %106 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %107 = load i64, ptr %15, align 8
   %108 = getelementptr i8, ptr %0, i64 128
@@ -7475,13 +7475,13 @@ define internal fastcc void @ge25519_cmov8_base(ptr noundef nonnull initializes(
   %11 = sub i8 %2, %10
   store i64 1, ptr %0, align 8
   %12 = getelementptr i8, ptr %0, i64 8
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %12, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %12, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %13 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 1, ptr %13, align 8
   %14 = getelementptr i8, ptr %0, i64 48
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %14, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %14, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %15, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %15, i8 noundef 0, i64 noundef 40, i1 noundef false) #12
   %16 = sext i8 %11 to i32
   %17 = tail call { i32, i32 } asm "xorl $0,$0\0A movl $$1,$1\0A cmpb ${3:b},${2:b}\0A cmovel $1,$0", "=&r,=&r,q,q,~{cc},~{dirflag},~{fpsr},~{flags}"(i32 %16, i32 1) #13, !srcloc !31
   %18 = extractvalue { i32, i32 } %17, 0
@@ -7554,9 +7554,9 @@ define internal fastcc void @ge25519_cmov8_base(ptr noundef nonnull initializes(
   %85 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %13, ptr nonnull %84, i32 %82) #12, !srcloc !13
   %86 = getelementptr i8, ptr %6, i64 920
   %87 = tail call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %15, ptr nonnull %86, i32 %82) #12, !srcloc !13
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 1 dereferenceable(40) %13, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %4, ptr noundef nonnull readonly align 8 dereferenceable(40) %13, i64 noundef 40, i1 noundef false) #12
   %88 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull readonly align 1 dereferenceable(40) %0, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %88, ptr noundef nonnull readonly align 8 dereferenceable(40) %0, i64 noundef 40, i1 noundef false) #12
   %89 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %90 = load i64, ptr %15, align 8
   %91 = getelementptr i8, ptr %0, i64 88
@@ -7682,7 +7682,7 @@ define hidden void @_sodium_ge25519_p3_add(ptr noundef writeonly captures(none) 
   store i64 %55, ptr %59, align 8
   %60 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %61 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 1 dereferenceable(40) %61, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %60, ptr noundef nonnull readonly align 8 dereferenceable(40) %61, i64 noundef 40, i1 noundef false) #12
   %62 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %63 = getelementptr inbounds nuw i8, ptr %2, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %62, ptr noundef nonnull readonly %63, ptr noundef nonnull @ed25519_d2)
@@ -7747,10 +7747,10 @@ define hidden void @_sodium_ge25519_p3_sub(ptr noundef writeonly captures(none) 
   store i64 %32, ptr %36, align 8
   %37 = getelementptr inbounds nuw i8, ptr %4, i64 40
   %38 = getelementptr inbounds nuw i8, ptr %2, i64 40
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull readonly align 1 dereferenceable(40) %38, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %37, ptr noundef nonnull readonly align 8 dereferenceable(40) %38, i64 noundef 40, i1 noundef false) #12
   %39 = getelementptr inbounds nuw i8, ptr %4, i64 80
   %40 = getelementptr inbounds nuw i8, ptr %2, i64 80
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull readonly align 1 dereferenceable(40) %40, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %39, ptr noundef nonnull readonly align 8 dereferenceable(40) %40, i64 noundef 40, i1 noundef false) #12
   %41 = getelementptr inbounds nuw i8, ptr %4, i64 120
   %42 = getelementptr inbounds nuw i8, ptr %2, i64 120
   %43 = load i64, ptr %42, align 8
@@ -12990,7 +12990,7 @@ define internal fastcc void @ge25519_elligator2(ptr noundef nonnull initializes(
   store i64 %1049, ptr %1054, align 8
   %1055 = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %1051, ptr %1055, align 16
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(40) %1, ptr noundef nonnull readonly align 16 dereferenceable(40) %7, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull readonly align 16 dereferenceable(40) %7, i64 noundef 40, i1 noundef false) #12
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @_sodium_fe25519_tobytes(ptr noundef nonnull %6, ptr noundef nonnull readonly %9)
   %1056 = call i32 @sodium_is_zero(ptr noundef nonnull %6, i64 noundef 32) #12
@@ -13945,7 +13945,7 @@ ristretto255_is_canonical.exit:                   ; preds = %20
   %369 = getelementptr inbounds nuw i8, ptr %0, i64 80
   store i64 1, ptr %369, align 8
   %370 = getelementptr i8, ptr %0, i64 88
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(32) %370, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %370, i8 noundef 0, i64 noundef 32, i1 noundef false) #12
   %371 = getelementptr inbounds nuw i8, ptr %0, i64 120
   call fastcc void @fe25519_mul(ptr noundef nonnull %371, ptr noundef nonnull %0, ptr noundef nonnull %327)
   %372 = sub i32 1, %326
@@ -14627,7 +14627,7 @@ define hidden void @_sodium_ristretto255_p3_tobytes(ptr noundef %0, ptr noundef 
   %166 = zext nneg i8 %165 to i32
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %21, ptr noundef nonnull readonly align 1 dereferenceable(40) %1, i64 noundef 40, i1 noundef false) #12
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, ptr noundef nonnull readonly align 1 dereferenceable(40) %27, i64 noundef 40, i1 noundef false) #12
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %22, ptr noundef nonnull readonly align 8 dereferenceable(40) %27, i64 noundef 40, i1 noundef false) #12
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(40) %10, ptr noundef nonnull readonly align 16 dereferenceable(40) %9, i64 noundef 40, i1 noundef false) #12
   %167 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %21, ptr nonnull %14, i32 %166) #12, !srcloc !13
   %168 = call { i64, i64, i64 } asm sideeffect "test      $5,     $5\0Amovq     ($4),    $0\0Acmoveq   ($3),    $0\0Amovq    8($4),    $1\0Acmoveq  8($3),    $1\0Amovq   16($4),    $2\0Acmoveq 16($3),    $2\0Amovq      $0,   ($3)\0Amovq      $1,  8($3)\0Amovq   24($4),    $0\0Acmoveq 24($3),    $0\0Amovq   32($4),    $1\0Acmoveq 32($3),    $1\0Amovq      $2, 16($3)\0Amovq      $0, 24($3)\0Amovq      $1, 32($3)\0A", "=&r,=&r,=&r,r,r,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull %22, ptr nonnull %13, i32 %166) #12, !srcloc !13

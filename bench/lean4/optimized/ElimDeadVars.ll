@@ -1133,7 +1133,6 @@ lean_dec.exit:                                    ; preds = %98, %97, %95, %lean
 
 lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   %104 = getelementptr inbounds nuw i8, ptr %101, i64 4
-  store i32 1, ptr %101, align 4, !tbaa !8
   store i32 168034344, ptr %104, align 4
   %105 = getelementptr inbounds nuw i8, ptr %101, i64 8
   store ptr %53, ptr %105, align 8, !tbaa !4
@@ -1164,8 +1163,8 @@ lean_alloc_ctor.exit:                             ; preds = %lean_dec.exit
   tail call void @lean_inc_ref_cold(ptr noundef nonnull %14) #3
   br label %l_Lean_IR_reshapeWithoutDead.exit
 
-l_Lean_IR_reshapeWithoutDead.exit:                ; preds = %114, %113, %111, %lean_obj_tag.exit.thread, %lean_alloc_ctor.exit, %50, %49, %47, %40
-  %.sink100 = phi ptr [ %14, %40 ], [ %14, %47 ], [ %14, %49 ], [ %14, %50 ], [ %101, %lean_alloc_ctor.exit ], [ %14, %lean_obj_tag.exit.thread ], [ %14, %111 ], [ %14, %113 ], [ %14, %114 ]
+l_Lean_IR_reshapeWithoutDead.exit:                ; preds = %114, %113, %111, %lean_obj_tag.exit.thread, %50, %49, %47, %40, %lean_alloc_ctor.exit
+  %.sink100 = phi ptr [ %101, %lean_alloc_ctor.exit ], [ %14, %40 ], [ %14, %47 ], [ %14, %49 ], [ %14, %50 ], [ %14, %lean_obj_tag.exit.thread ], [ %14, %111 ], [ %14, %113 ], [ %14, %114 ]
   %115 = tail call ptr @l_Lean_IR_FnBody_freeIndices(ptr noundef %.sink100) #3
   %116 = tail call ptr @l_Lean_IR_reshapeWithoutDead_reshape(ptr noundef %33, ptr noundef %.sink100, ptr noundef %115)
   ret ptr %116

@@ -11599,7 +11599,7 @@ define i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 184
   %8 = load ptr, ptr %7, align 8, !tbaa !213
   %.not41 = icmp eq ptr %8, null
-  br i1 %.not41, label %38, label %9
+  br i1 %.not41, label %36, label %9
 
 9:                                                ; preds = %6
   %10 = getelementptr i8, ptr %1, i64 32
@@ -11613,10 +11613,10 @@ define i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef %1, ptr noundef %2) l
   %16 = getelementptr inbounds i8, ptr %8, i64 %15
   %17 = load i32, ptr %16, align 4, !tbaa !11
   %.not42 = icmp eq i32 %17, -1
-  br i1 %.not42, label %38, label %18
+  br i1 %.not42, label %36, label %18
 
-common.ret.sink.split:                            ; preds = %18, %89, %87, %50, %40
-  %.sink = phi i32 [ %41, %40 ], [ %59, %50 ], [ %88, %87 ], [ %90, %89 ], [ %37, %18 ]
+common.ret.sink.split:                            ; preds = %18, %87, %85, %48, %38
+  %.sink = phi i32 [ %39, %38 ], [ %57, %48 ], [ %86, %85 ], [ %88, %87 ], [ %35, %18 ]
   store i32 %.sink, ptr %4, align 4, !tbaa !31
   br label %common.ret
 
@@ -11630,95 +11630,93 @@ common.ret:                                       ; preds = %common.ret.sink.spl
   %21 = tail call i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %20)
   %22 = getelementptr inbounds nuw i8, ptr %20, i64 8
   store i32 %21, ptr %22, align 4, !tbaa !31
-  %23 = ptrtoint ptr %20 to i64
-  %24 = load i64, ptr %20, align 4
-  %25 = lshr i64 %24, 63
-  %26 = trunc nuw nsw i64 %25 to i32
-  %27 = and i64 %11, -2
-  %28 = inttoptr i64 %27 to ptr
-  %29 = load i64, ptr %28, align 4
-  %30 = lshr i64 %29, 63
-  %31 = trunc nuw nsw i64 %30 to i32
-  %32 = xor i64 %23, %11
-  %33 = trunc i64 %32 to i32
-  %34 = and i32 %33, 1
-  %35 = xor i32 %34, %26
-  %36 = xor i32 %35, %31
-  %37 = xor i32 %36, %21
+  %23 = load i64, ptr %20, align 4
+  %24 = lshr i64 %23, 63
+  %25 = trunc nuw nsw i64 %24 to i32
+  %26 = and i64 %11, -2
+  %27 = inttoptr i64 %26 to ptr
+  %28 = load i64, ptr %27, align 4
+  %29 = lshr i64 %28, 63
+  %30 = trunc nuw nsw i64 %29 to i32
+  %31 = trunc i64 %11 to i32
+  %32 = and i32 %31, 1
+  %33 = xor i32 %32, %25
+  %34 = xor i32 %33, %30
+  %35 = xor i32 %34, %21
   br label %common.ret.sink.split
 
-38:                                               ; preds = %9, %6
+36:                                               ; preds = %9, %6
   %.val49 = load i64, ptr %2, align 4
-  %39 = and i64 %.val49, 2684354559
-  %narrow.i.not = icmp eq i64 %39, 2684354559
-  br i1 %narrow.i.not, label %40, label %42
+  %37 = and i64 %.val49, 2684354559
+  %narrow.i.not = icmp eq i64 %37, 2684354559
+  br i1 %narrow.i.not, label %38, label %40
 
-40:                                               ; preds = %38
-  %41 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %0)
+38:                                               ; preds = %36
+  %39 = tail call fastcc i32 @Gia_ManAppendCi(ptr noundef %0)
   br label %common.ret.sink.split
 
-42:                                               ; preds = %38
-  %43 = and i64 %.val49, 536870911
-  %44 = sub nsw i64 0, %43
-  %45 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %44
-  %46 = tail call i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %45)
+40:                                               ; preds = %36
+  %41 = and i64 %.val49, 536870911
+  %42 = sub nsw i64 0, %41
+  %43 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %42
+  %44 = tail call i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %43)
   %.val50 = load i64, ptr %2, align 4
-  %47 = and i64 %.val50, 2147483648
-  %.not.i = icmp eq i64 %47, 0
-  %48 = and i64 %.val50, 536870911
-  %49 = icmp eq i64 %48, 536870911
-  %narrow.i51.not = or i1 %.not.i, %49
-  br i1 %narrow.i51.not, label %60, label %50
+  %45 = and i64 %.val50, 2147483648
+  %.not.i = icmp eq i64 %45, 0
+  %46 = and i64 %.val50, 536870911
+  %47 = icmp eq i64 %46, 536870911
+  %narrow.i51.not = or i1 %.not.i, %47
+  br i1 %narrow.i51.not, label %58, label %48
 
-50:                                               ; preds = %42
-  %51 = sub nsw i64 0, %48
-  %52 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %51
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
-  %54 = load i32, ptr %53, align 4, !tbaa !31
-  %55 = trunc i64 %.val50 to i32
-  %56 = lshr i32 %55, 29
-  %57 = and i32 %56, 1
-  %58 = xor i32 %54, %57
-  %59 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %58)
+48:                                               ; preds = %40
+  %49 = sub nsw i64 0, %46
+  %50 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %49
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 8
+  %52 = load i32, ptr %51, align 4, !tbaa !31
+  %53 = trunc i64 %.val50 to i32
+  %54 = lshr i32 %53, 29
+  %55 = and i32 %54, 1
+  %56 = xor i32 %52, %55
+  %57 = tail call fastcc i32 @Gia_ManAppendCo(ptr noundef %0, i32 noundef %56)
   br label %common.ret.sink.split
 
-60:                                               ; preds = %42
-  %61 = lshr i64 %.val50, 32
-  %62 = and i64 %61, 536870911
-  %63 = sub nsw i64 0, %62
-  %64 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %63
-  %65 = tail call i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %64)
-  %66 = getelementptr i8, ptr %0, i64 100
-  %.val = load i32, ptr %66, align 4, !tbaa !3
+58:                                               ; preds = %40
+  %59 = lshr i64 %.val50, 32
+  %60 = and i64 %59, 536870911
+  %61 = sub nsw i64 0, %60
+  %62 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %61
+  %63 = tail call i32 @Gia_ManDupDfs2_rec(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %62)
+  %64 = getelementptr i8, ptr %0, i64 100
+  %.val = load i32, ptr %64, align 4, !tbaa !3
   %.not45 = icmp eq i32 %.val, 0
-  %67 = load i64, ptr %2, align 4
-  %68 = and i64 %67, 536870911
-  %69 = sub nsw i64 0, %68
-  %70 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %69
-  %71 = getelementptr inbounds nuw i8, ptr %70, i64 8
-  %72 = load i32, ptr %71, align 4, !tbaa !31
-  %73 = trunc i64 %67 to i32
-  %74 = lshr i32 %73, 29
-  %75 = and i32 %74, 1
-  %76 = xor i32 %75, %72
-  %77 = lshr i64 %67, 32
-  %78 = and i64 %77, 536870911
-  %79 = sub nsw i64 0, %78
-  %80 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %79
-  %81 = getelementptr inbounds nuw i8, ptr %80, i64 8
-  %82 = load i32, ptr %81, align 4, !tbaa !31
-  %83 = lshr i64 %67, 61
-  %84 = trunc nuw nsw i64 %83 to i32
-  %85 = and i32 %84, 1
-  %86 = xor i32 %85, %82
-  br i1 %.not45, label %89, label %87
+  %65 = load i64, ptr %2, align 4
+  %66 = and i64 %65, 536870911
+  %67 = sub nsw i64 0, %66
+  %68 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %67
+  %69 = getelementptr inbounds nuw i8, ptr %68, i64 8
+  %70 = load i32, ptr %69, align 4, !tbaa !31
+  %71 = trunc i64 %65 to i32
+  %72 = lshr i32 %71, 29
+  %73 = and i32 %72, 1
+  %74 = xor i32 %73, %70
+  %75 = lshr i64 %65, 32
+  %76 = and i64 %75, 536870911
+  %77 = sub nsw i64 0, %76
+  %78 = getelementptr inbounds %struct.Gia_Obj_t_, ptr %2, i64 %77
+  %79 = getelementptr inbounds nuw i8, ptr %78, i64 8
+  %80 = load i32, ptr %79, align 4, !tbaa !31
+  %81 = lshr i64 %65, 61
+  %82 = trunc nuw nsw i64 %81 to i32
+  %83 = and i32 %82, 1
+  %84 = xor i32 %83, %80
+  br i1 %.not45, label %87, label %85
 
-87:                                               ; preds = %60
-  %88 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %0, i32 noundef %76, i32 noundef %86) #33
+85:                                               ; preds = %58
+  %86 = tail call i32 @Gia_ManHashAnd(ptr noundef nonnull %0, i32 noundef %74, i32 noundef %84) #33
   br label %common.ret.sink.split
 
-89:                                               ; preds = %60
-  %90 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %76, i32 noundef %86)
+87:                                               ; preds = %58
+  %88 = tail call fastcc i32 @Gia_ManAppendAnd(ptr noundef nonnull %0, i32 noundef %74, i32 noundef %84)
   br label %common.ret.sink.split
 }
 
@@ -27973,9 +27971,9 @@ Vec_IntPush.exit.i:                               ; preds = %55, %Vec_IntGrow.ex
   %66 = lshr i64 %63, 29
   %67 = and i64 %66, 1
   %68 = ptrtoint ptr %65 to i64
-  %69 = xor i64 %67, %68
+  %69 = or disjoint i64 %67, %68
   %70 = inttoptr i64 %69 to ptr
-  tail call void @Gia_ManDupWithConstrCollectAnd_rec(ptr noundef %0, ptr noundef %70, ptr noundef %2, i32 noundef 0)
+  tail call void @Gia_ManDupWithConstrCollectAnd_rec(ptr noundef %0, ptr noundef nonnull %70, ptr noundef %2, i32 noundef 0)
   %71 = load i64, ptr %.tr14, align 4
   %72 = lshr i64 %71, 32
   %73 = and i64 %72, 536870911
@@ -27984,7 +27982,7 @@ Vec_IntPush.exit.i:                               ; preds = %55, %Vec_IntGrow.ex
   %76 = lshr i64 %71, 61
   %77 = and i64 %76, 1
   %78 = ptrtoint ptr %75 to i64
-  %79 = xor i64 %77, %78
+  %79 = or disjoint i64 %77, %78
   %80 = inttoptr i64 %79 to ptr
   br label %tailrecurse
 
@@ -28036,9 +28034,9 @@ define ptr @Gia_ManDupWithConstr(ptr noundef %0) local_unnamed_addr #1 {
   %23 = lshr i64 %.val86, 29
   %24 = and i64 %23, 1
   %25 = ptrtoint ptr %22 to i64
-  %26 = xor i64 %24, %25
+  %26 = or disjoint i64 %24, %25
   %27 = inttoptr i64 %26 to ptr
-  tail call void @Gia_ManDupWithConstrCollectAnd_rec(ptr noundef nonnull %0, ptr noundef %27, ptr noundef nonnull %16, i32 noundef 1)
+  tail call void @Gia_ManDupWithConstrCollectAnd_rec(ptr noundef nonnull %0, ptr noundef nonnull %27, ptr noundef nonnull %16, i32 noundef 1)
   %28 = tail call i32 @Gia_ManLevelNum(ptr noundef nonnull %0) #33
   %.val80 = load i32, ptr %17, align 4, !tbaa !3
   %29 = icmp sgt i32 %.val80, 0

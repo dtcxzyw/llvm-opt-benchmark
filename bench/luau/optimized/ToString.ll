@@ -15969,7 +15969,7 @@ define linkonce_odr dso_local void @_ZN4Luau19TypePackStringifierclEPKNS_11TypeP
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i: ; preds = %25
   %34 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  %35 = load i8, ptr %34, align 1, !tbaa !156, !range !16, !noundef !17
+  %35 = load i8, ptr %34, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i = icmp eq i8 %35, 0
   br i1 %.not.i, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.thread.i, label %43
 
@@ -16271,7 +16271,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit50:       ; preds = %_ZNSt7__cxx1112basi
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i55: ; preds = %159
   %168 = getelementptr inbounds nuw i8, ptr %160, i64 8
-  %169 = load i8, ptr %168, align 1, !tbaa !156, !range !16, !noundef !17
+  %169 = load i8, ptr %168, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i56 = icmp eq i8 %169, 0
   br i1 %.not.i56, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %170
 
@@ -16348,7 +16348,7 @@ define linkonce_odr dso_local void @_ZN4Luau16StringifierState5unseeEPKv(ptr nou
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit: ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %22, i64 8
-  %31 = load i8, ptr %30, align 1, !tbaa !156, !range !16, !noundef !17
+  %31 = load i8, ptr %30, align 8, !tbaa !156, !range !16, !noundef !17
   %.not = icmp eq i8 %31, 0
   br i1 %.not, label %_ZN4Luau3SetIPvNS_16DenseHashPointerEE5eraseERKS1_.exit, label %32
 
@@ -20627,7 +20627,7 @@ define linkonce_odr dso_local void @_ZN4Luau15TypeStringifierclEPKNS_4TypeERKNS_
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i: ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %36 = load i8, ptr %35, align 1, !tbaa !156, !range !16, !noundef !17
+  %36 = load i8, ptr %35, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i = icmp eq i8 %36, 0
   br i1 %.not.i, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.thread.i, label %44
 
@@ -21078,7 +21078,7 @@ _ZN4Luau16StringifierState4emitEPKc.exit108:      ; preds = %_ZNSt7__cxx1112basi
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i113: ; preds = %203
   %212 = getelementptr inbounds nuw i8, ptr %204, i64 8
-  %213 = load i8, ptr %212, align 1, !tbaa !156, !range !16, !noundef !17
+  %213 = load i8, ptr %212, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i114 = icmp eq i8 %213, 0
   br i1 %.not.i114, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %214
 
@@ -21494,7 +21494,7 @@ _ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i: ; preds = %169
   %178 = getelementptr inbounds nuw i8, ptr %170, i64 8
-  %179 = load i8, ptr %178, align 1, !tbaa !156, !range !16, !noundef !17
+  %179 = load i8, ptr %178, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i111 = icmp eq i8 %179, 0
   br i1 %.not.i111, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.thread.i, label %187
 
@@ -22425,7 +22425,7 @@ _ZN4Luau16StringifierState4emitERKNSt7__cxx1112basic_stringIcSt11char_traitsIcES
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i302: ; preds = %533
   %542 = getelementptr inbounds nuw i8, ptr %534, i64 8
-  %543 = load i8, ptr %542, align 1, !tbaa !156, !range !16, !noundef !17
+  %543 = load i8, ptr %542, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i303 = icmp eq i8 %543, 0
   br i1 %.not.i303, label %_ZN4Luau16StringifierState5unseeEPKv.exit, label %544
 
@@ -23219,7 +23219,7 @@ define linkonce_odr dso_local void @_ZN4Luau15TypeStringifierclEPKNS_4TypeERKNS_
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i: ; preds = %28
   %37 = getelementptr inbounds nuw i8, ptr %29, i64 8
-  %38 = load i8, ptr %37, align 1, !tbaa !156, !range !16, !noundef !17
+  %38 = load i8, ptr %37, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i = icmp eq i8 %38, 0
   br i1 %.not.i, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.thread.i, label %46
 
@@ -23404,7 +23404,7 @@ _ZN4Luau12TypeIteratorINS_9UnionTypeEED2Ev.exit43: ; preds = %_ZN4Luau12TypeIter
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i48: ; preds = %122
   %131 = getelementptr inbounds nuw i8, ptr %123, i64 8
-  %132 = load i8, ptr %131, align 1, !tbaa !156, !range !16, !noundef !17
+  %132 = load i8, ptr %131, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i49 = icmp eq i8 %132, 0
   br i1 %.not.i49, label %.loopexit174, label %133
 
@@ -26663,7 +26663,7 @@ define linkonce_odr dso_local void @_ZN4Luau15TypeStringifierclEPKNS_4TypeERKNS_
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i: ; preds = %26
   %35 = getelementptr inbounds nuw i8, ptr %27, i64 8
-  %36 = load i8, ptr %35, align 1, !tbaa !156, !range !16, !noundef !17
+  %36 = load i8, ptr %35, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i = icmp eq i8 %36, 0
   br i1 %.not.i, label %_ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.thread.i, label %44
 
@@ -26775,7 +26775,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEPKc.exit.i: ; preds = %.
 
 _ZNK4Luau3SetIPvNS_16DenseHashPointerEE8containsERKS1_.exit.i29: ; preds = %82
   %91 = getelementptr inbounds nuw i8, ptr %83, i64 8
-  %92 = load i8, ptr %91, align 1, !tbaa !156, !range !16, !noundef !17
+  %92 = load i8, ptr %91, align 8, !tbaa !156, !range !16, !noundef !17
   %.not.i30 = icmp eq i8 %92, 0
   br i1 %.not.i30, label %.loopexit130, label %93
 

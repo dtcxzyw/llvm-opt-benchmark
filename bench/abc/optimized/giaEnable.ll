@@ -164,8 +164,7 @@ tailrecurse:                                      ; preds = %.lr.ph.preheader, %
   %68 = and i64 %67, 1
   %69 = ptrtoint ptr %66 to i64
   %70 = or disjoint i64 %68, %69
-  %71 = and i64 %70, 1
-  %.not = icmp eq i64 %71, 0
+  %.not = icmp eq i64 %68, 0
   br i1 %.not, label %.lr.ph, label %._crit_edge
 
 Vec_IntPushUnique.exit:                           ; preds = %21, %Vec_IntPush.exit.i
@@ -3511,7 +3510,7 @@ Vec_IntPush.exit238:                              ; preds = %.Vec_IntGrow.exit10
   %251 = lshr i64 %.val171, 29
   %252 = and i64 %251, 1
   %253 = ptrtoint ptr %250 to i64
-  %254 = xor i64 %252, %253
+  %254 = or disjoint i64 %252, %253
   %255 = inttoptr i64 %254 to ptr
   %.not162 = icmp eq i64 %254, %248
   %256 = lshr i64 %.val171, 32
@@ -3521,7 +3520,7 @@ Vec_IntPush.exit238:                              ; preds = %.Vec_IntGrow.exit10
   %260 = lshr i64 %.val171, 61
   %261 = and i64 %260, 1
   %262 = ptrtoint ptr %259 to i64
-  %263 = xor i64 %261, %262
+  %263 = or disjoint i64 %261, %262
   br i1 %.not162, label %338, label %264
 
 264:                                              ; preds = %233
@@ -3534,7 +3533,7 @@ Vec_IntPush.exit238:                              ; preds = %.Vec_IntGrow.exit10
   %268 = lshr i64 %.val170, 29
   %269 = and i64 %268, 1
   %270 = ptrtoint ptr %267 to i64
-  %271 = xor i64 %269, %270
+  %271 = or disjoint i64 %269, %270
   %.not164 = icmp eq i64 %271, %248
   br i1 %.not164, label %386, label %272
 
@@ -3546,7 +3545,7 @@ Vec_IntPush.exit238:                              ; preds = %.Vec_IntGrow.exit10
   %277 = lshr i64 %.val170, 61
   %278 = and i64 %277, 1
   %279 = ptrtoint ptr %276 to i64
-  %280 = xor i64 %278, %279
+  %280 = or disjoint i64 %278, %279
   %.not165 = icmp eq i64 %280, %248
   br i1 %.not165, label %386, label %281
 
@@ -3695,7 +3694,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %351 = lshr i64 %.val170, 61
   %352 = and i64 %351, 1
   %353 = ptrtoint ptr %350 to i64
-  %354 = xor i64 %352, %353
+  %354 = or disjoint i64 %352, %353
   %355 = inttoptr i64 %354 to ptr
   br label %417
 
@@ -3703,7 +3702,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %357 = lshr i64 %.val170, 29
   %358 = and i64 %357, 1
   %359 = ptrtoint ptr %342 to i64
-  %360 = xor i64 %358, %359
+  %360 = or disjoint i64 %358, %359
   %361 = inttoptr i64 %360 to ptr
   br label %417
 
@@ -3725,7 +3724,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %375 = lshr i64 %.val170, 61
   %376 = and i64 %375, 1
   %377 = ptrtoint ptr %374 to i64
-  %378 = xor i64 %376, %377
+  %378 = or disjoint i64 %376, %377
   %379 = inttoptr i64 %378 to ptr
   br label %417
 
@@ -3733,7 +3732,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %381 = lshr i64 %.val170, 29
   %382 = and i64 %381, 1
   %383 = ptrtoint ptr %366 to i64
-  %384 = xor i64 %382, %383
+  %384 = or disjoint i64 %382, %383
   %385 = inttoptr i64 %384 to ptr
   br label %417
 
@@ -3744,7 +3743,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %390 = lshr i64 %.val170, 29
   %391 = and i64 %390, 1
   %392 = ptrtoint ptr %389 to i64
-  %393 = xor i64 %391, %392
+  %393 = or disjoint i64 %391, %392
   %394 = icmp eq i64 %393, %248
   %395 = lshr i64 %.val170, 32
   %396 = and i64 %395, 536870911
@@ -3753,7 +3752,7 @@ Vec_IntPush.exit252:                              ; preds = %.Vec_IntGrow.exit10
   %399 = lshr i64 %.val170, 61
   %400 = and i64 %399, 1
   %401 = ptrtoint ptr %398 to i64
-  %402 = xor i64 %400, %401
+  %402 = or disjoint i64 %400, %401
   br i1 %394, label %403, label %409
 
 403:                                              ; preds = %386

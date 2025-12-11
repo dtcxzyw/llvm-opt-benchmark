@@ -969,7 +969,6 @@ define ptr @l_Lake_recFetchAcyclic___rarg(ptr noundef %0, ptr noundef %1, ptr no
 
 lean_alloc_closure.exit:                          ; preds = %6
   %10 = getelementptr inbounds nuw i8, ptr %7, i64 4
-  store i32 1, ptr %7, align 4, !tbaa !4
   store i32 -184549312, ptr %10, align 4
   %11 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store ptr @l_Lake_recFetchAcyclic___rarg___lambda__5, ptr %11, align 8, !tbaa !10
@@ -2032,7 +2031,6 @@ define ptr @l_Lake_recFetchMemoize___rarg(ptr noundef %0, ptr noundef %1, ptr no
 
 lean_alloc_closure.exit:                          ; preds = %7
   %11 = getelementptr inbounds nuw i8, ptr %8, i64 4
-  store i32 1, ptr %8, align 4, !tbaa !4
   store i32 -184549304, ptr %11, align 4
   %12 = getelementptr inbounds nuw i8, ptr %8, i64 8
   store ptr @l_Lake_recFetchMemoize___rarg___lambda__5, ptr %12, align 8, !tbaa !10

@@ -3848,81 +3848,78 @@ define dso_local { ptr, i8 } @_ZN5clang8SemaObjC30actOnObjCProtocolQualifierType
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 32
   %.sroa.0.0.copyload.i.i.i.i = load i64, ptr %15, align 16, !tbaa !17
   %16 = ptrtoint ptr %13 to i64
-  %17 = add i64 %16, 4
-  %18 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #20
-  %19 = icmp ne i64 %17, 0
-  %20 = zext i1 %19 to i64
-  %21 = sub i64 %17, %20
-  %22 = zext i32 %18 to i64
-  %23 = udiv i64 %21, %22
-  %24 = add i64 %23, %20
-  %25 = mul i64 %24, %22
-  %26 = inttoptr i64 %25 to ptr
-  %27 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
-  %28 = getelementptr inbounds nuw i8, ptr %26, i64 16
-  store i8 0, ptr %28, align 4, !tbaa !1245
-  %29 = getelementptr inbounds nuw i8, ptr %27, i64 24
-  %.sroa.0.0.copyload.i.i.i.i34 = load i64, ptr %29, align 8, !tbaa !17
-  %30 = getelementptr inbounds nuw i8, ptr %27, i64 16
-  %31 = load i32, ptr %30, align 16
-  %32 = lshr i32 %31, 16
-  %33 = and i32 %32, 1016
-  %34 = lshr i32 %31, 24
-  %35 = and i32 %34, 252
-  %36 = add nuw nsw i32 %35, 23
-  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %36, %33
+  %17 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i) #20
+  %18 = or disjoint i64 %16, 3
+  %19 = zext i32 %17 to i64
+  %20 = udiv i64 %18, %19
+  %21 = add i64 %20, 1
+  %22 = mul i64 %21, %19
+  %23 = inttoptr i64 %22 to ptr
+  %24 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i to ptr
+  %25 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  store i8 0, ptr %25, align 4, !tbaa !1245
+  %26 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  %.sroa.0.0.copyload.i.i.i.i34 = load i64, ptr %26, align 8, !tbaa !17
+  %27 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  %28 = load i32, ptr %27, align 16
+  %29 = lshr i32 %28, 16
+  %30 = and i32 %29, 1016
+  %31 = lshr i32 %28, 24
+  %32 = and i32 %31, 252
+  %33 = add nuw nsw i32 %32, 23
+  %.lhs.trunc.i.i.i.i = add nuw nsw i32 %33, %30
   %.zext.i.i.i.i = and i32 %.lhs.trunc.i.i.i.i, 2040
-  %37 = add nuw nsw i32 %.zext.i.i.i.i, 8
-  %38 = zext nneg i32 %37 to i64
-  %39 = add i64 %25, %38
-  %40 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i34) #20
-  %41 = icmp ne i64 %39, 0
-  %42 = zext i1 %41 to i64
-  %43 = sub i64 %39, %42
-  %44 = zext i32 %40 to i64
-  %45 = udiv i64 %43, %44
-  %46 = add i64 %45, %42
-  %47 = mul i64 %46, %44
-  %48 = inttoptr i64 %47 to ptr
-  %49 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i34 to ptr
-  tail call void @_ZN5clang7TypeLoc14initializeImplERNS_10ASTContextES0_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %8, ptr %49, ptr %48, i32 0) #20
-  store i32 0, ptr %26, align 4, !tbaa !16
-  %50 = getelementptr inbounds nuw i8, ptr %26, i64 4
-  store i32 0, ptr %50, align 4, !tbaa !16
-  %51 = getelementptr inbounds nuw i8, ptr %26, i64 8
-  store i32 %1, ptr %51, align 4, !tbaa !16
-  %52 = getelementptr inbounds nuw i8, ptr %26, i64 12
-  store i32 %6, ptr %52, align 4, !tbaa !16
-  %53 = and i64 %3, 4294967295
-  %.not67 = icmp eq i64 %53, 0
+  %34 = add nuw nsw i32 %.zext.i.i.i.i, 8
+  %35 = zext nneg i32 %34 to i64
+  %36 = add i64 %22, %35
+  %37 = tail call noundef i32 @_ZN5clang7TypeLoc24getLocalAlignmentForTypeENS_8QualTypeE(i64 %.sroa.0.0.copyload.i.i.i.i34) #20
+  %38 = icmp ne i64 %36, 0
+  %39 = zext i1 %38 to i64
+  %40 = sub i64 %36, %39
+  %41 = zext i32 %37 to i64
+  %42 = udiv i64 %40, %41
+  %43 = add i64 %42, %39
+  %44 = mul i64 %43, %41
+  %45 = inttoptr i64 %44 to ptr
+  %46 = inttoptr i64 %.sroa.0.0.copyload.i.i.i.i34 to ptr
+  tail call void @_ZN5clang7TypeLoc14initializeImplERNS_10ASTContextES0_NS_14SourceLocationE(ptr noundef nonnull align 8 dereferenceable(23216) %8, ptr %46, ptr %45, i32 0) #20
+  store i32 0, ptr %23, align 4, !tbaa !16
+  %47 = getelementptr inbounds nuw i8, ptr %23, i64 4
+  store i32 0, ptr %47, align 4, !tbaa !16
+  %48 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  store i32 %1, ptr %48, align 4, !tbaa !16
+  %49 = getelementptr inbounds nuw i8, ptr %23, i64 12
+  store i32 %6, ptr %49, align 4, !tbaa !16
+  %50 = and i64 %3, 4294967295
+  %.not67 = icmp eq i64 %50, 0
   br i1 %.not67, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %7
-  %54 = getelementptr inbounds nuw i8, ptr %26, i64 24
-  %55 = and i64 %3, 4294967295
-  br label %58
+  %51 = getelementptr inbounds nuw i8, ptr %23, i64 24
+  %52 = and i64 %3, 4294967295
+  br label %55
 
-._crit_edge:                                      ; preds = %58, %7
-  %56 = load ptr, ptr %0, align 8, !tbaa !9
-  %57 = tail call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %56, i64 %11, ptr noundef nonnull %12) #20
-  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %57, 0
+._crit_edge:                                      ; preds = %55, %7
+  %53 = load ptr, ptr %0, align 8, !tbaa !9
+  %54 = tail call ptr @_ZN5clang4Sema16CreateParsedTypeENS_8QualTypeEPNS_14TypeSourceInfoE(ptr noundef nonnull align 8 dereferenceable(17504) %53, i64 %11, ptr noundef nonnull %12) #20
+  %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %54, 0
   %.fca.1.insert = insertvalue { ptr, i8 } %.fca.0.insert, i8 0, 1
   ret { ptr, i8 } %.fca.1.insert
 
-58:                                               ; preds = %.lr.ph, %58
-  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %58 ]
-  %59 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %4, i64 %indvars.iv
-  %.sroa.02.0.copyload = load i32, ptr %59, align 4, !tbaa !16
-  %60 = load i32, ptr %30, align 16
-  %61 = lshr i32 %60, 19
-  %62 = and i32 %61, 127
-  %63 = zext nneg i32 %62 to i64
-  %64 = getelementptr inbounds nuw ptr, ptr %54, i64 %63
-  %65 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %64, i64 %indvars.iv
-  store i32 %.sroa.02.0.copyload, ptr %65, align 4, !tbaa !16
+55:                                               ; preds = %.lr.ph, %55
+  %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %55 ]
+  %56 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %4, i64 %indvars.iv
+  %.sroa.02.0.copyload = load i32, ptr %56, align 4, !tbaa !16
+  %57 = load i32, ptr %27, align 16
+  %58 = lshr i32 %57, 19
+  %59 = and i32 %58, 127
+  %60 = zext nneg i32 %59 to i64
+  %61 = getelementptr inbounds nuw ptr, ptr %51, i64 %60
+  %62 = getelementptr inbounds nuw %"class.clang::SourceLocation", ptr %61, i64 %indvars.iv
+  store i32 %.sroa.02.0.copyload, ptr %62, align 4, !tbaa !16
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %.not = icmp eq i64 %indvars.iv.next, %55
-  br i1 %.not, label %._crit_edge, label %58, !llvm.loop !1247
+  %.not = icmp eq i64 %indvars.iv.next, %52
+  br i1 %.not, label %._crit_edge, label %55, !llvm.loop !1247
 }
 
 declare i64 @_ZNK5clang10ASTContext17getObjCObjectTypeENS_8QualTypeEN4llvm8ArrayRefIS1_EENS3_IPNS_16ObjCProtocolDeclEEEb(ptr noundef nonnull align 8 dereferenceable(23216), i64, ptr, i64, ptr, i64, i1 noundef zeroext) local_unnamed_addr #1
@@ -32481,7 +32478,7 @@ define linkonce_odr hidden noundef ptr @_ZNK5clang12RedeclarableINS_16ObjCProtoc
   %35 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i.i.i, i64 16
   store ptr %1, ptr %35, align 8, !tbaa !1536
   %36 = ptrtoint ptr %.0.i.i.i.i.i.i to i64
-  %37 = or i64 %36, 4
+  %37 = or disjoint i64 %36, 4
   br label %_ZN5clang25LazyGenerationalUpdatePtrIPKNS_4DeclEPS1_XadL_ZNS_17ExternalASTSource19CompleteRedeclChainES3_EEEC2ERKNS_10ASTContextES4_.exit
 
 38:                                               ; preds = %10

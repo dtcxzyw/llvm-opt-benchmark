@@ -1264,13 +1264,13 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
   %3 = icmp eq ptr %0, null
   %4 = icmp eq ptr %1, null
   %or.cond = or i1 %3, %4
-  br i1 %or.cond, label %50, label %5
+  br i1 %or.cond, label %49, label %5
 
 5:                                                ; preds = %2
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
   %7 = load i32, ptr %0, align 8, !tbaa !10
   %8 = icmp ugt i32 %7, 63
-  br i1 %8, label %50, label %9
+  br i1 %8, label %49, label %9
 
 9:                                                ; preds = %5
   %10 = add nuw nsw i32 %7, 1
@@ -1279,41 +1279,30 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 %11
   store i8 -128, ptr %12, align 1, !tbaa !17
   %13 = icmp samesign ugt i32 %7, 55
-  br i1 %13, label %19, label %._crit_edge
+  br i1 %13, label %14, label %24
 
-._crit_edge:                                      ; preds = %9
-  %.pre = ptrtoint ptr %6 to i64
-  %.pre78 = and i64 %.pre, 3
-  %14 = icmp eq i64 %.pre78, 0
-  %15 = zext nneg i32 %10 to i64
-  %16 = getelementptr inbounds nuw i8, ptr %6, i64 %15
-  %17 = sub nuw nsw i32 55, %7
-  %18 = zext nneg i32 %17 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %16, i8 0, i64 %18, i1 false)
-  br i1 %14, label %.lr.ph26.i55.preheader, label %.lr.ph.i50
-
-19:                                               ; preds = %9
+14:                                               ; preds = %9
   %.not = icmp eq i32 %7, 63
-  br i1 %.not, label %.lr.ph26.i.preheader, label %20
+  br i1 %.not, label %20, label %15
 
-20:                                               ; preds = %19
-  %21 = zext nneg i32 %10 to i64
-  %22 = getelementptr inbounds nuw i8, ptr %6, i64 %21
-  %23 = sub nuw nsw i32 63, %7
-  %24 = zext nneg i32 %23 to i64
-  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %22, i8 0, i64 %24, i1 false)
-  br label %.lr.ph26.i.preheader
+15:                                               ; preds = %14
+  %16 = zext nneg i32 %10 to i64
+  %17 = getelementptr inbounds nuw i8, ptr %6, i64 %16
+  %18 = sub nuw nsw i32 63, %7
+  %19 = zext nneg i32 %18 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %17, i8 0, i64 %19, i1 false)
+  br label %20
 
-.lr.ph26.i.preheader:                             ; preds = %20, %19
+20:                                               ; preds = %15, %14
   store i32 64, ptr %0, align 8, !tbaa !10
   br label %.lr.ph26.i
 
-.lr.ph26.i:                                       ; preds = %.lr.ph26.i.preheader, %.lr.ph26.i
-  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %.lr.ph26.i.preheader ]
-  %25 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i
-  %26 = load i32, ptr %25, align 4, !tbaa !9
-  %27 = tail call noundef i32 @llvm.bswap.i32(i32 %26)
-  store i32 %27, ptr %25, align 4, !tbaa !9
+.lr.ph26.i:                                       ; preds = %20, %.lr.ph26.i
+  %indvars.iv30.i = phi i64 [ %indvars.iv.next31.i, %.lr.ph26.i ], [ 0, %20 ]
+  %21 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i
+  %22 = load i32, ptr %21, align 4, !tbaa !9
+  %23 = tail call noundef i32 @llvm.bswap.i32(i32 %22)
+  store i32 %23, ptr %21, align 4, !tbaa !9
   %indvars.iv.next31.i = add nuw nsw i64 %indvars.iv30.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next31.i, 16
   br i1 %exitcond.not.i, label %ByteReverseWords.exit, label %.lr.ph26.i, !llvm.loop !13
@@ -1321,76 +1310,71 @@ define range(i32 -192, 1) i32 @wc_ShaFinal(ptr noundef %0, ptr noundef writeonly
 ByteReverseWords.exit:                            ; preds = %.lr.ph26.i
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
   store i32 0, ptr %0, align 8, !tbaa !10
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(56) %6, i8 0, i64 56, i1 false)
-  br label %.lr.ph26.i55.preheader
+  br label %24
 
-.lr.ph26.i55.preheader:                           ; preds = %ByteReverseWords.exit, %._crit_edge
+24:                                               ; preds = %ByteReverseWords.exit, %9
+  %25 = phi i32 [ 0, %ByteReverseWords.exit ], [ %10, %9 ]
+  %26 = zext nneg i32 %25 to i64
+  %27 = getelementptr inbounds nuw i8, ptr %6, i64 %26
+  %28 = sub nuw nsw i32 56, %25
+  %29 = zext nneg i32 %28 to i64
+  tail call void @llvm.memset.p0.i64(ptr nonnull align 1 %27, i8 0, i64 %29, i1 false)
   br label %.lr.ph26.i55
 
-.lr.ph26.i55:                                     ; preds = %.lr.ph26.i55.preheader, %.lr.ph26.i55
-  %indvars.iv30.i56 = phi i64 [ %indvars.iv.next31.i57, %.lr.ph26.i55 ], [ 0, %.lr.ph26.i55.preheader ]
-  %28 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i56
-  %29 = load i32, ptr %28, align 4, !tbaa !9
-  %30 = tail call noundef i32 @llvm.bswap.i32(i32 %29)
-  store i32 %30, ptr %28, align 4, !tbaa !9
+.lr.ph26.i55:                                     ; preds = %24, %.lr.ph26.i55
+  %indvars.iv30.i56 = phi i64 [ %indvars.iv.next31.i57, %.lr.ph26.i55 ], [ 0, %24 ]
+  %30 = getelementptr inbounds nuw i32, ptr %6, i64 %indvars.iv30.i56
+  %31 = load i32, ptr %30, align 4, !tbaa !9
+  %32 = tail call noundef i32 @llvm.bswap.i32(i32 %31)
+  store i32 %32, ptr %30, align 4, !tbaa !9
   %indvars.iv.next31.i57 = add nuw nsw i64 %indvars.iv30.i56, 1
   %exitcond.not.i58 = icmp eq i64 %indvars.iv.next31.i57, 16
   br i1 %exitcond.not.i58, label %ByteReverseWords.exit59, label %.lr.ph26.i55, !llvm.loop !13
 
-.lr.ph.i50:                                       ; preds = %._crit_edge, %.lr.ph.i50
-  %indvars.iv.i51 = phi i64 [ %indvars.iv.next.i53, %.lr.ph.i50 ], [ 0, %._crit_edge ]
-  %31 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv.i51
-  %.0.copyload.i52 = load i32, ptr %31, align 1
-  %32 = tail call noundef i32 @llvm.bswap.i32(i32 %.0.copyload.i52)
-  store i32 %32, ptr %31, align 1
-  %indvars.iv.next.i53 = add nuw nsw i64 %indvars.iv.i51, 4
-  %33 = icmp samesign ult i64 %indvars.iv.i51, 60
-  br i1 %33, label %.lr.ph.i50, label %ByteReverseWords.exit59, !llvm.loop !15
-
-ByteReverseWords.exit59:                          ; preds = %.lr.ph.i50, %.lr.ph26.i55
-  %34 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  %35 = load i32, ptr %34, align 4, !tbaa !11
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %37 = load i32, ptr %36, align 8, !tbaa !12
-  %38 = tail call i32 @llvm.fshl.i32(i32 %37, i32 %35, i32 3)
-  store i32 %38, ptr %36, align 8, !tbaa !12
-  %39 = shl i32 %35, 3
-  store i32 %39, ptr %34, align 4, !tbaa !11
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i32 %38, ptr %40, align 4
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  store i32 %39, ptr %41, align 8
+ByteReverseWords.exit59:                          ; preds = %.lr.ph26.i55
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  %34 = load i32, ptr %33, align 4, !tbaa !11
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %36 = load i32, ptr %35, align 8, !tbaa !12
+  %37 = tail call i32 @llvm.fshl.i32(i32 %36, i32 %34, i32 3)
+  store i32 %37, ptr %35, align 8, !tbaa !12
+  %38 = shl i32 %34, 3
+  store i32 %38, ptr %33, align 4, !tbaa !11
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i32 %37, ptr %39, align 4
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  store i32 %38, ptr %40, align 8
   tail call fastcc void @Transform(ptr noundef %0, ptr noundef %6)
-  %42 = getelementptr inbounds nuw i8, ptr %0, i64 76
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 76
   br label %.lr.ph26.i67
 
 .lr.ph26.i67:                                     ; preds = %ByteReverseWords.exit59, %.lr.ph26.i67
   %indvars.iv30.i68 = phi i64 [ %indvars.iv.next31.i69, %.lr.ph26.i67 ], [ 0, %ByteReverseWords.exit59 ]
-  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %indvars.iv30.i68
-  %44 = load i32, ptr %43, align 4, !tbaa !9
-  %45 = tail call noundef i32 @llvm.bswap.i32(i32 %44)
-  store i32 %45, ptr %43, align 4, !tbaa !9
+  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %indvars.iv30.i68
+  %43 = load i32, ptr %42, align 4, !tbaa !9
+  %44 = tail call noundef i32 @llvm.bswap.i32(i32 %43)
+  store i32 %44, ptr %42, align 4, !tbaa !9
   %indvars.iv.next31.i69 = add nuw nsw i64 %indvars.iv30.i68, 1
   %exitcond.not.i70 = icmp eq i64 %indvars.iv.next31.i69, 5
   br i1 %exitcond.not.i70, label %ByteReverseWords.exit71, label %.lr.ph26.i67, !llvm.loop !13
 
 ByteReverseWords.exit71:                          ; preds = %.lr.ph26.i67
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) %42, i64 20, i1 false)
-  store i32 1732584193, ptr %42, align 4, !tbaa !9
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 80
-  store i32 -271733879, ptr %46, align 4, !tbaa !9
-  %47 = getelementptr inbounds nuw i8, ptr %0, i64 84
-  store i32 -1732584194, ptr %47, align 4, !tbaa !9
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  store i32 271733878, ptr %48, align 4, !tbaa !9
-  %49 = getelementptr inbounds nuw i8, ptr %0, i64 92
-  store i32 -1009589776, ptr %49, align 4, !tbaa !9
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(20) %1, ptr noundef nonnull align 4 dereferenceable(20) %41, i64 20, i1 false)
+  store i32 1732584193, ptr %41, align 4, !tbaa !9
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 80
+  store i32 -271733879, ptr %45, align 4, !tbaa !9
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 84
+  store i32 -1732584194, ptr %46, align 4, !tbaa !9
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  store i32 271733878, ptr %47, align 4, !tbaa !9
+  %48 = getelementptr inbounds nuw i8, ptr %0, i64 92
+  store i32 -1009589776, ptr %48, align 4, !tbaa !9
   store i32 0, ptr %0, align 8, !tbaa !10
-  store i32 0, ptr %34, align 4, !tbaa !11
-  store i32 0, ptr %36, align 8, !tbaa !12
-  br label %50
+  store i32 0, ptr %33, align 4, !tbaa !11
+  store i32 0, ptr %35, align 8, !tbaa !12
+  br label %49
 
-50:                                               ; preds = %5, %2, %ByteReverseWords.exit71
+49:                                               ; preds = %5, %2, %ByteReverseWords.exit71
   %.0 = phi i32 [ 0, %ByteReverseWords.exit71 ], [ -173, %2 ], [ -192, %5 ]
   ret i32 %.0
 }

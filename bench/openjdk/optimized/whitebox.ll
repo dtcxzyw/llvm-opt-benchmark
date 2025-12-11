@@ -15960,7 +15960,7 @@ define internal fastcc noundef ptr @_ZL9getVMFlagP10JavaThreadP7JNIEnv_P8_jstrin
   %11 = add nsw i64 %10, -960
   %12 = inttoptr i64 %11 to ptr
   %13 = getelementptr inbounds nuw i8, ptr %12, i64 1128
-  %14 = load volatile i32, ptr %13, align 4
+  %14 = load volatile i32, ptr %13, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %15 = add i32 %14, -57005
   %16 = icmp ult i32 %15, 2
@@ -16403,7 +16403,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1352
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %41 = load volatile i32, ptr %8, align 4
+  %41 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %42 = add i32 %41, -57005
   %43 = icmp ult i32 %42, 2
@@ -16597,7 +16597,7 @@ define internal fastcc noundef ptr @_ZL10booleanBoxP10JavaThreadP7JNIEnv_h(ptr %
   %19 = add nsw i64 %18, -960
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1128
-  %22 = load volatile i32, ptr %21, align 4
+  %22 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %23 = add i32 %22, -57005
   %24 = icmp ult i32 %23, 2
@@ -16623,7 +16623,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %25, %2
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 904
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %17, ptr noundef %31, ptr noundef %32) #15
-  %37 = load volatile i32, ptr %21, align 4
+  %37 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %38 = add i32 %37, -57005
   %39 = icmp ult i32 %38, 2
@@ -16830,7 +16830,7 @@ define linkonce_odr hidden noundef ptr @_Z17GetVMFlag_longBoxIiLi1EEP8_jobjectP7
   %13 = add nsw i64 %12, -960
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = add i32 %16, -57005
   %18 = icmp ult i32 %17, 2
@@ -17107,7 +17107,7 @@ define linkonce_odr hidden noundef ptr @_Z17GetVMFlag_longBoxIjLi2EEP8_jobjectP7
   %13 = add nsw i64 %12, -960
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = add i32 %16, -57005
   %18 = icmp ult i32 %17, 2
@@ -17384,7 +17384,7 @@ define linkonce_odr hidden noundef ptr @_Z17GetVMFlag_longBoxIlLi3EEP8_jobjectP7
   %13 = add nsw i64 %12, -960
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = add i32 %16, -57005
   %18 = icmp ult i32 %17, 2
@@ -17660,7 +17660,7 @@ define linkonce_odr hidden noundef ptr @_Z17GetVMFlag_longBoxImLi4EEP8_jobjectP7
   %13 = add nsw i64 %12, -960
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = add i32 %16, -57005
   %18 = icmp ult i32 %17, 2
@@ -17936,7 +17936,7 @@ define linkonce_odr hidden noundef ptr @_Z17GetVMFlag_longBoxImLi5EEP8_jobjectP7
   %13 = add nsw i64 %12, -960
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = add i32 %16, -57005
   %18 = icmp ult i32 %17, 2
@@ -18212,7 +18212,7 @@ define linkonce_odr hidden noundef ptr @_Z17GetVMFlag_longBoxImLi6EEP8_jobjectP7
   %13 = add nsw i64 %12, -960
   %14 = inttoptr i64 %13 to ptr
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 1128
-  %16 = load volatile i32, ptr %15, align 4
+  %16 = load volatile i32, ptr %15, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %17 = add i32 %16, -57005
   %18 = icmp ult i32 %17, 2
@@ -18433,7 +18433,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1352
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %41 = load volatile i32, ptr %8, align 4
+  %41 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %42 = add i32 %41, -57005
   %43 = icmp ult i32 %42, 2
@@ -18626,7 +18626,7 @@ define internal fastcc noundef ptr @_ZL9doubleBoxP10JavaThreadP7JNIEnv_d(ptr %.8
   %19 = add nsw i64 %18, -960
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1128
-  %22 = load volatile i32, ptr %21, align 4
+  %22 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %23 = add i32 %22, -57005
   %24 = icmp ult i32 %23, 2
@@ -18652,7 +18652,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %25, %2
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 904
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %17, ptr noundef %31, ptr noundef %32) #15
-  %37 = load volatile i32, ptr %21, align 4
+  %37 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %38 = add i32 %37, -57005
   %39 = icmp ult i32 %38, 2
@@ -18803,7 +18803,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1352
   %39 = load ptr, ptr %38, align 8
   %40 = call noundef ptr %39(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %41 = load volatile i32, ptr %8, align 4
+  %41 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %42 = add i32 %41, -57005
   %43 = icmp ult i32 %42, 2
@@ -18893,7 +18893,7 @@ _ZL9GetVMFlagIPKcLi8EEbP10JavaThreadP7JNIEnv_P8_jstringPT_.exit: ; preds = %_ZN1
   %75 = getelementptr inbounds nuw i8, ptr %74, i64 1336
   %76 = load ptr, ptr %75, align 8
   %77 = call noundef ptr %76(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %.0) #15
-  %78 = load volatile i32, ptr %8, align 4
+  %78 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %79 = add i32 %78, -57005
   %80 = icmp ult i32 %79, 2
@@ -19086,7 +19086,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %42 = getelementptr inbounds nuw i8, ptr %41, i64 1352
   %43 = load ptr, ptr %42, align 8
   %44 = call noundef ptr %43(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %45 = load volatile i32, ptr %10, align 4
+  %45 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %46 = add i32 %45, -57005
   %47 = icmp ult i32 %46, 2
@@ -19303,7 +19303,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1352
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %44 = load volatile i32, ptr %10, align 4
+  %44 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %45 = add i32 %44, -57005
   %46 = icmp ult i32 %45, 2
@@ -19520,7 +19520,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %41 = getelementptr inbounds nuw i8, ptr %40, i64 1352
   %42 = load ptr, ptr %41, align 8
   %43 = call noundef ptr %42(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %44 = load volatile i32, ptr %10, align 4
+  %44 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %45 = add i32 %44, -57005
   %46 = icmp ult i32 %45, 2
@@ -19736,7 +19736,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -19952,7 +19952,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -20168,7 +20168,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -20384,7 +20384,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -20600,7 +20600,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -20815,7 +20815,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null) #15
-  %43 = load volatile i32, ptr %10, align 4
+  %43 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -20879,7 +20879,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit27: ; preds = %_ZN18SafepointMecha
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 1352
   %64 = load ptr, ptr %63, align 8
   %65 = call noundef ptr %64(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %2, ptr noundef null) #15
-  %66 = load volatile i32, ptr %10, align 4
+  %66 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %67 = add i32 %66, -57005
   %68 = icmp ult i32 %67, 2
@@ -22020,7 +22020,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1336
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %33) #15
-  %39 = load volatile i32, ptr %7, align 4
+  %39 = load volatile i32, ptr %7, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %40 = add i32 %39, -57005
   %41 = icmp ult i32 %40, 2
@@ -22390,7 +22390,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit:        ; preds = %68, %_ZN26GrowableA
   %117 = getelementptr inbounds nuw i8, ptr %116, i64 48
   %118 = load ptr, ptr %117, align 8
   %119 = call noundef ptr %118(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %115) #15
-  %120 = load volatile i32, ptr %11, align 4
+  %120 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %121 = add i32 %120, -57005
   %122 = icmp ult i32 %121, 2
@@ -22491,7 +22491,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit88: ; preds = %154, %
   %169 = getelementptr inbounds nuw i8, ptr %168, i64 1408
   %170 = load ptr, ptr %169, align 8
   %171 = call noundef ptr %170(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %gepdiff.i) #15
-  %172 = load volatile i32, ptr %11, align 4
+  %172 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %173 = add i32 %172, -57005
   %174 = icmp ult i32 %173, 2
@@ -22718,7 +22718,7 @@ define internal fastcc noundef ptr @_ZL20codeBlob2objectArrayP10JavaThreadP7JNIE
   %23 = add nsw i64 %22, -960
   %24 = inttoptr i64 %23 to ptr
   %25 = getelementptr inbounds nuw i8, ptr %24, i64 1128
-  %26 = load volatile i32, ptr %25, align 4
+  %26 = load volatile i32, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %27 = add i32 %26, -57005
   %28 = icmp ult i32 %27, 2
@@ -22746,7 +22746,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit: ; preds = %3, %29
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1336
   %41 = load ptr, ptr %40, align 8
   %42 = tail call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %1, ptr noundef %38) #15
-  %43 = load volatile i32, ptr %25, align 4
+  %43 = load volatile i32, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -22772,7 +22772,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit45: ; preds = %33, %4
   %54 = getelementptr i8, ptr %0, i64 800
   %.val43 = load ptr, ptr %54, align 8
   %55 = tail call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.val43, ptr noundef nonnull %1, i32 noundef %53)
-  %56 = load volatile i32, ptr %25, align 4
+  %56 = load volatile i32, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %57 = add i32 %56, -57005
   %58 = icmp ult i32 %57, 2
@@ -22797,7 +22797,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit46: ; preds = %48, %5
   %66 = load i32, ptr %65, align 4
   %.val44 = load ptr, ptr %54, align 8
   %67 = tail call fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %.val44, ptr noundef nonnull %1, i32 noundef %66)
-  %68 = load volatile i32, ptr %25, align 4
+  %68 = load volatile i32, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %69 = add i32 %68, -57005
   %70 = icmp ult i32 %69, 2
@@ -22822,7 +22822,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit47: ; preds = %61, %7
   %78 = load i64, ptr %77, align 8
   %.val = load ptr, ptr %54, align 8
   %79 = tail call fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.val, ptr noundef nonnull %1, i64 noundef %78)
-  %80 = load volatile i32, ptr %25, align 4
+  %80 = load volatile i32, ptr %25, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %81 = add i32 %80, -57005
   %82 = icmp ult i32 %81, 2
@@ -22892,7 +22892,7 @@ define internal fastcc noundef ptr @_ZL10integerBoxP10JavaThreadP7JNIEnv_i(ptr %
   %19 = add nsw i64 %18, -960
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1128
-  %22 = load volatile i32, ptr %21, align 4
+  %22 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %23 = add i32 %22, -57005
   %24 = icmp ult i32 %23, 2
@@ -22918,7 +22918,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %25, %2
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 904
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %17, ptr noundef %31, ptr noundef %32) #15
-  %37 = load volatile i32, ptr %21, align 4
+  %37 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %38 = add i32 %37, -57005
   %39 = icmp ult i32 %38, 2
@@ -23000,7 +23000,7 @@ define internal fastcc noundef ptr @_ZL7longBoxP10JavaThreadP7JNIEnv_l(ptr %.800
   %19 = add nsw i64 %18, -960
   %20 = inttoptr i64 %19 to ptr
   %21 = getelementptr inbounds nuw i8, ptr %20, i64 1128
-  %22 = load volatile i32, ptr %21, align 4
+  %22 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %23 = add i32 %22, -57005
   %24 = icmp ult i32 %23, 2
@@ -23026,7 +23026,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit.i: ; preds = %25, %2
   %34 = getelementptr inbounds nuw i8, ptr %33, i64 904
   %35 = load ptr, ptr %34, align 8
   %36 = tail call noundef ptr %35(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %17, ptr noundef %31, ptr noundef %32) #15
-  %37 = load volatile i32, ptr %21, align 4
+  %37 = load volatile i32, ptr %21, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %38 = add i32 %37, -57005
   %39 = icmp ult i32 %38, 2
@@ -23700,7 +23700,7 @@ _ZN11MutexLockerD2Ev.exit:                        ; preds = %104, %._crit_edge
   %109 = getelementptr inbounds nuw i8, ptr %108, i64 48
   %110 = load ptr, ptr %109, align 8
   %111 = call noundef ptr %110(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %107) #15
-  %112 = load volatile i32, ptr %8, align 4
+  %112 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %113 = add i32 %112, -57005
   %114 = icmp ult i32 %113, 2
@@ -23722,7 +23722,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit47: ; preds = %_ZN11M
   %120 = getelementptr inbounds nuw i8, ptr %119, i64 1376
   %121 = load ptr, ptr %120, align 8
   %122 = call noundef ptr %121(ptr noundef nonnull align 8 dereferenceable(8) %0, i32 noundef %.lcssa, ptr noundef %111, ptr noundef null) #15
-  %123 = load volatile i32, ptr %8, align 4
+  %123 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %124 = add i32 %123, -57005
   %125 = icmp ult i32 %124, 2
@@ -23775,7 +23775,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit51: ; preds = %131, %
   %142 = getelementptr inbounds nuw i8, ptr %141, i64 1392
   %143 = load ptr, ptr %142, align 8
   call void %143(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %122, i32 noundef %indvars118, ptr noundef %134) #15
-  %144 = load volatile i32, ptr %8, align 4
+  %144 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %145 = add i32 %144, -57005
   %146 = icmp ult i32 %145, 2
@@ -30308,7 +30308,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit20: ; preds = %_ZN18SafepointMecha
   %66 = getelementptr inbounds nuw i8, ptr %65, i64 1336
   %67 = load ptr, ptr %66, align 8
   %68 = call noundef ptr %67(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %64) #15
-  %69 = load volatile i32, ptr %10, align 4
+  %69 = load volatile i32, ptr %10, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %70 = add i32 %69, -57005
   %71 = icmp ult i32 %70, 2
@@ -30578,7 +30578,7 @@ _ZN20ThreadInVMfromNativeC2EP10JavaThread.exit23: ; preds = %_ZN18SafepointMecha
   %71 = getelementptr inbounds nuw i8, ptr %70, i64 1336
   %72 = load ptr, ptr %71, align 8
   %73 = call noundef ptr %72(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %69) #15
-  %74 = load volatile i32, ptr %11, align 4
+  %74 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %75 = add i32 %74, -57005
   %76 = icmp ult i32 %75, 2
@@ -31025,7 +31025,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit.i:      ; preds = %_ZN26GrowableArrayW
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null) #15
-  %89 = load volatile i32, ptr %11, align 4
+  %89 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %90 = add i32 %89, -57005
   %91 = icmp ult i32 %90, 2
@@ -31389,7 +31389,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit.i:      ; preds = %_ZN26GrowableArrayW
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null) #15
-  %89 = load volatile i32, ptr %11, align 4
+  %89 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %90 = add i32 %89, -57005
   %91 = icmp ult i32 %90, 2
@@ -31752,7 +31752,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit.i:      ; preds = %_ZN26GrowableArrayW
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null) #15
-  %89 = load volatile i32, ptr %11, align 4
+  %89 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %90 = add i32 %89, -57005
   %91 = icmp ult i32 %90, 2
@@ -32115,7 +32115,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit.i:      ; preds = %_ZN26GrowableArrayW
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null) #15
-  %89 = load volatile i32, ptr %11, align 4
+  %89 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %90 = add i32 %89, -57005
   %91 = icmp ult i32 %90, 2
@@ -32478,7 +32478,7 @@ _ZN12methodHandleC2EP6ThreadP6Method.exit.i:      ; preds = %_ZN26GrowableArrayW
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 1352
   %87 = load ptr, ptr %86, align 8
   %88 = call noundef ptr %87(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull %3, ptr noundef null) #15
-  %89 = load volatile i32, ptr %11, align 4
+  %89 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %90 = add i32 %89, -57005
   %91 = icmp ult i32 %90, 2
@@ -32563,7 +32563,7 @@ _ZL15GetMethodOptionIPKcEbP10JavaThreadP7JNIEnv_P8_jobjectP8_jstringPT_.exit: ; 
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 1336
   %119 = load ptr, ptr %118, align 8
   %120 = call noundef ptr %119(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %116) #15
-  %121 = load volatile i32, ptr %11, align 4
+  %121 = load volatile i32, ptr %11, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %122 = add i32 %121, -57005
   %123 = icmp ult i32 %122, 2
@@ -32749,7 +32749,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1336
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %33) #15
-  %39 = load volatile i32, ptr %7, align 4
+  %39 = load volatile i32, ptr %7, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %40 = add i32 %39, -57005
   %41 = icmp ult i32 %40, 2
@@ -36127,7 +36127,7 @@ _ZN10JNIHandles16resolve_non_nullEP8_jobject.exit: ; preds = %20, %24, %28
   %42 = add nsw i64 %41, -960
   %43 = inttoptr i64 %42 to ptr
   %44 = getelementptr inbounds nuw i8, ptr %43, i64 1128
-  %45 = load volatile i32, ptr %44, align 4
+  %45 = load volatile i32, ptr %44, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %46 = add i32 %45, -57005
   %47 = icmp ult i32 %46, 2
@@ -36358,7 +36358,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1352
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef null) #15
-  %39 = load volatile i32, ptr %8, align 4
+  %39 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %40 = add i32 %39, -57005
   %41 = icmp ult i32 %40, 2
@@ -36718,7 +36718,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %36 = getelementptr inbounds nuw i8, ptr %35, i64 1352
   %37 = load ptr, ptr %36, align 8
   %38 = call noundef ptr %37(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef null) #15
-  %39 = load volatile i32, ptr %8, align 4
+  %39 = load volatile i32, ptr %8, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %40 = add i32 %39, -57005
   %41 = icmp ult i32 %40, 2
@@ -37295,7 +37295,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %40 = getelementptr inbounds nuw i8, ptr %39, i64 1352
   %41 = load ptr, ptr %40, align 8
   %42 = call noundef ptr %41(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %2, ptr noundef null) #15
-  %43 = load volatile i32, ptr %12, align 4
+  %43 = load volatile i32, ptr %12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %44 = add i32 %43, -57005
   %45 = icmp ult i32 %44, 2
@@ -37317,7 +37317,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit35: ; preds = %_ZN23C
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 1352
   %52 = load ptr, ptr %51, align 8
   %53 = call noundef ptr %52(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %3, ptr noundef null) #15
-  %54 = load volatile i32, ptr %12, align 4
+  %54 = load volatile i32, ptr %12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %55 = add i32 %54, -57005
   %56 = icmp ult i32 %55, 2
@@ -37338,7 +37338,7 @@ _ZN10JavaThread27thread_from_jni_environmentEP7JNIEnv_.exit36: ; preds = %49, %5
   %61 = getelementptr inbounds nuw i8, ptr %60, i64 1352
   %62 = load ptr, ptr %61, align 8
   %63 = call noundef ptr %62(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef %4, ptr noundef null) #15
-  %64 = load volatile i32, ptr %12, align 4
+  %64 = load volatile i32, ptr %12, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %65 = add i32 %64, -57005
   %66 = icmp ult i32 %65, 2
@@ -39186,7 +39186,7 @@ _ZN23ClearPendingJniExcCheckC2EP7JNIEnv_.exit:    ; preds = %_ZN25WeakPreserveEx
   %35 = getelementptr inbounds nuw i8, ptr %34, i64 1336
   %36 = load ptr, ptr %35, align 8
   %37 = call noundef ptr %36(ptr noundef nonnull align 8 dereferenceable(8) %0, ptr noundef nonnull @.str.60) #15
-  %38 = load volatile i32, ptr %7, align 4
+  %38 = load volatile i32, ptr %7, align 8
   call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #15, !srcloc !6
   %39 = add i32 %38, -57005
   %40 = icmp ult i32 %39, 2

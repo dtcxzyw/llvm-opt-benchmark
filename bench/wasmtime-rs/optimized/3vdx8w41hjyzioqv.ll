@@ -33111,8 +33111,8 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 49:                                               ; preds = %5
   %50 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %51 = getelementptr inbounds nuw i8, ptr %.tr135, i64 4
-  %52 = load i8, ptr %50, align 1, !range !3168, !noundef !4
-  %53 = load i8, ptr %51, align 1, !range !3168, !noundef !4
+  %52 = load i8, ptr %50, align 4, !range !3168, !noundef !4
+  %53 = load i8, ptr %51, align 4, !range !3168, !noundef !4
   %54 = icmp eq i8 %52, %53
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
@@ -33139,32 +33139,32 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 55:                                               ; preds = %7
   %56 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %57 = getelementptr inbounds nuw i8, ptr %.tr135, i64 4
-  %58 = load i8, ptr %56, align 1, !noundef !4
-  %59 = load i8, ptr %57, align 1, !noundef !4
+  %58 = load i8, ptr %56, align 4, !noundef !4
+  %59 = load i8, ptr %57, align 4, !noundef !4
   %60 = icmp eq i8 %58, %59
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 61:                                               ; preds = %9
   %62 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %63 = getelementptr inbounds nuw i8, ptr %.tr135, i64 4
-  %64 = load i8, ptr %62, align 1, !noundef !4
-  %65 = load i8, ptr %63, align 1, !noundef !4
+  %64 = load i8, ptr %62, align 4, !noundef !4
+  %65 = load i8, ptr %63, align 4, !noundef !4
   %66 = icmp eq i8 %64, %65
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 67:                                               ; preds = %11
   %68 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %69 = getelementptr inbounds nuw i8, ptr %.tr135, i64 4
-  %70 = load i16, ptr %68, align 2, !noundef !4
-  %71 = load i16, ptr %69, align 2, !noundef !4
+  %70 = load i16, ptr %68, align 4, !noundef !4
+  %71 = load i16, ptr %69, align 4, !noundef !4
   %72 = icmp eq i16 %70, %71
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
 73:                                               ; preds = %13
   %74 = getelementptr inbounds nuw i8, ptr %.tr, i64 4
   %75 = getelementptr inbounds nuw i8, ptr %.tr135, i64 4
-  %76 = load i16, ptr %74, align 2, !noundef !4
-  %77 = load i16, ptr %75, align 2, !noundef !4
+  %76 = load i16, ptr %74, align 4, !noundef !4
+  %77 = load i16, ptr %75, align 4, !noundef !4
   %78 = icmp eq i16 %76, %77
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
 
@@ -33270,9 +33270,9 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
 
 144:                                              ; preds = %141
   %145 = getelementptr inbounds nuw i8, ptr %.tr135, i64 16
-  %.val97 = load ptr, ptr %145, align 8, !nonnull !4, !noundef !4
+  %.val97 = load ptr, ptr %145, align 16, !nonnull !4, !noundef !4
   %146 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val95 = load ptr, ptr %146, align 8, !nonnull !4, !noundef !4
+  %.val95 = load ptr, ptr %146, align 16, !nonnull !4, !noundef !4
   %bcmp.i.i = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val95, ptr nonnull readonly align 1 %.val97, i64 %.val96), !alias.scope !7373
   %147 = icmp eq i32 %bcmp.i.i, 0
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
@@ -33281,11 +33281,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7377)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7380)
   %149 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %150 = load ptr, ptr %149, align 8, !alias.scope !7377, !noalias !7380, !nonnull !4, !noundef !4
+  %150 = load ptr, ptr %149, align 16, !alias.scope !7377, !noalias !7380, !nonnull !4, !noundef !4
   %151 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %152 = load i64, ptr %151, align 8, !alias.scope !7377, !noalias !7380, !noundef !4
   %153 = getelementptr inbounds nuw i8, ptr %.tr135, i64 16
-  %154 = load ptr, ptr %153, align 8, !alias.scope !7380, !noalias !7377, !nonnull !4, !noundef !4
+  %154 = load ptr, ptr %153, align 16, !alias.scope !7380, !noalias !7377, !nonnull !4, !noundef !4
   %155 = getelementptr inbounds nuw i8, ptr %.tr135, i64 24
   %156 = load i64, ptr %155, align 8, !alias.scope !7380, !noalias !7377, !noundef !4
   %.not.i = icmp eq i64 %152, %156
@@ -33307,11 +33307,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7383)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7386)
   %163 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %164 = load ptr, ptr %163, align 8, !alias.scope !7383, !noalias !7386, !nonnull !4, !noundef !4
+  %164 = load ptr, ptr %163, align 16, !alias.scope !7383, !noalias !7386, !nonnull !4, !noundef !4
   %165 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %166 = load i64, ptr %165, align 8, !alias.scope !7383, !noalias !7386, !noundef !4
   %167 = getelementptr inbounds nuw i8, ptr %.tr135, i64 16
-  %168 = load ptr, ptr %167, align 8, !alias.scope !7386, !noalias !7383, !nonnull !4, !noundef !4
+  %168 = load ptr, ptr %167, align 16, !alias.scope !7386, !noalias !7383, !nonnull !4, !noundef !4
   %169 = getelementptr inbounds nuw i8, ptr %.tr135, i64 24
   %170 = load i64, ptr %169, align 8, !alias.scope !7386, !noalias !7383, !noundef !4
   %.not.i114 = icmp eq i64 %166, %170
@@ -33339,11 +33339,11 @@ tailrecurse:                                      ; preds = %tailrecurse.backedg
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7389)
   tail call void @llvm.experimental.noalias.scope.decl(metadata !7392)
   %180 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %181 = load ptr, ptr %180, align 8, !alias.scope !7389, !noalias !7392, !nonnull !4, !noundef !4
+  %181 = load ptr, ptr %180, align 16, !alias.scope !7389, !noalias !7392, !nonnull !4, !noundef !4
   %182 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %183 = load i64, ptr %182, align 8, !alias.scope !7389, !noalias !7392, !noundef !4
   %184 = getelementptr inbounds nuw i8, ptr %.tr135, i64 16
-  %185 = load ptr, ptr %184, align 8, !alias.scope !7392, !noalias !7389, !nonnull !4, !noundef !4
+  %185 = load ptr, ptr %184, align 16, !alias.scope !7392, !noalias !7389, !nonnull !4, !noundef !4
   %186 = getelementptr inbounds nuw i8, ptr %.tr135, i64 24
   %187 = load i64, ptr %186, align 8, !alias.scope !7392, !noalias !7389, !noundef !4
   %.not.i119 = icmp eq i64 %183, %187
@@ -33403,9 +33403,9 @@ tailrecurse.backedge:                             ; preds = %200, %213, %229, %2
 
 209:                                              ; preds = %206
   %210 = getelementptr inbounds nuw i8, ptr %.tr135, i64 16
-  %.val89 = load ptr, ptr %210, align 8, !nonnull !4, !noundef !4
+  %.val89 = load ptr, ptr %210, align 16, !nonnull !4, !noundef !4
   %211 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val = load ptr, ptr %211, align 8, !nonnull !4, !noundef !4
+  %.val = load ptr, ptr %211, align 16, !nonnull !4, !noundef !4
   %bcmp.i.i109 = tail call i32 @bcmp(ptr nonnull readonly align 1 %.val, ptr nonnull readonly align 1 %.val89, i64 %.val88), !alias.scope !7399
   %212 = icmp eq i32 %bcmp.i.i109, 0
   br label %"_ZN5alloc3vec10partial_eq117_$LT$impl$u20$core..cmp..PartialEq$LT$alloc..vec..Vec$LT$U$C$A2$GT$$GT$$u20$for$u20$alloc..vec..Vec$LT$T$C$A1$GT$$GT$2eq17h6ffe68b6c1363049E.exit"
@@ -33462,11 +33462,11 @@ tailrecurse.backedge:                             ; preds = %200, %213, %229, %2
 
 239:                                              ; preds = %45
   %240 = getelementptr inbounds nuw i8, ptr %.tr, i64 16
-  %.val99 = load ptr, ptr %240, align 8, !nonnull !4, !noundef !4
+  %.val99 = load ptr, ptr %240, align 16, !nonnull !4, !noundef !4
   %241 = getelementptr inbounds nuw i8, ptr %.tr, i64 24
   %.val100 = load i64, ptr %241, align 8, !noundef !4
   %242 = getelementptr inbounds nuw i8, ptr %.tr135, i64 16
-  %.val101 = load ptr, ptr %242, align 8, !nonnull !4, !noundef !4
+  %.val101 = load ptr, ptr %242, align 16, !nonnull !4, !noundef !4
   %243 = getelementptr inbounds nuw i8, ptr %.tr135, i64 24
   %.val102 = load i64, ptr %243, align 8, !noundef !4
   %.not.i.i111 = icmp eq i64 %.val100, %.val102

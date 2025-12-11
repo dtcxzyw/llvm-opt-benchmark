@@ -3933,7 +3933,6 @@ lean_alloc_ctor.exit:                             ; preds = %11
 
 lean_alloc_closure.exit:                          ; preds = %lean_alloc_ctor.exit
   %20 = getelementptr inbounds nuw i8, ptr %17, i64 4
-  store i32 1, ptr %17, align 4, !tbaa !8
   store i32 -184549344, ptr %20, align 4
   %21 = getelementptr inbounds nuw i8, ptr %17, i64 8
   store ptr @l_Lean_Elab_Tactic_evalCalc___lambda__1___boxed, ptr %21, align 8, !tbaa !4
