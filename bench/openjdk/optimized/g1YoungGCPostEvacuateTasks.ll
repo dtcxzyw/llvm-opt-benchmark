@@ -1140,46 +1140,46 @@ define linkonce_odr hidden void @_ZN39G1PostEvacuateCollectionSetCleanupTask133S
   br label %13
 
 13:                                               ; preds = %.lr.ph, %_ZN27G1MonotonicArenaMemoryStats3addES_.exit
-  %.sroa.3.013 = phi i32 [ 0, %.lr.ph ], [ %34, %_ZN27G1MonotonicArenaMemoryStats3addES_.exit ]
+  %.sroa.3.013 = phi i32 [ 0, %.lr.ph ], [ %35, %_ZN27G1MonotonicArenaMemoryStats3addES_.exit ]
   %14 = call noundef i32 @_ZNK25G1CollectionSetCandidates22marking_regions_lengthEv(ptr noundef nonnull align 8 dereferenceable(72) %7) #15
   %15 = icmp ult i32 %.sroa.3.013, %14
-  %.sink.i = select i1 %15, i64 16, i64 40
   %16 = select i1 %15, i32 0, i32 %14
   %.sink8.i = sub nuw i32 %.sroa.3.013, %16
-  %17 = getelementptr inbounds nuw i8, ptr %7, i64 %.sink.i
-  %18 = load ptr, ptr %17, align 8
-  %19 = sext i32 %.sink8.i to i64
-  %20 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %18, i64 %19
-  %.0.i = load ptr, ptr %20, align 8
-  %21 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
-  %22 = load ptr, ptr %21, align 8
-  call void @_ZNK18G1HeapRegionRemSet21card_set_memory_statsEv(ptr dead_on_unwind nonnull writable sret(%class.G1MonotonicArenaMemoryStats) align 8 %5, ptr noundef nonnull align 8 dereferenceable(84) %22) #15
+  %17 = select i1 %15, i64 1112, i64 1136
+  %18 = getelementptr inbounds nuw i8, ptr %6, i64 %17
+  %19 = load ptr, ptr %18, align 8
+  %20 = sext i32 %.sink8.i to i64
+  %21 = getelementptr inbounds %struct.G1CollectionSetCandidateInfo, ptr %19, i64 %20
+  %.0.i = load ptr, ptr %21, align 8
+  %22 = getelementptr inbounds nuw i8, ptr %.0.i, i64 40
+  %23 = load ptr, ptr %22, align 8
+  call void @_ZNK18G1HeapRegionRemSet21card_set_memory_statsEv(ptr dead_on_unwind nonnull writable sret(%class.G1MonotonicArenaMemoryStats) align 8 %5, ptr noundef nonnull align 8 dereferenceable(84) %23) #15
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %3, ptr noundef nonnull align 8 dereferenceable(64) %5, i64 64, i1 false)
-  br label %23
+  br label %24
 
-23:                                               ; preds = %23, %13
-  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %23 ]
-  %24 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
-  %25 = load i64, ptr %24, align 8
-  %26 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
-  %27 = load i64, ptr %26, align 8
-  %28 = add i64 %27, %25
-  store i64 %28, ptr %26, align 8
-  %29 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
-  %30 = load i64, ptr %29, align 8
-  %31 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
-  %32 = load i64, ptr %31, align 8
-  %33 = add i64 %32, %30
-  store i64 %33, ptr %31, align 8
+24:                                               ; preds = %24, %13
+  %indvars.iv.i = phi i64 [ 0, %13 ], [ %indvars.iv.next.i, %24 ]
+  %25 = getelementptr inbounds nuw i64, ptr %3, i64 %indvars.iv.i
+  %26 = load i64, ptr %25, align 8
+  %27 = getelementptr inbounds nuw i64, ptr %4, i64 %indvars.iv.i
+  %28 = load i64, ptr %27, align 8
+  %29 = add i64 %28, %26
+  store i64 %29, ptr %27, align 8
+  %30 = getelementptr inbounds nuw i64, ptr %11, i64 %indvars.iv.i
+  %31 = load i64, ptr %30, align 8
+  %32 = getelementptr inbounds nuw i64, ptr %12, i64 %indvars.iv.i
+  %33 = load i64, ptr %32, align 8
+  %34 = add i64 %33, %31
+  store i64 %34, ptr %32, align 8
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, 4
-  br i1 %exitcond.not.i, label %_ZN27G1MonotonicArenaMemoryStats3addES_.exit, label %23, !llvm.loop !6
+  br i1 %exitcond.not.i, label %_ZN27G1MonotonicArenaMemoryStats3addES_.exit, label %24, !llvm.loop !6
 
-_ZN27G1MonotonicArenaMemoryStats3addES_.exit:     ; preds = %23
+_ZN27G1MonotonicArenaMemoryStats3addES_.exit:     ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %34 = add nuw i32 %.sroa.3.013, 1
-  %.not = icmp eq i32 %34, %10
+  %35 = add nuw i32 %.sroa.3.013, 1
+  %.not = icmp eq i32 %35, %10
   br i1 %.not, label %._crit_edge, label %13
 
 ._crit_edge:                                      ; preds = %_ZN27G1MonotonicArenaMemoryStats3addES_.exit, %2
@@ -3019,10 +3019,11 @@ _ZN15FreeCSetClosure23handle_evacuated_regionEP12G1HeapRegion.exit: ; preds = %5
   %88 = load i64, ptr %82, align 8
   %89 = add nsw i64 %86, %88
   store i64 %89, ptr %82, align 8
-  %90 = getelementptr inbounds nuw i8, ptr %82, i64 8
-  %91 = load i64, ptr %90, align 8
-  %92 = add nsw i64 %87, %91
-  store i64 %92, ptr %90, align 8
+  %90 = select i1 %.not.i11, i64 64, i64 48
+  %91 = getelementptr inbounds nuw i8, ptr %0, i64 %90
+  %92 = load i64, ptr %91, align 8
+  %93 = add nsw i64 %87, %92
+  store i64 %93, ptr %91, align 8
   call void @_ZN8JfrEventI20EventGCPhaseParallelE6commitEv(ptr noundef nonnull align 8 dereferenceable(40) %3)
   ret i1 false
 }

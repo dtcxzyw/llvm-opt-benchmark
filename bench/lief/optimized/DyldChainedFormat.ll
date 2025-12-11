@@ -49,103 +49,79 @@ define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_19DYLD_CHAINED_FORMATE(i32 noun
   br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !7
+  %7 = select i1 %.not.i.i.i.i.i.i.i.i, i64 24, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.sel, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !7
   br label %_ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread
 
 _ZNK6frozen3mapIN4LIEF5MachO19DYLD_CHAINED_FORMATEPKcLm3ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread: ; preds = %3, %1, %6
-  %9 = phi ptr [ %8, %6 ], [ @.str.3, %1 ], [ @.str.3, %3 ]
-  ret ptr %9
+  %10 = phi ptr [ %9, %6 ], [ @.str.3, %1 ], [ @.str.3, %3 ]
+  ret ptr %10
 }
-
-; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.memcpy.p0.p0.i64(ptr noalias writeonly captures(none), ptr noalias readonly captures(none), i64, i1 immarg) #1
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE(i32 noundef %0) local_unnamed_addr #0 {
-  %2 = alloca %"class.frozen::map.0", align 8
-  call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(232) %2, ptr noundef nonnull align 8 dereferenceable(232) @__const._ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE.enums2str, i64 232, i1 false)
   %.not.i.i.i.i.i.i = icmp sgt i32 %0, 7
-  br i1 %.not.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread29.i.i
+  br i1 %.not.i.i.i.i.i.i, label %2, label %8
 
-3:                                                ; preds = %1
+2:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 11
-  br i1 %.not.i.i.i.i.i.i.i, label %4, label %6
+  br i1 %.not.i.i.i.i.i.i.i, label %3, label %5
+
+3:                                                ; preds = %2
+  %.not.i.i.i.i.i.i.i.i.not = icmp eq i32 %0, 12
+  br i1 %.not.i.i.i.i.i.i.i.i.not, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread15, label %4
 
 4:                                                ; preds = %3
-  %.not.i.i.i.i.i.i.i.i.not = icmp eq i32 %0, 12
-  br i1 %.not.i.i.i.i.i.i.i.i.not, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread13, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 13
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread13: ; preds = %4
-  %5 = getelementptr inbounds nuw i8, ptr %2, i64 200
-  br label %17
-
-6:                                                ; preds = %3
+5:                                                ; preds = %2
   %.not.i6.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 9
-  %7 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
-  br label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
-
-_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread29.i.i: ; preds = %1
-  %.not.i6.i.i.i.i.i.i = icmp sgt i32 %0, 3
-  %.add16.i.i = select i1 %.not.i6.i.i.i.i.i.i, i64 72, i64 8
-  %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 88, i64 24
-  %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel = getelementptr inbounds nuw i8, ptr %2, i64 %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel.v
-  %8 = load i32, ptr %.add16.i.i.sroa.sel.sroa.sel.v.sroa.sel.v.sroa.sel, align 8, !tbaa !11
-  %.not.i.i7.i.i.i.i.i.i = icmp slt i32 %8, %0
-  %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 32, i64 0
-  %.add17.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %.add16.i.i
-  %.ptr23.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.add17.i.i
-  %9 = load i32, ptr %.ptr23.i.i, align 8, !tbaa !11
-  %.not.i.i.i.i.i.i.i.i.i = icmp slt i32 %9, %0
+  %6 = select i1 %.not.i6.i.i.i.i.i.i.i, i64 168, i64 136
+  %.sroa.sel8 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE.enums2str, i64 %6
+  %7 = load i32, ptr %.sroa.sel8, align 8, !tbaa !11
+  %.not.i.i.i.i.i.i.i.i.i = icmp slt i32 %7, %0
   %.idx.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add18.i.i = or disjoint i64 %.add17.i.i, %.idx.i.i.i.i.i.i.i.i.i
-  %10 = getelementptr inbounds nuw i8, ptr %2, i64 232
+  %.add.i.i = or disjoint i64 %.idx.i.i.i.i.i.i.i.i.i, %6
   br label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i: ; preds = %6, %4
-  %.sink10.i.i.i.i.i.i.i = phi i64 [ %7, %6 ], [ 216, %4 ]
-  %.ptr19.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sink10.i.i.i.i.i.i.i
-  %11 = load i32, ptr %.ptr19.i.i, align 8, !tbaa !11
-  %.not.i.i.i.i.i.i.i.i.i.i = icmp slt i32 %11, %0
-  %.idx.i.i.i.i.i.i.i.i.i.i = select i1 %.not.i.i.i.i.i.i.i.i.i.i, i64 16, i64 0
-  %.add15.i.i = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i.i.i, %.sink10.i.i.i.i.i.i.i
-  %12 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %.not.i.i = icmp eq i64 %.add15.i.i, 232
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit
+8:                                                ; preds = %1
+  %.not.i6.i.i.i.i.i.i = icmp sgt i32 %0, 3
+  %9 = select i1 %.not.i6.i.i.i.i.i.i, i64 72, i64 8
+  %.sroa.sel.v = select i1 %.not.i6.i.i.i.i.i.i, i64 88, i64 24
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE.enums2str, i64 %.sroa.sel.v
+  %10 = load i32, ptr %.sroa.sel, align 8, !tbaa !11
+  %.not.i.i7.i.i.i.i.i.i = icmp slt i32 %10, %0
+  %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 32, i64 0
+  %.add15.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %9
+  %.ptr20.i.i = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE.enums2str, i64 %.add15.i.i
+  %11 = load i32, ptr %.ptr20.i.i, align 8, !tbaa !11
+  %.not.i.i.i9.i.i.i.i.i.i = icmp slt i32 %11, %0
+  %.idx.i.i.i10.i.i.i.i.i.i = select i1 %.not.i.i.i9.i.i.i.i.i.i, i64 16, i64 0
+  %.add16.i.i = or disjoint i64 %.add15.i.i, %.idx.i.i.i10.i.i.i.i.i.i
+  br label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread29.i.i, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i
-  %13 = phi ptr [ %10, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread29.i.i ], [ %12, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.idx32.i.i = phi i64 [ %.add18.i.i, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread29.i.i ], [ %.add15.i.i, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i ]
-  %.0.i.i.i.i.ptr.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.0.i.i.i.i.idx32.i.i
-  %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i, align 4, !tbaa !11
-  %14 = icmp slt i32 %0, %.pre.i.i
-  %15 = select i1 %14, ptr %13, ptr %.0.i.i.i.i.ptr.i.i
-  %16 = getelementptr inbounds nuw i8, ptr %2, i64 232
-  %.not = icmp eq ptr %15, %16
-  br i1 %.not, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %17
+_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit: ; preds = %4, %5, %8
+  %.0.i.i.i.i.idx.ph.i.i = phi i64 [ 216, %4 ], [ %.add.i.i, %5 ], [ %.add16.i.i, %8 ]
+  %.0.i.i.i.i.ptr.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE.enums2str, i64 %.0.i.i.i.i.idx.ph.i.i
+  %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i.ptr, align 4, !tbaa !11
+  %12 = icmp slt i32 %0, %.pre.i.i
+  br i1 %12, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread15
 
-17:                                               ; preds = %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread13, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit
-  %.not26.i.i16 = phi ptr [ %5, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread13 ], [ %15, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit ]
-  %spec.select.i.i.sroa.sel = getelementptr inbounds nuw i8, ptr %.not26.i.i16, i64 8
-  %18 = load ptr, ptr %spec.select.i.i.sroa.sel, align 8, !tbaa !13
+_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread15: ; preds = %3, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit
+  %.0.i.i.i.i14.i.i.idx18 = phi i64 [ %.0.i.i.i.i.idx.ph.i.i, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit ], [ 200, %3 ]
+  %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF5MachO9to_stringENS0_23DYLD_CHAINED_PTR_FORMATE.enums2str, i64 %.0.i.i.i.i14.i.i.idx18
+  %13 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
+  %14 = load ptr, ptr %13, align 8, !tbaa !13
   br label %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit, %17
-  %19 = phi ptr [ %18, %17 ], [ @.str.3, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit ], [ @.str.3, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE11lower_boundIS3_EEPKSt4pairIS3_S5_ERKT_.exit.i.i ]
-  call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  ret ptr %19
+_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread: ; preds = %4, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread15
+  %15 = phi ptr [ %14, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit.thread15 ], [ @.str.3, %_ZNK6frozen3mapIN4LIEF5MachO23DYLD_CHAINED_PTR_FORMATEPKcLm14ESt4lessIS3_EE4findIS3_EEPKSt4pairIS3_S5_ERKT_.exit ], [ @.str.3, %4 ]
+  ret ptr %15
 }
 
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.start.p0(ptr captures(none)) #2
-
-; Function Attrs: mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite)
-declare void @llvm.lifetime.end.p0(ptr captures(none)) #2
-
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #1 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
-attributes #2 = { mustprogress nocallback nofree nosync nounwind willreturn memory(argmem: readwrite) }
 
 !llvm.module.flags = !{!0, !1, !2}
 

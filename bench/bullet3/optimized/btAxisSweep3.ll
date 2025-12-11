@@ -2665,9 +2665,8 @@ _ZN20btAxisSweep3InternalItE11sortMaxDownEitP12btDispatcherb.exit: ; preds = %.l
   %260 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %258, i64 %259
   %261 = and i16 %255, 1
   %.not.i59 = icmp eq i16 %261, 0
-  %..i60 = select i1 %.not.i59, i64 52, i64 58
-  %262 = getelementptr inbounds nuw i8, ptr %260, i64 %..i60
-  %263 = getelementptr inbounds nuw i8, ptr %262, i64 2
+  %262 = select i1 %.not.i59, i64 54, i64 60
+  %263 = getelementptr inbounds nuw i8, ptr %260, i64 %262
   %264 = load i16, ptr %263, align 2, !tbaa !47
   %265 = add i16 %264, 1
   store i16 %265, ptr %263, align 2, !tbaa !47
@@ -2721,9 +2720,8 @@ _ZN20btAxisSweep3InternalItE11sortMinDownEitP12btDispatcherb.exit62: ; preds = %
   %293 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned short>::Handle", ptr %291, i64 %292
   %294 = and i16 %288, 1
   %.not.i68 = icmp eq i16 %294, 0
-  %..i69 = select i1 %.not.i68, i64 52, i64 58
-  %295 = getelementptr inbounds nuw i8, ptr %293, i64 %..i69
-  %296 = getelementptr inbounds nuw i8, ptr %295, i64 2
+  %295 = select i1 %.not.i68, i64 54, i64 60
+  %296 = getelementptr inbounds nuw i8, ptr %293, i64 %295
   %297 = load i16, ptr %296, align 2, !tbaa !47
   %298 = add i16 %297, 1
   store i16 %298, ptr %296, align 2, !tbaa !47
@@ -4517,9 +4515,8 @@ _ZN20btAxisSweep3InternalIjE11sortMaxDownEijP12btDispatcherb.exit: ; preds = %.l
   %259 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %257, i64 %258
   %260 = and i32 %254, 1
   %.not.i59 = icmp eq i32 %260, 0
-  %..i60 = select i1 %.not.i59, i64 52, i64 64
-  %261 = getelementptr inbounds nuw i8, ptr %259, i64 %..i60
-  %262 = getelementptr inbounds nuw i8, ptr %261, i64 4
+  %261 = select i1 %.not.i59, i64 56, i64 68
+  %262 = getelementptr inbounds nuw i8, ptr %259, i64 %261
   %263 = load i32, ptr %262, align 4, !tbaa !72
   %264 = add i32 %263, 1
   store i32 %264, ptr %262, align 4, !tbaa !72
@@ -4573,9 +4570,8 @@ _ZN20btAxisSweep3InternalIjE11sortMinDownEijP12btDispatcherb.exit62: ; preds = %
   %292 = getelementptr inbounds nuw %"class.btAxisSweep3Internal<unsigned int>::Handle", ptr %290, i64 %291
   %293 = and i32 %287, 1
   %.not.i68 = icmp eq i32 %293, 0
-  %..i69 = select i1 %.not.i68, i64 52, i64 64
-  %294 = getelementptr inbounds nuw i8, ptr %292, i64 %..i69
-  %295 = getelementptr inbounds nuw i8, ptr %294, i64 4
+  %294 = select i1 %.not.i68, i64 56, i64 68
+  %295 = getelementptr inbounds nuw i8, ptr %292, i64 %294
   %296 = load i32, ptr %295, align 4, !tbaa !72
   %297 = add i32 %296, 1
   store i32 %297, ptr %295, align 4, !tbaa !72

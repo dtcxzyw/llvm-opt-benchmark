@@ -1075,7 +1075,7 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   br label %59
 
 59:                                               ; preds = %.lr.ph137, %._crit_edge133
-  %.086135 = phi i32 [ %52, %.lr.ph137 ], [ %108, %._crit_edge133 ]
+  %.086135 = phi i32 [ %52, %.lr.ph137 ], [ %109, %._crit_edge133 ]
   %60 = load ptr, ptr %55, align 8, !tbaa !46
   %61 = mul i32 %.086135, 3
   %62 = add i32 %61, -3
@@ -1148,18 +1148,19 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
 
 .loopexit.thread164:                              ; preds = %89
   tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %94, i32 noundef 0)
-  %96 = getelementptr inbounds nuw i8, ptr %94, i64 14
+  %96 = select i1 %.not109, i64 231, i64 203
+  %97 = getelementptr inbounds nuw i8, ptr %90, i64 %96
   br label %.lr.ph132.preheader
 
 .lr.ph127:                                        ; preds = %89, %.lr.ph127
-  %97 = phi i32 [ %100, %.lr.ph127 ], [ %95, %89 ]
-  %.1125 = phi i32 [ %98, %.lr.ph127 ], [ 2, %89 ]
-  %.290124 = phi ptr [ %99, %.lr.ph127 ], [ %94, %89 ]
+  %98 = phi i32 [ %101, %.lr.ph127 ], [ %95, %89 ]
+  %.1125 = phi i32 [ %99, %.lr.ph127 ], [ 2, %89 ]
+  %.290124 = phi ptr [ %100, %.lr.ph127 ], [ %94, %89 ]
   tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.290124, i32 noundef 1)
-  %98 = shl i32 %.1125, 1
-  %99 = getelementptr inbounds nuw i8, ptr %.290124, i64 1
-  %100 = lshr i32 %97, 1
-  %.not110 = icmp eq i32 %100, 0
+  %99 = shl i32 %.1125, 1
+  %100 = getelementptr inbounds nuw i8, ptr %.290124, i64 1
+  %101 = lshr i32 %98, 1
+  %.not110 = icmp eq i32 %101, 0
   br i1 %.not110, label %.loopexit, label %.lr.ph127, !llvm.loop !81
 
 .loopexit.thread:                                 ; preds = %88, %84
@@ -1167,29 +1168,29 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge133
 
 .loopexit:                                        ; preds = %.lr.ph127
-  %101 = ashr exact i32 %98, 1
-  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %99, i32 noundef 0)
-  %102 = getelementptr inbounds nuw i8, ptr %.290124, i64 15
-  %.not111130 = icmp eq i32 %98, 0
+  %102 = ashr exact i32 %99, 1
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %100, i32 noundef 0)
+  %103 = getelementptr inbounds nuw i8, ptr %.290124, i64 15
+  %.not111130 = icmp eq i32 %99, 0
   br i1 %.not111130, label %._crit_edge133, label %.lr.ph132.preheader
 
 .lr.ph132.preheader:                              ; preds = %.loopexit.thread164, %.loopexit
-  %103 = phi ptr [ %96, %.loopexit.thread164 ], [ %102, %.loopexit ]
-  %.0168 = phi i32 [ 1, %.loopexit.thread164 ], [ %101, %.loopexit ]
+  %104 = phi ptr [ %97, %.loopexit.thread164 ], [ %103, %.loopexit ]
+  %.0168 = phi i32 [ 1, %.loopexit.thread164 ], [ %102, %.loopexit ]
   br label %.lr.ph132
 
 .lr.ph132:                                        ; preds = %.lr.ph132.preheader, %.lr.ph132
-  %104 = phi i32 [ %107, %.lr.ph132 ], [ %.0168, %.lr.ph132.preheader ]
-  %105 = and i32 %104, %87
-  %.not112 = icmp ne i32 %105, 0
-  %106 = zext i1 %.not112 to i32
-  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %103, i32 noundef %106)
-  %107 = ashr i32 %104, 1
-  %.not111 = icmp eq i32 %107, 0
+  %105 = phi i32 [ %108, %.lr.ph132 ], [ %.0168, %.lr.ph132.preheader ]
+  %106 = and i32 %105, %87
+  %.not112 = icmp ne i32 %106, 0
+  %107 = zext i1 %.not112 to i32
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %104, i32 noundef %107)
+  %108 = ashr i32 %105, 1
+  %.not111 = icmp eq i32 %108, 0
   br i1 %.not111, label %._crit_edge133, label %.lr.ph132, !llvm.loop !82
 
 ._crit_edge133:                                   ; preds = %.lr.ph132, %.loopexit.thread, %.loopexit
-  %108 = add nsw i32 %.187141, 1
+  %109 = add nsw i32 %.187141, 1
   %.not103.not = icmp sgt i32 %.085.lcssa, %.187141
   br i1 %.not103.not, label %59, label %._crit_edge138.loopexit, !llvm.loop !83
 
@@ -1198,24 +1199,24 @@ define internal noundef i32 @encode_mcu_AC_first(ptr noundef %0, ptr noundef rea
   br label %._crit_edge138
 
 ._crit_edge138:                                   ; preds = %._crit_edge138.loopexit, %._crit_edge
-  %109 = phi i32 [ %28, %._crit_edge ], [ %.pre, %._crit_edge138.loopexit ]
-  %.086.lcssa = phi i32 [ %52, %._crit_edge ], [ %108, %._crit_edge138.loopexit ]
-  %.not104 = icmp sgt i32 %.086.lcssa, %109
-  br i1 %.not104, label %119, label %110
+  %110 = phi i32 [ %28, %._crit_edge ], [ %.pre, %._crit_edge138.loopexit ]
+  %.086.lcssa = phi i32 [ %52, %._crit_edge ], [ %109, %._crit_edge138.loopexit ]
+  %.not104 = icmp sgt i32 %.086.lcssa, %110
+  br i1 %.not104, label %120, label %111
 
-110:                                              ; preds = %._crit_edge138
-  %111 = getelementptr inbounds nuw i8, ptr %4, i64 240
-  %112 = sext i32 %26 to i64
-  %113 = getelementptr inbounds ptr, ptr %111, i64 %112
-  %114 = load ptr, ptr %113, align 8, !tbaa !46
-  %115 = mul i32 %.086.lcssa, 3
-  %116 = add i32 %115, -3
-  %117 = sext i32 %116 to i64
-  %118 = getelementptr inbounds i8, ptr %114, i64 %117
-  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef %118, i32 noundef 1)
-  br label %119
+111:                                              ; preds = %._crit_edge138
+  %112 = getelementptr inbounds nuw i8, ptr %4, i64 240
+  %113 = sext i32 %26 to i64
+  %114 = getelementptr inbounds ptr, ptr %112, i64 %113
+  %115 = load ptr, ptr %114, align 8, !tbaa !46
+  %116 = mul i32 %.086.lcssa, 3
+  %117 = add i32 %116, -3
+  %118 = sext i32 %117 to i64
+  %119 = getelementptr inbounds i8, ptr %115, i64 %118
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef %119, i32 noundef 1)
+  br label %120
 
-119:                                              ; preds = %110, %._crit_edge138
+120:                                              ; preds = %111, %._crit_edge138
   ret i32 1
 }
 
@@ -1580,8 +1581,8 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 224
   br label %35
 
-35:                                               ; preds = %.lr.ph208, %172
-  %indvars.iv218 = phi i64 [ 0, %.lr.ph208 ], [ %indvars.iv.next219, %172 ]
+35:                                               ; preds = %.lr.ph208, %173
+  %indvars.iv218 = phi i64 [ 0, %.lr.ph208 ], [ %indvars.iv.next219, %173 ]
   %36 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv218
   %37 = load ptr, ptr %36, align 8, !tbaa !73
   %38 = getelementptr inbounds nuw i32, ptr %25, i64 %indvars.iv218
@@ -1734,7 +1735,7 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
   br label %116
 
 116:                                              ; preds = %.lr.ph203, %._crit_edge199
-  %.0141201 = phi i32 [ 1, %.lr.ph203 ], [ %163, %._crit_edge199 ]
+  %.0141201 = phi i32 [ 1, %.lr.ph203 ], [ %164, %._crit_edge199 ]
   %117 = load ptr, ptr %114, align 8, !tbaa !46
   %118 = mul i32 %.0141201, 3
   %119 = add i32 %118, -3
@@ -1804,18 +1805,19 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
 
 .loopexit.thread236:                              ; preds = %144
   tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %149, i32 noundef 0)
-  %151 = getelementptr inbounds nuw i8, ptr %149, i64 14
+  %151 = select i1 %.not167, i64 231, i64 203
+  %152 = getelementptr inbounds nuw i8, ptr %145, i64 %151
   br label %.lr.ph198.preheader
 
 .lr.ph193:                                        ; preds = %144, %.lr.ph193
-  %152 = phi i32 [ %155, %.lr.ph193 ], [ %150, %144 ]
-  %.4191 = phi i32 [ %153, %.lr.ph193 ], [ 2, %144 ]
-  %.5148190 = phi ptr [ %154, %.lr.ph193 ], [ %149, %144 ]
+  %153 = phi i32 [ %156, %.lr.ph193 ], [ %150, %144 ]
+  %.4191 = phi i32 [ %154, %.lr.ph193 ], [ 2, %144 ]
+  %.5148190 = phi ptr [ %155, %.lr.ph193 ], [ %149, %144 ]
   tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %.5148190, i32 noundef 1)
-  %153 = shl i32 %.4191, 1
-  %154 = getelementptr inbounds nuw i8, ptr %.5148190, i64 1
-  %155 = ashr i32 %152, 1
-  %.not168 = icmp eq i32 %155, 0
+  %154 = shl i32 %.4191, 1
+  %155 = getelementptr inbounds nuw i8, ptr %.5148190, i64 1
+  %156 = ashr i32 %153, 1
+  %.not168 = icmp eq i32 %156, 0
   br i1 %.not168, label %.loopexit, label %.lr.ph193, !llvm.loop !92
 
 .loopexit.thread:                                 ; preds = %143, %._crit_edge
@@ -1823,56 +1825,56 @@ define internal noundef i32 @encode_mcu(ptr noundef %0, ptr noundef readonly cap
   br label %._crit_edge199
 
 .loopexit:                                        ; preds = %.lr.ph193
-  %156 = ashr exact i32 %153, 1
-  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %154, i32 noundef 0)
-  %157 = getelementptr inbounds nuw i8, ptr %.5148190, i64 15
-  %.not169196 = icmp eq i32 %153, 0
+  %157 = ashr exact i32 %154, 1
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %155, i32 noundef 0)
+  %158 = getelementptr inbounds nuw i8, ptr %.5148190, i64 15
+  %.not169196 = icmp eq i32 %154, 0
   br i1 %.not169196, label %._crit_edge199, label %.lr.ph198.preheader
 
 .lr.ph198.preheader:                              ; preds = %.loopexit.thread236, %.loopexit
-  %158 = phi ptr [ %151, %.loopexit.thread236 ], [ %157, %.loopexit ]
-  %.3240 = phi i32 [ 1, %.loopexit.thread236 ], [ %156, %.loopexit ]
+  %159 = phi ptr [ %152, %.loopexit.thread236 ], [ %158, %.loopexit ]
+  %.3240 = phi i32 [ 1, %.loopexit.thread236 ], [ %157, %.loopexit ]
   br label %.lr.ph198
 
 .lr.ph198:                                        ; preds = %.lr.ph198.preheader, %.lr.ph198
-  %159 = phi i32 [ %162, %.lr.ph198 ], [ %.3240, %.lr.ph198.preheader ]
-  %160 = and i32 %159, %142
-  %.not170 = icmp ne i32 %160, 0
-  %161 = zext i1 %.not170 to i32
-  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %158, i32 noundef %161)
-  %162 = ashr i32 %159, 1
-  %.not169 = icmp eq i32 %162, 0
+  %160 = phi i32 [ %163, %.lr.ph198 ], [ %.3240, %.lr.ph198.preheader ]
+  %161 = and i32 %160, %142
+  %.not170 = icmp ne i32 %161, 0
+  %162 = zext i1 %.not170 to i32
+  tail call fastcc void @arith_encode(ptr noundef nonnull %0, ptr noundef nonnull %159, i32 noundef %162)
+  %163 = ashr i32 %160, 1
+  %.not169 = icmp eq i32 %163, 0
   br i1 %.not169, label %._crit_edge199, label %.lr.ph198, !llvm.loop !93
 
 ._crit_edge199:                                   ; preds = %.lr.ph198, %.loopexit.thread, %.loopexit
-  %163 = add nsw i32 %.1142.lcssa, 1
+  %164 = add nsw i32 %.1142.lcssa, 1
   %.not164.not = icmp slt i32 %.1142.lcssa, %.0140180
   br i1 %.not164.not, label %116, label %._crit_edge204, !llvm.loop !94
 
 ._crit_edge204:                                   ; preds = %._crit_edge199
-  %164 = icmp slt i32 %.1142.lcssa, 63
-  br i1 %164, label %._crit_edge204.thread, label %172
+  %165 = icmp slt i32 %.1142.lcssa, 63
+  br i1 %165, label %._crit_edge204.thread, label %173
 
 ._crit_edge204.thread:                            ; preds = %109, %112, %._crit_edge204
-  %.0141.lcssa242 = phi i32 [ %163, %._crit_edge204 ], [ 1, %112 ], [ 1, %109 ]
-  %165 = sext i32 %101 to i64
-  %166 = getelementptr inbounds ptr, ptr %32, i64 %165
-  %167 = load ptr, ptr %166, align 8, !tbaa !46
-  %168 = mul i32 %.0141.lcssa242, 3
-  %169 = add i32 %168, -3
-  %170 = sext i32 %169 to i64
-  %171 = getelementptr inbounds i8, ptr %167, i64 %170
-  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef %171, i32 noundef 1)
-  br label %172
+  %.0141.lcssa242 = phi i32 [ %164, %._crit_edge204 ], [ 1, %112 ], [ 1, %109 ]
+  %166 = sext i32 %101 to i64
+  %167 = getelementptr inbounds ptr, ptr %32, i64 %166
+  %168 = load ptr, ptr %167, align 8, !tbaa !46
+  %169 = mul i32 %.0141.lcssa242, 3
+  %170 = add i32 %169, -3
+  %171 = sext i32 %170 to i64
+  %172 = getelementptr inbounds i8, ptr %168, i64 %171
+  tail call fastcc void @arith_encode(ptr noundef %0, ptr noundef %172, i32 noundef 1)
+  br label %173
 
-172:                                              ; preds = %._crit_edge204, %._crit_edge204.thread
+173:                                              ; preds = %._crit_edge204, %._crit_edge204.thread
   %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %173 = load i32, ptr %22, align 8, !tbaa !72
-  %174 = sext i32 %173 to i64
-  %175 = icmp slt i64 %indvars.iv.next219, %174
-  br i1 %175, label %35, label %._crit_edge209, !llvm.loop !95
+  %174 = load i32, ptr %22, align 8, !tbaa !72
+  %175 = sext i32 %174 to i64
+  %176 = icmp slt i64 %indvars.iv.next219, %175
+  br i1 %176, label %35, label %._crit_edge209, !llvm.loop !95
 
-._crit_edge209:                                   ; preds = %172, %21
+._crit_edge209:                                   ; preds = %173, %21
   ret i32 1
 }
 

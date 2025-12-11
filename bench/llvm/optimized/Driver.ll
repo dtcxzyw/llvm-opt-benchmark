@@ -68821,7 +68821,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_6TripleEE15
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %11, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 -56
-  br label %107
+  br label %108
 
 16:                                               ; preds = %3
   %17 = ptrtoint ptr %1 to i64
@@ -69021,11 +69021,12 @@ _ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move_b
   %spec.select = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %spec.select.idx
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE9_M_assignERKS4_(ptr noundef nonnull align 8 dereferenceable(56) %32, ptr noundef nonnull align 8 dereferenceable(56) %spec.select) #37
   %105 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %106 = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %106, i64 24, i1 false)
-  br label %107
+  %106 = select i1 %spec.select.i, i64 88, i64 32
+  %107 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %106
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
+  br label %108
 
-107:                                              ; preds = %_ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit, %10
+108:                                              ; preds = %_ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit, %10
   %.013 = phi ptr [ %15, %10 ], [ %32, %_ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit ]
   ret ptr %.013
 }

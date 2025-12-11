@@ -528,8 +528,8 @@ define hidden { i64, ptr } @"_ZN102_$LT$tokio..io..util..buf_writer..BufWriter$L
   br i1 %43, label %._crit_edge, label %.lr.ph89.preheader
 
 .lr.ph89.preheader:                               ; preds = %40
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 16
   %.sroa.054.185 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 32
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.0.083, i64 16
   br label %.lr.ph89
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %53

@@ -55755,7 +55755,7 @@ define internal fastcc void @_ZN6yara_x7scanner7context19verify_base64_match17hd
 
 23:                                               ; preds = %21
   %24 = and i64 %18, 3
-  switch i64 %24, label %default.unreachable107 [
+  switch i64 %24, label %default.unreachable103 [
     i64 0, label %36
     i64 2, label %30
     i64 3, label %33
@@ -55764,7 +55764,7 @@ define internal fastcc void @_ZN6yara_x7scanner7context19verify_base64_match17hd
 
 25:                                               ; preds = %21
   %26 = and i64 %18, 3
-  switch i64 %26, label %default.unreachable107 [
+  switch i64 %26, label %default.unreachable103 [
     i64 0, label %40
     i64 2, label %43
     i64 3, label %46
@@ -55773,14 +55773,14 @@ define internal fastcc void @_ZN6yara_x7scanner7context19verify_base64_match17hd
 
 27:                                               ; preds = %21
   %28 = and i64 %18, 3
-  switch i64 %28, label %default.unreachable107 [
+  switch i64 %28, label %default.unreachable103 [
     i64 0, label %50
     i64 2, label %53
     i64 3, label %56
     i64 1, label %49
   ], !prof !7188
 
-default.unreachable107:                           ; preds = %27, %25, %23
+default.unreachable103:                           ; preds = %27, %25, %23
   unreachable
 
 29:                                               ; preds = %23
@@ -55936,7 +55936,6 @@ default.unreachable107:                           ; preds = %27, %25, %23
 95:                                               ; preds = %_ZN6base646engine6Engine6decode17he3480da83e3f0b5dE.exit, %94
   %96 = load i64, ptr %13, align 8, !range !5, !noundef !4
   %97 = icmp eq i64 %96, -9223372036854775808
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 8
   br i1 %97, label %.thread95, label %117
 
 98:                                               ; preds = %"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$16with_capacity_in17haa2a1c6db1860b12E.exit"
@@ -55997,14 +55996,15 @@ _ZN6base646engine6Engine6decode17he3480da83e3f0b5dE.exit: ; preds = %111
 117:                                              ; preds = %95
   %118 = add i64 %5, %2
   %119 = icmp ult i64 %118, %5
-  %.sroa.gep98.sroa.gep100 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %120 = load i64, ptr %.sroa.gep98.sroa.gep100, align 8
+  %.sroa.031.0.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %120 = load i64, ptr %.sroa.031.0.sroa.gep, align 8
   %.not60 = icmp ugt i64 %118, %120
   %or.cond = select i1 %119, i1 true, i1 %.not60
   br i1 %or.cond, label %select.unfold, label %121
 
 121:                                              ; preds = %117
-  %122 = load ptr, ptr %.sroa.gep, align 8, !nonnull !4, !noundef !4
+  %.sroa.031.0.sroa.gep78 = getelementptr inbounds nuw i8, ptr %13, i64 8
+  %122 = load ptr, ptr %.sroa.031.0.sroa.gep78, align 8, !nonnull !4, !noundef !4
   %123 = getelementptr inbounds nuw i8, ptr %122, i64 %5
   %124 = invoke noundef zeroext i1 @"_ZN73_$LT$$u5b$A$u5d$$u20$as$u20$core..slice..cmp..SlicePartialEq$LT$B$GT$$GT$5equal17h4378f96f9e276f75E"(ptr noalias noundef nonnull readonly align 1 %1, i64 noundef %2, ptr noalias noundef nonnull readonly align 1 %123, i64 noundef %2)
           to label %129 unwind label %125

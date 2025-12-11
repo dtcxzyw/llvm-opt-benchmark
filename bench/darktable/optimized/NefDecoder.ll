@@ -4511,27 +4511,25 @@ define hidden void @_ZNK8rawspeed10NefDecoder17parseWhiteBalanceEv(ptr noundef n
   br label %199
 
 183:                                              ; preds = %173
-  %.sroa.gep = getelementptr inbounds nuw i8, ptr %3, i64 6
-  %.sroa.gep258 = getelementptr inbounds nuw i8, ptr %3, i64 14
-  %.sroa.gep.val = load i16, ptr %.sroa.gep, align 1
-  %.sroa.gep258.val = load i16, ptr %.sroa.gep258, align 1
-  %.0.copyload.i.i.i = select i1 %91, i16 %.sroa.gep.val, i16 %.sroa.gep258.val
+  %.sroa.sel.v = select i1 %91, i64 6, i64 14
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel.v
+  %.0.copyload.i.i.i = load i16, ptr %.sroa.sel, align 1
   %184 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i)
   %185 = uitofp i16 %184 to float
   %186 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %187 = load ptr, ptr %186, align 8, !tbaa !25
   %188 = getelementptr inbounds nuw i8, ptr %187, i64 256
   store float %185, ptr %188, align 4, !tbaa !186
-  %.sroa.sel.sroa.sel261.v = select i1 %91, i64 8, i64 16
-  %.sroa.sel.sroa.sel261 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel.sroa.sel261.v
-  %.0.copyload.i.i.i103 = load i16, ptr %.sroa.sel.sroa.sel261, align 1
+  %.sroa.sel261.v = select i1 %91, i64 8, i64 16
+  %.sroa.sel261 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel261.v
+  %.0.copyload.i.i.i103 = load i16, ptr %.sroa.sel261, align 1
   %189 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i103)
   %190 = uitofp i16 %189 to float
   %191 = getelementptr inbounds nuw i8, ptr %187, i64 260
   store float %190, ptr %191, align 4, !tbaa !186
-  %.sroa.sel.sroa.sel.v = select i1 %91, i64 12, i64 20
-  %.sroa.sel.sroa.sel = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel.sroa.sel.v
-  %.0.copyload.i.i.i104 = load i16, ptr %.sroa.sel.sroa.sel, align 1
+  %.sroa.sel264.v = select i1 %91, i64 12, i64 20
+  %.sroa.sel264 = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.sel264.v
+  %.0.copyload.i.i.i104 = load i16, ptr %.sroa.sel264, align 1
   %192 = call noundef i16 @llvm.bswap.i16(i16 %.0.copyload.i.i.i104)
   %193 = uitofp i16 %192 to float
   %194 = getelementptr inbounds nuw i8, ptr %187, i64 264

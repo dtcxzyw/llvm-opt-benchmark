@@ -908,34 +908,32 @@ define hidden void @Curl_ssl_conn_config_update(ptr noundef readonly captures(no
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !139
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %23, label %5
+  br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
-  %.v = select i1 %1, i64 1504, i64 1304
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  %. = select i1 %1, i64 824, i64 696
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 121
-  %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 2
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 121
-  %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, -3
-  %14 = or disjoint i8 %13, %10
-  store i8 %14, ptr %11, align 1
-  %15 = load i8, ptr %8, align 1
-  %16 = and i8 %15, 1
-  %17 = and i8 %14, -2
-  %18 = or disjoint i8 %17, %16
-  store i8 %18, ptr %11, align 1
-  %19 = load i8, ptr %8, align 1
-  %20 = and i8 %19, 4
-  %21 = and i8 %18, -5
-  %22 = or disjoint i8 %21, %20
-  store i8 %22, ptr %11, align 1
-  br label %23
+  %. = select i1 %1, i64 1625, i64 1425
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %7 = load i8, ptr %6, align 1
+  %8 = and i8 %7, 2
+  %9 = select i1 %1, i64 945, i64 817
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
+  %11 = load i8, ptr %10, align 1
+  %12 = and i8 %11, -3
+  %13 = or disjoint i8 %12, %8
+  store i8 %13, ptr %10, align 1
+  %14 = load i8, ptr %6, align 1
+  %15 = and i8 %14, 1
+  %16 = and i8 %13, -2
+  %17 = or disjoint i8 %16, %15
+  store i8 %17, ptr %10, align 1
+  %18 = load i8, ptr %6, align 1
+  %19 = and i8 %18, 4
+  %20 = and i8 %17, -5
+  %21 = or disjoint i8 %20, %19
+  store i8 %21, ptr %10, align 1
+  br label %22
 
-23:                                               ; preds = %5, %2
+22:                                               ; preds = %5, %2
   ret void
 }
 

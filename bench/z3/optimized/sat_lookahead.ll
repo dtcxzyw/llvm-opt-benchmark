@@ -12192,15 +12192,15 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %11
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 912
   br label %26
 
-.critedge.preheader:                              ; preds = %58, %.thread, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit
-  %.023.lcssa = phi ptr [ %16, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ %.02336, %.thread ], [ %.124, %58 ]
-  %.0.lcssa = phi ptr [ %16, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ %53, %.thread ], [ %60, %58 ]
+.critedge.preheader:                              ; preds = %59, %.thread, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit
+  %.023.lcssa = phi ptr [ %16, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ %.02336, %.thread ], [ %.124, %59 ]
+  %.0.lcssa = phi ptr [ %16, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit ], [ %54, %.thread ], [ %61, %59 ]
   %.not2639 = icmp eq ptr %.0.lcssa, %22
   br i1 %.not2639, label %.critedge._crit_edge, label %.critedge
 
-26:                                               ; preds = %.lr.ph, %58
-  %.037 = phi ptr [ %16, %.lr.ph ], [ %60, %58 ]
-  %.02336 = phi ptr [ %16, %.lr.ph ], [ %.124, %58 ]
+26:                                               ; preds = %.lr.ph, %59
+  %.037 = phi ptr [ %16, %.lr.ph ], [ %61, %59 ]
+  %.02336 = phi ptr [ %16, %.lr.ph ], [ %.124, %59 ]
   %27 = load ptr, ptr %0, align 8, !tbaa !8
   %28 = getelementptr inbounds nuw i8, ptr %27, i64 528
   %29 = load ptr, ptr %28, align 8, !tbaa !79
@@ -12238,55 +12238,54 @@ _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit:       ; preds = %11
 50:                                               ; preds = %39, %26
   %51 = phi i8 [ %.pre, %39 ], [ %37, %26 ]
   %52 = trunc nuw i8 %51 to i1
-  br i1 %52, label %.thread, label %54
+  br i1 %52, label %.thread, label %55
 
 .thread:                                          ; preds = %50
-  %spec.select.idx = select i1 %34, i64 0, i64 16
-  %spec.select = getelementptr inbounds nuw i8, ptr %.037, i64 %spec.select.idx
-  %53 = getelementptr inbounds nuw i8, ptr %spec.select, i64 16
+  %53 = select i1 %34, i64 16, i64 32
+  %54 = getelementptr inbounds nuw i8, ptr %.037, i64 %53
   br label %.critedge.preheader
 
-54:                                               ; preds = %50
-  br i1 %34, label %55, label %58
+55:                                               ; preds = %50
+  br i1 %34, label %56, label %59
 
-55:                                               ; preds = %54
+56:                                               ; preds = %55
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.02336, ptr noundef nonnull align 8 dereferenceable(12) %.037, i64 12, i1 false), !tbaa.struct !359
-  %56 = getelementptr inbounds nuw i8, ptr %.02336, i64 16
+  %57 = getelementptr inbounds nuw i8, ptr %.02336, i64 16
   %.pre46 = load i8, ptr %8, align 8, !range !241
-  %57 = trunc nuw i8 %.pre46 to i1
-  br label %58
+  %58 = trunc nuw i8 %.pre46 to i1
+  br label %59
 
-58:                                               ; preds = %54, %55
-  %59 = phi i1 [ %57, %55 ], [ false, %54 ]
-  %.124 = phi ptr [ %56, %55 ], [ %.02336, %54 ]
-  %60 = getelementptr inbounds nuw i8, ptr %.037, i64 16
-  %.not = icmp eq ptr %60, %22
-  %or.cond32 = select i1 %.not, i1 true, i1 %59
+59:                                               ; preds = %55, %56
+  %60 = phi i1 [ %58, %56 ], [ false, %55 ]
+  %.124 = phi ptr [ %57, %56 ], [ %.02336, %55 ]
+  %61 = getelementptr inbounds nuw i8, ptr %.037, i64 16
+  %.not = icmp eq ptr %61, %22
+  %or.cond32 = select i1 %.not, i1 true, i1 %60
   br i1 %or.cond32, label %.critedge.preheader, label %26, !llvm.loop !360
 
 .critedge:                                        ; preds = %.critedge.preheader, %.critedge
-  %.241 = phi ptr [ %61, %.critedge ], [ %.0.lcssa, %.critedge.preheader ]
-  %.22540 = phi ptr [ %62, %.critedge ], [ %.023.lcssa, %.critedge.preheader ]
+  %.241 = phi ptr [ %62, %.critedge ], [ %.0.lcssa, %.critedge.preheader ]
+  %.22540 = phi ptr [ %63, %.critedge ], [ %.023.lcssa, %.critedge.preheader ]
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.22540, ptr noundef nonnull align 8 dereferenceable(12) %.241, i64 12, i1 false), !tbaa.struct !359
-  %61 = getelementptr inbounds nuw i8, ptr %.241, i64 16
-  %62 = getelementptr inbounds nuw i8, ptr %.22540, i64 16
-  %.not26 = icmp eq ptr %61, %22
+  %62 = getelementptr inbounds nuw i8, ptr %.241, i64 16
+  %63 = getelementptr inbounds nuw i8, ptr %.22540, i64 16
+  %.not26 = icmp eq ptr %62, %22
   br i1 %.not26, label %.critedge._crit_edge, label %.critedge, !llvm.loop !361
 
 .critedge._crit_edge:                             ; preds = %.critedge, %.critedge.preheader
-  %.225.lcssa.ph = phi ptr [ %.023.lcssa, %.critedge.preheader ], [ %62, %.critedge ]
+  %.225.lcssa.ph = phi ptr [ %.023.lcssa, %.critedge.preheader ], [ %63, %.critedge ]
   %.pr = load ptr, ptr %15, align 8, !tbaa !310
   %.not.i = icmp eq ptr %.pr, null
   br i1 %.not.i, label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit, label %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i
 
 _ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i:     ; preds = %.critedge._crit_edge
-  %63 = ptrtoint ptr %.225.lcssa.ph to i64
-  %64 = ptrtoint ptr %.pr to i64
-  %65 = sub i64 %63, %64
-  %66 = lshr exact i64 %65, 4
-  %67 = trunc i64 %66 to i32
-  %68 = getelementptr inbounds i8, ptr %.pr, i64 -4
-  store i32 %67, ptr %68, align 4, !tbaa !87
+  %64 = ptrtoint ptr %.225.lcssa.ph to i64
+  %65 = ptrtoint ptr %.pr to i64
+  %66 = sub i64 %64, %65
+  %67 = lshr exact i64 %66, 4
+  %68 = trunc i64 %67 to i32
+  %69 = getelementptr inbounds i8, ptr %.pr, i64 -4
+  store i32 %68, ptr %69, align 4, !tbaa !87
   br label %_ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit
 
 _ZN6vectorIN3sat7watchedELb1EjE7set_endEPS1_.exit: ; preds = %11, %_ZN6vectorIN3sat7watchedELb1EjE3endEv.exit.i, %.critedge._crit_edge, %2, %7

@@ -30623,100 +30623,101 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   br i1 %99, label %100, label %_ZNSt13_Bit_iteratorppEi.exit
 
 100:                                              ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
-  %101 = getelementptr inbounds nuw i8, ptr %.sroa.03.1.i.i.i.i.i.i, i64 8
+  %101 = select i1 %95, i64 16, i64 8
+  %102 = getelementptr inbounds nuw i8, ptr %.sroa.03.017.i.i.i.i.i.i, i64 %101
   br label %_ZNSt13_Bit_iteratorppEi.exit
 
 _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, %100
   %.sroa.03.0.lcssa.i.i.i.i.i.i111 = phi ptr [ %.sroa.03.1.i.i.i.i.i.i, %100 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %77, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
   %.sroa.55.0.lcssa.i.i.i.i.i.i110 = phi i32 [ 63, %100 ], [ %.sroa.55.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 0, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %.sroa.083.0 = phi ptr [ %101, %100 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %77, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
+  %.sroa.083.0 = phi ptr [ %102, %100 ], [ %.sroa.03.1.i.i.i.i.i.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ %77, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
   %.sroa.684.0 = phi i32 [ 0, %100 ], [ %98, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit ], [ 1, %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i ]
-  %102 = zext nneg i32 %.sroa.55.0.lcssa.i.i.i.i.i.i110 to i64
-  %103 = shl nuw i64 1, %102
-  br i1 %3, label %104, label %107
+  %103 = zext nneg i32 %.sroa.55.0.lcssa.i.i.i.i.i.i110 to i64
+  %104 = shl nuw i64 1, %103
+  br i1 %3, label %105, label %108
 
-104:                                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %105 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i111, align 8, !tbaa !108
-  %106 = or i64 %105, %103
+105:                                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit
+  %106 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i111, align 8, !tbaa !108
+  %107 = or i64 %106, %104
   br label %_ZNSt14_Bit_referenceaSEb.exit53
 
-107:                                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %108 = xor i64 %103, -1
-  %109 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i111, align 8, !tbaa !108
-  %110 = and i64 %109, %108
+108:                                              ; preds = %_ZNSt13_Bit_iteratorppEi.exit
+  %109 = xor i64 %104, -1
+  %110 = load i64, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i111, align 8, !tbaa !108
+  %111 = and i64 %110, %109
   br label %_ZNSt14_Bit_referenceaSEb.exit53
 
-_ZNSt14_Bit_referenceaSEb.exit53:                 ; preds = %104, %107
-  %storemerge112 = phi i64 [ %110, %107 ], [ %106, %104 ]
+_ZNSt14_Bit_referenceaSEb.exit53:                 ; preds = %105, %108
+  %storemerge112 = phi i64 [ %111, %108 ], [ %107, %105 ]
   store i64 %storemerge112, ptr %.sroa.03.0.lcssa.i.i.i.i.i.i111, align 8, !tbaa !108
-  %111 = sub i64 %11, %74
-  %112 = shl nsw i64 %111, 3
-  %113 = zext i32 %2 to i64
-  %114 = sub nsw i64 %62, %113
-  %115 = add i64 %114, %112
-  %116 = icmp sgt i64 %115, 0
-  br i1 %116, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
+  %112 = sub i64 %11, %74
+  %113 = shl nsw i64 %112, 3
+  %114 = zext i32 %2 to i64
+  %115 = sub nsw i64 %62, %114
+  %116 = add i64 %115, %113
+  %117 = icmp sgt i64 %116, 0
+  br i1 %117, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt14_Bit_referenceaSEb.exit53, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66
-  %.024.i.i.i.i.i62 = phi i64 [ %134, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ], [ %115, %_ZNSt14_Bit_referenceaSEb.exit53 ]
+  %.024.i.i.i.i.i62 = phi i64 [ %135, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ], [ %116, %_ZNSt14_Bit_referenceaSEb.exit53 ]
   %.sroa.516.023.i.i.i.i.i = phi i32 [ %spec.select19.i.i.i.i.i70, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ], [ %2, %_ZNSt14_Bit_referenceaSEb.exit53 ]
   %.sroa.013.022.i.i.i.i.i = phi ptr [ %spec.select.i.i.i.i.i69, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ], [ %1, %_ZNSt14_Bit_referenceaSEb.exit53 ]
   %.sroa.59.021.i.i.i.i.i63 = phi i32 [ %.sroa.59.1.i.i.i.i.i73, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ], [ %.sroa.684.0, %_ZNSt14_Bit_referenceaSEb.exit53 ]
   %.sroa.07.020.i.i.i.i.i64 = phi ptr [ %.sroa.07.1.i.i.i.i.i72, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ], [ %.sroa.083.0, %_ZNSt14_Bit_referenceaSEb.exit53 ]
-  %117 = zext nneg i32 %.sroa.516.023.i.i.i.i.i to i64
-  %118 = shl nuw i64 1, %117
-  %119 = zext nneg i32 %.sroa.59.021.i.i.i.i.i63 to i64
-  %120 = shl nuw i64 1, %119
-  %121 = load i64, ptr %.sroa.013.022.i.i.i.i.i, align 8, !tbaa !108
-  %122 = and i64 %121, %118
-  %.not.i.i.i.i.i.i65 = icmp eq i64 %122, 0
-  br i1 %.not.i.i.i.i.i.i65, label %126, label %123
+  %118 = zext nneg i32 %.sroa.516.023.i.i.i.i.i to i64
+  %119 = shl nuw i64 1, %118
+  %120 = zext nneg i32 %.sroa.59.021.i.i.i.i.i63 to i64
+  %121 = shl nuw i64 1, %120
+  %122 = load i64, ptr %.sroa.013.022.i.i.i.i.i, align 8, !tbaa !108
+  %123 = and i64 %122, %119
+  %.not.i.i.i.i.i.i65 = icmp eq i64 %123, 0
+  br i1 %.not.i.i.i.i.i.i65, label %127, label %124
 
-123:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %124 = load i64, ptr %.sroa.07.020.i.i.i.i.i64, align 8, !tbaa !108
-  %125 = or i64 %124, %120
+124:                                              ; preds = %.lr.ph.i.i.i.i.i
+  %125 = load i64, ptr %.sroa.07.020.i.i.i.i.i64, align 8, !tbaa !108
+  %126 = or i64 %125, %121
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66
 
-126:                                              ; preds = %.lr.ph.i.i.i.i.i
-  %127 = xor i64 %120, -1
-  %128 = load i64, ptr %.sroa.07.020.i.i.i.i.i64, align 8, !tbaa !108
-  %129 = and i64 %128, %127
+127:                                              ; preds = %.lr.ph.i.i.i.i.i
+  %128 = xor i64 %121, -1
+  %129 = load i64, ptr %.sroa.07.020.i.i.i.i.i64, align 8, !tbaa !108
+  %130 = and i64 %129, %128
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66
 
-_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66:    ; preds = %126, %123
-  %storemerge.i.i.i.i.i67 = phi i64 [ %125, %123 ], [ %129, %126 ]
+_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66:    ; preds = %127, %124
+  %storemerge.i.i.i.i.i67 = phi i64 [ %126, %124 ], [ %130, %127 ]
   store i64 %storemerge.i.i.i.i.i67, ptr %.sroa.07.020.i.i.i.i.i64, align 8, !tbaa !108
-  %130 = add i32 %.sroa.516.023.i.i.i.i.i, 1
-  %131 = icmp eq i32 %.sroa.516.023.i.i.i.i.i, 63
-  %spec.select.idx.i.i.i.i.i68 = select i1 %131, i64 8, i64 0
+  %131 = add i32 %.sroa.516.023.i.i.i.i.i, 1
+  %132 = icmp eq i32 %.sroa.516.023.i.i.i.i.i, 63
+  %spec.select.idx.i.i.i.i.i68 = select i1 %132, i64 8, i64 0
   %spec.select.i.i.i.i.i69 = getelementptr inbounds nuw i8, ptr %.sroa.013.022.i.i.i.i.i, i64 %spec.select.idx.i.i.i.i.i68
-  %spec.select19.i.i.i.i.i70 = select i1 %131, i32 0, i32 %130
-  %132 = add i32 %.sroa.59.021.i.i.i.i.i63, 1
-  %133 = icmp eq i32 %.sroa.59.021.i.i.i.i.i63, 63
-  %.sroa.07.1.idx.i.i.i.i.i71 = select i1 %133, i64 8, i64 0
+  %spec.select19.i.i.i.i.i70 = select i1 %132, i32 0, i32 %131
+  %133 = add i32 %.sroa.59.021.i.i.i.i.i63, 1
+  %134 = icmp eq i32 %.sroa.59.021.i.i.i.i.i63, 63
+  %.sroa.07.1.idx.i.i.i.i.i71 = select i1 %134, i64 8, i64 0
   %.sroa.07.1.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %.sroa.07.020.i.i.i.i.i64, i64 %.sroa.07.1.idx.i.i.i.i.i71
-  %.sroa.59.1.i.i.i.i.i73 = select i1 %133, i32 0, i32 %132
-  %134 = add nsw i64 %.024.i.i.i.i.i62, -1
-  %135 = icmp sgt i64 %.024.i.i.i.i.i62, 1
-  br i1 %135, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !874
+  %.sroa.59.1.i.i.i.i.i73 = select i1 %134, i32 0, i32 %133
+  %135 = add nsw i64 %.024.i.i.i.i.i62, -1
+  %136 = icmp sgt i64 %.024.i.i.i.i.i62, 1
+  br i1 %136, label %.lr.ph.i.i.i.i.i, label %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, !llvm.loop !874
 
 _ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit:  ; preds = %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66, %_ZNSt14_Bit_referenceaSEb.exit53
   %.sroa.07.0.lcssa.i.i.i.i.i58 = phi ptr [ %.sroa.083.0, %_ZNSt14_Bit_referenceaSEb.exit53 ], [ %.sroa.07.1.i.i.i.i.i72, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ]
   %.sroa.59.0.lcssa.i.i.i.i.i59 = phi i32 [ %.sroa.684.0, %_ZNSt14_Bit_referenceaSEb.exit53 ], [ %.sroa.59.1.i.i.i.i.i73, %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i66 ]
   %.not.i74 = icmp eq ptr %58, null
-  br i1 %.not.i74, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %136
+  br i1 %.not.i74, label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit, label %137
 
-136:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
-  %137 = ashr exact i64 %60, 3
-  %138 = sub nsw i64 0, %137
-  %139 = getelementptr inbounds i64, ptr %8, i64 %138
-  tail call void @_ZdlPvm(ptr noundef %139, i64 noundef %60) #29
+137:                                              ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit
+  %138 = ashr exact i64 %60, 3
+  %139 = sub nsw i64 0, %138
+  %140 = getelementptr inbounds i64, ptr %8, i64 %139
+  tail call void @_ZdlPvm(ptr noundef %140, i64 noundef %60) #29
   br label %_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit
 
-_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %136
-  %140 = lshr i64 %70, 6
-  %141 = getelementptr inbounds nuw i64, ptr %73, i64 %140
-  store ptr %141, ptr %7, align 8, !tbaa !863
+_ZNSt13_Bvector_baseISaIbEE13_M_deallocateEv.exit: ; preds = %_ZSt4copyISt13_Bit_iteratorS0_ET0_T_S2_S1_.exit, %137
+  %141 = lshr i64 %70, 6
+  %142 = getelementptr inbounds nuw i64, ptr %73, i64 %141
+  store ptr %142, ptr %7, align 8, !tbaa !863
   store ptr %73, ptr %0, align 8
   %.sroa.588.0..sroa_idx89 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 0, ptr %.sroa.588.0..sroa_idx89, align 8

@@ -2486,15 +2486,17 @@ _ZN4core3ops8function5FnMut8call_mut17hd20f1c9a03c9784fE.exit30.i.i: ; preds = %
   %.not = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %48
   %.sroa.0.0..sroa.06.0.i.i = select i1 %.not, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %64, ptr noundef nonnull align 8 dereferenceable(48) %.sroa.0.0..sroa.06.0.i.i, i64 48, i1 false), !alias.scope !438
-  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not, i64 48, i64 0
-  %.sroa.sel18.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel18.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not, i64 0, i64 48
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel54.v = select i1 %.sroa.0.0.i.i.i.i, i64 48, i64 96
+  %.sroa.sel54 = getelementptr inbounds nuw i8, ptr %.sroa.0.013.i.i, i64 %.sroa.sel54.v
+  %.sroa.sel18 = select i1 %.not, ptr %.sroa.sel54, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
+  %.sroa.sel49.v = select i1 %.sroa.0.0.i.i.i.i, i64 96, i64 48
+  %.sroa.sel49 = getelementptr inbounds nuw i8, ptr %.sroa.06.011.i.i, i64 %.sroa.sel49.v
+  %.sroa.sel = select i1 %.not, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel49
   br label %81
 
 81:                                               ; preds = %80, %._crit_edge.i.i
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %80 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel18.idx.sroa.sel, %80 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %80 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel18, %80 ]
   %82 = icmp ne ptr %.sroa.0.1.i.i, %48
   %83 = icmp ne ptr %.sroa.06.1.i.i, %49
   %or.cond.i.i = select i1 %82, i1 true, i1 %83, !prof !424

@@ -2557,7 +2557,7 @@ define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImpl3addERKNS_11ue2_
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %9 = load i8, ptr %8, align 8, !range !8, !noundef !9
   %10 = trunc nuw i8 %9 to i1
-  br i1 %10, label %78, label %11
+  br i1 %10, label %80, label %11
 
 11:                                               ; preds = %3
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -2568,7 +2568,7 @@ define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImpl3addERKNS_11ue2_
   %17 = load i32, ptr %16, align 8
   %18 = zext i32 %17 to i64
   %19 = icmp ugt i64 %13, %18
-  br i1 %19, label %78, label %20
+  br i1 %19, label %80, label %20
 
 20:                                               ; preds = %11
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 192
@@ -2587,143 +2587,145 @@ define internal void @_ZN3ue212_GLOBAL__N_119SmallWriteBuildImpl3addERKNS_11ue2_
   %30 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i32 %2, ptr %4, align 4
-  %31 = getelementptr inbounds nuw i8, ptr %30, i64 56
-  %.sroa.041.0.copyload.i = load ptr, ptr %31, align 8
-  %32 = load i64, ptr %12, align 8
-  %.not4553.i = icmp eq i64 %32, 0
+  %31 = select i1 %29, i64 176, i64 104
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 %31
+  %.sroa.041.0.copyload.i = load ptr, ptr %32, align 8
+  %33 = load i64, ptr %12, align 8
+  %.not4553.i = icmp eq i64 %33, 0
   br i1 %.not4553.i, label %_ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %28
-  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %30, i64 64
+  %34 = select i1 %29, i64 184, i64 112
+  %.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 %34
   %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8
-  %33 = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %34 = getelementptr inbounds nuw i8, ptr %5, i64 16
-  %35 = getelementptr inbounds nuw i8, ptr %5, i64 40
-  %36 = getelementptr inbounds nuw i8, ptr %5, i64 24
-  %37 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  br label %38
+  %35 = getelementptr inbounds nuw i8, ptr %5, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %5, i64 16
+  %37 = getelementptr inbounds nuw i8, ptr %5, i64 40
+  %38 = getelementptr inbounds nuw i8, ptr %5, i64 24
+  %39 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  br label %40
 
-38:                                               ; preds = %.thread.i, %.lr.ph.i
+40:                                               ; preds = %.thread.i, %.lr.ph.i
   %.sroa.8.056.i = phi i64 [ %.sroa.8.0.copyload.i, %.lr.ph.i ], [ %.sroa.9.1.i, %.thread.i ]
   %.sroa.041.055.i = phi ptr [ %.sroa.041.0.copyload.i, %.lr.ph.i ], [ %.sroa.035.1.i, %.thread.i ]
-  %.sroa.6.054.i = phi i64 [ 0, %.lr.ph.i ], [ %74, %.thread.i ]
-  %39 = load ptr, ptr %1, align 8
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 %.sroa.6.054.i
-  %41 = load i8, ptr %40, align 1
-  %42 = getelementptr inbounds nuw i8, ptr %.sroa.041.055.i, i64 104
+  %.sroa.6.054.i = phi i64 [ 0, %.lr.ph.i ], [ %76, %.thread.i ]
+  %41 = load ptr, ptr %1, align 8
+  %42 = getelementptr inbounds nuw i8, ptr %41, i64 %.sroa.6.054.i
+  %43 = load i8, ptr %42, align 1
+  %44 = getelementptr inbounds nuw i8, ptr %.sroa.041.055.i, i64 104
   br label %.critedge.i
 
-.critedge.i:                                      ; preds = %43, %38
-  %.sroa.031.0.in.i = phi ptr [ %42, %38 ], [ %.sroa.031.0.i, %43 ]
+.critedge.i:                                      ; preds = %45, %40
+  %.sroa.031.0.in.i = phi ptr [ %44, %40 ], [ %.sroa.031.0.i, %45 ]
   %.sroa.031.0.i = load ptr, ptr %.sroa.031.0.in.i, align 8
-  %.not46.i = icmp eq ptr %.sroa.031.0.i, %42
-  br i1 %.not46.i, label %48, label %43
+  %.not46.i = icmp eq ptr %.sroa.031.0.i, %44
+  br i1 %.not46.i, label %50, label %45
 
-43:                                               ; preds = %.critedge.i
-  %44 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.i, i64 40
-  %45 = load ptr, ptr %44, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %45, i64 24
-  %47 = load i8, ptr %46, align 8
-  %.not.i = icmp eq i8 %47, %41
+45:                                               ; preds = %.critedge.i
+  %46 = getelementptr inbounds nuw i8, ptr %.sroa.031.0.i, i64 40
+  %47 = load ptr, ptr %46, align 8
+  %48 = getelementptr inbounds nuw i8, ptr %47, i64 24
+  %49 = load i8, ptr %48, align 8
+  %.not.i = icmp eq i8 %49, %43
   br i1 %.not.i, label %.thread.loopexit.i, label %.critedge.i
 
-48:                                               ; preds = %.critedge.i
+50:                                               ; preds = %.critedge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
   store i64 0, ptr %5, align 8
-  store i8 %41, ptr %33, align 8
-  store ptr %35, ptr %34, align 8
-  store i64 2, ptr %37, align 8
-  store i64 0, ptr %36, align 8
-  %49 = invoke { ptr, i64 } @_ZN3ue29ue2_graphINS_7LitTrieENS_18LitTrieVertexPropsENS_16LitTrieEdgePropsEE15add_vertex_implEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
-          to label %.noexc.i unwind label %65
+  store i8 %43, ptr %35, align 8
+  store ptr %37, ptr %36, align 8
+  store i64 2, ptr %39, align 8
+  store i64 0, ptr %38, align 8
+  %51 = invoke { ptr, i64 } @_ZN3ue29ue2_graphINS_7LitTrieENS_18LitTrieVertexPropsENS_16LitTrieEdgePropsEE15add_vertex_implEv(ptr noundef nonnull align 8 dereferenceable(72) %30)
+          to label %.noexc.i unwind label %67
 
-.noexc.i:                                         ; preds = %48
-  %50 = extractvalue { ptr, i64 } %49, 0
-  %51 = getelementptr inbounds nuw i8, ptr %50, i64 16
-  %52 = load i64, ptr %51, align 8
-  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %51, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 9, i1 false)
-  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %51
-  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %58, label %53, !prof !89
+.noexc.i:                                         ; preds = %50
+  %52 = extractvalue { ptr, i64 } %51, 0
+  %53 = getelementptr inbounds nuw i8, ptr %52, i64 16
+  %54 = load i64, ptr %53, align 8
+  call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(48) %53, ptr noundef nonnull align 8 dereferenceable(48) %5, i64 9, i1 false)
+  %.not.i.i.i.i.i.i.i.i.i.i.i = icmp eq ptr %5, %53
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i.i, label %60, label %55, !prof !89
 
-53:                                               ; preds = %.noexc.i
-  %54 = getelementptr inbounds nuw i8, ptr %50, i64 32
-  %55 = load ptr, ptr %34, align 8
-  %56 = load i64, ptr %36, align 8
-  %57 = getelementptr inbounds nuw i32, ptr %55, i64 %56
-  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %54, ptr noundef %55, ptr noundef %57, ptr noundef null)
-          to label %58 unwind label %65
+55:                                               ; preds = %.noexc.i
+  %56 = getelementptr inbounds nuw i8, ptr %52, i64 32
+  %57 = load ptr, ptr %36, align 8
+  %58 = load i64, ptr %38, align 8
+  %59 = getelementptr inbounds nuw i32, ptr %57, i64 %58
+  invoke void @_ZN5boost9container6vectorIjNS0_22small_vector_allocatorIjSaIvEvEEvE6assignIPjEEvT_S8_PNS_11move_detail13disable_if_orIvNS9_7is_sameINS9_17integral_constantIjLj1EEENSC_IjLj0EEEEENS9_14is_convertibleIS8_mEENS0_3dtl17is_input_iteratorIS8_Xsr21has_iterator_categoryIS8_EE5valueEEENS9_5bool_ILb0EEEE4typeE(ptr noundef nonnull align 8 dereferenceable(32) %56, ptr noundef %57, ptr noundef %59, ptr noundef null)
+          to label %60 unwind label %67
 
-58:                                               ; preds = %53, %.noexc.i
-  store i64 %52, ptr %51, align 8
-  %59 = extractvalue { ptr, i64 } %49, 1
-  %60 = load i64, ptr %37, align 8
-  %.not.i.i.i.i.i.i = icmp eq i64 %60, 0
-  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i, label %61
+60:                                               ; preds = %55, %.noexc.i
+  store i64 %54, ptr %53, align 8
+  %61 = extractvalue { ptr, i64 } %51, 1
+  %62 = load i64, ptr %39, align 8
+  %.not.i.i.i.i.i.i = icmp eq i64 %62, 0
+  br i1 %.not.i.i.i.i.i.i, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i, label %63
 
-61:                                               ; preds = %58
-  %62 = load ptr, ptr %34, align 8
-  %63 = icmp eq ptr %35, %62
-  br i1 %63, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i, label %64
+63:                                               ; preds = %60
+  %64 = load ptr, ptr %36, align 8
+  %65 = icmp eq ptr %37, %64
+  br i1 %65, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i, label %66
 
-64:                                               ; preds = %61
-  call void @_ZdlPv(ptr noundef %62) #30
+66:                                               ; preds = %63
+  call void @_ZdlPv(ptr noundef %64) #30
   br label %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i
 
-_ZN3ue218LitTrieVertexPropsD2Ev.exit.i:           ; preds = %64, %61, %58
+_ZN3ue218LitTrieVertexPropsD2Ev.exit.i:           ; preds = %66, %63, %60
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
-  call void @_ZN3ue29ue2_graphINS_7LitTrieENS_18LitTrieVertexPropsENS_16LitTrieEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.281") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %30, ptr %.sroa.041.055.i, i64 %.sroa.8.056.i, ptr nonnull %50, i64 %59)
+  call void @_ZN3ue29ue2_graphINS_7LitTrieENS_18LitTrieVertexPropsENS_16LitTrieEdgePropsEE13add_edge_implENS_12graph_detail17vertex_descriptorIS4_EES7_(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.281") align 8 %6, ptr noundef nonnull align 8 dereferenceable(72) %30, ptr %.sroa.041.055.i, i64 %.sroa.8.056.i, ptr nonnull %52, i64 %61)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %.thread.i
 
-65:                                               ; preds = %53, %48
-  %66 = landingpad { ptr, i32 }
+67:                                               ; preds = %55, %50
+  %68 = landingpad { ptr, i32 }
           cleanup
-  %67 = load i64, ptr %37, align 8
-  %.not.i.i.i.i.i29.i = icmp eq i64 %67, 0
-  br i1 %.not.i.i.i.i.i29.i, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i, label %68
+  %69 = load i64, ptr %39, align 8
+  %.not.i.i.i.i.i29.i = icmp eq i64 %69, 0
+  br i1 %.not.i.i.i.i.i29.i, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i, label %70
 
-68:                                               ; preds = %65
-  %69 = load ptr, ptr %34, align 8
-  %70 = icmp eq ptr %35, %69
-  br i1 %70, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i, label %71
+70:                                               ; preds = %67
+  %71 = load ptr, ptr %36, align 8
+  %72 = icmp eq ptr %37, %71
+  br i1 %72, label %_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i, label %73
 
-71:                                               ; preds = %68
-  call void @_ZdlPv(ptr noundef %69) #30
+73:                                               ; preds = %70
+  call void @_ZdlPv(ptr noundef %71) #30
   br label %_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i
 
-_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i:         ; preds = %71, %68, %65
+_ZN3ue218LitTrieVertexPropsD2Ev.exit30.i:         ; preds = %73, %70, %67
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  resume { ptr, i32 } %66
+  resume { ptr, i32 } %68
 
-.thread.loopexit.i:                               ; preds = %43
-  %72 = getelementptr inbounds nuw i8, ptr %45, i64 64
-  %73 = load i64, ptr %72, align 8
+.thread.loopexit.i:                               ; preds = %45
+  %74 = getelementptr inbounds nuw i8, ptr %47, i64 64
+  %75 = load i64, ptr %74, align 8
   br label %.thread.i
 
 .thread.i:                                        ; preds = %.thread.loopexit.i, %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i
-  %.sroa.9.1.i = phi i64 [ %59, %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i ], [ %73, %.thread.loopexit.i ]
-  %.sroa.035.1.i = phi ptr [ %50, %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i ], [ %45, %.thread.loopexit.i ]
-  %74 = add nuw i64 %.sroa.6.054.i, 1
-  %.not45.i = icmp eq i64 %74, %32
-  br i1 %.not45.i, label %_ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit, label %38
+  %.sroa.9.1.i = phi i64 [ %61, %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i ], [ %75, %.thread.loopexit.i ]
+  %.sroa.035.1.i = phi ptr [ %52, %_ZN3ue218LitTrieVertexPropsD2Ev.exit.i ], [ %47, %.thread.loopexit.i ]
+  %76 = add nuw i64 %.sroa.6.054.i, 1
+  %.not45.i = icmp eq i64 %76, %33
+  br i1 %.not45.i, label %_ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit, label %40
 
 _ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit: ; preds = %.thread.i, %28
   %.sroa.041.0.lcssa.i = phi ptr [ %.sroa.041.0.copyload.i, %28 ], [ %.sroa.035.1.i, %.thread.i ]
-  %75 = getelementptr inbounds nuw i8, ptr %.sroa.041.0.lcssa.i, i64 32
+  %77 = getelementptr inbounds nuw i8, ptr %.sroa.041.0.lcssa.i, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
-  call void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.300") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %75, ptr noundef nonnull align 4 dereferenceable(4) %4)
+  call void @_ZN3ue28flat_setIjSt4lessIjESaIjEE6insertERKj(ptr dead_on_unwind nonnull writable sret(%"struct.std::pair.300") align 8 %7, ptr noundef nonnull align 8 dereferenceable(32) %77, ptr noundef nonnull align 4 dereferenceable(4) %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  %76 = load i64, ptr %30, align 8
-  %77 = icmp ult i64 %76, 8001
+  %78 = load i64, ptr %30, align 8
+  %79 = icmp ult i64 %78, 8001
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %77, label %78, label %.sink.split
+  br i1 %79, label %80, label %.sink.split
 
 .sink.split:                                      ; preds = %_ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit, %20
   store i8 1, ptr %8, align 8
-  br label %78
+  br label %80
 
-78:                                               ; preds = %.sink.split, %_ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit, %11, %3
+80:                                               ; preds = %.sink.split, %_ZN3ue2L11add_to_trieERKNS_11ue2_literalEjRNS_7LitTrieE.exit, %11, %3
   ret void
 }
 

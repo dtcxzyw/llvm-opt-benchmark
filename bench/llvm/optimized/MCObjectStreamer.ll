@@ -5586,7 +5586,7 @@ _ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_ba
   %32 = zext i32 %30 to i64
   %33 = getelementptr inbounds nuw %"struct.std::pair.228", ptr %31, i64 %32
   %34 = getelementptr inbounds i8, ptr %33, i64 -24
-  br label %85
+  br label %86
 
 35:                                               ; preds = %3
   %36 = ptrtoint ptr %1 to i64
@@ -5677,12 +5677,13 @@ _ZSt13move_backwardIPSt4pairIjN4llvm9MCSection8FragListEES5_ET0_T_S7_S6_.exit: ;
   %spec.select = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %spec.select.idx
   %82 = load i32, ptr %spec.select, align 8, !tbaa !363
   store i32 %82, ptr %53, align 8, !tbaa !363
-  %83 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
-  %84 = getelementptr inbounds nuw i8, ptr %53, i64 8
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %84, ptr noundef nonnull align 8 dereferenceable(16) %83, i64 16, i1 false), !tbaa.struct !527
-  br label %85
+  %83 = select i1 %spec.select.i, i64 32, i64 8
+  %84 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %83
+  %85 = getelementptr inbounds nuw i8, ptr %53, i64 8
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %85, ptr noundef nonnull align 8 dereferenceable(16) %84, i64 16, i1 false), !tbaa.struct !527
+  br label %86
 
-85:                                               ; preds = %_ZSt13move_backwardIPSt4pairIjN4llvm9MCSection8FragListEES5_ET0_T_S7_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_backERKS4_.exit
+86:                                               ; preds = %_ZSt13move_backwardIPSt4pairIjN4llvm9MCSection8FragListEES5_ET0_T_S7_S6_.exit, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_backERKS4_.exit
   %.013 = phi ptr [ %34, %_ZN4llvm23SmallVectorTemplateBaseISt4pairIjNS_9MCSection8FragListEELb1EE9push_backERKS4_.exit ], [ %53, %_ZSt13move_backwardIPSt4pairIjN4llvm9MCSection8FragListEES5_ET0_T_S7_S6_.exit ]
   ret ptr %.013
 }

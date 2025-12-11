@@ -834,53 +834,59 @@ define hidden noundef zeroext i1 @je_pac_decay_ms_set(ptr noundef %0, ptr nounde
   %.sink.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sink.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink13.i
   %11 = tail call zeroext i1 @je_decay_ms_valid(i64 noundef %3) #9
-  br i1 %11, label %12, label %30
+  br i1 %11, label %12, label %36
 
 12:                                               ; preds = %5
-  %13 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 72
-  %14 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %13) #9
-  %.not.i = icmp eq i32 %14, 0
-  br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %16
+  %13 = select i1 %7, i64 58720, i64 60504
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %15 = tail call i32 @pthread_mutex_trylock(ptr noundef nonnull %14) #9
+  %.not.i = icmp eq i32 %15, 0
+  br i1 %.not.i, label %malloc_mutex_trylock_final.exit.i, label %18
 
 malloc_mutex_trylock_final.exit.i:                ; preds = %12
-  %15 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 64
-  store atomic i8 1, ptr %15 monotonic, align 1
-  br label %17
+  %16 = select i1 %7, i64 58712, i64 60496
+  %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
+  store atomic i8 1, ptr %17 monotonic, align 1
+  br label %19
 
-16:                                               ; preds = %12
+18:                                               ; preds = %12
   tail call void @je_malloc_mutex_lock_slow(ptr noundef nonnull %.sink12.i) #9
-  br label %17
+  br label %19
 
-17:                                               ; preds = %16, %malloc_mutex_trylock_final.exit.i
-  %18 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 56
-  %19 = load i64, ptr %18, align 8, !tbaa !52
-  %20 = add i64 %19, 1
-  store i64 %20, ptr %18, align 8, !tbaa !52
-  %21 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 48
-  %22 = load ptr, ptr %21, align 8, !tbaa !56
-  %.not.i.i = icmp eq ptr %22, %0
-  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %23
+19:                                               ; preds = %18, %malloc_mutex_trylock_final.exit.i
+  %20 = select i1 %7, i64 58704, i64 60488
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
+  %22 = load i64, ptr %21, align 8, !tbaa !52
+  %23 = add i64 %22, 1
+  store i64 %23, ptr %21, align 8, !tbaa !52
+  %24 = select i1 %7, i64 58696, i64 60480
+  %25 = getelementptr inbounds nuw i8, ptr %1, i64 %24
+  %26 = load ptr, ptr %25, align 8, !tbaa !56
+  %.not.i.i = icmp eq ptr %26, %0
+  br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %27
 
-23:                                               ; preds = %17
-  store ptr %0, ptr %21, align 8, !tbaa !56
-  %24 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 40
-  %25 = load i64, ptr %24, align 8, !tbaa !57
-  %26 = add i64 %25, 1
-  store i64 %26, ptr %24, align 8, !tbaa !57
+27:                                               ; preds = %19
+  store ptr %0, ptr %25, align 8, !tbaa !56
+  %28 = select i1 %7, i64 58688, i64 60472
+  %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
+  %30 = load i64, ptr %29, align 8, !tbaa !57
+  %31 = add i64 %30, 1
+  store i64 %31, ptr %29, align 8, !tbaa !57
   br label %malloc_mutex_lock.exit
 
-malloc_mutex_lock.exit:                           ; preds = %17, %23
+malloc_mutex_lock.exit:                           ; preds = %19, %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @je_nstime_init_update(ptr noundef nonnull %6) #9
   call void @je_decay_reinit(ptr noundef nonnull %.sink12.i, ptr noundef nonnull %6, i64 noundef %3) #9
-  %27 = call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink12.i, ptr noundef %.sink.i, ptr noundef nonnull %10, i32 noundef %4)
-  %28 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 64
-  store atomic i8 0, ptr %28 monotonic, align 1
-  %29 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %13) #9
+  %32 = call zeroext i1 @je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink12.i, ptr noundef %.sink.i, ptr noundef nonnull %10, i32 noundef %4)
+  %33 = select i1 %7, i64 58712, i64 60496
+  %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
+  store atomic i8 0, ptr %34 monotonic, align 1
+  %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %30
+  br label %36
 
-30:                                               ; preds = %5, %malloc_mutex_lock.exit
+36:                                               ; preds = %5, %malloc_mutex_lock.exit
   %.0 = xor i1 %11, true
   ret i1 %.0
 }
@@ -892,11 +898,10 @@ declare void @je_decay_reinit(ptr noundef, ptr noundef, i64 noundef) local_unnam
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define hidden i64 @je_pac_decay_ms_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq i32 %1, 1
-  %.sink12.v.i = select i1 %3, i64 58648, i64 60432
-  %.sink12.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink12.v.i
-  %4 = getelementptr inbounds nuw i8, ptr %.sink12.i, i64 120
-  %5 = load atomic i64, ptr %4 monotonic, align 8
-  ret i64 %5
+  %4 = select i1 %3, i64 58768, i64 60552
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %6 = load atomic i64, ptr %5 monotonic, align 8
+  ret i64 %6
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable

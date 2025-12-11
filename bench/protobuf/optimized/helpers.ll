@@ -14314,39 +14314,41 @@ invoke.cont45:                                    ; preds = %invoke.cont42
   %cached49 = getelementptr inbounds nuw i8, ptr %38, i64 %.
   %39 = load ptr, ptr %cached49, align 8, !noalias !318
   call void @llvm.prefetch.p0(ptr %39, i32 0, i32 1, i32 1), !noalias !318
-  %capacity_.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %cached49, i64 16
-  %40 = load i64, ptr %capacity_.i.i.i.i.i.i72, align 8, !noalias !325
-  %41 = ptrtoint ptr %39 to i64
-  %shr.i.i.i.i.i.i.i.i74 = lshr i64 %41, 12
+  %40 = select i1 %call46, i64 24, i64 56
+  %capacity_.i.i.i.i.i.i72 = getelementptr inbounds nuw i8, ptr %38, i64 %40
+  %41 = load i64, ptr %capacity_.i.i.i.i.i.i72, align 8, !noalias !325
+  %42 = ptrtoint ptr %39 to i64
+  %shr.i.i.i.i.i.i.i.i74 = lshr i64 %42, 12
   %xor.i.i.i.i.i.i.i75 = xor i64 %shr.i.i.i.i.i.i.i.i74, %shr.i.i.i.i.i.i.i
-  %slots_.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %cached49, i64 8
-  %42 = load ptr, ptr %slots_.i.i.i.i.i.i79, align 8, !noalias !318
+  %43 = select i1 %call46, i64 16, i64 48
+  %slots_.i.i.i.i.i.i79 = getelementptr inbounds nuw i8, ptr %38, i64 %43
+  %44 = load ptr, ptr %slots_.i.i.i.i.i.i79, align 8, !noalias !318
   br label %while.body.i.i.i.i80
 
 while.body.i.i.i.i80:                             ; preds = %if.end36.i.i.i.i, %invoke.cont45
   %xor.i.i.i.pn.i.i.i.i81 = phi i64 [ %xor.i.i.i.i.i.i.i75, %invoke.cont45 ], [ %add3.i.i.i.i.i96, %if.end36.i.i.i.i ]
   %seq.sroa.10.0.i.i.i.i82 = phi i64 [ 0, %invoke.cont45 ], [ %add.i13.i.i.i.i, %if.end36.i.i.i.i ]
-  %seq.sroa.4.0.i.i.i.i83 = and i64 %xor.i.i.i.pn.i.i.i.i81, %40
+  %seq.sroa.4.0.i.i.i.i83 = and i64 %xor.i.i.i.pn.i.i.i.i81, %41
   %add.ptr.i.i.i.i84 = getelementptr inbounds i8, ptr %39, i64 %seq.sroa.4.0.i.i.i.i83
-  %43 = load <16 x i8>, ptr %add.ptr.i.i.i.i84, align 1, !noalias !318
-  %cmp.i.i.i.i.i.i85 = icmp eq <16 x i8> %vecinit15.i.i.i.i.i.i, %43
-  %44 = bitcast <16 x i1> %cmp.i.i.i.i.i.i85 to i16
-  %cmp.i.not26.i.i.i.i = icmp eq i16 %44, 0
+  %45 = load <16 x i8>, ptr %add.ptr.i.i.i.i84, align 1, !noalias !318
+  %cmp.i.i.i.i.i.i85 = icmp eq <16 x i8> %vecinit15.i.i.i.i.i.i, %45
+  %46 = bitcast <16 x i1> %cmp.i.i.i.i.i.i85 to i16
+  %cmp.i.not26.i.i.i.i = icmp eq i16 %46, 0
   br i1 %cmp.i.not26.i.i.i.i, label %for.end.i.i.i.i95, label %for.body.preheader.i.i.i.i86
 
 for.body.preheader.i.i.i.i86:                     ; preds = %while.body.i.i.i.i80
-  %45 = zext i16 %44 to i32
+  %47 = zext i16 %46 to i32
   br label %for.body.i.i.i.i87
 
 for.body.i.i.i.i87:                               ; preds = %for.inc.i.i.i.i92, %for.body.preheader.i.i.i.i86
-  %__begin0.sroa.0.027.i.i.i.i = phi i32 [ %and.i10.i.i.i.i, %for.inc.i.i.i.i92 ], [ %45, %for.body.preheader.i.i.i.i86 ]
-  %46 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i.i.i, i1 true)
-  %conv.i.i.i.i88 = zext nneg i32 %46 to i64
+  %__begin0.sroa.0.027.i.i.i.i = phi i32 [ %and.i10.i.i.i.i, %for.inc.i.i.i.i92 ], [ %47, %for.body.preheader.i.i.i.i86 ]
+  %48 = call noundef range(i32 0, 33) i32 @llvm.cttz.i32(i32 %__begin0.sroa.0.027.i.i.i.i, i1 true)
+  %conv.i.i.i.i88 = zext nneg i32 %48 to i64
   %add.i.i.i.i.i89 = add i64 %seq.sroa.4.0.i.i.i.i83, %conv.i.i.i.i88
-  %and.i.i.i.i.i90 = and i64 %add.i.i.i.i.i89, %40
-  %add.ptr21.i.i.i.i = getelementptr inbounds ptr, ptr %42, i64 %and.i.i.i.i.i90
-  %47 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !318
-  %cmp.i.i.i.i.i.i.i.i.i91 = icmp eq ptr %47, %file
+  %and.i.i.i.i.i90 = and i64 %add.i.i.i.i.i89, %41
+  %add.ptr21.i.i.i.i = getelementptr inbounds ptr, ptr %44, i64 %and.i.i.i.i.i90
+  %49 = load ptr, ptr %add.ptr21.i.i.i.i, align 8, !noalias !318
+  %cmp.i.i.i.i.i.i.i.i.i91 = icmp eq ptr %49, %file
   br i1 %cmp.i.i.i.i.i.i.i.i.i91, label %delete.notnull, label %for.inc.i.i.i.i92
 
 for.inc.i.i.i.i92:                                ; preds = %for.body.i.i.i.i87
@@ -14356,9 +14358,9 @@ for.inc.i.i.i.i92:                                ; preds = %for.body.i.i.i.i87
   br i1 %cmp.i.not.i.i.i.i94, label %for.end.i.i.i.i95, label %for.body.i.i.i.i87
 
 for.end.i.i.i.i95:                                ; preds = %for.inc.i.i.i.i92, %while.body.i.i.i.i80
-  %cmp.i.i11.i.i.i.i = icmp eq <16 x i8> %43, splat (i8 -128)
-  %48 = bitcast <16 x i1> %cmp.i.i11.i.i.i.i to i16
-  %cmp.i12.not.i.i.i.i = icmp eq i16 %48, 0
+  %cmp.i.i11.i.i.i.i = icmp eq <16 x i8> %45, splat (i8 -128)
+  %50 = bitcast <16 x i1> %cmp.i.i11.i.i.i.i to i16
+  %cmp.i12.not.i.i.i.i = icmp eq i16 %50, 0
   br i1 %cmp.i12.not.i.i.i.i, label %if.end36.i.i.i.i, label %if.then.i.i.i
 
 if.end36.i.i.i.i:                                 ; preds = %for.end.i.i.i.i95
@@ -14371,18 +14373,18 @@ if.then.i.i.i:                                    ; preds = %for.end.i.i.i.i95
           to label %call38.i.i.i.i.noexc unwind label %lpad32
 
 call38.i.i.i.i.noexc:                             ; preds = %if.then.i.i.i
-  %49 = load ptr, ptr %slots_.i.i.i.i.i.i79, align 8, !noalias !318
-  %add.ptr.i2.i.i.i = getelementptr inbounds ptr, ptr %49, i64 %call38.i.i.i.i97
+  %51 = load ptr, ptr %slots_.i.i.i.i.i.i79, align 8, !noalias !318
+  %add.ptr.i2.i.i.i = getelementptr inbounds ptr, ptr %51, i64 %call38.i.i.i.i97
   store ptr %file, ptr %add.ptr.i2.i.i.i, align 8, !noalias !318
   br label %delete.notnull
 
 lpad32:                                           ; preds = %if.then.i.i.i, %invoke.cont33, %invoke.cont42, %invoke.cont35, %invoke.cont31
-  %50 = landingpad { ptr, i32 }
+  %52 = landingpad { ptr, i32 }
           cleanup
   br label %ehcleanup56
 
 lpad41:                                           ; preds = %invoke.cont39
-  %51 = landingpad { ptr, i32 }
+  %53 = landingpad { ptr, i32 }
           cleanup
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %ref.tmp38) #29
   br label %ehcleanup56
@@ -14390,13 +14392,13 @@ lpad41:                                           ; preds = %invoke.cont39
 delete.notnull:                                   ; preds = %for.body.i.i.i.i87, %call38.i.i.i.i.noexc
   %vtable = load ptr, ptr %call.i6364, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 8
-  %52 = load ptr, ptr %vfn, align 8
-  call void %52(ptr noundef nonnull align 8 dereferenceable(16) %call.i6364) #29
+  %54 = load ptr, ptr %vfn, align 8
+  call void %54(ptr noundef nonnull align 8 dereferenceable(16) %call.i6364) #29
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #29
   br label %cleanup
 
 ehcleanup56:                                      ; preds = %lpad41, %lpad32
-  %.pn7 = phi { ptr, i32 } [ %50, %lpad32 ], [ %51, %lpad41 ]
+  %.pn7 = phi { ptr, i32 } [ %52, %lpad32 ], [ %53, %lpad41 ]
   call void @_ZN6google8protobuf21DynamicMessageFactoryD1Ev(ptr noundef nonnull align 8 dereferenceable(64) %factory) #29
   br label %ehcleanup57
 
@@ -14416,10 +14418,10 @@ cleanup58:                                        ; preds = %if.end9, %lor.lhs.f
           to label %_ZN4absl12lts_202308029MutexLockD2Ev.exit unwind label %terminate.lpad.i
 
 terminate.lpad.i:                                 ; preds = %cleanup58
-  %53 = landingpad { ptr, i32 }
+  %55 = landingpad { ptr, i32 }
           catch ptr null
-  %54 = extractvalue { ptr, i32 } %53, 0
-  call void @__clang_call_terminate(ptr %54) #33
+  %56 = extractvalue { ptr, i32 } %55, 0
+  call void @__clang_call_terminate(ptr %56) #33
   unreachable
 
 _ZN4absl12lts_202308029MutexLockD2Ev.exit:        ; preds = %cleanup58
@@ -14431,10 +14433,10 @@ ehcleanup59:                                      ; preds = %ehcleanup57, %lpad3
           to label %eh.resume unwind label %terminate.lpad.i65
 
 terminate.lpad.i65:                               ; preds = %ehcleanup59
-  %55 = landingpad { ptr, i32 }
+  %57 = landingpad { ptr, i32 }
           catch ptr null
-  %56 = extractvalue { ptr, i32 } %55, 0
-  call void @__clang_call_terminate(ptr %56) #33
+  %58 = extractvalue { ptr, i32 } %57, 0
+  call void @__clang_call_terminate(ptr %58) #33
   unreachable
 
 eh.resume:                                        ; preds = %ehcleanup59, %lpad

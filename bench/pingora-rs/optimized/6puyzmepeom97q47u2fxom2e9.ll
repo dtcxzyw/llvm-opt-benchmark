@@ -401,15 +401,16 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h1
   %.sroa.0.0..sroa.06.0.i.i = select i1 %149, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %142
   %150 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 4, !alias.scope !37, !noalias !18
   store i64 %150, ptr %140, align 4, !alias.scope !18, !noalias !37
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %149, i64 8, i64 0
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel44.v = select i1 %137, i64 16, i64 8
+  %.sroa.sel44 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 %.sroa.sel44.v
+  %.sroa.sel = select i1 %149, ptr %.sroa.sel44, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %149, i64 0, i64 8
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %142, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   br label %151
 
 151:                                              ; preds = %148, %._crit_edge.i.i
   %.sroa.06.1.i.i = phi ptr [ %142, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %148 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %148 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %148 ]
   %152 = icmp ne ptr %.sroa.0.1.i.i, %131
   %153 = icmp ne ptr %.sroa.06.1.i.i, %132
   %or.cond.i.i = select i1 %152, i1 true, i1 %153, !prof !7

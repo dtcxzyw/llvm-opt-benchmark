@@ -421,7 +421,7 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
   store i32 %11, ptr %12, align 8, !tbaa !26
   %13 = tail call i32 @FT_Select_Charmap(ptr noundef %1, i32 noundef 1970170211) #21
   %.not = icmp eq i32 %13, 0
-  br i1 %.not, label %14, label %170
+  br i1 %.not, label %14, label %174
 
 14:                                               ; preds = %2
   tail call fastcc void @af_cjk_metrics_init_widths(ptr noundef nonnull %0, ptr noundef nonnull %1)
@@ -442,8 +442,8 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
   br label %23
 
 23:                                               ; preds = %._crit_edge250.thread.i, %.lr.ph256.i
-  %24 = phi i32 [ %21, %.lr.ph256.i ], [ %169, %._crit_edge250.thread.i ]
-  %.0138254.i = phi ptr [ %19, %.lr.ph256.i ], [ %168, %._crit_edge250.thread.i ]
+  %24 = phi i32 [ %21, %.lr.ph256.i ], [ %173, %._crit_edge250.thread.i ]
+  %.0138254.i = phi ptr [ %19, %.lr.ph256.i ], [ %172, %._crit_edge250.thread.i ]
   %25 = zext i32 %24 to i64
   %26 = getelementptr inbounds nuw i8, ptr @af_blue_strings, i64 %25
   %27 = getelementptr inbounds nuw i8, ptr %.0138254.i, i64 4
@@ -451,8 +451,6 @@ define internal noundef i32 @af_cjk_metrics_init(ptr noundef captures(none) init
   %.fr.i = freeze i16 %28
   %29 = and i16 %.fr.i, 2
   %.not163.i = icmp eq i16 %29, 0
-  %.0133.v.i = select i1 %.not163.i, i64 976, i64 80
-  %.0133.i = getelementptr inbounds nuw i8, ptr %0, i64 %.0133.v.i
   %30 = load i8, ptr %26, align 1, !tbaa !39
   %.not164243.i = icmp eq i8 %30, 0
   br i1 %.not164243.i, label %._crit_edge250.thread.i, label %.lr.ph249.i
@@ -815,90 +813,94 @@ af_sort_pos.exit.i:                               ; preds = %._crit_edge.i.i, %1
   br i1 %exitcond.not.i187.i, label %af_sort_pos.exit189.thread.i, label %.lr.ph.preheader.i178.i, !llvm.loop !62
 
 af_sort_pos.exit189.thread.i:                     ; preds = %._crit_edge.i186.i
-  %121 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 432
-  %122 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 428
-  %123 = load i32, ptr %122, align 4, !tbaa !63
-  %124 = zext i32 %123 to i64
-  %125 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %121, i64 %124
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 24
-  %127 = add i32 %123, 1
-  store i32 %127, ptr %122, align 4, !tbaa !63
-  br i1 %105, label %141, label %148
+  %121 = select i1 %.not163.i, i64 1408, i64 512
+  %122 = getelementptr inbounds nuw i8, ptr %0, i64 %121
+  %123 = select i1 %.not163.i, i64 1404, i64 508
+  %124 = getelementptr inbounds nuw i8, ptr %0, i64 %123
+  %125 = load i32, ptr %124, align 4, !tbaa !63
+  %126 = zext i32 %125 to i64
+  %127 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %122, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %127, i64 24
+  %129 = add i32 %125, 1
+  store i32 %129, ptr %124, align 4, !tbaa !63
+  br i1 %105, label %145, label %152
 
 af_sort_pos.exit189.i:                            ; preds = %af_sort_pos.exit.i
-  %128 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 432
-  %129 = getelementptr inbounds nuw i8, ptr %.0133.i, i64 428
-  %130 = load i32, ptr %129, align 4, !tbaa !63
-  %131 = zext i32 %130 to i64
-  %132 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %128, i64 %131
-  %133 = getelementptr inbounds nuw i8, ptr %132, i64 24
-  %134 = add i32 %130, 1
-  store i32 %134, ptr %129, align 4, !tbaa !63
-  br i1 %104, label %135, label %140
+  %130 = select i1 %.not163.i, i64 1408, i64 512
+  %131 = getelementptr inbounds nuw i8, ptr %0, i64 %130
+  %132 = select i1 %.not163.i, i64 1404, i64 508
+  %133 = getelementptr inbounds nuw i8, ptr %0, i64 %132
+  %134 = load i32, ptr %133, align 4, !tbaa !63
+  %135 = zext i32 %134 to i64
+  %136 = getelementptr inbounds nuw %struct.AF_CJKBlueRec_, ptr %131, i64 %135
+  %137 = getelementptr inbounds nuw i8, ptr %136, i64 24
+  %138 = add i32 %134, 1
+  store i32 %138, ptr %133, align 4, !tbaa !63
+  br i1 %104, label %139, label %144
 
-135:                                              ; preds = %af_sort_pos.exit189.i
-  %136 = lshr i32 %.1.i, 1
-  %137 = zext nneg i32 %136 to i64
-  %138 = getelementptr inbounds nuw i64, ptr %4, i64 %137
-  %139 = load i64, ptr %138, align 8, !tbaa !60
-  store i64 %139, ptr %133, align 8, !tbaa !60
-  store i64 %139, ptr %132, align 8, !tbaa !60
+139:                                              ; preds = %af_sort_pos.exit189.i
+  %140 = lshr i32 %.1.i, 1
+  %141 = zext nneg i32 %140 to i64
+  %142 = getelementptr inbounds nuw i64, ptr %4, i64 %141
+  %143 = load i64, ptr %142, align 8, !tbaa !60
+  store i64 %143, ptr %137, align 8, !tbaa !60
+  store i64 %143, ptr %136, align 8, !tbaa !60
   br label %.thread366.i
 
-140:                                              ; preds = %af_sort_pos.exit189.i
-  br i1 %105, label %141, label %148
+144:                                              ; preds = %af_sort_pos.exit189.i
+  br i1 %105, label %145, label %152
 
-141:                                              ; preds = %140, %af_sort_pos.exit189.thread.i
-  %142 = phi ptr [ %125, %af_sort_pos.exit189.thread.i ], [ %132, %140 ]
-  %143 = phi ptr [ %126, %af_sort_pos.exit189.thread.i ], [ %133, %140 ]
-  %144 = lshr i32 %.1128.i, 1
-  %145 = zext nneg i32 %144 to i64
-  %146 = getelementptr inbounds nuw i64, ptr %5, i64 %145
-  %147 = load i64, ptr %146, align 8, !tbaa !60
-  store i64 %147, ptr %143, align 8, !tbaa !60
-  store i64 %147, ptr %142, align 8, !tbaa !60
+145:                                              ; preds = %144, %af_sort_pos.exit189.thread.i
+  %146 = phi ptr [ %127, %af_sort_pos.exit189.thread.i ], [ %136, %144 ]
+  %147 = phi ptr [ %128, %af_sort_pos.exit189.thread.i ], [ %137, %144 ]
+  %148 = lshr i32 %.1128.i, 1
+  %149 = zext nneg i32 %148 to i64
+  %150 = getelementptr inbounds nuw i64, ptr %5, i64 %149
+  %151 = load i64, ptr %150, align 8, !tbaa !60
+  store i64 %151, ptr %147, align 8, !tbaa !60
+  store i64 %151, ptr %146, align 8, !tbaa !60
   br label %.thread366.i
 
-148:                                              ; preds = %140, %af_sort_pos.exit189.thread.i
-  %149 = phi ptr [ %125, %af_sort_pos.exit189.thread.i ], [ %132, %140 ]
-  %150 = phi ptr [ %126, %af_sort_pos.exit189.thread.i ], [ %133, %140 ]
-  %151 = lshr i32 %.1.i, 1
-  %152 = zext nneg i32 %151 to i64
-  %153 = getelementptr inbounds nuw i64, ptr %4, i64 %152
-  %154 = load i64, ptr %153, align 8, !tbaa !60
-  store i64 %154, ptr %149, align 8, !tbaa !60
-  %155 = lshr i32 %.1128.i, 1
+152:                                              ; preds = %144, %af_sort_pos.exit189.thread.i
+  %153 = phi ptr [ %127, %af_sort_pos.exit189.thread.i ], [ %136, %144 ]
+  %154 = phi ptr [ %128, %af_sort_pos.exit189.thread.i ], [ %137, %144 ]
+  %155 = lshr i32 %.1.i, 1
   %156 = zext nneg i32 %155 to i64
-  %157 = getelementptr inbounds nuw i64, ptr %5, i64 %156
+  %157 = getelementptr inbounds nuw i64, ptr %4, i64 %156
   %158 = load i64, ptr %157, align 8, !tbaa !60
-  store i64 %158, ptr %150, align 8, !tbaa !60
-  %.not165.i = icmp eq i64 %158, %154
-  %159 = trunc i16 %.fr.i to i1
-  %160 = icmp sge i64 %158, %154
-  %.not166.i = xor i1 %160, %159
+  store i64 %158, ptr %153, align 8, !tbaa !60
+  %159 = lshr i32 %.1128.i, 1
+  %160 = zext nneg i32 %159 to i64
+  %161 = getelementptr inbounds nuw i64, ptr %5, i64 %160
+  %162 = load i64, ptr %161, align 8, !tbaa !60
+  store i64 %162, ptr %154, align 8, !tbaa !60
+  %.not165.i = icmp eq i64 %162, %158
+  %163 = trunc i16 %.fr.i to i1
+  %164 = icmp sge i64 %162, %158
+  %.not166.i = xor i1 %164, %163
   %or.cond192.i = or i1 %.not165.i, %.not166.i
-  br i1 %or.cond192.i, label %.thread366.i, label %161
+  br i1 %or.cond192.i, label %.thread366.i, label %165
 
-161:                                              ; preds = %148
-  %162 = add nsw i64 %158, %154
-  %163 = sdiv i64 %162, 2
-  store i64 %163, ptr %150, align 8, !tbaa !60
-  store i64 %163, ptr %149, align 8, !tbaa !60
+165:                                              ; preds = %152
+  %166 = add nsw i64 %162, %158
+  %167 = sdiv i64 %166, 2
+  store i64 %167, ptr %154, align 8, !tbaa !60
+  store i64 %167, ptr %153, align 8, !tbaa !60
   br label %.thread366.i
 
-.thread366.i:                                     ; preds = %161, %148, %141, %135
-  %164 = phi ptr [ %149, %161 ], [ %149, %148 ], [ %132, %135 ], [ %142, %141 ]
-  %165 = getelementptr inbounds nuw i8, ptr %164, i64 48
-  %166 = shl i16 %.fr.i, 1
-  %167 = and i16 %166, 2
-  %spec.store.select.i = zext nneg i16 %167 to i32
-  store i32 %spec.store.select.i, ptr %165, align 8
+.thread366.i:                                     ; preds = %165, %152, %145, %139
+  %168 = phi ptr [ %153, %165 ], [ %153, %152 ], [ %136, %139 ], [ %146, %145 ]
+  %169 = getelementptr inbounds nuw i8, ptr %168, i64 48
+  %170 = shl i16 %.fr.i, 1
+  %171 = and i16 %170, 2
+  %spec.store.select.i = zext nneg i16 %171 to i32
+  store i32 %spec.store.select.i, ptr %169, align 8
   br label %._crit_edge250.thread.i
 
 ._crit_edge250.thread.i:                          ; preds = %.thread366.i, %._crit_edge250.i, %23
-  %168 = getelementptr inbounds nuw i8, ptr %.0138254.i, i64 8
-  %169 = load i32, ptr %168, align 4, !tbaa !36
-  %.not.i = icmp eq i32 %169, 5531
+  %172 = getelementptr inbounds nuw i8, ptr %.0138254.i, i64 8
+  %173 = load i32, ptr %172, align 4, !tbaa !36
+  %.not.i = icmp eq i32 %173, 5531
   br i1 %.not.i, label %af_cjk_metrics_init_blues.exit, label %23, !llvm.loop !65
 
 af_cjk_metrics_init_blues.exit:                   ; preds = %._crit_edge250.thread.i, %14
@@ -906,9 +908,9 @@ af_cjk_metrics_init_blues.exit:                   ; preds = %._crit_edge250.thre
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call fastcc void @af_cjk_metrics_check_digits(ptr noundef nonnull %0)
-  br label %170
+  br label %174
 
-170:                                              ; preds = %af_cjk_metrics_init_blues.exit, %2
+174:                                              ; preds = %af_cjk_metrics_init_blues.exit, %2
   store ptr %8, ptr %7, align 8, !tbaa !3
   ret i32 0
 }

@@ -9674,14 +9674,14 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne21000
   store i8 1, ptr %4, align 8, !tbaa !259
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %16, i8 0, i64 16, i1 false)
-  br label %93
+  br label %95
 
 17:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit
   switch i8 %5, label %default.unreachable [
     i8 6, label %18
-    i8 5, label %45
-    i8 4, label %59
-    i8 3, label %88
+    i8 5, label %47
+    i8 4, label %61
+    i8 3, label %90
   ]
 
 18:                                               ; preds = %17
@@ -9711,160 +9711,162 @@ _ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne21000
   store ptr %2, ptr %30, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   store i64 %29, ptr %.sroa.4.0..sroa_idx.i, align 8, !tbaa !72
-  br label %93
+  br label %95
 
 31:                                               ; preds = %23
-  %32 = getelementptr inbounds nuw i8, ptr %.014.i, i64 1
+  %32 = select i1 %21, i64 2, i64 0
+  %33 = getelementptr inbounds nuw i8, ptr %.pn.i, i64 %32
   store i8 5, ptr %4, align 8, !tbaa !259
-  %33 = ptrtoint ptr %.0.i to i64
-  %34 = ptrtoint ptr %32 to i64
-  %35 = sub i64 %33, %34
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %32, ptr %36, align 8, !tbaa !246
+  %34 = ptrtoint ptr %.0.i to i64
+  %35 = ptrtoint ptr %33 to i64
+  %36 = sub i64 %34, %35
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %33, ptr %37, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i59 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %35, ptr %.sroa.4.0..sroa_idx.i59, align 8, !tbaa !72
-  br label %93
+  store i64 %36, ptr %.sroa.4.0..sroa_idx.i59, align 8, !tbaa !72
+  br label %95
 
-_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit: ; preds = %18, %37
-  %.pn.i61 = phi ptr [ %.025.i, %37 ], [ %14, %18 ]
+_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit: ; preds = %18, %38
+  %.pn.i61 = phi ptr [ %.025.i, %38 ], [ %14, %18 ]
   %.025.i = getelementptr inbounds i8, ptr %.pn.i61, i64 %22
   %.not.i62 = icmp eq ptr %.025.i, %3
-  br i1 %.not.i62, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, label %37
+  br i1 %.not.i62, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, label %38
 
-37:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit
-  %38 = load i8, ptr %.025.i, align 1, !tbaa !5
-  %39 = icmp eq i8 %38, 47
-  br i1 %39, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, !llvm.loop !318
+38:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit
+  %39 = load i8, ptr %.025.i, align 1, !tbaa !5
+  %40 = icmp eq i8 %39, 47
+  br i1 %40, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, !llvm.loop !318
 
-_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, %37
-  %40 = getelementptr inbounds nuw i8, ptr %.025.i, i64 1
+_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit: ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit, %38
+  %41 = select i1 %21, i64 2, i64 0
+  %42 = getelementptr inbounds nuw i8, ptr %.pn.i61, i64 %41
   store i8 4, ptr %4, align 8, !tbaa !259
-  %41 = ptrtoint ptr %.0.i to i64
-  %42 = ptrtoint ptr %40 to i64
-  %43 = sub i64 %41, %42
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %40, ptr %44, align 8, !tbaa !246
+  %43 = ptrtoint ptr %.0.i to i64
+  %44 = ptrtoint ptr %42 to i64
+  %45 = sub i64 %43, %44
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %42, ptr %46, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i64 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %43, ptr %.sroa.4.0..sroa_idx.i64, align 8, !tbaa !72
-  br label %93
+  store i64 %45, ptr %.sroa.4.0..sroa_idx.i64, align 8, !tbaa !72
+  br label %95
 
-45:                                               ; preds = %17
-  %46 = load i8, ptr %14, align 1, !tbaa !5
-  %47 = icmp eq i8 %46, 47
-  br i1 %47, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %48
+47:                                               ; preds = %17
+  %48 = load i8, ptr %14, align 1, !tbaa !5
+  %49 = icmp eq i8 %48, 47
+  br i1 %49, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %50
 
-48:                                               ; preds = %45
+50:                                               ; preds = %47
   %.not33.i65 = icmp ult ptr %.0.i, %2
-  %49 = select i1 %.not33.i65, i64 1, i64 -1
-  br label %50
+  %51 = select i1 %.not33.i65, i64 1, i64 -1
+  br label %52
 
-50:                                               ; preds = %51, %48
-  %.pn.i66 = phi ptr [ %14, %48 ], [ %.025.i67, %51 ]
-  %.025.i67 = getelementptr inbounds i8, ptr %.pn.i66, i64 %49
+52:                                               ; preds = %53, %50
+  %.pn.i66 = phi ptr [ %14, %50 ], [ %.025.i67, %53 ]
+  %.025.i67 = getelementptr inbounds i8, ptr %.pn.i66, i64 %51
   %.not.i68 = icmp eq ptr %.025.i67, %3
-  br i1 %.not.i68, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %51
+  br i1 %.not.i68, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %53
 
-51:                                               ; preds = %50
-  %52 = load i8, ptr %.025.i67, align 1, !tbaa !5
-  %53 = icmp eq i8 %52, 47
-  br i1 %53, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %50, !llvm.loop !318
+53:                                               ; preds = %52
+  %54 = load i8, ptr %.025.i67, align 1, !tbaa !5
+  %55 = icmp eq i8 %54, 47
+  br i1 %55, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, label %52, !llvm.loop !318
 
-_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70: ; preds = %50, %51, %45
-  %.0.i69 = phi ptr [ null, %45 ], [ %.025.i67, %51 ], [ %.025.i67, %50 ]
-  %54 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 1
+_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70: ; preds = %52, %53, %47
+  %.0.i69 = phi ptr [ null, %47 ], [ %.025.i67, %53 ], [ %.025.i67, %52 ]
+  %56 = getelementptr inbounds nuw i8, ptr %.0.i69, i64 1
   store i8 4, ptr %4, align 8, !tbaa !259
-  %55 = ptrtoint ptr %.0.i to i64
-  %56 = ptrtoint ptr %54 to i64
-  %57 = sub i64 %55, %56
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %54, ptr %58, align 8, !tbaa !246
+  %57 = ptrtoint ptr %.0.i to i64
+  %58 = ptrtoint ptr %56 to i64
+  %59 = sub i64 %57, %58
+  %60 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %56, ptr %60, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i71 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %57, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !72
-  br label %93
+  store i64 %59, ptr %.sroa.4.0..sroa_idx.i71, align 8, !tbaa !72
+  br label %95
 
-59:                                               ; preds = %17
-  %60 = load i8, ptr %14, align 1, !tbaa !5
-  %61 = icmp eq i8 %60, 47
-  br i1 %61, label %62, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85
+61:                                               ; preds = %17
+  %62 = load i8, ptr %14, align 1, !tbaa !5
+  %63 = icmp eq i8 %62, 47
+  br i1 %63, label %64, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85
 
-62:                                               ; preds = %59
-  %63 = icmp ult ptr %.0.i, %2
-  %64 = select i1 %63, i64 1, i64 -1
-  br label %65
+64:                                               ; preds = %61
+  %65 = icmp ult ptr %.0.i, %2
+  %66 = select i1 %65, i64 1, i64 -1
+  br label %67
 
-65:                                               ; preds = %66, %62
-  %.pn.i73 = phi ptr [ %14, %62 ], [ %.014.i74, %66 ]
-  %.014.i74 = getelementptr inbounds i8, ptr %.pn.i73, i64 %64
+67:                                               ; preds = %68, %64
+  %.pn.i73 = phi ptr [ %14, %64 ], [ %.014.i74, %68 ]
+  %.014.i74 = getelementptr inbounds i8, ptr %.pn.i73, i64 %66
   %.not.i75 = icmp eq ptr %.014.i74, %3
-  br i1 %.not.i75, label %69, label %66
+  br i1 %.not.i75, label %71, label %68
 
-66:                                               ; preds = %65
-  %67 = load i8, ptr %.014.i74, align 1, !tbaa !5
-  %68 = icmp eq i8 %67, 47
-  br i1 %68, label %65, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76, !llvm.loop !317
+68:                                               ; preds = %67
+  %69 = load i8, ptr %.014.i74, align 1, !tbaa !5
+  %70 = icmp eq i8 %69, 47
+  br i1 %70, label %67, label %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76, !llvm.loop !317
 
-69:                                               ; preds = %65
+71:                                               ; preds = %67
   store i8 3, ptr %4, align 8, !tbaa !259
-  %70 = ptrtoint ptr %.0.i to i64
-  %71 = ptrtoint ptr %2 to i64
-  %72 = sub i64 %70, %71
-  %73 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %73, align 8, !tbaa !246
+  %72 = ptrtoint ptr %.0.i to i64
+  %73 = ptrtoint ptr %2 to i64
+  %74 = sub i64 %72, %73
+  %75 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %75, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i77 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %72, ptr %.sroa.4.0..sroa_idx.i77, align 8, !tbaa !72
-  br label %93
+  store i64 %74, ptr %.sroa.4.0..sroa_idx.i77, align 8, !tbaa !72
+  br label %95
 
-_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76: ; preds = %66
-  %74 = load i8, ptr %.014.i74, align 1, !tbaa !5
-  %75 = icmp eq i8 %74, 47
-  br i1 %75, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %76
+_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76: ; preds = %68
+  %76 = load i8, ptr %.014.i74, align 1, !tbaa !5
+  %77 = icmp eq i8 %76, 47
+  br i1 %77, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78
 
-76:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
+78:                                               ; preds = %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
   %.not33.i80 = icmp ult ptr %.014.i74, %3
-  %77 = select i1 %.not33.i80, i64 1, i64 -1
-  br label %78
+  %79 = select i1 %.not33.i80, i64 1, i64 -1
+  br label %80
 
-78:                                               ; preds = %79, %76
-  %.pn.i81 = phi ptr [ %.014.i74, %76 ], [ %.025.i82, %79 ]
-  %.025.i82 = getelementptr inbounds i8, ptr %.pn.i81, i64 %77
+80:                                               ; preds = %81, %78
+  %.pn.i81 = phi ptr [ %.014.i74, %78 ], [ %.025.i82, %81 ]
+  %.025.i82 = getelementptr inbounds i8, ptr %.pn.i81, i64 %79
   %.not.i83 = icmp eq ptr %.025.i82, %3
-  br i1 %.not.i83, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %79
+  br i1 %.not.i83, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %81
 
-79:                                               ; preds = %78
-  %80 = load i8, ptr %.025.i82, align 1, !tbaa !5
-  %81 = icmp eq i8 %80, 47
-  br i1 %81, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %78, !llvm.loop !318
+81:                                               ; preds = %80
+  %82 = load i8, ptr %.025.i82, align 1, !tbaa !5
+  %83 = icmp eq i8 %82, 47
+  br i1 %83, label %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, label %80, !llvm.loop !318
 
-_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85: ; preds = %78, %79, %59, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
-  %.0.i729295 = phi ptr [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.014.i74, %79 ], [ %.014.i74, %78 ]
-  %.0.i84 = phi ptr [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %59 ], [ %.025.i82, %79 ], [ %.025.i82, %78 ]
-  %82 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 1
-  %83 = getelementptr inbounds nuw i8, ptr %.0.i729295, i64 1
+_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85: ; preds = %80, %81, %61, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76
+  %.0.i729295 = phi ptr [ %.014.i74, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %61 ], [ %.014.i74, %81 ], [ %.014.i74, %80 ]
+  %.0.i84 = phi ptr [ null, %_ZNKSt3__14__fs10filesystem6parser10PathParser20consumeAllSeparatorsB8ne210000EPKcS5_.exit76 ], [ null, %61 ], [ %.025.i82, %81 ], [ %.025.i82, %80 ]
+  %84 = getelementptr inbounds nuw i8, ptr %.0.i84, i64 1
+  %85 = getelementptr inbounds nuw i8, ptr %.0.i729295, i64 1
   store i8 4, ptr %4, align 8, !tbaa !259
-  %84 = ptrtoint ptr %83 to i64
-  %85 = ptrtoint ptr %82 to i64
-  %86 = sub i64 %84, %85
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %82, ptr %87, align 8, !tbaa !246
+  %86 = ptrtoint ptr %85 to i64
+  %87 = ptrtoint ptr %84 to i64
+  %88 = sub i64 %86, %87
+  %89 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %84, ptr %89, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i86 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %86, ptr %.sroa.4.0..sroa_idx.i86, align 8, !tbaa !72
-  br label %93
+  store i64 %88, ptr %.sroa.4.0..sroa_idx.i86, align 8, !tbaa !72
+  br label %95
 
-88:                                               ; preds = %17
+90:                                               ; preds = %17
   store i8 2, ptr %4, align 8, !tbaa !259
-  %89 = ptrtoint ptr %.0.i to i64
-  %90 = ptrtoint ptr %2 to i64
-  %91 = sub i64 %89, %90
-  %92 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %2, ptr %92, align 8, !tbaa !246
+  %91 = ptrtoint ptr %.0.i to i64
+  %92 = ptrtoint ptr %2 to i64
+  %93 = sub i64 %91, %92
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %2, ptr %94, align 8, !tbaa !246
   %.sroa.4.0..sroa_idx.i87 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %91, ptr %.sroa.4.0..sroa_idx.i87, align 8, !tbaa !72
-  br label %93
+  store i64 %93, ptr %.sroa.4.0..sroa_idx.i87, align 8, !tbaa !72
+  br label %95
 
 default.unreachable:                              ; preds = %17
   unreachable
 
-93:                                               ; preds = %69, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, %26, %31, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, %88, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread
+95:                                               ; preds = %71, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit85, %26, %31, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit, %90, %_ZNKSt3__14__fs10filesystem6parser10PathParser11consumeNameB8ne210000EPKcS5_.exit70, %_ZNKSt3__14__fs10filesystem6parser10PathParser23getCurrentTokenStartPosB8ne210000Ev.exit.thread
   ret void
 }
 

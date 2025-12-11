@@ -234,23 +234,63 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   %.val = load i64, ptr %2, align 8, !tbaa !59
   %9 = and i64 %.val, 65536
   %.not = icmp eq i64 %9, 0
-  br i1 %.not, label %10, label %29
+  br i1 %.not, label %10, label %30
 
 10:                                               ; preds = %8
   %11 = and i64 %.val, 16384
   %12 = icmp eq i64 %11, 0
   %.v.i = select i1 %12, i64 24, i64 62264
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
-  %14 = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %15 = load ptr, ptr %14, align 8, !tbaa !61
-  %16 = tail call zeroext i1 %15(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %6, ptr noundef %7) #4
+  %14 = select i1 %12, i64 40, i64 62280
+  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %14
+  %16 = load ptr, ptr %15, align 8, !tbaa !61
+  %17 = tail call zeroext i1 %16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %6, ptr noundef %7) #4
+  br i1 %17, label %30, label %18
+
+18:                                               ; preds = %10
+  %19 = sub i64 %4, %3
+  %20 = lshr i64 %19, 12
+  %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %22 = atomicrmw add ptr %21, i64 %20 monotonic, align 8
+  %23 = load i64, ptr %2, align 8, !tbaa !59
+  %24 = and i64 %23, -267386881
+  %25 = zext i32 %5 to i64
+  %26 = shl nuw nsw i64 %25, 20
+  %27 = or i64 %24, %26
+  store i64 %27, ptr %2, align 8, !tbaa !59
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 68336
+  %29 = load ptr, ptr %28, align 8, !tbaa !54
+  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %29, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
+  br label %30
+
+30:                                               ; preds = %18, %10, %8
+  %.0 = phi i1 [ true, %8 ], [ true, %10 ], [ false, %18 ]
+  ret i1 %.0
+}
+
+; Function Attrs: nounwind uwtable
+define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
+  %.val = load i64, ptr %2, align 8, !tbaa !59
+  %8 = and i64 %.val, 65536
+  %.not = icmp eq i64 %8, 0
+  br i1 %.not, label %9, label %29
+
+9:                                                ; preds = %7
+  %10 = and i64 %.val, 16384
+  %11 = icmp eq i64 %10, 0
+  %.v.i = select i1 %11, i64 24, i64 62264
+  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
+  %13 = select i1 %11, i64 48, i64 62288
+  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %15 = load ptr, ptr %14, align 8, !tbaa !62
+  %16 = tail call zeroext i1 %15(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, ptr noundef %6) #4
   br i1 %16, label %29, label %17
 
-17:                                               ; preds = %10
-  %18 = sub i64 %4, %3
+17:                                               ; preds = %9
+  %18 = sub i64 %3, %4
   %19 = lshr i64 %18, 12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %21 = atomicrmw add ptr %20, i64 %19 monotonic, align 8
+  %21 = atomicrmw sub ptr %20, i64 %19 monotonic, align 8
   %22 = load i64, ptr %2, align 8, !tbaa !59
   %23 = and i64 %22, -267386881
   %24 = zext i32 %5 to i64
@@ -262,46 +302,8 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   tail call void @je_emap_remap(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
   br label %29
 
-29:                                               ; preds = %17, %10, %8
-  %.0 = phi i1 [ true, %8 ], [ true, %10 ], [ false, %17 ]
-  ret i1 %.0
-}
-
-; Function Attrs: nounwind uwtable
-define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, ptr noundef %2, i64 noundef %3, i64 noundef %4, i32 noundef %5, ptr noundef %6) local_unnamed_addr #0 {
-  %.val = load i64, ptr %2, align 8, !tbaa !59
-  %8 = and i64 %.val, 65536
-  %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %28
-
-9:                                                ; preds = %7
-  %10 = and i64 %.val, 16384
-  %11 = icmp eq i64 %10, 0
-  %.v.i = select i1 %11, i64 24, i64 62264
-  %12 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
-  %13 = getelementptr inbounds nuw i8, ptr %12, i64 24
-  %14 = load ptr, ptr %13, align 8, !tbaa !62
-  %15 = tail call zeroext i1 %14(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, ptr noundef %6) #4
-  br i1 %15, label %28, label %16
-
-16:                                               ; preds = %9
-  %17 = sub i64 %3, %4
-  %18 = lshr i64 %17, 12
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %20 = atomicrmw sub ptr %19, i64 %18 monotonic, align 8
-  %21 = load i64, ptr %2, align 8, !tbaa !59
-  %22 = and i64 %21, -267386881
-  %23 = zext i32 %5 to i64
-  %24 = shl nuw nsw i64 %23, 20
-  %25 = or i64 %22, %24
-  store i64 %25, ptr %2, align 8, !tbaa !59
-  %26 = getelementptr inbounds nuw i8, ptr %1, i64 68336
-  %27 = load ptr, ptr %26, align 8, !tbaa !54
-  tail call void @je_emap_remap(ptr noundef %0, ptr noundef %27, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
-  br label %28
-
-28:                                               ; preds = %16, %9, %7
-  %.0 = phi i1 [ true, %7 ], [ true, %9 ], [ false, %16 ]
+29:                                               ; preds = %17, %9, %7
+  %.0 = phi i1 [ true, %7 ], [ true, %9 ], [ false, %17 ]
   ret i1 %.0
 }
 
@@ -343,9 +345,10 @@ define hidden void @je_pa_dalloc(ptr noundef %0, ptr noundef %1, ptr noundef %2,
   %24 = icmp eq i64 %23, 0
   %.v.i = select i1 %24, i64 24, i64 62264
   %25 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 32
-  %27 = load ptr, ptr %26, align 8, !tbaa !65
-  tail call void %27(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef %3) #4
+  %26 = select i1 %24, i64 56, i64 62296
+  %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
+  %28 = load ptr, ptr %27, align 8, !tbaa !65
+  tail call void %28(ptr noundef %0, ptr noundef nonnull %25, ptr noundef nonnull %2, ptr noundef %3) #4
   ret void
 }
 

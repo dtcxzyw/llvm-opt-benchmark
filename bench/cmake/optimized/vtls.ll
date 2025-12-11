@@ -828,34 +828,32 @@ define dso_local void @Curl_ssl_conn_config_update(ptr noundef readonly captures
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %4 = load ptr, ptr %3, align 8, !tbaa !135
   %.not = icmp eq ptr %4, null
-  br i1 %.not, label %23, label %5
+  br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
-  %.v = select i1 %1, i64 1512, i64 1328
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
-  %. = select i1 %1, i64 808, i64 696
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 %.
-  %8 = getelementptr inbounds nuw i8, ptr %6, i64 105
-  %9 = load i8, ptr %8, align 1
-  %10 = and i8 %9, 2
-  %11 = getelementptr inbounds nuw i8, ptr %7, i64 105
-  %12 = load i8, ptr %11, align 1
-  %13 = and i8 %12, -3
-  %14 = or disjoint i8 %13, %10
-  store i8 %14, ptr %11, align 1
-  %15 = load i8, ptr %8, align 1
-  %16 = and i8 %15, 1
-  %17 = and i8 %14, -2
-  %18 = or disjoint i8 %17, %16
-  store i8 %18, ptr %11, align 1
-  %19 = load i8, ptr %8, align 1
-  %20 = and i8 %19, 4
-  %21 = and i8 %18, -5
-  %22 = or disjoint i8 %21, %20
-  store i8 %22, ptr %11, align 1
-  br label %23
+  %. = select i1 %1, i64 1617, i64 1433
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %7 = load i8, ptr %6, align 1
+  %8 = and i8 %7, 2
+  %9 = select i1 %1, i64 913, i64 801
+  %10 = getelementptr inbounds nuw i8, ptr %4, i64 %9
+  %11 = load i8, ptr %10, align 1
+  %12 = and i8 %11, -3
+  %13 = or disjoint i8 %12, %8
+  store i8 %13, ptr %10, align 1
+  %14 = load i8, ptr %6, align 1
+  %15 = and i8 %14, 1
+  %16 = and i8 %13, -2
+  %17 = or disjoint i8 %16, %15
+  store i8 %17, ptr %10, align 1
+  %18 = load i8, ptr %6, align 1
+  %19 = and i8 %18, 4
+  %20 = and i8 %17, -5
+  %21 = or disjoint i8 %20, %19
+  store i8 %21, ptr %10, align 1
+  br label %22
 
-23:                                               ; preds = %5, %2
+22:                                               ; preds = %5, %2
   ret void
 }
 
@@ -991,24 +989,23 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr n
   %13 = load ptr, ptr %12, align 8, !tbaa !156
   %..i = select i1 %11, i64 808, i64 696
   %14 = getelementptr inbounds nuw i8, ptr %13, i64 %..i
-  %.v.i = select i1 %11, i64 1512, i64 1328
-  %15 = getelementptr inbounds nuw i8, ptr %1, i64 %.v.i
   store ptr null, ptr %3, align 8, !tbaa !17
   %.not = icmp eq ptr %5, null
-  br i1 %.not, label %17, label %16
+  br i1 %.not, label %16, label %15
 
-16:                                               ; preds = %6
+15:                                               ; preds = %6
   store ptr null, ptr %5, align 8, !tbaa !5
-  br label %17
+  br label %16
 
-17:                                               ; preds = %6, %16
-  %18 = getelementptr inbounds nuw i8, ptr %15, i64 105
+16:                                               ; preds = %6, %15
+  %17 = select i1 %11, i64 1617, i64 1433
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   %19 = load i8, ptr %18, align 1
   %20 = and i8 %19, 8
   %.not79 = icmp eq i8 %20, 0
   br i1 %.not79, label %137, label %21
 
-21:                                               ; preds = %17
+21:                                               ; preds = %16
   %22 = getelementptr inbounds nuw i8, ptr %1, i64 3112
   %23 = load ptr, ptr %22, align 8, !tbaa !157
   %.not80 = icmp eq ptr %23, null
@@ -1220,8 +1217,8 @@ define dso_local noundef zeroext i1 @Curl_ssl_getsessionid(ptr noundef %0, ptr n
   tail call void (ptr, ptr, ptr, ...) @Curl_trc_cf_infof(ptr noundef nonnull %1, ptr noundef nonnull %0, ptr noundef nonnull @.str, ptr noundef nonnull %129, ptr noundef %133, ptr noundef %134, i32 noundef %136) #20
   br label %137
 
-137:                                              ; preds = %111, %.thread99, %119, %123, %128, %17, %21
-  %.069 = phi i1 [ true, %21 ], [ true, %17 ], [ %112, %128 ], [ %112, %123 ], [ %112, %119 ], [ %112, %.thread99 ], [ false, %111 ]
+137:                                              ; preds = %111, %.thread99, %119, %123, %128, %16, %21
+  %.069 = phi i1 [ true, %21 ], [ true, %16 ], [ %112, %128 ], [ %112, %123 ], [ %112, %119 ], [ %112, %.thread99 ], [ false, %111 ]
   ret i1 %.069
 }
 

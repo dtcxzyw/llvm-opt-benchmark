@@ -1143,15 +1143,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.not22 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %80
   %.sroa.0.0..sroa.06.0.i.i = select i1 %.not22, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %87, ptr noundef nonnull align 8 dereferenceable(40) %.sroa.0.0..sroa.06.0.i.i, i64 40, i1 false), !alias.scope !524
-  %.sroa.sel19.idx.sroa.sel.idx = select i1 %.not22, i64 40, i64 0
-  %.sroa.sel19.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel19.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not22, i64 0, i64 40
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel37.v = select i1 %.not, i64 40, i64 80
+  %.sroa.sel37 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 %.sroa.sel37.v
+  %.sroa.sel19 = select i1 %.not22, ptr %.sroa.sel37, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
+  %.sroa.sel32.v = select i1 %.not, i64 80, i64 40
+  %.sroa.sel32 = getelementptr inbounds nuw i8, ptr %.sroa.06.09.i.i, i64 %.sroa.sel32.v
+  %.sroa.sel = select i1 %.not22, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel32
   br label %96
 
 96:                                               ; preds = %95, %._crit_edge.i.i
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %95 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel19.idx.sroa.sel, %95 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %95 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel19, %95 ]
   %97 = icmp ne ptr %.sroa.0.1.i.i, %80
   %98 = icmp ne ptr %.sroa.06.1.i.i, %81
   %or.cond.i.i = select i1 %97, i1 true, i1 %98
@@ -1434,15 +1436,17 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort18small_sort_ge
   %.not27 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %37
   %.sroa.0.0..sroa.06.0.i.i = select i1 %.not27, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(64) %57, ptr noundef nonnull align 8 dereferenceable(64) %.sroa.0.0..sroa.06.0.i.i, i64 64, i1 false), !alias.scope !551
-  %.sroa.sel18.idx.sroa.sel.idx = select i1 %.not27, i64 64, i64 0
-  %.sroa.sel18.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel18.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not27, i64 0, i64 64
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel51.v = select i1 %.not, i64 64, i64 128
+  %.sroa.sel51 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 %.sroa.sel51.v
+  %.sroa.sel18 = select i1 %.not27, ptr %.sroa.sel51, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
+  %.sroa.sel46.v = select i1 %.not, i64 128, i64 64
+  %.sroa.sel46 = getelementptr inbounds nuw i8, ptr %.sroa.06.09.i.i, i64 %.sroa.sel46.v
+  %.sroa.sel = select i1 %.not27, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel46
   br label %78
 
 78:                                               ; preds = %77, %._crit_edge.i.i
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %77 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel18.idx.sroa.sel, %77 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %77 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel18, %77 ]
   %79 = icmp ne ptr %.sroa.0.1.i.i, %37
   %80 = icmp ne ptr %.sroa.06.1.i.i, %38
   %or.cond.i.i = select i1 %79, i1 true, i1 %80

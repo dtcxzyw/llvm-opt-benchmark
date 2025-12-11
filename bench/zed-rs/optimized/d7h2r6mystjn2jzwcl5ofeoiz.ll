@@ -124120,9 +124120,8 @@ define hidden void @_ZN6editor11display_map9block_map14BlockMapWriter6insert17h2
   %118 = getelementptr inbounds nuw i8, ptr %117, i64 16
   %119 = load i8, ptr %118, align 8, !range !182, !noalias !31361, !noundef !4
   %trunc.i.i.i = trunc nuw i8 %119 to i1
-  %..i.i.i = select i1 %trunc.i.i.i, i64 1376, i64 704
-  %120 = getelementptr inbounds nuw i8, ptr %117, i64 %..i.i.i
-  %121 = getelementptr inbounds nuw i8, ptr %120, i64 24
+  %120 = select i1 %trunc.i.i.i, i64 1400, i64 728
+  %121 = getelementptr inbounds nuw i8, ptr %117, i64 %120
   %122 = load i32, ptr %121, align 4, !noalias !31361, !noundef !4
   %123 = add i32 %122, 1
   %124 = icmp eq i32 %116, 0
@@ -124772,9 +124771,8 @@ define hidden void @_ZN6editor11display_map9block_map14BlockMapWriter6insert17h4
   %119 = getelementptr inbounds nuw i8, ptr %118, i64 16
   %120 = load i8, ptr %119, align 8, !range !182, !noalias !31489, !noundef !4
   %trunc.i.i.i = trunc nuw i8 %120 to i1
-  %..i.i.i = select i1 %trunc.i.i.i, i64 1376, i64 704
-  %121 = getelementptr inbounds nuw i8, ptr %118, i64 %..i.i.i
-  %122 = getelementptr inbounds nuw i8, ptr %121, i64 24
+  %121 = select i1 %trunc.i.i.i, i64 1400, i64 728
+  %122 = getelementptr inbounds nuw i8, ptr %118, i64 %121
   %123 = load i32, ptr %122, align 4, !noalias !31489, !noundef !4
   %124 = add i32 %123, 1
   %125 = icmp eq i32 %117, 0
@@ -125432,9 +125430,8 @@ define hidden void @_ZN6editor11display_map9block_map14BlockMapWriter6insert17hd
   %122 = getelementptr inbounds nuw i8, ptr %121, i64 16
   %123 = load i8, ptr %122, align 8, !range !182, !noalias !31619, !noundef !4
   %trunc.i.i.i = trunc nuw i8 %123 to i1
-  %..i.i.i = select i1 %trunc.i.i.i, i64 1376, i64 704
-  %124 = getelementptr inbounds nuw i8, ptr %121, i64 %..i.i.i
-  %125 = getelementptr inbounds nuw i8, ptr %124, i64 24
+  %124 = select i1 %trunc.i.i.i, i64 1400, i64 728
+  %125 = getelementptr inbounds nuw i8, ptr %121, i64 %124
   %126 = load i32, ptr %125, align 4, !noalias !31619, !noundef !4
   %127 = add i32 %126, 1
   %128 = icmp eq i32 %120, 0

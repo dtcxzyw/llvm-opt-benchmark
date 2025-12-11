@@ -7441,7 +7441,7 @@ _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i79: ; preds = %.
   unreachable
 
 common.resume:                                    ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i75
-  %common.resume.op = phi { ptr, i32 } [ %133, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i75 ], [ %201, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91 ], [ %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ], [ %eh.lpad-body, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit ]
+  %common.resume.op = phi { ptr, i32 } [ %133, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i75 ], [ %202, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91 ], [ %160, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ], [ %eh.lpad-body, %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit ]
   resume { ptr, i32 } %common.resume.op
 
 _ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i75: ; preds = %132
@@ -7537,7 +7537,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
 
 .thread133:                                       ; preds = %171
   %174 = tail call noundef ptr @_ZNK4Luau8Property4typeEv(ptr noundef nonnull align 8 dereferenceable(176) %.452117.ph)
-  br label %181
+  br label %182
 
 175:                                              ; preds = %171
   %176 = getelementptr inbounds nuw i8, ptr %1, i64 32
@@ -7546,75 +7546,76 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %_ZN
   %.v = select i1 %178, i64 144, i64 160
   %179 = getelementptr inbounds nuw i8, ptr %.452117.ph, i64 %.v
   %.sroa.098.0.copyload = load ptr, ptr %179, align 8
-  %.sroa.599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %179, i64 8
+  %180 = select i1 %178, i64 152, i64 168
+  %.sroa.599.0..sroa_idx = getelementptr inbounds nuw i8, ptr %.452117.ph, i64 %180
   %.sroa.599.0.copyload = load i8, ptr %.sroa.599.0..sroa_idx, align 8
-  %180 = trunc nuw i8 %.sroa.599.0.copyload to i1
-  br i1 %180, label %181, label %.critedge67
+  %181 = trunc nuw i8 %.sroa.599.0.copyload to i1
+  br i1 %181, label %182, label %.critedge67
 
-181:                                              ; preds = %.thread133, %175
+182:                                              ; preds = %.thread133, %175
   %.sroa.098.0136 = phi ptr [ %174, %.thread133 ], [ %.sroa.098.0.copyload, %175 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %182 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.sroa.098.0136)
+  %183 = tail call noundef ptr @_ZN4Luau6followEPKNS_4TypeE(ptr noundef %.sroa.098.0136)
   store i32 0, ptr %3, align 8, !tbaa !69
-  %183 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %182, ptr %183, align 8, !tbaa !71
+  %184 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %183, ptr %184, align 8, !tbaa !71
   %.not.i.i90 = icmp eq ptr %0, %3
-  br i1 %.not.i.i90, label %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95, label %184
+  br i1 %.not.i.i90, label %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95, label %185
 
-184:                                              ; preds = %181
-  %185 = load i32, ptr %0, align 8, !tbaa !69
-  %186 = sext i32 %185 to i64
-  %187 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %186
-  %188 = load ptr, ptr %187, align 8, !tbaa !14
-  invoke void %188(ptr noundef nonnull %10)
-          to label %.noexc.i92 unwind label %200
+185:                                              ; preds = %182
+  %186 = load i32, ptr %0, align 8, !tbaa !69
+  %187 = sext i32 %186 to i64
+  %188 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %187
+  %189 = load ptr, ptr %188, align 8, !tbaa !14
+  invoke void %189(ptr noundef nonnull %10)
+          to label %.noexc.i92 unwind label %201
 
-.noexc.i92:                                       ; preds = %184
-  %189 = load i32, ptr %3, align 8, !tbaa !69
-  store i32 %189, ptr %0, align 8, !tbaa !69
-  %190 = sext i32 %189 to i64
-  %191 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableMoveE, i64 %190
-  %192 = load ptr, ptr %191, align 8, !tbaa !14
-  invoke void %192(ptr noundef nonnull %10, ptr noundef nonnull %183)
-          to label %.noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93 unwind label %200
+.noexc.i92:                                       ; preds = %185
+  %190 = load i32, ptr %3, align 8, !tbaa !69
+  store i32 %190, ptr %0, align 8, !tbaa !69
+  %191 = sext i32 %190 to i64
+  %192 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableMoveE, i64 %191
+  %193 = load ptr, ptr %192, align 8, !tbaa !14
+  invoke void %193(ptr noundef nonnull %10, ptr noundef nonnull %184)
+          to label %.noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93 unwind label %201
 
 .noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93: ; preds = %.noexc.i92
   %.pre.i94 = load i32, ptr %3, align 8, !tbaa !69
-  %193 = sext i32 %.pre.i94 to i64
+  %194 = sext i32 %.pre.i94 to i64
   br label %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95
 
-_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95: ; preds = %.noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93, %181
-  %194 = phi i64 [ %193, %.noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93 ], [ 0, %181 ]
-  %195 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %194
-  %196 = load ptr, ptr %195, align 8, !tbaa !14
-  invoke void %196(ptr noundef nonnull %183)
-          to label %.thread137 unwind label %197
+_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95: ; preds = %.noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93, %182
+  %195 = phi i64 [ %194, %.noexc._ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit_crit_edge.i93 ], [ 0, %182 ]
+  %196 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %195
+  %197 = load ptr, ptr %196, align 8, !tbaa !14
+  invoke void %197(ptr noundef nonnull %184)
+          to label %.thread137 unwind label %198
 
-197:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95
-  %198 = landingpad { ptr, i32 }
+198:                                              ; preds = %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEEaSEOS7_.exit.i95
+  %199 = landingpad { ptr, i32 }
           catch ptr null
-  %199 = extractvalue { ptr, i32 } %198, 0
-  call void @__clang_call_terminate(ptr %199) #27
+  %200 = extractvalue { ptr, i32 } %199, 0
+  call void @__clang_call_terminate(ptr %200) #27
   unreachable
 
-200:                                              ; preds = %.noexc.i92, %184
-  %201 = landingpad { ptr, i32 }
+201:                                              ; preds = %.noexc.i92, %185
+  %202 = landingpad { ptr, i32 }
           cleanup
-  %202 = load i32, ptr %3, align 8, !tbaa !69
-  %203 = sext i32 %202 to i64
-  %204 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %203
-  %205 = load ptr, ptr %204, align 8, !tbaa !14
-  invoke void %205(ptr noundef nonnull %183)
-          to label %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91 unwind label %206
+  %203 = load i32, ptr %3, align 8, !tbaa !69
+  %204 = sext i32 %203 to i64
+  %205 = getelementptr inbounds ptr, ptr @_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEE9tableDtorE, i64 %204
+  %206 = load ptr, ptr %205, align 8, !tbaa !14
+  invoke void %206(ptr noundef nonnull %184)
+          to label %_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91 unwind label %207
 
-206:                                              ; preds = %200
-  %207 = landingpad { ptr, i32 }
+207:                                              ; preds = %201
+  %208 = landingpad { ptr, i32 }
           catch ptr null
-  %208 = extractvalue { ptr, i32 } %207, 0
-  call void @__clang_call_terminate(ptr %208) #27
+  %209 = extractvalue { ptr, i32 } %208, 0
+  call void @__clang_call_terminate(ptr %209) #27
   unreachable
 
-_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91: ; preds = %200
+_ZN4Luau7VariantIJPKNS_4TypeEPKNS_11TypePackVarEEED2Ev.exit4.i91: ; preds = %201
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %common.resume
 

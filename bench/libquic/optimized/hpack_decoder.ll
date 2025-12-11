@@ -1142,30 +1142,31 @@ _ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16
 ; Function Attrs: mustprogress uwtable
 define noundef zeroext i1 @_ZN3net12HpackDecoder23DecodeNextStringLiteralEPNS_16HpackInputStreamEbPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(480) %0, ptr noundef nonnull %1, i1 noundef zeroext %2, ptr noundef %3) local_unnamed_addr #0 align 2 {
   %5 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 1, i64 1)
-  br i1 %5, label %6, label %12
+  br i1 %5, label %6, label %13
 
 6:                                                ; preds = %4
   %.v = select i1 %2, i64 384, i64 416
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %8 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream23DecodeNextHuffmanStringEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef nonnull %7)
   %9 = load ptr, ptr %7, align 8, !tbaa !67
-  %10 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !11
+  %10 = select i1 %2, i64 392, i64 424
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  %12 = load i64, ptr %11, align 8, !tbaa !11
   store ptr %9, ptr %3, align 8, !tbaa !89
   %.sroa.4.0..sroa_idx = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %11, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !74
-  br label %16
+  store i64 %12, ptr %.sroa.4.0..sroa_idx, align 8, !tbaa !74
+  br label %17
 
-12:                                               ; preds = %4
-  %13 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 0, i64 1)
-  br i1 %13, label %14, label %16
+13:                                               ; preds = %4
+  %14 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream21MatchPrefixAndConsumeENS_11HpackPrefixE(ptr noundef nonnull align 8 dereferenceable(33) %1, i8 0, i64 1)
+  br i1 %14, label %15, label %17
 
-14:                                               ; preds = %12
-  %15 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream24DecodeNextIdentityStringEPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %3)
-  br label %16
+15:                                               ; preds = %13
+  %16 = tail call noundef zeroext i1 @_ZN3net16HpackInputStream24DecodeNextIdentityStringEPN4base16BasicStringPieceINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEE(ptr noundef nonnull align 8 dereferenceable(33) %1, ptr noundef %3)
+  br label %17
 
-16:                                               ; preds = %12, %14, %6
-  %.0 = phi i1 [ %8, %6 ], [ %15, %14 ], [ false, %12 ]
+17:                                               ; preds = %13, %15, %6
+  %.0 = phi i1 [ %8, %6 ], [ %16, %15 ], [ false, %13 ]
   ret i1 %.0
 }
 

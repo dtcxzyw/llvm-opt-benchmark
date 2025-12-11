@@ -1404,13 +1404,13 @@ define hidden void @_ZN8rawspeed15Cr2LJpegDecoder6decodeERKNS_14Cr2SliceWidthsE(
 7:                                                ; preds = %5
   %8 = add nuw i32 %.0, 1
   %9 = icmp eq i32 %8, %4
-  %.0.in.v.i = select i1 %9, i64 8, i64 4
-  %.0.in.i = getelementptr inbounds nuw i8, ptr %3, i64 %.0.in.v.i
+  %10 = select i1 %9, i64 244, i64 240
+  %.0.in.i = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %.0.i = load i32, ptr %.0.in.i, align 4, !tbaa !16
-  %10 = icmp slt i32 %.0.i, 1
-  br i1 %10, label %11, label %5, !llvm.loop !180
+  %11 = icmp slt i32 %.0.i, 1
+  br i1 %11, label %12, label %5, !llvm.loop !180
 
-11:                                               ; preds = %7
+12:                                               ; preds = %7
   tail call void (ptr, ...) @_ZN8rawspeed14ThrowExceptionINS_19RawDecoderExceptionEEEvPKcz(ptr noundef nonnull @.str.10, ptr noundef nonnull @__PRETTY_FUNCTION__._ZN8rawspeed15Cr2LJpegDecoder6decodeERKNS_14Cr2SliceWidthsE, i32 noundef %.0.i) #14
   unreachable
 }

@@ -291,7 +291,7 @@ declare void @free(ptr allocptr noundef captures(none)) local_unnamed_addr #3
 define dso_local noalias ptr @get_port(ptr noundef readonly captures(none) %0) local_unnamed_addr #0 {
   %2 = tail call ptr @get_ip(ptr noundef %0)
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %14, label %3
+  br i1 %.not, label %15, label %3
 
 3:                                                ; preds = %1
   %4 = load i8, ptr %0, align 1, !tbaa !4
@@ -305,16 +305,17 @@ define dso_local noalias ptr @get_port(ptr noundef readonly captures(none) %0) l
   br i1 %10, label %11, label %.sink.split
 
 11:                                               ; preds = %3
-  %12 = getelementptr inbounds nuw i8, ptr %8, i64 1
-  %13 = tail call noalias ptr @strdup(ptr noundef nonnull %12) #26
+  %12 = select i1 %5, i64 3, i64 1
+  %13 = getelementptr inbounds nuw i8, ptr %7, i64 %12
+  %14 = tail call noalias ptr @strdup(ptr noundef nonnull %13) #26
   br label %.sink.split
 
 .sink.split:                                      ; preds = %3, %11
-  %.012.ph = phi ptr [ %13, %11 ], [ null, %3 ]
+  %.012.ph = phi ptr [ %14, %11 ], [ null, %3 ]
   tail call void @free(ptr noundef nonnull %2) #26
-  br label %14
+  br label %15
 
-14:                                               ; preds = %.sink.split, %1
+15:                                               ; preds = %.sink.split, %1
   %.012 = phi ptr [ null, %1 ], [ %.012.ph, %.sink.split ]
   ret ptr %.012
 }
@@ -3766,12 +3767,13 @@ define internal fastcc range(i32 -1, 1) i32 @make_connection_real(ptr noundef no
   br i1 %36, label %37, label %.sink.split.i
 
 37:                                               ; preds = %29
-  %38 = getelementptr inbounds nuw i8, ptr %34, i64 1
-  %39 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %38) #26
+  %38 = select i1 %31, i64 3, i64 1
+  %39 = getelementptr inbounds nuw i8, ptr %33, i64 %38
+  %40 = tail call noalias ptr @strdup(ptr noundef nonnull readonly %39) #26
   br label %.sink.split.i
 
 .sink.split.i:                                    ; preds = %37, %29
-  %.012.ph.i = phi ptr [ %39, %37 ], [ null, %29 ]
+  %.012.ph.i = phi ptr [ %40, %37 ], [ null, %29 ]
   tail call void @free(ptr noundef nonnull %28) #26
   br label %get_port.exit
 
@@ -3779,149 +3781,149 @@ get_port.exit:                                    ; preds = %27, %.sink.split.i
   %.012.i = phi ptr [ null, %27 ], [ %.012.ph.i, %.sink.split.i ]
   store i32 1, ptr %7, align 8, !tbaa !52
   %.not81 = icmp eq ptr %.012.i, null
-  %40 = select i1 %.not81, ptr @.str.56, ptr %.012.i
-  tail call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.55, ptr noundef nonnull %26, ptr noundef nonnull %40)
-  %41 = call i32 @getaddrinfo(ptr noundef nonnull %26, ptr noundef nonnull %40, ptr noundef nonnull %4, ptr noundef nonnull %5) #26
-  %.not82 = icmp eq i32 %41, 0
-  br i1 %.not82, label %.preheader, label %42
+  %41 = select i1 %.not81, ptr @.str.56, ptr %.012.i
+  tail call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.55, ptr noundef nonnull %26, ptr noundef nonnull %41)
+  %42 = call i32 @getaddrinfo(ptr noundef nonnull %26, ptr noundef nonnull %41, ptr noundef nonnull %4, ptr noundef nonnull %5) #26
+  %.not82 = icmp eq i32 %42, 0
+  br i1 %.not82, label %.preheader, label %43
 
 .preheader:                                       ; preds = %get_port.exit
   %.06998 = load ptr, ptr %5, align 8, !tbaa !100
   %.not8399 = icmp eq ptr %.06998, null
   br i1 %.not8399, label %.thread116, label %.lr.ph
 
-42:                                               ; preds = %get_port.exit
-  %43 = call ptr @gai_strerror(i32 noundef %41) #26
-  call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.57, ptr noundef nonnull %26, ptr noundef nonnull %40, ptr noundef %43)
+43:                                               ; preds = %get_port.exit
+  %44 = call ptr @gai_strerror(i32 noundef %42) #26
+  call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.57, ptr noundef nonnull %26, ptr noundef nonnull %41, ptr noundef %44)
   br label %.thread95
 
-.lr.ph:                                           ; preds = %.preheader, %61
-  %.069100 = phi ptr [ %.069, %61 ], [ %.06998, %.preheader ]
-  %44 = getelementptr inbounds nuw i8, ptr %.069100, i64 4
-  %45 = load i32, ptr %44, align 4, !tbaa !108
-  %46 = getelementptr inbounds nuw i8, ptr %.069100, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !104
-  %48 = getelementptr inbounds nuw i8, ptr %.069100, i64 12
-  %49 = load i32, ptr %48, align 4, !tbaa !109
-  %50 = call i32 @socket(i32 noundef %45, i32 noundef %47, i32 noundef %49) #26
-  %51 = icmp slt i32 %50, 0
-  br i1 %51, label %52, label %53
-
-52:                                               ; preds = %.lr.ph
-  call void @perror(ptr noundef nonnull @.str.52) #29
-  br label %61
+.lr.ph:                                           ; preds = %.preheader, %62
+  %.069100 = phi ptr [ %.069, %62 ], [ %.06998, %.preheader ]
+  %45 = getelementptr inbounds nuw i8, ptr %.069100, i64 4
+  %46 = load i32, ptr %45, align 4, !tbaa !108
+  %47 = getelementptr inbounds nuw i8, ptr %.069100, i64 8
+  %48 = load i32, ptr %47, align 8, !tbaa !104
+  %49 = getelementptr inbounds nuw i8, ptr %.069100, i64 12
+  %50 = load i32, ptr %49, align 4, !tbaa !109
+  %51 = call i32 @socket(i32 noundef %46, i32 noundef %48, i32 noundef %50) #26
+  %52 = icmp slt i32 %51, 0
+  br i1 %52, label %53, label %54
 
 53:                                               ; preds = %.lr.ph
+  call void @perror(ptr noundef nonnull @.str.52) #29
+  br label %62
+
+54:                                               ; preds = %.lr.ph
   call void (ptr, ptr, ...) @print_con_info(ptr noundef nonnull %1, ptr noundef nonnull @.str.53, ptr noundef nonnull %0)
-  %54 = getelementptr inbounds nuw i8, ptr %.069100, i64 24
-  %55 = load ptr, ptr %54, align 8, !tbaa !110
-  %56 = getelementptr inbounds nuw i8, ptr %.069100, i64 16
-  %57 = load i32, ptr %56, align 8, !tbaa !111
-  %58 = call i32 @connect(i32 noundef %50, ptr %55, i32 noundef %57) #26
-  %.not84 = icmp eq i32 %58, 0
-  br i1 %.not84, label %.loopexit, label %59
+  %55 = getelementptr inbounds nuw i8, ptr %.069100, i64 24
+  %56 = load ptr, ptr %55, align 8, !tbaa !110
+  %57 = getelementptr inbounds nuw i8, ptr %.069100, i64 16
+  %58 = load i32, ptr %57, align 8, !tbaa !111
+  %59 = call i32 @connect(i32 noundef %51, ptr %56, i32 noundef %58) #26
+  %.not84 = icmp eq i32 %59, 0
+  br i1 %.not84, label %.loopexit, label %60
 
-59:                                               ; preds = %53
+60:                                               ; preds = %54
   call void @perror(ptr noundef nonnull @.str.54) #29
-  %60 = call i32 @close(i32 noundef %50) #26
-  br label %61
+  %61 = call i32 @close(i32 noundef %51) #26
+  br label %62
 
-61:                                               ; preds = %59, %52
-  %62 = getelementptr inbounds nuw i8, ptr %.069100, i64 40
-  %.069 = load ptr, ptr %62, align 8, !tbaa !100
+62:                                               ; preds = %60, %53
+  %63 = getelementptr inbounds nuw i8, ptr %.069100, i64 40
+  %.069 = load ptr, ptr %63, align 8, !tbaa !100
   %.not83 = icmp eq ptr %.069, null
   br i1 %.not83, label %.thread95, label %.lr.ph
 
-.loopexit:                                        ; preds = %53, %23
-  %.070 = phi ptr [ null, %23 ], [ %26, %53 ]
-  %.067 = phi ptr [ null, %23 ], [ %.012.i, %53 ]
-  %.063 = phi i32 [ %13, %23 ], [ %50, %53 ]
+.loopexit:                                        ; preds = %54, %23
+  %.070 = phi ptr [ null, %23 ], [ %26, %54 ]
+  %.067 = phi ptr [ null, %23 ], [ %.012.i, %54 ]
+  %.063 = phi i32 [ %13, %23 ], [ %51, %54 ]
   store i32 %.063, ptr %1, align 8, !tbaa !50
-  %63 = getelementptr inbounds nuw i8, ptr %1, i64 24
-  %64 = call i32 @gettimeofday(ptr noundef nonnull %63, ptr noundef null) #26
+  %64 = getelementptr inbounds nuw i8, ptr %1, i64 24
+  %65 = call i32 @gettimeofday(ptr noundef nonnull %64, ptr noundef null) #26
   store i64 30, ptr %3, align 8, !tbaa !43
-  %65 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 0, ptr %65, align 8, !tbaa !62
-  %66 = load i32, ptr %1, align 8, !tbaa !50
-  %67 = call i32 @setsockopt(i32 noundef %66, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %3, i32 noundef 16) #26
-  %68 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %69 = load ptr, ptr %68, align 8, !tbaa !51
-  %.not86 = icmp eq ptr %69, %0
-  br i1 %.not86, label %.thread95, label %70
+  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 0, ptr %66, align 8, !tbaa !62
+  %67 = load i32, ptr %1, align 8, !tbaa !50
+  %68 = call i32 @setsockopt(i32 noundef %67, i32 noundef 1, i32 noundef 20, ptr noundef nonnull %3, i32 noundef 16) #26
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load ptr, ptr %69, align 8, !tbaa !51
+  %.not86 = icmp eq ptr %70, %0
+  br i1 %.not86, label %.thread95, label %71
 
-70:                                               ; preds = %.loopexit
-  %.not87 = icmp eq ptr %69, null
-  br i1 %.not87, label %72, label %71
+71:                                               ; preds = %.loopexit
+  %.not87 = icmp eq ptr %70, null
+  br i1 %.not87, label %73, label %72
 
-71:                                               ; preds = %70
-  call void @free(ptr noundef nonnull %69) #26
-  store ptr null, ptr %68, align 8, !tbaa !51
-  br label %72
+72:                                               ; preds = %71
+  call void @free(ptr noundef nonnull %70) #26
+  store ptr null, ptr %69, align 8, !tbaa !51
+  br label %73
 
-72:                                               ; preds = %71, %70
+73:                                               ; preds = %72, %71
   %.not88 = icmp eq ptr %.067, null
-  %73 = select i1 %.not88, ptr @.str.56, ptr %.067
+  %74 = select i1 %.not88, ptr @.str.56, ptr %.067
   %.not97 = icmp eq ptr %.070, null
-  br i1 %.not97, label %make_ip.exit, label %74
+  br i1 %.not97, label %make_ip.exit, label %75
 
-74:                                               ; preds = %72
-  %75 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.070) #27
-  %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %73) #27
-  %77 = add i64 %76, %75
-  %78 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.070, i32 noundef 58) #27
-  %.not.i92 = icmp eq ptr %78, null
-  %79 = select i1 %.not.i92, i64 3, i64 4
-  %80 = add i64 %77, %79
-  %81 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %80) #28
-  %.not20.i = icmp eq ptr %81, null
-  br i1 %.not20.i, label %make_ip.exit, label %82
+75:                                               ; preds = %73
+  %76 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %.070) #27
+  %77 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %74) #27
+  %78 = add i64 %77, %76
+  %79 = call ptr @strchr(ptr noundef nonnull dereferenceable(1) %.070, i32 noundef 58) #27
+  %.not.i92 = icmp eq ptr %79, null
+  %80 = select i1 %.not.i92, i64 3, i64 4
+  %81 = add i64 %78, %80
+  %82 = call noalias ptr @calloc(i64 noundef 1, i64 noundef %81) #28
+  %.not20.i = icmp eq ptr %82, null
+  br i1 %.not20.i, label %make_ip.exit, label %83
 
-82:                                               ; preds = %74
-  %83 = select i1 %.not.i92, ptr @.str.2, ptr @.str.1
-  %84 = select i1 %.not.i92, ptr @.str.2, ptr @.str.3
-  %85 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %81, i64 noundef %80, ptr noundef nonnull @.str, ptr noundef nonnull %83, ptr noundef nonnull %.070, ptr noundef nonnull %84, ptr noundef nonnull %73) #26
+83:                                               ; preds = %75
+  %84 = select i1 %.not.i92, ptr @.str.2, ptr @.str.1
+  %85 = select i1 %.not.i92, ptr @.str.2, ptr @.str.3
+  %86 = call i32 (ptr, i64, ptr, ...) @snprintf(ptr noundef nonnull %82, i64 noundef %81, ptr noundef nonnull @.str, ptr noundef nonnull %84, ptr noundef nonnull %.070, ptr noundef nonnull %85, ptr noundef nonnull %74) #26
   br label %make_ip.exit
 
-make_ip.exit:                                     ; preds = %72, %74, %82
-  %.0.i = phi ptr [ %81, %82 ], [ null, %72 ], [ null, %74 ]
-  store ptr %.0.i, ptr %68, align 8, !tbaa !51
+make_ip.exit:                                     ; preds = %73, %75, %83
+  %.0.i = phi ptr [ %82, %83 ], [ null, %73 ], [ null, %75 ]
+  store ptr %.0.i, ptr %69, align 8, !tbaa !51
   br label %.thread95
 
-.thread95:                                        ; preds = %61, %.thread, %24, %.loopexit, %make_ip.exit, %42
-  %.171.ph = phi ptr [ null, %.thread ], [ null, %24 ], [ %26, %42 ], [ %.070, %.loopexit ], [ %.070, %make_ip.exit ], [ %26, %61 ]
-  %.168.ph = phi ptr [ null, %.thread ], [ null, %24 ], [ %.012.i, %42 ], [ %.067, %.loopexit ], [ %.067, %make_ip.exit ], [ %.012.i, %61 ]
-  %.266.ph = phi i32 [ -1, %.thread ], [ -1, %24 ], [ -1, %42 ], [ 0, %.loopexit ], [ 0, %make_ip.exit ], [ -1, %61 ]
+.thread95:                                        ; preds = %62, %.thread, %24, %.loopexit, %make_ip.exit, %43
+  %.171.ph = phi ptr [ null, %.thread ], [ null, %24 ], [ %26, %43 ], [ %.070, %.loopexit ], [ %.070, %make_ip.exit ], [ %26, %62 ]
+  %.168.ph = phi ptr [ null, %.thread ], [ null, %24 ], [ %.012.i, %43 ], [ %.067, %.loopexit ], [ %.067, %make_ip.exit ], [ %.012.i, %62 ]
+  %.266.ph = phi i32 [ -1, %.thread ], [ -1, %24 ], [ -1, %43 ], [ 0, %.loopexit ], [ 0, %make_ip.exit ], [ -1, %62 ]
   %.pr = load ptr, ptr %5, align 8, !tbaa !100
   %.not89 = icmp eq ptr %.pr, null
-  br i1 %.not89, label %87, label %86
+  br i1 %.not89, label %88, label %87
 
-86:                                               ; preds = %.thread95
+87:                                               ; preds = %.thread95
   call void @freeaddrinfo(ptr noundef nonnull %.pr) #26
   store ptr null, ptr %5, align 8, !tbaa !100
-  br label %87
-
-87:                                               ; preds = %86, %.thread95
-  %.not90 = icmp eq ptr %.171.ph, null
-  br i1 %.not90, label %88, label %.thread116
-
-.thread116:                                       ; preds = %.preheader, %87
-  %.171113125 = phi ptr [ %.171.ph, %87 ], [ %26, %.preheader ]
-  %.168114123 = phi ptr [ %.168.ph, %87 ], [ %.012.i, %.preheader ]
-  %.266115121 = phi i32 [ %.266.ph, %87 ], [ -1, %.preheader ]
-  call void @free(ptr noundef nonnull %.171113125) #26
   br label %88
 
-88:                                               ; preds = %.thread116, %87
-  %.168114124 = phi ptr [ %.168114123, %.thread116 ], [ %.168.ph, %87 ]
-  %.266115122 = phi i32 [ %.266115121, %.thread116 ], [ %.266.ph, %87 ]
+88:                                               ; preds = %87, %.thread95
+  %.not90 = icmp eq ptr %.171.ph, null
+  br i1 %.not90, label %89, label %.thread116
+
+.thread116:                                       ; preds = %.preheader, %88
+  %.171113125 = phi ptr [ %.171.ph, %88 ], [ %26, %.preheader ]
+  %.168114123 = phi ptr [ %.168.ph, %88 ], [ %.012.i, %.preheader ]
+  %.266115121 = phi i32 [ %.266.ph, %88 ], [ -1, %.preheader ]
+  call void @free(ptr noundef nonnull %.171113125) #26
+  br label %89
+
+89:                                               ; preds = %.thread116, %88
+  %.168114124 = phi ptr [ %.168114123, %.thread116 ], [ %.168.ph, %88 ]
+  %.266115122 = phi i32 [ %.266115121, %.thread116 ], [ %.266.ph, %88 ]
   %.not91 = icmp eq ptr %.168114124, null
-  br i1 %.not91, label %90, label %89
+  br i1 %.not91, label %91, label %90
 
-89:                                               ; preds = %88
+90:                                               ; preds = %89
   call void @free(ptr noundef nonnull %.168114124) #26
-  br label %90
+  br label %91
 
-90:                                               ; preds = %88, %89
+91:                                               ; preds = %89, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)

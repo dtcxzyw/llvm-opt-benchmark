@@ -6525,11 +6525,10 @@ define internal noundef zeroext i1 @nf_conntrack_get_tuple_skb(ptr noundef write
 
 9:                                                ; preds = %2
   %10 = inttoptr i64 %7 to ptr
-  %11 = getelementptr inbounds nuw i8, ptr %10, i64 16
-  %12 = and i64 %6, 7
-  %13 = icmp samesign ugt i64 %12, 2
-  %.offs = select i1 %13, i64 72, i64 16
-  %14 = getelementptr i8, ptr %11, i64 %.offs
+  %11 = and i64 %6, 7
+  %12 = icmp samesign ugt i64 %11, 2
+  %13 = select i1 %12, i64 88, i64 32
+  %14 = getelementptr i8, ptr %10, i64 %13
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef align 4 dereferenceable(40) %0, ptr noundef align 8 dereferenceable(40) %14, i64 40, i1 false)
   br label %.thread13
 

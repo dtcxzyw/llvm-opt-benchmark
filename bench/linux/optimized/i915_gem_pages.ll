@@ -202,12 +202,12 @@ define dso_local void @__i915_gem_object_set_pages(ptr noundef %0, ptr noundef %
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; orb ${1:b},$0", "=*m,iq,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr elementtype(i8) %109, i32 4, ptr elementtype(i8) %109) #6, !srcloc !15
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 676
   tail call void asm sideeffect ".pushsection .smp_locks,\22a\22\0A.balign 4\0A.long 671f - .\0A.popsection\0A671:\0A\09lock; incl $0", "=*m,*m,~{memory},~{dirflag},~{fpsr},~{flags}"(ptr nonnull elementtype(i32) %110, ptr nonnull elementtype(i32) %110) #6, !srcloc !16
-  br label %136
+  br label %137
 
 111:                                              ; preds = %103, %.thread6
   %112 = and i32 %98, 6
   %113 = icmp eq i32 %112, 2
-  br i1 %113, label %114, label %136
+  br i1 %113, label %114, label %137
 
 114:                                              ; preds = %111
   %115 = getelementptr inbounds nuw i8, ptr %4, i64 8408
@@ -229,19 +229,20 @@ define dso_local void @__i915_gem_object_set_pages(ptr noundef %0, ptr noundef %
   %129 = select i1 %128, i64 8432, i64 8416
   %130 = getelementptr inbounds nuw i8, ptr %4, i64 %129
   %131 = getelementptr inbounds nuw i8, ptr %0, i64 896
-  %132 = getelementptr inbounds nuw i8, ptr %130, i64 8
-  %133 = load ptr, ptr %132, align 8
-  store ptr %131, ptr %132, align 8
+  %132 = select i1 %128, i64 8440, i64 8424
+  %133 = getelementptr inbounds nuw i8, ptr %4, i64 %132
+  %134 = load ptr, ptr %133, align 8
+  store ptr %131, ptr %133, align 8
   store ptr %130, ptr %131, align 8
-  %134 = getelementptr inbounds nuw i8, ptr %0, i64 904
-  store ptr %133, ptr %134, align 8
-  store volatile ptr %131, ptr %133, align 8
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 676
-  store volatile i32 0, ptr %135, align 4
+  %135 = getelementptr inbounds nuw i8, ptr %0, i64 904
+  store ptr %134, ptr %135, align 8
+  store volatile ptr %131, ptr %134, align 8
+  %136 = getelementptr inbounds nuw i8, ptr %0, i64 676
+  store volatile i32 0, ptr %136, align 4
   tail call void @_raw_spin_unlock_irqrestore(ptr noundef nonnull %115, i64 noundef %116) #6
-  br label %136
+  br label %137
 
-136:                                              ; preds = %114, %111, %108
+137:                                              ; preds = %114, %111, %108
   ret void
 }
 

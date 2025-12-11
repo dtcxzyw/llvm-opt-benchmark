@@ -364,13 +364,14 @@ define noundef ptr @_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE(i32 nou
   br i1 %.not12.i.i, label %_ZNK6frozen3mapIN4LIEF3ELF14AArch64Feature7FEATUREEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %6
 
 6:                                                ; preds = %3
-  %7 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %8 = load ptr, ptr %7, align 8, !tbaa !31
+  %7 = select i1 %.not.i.i.i.i.i.i.i.i, i64 24, i64 8
+  %8 = getelementptr inbounds nuw i8, ptr %.sroa.sel, i64 %7
+  %9 = load ptr, ptr %8, align 8, !tbaa !31
   br label %_ZNK6frozen3mapIN4LIEF3ELF14AArch64Feature7FEATUREEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
 _ZNK6frozen3mapIN4LIEF3ELF14AArch64Feature7FEATUREEPKcLm3ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %3, %1, %6
-  %9 = phi ptr [ %8, %6 ], [ @.str, %1 ], [ @.str, %3 ]
-  ret ptr %9
+  %10 = phi ptr [ %9, %6 ], [ @.str, %1 ], [ @.str, %3 ]
+  ret ptr %10
 }
 
 ; Function Attrs: mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite)
@@ -890,27 +891,28 @@ define linkonce_odr hidden ptr @_ZNK3fmt3v109formatterIN4LIEF3ELF14AArch64Featur
   br i1 %.not12.i.i.i, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit, label %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit
 
 _ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit: ; preds = %7
-  %10 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  %11 = load ptr, ptr %10, align 8, !tbaa !31
-  %.not.i = icmp eq ptr %11, null
-  br i1 %.not.i, label %12, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
+  %10 = select i1 %.not.i.i.i.i.i.i.i.i.i, i64 24, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.sel.i, i64 %10
+  %12 = load ptr, ptr %11, align 8, !tbaa !31
+  %.not.i = icmp eq ptr %12, null
+  br i1 %.not.i, label %13, label %_ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit
 
-12:                                               ; preds = %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit
+13:                                               ; preds = %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   call void @_ZNSt13runtime_errorC2EPKc(ptr noundef nonnull align 8 dereferenceable(16) %4, ptr noundef nonnull @.str.9) #18
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN3fmt3v1012format_errorE, i64 16), ptr %4, align 8, !tbaa !12
-  %13 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
-  %14 = load ptr, ptr @stderr, align 8, !tbaa !52
-  %15 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %14, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, i32 noundef 40, ptr noundef %13) #22
+  %14 = call noundef ptr @_ZNKSt13runtime_error4whatEv(ptr noundef nonnull align 8 dereferenceable(16) %4) #18
+  %15 = load ptr, ptr @stderr, align 8, !tbaa !52
+  %16 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %15, ptr noundef nonnull @.str.7, ptr noundef nonnull @.str.10, i32 noundef 40, ptr noundef %14) #22
   call void @_ZSt9terminatev() #19
   unreachable
 
 _ZN3fmt3v106detail5writeIcNS0_8appenderEEET0_S4_PKT_.exit: ; preds = %7, %3, %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit
-  %16 = phi ptr [ %11, %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit ], [ @.str, %3 ], [ @.str, %7 ]
-  %17 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %16) #18
-  %18 = getelementptr inbounds nuw i8, ptr %16, i64 %17
-  %19 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %16, ptr noundef nonnull %18, ptr %.sroa.0.0.copyload.i)
-  ret ptr %19
+  %17 = phi ptr [ %12, %_ZN4LIEF3ELF9to_stringENS0_14AArch64Feature7FEATUREE.exit ], [ @.str, %3 ], [ @.str, %7 ]
+  %18 = tail call noundef i64 @strlen(ptr noundef nonnull dereferenceable(1) %17) #18
+  %19 = getelementptr inbounds nuw i8, ptr %17, i64 %18
+  %20 = tail call ptr @_ZN3fmt3v106detail17copy_str_noinlineIcPKcNS0_8appenderEEET1_T0_S7_S6_(ptr noundef nonnull %17, ptr noundef nonnull %19, ptr %.sroa.0.0.copyload.i)
+  ret ptr %20
 }
 
 ; Function Attrs: mustprogress noinline nounwind uwtable

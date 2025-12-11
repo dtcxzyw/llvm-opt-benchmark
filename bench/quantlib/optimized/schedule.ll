@@ -11115,7 +11115,8 @@ _ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterato
   br i1 %cmp.i.i27, label %if.then.i.i30, label %_ZNSt13_Bit_iteratorppEi.exit
 
 if.then.i.i30:                                    ; preds = %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit
-  %incdec.ptr.i.i31 = getelementptr inbounds nuw i8, ptr %__result.sroa.0.1.i.i.i.i.i.i, i64 8
+  %16 = select i1 %cmp.i.i8.i.i.i.i.i.i, i64 16, i64 8
+  %incdec.ptr.i.i31 = getelementptr inbounds nuw i8, ptr %__result.sroa.0.022.i.i.i.i.i.i, i64 %16
   br label %_ZNSt13_Bit_iteratorppEi.exit
 
 _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_T_S2_S1_.exit.i, %_ZNSt6vectorIbSaIbEE15_M_copy_alignedESt19_Bit_const_iteratorS2_St13_Bit_iterator.exit, %if.then.i.i30
@@ -11128,14 +11129,14 @@ _ZNSt13_Bit_iteratorppEi.exit:                    ; preds = %_ZSt4copyIPmS0_ET0_
   br i1 %__x, label %if.then.i41, label %if.else.i38
 
 if.then.i41:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
-  %16 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8, !tbaa !47
-  %or.i42 = or i64 %16, %shl.i34
+  %17 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8, !tbaa !47
+  %or.i42 = or i64 %17, %shl.i34
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 if.else.i38:                                      ; preds = %_ZNSt13_Bit_iteratorppEi.exit
   %not.i39 = xor i64 %shl.i34, -1
-  %17 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8, !tbaa !47
-  %and.i40 = and i64 %17, %not.i39
+  %18 = load i64, ptr %__result.sroa.0.0.lcssa.i.i.i.i.i.i103, align 8, !tbaa !47
+  %and.i40 = and i64 %18, %not.i39
   br label %_ZNSt14_Bit_referenceaSEb.exit43
 
 _ZNSt14_Bit_referenceaSEb.exit43:                 ; preds = %if.then.i41, %if.else.i38
@@ -11159,20 +11160,20 @@ for.body.i.i.i.i.i61:                             ; preds = %_ZNSt14_Bit_referen
   %shl.i.i.i.i.i.i66 = shl nuw i64 1, %sh_prom.i.i.i.i.i.i65
   %sh_prom.i4.i.i.i.i.i = zext nneg i32 %__result.sroa.5.026.i.i.i.i.i63 to i64
   %shl.i5.i.i.i.i.i = shl nuw i64 1, %sh_prom.i4.i.i.i.i.i
-  %18 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8, !tbaa !47
-  %and.i.i.i.i.i.i.i67 = and i64 %18, %shl.i.i.i.i.i.i66
+  %19 = load i64, ptr %__first.sroa.0.027.i.i.i.i.i, align 8, !tbaa !47
+  %and.i.i.i.i.i.i.i67 = and i64 %19, %shl.i.i.i.i.i.i66
   %tobool.i.not.i.i.i.i.i.i68 = icmp eq i64 %and.i.i.i.i.i.i.i67, 0
   br i1 %tobool.i.not.i.i.i.i.i.i68, label %if.else.i.i.i.i.i.i.i82, label %if.then.i.i.i.i.i.i.i69
 
 if.then.i.i.i.i.i.i.i69:                          ; preds = %for.body.i.i.i.i.i61
-  %19 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8, !tbaa !47
-  %or.i.i.i.i.i.i.i70 = or i64 %19, %shl.i5.i.i.i.i.i
+  %20 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8, !tbaa !47
+  %or.i.i.i.i.i.i.i70 = or i64 %20, %shl.i5.i.i.i.i.i
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 if.else.i.i.i.i.i.i.i82:                          ; preds = %for.body.i.i.i.i.i61
   %not.i.i.i.i.i.i.i83 = xor i64 %shl.i5.i.i.i.i.i, -1
-  %20 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8, !tbaa !47
-  %and.i2.i.i.i.i.i.i84 = and i64 %20, %not.i.i.i.i.i.i.i83
+  %21 = load i64, ptr %__result.sroa.0.025.i.i.i.i.i64, align 8, !tbaa !47
+  %and.i2.i.i.i.i.i.i84 = and i64 %21, %not.i.i.i.i.i.i.i83
   br label %_ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71
 
 _ZNSt14_Bit_referenceaSERKS_.exit.i.i.i.i.i71:    ; preds = %if.else.i.i.i.i.i.i.i82, %if.then.i.i.i.i.i.i.i69

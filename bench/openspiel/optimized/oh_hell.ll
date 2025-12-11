@@ -5830,157 +5830,158 @@ _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversi
   %10 = getelementptr inbounds nuw i8, ptr %9, i64 88
   %11 = load ptr, ptr %10, align 8
   %12 = invoke noundef zeroext i1 %11(ptr noundef nonnull align 8 dereferenceable(264) %1)
-          to label %13 unwind label %56
+          to label %13 unwind label %57
 
 13:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
   %.v = select i1 %12, i64 240, i64 216
   %14 = getelementptr inbounds nuw i8, ptr %1, i64 %.v
-  %15 = getelementptr inbounds nuw i8, ptr %14, i64 8
-  %16 = load ptr, ptr %15, align 8
-  %17 = load ptr, ptr %14, align 8
-  %18 = ptrtoint ptr %16 to i64
+  %15 = select i1 %12, i64 248, i64 224
+  %16 = getelementptr inbounds nuw i8, ptr %1, i64 %15
+  %17 = load ptr, ptr %16, align 8
+  %18 = load ptr, ptr %14, align 8
   %19 = ptrtoint ptr %17 to i64
-  %20 = sub i64 %18, %19
-  %.not.i.i.i.i = icmp eq ptr %16, %17
-  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit, label %21
+  %20 = ptrtoint ptr %18 to i64
+  %21 = sub i64 %19, %20
+  %.not.i.i.i.i = icmp eq ptr %17, %18
+  br i1 %.not.i.i.i.i, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit, label %22
 
-21:                                               ; preds = %13
-  %22 = icmp ugt i64 %20, 9223372036854775800
-  br i1 %22, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i
+22:                                               ; preds = %13
+  %23 = icmp ugt i64 %21, 9223372036854775800
+  br i1 %23, label %.noexc.i.i, label %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i
 
-.noexc.i.i:                                       ; preds = %21
+.noexc.i.i:                                       ; preds = %22
   invoke void @_ZSt28__throw_bad_array_new_lengthv() #28
-          to label %.noexc unwind label %56
+          to label %.noexc unwind label %57
 
 .noexc:                                           ; preds = %.noexc.i.i
   unreachable
 
-_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %21
-  %23 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %20) #29
-          to label %.lr.ph.i.i.i.i.i unwind label %56
+_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i: ; preds = %22
+  %24 = invoke noalias noundef nonnull ptr @_Znwm(i64 noundef %21) #29
+          to label %.lr.ph.i.i.i.i.i unwind label %57
 
 .lr.ph.i.i.i.i.i:                                 ; preds = %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i, %.lr.ph.i.i.i.i.i
-  %.09.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %23, %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i ]
-  %.sroa.04.08.i.i.i.i.i = phi ptr [ %25, %.lr.ph.i.i.i.i.i ], [ %17, %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i ]
-  %24 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
-  store i64 %24, ptr %.09.i.i.i.i.i, align 4
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
-  %26 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
-  %.not.i.i.i.i.i = icmp eq ptr %25, %16
+  %.09.i.i.i.i.i = phi ptr [ %27, %.lr.ph.i.i.i.i.i ], [ %24, %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i ]
+  %.sroa.04.08.i.i.i.i.i = phi ptr [ %26, %.lr.ph.i.i.i.i.i ], [ %18, %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i ]
+  %25 = load i64, ptr %.sroa.04.08.i.i.i.i.i, align 4
+  store i64 %25, ptr %.09.i.i.i.i.i, align 4
+  %26 = getelementptr inbounds nuw i8, ptr %.sroa.04.08.i.i.i.i.i, i64 8
+  %27 = getelementptr inbounds nuw i8, ptr %.09.i.i.i.i.i, i64 8
+  %.not.i.i.i.i.i = icmp eq ptr %26, %17
   br i1 %.not.i.i.i.i.i, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit, label %.lr.ph.i.i.i.i.i, !llvm.loop !75
 
 _ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit: ; preds = %.lr.ph.i.i.i.i.i, %13
-  %.sink = phi ptr [ null, %13 ], [ %23, %.lr.ph.i.i.i.i.i ]
-  %27 = getelementptr inbounds nuw i8, ptr %1, i64 68
-  %28 = load i32, ptr %27, align 4
-  %29 = icmp sgt i32 %28, 0
-  br i1 %29, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph, label %._crit_edge38
+  %.sink = phi ptr [ null, %13 ], [ %24, %.lr.ph.i.i.i.i.i ]
+  %28 = getelementptr inbounds nuw i8, ptr %1, i64 68
+  %29 = load i32, ptr %28, align 4
+  %30 = icmp sgt i32 %29, 0
+  br i1 %30, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph, label %._crit_edge38
 
 _ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph: ; preds = %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit
-  %30 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  %31 = getelementptr inbounds nuw i8, ptr %1, i64 72
+  %31 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %32 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 8
-  %32 = getelementptr inbounds nuw i8, ptr %6, i64 8
+  %33 = getelementptr inbounds nuw i8, ptr %6, i64 8
   br label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16
 
-_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16: ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph, %64
-  %indvars.iv40 = phi i64 [ 0, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph ], [ %indvars.iv.next41, %64 ]
-  %33 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 %indvars.iv40
+_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16: ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph, %65
+  %indvars.iv40 = phi i64 [ 0, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16.lr.ph ], [ %indvars.iv.next41, %65 ]
+  %34 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel7oh_hellL9kSuitCharE, i64 %indvars.iv40
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  %.sroa.0.0.copyload.i.i.i.i20 = load i8, ptr %33, align 1
+  %.sroa.0.0.copyload.i.i.i.i20 = load i8, ptr %34, align 1
   %.sroa.0.0.insert.ext.i.i.i.i21 = zext i8 %.sroa.0.0.copyload.i.i.i.i20 to i64
-  %34 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i21 to ptr
-  store ptr %34, ptr %3, align 8
-  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %30, align 8
-  %35 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl7debian219str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef %0, ptr nonnull @.str.30, i64 8, ptr nonnull %3, i64 1)
-          to label %36 unwind label %58
+  %35 = inttoptr i64 %.sroa.0.0.insert.ext.i.i.i.i21 to ptr
+  store ptr %35, ptr %3, align 8
+  store ptr @_ZN4absl7debian219str_format_internal13FormatArgImpl8DispatchIcEEbNS2_4DataENS1_24FormatConversionSpecImplEPv, ptr %31, align 8
+  %36 = invoke noundef nonnull align 8 dereferenceable(32) ptr @_ZN4absl7debian219str_format_internal10AppendPackEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEENS1_21UntypedFormatSpecImplENS0_4SpanIKNS1_13FormatArgImplEEE(ptr noundef %0, ptr nonnull @.str.30, i64 8, ptr nonnull %3, i64 1)
+          to label %37 unwind label %59
 
-36:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16
+37:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %37 = load i32, ptr %31, align 8
-  %38 = icmp sgt i32 %37, 0
-  br i1 %38, label %.lr.ph.preheader, label %._crit_edge
+  %38 = load i32, ptr %32, align 8
+  %39 = icmp sgt i32 %38, 0
+  br i1 %39, label %.lr.ph.preheader, label %._crit_edge
 
-.lr.ph.preheader:                                 ; preds = %36
-  %39 = zext nneg i32 %37 to i64
-  %40 = trunc nuw nsw i64 %indvars.iv40 to i32
+.lr.ph.preheader:                                 ; preds = %37
+  %40 = zext nneg i32 %38 to i64
+  %41 = trunc nuw nsw i64 %indvars.iv40 to i32
   br label %.lr.ph
 
-.lr.ph:                                           ; preds = %.lr.ph.preheader, %62
-  %indvars.iv = phi i64 [ %39, %.lr.ph.preheader ], [ %indvars.iv.next, %62 ]
+.lr.ph:                                           ; preds = %.lr.ph.preheader, %63
+  %indvars.iv = phi i64 [ %40, %.lr.ph.preheader ], [ %indvars.iv.next, %63 ]
   %indvars.iv.next = add nsw i64 %indvars.iv, -1
-  %41 = load i32, ptr %27, align 4
-  %42 = trunc nuw nsw i64 %indvars.iv.next to i32
-  %43 = mul nsw i32 %41, %42
-  %44 = add nsw i32 %43, %40
-  %45 = sext i32 %44 to i64
-  %46 = getelementptr inbounds %"class.absl::debian2::optional", ptr %.sink, i64 %45
-  %47 = load i8, ptr %46, align 4
-  %48 = trunc i8 %47 to i1
-  %49 = getelementptr inbounds nuw i8, ptr %46, i64 4
-  %50 = load i32, ptr %49, align 4
-  %51 = icmp eq i32 %2, %50
-  %52 = select i1 %48, i1 %51, i1 false
-  br i1 %52, label %53, label %62
+  %42 = load i32, ptr %28, align 4
+  %43 = trunc nuw nsw i64 %indvars.iv.next to i32
+  %44 = mul nsw i32 %42, %43
+  %45 = add nsw i32 %44, %41
+  %46 = sext i32 %45 to i64
+  %47 = getelementptr inbounds %"class.absl::debian2::optional", ptr %.sink, i64 %46
+  %48 = load i8, ptr %47, align 4
+  %49 = trunc i8 %48 to i1
+  %50 = getelementptr inbounds nuw i8, ptr %47, i64 4
+  %51 = load i32, ptr %50, align 4
+  %52 = icmp eq i32 %2, %51
+  %53 = select i1 %49, i1 %52, i1 false
+  br i1 %53, label %54, label %63
 
-53:                                               ; preds = %.lr.ph
-  %54 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 %indvars.iv.next
-  store ptr %54, ptr %5, align 8
+54:                                               ; preds = %.lr.ph
+  %55 = getelementptr inbounds nuw i8, ptr @_ZN10open_spiel7oh_hellL9kRankCharE, i64 %indvars.iv.next
+  store ptr %55, ptr %5, align 8
   store i64 1, ptr %.sroa.2.0..sroa_idx.i, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %5)
-          to label %62 unwind label %.thread
+          to label %63 unwind label %.thread
 
-.thread:                                          ; preds = %53
-  %55 = landingpad { ptr, i32 }
+.thread:                                          ; preds = %54
+  %56 = landingpad { ptr, i32 }
           cleanup
-  br label %60
+  br label %61
 
-56:                                               ; preds = %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i, %.noexc.i.i, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
-  %57 = landingpad { ptr, i32 }
+57:                                               ; preds = %_ZNSt16allocator_traitsISaIN4absl7debian28optionalIiEEEE8allocateERS4_m.exit.i.i.i.i, %.noexc.i.i, %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit
+  %58 = landingpad { ptr, i32 }
           cleanup
   br label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit
 
-58:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16, %._crit_edge
-  %59 = landingpad { ptr, i32 }
+59:                                               ; preds = %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16, %._crit_edge
+  %60 = landingpad { ptr, i32 }
           cleanup
   %.not.i.i.i = icmp eq ptr %.sink, null
-  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit, label %60
+  br i1 %.not.i.i.i, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit, label %61
 
-60:                                               ; preds = %.thread, %58
-  %61 = phi { ptr, i32 } [ %55, %.thread ], [ %59, %58 ]
-  call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef %20) #30
+61:                                               ; preds = %.thread, %59
+  %62 = phi { ptr, i32 } [ %56, %.thread ], [ %60, %59 ]
+  call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef %21) #30
   br label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit
 
-62:                                               ; preds = %.lr.ph, %53
-  %63 = icmp samesign ugt i64 %indvars.iv, 1
-  br i1 %63, label %.lr.ph, label %._crit_edge, !llvm.loop !76
+63:                                               ; preds = %.lr.ph, %54
+  %64 = icmp samesign ugt i64 %indvars.iv, 1
+  br i1 %64, label %.lr.ph, label %._crit_edge, !llvm.loop !76
 
-._crit_edge:                                      ; preds = %62, %36
+._crit_edge:                                      ; preds = %63, %37
   store ptr @.str.31, ptr %6, align 8
-  store i64 1, ptr %32, align 8
+  store i64 1, ptr %33, align 8
   invoke void @_ZN4absl7debian29StrAppendEPNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKNS0_8AlphaNumE(ptr noundef %0, ptr noundef nonnull align 8 dereferenceable(48) %6)
-          to label %64 unwind label %58
+          to label %65 unwind label %59
 
-64:                                               ; preds = %._crit_edge
+65:                                               ; preds = %._crit_edge
   %indvars.iv.next41 = add nuw nsw i64 %indvars.iv40, 1
-  %65 = load i32, ptr %27, align 4
-  %66 = sext i32 %65 to i64
-  %67 = icmp slt i64 %indvars.iv.next41, %66
-  br i1 %67, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16, label %._crit_edge38, !llvm.loop !77
+  %66 = load i32, ptr %28, align 4
+  %67 = sext i32 %66 to i64
+  %68 = icmp slt i64 %indvars.iv.next41, %67
+  br i1 %68, label %_ZN4absl7debian219str_format_internal18FormatSpecTemplateIJLNS0_23FormatConversionCharSetE131067EEEC2EUa9enable_ifIXclL_ZNS1_15ValidFormatImplIJLS3_131067EEEEbNS0_11string_viewEEfL0p_EEEPKc.exit16, label %._crit_edge38, !llvm.loop !77
 
-._crit_edge38:                                    ; preds = %64, %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit
+._crit_edge38:                                    ; preds = %65, %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EEC2ERKS5_.exit
   %.not.i.i.i23 = icmp eq ptr %.sink, null
-  br i1 %.not.i.i.i23, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit24, label %68
+  br i1 %.not.i.i.i23, label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit24, label %69
 
-68:                                               ; preds = %._crit_edge38
-  call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef %20) #30
+69:                                               ; preds = %._crit_edge38
+  call void @_ZdlPvm(ptr noundef nonnull %.sink, i64 noundef %21) #30
   br label %_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit24
 
-_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit24: ; preds = %._crit_edge38, %68
+_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit24: ; preds = %._crit_edge38, %69
   ret void
 
-_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit: ; preds = %60, %58, %56
-  %.pn = phi { ptr, i32 } [ %57, %56 ], [ %59, %58 ], [ %61, %60 ]
+_ZNSt6vectorIN4absl7debian28optionalIiEESaIS3_EED2Ev.exit: ; preds = %61, %59, %57
+  %.pn = phi { ptr, i32 } [ %58, %57 ], [ %60, %59 ], [ %62, %61 ]
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %0) #25
   resume { ptr, i32 } %.pn
 }

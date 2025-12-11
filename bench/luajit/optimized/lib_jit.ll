@@ -1811,8 +1811,8 @@ thread-pre-split:                                 ; preds = %27, %22
   %46 = getelementptr inbounds nuw i8, ptr %23, i64 26
   %47 = load i8, ptr %46, align 1, !tbaa !34
   %48 = icmp eq i8 %47, 45
-  %49 = select i1 %48, i64 3, i64 2
-  %50 = getelementptr inbounds nuw i8, ptr %24, i64 %49
+  %49 = select i1 %48, i64 27, i64 26
+  %50 = getelementptr inbounds nuw i8, ptr %23, i64 %49
   br label %51
 
 51:                                               ; preds = %45, %41, %39, %37, %thread-pre-split

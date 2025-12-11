@@ -19589,13 +19589,14 @@ define void @_ZN4toml2v34impl9formatter5printERKNS0_5valueIbEE(ptr noundef nonnu
   %.v = select i1 %5, i64 64, i64 80
   %8 = getelementptr inbounds nuw i8, ptr %7, i64 %.v
   %.sroa.0.0.copyload = load i64, ptr %8, align 8, !tbaa !114
-  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %9 = select i1 %5, i64 72, i64 88
+  %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 %9
   %.sroa.2.0.copyload = load ptr, ptr %.sroa.2.0..sroa_idx, align 8, !tbaa !115
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %10 = load ptr, ptr %9, align 8, !tbaa !121
-  %11 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %10, ptr noundef %.sroa.2.0.copyload, i64 noundef %.sroa.0.0.copyload)
-  %12 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 0, ptr %12, align 4, !tbaa !120
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %11 = load ptr, ptr %10, align 8, !tbaa !121
+  %12 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %11, ptr noundef %.sroa.2.0.copyload, i64 noundef %.sroa.0.0.copyload)
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i8 0, ptr %13, align 4, !tbaa !120
   ret void
 }
 
@@ -19718,14 +19719,14 @@ _ZN4toml2v34impl15print_to_streamERSoRKNS0_6stdopt9date_timeE.exit: ; preds = %2
 define void @_ZN4toml2v34impl9formatter11print_valueERKNS0_4nodeENS0_9node_typeE(ptr noundef nonnull align 8 captures(none) dereferenceable(69) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(40) %1, i8 noundef zeroext %2) local_unnamed_addr #0 align 2 {
   %4 = icmp ugt i8 %2, 2
   tail call void @llvm.assume(i1 %4)
-  switch i8 %2, label %52 [
+  switch i8 %2, label %53 [
     i8 3, label %5
     i8 4, label %10
     i8 5, label %11
     i8 6, label %12
-    i8 7, label %23
-    i8 8, label %37
-    i8 9, label %51
+    i8 7, label %24
+    i8 8, label %38
+    i8 9, label %52
   ]
 
 5:                                                ; preds = %3
@@ -19734,15 +19735,15 @@ define void @_ZN4toml2v34impl9formatter11print_valueERKNS0_4nodeENS0_9node_typeE
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %9 = load i64, ptr %8, align 8, !tbaa !11
   tail call void @_ZN4toml2v34impl9formatter12print_stringESt17basic_string_viewIcSt11char_traitsIcEEbbb(ptr noundef nonnull align 8 dereferenceable(69) %0, i64 %9, ptr %7, i1 noundef zeroext true, i1 noundef zeroext false, i1 noundef zeroext true)
-  br label %53
+  br label %54
 
 10:                                               ; preds = %3
   tail call void @_ZN4toml2v34impl9formatter5printERKNS0_5valueIlEE(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef nonnull align 8 dereferenceable(50) %1)
-  br label %53
+  br label %54
 
 11:                                               ; preds = %3
   tail call void @_ZN4toml2v34impl9formatter5printERKNS0_5valueIdEE(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef nonnull align 8 dereferenceable(50) %1)
-  br label %53
+  br label %54
 
 12:                                               ; preds = %3
   %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -19753,79 +19754,80 @@ define void @_ZN4toml2v34impl9formatter11print_valueERKNS0_4nodeENS0_9node_typeE
   %.v.i = select i1 %15, i64 64, i64 80
   %18 = getelementptr inbounds nuw i8, ptr %17, i64 %.v.i
   %.sroa.0.0.copyload.i = load i64, ptr %18, align 8, !tbaa !114
-  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %18, i64 8
+  %19 = select i1 %15, i64 72, i64 88
+  %.sroa.2.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %17, i64 %19
   %.sroa.2.0.copyload.i = load ptr, ptr %.sroa.2.0..sroa_idx.i, align 8, !tbaa !115
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %20 = load ptr, ptr %19, align 8, !tbaa !121
-  %21 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %20, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 0, ptr %22, align 4, !tbaa !120
-  br label %53
+  %20 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %21 = load ptr, ptr %20, align 8, !tbaa !121
+  %22 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo5writeEPKcl(ptr noundef nonnull align 8 dereferenceable(8) %21, ptr noundef %.sroa.2.0.copyload.i, i64 noundef %.sroa.0.0.copyload.i)
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i8 0, ptr %23, align 4, !tbaa !120
+  br label %54
 
-23:                                               ; preds = %3
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load i64, ptr %24, align 8, !tbaa !116
-  %26 = and i64 %25, 1
-  %.not.i3.i = icmp eq i64 %26, 0
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %28 = load ptr, ptr %27, align 8, !tbaa !121
-  %29 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br i1 %.not.i3.i, label %35, label %30
+24:                                               ; preds = %3
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load i64, ptr %25, align 8, !tbaa !116
+  %27 = and i64 %26, 1
+  %.not.i3.i = icmp eq i64 %27, 0
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %29 = load ptr, ptr %28, align 8, !tbaa !121
+  %30 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br i1 %.not.i3.i, label %36, label %31
 
-30:                                               ; preds = %23
-  %31 = and i64 %25, 4
-  %.not.i.not.i = icmp eq i64 %31, 0
-  %32 = select i1 %.not.i.not.i, i8 34, i8 39
-  %33 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %28, i8 noundef signext %32)
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull readonly align 2 dereferenceable(4) %29)
-  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %28, i8 noundef signext %32)
+31:                                               ; preds = %24
+  %32 = and i64 %26, 4
+  %.not.i.not.i = icmp eq i64 %32, 0
+  %33 = select i1 %.not.i.not.i, i8 34, i8 39
+  %34 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext %33)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull readonly align 2 dereferenceable(4) %30)
+  %35 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %29, i8 noundef signext %33)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit
 
-35:                                               ; preds = %23
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %28, ptr noundef nonnull readonly align 2 dereferenceable(4) %29)
+36:                                               ; preds = %24
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4dateE(ptr noundef nonnull align 8 dereferenceable(8) %29, ptr noundef nonnull readonly align 2 dereferenceable(4) %30)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit
 
-_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit: ; preds = %30, %35
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 0, ptr %36, align 4, !tbaa !120
-  br label %53
+_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit: ; preds = %31, %36
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i8 0, ptr %37, align 4, !tbaa !120
+  br label %54
 
-37:                                               ; preds = %3
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %39 = load i64, ptr %38, align 8, !tbaa !116
-  %40 = and i64 %39, 1
-  %.not.i3.i9 = icmp eq i64 %40, 0
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  %42 = load ptr, ptr %41, align 8, !tbaa !121
-  %43 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  br i1 %.not.i3.i9, label %49, label %44
+38:                                               ; preds = %3
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %40 = load i64, ptr %39, align 8, !tbaa !116
+  %41 = and i64 %40, 1
+  %.not.i3.i9 = icmp eq i64 %41, 0
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 56
+  %43 = load ptr, ptr %42, align 8, !tbaa !121
+  %44 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  br i1 %.not.i3.i9, label %50, label %45
 
-44:                                               ; preds = %37
-  %45 = and i64 %39, 4
-  %.not.i.not.i10 = icmp eq i64 %45, 0
-  %46 = select i1 %.not.i.not.i10, i8 34, i8 39
-  %47 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %42, i8 noundef signext %46)
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull readonly align 4 dereferenceable(8) %43)
-  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %42, i8 noundef signext %46)
+45:                                               ; preds = %38
+  %46 = and i64 %40, 4
+  %.not.i.not.i10 = icmp eq i64 %46, 0
+  %47 = select i1 %.not.i.not.i10, i8 34, i8 39
+  %48 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext %47)
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull readonly align 4 dereferenceable(8) %44)
+  %49 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSo3putEc(ptr noundef nonnull align 8 dereferenceable(8) %43, i8 noundef signext %47)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit
 
-49:                                               ; preds = %37
-  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %42, ptr noundef nonnull readonly align 4 dereferenceable(8) %43)
+50:                                               ; preds = %38
+  tail call void @_ZN4toml2v34impl15print_to_streamERSoRKNS0_4timeE(ptr noundef nonnull align 8 dereferenceable(8) %43, ptr noundef nonnull readonly align 4 dereferenceable(8) %44)
   br label %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit
 
-_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit: ; preds = %44, %49
-  %50 = getelementptr inbounds nuw i8, ptr %0, i64 68
-  store i8 0, ptr %50, align 4, !tbaa !120
-  br label %53
-
-51:                                               ; preds = %3
-  tail call void @_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_6stdopt9date_timeEEE(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef nonnull align 8 dereferenceable(58) %1)
-  br label %53
+_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit: ; preds = %45, %50
+  %51 = getelementptr inbounds nuw i8, ptr %0, i64 68
+  store i8 0, ptr %51, align 4, !tbaa !120
+  br label %54
 
 52:                                               ; preds = %3
+  tail call void @_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_6stdopt9date_timeEEE(ptr noundef nonnull align 8 dereferenceable(69) %0, ptr noundef nonnull align 8 dereferenceable(58) %1)
+  br label %54
+
+53:                                               ; preds = %3
   unreachable
 
-53:                                               ; preds = %51, %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit, %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit, %12, %11, %10, %5
+54:                                               ; preds = %52, %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4timeEEE.exit, %_ZN4toml2v34impl9formatter5printERKNS0_5valueINS0_4dateEEE.exit, %12, %11, %10, %5
   ret void
 }
 

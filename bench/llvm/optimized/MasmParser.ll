@@ -39128,31 +39128,33 @@ _ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move
   %spec.select = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %spec.select.idx
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %58, ptr noundef nonnull align 8 dereferenceable(40) %spec.select, i64 24, i1 false)
   %102 = getelementptr inbounds nuw i8, ptr %58, i64 24
-  %103 = getelementptr inbounds nuw i8, ptr %spec.select, i64 24
-  %104 = getelementptr inbounds nuw i8, ptr %58, i64 32
-  %105 = load i32, ptr %104, align 8, !tbaa !630
-  %106 = icmp ult i32 %105, 65
-  br i1 %106, label %107, label %114
+  %103 = select i1 %spec.select.i, i64 64, i64 24
+  %104 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %103
+  %105 = getelementptr inbounds nuw i8, ptr %58, i64 32
+  %106 = load i32, ptr %105, align 8, !tbaa !630
+  %107 = icmp ult i32 %106, 65
+  br i1 %107, label %108, label %116
 
-107:                                              ; preds = %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
-  %108 = getelementptr inbounds nuw i8, ptr %spec.select, i64 32
-  %109 = load i32, ptr %108, align 8, !tbaa !630
-  %110 = icmp ult i32 %109, 65
-  br i1 %110, label %111, label %114
+108:                                              ; preds = %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
+  %109 = select i1 %spec.select.i, i64 72, i64 32
+  %110 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %109
+  %111 = load i32, ptr %110, align 8, !tbaa !630
+  %112 = icmp ult i32 %111, 65
+  br i1 %112, label %113, label %116
 
-111:                                              ; preds = %107
-  %112 = load i64, ptr %103, align 8, !tbaa !287
-  store i64 %112, ptr %102, align 8, !tbaa !287
-  %113 = load i32, ptr %108, align 8, !tbaa !630
-  store i32 %113, ptr %104, align 8, !tbaa !630
+113:                                              ; preds = %108
+  %114 = load i64, ptr %104, align 8, !tbaa !287
+  store i64 %114, ptr %102, align 8, !tbaa !287
+  %115 = load i32, ptr %110, align 8, !tbaa !630
+  store i32 %115, ptr %105, align 8, !tbaa !630
   br label %_ZN4llvm8AsmTokenaSERKS0_.exit
 
-114:                                              ; preds = %107, %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
-  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %102, ptr noundef nonnull align 8 dereferenceable(12) %103) #27
+116:                                              ; preds = %108, %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
+  tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %102, ptr noundef nonnull align 8 dereferenceable(12) %104) #27
   br label %_ZN4llvm8AsmTokenaSERKS0_.exit
 
-_ZN4llvm8AsmTokenaSERKS0_.exit:                   ; preds = %114, %111, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit
-  %.013 = phi ptr [ %41, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit ], [ %58, %111 ], [ %58, %114 ]
+_ZN4llvm8AsmTokenaSERKS0_.exit:                   ; preds = %116, %113, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit
+  %.013 = phi ptr [ %41, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit ], [ %58, %113 ], [ %58, %116 ]
   ret ptr %.013
 }
 

@@ -17517,9 +17517,9 @@ define linkonce_odr void @_ZN18QAlgorithmsPrivate11qSortHelperIN5QListIP8TFHandl
   br i1 %14, label %._crit_edge, label %.lr.ph49
 
 .lr.ph49:                                         ; preds = %4, %.critedge2
-  %15 = phi i32 [ %97, %.critedge2 ], [ %13, %4 ]
-  %16 = phi i64 [ %95, %.critedge2 ], [ %11, %4 ]
-  %17 = phi ptr [ %91, %.critedge2 ], [ %8, %4 ]
+  %15 = phi i32 [ %98, %.critedge2 ], [ %13, %4 ]
+  %16 = phi i64 [ %96, %.critedge2 ], [ %11, %4 ]
+  %17 = phi ptr [ %92, %.critedge2 ], [ %8, %4 ]
   %18 = getelementptr inbounds i8, ptr %17, i64 -8
   store ptr %18, ptr %1, align 8
   %19 = load ptr, ptr %0, align 8
@@ -17651,19 +17651,20 @@ define linkonce_odr void @_ZN18QAlgorithmsPrivate11qSortHelperIN5QListIP8TFHandl
   store ptr %88, ptr %5, align 8
   store ptr %spec.select, ptr %6, align 8
   call void @_ZN18QAlgorithmsPrivate11qSortHelperIN5QListIP8TFHandleE8iteratorES3_PFbS3_S3_EEEvT_S8_RKT0_T1_(ptr noundef nonnull %5, ptr noundef nonnull %6, ptr noundef nonnull align 8 dereferenceable(8) %2, ptr noundef %3)
-  %89 = getelementptr inbounds nuw i8, ptr %spec.select, i64 8
-  store ptr %89, ptr %0, align 8
-  %90 = load ptr, ptr %1, align 8
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  store ptr %91, ptr %1, align 8
-  %92 = load ptr, ptr %0, align 8
-  %93 = ptrtoint ptr %91 to i64
+  %89 = select i1 %84, i64 16, i64 8
+  %90 = getelementptr inbounds nuw i8, ptr %.sroa.026.1, i64 %89
+  store ptr %90, ptr %0, align 8
+  %91 = load ptr, ptr %1, align 8
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  store ptr %92, ptr %1, align 8
+  %93 = load ptr, ptr %0, align 8
   %94 = ptrtoint ptr %92 to i64
-  %95 = sub i64 %93, %94
-  %96 = lshr exact i64 %95, 3
-  %97 = trunc i64 %96 to i32
-  %98 = icmp slt i32 %97, 2
-  br i1 %98, label %._crit_edge, label %.lr.ph49
+  %95 = ptrtoint ptr %93 to i64
+  %96 = sub i64 %94, %95
+  %97 = lshr exact i64 %96, 3
+  %98 = trunc i64 %97 to i32
+  %99 = icmp slt i32 %98, 2
+  br i1 %99, label %._crit_edge, label %.lr.ph49
 
 ._crit_edge:                                      ; preds = %.critedge2, %32, %52, %4
   ret void

@@ -2489,13 +2489,13 @@ define internal fastcc i64 @default_substitute_case_callout(ptr noundef %0, i64 
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %28
 
-28:                                               ; preds = %188, %25
-  %.0119 = phi i64 [ %3, %25 ], [ %.1120, %188 ]
-  %.1117 = phi i32 [ %.0116, %25 ], [ %.0115, %188 ]
-  %.0113 = phi ptr [ %2, %25 ], [ %.1114, %188 ]
-  %.0111 = phi i32 [ 0, %25 ], [ %.1112, %188 ]
-  %.0108 = phi i64 [ 0, %25 ], [ %189, %188 ]
-  %.0100 = phi ptr [ %0, %25 ], [ %.1101, %188 ]
+28:                                               ; preds = %187, %25
+  %.0119 = phi i64 [ %3, %25 ], [ %.1120, %187 ]
+  %.1117 = phi i32 [ %.0116, %25 ], [ %.0115, %187 ]
+  %.0113 = phi ptr [ %2, %25 ], [ %.1114, %187 ]
+  %.0111 = phi i32 [ 0, %25 ], [ %.1112, %187 ]
+  %.0108 = phi i64 [ 0, %25 ], [ %188, %187 ]
+  %.0100 = phi ptr [ %0, %25 ], [ %.1101, %187 ]
   %29 = icmp ult ptr %.0100, %8
   br i1 %29, label %30, label %.thread
 
@@ -2643,103 +2643,102 @@ define internal fastcc i64 @default_substitute_case_callout(ptr noundef %0, i64 
   %145 = getelementptr inbounds nuw i32, ptr @_pcre2_ucp_gentype_8, i64 %144
   %146 = load i32, ptr %145, align 4, !tbaa !38
   %147 = icmp eq i32 %146, 1
-  br i1 %147, label %148, label %175
+  br i1 %147, label %148, label %174
 
 148:                                              ; preds = %128
   %149 = zext i8 %143 to i32
   %.not128 = icmp eq i32 %.1117, 0
   %150 = select i1 %.not128, i32 5, i32 9
   %.not129 = icmp eq i32 %150, %149
-  br i1 %.not129, label %175, label %151
+  br i1 %.not129, label %174, label %151
 
 151:                                              ; preds = %148
   %152 = getelementptr inbounds nuw i8, ptr %141, i64 4
   %153 = load i32, ptr %152, align 4, !tbaa !47
   %154 = add nsw i32 %153, %.0103
-  br label %175
+  br label %174
 
 155:                                              ; preds = %126
   %156 = load ptr, ptr %27, align 8, !tbaa !35
-  %157 = getelementptr inbounds nuw i8, ptr %156, i64 512
   %.not127 = icmp eq i32 %.1117, 0
-  %158 = select i1 %.not127, i64 128, i64 96
-  %159 = getelementptr inbounds nuw i8, ptr %157, i64 %158
-  %160 = lshr i32 %.0103, 3
-  %161 = zext nneg i32 %160 to i64
-  %162 = getelementptr inbounds nuw i8, ptr %159, i64 %161
-  %163 = load i8, ptr %162, align 1, !tbaa !31
-  %164 = zext i8 %163 to i32
-  %165 = and i32 %.0103, 7
-  %166 = shl nuw nsw i32 1, %165
-  %167 = and i32 %166, %164
-  %168 = icmp eq i32 %167, 0
-  br i1 %168, label %169, label %175
+  %157 = select i1 %.not127, i64 640, i64 608
+  %158 = getelementptr inbounds nuw i8, ptr %156, i64 %157
+  %159 = lshr i32 %.0103, 3
+  %160 = zext nneg i32 %159 to i64
+  %161 = getelementptr inbounds nuw i8, ptr %158, i64 %160
+  %162 = load i8, ptr %161, align 1, !tbaa !31
+  %163 = zext i8 %162 to i32
+  %164 = and i32 %.0103, 7
+  %165 = shl nuw nsw i32 1, %164
+  %166 = and i32 %165, %163
+  %167 = icmp eq i32 %166, 0
+  br i1 %167, label %168, label %174
 
-169:                                              ; preds = %155
-  %170 = getelementptr inbounds nuw i8, ptr %156, i64 256
-  %171 = zext nneg i32 %.0103 to i64
-  %172 = getelementptr inbounds nuw i8, ptr %170, i64 %171
-  %173 = load i8, ptr %172, align 1, !tbaa !31
-  %174 = zext i8 %173 to i32
-  br label %175
+168:                                              ; preds = %155
+  %169 = getelementptr inbounds nuw i8, ptr %156, i64 256
+  %170 = zext nneg i32 %.0103 to i64
+  %171 = getelementptr inbounds nuw i8, ptr %169, i64 %170
+  %172 = load i8, ptr %171, align 1, !tbaa !31
+  %173 = zext i8 %172 to i32
+  br label %174
 
-175:                                              ; preds = %128, %148, %151, %155, %169
-  %.2105 = phi i32 [ %174, %169 ], [ %.0103, %155 ], [ %154, %151 ], [ %.0103, %148 ], [ %.0103, %128 ]
-  br i1 %12, label %176, label %179
+174:                                              ; preds = %128, %148, %151, %155, %168
+  %.2105 = phi i32 [ %173, %168 ], [ %.0103, %155 ], [ %154, %151 ], [ %.0103, %148 ], [ %.0103, %128 ]
+  br i1 %12, label %175, label %178
 
-176:                                              ; preds = %175
-  %177 = call i32 @_pcre2_ord2utf_8(i32 noundef %.2105, ptr noundef nonnull %7) #7
-  %178 = zext i32 %177 to i64
-  br label %181
+175:                                              ; preds = %174
+  %176 = call i32 @_pcre2_ord2utf_8(i32 noundef %.2105, ptr noundef nonnull %7) #7
+  %177 = zext i32 %176 to i64
+  br label %180
 
-179:                                              ; preds = %175
-  %180 = trunc i32 %.2105 to i8
-  store i8 %180, ptr %7, align 1, !tbaa !31
-  br label %181
+178:                                              ; preds = %174
+  %179 = trunc i32 %.2105 to i8
+  store i8 %179, ptr %7, align 1, !tbaa !31
+  br label %180
 
-181:                                              ; preds = %179, %176
-  %.0102 = phi i64 [ %178, %176 ], [ 1, %179 ]
+180:                                              ; preds = %178, %175
+  %.0102 = phi i64 [ %177, %175 ], [ 1, %178 ]
   %.not130 = icmp ne i32 %.0111, 0
   %.not131 = icmp ugt i64 %.0102, %.0119
   %or.cond134.not.not = select i1 %.not130, i1 true, i1 %.not131
-  br i1 %or.cond134.not.not, label %185, label %182
+  br i1 %or.cond134.not.not, label %184, label %181
 
-182:                                              ; preds = %181
+181:                                              ; preds = %180
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.0113, ptr nonnull align 1 %7, i64 %.0102, i1 false)
-  %183 = getelementptr inbounds nuw i8, ptr %.0113, i64 %.0102
-  %184 = sub nuw i64 %.0119, %.0102
-  br label %185
+  %182 = getelementptr inbounds nuw i8, ptr %.0113, i64 %.0102
+  %183 = sub nuw i64 %.0119, %.0102
+  br label %184
 
-185:                                              ; preds = %181, %182
-  %.1120 = phi i64 [ %184, %182 ], [ %.0119, %181 ]
-  %.1114 = phi ptr [ %183, %182 ], [ %.0113, %181 ]
-  %.1112 = phi i32 [ 0, %182 ], [ 1, %181 ]
-  %186 = xor i64 %.0108, -1
-  %187 = icmp ugt i64 %.0102, %186
-  br i1 %187, label %.thread, label %188
+184:                                              ; preds = %180, %181
+  %.1120 = phi i64 [ %183, %181 ], [ %.0119, %180 ]
+  %.1114 = phi ptr [ %182, %181 ], [ %.0113, %180 ]
+  %.1112 = phi i32 [ 0, %181 ], [ 1, %180 ]
+  %185 = xor i64 %.0108, -1
+  %186 = icmp ugt i64 %.0102, %185
+  br i1 %186, label %.thread, label %187
 
-188:                                              ; preds = %185
-  %189 = add i64 %.0102, %.0108
-  br i1 %.not, label %28, label %190
+187:                                              ; preds = %184
+  %188 = add i64 %.0102, %.0108
+  br i1 %.not, label %28, label %189
 
-190:                                              ; preds = %188
-  %191 = ptrtoint ptr %8 to i64
-  %192 = ptrtoint ptr %.1101 to i64
-  %193 = sub i64 %191, %192
-  %.not133 = icmp ugt i64 %193, %.1120
+189:                                              ; preds = %187
+  %190 = ptrtoint ptr %8 to i64
+  %191 = ptrtoint ptr %.1101 to i64
+  %192 = sub i64 %190, %191
+  %.not133 = icmp ugt i64 %192, %.1120
   %or.cond135 = select i1 %or.cond134.not.not, i1 true, i1 %.not133
-  br i1 %or.cond135, label %195, label %194
+  br i1 %or.cond135, label %194, label %193
 
-194:                                              ; preds = %190
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1114, ptr nonnull align 1 %.1101, i64 %193, i1 false)
-  br label %195
+193:                                              ; preds = %189
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %.1114, ptr nonnull align 1 %.1101, i64 %192, i1 false)
+  br label %194
 
-195:                                              ; preds = %194, %190
-  %.3 = call i64 @llvm.uadd.sat.i64(i64 %189, i64 %193)
+194:                                              ; preds = %193, %189
+  %.3 = call i64 @llvm.uadd.sat.i64(i64 %188, i64 %192)
   br label %.thread
 
-.thread:                                          ; preds = %185, %28, %195, %14, %6
-  %.0 = phi i64 [ 0, %6 ], [ 0, %14 ], [ %.3, %195 ], [ -1, %185 ], [ %.0108, %28 ]
+.thread:                                          ; preds = %184, %28, %194, %14, %6
+  %.0 = phi i64 [ 0, %6 ], [ 0, %14 ], [ %.3, %194 ], [ -1, %184 ], [ %.0108, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret i64 %.0
 }

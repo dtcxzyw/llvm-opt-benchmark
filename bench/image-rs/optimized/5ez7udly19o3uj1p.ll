@@ -33712,36 +33712,40 @@ define noundef i64 @_ZN5image6codecs4webp8extended13ExtendedImage12get_buf_size1
   %4 = load i64, ptr %.0, align 8, !range !4239, !alias.scope !4378, !noundef !19
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %8
-    i64 2, label %11
+    i64 1, label %9
+    i64 2, label %13
   ]
 
 default.unreachable:                              ; preds = %1
   unreachable
 
 5:                                                ; preds = %1
-  %6 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %7 = load i64, ptr %6, align 8, !alias.scope !4378, !noundef !19
+  %6 = select i1 %3, i64 32, i64 24
+  %7 = getelementptr inbounds nuw i8, ptr %0, i64 %6
+  %8 = load i64, ptr %7, align 8, !alias.scope !4378, !noundef !19
   br label %_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit
 
-8:                                                ; preds = %1
-  %9 = getelementptr inbounds nuw i8, ptr %.0, i64 24
-  %10 = load i64, ptr %9, align 8, !alias.scope !4378, !noundef !19
+9:                                                ; preds = %1
+  %10 = select i1 %3, i64 32, i64 24
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
+  %12 = load i64, ptr %11, align 8, !alias.scope !4378, !noundef !19
   br label %_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit
 
-11:                                               ; preds = %1
-  %12 = getelementptr inbounds nuw i8, ptr %.0, i64 32
-  %13 = load i16, ptr %12, align 8, !alias.scope !4381, !noundef !19
-  %14 = zext i16 %13 to i64
-  %15 = getelementptr inbounds nuw i8, ptr %.0, i64 34
-  %16 = load i16, ptr %15, align 2, !alias.scope !4381, !noundef !19
+13:                                               ; preds = %1
+  %14 = select i1 %3, i64 40, i64 32
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
+  %16 = load i16, ptr %15, align 8, !alias.scope !4381, !noundef !19
   %17 = zext i16 %16 to i64
-  %18 = shl nuw nsw i64 %14, 2
-  %19 = mul nuw nsw i64 %18, %17
+  %18 = select i1 %3, i64 42, i64 34
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 %18
+  %20 = load i16, ptr %19, align 2, !alias.scope !4381, !noundef !19
+  %21 = zext i16 %20 to i64
+  %22 = shl nuw nsw i64 %17, 2
+  %23 = mul nuw nsw i64 %22, %21
   br label %_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit
 
-_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit: ; preds = %5, %8, %11
-  %.0.i = phi i64 [ %7, %5 ], [ %10, %8 ], [ %19, %11 ]
+_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit: ; preds = %5, %9, %13
+  %.0.i = phi i64 [ %8, %5 ], [ %12, %9 ], [ %23, %13 ]
   ret i64 %.0.i
 }
 

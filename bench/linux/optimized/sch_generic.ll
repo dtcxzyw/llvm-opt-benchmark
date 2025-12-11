@@ -4182,39 +4182,40 @@ define dso_local void @mini_qdisc_pair_swap(ptr noundef %0, ptr noundef %1) #0 a
 
 7:                                                ; preds = %2
   store volatile ptr null, ptr %4, align 8
-  br label %18
+  br label %19
 
 8:                                                ; preds = %2
   %9 = icmp eq ptr %5, %0
   %10 = select i1 %9, i64 40, i64 0
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
-  %12 = getelementptr inbounds nuw i8, ptr %11, i64 32
-  %13 = load i64, ptr %12, align 8
-  %14 = tail call zeroext i1 @poll_state_synchronize_rcu(i64 noundef %13) #20
-  br i1 %14, label %16, label %15
+  %12 = select i1 %9, i64 72, i64 32
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 %12
+  %14 = load i64, ptr %13, align 8
+  %15 = tail call zeroext i1 @poll_state_synchronize_rcu(i64 noundef %14) #20
+  br i1 %15, label %17, label %16
 
-15:                                               ; preds = %8
+16:                                               ; preds = %8
   tail call void @synchronize_rcu_expedited() #20
-  br label %16
+  br label %17
 
-16:                                               ; preds = %15, %8
+17:                                               ; preds = %16, %8
   store ptr %1, ptr %11, align 8
   tail call void asm sideeffect "", "~{memory},~{dirflag},~{fpsr},~{flags}"() #20, !srcloc !118
-  %17 = load ptr, ptr %3, align 8
-  store volatile ptr %11, ptr %17, align 8
-  br label %18
+  %18 = load ptr, ptr %3, align 8
+  store volatile ptr %11, ptr %18, align 8
+  br label %19
 
-18:                                               ; preds = %16, %7
-  %19 = icmp eq ptr %5, null
-  br i1 %19, label %23, label %20
+19:                                               ; preds = %17, %7
+  %20 = icmp eq ptr %5, null
+  br i1 %20, label %24, label %21
 
-20:                                               ; preds = %18
-  %21 = tail call i64 @start_poll_synchronize_rcu() #20
-  %22 = getelementptr inbounds nuw i8, ptr %5, i64 32
-  store i64 %21, ptr %22, align 8
-  br label %23
+21:                                               ; preds = %19
+  %22 = tail call i64 @start_poll_synchronize_rcu() #20
+  %23 = getelementptr inbounds nuw i8, ptr %5, i64 32
+  store i64 %22, ptr %23, align 8
+  br label %24
 
-23:                                               ; preds = %20, %18
+24:                                               ; preds = %21, %19
   ret void
 }
 

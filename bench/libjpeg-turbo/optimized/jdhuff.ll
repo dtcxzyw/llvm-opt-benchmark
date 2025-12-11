@@ -676,89 +676,91 @@ add_huff_table.exit.i:                            ; preds = %9, %8
   br label %add_huff_table.exit20.i
 
 add_huff_table.exit20.i:                          ; preds = %22, %20
-  %29 = getelementptr inbounds nuw i8, ptr %.013.i, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !35
-  %31 = icmp eq ptr %30, null
-  br i1 %31, label %32, label %34
+  %29 = select i1 %.not.i, i64 136, i64 240
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 %29
+  %31 = load ptr, ptr %30, align 8, !tbaa !35
+  %32 = icmp eq ptr %31, null
+  br i1 %32, label %33, label %35
 
-32:                                               ; preds = %add_huff_table.exit20.i
-  %33 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
-  store ptr %33, ptr %29, align 8, !tbaa !35
-  br label %36
+33:                                               ; preds = %add_huff_table.exit20.i
+  %34 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
+  store ptr %34, ptr %30, align 8, !tbaa !35
+  br label %37
 
-34:                                               ; preds = %add_huff_table.exit20.i
-  %35 = load i32, ptr %2, align 8, !tbaa !74
-  %.not.i21.i = icmp eq i32 %35, 0
-  br i1 %.not.i21.i, label %36, label %add_huff_table.exit27.i
+35:                                               ; preds = %add_huff_table.exit20.i
+  %36 = load i32, ptr %2, align 8, !tbaa !74
+  %.not.i21.i = icmp eq i32 %36, 0
+  br i1 %.not.i21.i, label %37, label %add_huff_table.exit27.i
 
-36:                                               ; preds = %34, %32
-  %37 = phi ptr [ %30, %34 ], [ %33, %32 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %37, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_dc_chrominance, i64 17, i1 false)
-  %.pre44.i = load ptr, ptr %29, align 8, !tbaa !35
-  %38 = getelementptr inbounds nuw i8, ptr %.pre44.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %38, ptr noundef nonnull align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
-  %39 = load ptr, ptr %29, align 8, !tbaa !35
-  %40 = getelementptr inbounds nuw i8, ptr %39, i64 29
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(244) %40, i8 0, i64 244, i1 false)
-  %41 = load ptr, ptr %29, align 8, !tbaa !35
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 276
-  store i32 0, ptr %42, align 4, !tbaa !76
+37:                                               ; preds = %35, %33
+  %38 = phi ptr [ %31, %35 ], [ %34, %33 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %38, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_dc_chrominance, i64 17, i1 false)
+  %.pre44.i = load ptr, ptr %30, align 8, !tbaa !35
+  %39 = getelementptr inbounds nuw i8, ptr %.pre44.i, i64 17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(12) %39, ptr noundef nonnull align 1 dereferenceable(12) @std_huff_tables.val_dc_chrominance, i64 12, i1 false)
+  %40 = load ptr, ptr %30, align 8, !tbaa !35
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 29
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(244) %41, i8 0, i64 244, i1 false)
+  %42 = load ptr, ptr %30, align 8, !tbaa !35
+  %43 = getelementptr inbounds nuw i8, ptr %42, i64 276
+  store i32 0, ptr %43, align 4, !tbaa !76
   br label %add_huff_table.exit27.i
 
-add_huff_table.exit27.i:                          ; preds = %36, %34
-  %43 = getelementptr inbounds nuw i8, ptr %.0.i, i64 8
-  %44 = load ptr, ptr %43, align 8, !tbaa !35
-  %45 = icmp eq ptr %44, null
-  br i1 %45, label %46, label %48
-
-46:                                               ; preds = %add_huff_table.exit27.i
-  %47 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
-  store ptr %47, ptr %43, align 8, !tbaa !35
-  br label %50
+add_huff_table.exit27.i:                          ; preds = %37, %35
+  %44 = select i1 %.not.i, i64 168, i64 272
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 %44
+  %46 = load ptr, ptr %45, align 8, !tbaa !35
+  %47 = icmp eq ptr %46, null
+  br i1 %47, label %48, label %50
 
 48:                                               ; preds = %add_huff_table.exit27.i
-  %49 = load i32, ptr %2, align 8, !tbaa !74
-  %.not.i28.i = icmp eq i32 %49, 0
-  br i1 %.not.i28.i, label %50, label %std_huff_tables.exit
+  %49 = tail call ptr @jpeg_alloc_huff_table(ptr noundef nonnull %0) #5
+  store ptr %49, ptr %45, align 8, !tbaa !35
+  br label %52
 
-50:                                               ; preds = %48, %46
-  %51 = phi ptr [ %44, %48 ], [ %47, %46 ]
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %51, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_ac_chrominance, i64 17, i1 false)
-  %.pre46.i = load ptr, ptr %43, align 8, !tbaa !35
-  %52 = getelementptr inbounds nuw i8, ptr %.pre46.i, i64 17
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %52, ptr noundef nonnull align 16 dereferenceable(162) @std_huff_tables.val_ac_chrominance, i64 162, i1 false)
-  %53 = load ptr, ptr %43, align 8, !tbaa !35
-  %54 = getelementptr inbounds nuw i8, ptr %53, i64 179
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(94) %54, i8 0, i64 94, i1 false)
-  %55 = load ptr, ptr %43, align 8, !tbaa !35
-  %56 = getelementptr inbounds nuw i8, ptr %55, i64 276
-  store i32 0, ptr %56, align 4, !tbaa !76
+50:                                               ; preds = %add_huff_table.exit27.i
+  %51 = load i32, ptr %2, align 8, !tbaa !74
+  %.not.i28.i = icmp eq i32 %51, 0
+  br i1 %.not.i28.i, label %52, label %std_huff_tables.exit
+
+52:                                               ; preds = %50, %48
+  %53 = phi ptr [ %46, %50 ], [ %49, %48 ]
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(17) %53, ptr noundef nonnull align 16 dereferenceable(17) @std_huff_tables.bits_ac_chrominance, i64 17, i1 false)
+  %.pre46.i = load ptr, ptr %45, align 8, !tbaa !35
+  %54 = getelementptr inbounds nuw i8, ptr %.pre46.i, i64 17
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 dereferenceable(162) %54, ptr noundef nonnull align 16 dereferenceable(162) @std_huff_tables.val_ac_chrominance, i64 162, i1 false)
+  %55 = load ptr, ptr %45, align 8, !tbaa !35
+  %56 = getelementptr inbounds nuw i8, ptr %55, i64 179
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(94) %56, i8 0, i64 94, i1 false)
+  %57 = load ptr, ptr %45, align 8, !tbaa !35
+  %58 = getelementptr inbounds nuw i8, ptr %57, i64 276
+  store i32 0, ptr %58, align 4, !tbaa !76
   br label %std_huff_tables.exit
 
-std_huff_tables.exit:                             ; preds = %48, %50
-  %57 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %58 = load ptr, ptr %57, align 8, !tbaa !36
-  %59 = load ptr, ptr %58, align 8, !tbaa !37
-  %60 = tail call ptr %59(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 384) #5
-  %61 = getelementptr inbounds nuw i8, ptr %0, i64 592
-  store ptr %60, ptr %61, align 8, !tbaa !67
-  store ptr @start_pass_huff_decoder, ptr %60, align 8, !tbaa !78
-  %62 = getelementptr inbounds nuw i8, ptr %60, i64 8
-  store ptr @decode_mcu, ptr %62, align 8, !tbaa !82
-  %63 = getelementptr inbounds nuw i8, ptr %60, i64 112
-  %64 = getelementptr inbounds nuw i8, ptr %60, i64 80
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %64, i8 0, i64 32, i1 false), !tbaa !35
-  br label %65
+std_huff_tables.exit:                             ; preds = %50, %52
+  %59 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %60 = load ptr, ptr %59, align 8, !tbaa !36
+  %61 = load ptr, ptr %60, align 8, !tbaa !37
+  %62 = tail call ptr %61(ptr noundef nonnull %0, i32 noundef 1, i64 noundef 384) #5
+  %63 = getelementptr inbounds nuw i8, ptr %0, i64 592
+  store ptr %62, ptr %63, align 8, !tbaa !67
+  store ptr @start_pass_huff_decoder, ptr %62, align 8, !tbaa !78
+  %64 = getelementptr inbounds nuw i8, ptr %62, i64 8
+  store ptr @decode_mcu, ptr %64, align 8, !tbaa !82
+  %65 = getelementptr inbounds nuw i8, ptr %62, i64 112
+  %66 = getelementptr inbounds nuw i8, ptr %62, i64 80
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %66, i8 0, i64 32, i1 false), !tbaa !35
+  br label %67
 
-65:                                               ; preds = %std_huff_tables.exit, %65
-  %indvars.iv = phi i64 [ 0, %std_huff_tables.exit ], [ %indvars.iv.next, %65 ]
-  %66 = getelementptr inbounds nuw ptr, ptr %63, i64 %indvars.iv
-  store ptr null, ptr %66, align 8, !tbaa !35
+67:                                               ; preds = %std_huff_tables.exit, %67
+  %indvars.iv = phi i64 [ 0, %std_huff_tables.exit ], [ %indvars.iv.next, %67 ]
+  %68 = getelementptr inbounds nuw ptr, ptr %65, i64 %indvars.iv
+  store ptr null, ptr %68, align 8, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 4
-  br i1 %exitcond.not, label %67, label %65, !llvm.loop !83
+  br i1 %exitcond.not, label %69, label %67, !llvm.loop !83
 
-67:                                               ; preds = %65
+69:                                               ; preds = %67
   ret void
 }
 

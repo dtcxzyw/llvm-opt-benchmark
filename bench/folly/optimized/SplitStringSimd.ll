@@ -1847,8 +1847,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm1EvE16makeS
   br i1 %30, label %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE11setCapacityEm.exit, label %79
 
 79:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %80 = getelementptr inbounds i8, ptr %spec.select, i64 -8
-  store i64 %47, ptr %80, align 8, !tbaa !42
+  store i64 %47, ptr %50, align 8, !tbaa !42
   br label %_ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE11setCapacityEm.exit
 
 _ZN5folly12small_vectorINS_5RangeIPKcEELm1EvE11setCapacityEm.exit: ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorINS_5RangeIPKcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRS5_lEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %79
@@ -6878,8 +6877,7 @@ _ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11c
   br i1 %30, label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE11setCapacityEm.exit, label %78
 
 78:                                               ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit
-  %79 = getelementptr inbounds i8, ptr %spec.select, i64 -8
-  store i64 %47, ptr %79, align 8, !tbaa !42
+  store i64 %47, ptr %50, align 8, !tbaa !42
   br label %_ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE11setCapacityEm.exit
 
 _ZN5folly12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE11setCapacityEm.exit: ; preds = %_ZN5folly6detail14ScopeGuardImplIZNS_12small_vectorISt17basic_string_viewIcSt11char_traitsIcEELm1EvE16makeSizeInternalIZNS7_12emplace_backIJRPKclEEERS6_DpOT_EUlPvE_EEvmbOT_mEUlvE_Lb1EED2Ev.exit, %78

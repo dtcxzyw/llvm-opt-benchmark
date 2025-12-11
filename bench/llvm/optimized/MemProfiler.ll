@@ -3472,9 +3472,7 @@ _ZN4llvm9IRBuilderINS_14ConstantFolderENS_24IRBuilderDefaultInserterEED2Ev.exit3
 546:                                              ; preds = %541, %541, %541
   %547 = icmp eq i32 %545, 241
   %.sroa.06.0.copyload.i.i = select i1 %547, ptr %166, ptr %203
-  %.sroa.44.0..sroa_idx.i.i.val = load ptr, ptr %.sroa.44.0..sroa_idx.i.i, align 8
-  %.sroa.42.0..sroa_idx.i.i.val = load ptr, ptr %.sroa.42.0..sroa_idx.i.i, align 8
-  %.sroa.27.0.copyload.i.i = select i1 %547, ptr %.sroa.44.0..sroa_idx.i.i.val, ptr %.sroa.42.0..sroa_idx.i.i.val
+  %.sroa.27.0.copyload.i.i = select i1 %547, ptr %167, ptr %204
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   %548 = getelementptr inbounds nuw i8, ptr %440, i64 4
   %549 = load i32, ptr %548, align 4

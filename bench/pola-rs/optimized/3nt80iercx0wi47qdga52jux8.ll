@@ -16094,15 +16094,16 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h4
   %72 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %48
   %.sroa.0.0..sroa.06.0.i.i = select i1 %72, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %66
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %64, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0.i.i, i64 24, i1 false), !alias.scope !1563
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %72, i64 24, i64 0
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel44.v = select i1 %58, i64 48, i64 24
+  %.sroa.sel44 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 %.sroa.sel44.v
+  %.sroa.sel = select i1 %72, ptr %.sroa.sel44, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %72, i64 0, i64 24
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %66, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   br label %73
 
 73:                                               ; preds = %71, %._crit_edge.i.i
   %.sroa.06.1.i.i = phi ptr [ %66, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %71 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %71 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %71 ]
   %74 = icmp ne ptr %.sroa.0.1.i.i, %48
   %75 = icmp ne ptr %.sroa.06.1.i.i, %49
   %or.cond.i.i = select i1 %74, i1 true, i1 %75, !prof !1585
@@ -16401,15 +16402,16 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h5
   %77 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %48
   %.sroa.0.0..sroa.06.0.i.i = select i1 %77, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %62
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(56) %63, ptr noundef nonnull align 8 dereferenceable(56) %.sroa.0.0..sroa.06.0.i.i, i64 56, i1 false), !alias.scope !1591
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %77, i64 56, i64 0
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel40.v = select i1 %61, i64 112, i64 56
+  %.sroa.sel40 = getelementptr inbounds nuw i8, ptr %.sroa.0.010.i.i, i64 %.sroa.sel40.v
+  %.sroa.sel = select i1 %77, ptr %.sroa.sel40, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %77, i64 0, i64 56
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %62, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   br label %78
 
 78:                                               ; preds = %76, %._crit_edge.i.i
   %.sroa.06.1.i.i = phi ptr [ %62, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %76 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %76 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %76 ]
   %79 = icmp ne ptr %.sroa.0.1.i.i, %48
   %80 = icmp ne ptr %.sroa.06.1.i.i, %49
   %or.cond.i.i = select i1 %79, i1 true, i1 %80, !prof !1585
@@ -16727,15 +16729,16 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17hb
   %82 = icmp ult ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %56
   %.sroa.0.0..sroa.06.0.i.i = select i1 %82, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %69
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %70, ptr noundef nonnull align 8 dereferenceable(24) %.sroa.0.0..sroa.06.0.i.i, i64 24, i1 false), !alias.scope !1619
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %82, i64 24, i64 0
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel44.v = select i1 %67, i64 48, i64 24
+  %.sroa.sel44 = getelementptr inbounds nuw i8, ptr %.sroa.0.011.i.i, i64 %.sroa.sel44.v
+  %.sroa.sel = select i1 %82, ptr %.sroa.sel44, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx = select i1 %82, i64 0, i64 24
   %.sroa.sel.idx.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %69, i64 %.sroa.sel.idx.sroa.sel.idx.sroa.sel.idx
   br label %83
 
 83:                                               ; preds = %81, %._crit_edge.i.i
   %.sroa.06.1.i.i = phi ptr [ %69, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %81 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %81 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %81 ]
   %84 = icmp ne ptr %.sroa.0.1.i.i, %56
   %85 = icmp ne ptr %.sroa.06.1.i.i, %57
   %or.cond.i.i = select i1 %84, i1 true, i1 %85, !prof !1585

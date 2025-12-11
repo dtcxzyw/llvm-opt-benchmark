@@ -19998,23 +19998,21 @@ define hidden void @"_ZN111_$LT$core..iter..adapters..zip..Zip$LT$A$C$B$GT$$u20$
   call void @llvm.lifetime.start.p0(ptr nonnull %.sroa.6.i.i)
   %24 = load i64, ptr %23, align 8, !range !1260, !noalias !6366, !noundef !9
   %.not.i.i = icmp eq i64 %24, -9223372036854775808
-  %.sroa.5.0.idx.i.i = select i1 %.not.i.i, i64 8, i64 0
-  %.sroa.5.0.i.i = getelementptr inbounds nuw i8, ptr %23, i64 %.sroa.5.0.idx.i.i
   call void @llvm.experimental.noalias.scope.decl(metadata !6375)
   br i1 %.not.i.i, label %.thread.i.i, label %25
 
 25:                                               ; preds = %22
   call void @llvm.experimental.noalias.scope.decl(metadata !6378)
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !6381
-  %26 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.i, i64 16
-  %27 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.i, i64 8
+  %26 = getelementptr inbounds nuw i8, ptr %23, i64 16
+  %27 = getelementptr inbounds nuw i8, ptr %23, i64 8
   %28 = load ptr, ptr %27, align 8, !alias.scope !6384, !noalias !6387, !nonnull !9, !noundef !9
   %29 = load i64, ptr %26, align 8, !alias.scope !6384, !noalias !6387, !noundef !9
   invoke void @"_ZN52_$LT$T$u20$as$u20$alloc..slice..hack..ConvertVec$GT$6to_vec17hced1400d25aa4be7E.llvm.2651244455829285093"(ptr noalias noundef nonnull sret({ { i64, ptr, {} }, i64 }) align 8 captures(none) dereferenceable(24) %4, ptr noalias noundef nonnull readonly align 8 %28, i64 noundef %29)
           to label %.noexc.i.i unwind label %39, !noalias !6366
 
 .noexc.i.i:                                       ; preds = %25
-  %30 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.i.i, i64 24
+  %30 = getelementptr inbounds nuw i8, ptr %23, i64 24
   %31 = load i64, ptr %30, align 8, !range !1260, !alias.scope !6389, !noalias !6390, !noundef !9
   %32 = icmp eq i64 %31, -9223372036854775808
   br i1 %32, label %41, label %33

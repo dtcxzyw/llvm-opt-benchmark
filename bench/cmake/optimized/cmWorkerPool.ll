@@ -2181,12 +2181,13 @@ define dso_local void @_ZNK19cmUVReadOnlyProcess13UVPipeErrDataE7cmRangeIPKcE(pt
   %8 = load ptr, ptr %7, align 8
   %.v = select i1 %6, i64 16, i64 48
   %9 = getelementptr inbounds nuw i8, ptr %8, i64 %.v
-  %10 = getelementptr inbounds nuw i8, ptr %9, i64 8
-  %11 = load i64, ptr %10, align 8, !tbaa !94
-  %12 = ptrtoint ptr %2 to i64
-  %13 = ptrtoint ptr %1 to i64
-  %14 = sub i64 %12, %13
-  %15 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %11, i64 noundef 0, ptr noundef %1, i64 noundef %14)
+  %10 = select i1 %6, i64 24, i64 56
+  %11 = getelementptr inbounds nuw i8, ptr %8, i64 %10
+  %12 = load i64, ptr %11, align 8, !tbaa !94
+  %13 = ptrtoint ptr %2 to i64
+  %14 = ptrtoint ptr %1 to i64
+  %15 = sub i64 %13, %14
+  %16 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %9, i64 noundef %12, i64 noundef 0, ptr noundef %1, i64 noundef %15)
   ret void
 }
 
@@ -5493,12 +5494,13 @@ define internal void @"_ZNSt17_Function_handlerIFv7cmRangeIPKcEEZN19cmUVReadOnly
   %6 = trunc nuw i8 %.val.val4 to i1
   %.v.i.i.i.i = select i1 %6, i64 16, i64 48
   %7 = getelementptr inbounds nuw i8, ptr %.val.val, i64 %.v.i.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %7, i64 8
-  %9 = load i64, ptr %8, align 8, !tbaa !94
-  %10 = ptrtoint ptr %.val3 to i64
-  %11 = ptrtoint ptr %.val2 to i64
-  %12 = sub i64 %10, %11
-  %13 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %9, i64 noundef 0, ptr noundef %.val2, i64 noundef %12)
+  %8 = select i1 %6, i64 24, i64 56
+  %9 = getelementptr inbounds nuw i8, ptr %.val.val, i64 %8
+  %10 = load i64, ptr %9, align 8, !tbaa !94
+  %11 = ptrtoint ptr %.val3 to i64
+  %12 = ptrtoint ptr %.val2 to i64
+  %13 = sub i64 %11, %12
+  %14 = tail call noundef nonnull align 8 dereferenceable(32) ptr @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE10_M_replaceEmmPKcm(ptr noundef nonnull align 8 dereferenceable(32) %7, i64 noundef %10, i64 noundef 0, ptr noundef %.val2, i64 noundef %13)
   ret void
 }
 

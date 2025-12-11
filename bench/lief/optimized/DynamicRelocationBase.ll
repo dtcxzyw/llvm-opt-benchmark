@@ -247,54 +247,52 @@ _ZNSt10unique_ptrIN4LIEF2PE12DynamicFixupESt14default_deleteIS2_EEaSEOS5_.exit: 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(none) uwtable
 define noundef ptr @_ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE(i32 noundef %0) local_unnamed_addr #6 {
   %.not.i.i.i.i.i.i = icmp sgt i32 %0, 4
-  br i1 %.not.i.i.i.i.i.i, label %2, label %4
+  br i1 %.not.i.i.i.i.i.i, label %2, label %7
 
 2:                                                ; preds = %1
   %.not.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 6
-  br i1 %.not.i.i.i.i.i.i.i, label %3, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  br i1 %.not.i.i.i.i.i.i.i, label %3, label %5
 
 3:                                                ; preds = %2
   %.not.i.i.i.i.i.i.i.i.not = icmp eq i32 %0, 7
-  br i1 %.not.i.i.i.i.i.i.i.i.not, label %.thread29, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  br i1 %.not.i.i.i.i.i.i.i.i.not, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12, label %4
 
-4:                                                ; preds = %1
+4:                                                ; preds = %3
+  %.not.i.i.i.i.i.i.i.i.i.i = icmp samesign ugt i32 %0, 8
+  br i1 %.not.i.i.i.i.i.i.i.i.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+
+5:                                                ; preds = %2
+  %.not.i6.i.i.i.i.i.i.i.not = icmp eq i32 %0, 5
+  %6 = select i1 %.not.i6.i.i.i.i.i.i.i.not, i64 72, i64 88
+  br label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+
+7:                                                ; preds = %1
   %.not.i6.i.i.i.i.i.i = icmp sgt i32 %0, 2
-  %5 = select i1 %.not.i6.i.i.i.i.i.i, i64 40, i64 8
-  br label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
+  %8 = select i1 %.not.i6.i.i.i.i.i.i, i64 40, i64 8
+  %.sroa.sel = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 %8
+  %9 = load i32, ptr %.sroa.sel, align 8, !tbaa !22
+  %.not.i.i7.i.i.i.i.i.i = icmp slt i32 %9, %0
+  %.idx.i.i8.i.i.i.i.i.i = select i1 %.not.i.i7.i.i.i.i.i.i, i64 16, i64 0
+  %.add.i.i = or disjoint i64 %.idx.i.i8.i.i.i.i.i.i, %8
+  br label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
 
-_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i: ; preds = %4, %3, %2
-  %.sink12.i.i.i.i.i.i = phi i64 [ %5, %4 ], [ 120, %3 ], [ 72, %2 ]
-  %6 = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 %.sink12.i.i.i.i.i.i
-  %7 = load i32, ptr %6, align 8, !tbaa !22
-  %.not.i6.i.i.i.i.i.i.i = icmp slt i32 %7, %0
-  %.idx.i.i.i.i.i.i.i.i = select i1 %.not.i6.i.i.i.i.i.i.i, i64 16, i64 0
-  %8 = add nuw nsw i64 %.idx.i.i.i.i.i.i.i.i, %.sink12.i.i.i.i.i.i
-  %.not.i.i = icmp samesign eq i64 %8, 136
-  br i1 %.not.i.i, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %4, %5, %7
+  %.0.i.i.i.i.idx.ph.i.i = phi i64 [ 120, %4 ], [ %6, %5 ], [ %.add.i.i, %7 ]
+  %.0.i.i.i.i.ptr.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 %.0.i.i.i.i.idx.ph.i.i
+  %.pre.i.i = load i32, ptr %.0.i.i.i.i.ptr.i.i.ptr, align 4, !tbaa !22
+  %10 = icmp slt i32 %0, %.pre.i.i
+  br i1 %10, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12
 
-_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit: ; preds = %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i
-  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel.idx = select i1 %.not.i6.i.i.i.i.i.i.i, i64 16, i64 0
-  %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %6, i64 %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel.idx
-  %.pre.i.i = load i32, ptr %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel, align 8, !tbaa !22
-  %.pre.i.i.fr = freeze i32 %.pre.i.i
-  %9 = icmp slt i32 %0, %.pre.i.i.fr
-  %10 = add nuw nsw i64 %.sink12.i.i.i.i.i.i, %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel.idx
-  %.not = icmp samesign eq i64 %10, 136
-  %or.cond = select i1 %9, i1 true, i1 %.not
-  br i1 %or.cond, label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread, label %11
-
-11:                                               ; preds = %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
-  %.0.i.i.i.i14.i.i.sroa.gep = getelementptr inbounds nuw i8, ptr %.idx.i.i.i.i.i.i.i.i.sroa.sel.idx.sroa.sel, i64 8
-  br label %.thread29
-
-.thread29:                                        ; preds = %3, %11
-  %12 = phi ptr [ %.0.i.i.i.i14.i.i.sroa.gep, %11 ], [ getelementptr inbounds nuw (i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 112), %3 ]
-  %13 = load ptr, ptr %12, align 8, !tbaa !24
+_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12: ; preds = %3, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit
+  %.0.i.i.i.i14.i.i.idx15 = phi i64 [ %.0.i.i.i.i.idx.ph.i.i, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ 104, %3 ]
+  %.0.i.i.i.i14.i.i.ptr = getelementptr inbounds nuw i8, ptr @__const._ZN4LIEF2PE9to_stringENS0_17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONE.enums2str, i64 %.0.i.i.i.i14.i.i.idx15
+  %11 = getelementptr inbounds nuw i8, ptr %.0.i.i.i.i14.i.i.ptr, i64 8
+  %12 = load ptr, ptr %11, align 8, !tbaa !24
   br label %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread
 
-_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i, %.thread29
-  %14 = phi ptr [ %13, %.thread29 ], [ @.str.8, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE11lower_boundIS4_EEPKSt4pairIS4_S6_ERKT_.exit.i.i ], [ @.str.8, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ]
-  ret ptr %14
+_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread: ; preds = %4, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12
+  %13 = phi ptr [ %12, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit.thread12 ], [ @.str.8, %_ZNK6frozen3mapIN4LIEF2PE17DynamicRelocation24IMAGE_DYNAMIC_RELOCATIONEPKcLm8ESt4lessIS4_EE4findIS4_EEPKSt4pairIS4_S6_ERKT_.exit ], [ @.str.8, %4 ]
+  ret ptr %13
 }
 
 declare void @__cxa_pure_virtual() unnamed_addr

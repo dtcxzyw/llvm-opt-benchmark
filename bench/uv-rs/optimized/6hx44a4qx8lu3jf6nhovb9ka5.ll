@@ -26213,10 +26213,10 @@ define internal fastcc void @_ZN4core5slice4sort6shared9smallsort12sort8_stable1
   %37 = xor i1 %31, true
   %38 = zext i1 %37 to i64
   %39 = getelementptr inbounds nuw i8, ptr %28, i64 %38
-  %40 = select i1 %34, i64 3, i64 2
-  %41 = getelementptr inbounds nuw i8, ptr %28, i64 %40
-  %42 = select i1 %34, i64 2, i64 3
-  %43 = getelementptr inbounds nuw i8, ptr %28, i64 %42
+  %40 = select i1 %34, i64 7, i64 6
+  %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
+  %42 = select i1 %34, i64 6, i64 7
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 %42
   %.val21.i5 = load i8, ptr %41, align 1, !range !115, !noundef !3
   %.val22.i6 = load i8, ptr %36, align 1, !range !115, !noundef !3
   %44 = icmp samesign ult i8 %.val21.i5, %.val22.i6

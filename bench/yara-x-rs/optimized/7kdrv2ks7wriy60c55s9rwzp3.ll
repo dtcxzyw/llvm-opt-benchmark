@@ -54586,27 +54586,27 @@ define hidden void @"_ZN4core3ptr60drop_in_place$LT$regex_automata..meta..error.
   %8 = and i64 %7, 9223372036854775807
   switch i64 %8, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h5e369000382fbfc9E.exit" [
     i64 0, label %9
-    i64 1, label %10
+    i64 1, label %11
   ]
 
 9:                                                ; preds = %4
   %.not.i.i.i.i = icmp eq i64 %6, -9223372036854775808
-  %.sink.idx.i.i.i.i = select i1 %.not.i.i.i.i, i64 8, i64 0
-  %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %5, i64 %.sink.idx.i.i.i.i
+  %10 = select i1 %.not.i.i.i.i, i64 16, i64 8
+  %.sink.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %10
   br label %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17ha7a28c17947c5fedE.exit.sink.split.i"
 
-10:                                               ; preds = %4
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %12 = load i64, ptr %11, align 8, !range !6007, !alias.scope !6008, !noundef !8
-  %switch.i.i.i.i.i = icmp slt i64 %12, -9223372036854775804
+11:                                               ; preds = %4
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %13 = load i64, ptr %12, align 8, !range !6007, !alias.scope !6008, !noundef !8
+  %switch.i.i.i.i.i = icmp slt i64 %13, -9223372036854775804
   br i1 %switch.i.i.i.i.i, label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h5e369000382fbfc9E.exit", label %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17ha7a28c17947c5fedE.exit.sink.split.i"
 
-"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17ha7a28c17947c5fedE.exit.sink.split.i": ; preds = %10, %9, %3
-  %.sink.i.i.sink.i = phi ptr [ %.sink.i.i, %3 ], [ %.sink.i.i.i.i, %9 ], [ %11, %10 ]
+"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17ha7a28c17947c5fedE.exit.sink.split.i": ; preds = %11, %9, %3
+  %.sink.i.i.sink.i = phi ptr [ %.sink.i.i, %3 ], [ %.sink.i.i.i.i, %9 ], [ %12, %11 ]
   tail call void @"_ZN5alloc7raw_vec20RawVecInner$LT$A$GT$10deallocate17h409d61f9f5cf9ac6E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %.sink.i.i.sink.i, i64 noundef 1, i64 noundef 1)
   br label %"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h5e369000382fbfc9E.exit"
 
-"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h5e369000382fbfc9E.exit": ; preds = %4, %10, %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17ha7a28c17947c5fedE.exit.sink.split.i"
+"_ZN4core3ptr64drop_in_place$LT$regex_automata..meta..error..BuildErrorKind$GT$17h5e369000382fbfc9E.exit": ; preds = %4, %11, %"_ZN4core3ptr69drop_in_place$LT$regex_automata..nfa..thompson..error..BuildError$GT$17ha7a28c17947c5fedE.exit.sink.split.i"
   ret void
 }
 
@@ -93768,15 +93768,17 @@ define hidden void @_ZN4core5slice4sort6shared9smallsort18small_sort_general17h5
   %.sroa.0.0..sroa.06.0.i.i = select i1 %.not20, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel
   %167 = load i64, ptr %.sroa.0.0..sroa.06.0.i.i, align 8, !alias.scope !11162, !noalias !11150
   store i64 %167, ptr %155, align 8, !alias.scope !11150, !noalias !11162
-  %.sroa.sel17.idx.sroa.sel.idx = select i1 %.not20, i64 8, i64 0
-  %.sroa.sel17.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel17.idx.sroa.sel.idx
-  %.sroa.sel.idx.sroa.sel.idx = select i1 %.not20, i64 0, i64 8
-  %.sroa.sel.idx.sroa.sel = getelementptr inbounds nuw i8, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, i64 %.sroa.sel.idx.sroa.sel.idx
+  %.sroa.sel35.v = select i1 %.not, i64 8, i64 16
+  %.sroa.sel35 = getelementptr inbounds nuw i8, ptr %.sroa.0.014.i.i, i64 %.sroa.sel35.v
+  %.sroa.sel17 = select i1 %.not20, ptr %.sroa.sel35, ptr %.sroa.sel4.idx.sroa.sel.idx.sroa.sel
+  %.sroa.sel30.v = select i1 %.not, i64 16, i64 8
+  %.sroa.sel30 = getelementptr inbounds nuw i8, ptr %.sroa.06.013.i.i, i64 %.sroa.sel30.v
+  %.sroa.sel = select i1 %.not20, ptr %.sroa.sel.idx.sroa.sel.idx.sroa.sel, ptr %.sroa.sel30
   br label %168
 
 168:                                              ; preds = %166, %._crit_edge.i.i
-  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel.idx.sroa.sel, %166 ]
-  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel17.idx.sroa.sel, %166 ]
+  %.sroa.06.1.i.i = phi ptr [ %.sroa.sel.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel, %166 ]
+  %.sroa.0.1.i.i = phi ptr [ %.sroa.sel4.idx.sroa.sel.idx.sroa.sel, %._crit_edge.i.i ], [ %.sroa.sel17, %166 ]
   %169 = icmp ne ptr %.sroa.0.1.i.i, %145
   %170 = icmp ne ptr %.sroa.06.1.i.i, %146
   %or.cond.i.i = select i1 %169, i1 true, i1 %170, !prof !11141

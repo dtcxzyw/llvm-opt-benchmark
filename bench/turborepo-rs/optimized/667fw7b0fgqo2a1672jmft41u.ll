@@ -3137,11 +3137,12 @@ define { i64, i64 } @_RNvXs1_NtCseG2FYMysgNb_3wax11diagnosticsNtB5_13CompositeSp
   %.sroa.0.0.v = select i1 %3, i64 8, i64 40
   %.sroa.0.0 = getelementptr inbounds nuw i8, ptr %0, i64 %.sroa.0.0.v
   %4 = load i64, ptr %.sroa.0.0, align 8, !noundef !5
-  %5 = getelementptr inbounds nuw i8, ptr %.sroa.0.0, i64 8
-  %6 = load i64, ptr %5, align 8, !noundef !5
-  %7 = insertvalue { i64, i64 } poison, i64 %4, 0
-  %8 = insertvalue { i64, i64 } %7, i64 %6, 1
-  ret { i64, i64 } %8
+  %5 = select i1 %3, i64 16, i64 48
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %5
+  %7 = load i64, ptr %6, align 8, !noundef !5
+  %8 = insertvalue { i64, i64 } poison, i64 %4, 0
+  %9 = insertvalue { i64, i64 } %8, i64 %7, 1
+  ret { i64, i64 } %9
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
@@ -3625,15 +3626,15 @@ define { ptr, i64 } @_RNvXs5_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_9GlobEntryNtB7
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !range !650, !alias.scope !651, !noundef !5
   %trunc.i.i = trunc nuw i32 %3 to i1
-  %.sroa.3.0.in.v.i.i = select i1 %trunc.i.i, i64 40, i64 24
-  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.3.0.in.v.i.i
-  %.sroa.0.0.in.v.i.i = select i1 %trunc.i.i, i64 32, i64 16
-  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.0.0.in.v.i.i
+  %4 = select i1 %trunc.i.i, i64 112, i64 96
+  %.sroa.3.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %4
+  %5 = select i1 %trunc.i.i, i64 104, i64 88
+  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %5
   %.sroa.0.0.i.i = load ptr, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !651, !nonnull !5, !noundef !5
   %.sroa.3.0.i.i = load i64, ptr %.sroa.3.0.in.i.i, align 8, !alias.scope !651, !noundef !5
-  %4 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
-  %5 = insertvalue { ptr, i64 } %4, i64 %.sroa.3.0.i.i, 1
-  ret { ptr, i64 } %5
+  %6 = insertvalue { ptr, i64 } poison, ptr %.sroa.0.0.i.i, 0
+  %7 = insertvalue { ptr, i64 } %6, i64 %.sroa.3.0.i.i, 1
+  ret { ptr, i64 } %7
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -3642,28 +3643,28 @@ define void @_RNvXs5_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_9GlobEntryNtB7_5Entry1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !656)
   %4 = load i32, ptr %3, align 8, !range !650, !alias.scope !659, !noalias !664, !noundef !5
   %trunc.i.i.i = trunc nuw i32 %4 to i1
-  %.sroa.0.0.in.v.i.i3.i = select i1 %trunc.i.i.i, i64 8, i64 32
-  %.sroa.0.0.in.i.i4.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.in.v.i.i3.i
+  %5 = select i1 %trunc.i.i.i, i64 80, i64 104
+  %.sroa.0.0.in.i.i4.i = getelementptr inbounds nuw i8, ptr %1, i64 %5
   %.sroa.0.0.i.i5.i = load i64, ptr %.sroa.0.0.in.i.i4.i, align 8, !alias.scope !666, !noalias !664, !noundef !5
-  %5 = getelementptr inbounds nuw i8, ptr %1, i64 128
-  %6 = load i64, ptr %5, align 8, !alias.scope !656, !noalias !664, !noundef !5
-  %7 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.0.0.i.i5.i, i64 %6)
-  %8 = extractvalue { i64, i1 } %7, 1
-  br i1 %8, label %9, label %_RNvXsd_NtCseG2FYMysgNb_3wax4walkNtB5_9TreeEntryNtB5_5Entry19root_relative_paths.exit
+  %6 = getelementptr inbounds nuw i8, ptr %1, i64 128
+  %7 = load i64, ptr %6, align 8, !alias.scope !656, !noalias !664, !noundef !5
+  %8 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.0.0.i.i5.i, i64 %7)
+  %9 = extractvalue { i64, i1 } %8, 1
+  br i1 %9, label %10, label %_RNvXsd_NtCseG2FYMysgNb_3wax4walkNtB5_9TreeEntryNtB5_5Entry19root_relative_paths.exit
 
-9:                                                ; preds = %2
+10:                                               ; preds = %2
   tail call void @_ZN4core6option13expect_failed17h7fb1d7cfd789f585E(ptr noalias noundef nonnull readonly align 1 @anon.84de9ef10a952e64d72e2e073890bc1b.64, i64 noundef 40, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.84de9ef10a952e64d72e2e073890bc1b.65) #36, !noalias !671
   unreachable
 
 _RNvXsd_NtCseG2FYMysgNb_3wax4walkNtB5_9TreeEntryNtB5_5Entry19root_relative_paths.exit: ; preds = %2
-  %.sroa.3.0.in.v.i.i.i = select i1 %trunc.i.i.i, i64 40, i64 24
-  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.3.0.in.v.i.i.i
+  %11 = select i1 %trunc.i.i.i, i64 112, i64 96
+  %.sroa.3.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %11
   %.sroa.3.0.i.i.i = load i64, ptr %.sroa.3.0.in.i.i.i, align 8, !alias.scope !659, !noalias !664, !noundef !5
-  %.sroa.0.0.in.v.i.i.i = select i1 %trunc.i.i.i, i64 32, i64 16
-  %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 %.sroa.0.0.in.v.i.i.i
+  %12 = select i1 %trunc.i.i.i, i64 104, i64 88
+  %.sroa.0.0.in.i.i.i = getelementptr inbounds nuw i8, ptr %1, i64 %12
   %.sroa.0.0.i.i.i = load ptr, ptr %.sroa.0.0.in.i.i.i, align 8, !alias.scope !659, !noalias !664, !nonnull !5, !noundef !5
-  %10 = add nuw i64 %6, %.sroa.0.0.i.i5.i
-  tail call void @_RNvXs_NtCseG2FYMysgNb_3wax4walkNtNtCsapf13pIxsjn_3std4path4PathNtB4_12SplitAtDepth14split_at_depth(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i, i64 noundef %10), !noalias !656
+  %13 = add nuw i64 %7, %.sroa.0.0.i.i5.i
+  tail call void @_RNvXs_NtCseG2FYMysgNb_3wax4walkNtNtCsapf13pIxsjn_3std4path4PathNtB4_12SplitAtDepth14split_at_depth(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %0, ptr noalias noundef nonnull readonly align 1 %.sroa.0.0.i.i.i, i64 noundef %.sroa.3.0.i.i.i, i64 noundef %13), !noalias !656
   ret void
 }
 
@@ -3672,8 +3673,8 @@ define noundef i32 @_RNvXs5_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_9GlobEntryNtB7_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !range !650, !alias.scope !672, !noundef !5
   %trunc.i.i = trunc nuw i32 %3 to i1
-  %.sroa.0.0.in.v.i.i = select i1 %trunc.i.i, i64 4, i64 48
-  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.0.0.in.v.i.i
+  %4 = select i1 %trunc.i.i, i64 76, i64 120
+  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %.sroa.0.0.i.i = load i32, ptr %.sroa.0.0.in.i.i, align 4, !alias.scope !672, !noundef !5
   ret i32 %.sroa.0.0.i.i
 }
@@ -3712,8 +3713,8 @@ define noundef i64 @_RNvXs5_NtNtCseG2FYMysgNb_3wax4walk4globNtB5_9GlobEntryNtB7_
   %2 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %3 = load i32, ptr %2, align 8, !range !650, !alias.scope !683, !noundef !5
   %trunc.i.i = trunc nuw i32 %3 to i1
-  %.sroa.0.0.in.v.i.i = select i1 %trunc.i.i, i64 8, i64 32
-  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %2, i64 %.sroa.0.0.in.v.i.i
+  %4 = select i1 %trunc.i.i, i64 80, i64 104
+  %.sroa.0.0.in.i.i = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %.sroa.0.0.i.i = load i64, ptr %.sroa.0.0.in.i.i, align 8, !alias.scope !683, !noundef !5
   ret i64 %.sroa.0.0.i.i
 }

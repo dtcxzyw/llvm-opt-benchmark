@@ -66,25 +66,24 @@ define hidden i32 @Curl_output_digest(ptr noundef %0, i1 noundef zeroext %1, ptr
   %.68 = select i1 %1, i64 5008, i64 4936
   %.69 = select i1 %1, i64 5016, i64 4992
   %.70 = select i1 %1, i64 5024, i64 5000
-  %.71 = select i1 %1, i64 3416, i64 3384
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 %.
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 %.68
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 %.69
   %10 = getelementptr inbounds nuw i8, ptr %0, i64 %.70
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 %.71
   %.044 = load ptr, ptr %10, align 8, !tbaa !8
   %.045 = load ptr, ptr %9, align 8, !tbaa !8
-  %12 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11
-  %13 = load ptr, ptr %8, align 8, !tbaa !8
-  tail call void %12(ptr noundef %13) #4
+  %11 = load ptr, ptr @Curl_cfree, align 8, !tbaa !11
+  %12 = load ptr, ptr %8, align 8, !tbaa !8
+  tail call void %11(ptr noundef %12) #4
   store ptr null, ptr %8, align 8, !tbaa !8
   %.not = icmp eq ptr %.045, null
   %spec.store.select1 = select i1 %.not, ptr @.str.1, ptr %.045
   %.not52 = icmp eq ptr %.044, null
   %spec.store.select = select i1 %.not52, ptr @.str.1, ptr %.044
-  %14 = load ptr, ptr %7, align 8, !tbaa !12
-  %.not53 = icmp eq ptr %14, null
-  %15 = getelementptr inbounds nuw i8, ptr %11, i64 24
+  %13 = load ptr, ptr %7, align 8, !tbaa !12
+  %.not53 = icmp eq ptr %13, null
+  %14 = select i1 %1, i64 3440, i64 3408
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i8, ptr %15, align 8
   br i1 %.not53, label %17, label %19
 

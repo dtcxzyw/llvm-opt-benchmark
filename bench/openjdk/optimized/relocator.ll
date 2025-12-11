@@ -1635,10 +1635,10 @@ define hidden void @_ZN9Relocator22adjust_stack_map_tableEii(ptr noundef nonnull
 
 26:                                               ; preds = %.lr.ph162, %_ZNK15stack_map_frame4nextEv.exit
   %.066160 = phi ptr [ %19, %.lr.ph162 ], [ %.1199207244, %_ZNK15stack_map_frame4nextEv.exit ]
-  %.067159 = phi ptr [ %23, %.lr.ph162 ], [ %328, %_ZNK15stack_map_frame4nextEv.exit ]
-  %.073158 = phi i32 [ -1, %.lr.ph162 ], [ %327, %_ZNK15stack_map_frame4nextEv.exit ]
+  %.067159 = phi ptr [ %23, %.lr.ph162 ], [ %329, %_ZNK15stack_map_frame4nextEv.exit ]
+  %.073158 = phi i32 [ -1, %.lr.ph162 ], [ %328, %_ZNK15stack_map_frame4nextEv.exit ]
   %.074157 = phi i8 [ 0, %.lr.ph162 ], [ %.175196209238, %_ZNK15stack_map_frame4nextEv.exit ]
-  %.076156 = phi i32 [ 0, %.lr.ph162 ], [ %329, %_ZNK15stack_map_frame4nextEv.exit ]
+  %.076156 = phi i32 [ 0, %.lr.ph162 ], [ %330, %_ZNK15stack_map_frame4nextEv.exit ]
   %27 = load i8, ptr %.067159, align 1
   %28 = icmp ugt i8 %27, 63
   br i1 %28, label %29, label %_ZNK15stack_map_frame12offset_deltaEv.exit.thread
@@ -2282,65 +2282,66 @@ _ZNK10full_frame13end_of_localsEv.exit.thread.i:  ; preds = %.thread230
 
 .preheader.i.i106.loopexit:                       ; preds = %.lr.ph.i4.i
   %313 = call noundef i16 @llvm.bswap.i16(i16 %.0.i.i.i.i3.i)
-  %314 = getelementptr inbounds nuw i8, ptr %311, i64 2
+  %314 = select i1 %or.cond.i.i.i.i.i, i64 5, i64 3
+  %315 = getelementptr inbounds nuw i8, ptr %.045.i.i, i64 %314
   br label %.preheader.i.i106
 
 .preheader.i.i106:                                ; preds = %.preheader.i.i106.loopexit, %_ZNK10full_frame13end_of_localsEv.exit.thread.i
-  %315 = phi ptr [ %308, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %314, %.preheader.i.i106.loopexit ]
+  %316 = phi ptr [ %308, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %315, %.preheader.i.i106.loopexit ]
   %.in.i = phi i16 [ %307, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %313, %.preheader.i.i106.loopexit ]
   %.0.i.i.i.i313.i = phi i16 [ %.0.i.i.i.i312.i, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %.0.i.i.i.i3.i, %.preheader.i.i106.loopexit ]
-  %.016.lcssa.i.i = phi i64 [ 7, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %319, %.preheader.i.i106.loopexit ]
-  %316 = zext i16 %.in.i to i32
+  %.016.lcssa.i.i = phi i64 [ 7, %_ZNK10full_frame13end_of_localsEv.exit.thread.i ], [ %320, %.preheader.i.i106.loopexit ]
+  %317 = zext i16 %.in.i to i32
   %.not6.i = icmp eq i16 %.0.i.i.i.i313.i, 0
   br i1 %.not6.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i
 
 .lr.ph.i4.i:                                      ; preds = %.lr.ph.i4.i, %.lr.ph.i4.preheader.i
-  %.01424.i.i = phi i32 [ %321, %.lr.ph.i4.i ], [ 0, %.lr.ph.i4.preheader.i ]
-  %.01523.i.i = phi ptr [ %320, %.lr.ph.i4.i ], [ %303, %.lr.ph.i4.preheader.i ]
-  %.01622.i.i = phi i64 [ %319, %.lr.ph.i4.i ], [ 7, %.lr.ph.i4.preheader.i ]
-  %317 = load i8, ptr %.01523.i.i, align 1
-  %318 = add i8 %317, -7
-  %or.cond.i.i.i.i = icmp ult i8 %318, 2
+  %.01424.i.i = phi i32 [ %322, %.lr.ph.i4.i ], [ 0, %.lr.ph.i4.preheader.i ]
+  %.01523.i.i = phi ptr [ %321, %.lr.ph.i4.i ], [ %303, %.lr.ph.i4.preheader.i ]
+  %.01622.i.i = phi i64 [ %320, %.lr.ph.i4.i ], [ 7, %.lr.ph.i4.preheader.i ]
+  %318 = load i8, ptr %.01523.i.i, align 1
+  %319 = add i8 %318, -7
+  %or.cond.i.i.i.i = icmp ult i8 %319, 2
   %..i.i.i.i = select i1 %or.cond.i.i.i.i, i64 3, i64 1
-  %319 = add i64 %..i.i.i.i, %.01622.i.i
-  %320 = getelementptr inbounds nuw i8, ptr %.01523.i.i, i64 %..i.i.i.i
-  %321 = add nuw nsw i32 %.01424.i.i, 1
-  %exitcond.not.i5.i = icmp eq i32 %321, %306
+  %320 = add i64 %..i.i.i.i, %.01622.i.i
+  %321 = getelementptr inbounds nuw i8, ptr %.01523.i.i, i64 %..i.i.i.i
+  %322 = add nuw nsw i32 %.01424.i.i, 1
+  %exitcond.not.i5.i = icmp eq i32 %322, %306
   br i1 %exitcond.not.i5.i, label %.preheader.i.i106.loopexit, label %.lr.ph.i4.i, !llvm.loop !21
 
 .lr.ph28.i.i:                                     ; preds = %.preheader.i.i106, %.lr.ph28.i.i
-  %.027.i.i = phi i32 [ %326, %.lr.ph28.i.i ], [ 0, %.preheader.i.i106 ]
-  %.126.i.i = phi ptr [ %325, %.lr.ph28.i.i ], [ %315, %.preheader.i.i106 ]
-  %.11725.i.i = phi i64 [ %324, %.lr.ph28.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i106 ]
-  %322 = load i8, ptr %.126.i.i, align 1
-  %323 = add i8 %322, -7
-  %or.cond.i.i18.i.i = icmp ult i8 %323, 2
+  %.027.i.i = phi i32 [ %327, %.lr.ph28.i.i ], [ 0, %.preheader.i.i106 ]
+  %.126.i.i = phi ptr [ %326, %.lr.ph28.i.i ], [ %316, %.preheader.i.i106 ]
+  %.11725.i.i = phi i64 [ %325, %.lr.ph28.i.i ], [ %.016.lcssa.i.i, %.preheader.i.i106 ]
+  %323 = load i8, ptr %.126.i.i, align 1
+  %324 = add i8 %323, -7
+  %or.cond.i.i18.i.i = icmp ult i8 %324, 2
   %..i.i19.i.i = select i1 %or.cond.i.i18.i.i, i64 3, i64 1
-  %324 = add i64 %..i.i19.i.i, %.11725.i.i
-  %325 = getelementptr inbounds nuw i8, ptr %.126.i.i, i64 %..i.i19.i.i
-  %326 = add nuw nsw i32 %.027.i.i, 1
-  %exitcond31.not.i.i = icmp eq i32 %326, %316
+  %325 = add i64 %..i.i19.i.i, %.11725.i.i
+  %326 = getelementptr inbounds nuw i8, ptr %.126.i.i, i64 %..i.i19.i.i
+  %327 = add nuw nsw i32 %.027.i.i, 1
+  %exitcond31.not.i.i = icmp eq i32 %327, %317
   br i1 %exitcond31.not.i.i, label %_ZNK15stack_map_frame4nextEv.exit, label %.lr.ph28.i.i, !llvm.loop !22
 
 _ZNK15stack_map_frame4nextEv.exit:                ; preds = %.lr.ph.i.i.i.i, %.lr.ph28.i.i, %196, %195, %94, %93, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread, %83, %.preheader.i.i106, %thread-pre-split, %thread-pre-split.thread248, %279, %285, %.thread281, %302
   %.1199207244 = phi ptr [ %.1, %279 ], [ %.1, %285 ], [ %.1, %302 ], [ %.1, %thread-pre-split ], [ %.1, %thread-pre-split.thread248 ], [ %.1, %.thread281 ], [ %.1, %.preheader.i.i106 ], [ %.066160, %83 ], [ %.066160, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %164, %196 ], [ %164, %195 ], [ %.066160, %94 ], [ %.066160, %93 ], [ %.1, %.lr.ph28.i.i ], [ %.1, %.lr.ph.i.i.i.i ]
   %.168198208241 = phi ptr [ %.168, %279 ], [ %.168, %285 ], [ %.168, %302 ], [ %.168, %thread-pre-split ], [ %.168, %thread-pre-split.thread248 ], [ %.168, %.thread281 ], [ %.168, %.preheader.i.i106 ], [ %.067159, %83 ], [ %.067159, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %184, %196 ], [ %184, %195 ], [ %.067159, %94 ], [ %.067159, %93 ], [ %.168, %.lr.ph28.i.i ], [ %.168, %.lr.ph.i.i.i.i ]
   %.175196209238 = phi i8 [ %.175, %279 ], [ %.175, %285 ], [ %.175, %302 ], [ %.175, %thread-pre-split ], [ %.175, %thread-pre-split.thread248 ], [ %.175, %.thread281 ], [ %.175, %.preheader.i.i106 ], [ 1, %83 ], [ %.074157, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 1, %196 ], [ 1, %195 ], [ 1, %94 ], [ 1, %93 ], [ %.175, %.lr.ph28.i.i ], [ %.175, %.lr.ph.i.i.i.i ]
-  %327 = phi i32 [ %208, %279 ], [ %208, %285 ], [ %208, %302 ], [ %208, %thread-pre-split ], [ %208, %thread-pre-split.thread248 ], [ %208, %.thread281 ], [ %208, %.preheader.i.i106 ], [ %70, %83 ], [ %70, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %142, %196 ], [ %142, %195 ], [ %66, %94 ], [ %66, %93 ], [ %208, %.lr.ph28.i.i ], [ %208, %.lr.ph.i.i.i.i ]
-  %.0.i.i = phi i64 [ %283, %279 ], [ %289, %285 ], [ 0, %302 ], [ 1, %thread-pre-split ], [ 3, %thread-pre-split.thread248 ], [ 3, %.thread281 ], [ %.016.lcssa.i.i, %.preheader.i.i106 ], [ 1, %83 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 3, %196 ], [ 3, %195 ], [ 3, %94 ], [ 3, %93 ], [ %324, %.lr.ph28.i.i ], [ %299, %.lr.ph.i.i.i.i ]
-  %328 = getelementptr inbounds i8, ptr %.168198208241, i64 %.0.i.i
-  %329 = add nuw nsw i32 %.076156, 1
-  %exitcond174.not = icmp eq i32 %329, %22
+  %328 = phi i32 [ %208, %279 ], [ %208, %285 ], [ %208, %302 ], [ %208, %thread-pre-split ], [ %208, %thread-pre-split.thread248 ], [ %208, %.thread281 ], [ %208, %.preheader.i.i106 ], [ %70, %83 ], [ %70, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ %142, %196 ], [ %142, %195 ], [ %66, %94 ], [ %66, %93 ], [ %208, %.lr.ph28.i.i ], [ %208, %.lr.ph.i.i.i.i ]
+  %.0.i.i = phi i64 [ %283, %279 ], [ %289, %285 ], [ 0, %302 ], [ 1, %thread-pre-split ], [ 3, %thread-pre-split.thread248 ], [ 3, %.thread281 ], [ %.016.lcssa.i.i, %.preheader.i.i106 ], [ 1, %83 ], [ 1, %_ZNK15stack_map_frame12offset_deltaEv.exit.thread ], [ 3, %196 ], [ 3, %195 ], [ 3, %94 ], [ 3, %93 ], [ %325, %.lr.ph28.i.i ], [ %299, %.lr.ph.i.i.i.i ]
+  %329 = getelementptr inbounds i8, ptr %.168198208241, i64 %.0.i.i
+  %330 = add nuw nsw i32 %.076156, 1
+  %exitcond174.not = icmp eq i32 %330, %22
   br i1 %exitcond174.not, label %._crit_edge163, label %26, !llvm.loop !23
 
 ._crit_edge163:                                   ; preds = %_ZNK15stack_map_frame4nextEv.exit, %14
   %.066.lcssa = phi ptr [ %19, %14 ], [ %.1199207244, %_ZNK15stack_map_frame4nextEv.exit ]
   call void @_ZN12methodHandleC1ERKS_(ptr noundef nonnull align 8 dereferenceable(16) %7, ptr noundef nonnull align 8 dereferenceable(16) %8) #11
-  %330 = load ptr, ptr %7, align 8
-  %331 = getelementptr inbounds nuw i8, ptr %330, i64 8
-  %332 = load ptr, ptr %331, align 8
-  %333 = getelementptr inbounds nuw i8, ptr %332, i64 16
-  store ptr %.066.lcssa, ptr %333, align 8
+  %331 = load ptr, ptr %7, align 8
+  %332 = getelementptr inbounds nuw i8, ptr %331, i64 8
+  %333 = load ptr, ptr %332, align 8
+  %334 = getelementptr inbounds nuw i8, ptr %333, i64 16
+  store ptr %.066.lcssa, ptr %334, align 8
   call void @_ZN12methodHandleD1Ev(ptr noundef nonnull align 8 dereferenceable(16) %7) #11
   br label %_ZL14insert_hole_atP15ClassLoaderDatamiP5ArrayIhE.exit.thread
 
