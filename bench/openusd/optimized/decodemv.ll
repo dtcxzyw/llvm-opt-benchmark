@@ -8524,7 +8524,7 @@ aom_read_symbol_.exit61:                          ; preds = %._crit_edge.loopexi
   %.036 = phi i32 [ %.1.lcssa, %._crit_edge ], [ %75, %73 ], [ %75, %._crit_edge.loopexit.i.i59 ]
   %.035 = phi i32 [ %140, %._crit_edge ], [ 1, %73 ], [ 1, %._crit_edge.loopexit.i.i59 ]
   %.not = icmp eq i32 %2, 0
-  br i1 %.not, label %214, label %141
+  br i1 %.not, label %213, label %141
 
 141:                                              ; preds = %aom_read_symbol_.exit61
   %142 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -8619,22 +8619,22 @@ aom_read_symbol_.exit81:                          ; preds = %141, %._crit_edge.l
   %198 = icmp samesign ult i32 %195, %197
   br i1 %198, label %199, label %204
 
-199:                                              ; preds = %184
+199:; preds = %184
   %200 = sub nuw nsw i32 %197, %195
   %201 = lshr i32 %200, %192
   %202 = trunc nuw nsw i32 %201 to i16
   %203 = sub i16 %196, %202
   br label %._crit_edge.loopexit.i.i89
 
-204:                                              ; preds = %184
-  %205 = sub nuw nsw i32 %195, %197
-  %206 = lshr i32 %205, %192
-  %207 = trunc nuw nsw i32 %206 to i16
-  %208 = add i16 %196, %207
+203:                                              ; preds = %184
+  %204 = sub nuw nsw i32 %195, %197
+  %205 = lshr i32 %204, %192
+  %206 = trunc nuw nsw i32 %205 to i16
+  %207 = add i16 %196, %206
   br label %._crit_edge.loopexit.i.i89
 
-._crit_edge.loopexit.i.i89:                       ; preds = %204, %199
-  %storemerge.i.i86 = phi i16 [ %208, %204 ], [ %203, %199 ]
+._crit_edge.loopexit.i.i89:                       ; preds = %203, %199
+  %storemerge.i.i86 = phi i16 [ %207, %204 ], [ %203, %199 ]
   store i16 %storemerge.i.i86, ptr %181, align 2
   %.pre.i.i90 = load i16, ptr %186, align 2
   %209 = icmp ult i16 %.pre.i.i90, 32
@@ -8644,21 +8644,21 @@ aom_read_symbol_.exit81:                          ; preds = %141, %._crit_edge.l
   br label %aom_read_symbol_.exit91
 
 aom_read_symbol_.exit91:                          ; preds = %._crit_edge.loopexit.i.i89, %180, %aom_read_symbol_.exit81
-  %212 = phi i32 [ 1, %aom_read_symbol_.exit81 ], [ %182, %180 ], [ %182, %._crit_edge.loopexit.i.i89 ]
-  %213 = shl i32 %147, 1
-  br label %214
+  %211 = phi i32 [ 1, %aom_read_symbol_.exit81 ], [ %182, %180 ], [ %182, %._crit_edge.loopexit.i.i89 ]
+  %212 = shl i32 %147, 1
+  br label %213
 
-214:                                              ; preds = %aom_read_symbol_.exit61, %aom_read_symbol_.exit91
-  %.038 = phi i32 [ %212, %aom_read_symbol_.exit91 ], [ 1, %aom_read_symbol_.exit61 ]
-  %.037 = phi i32 [ %213, %aom_read_symbol_.exit91 ], [ 6, %aom_read_symbol_.exit61 ]
-  %215 = shl i32 %.036, 3
-  %216 = or i32 %.038, %215
-  %217 = or i32 %216, %.037
-  %218 = add i32 %.035, %217
+213:                                              ; preds = %aom_read_symbol_.exit61, %aom_read_symbol_.exit91
+  %.038 = phi i32 [ %211, %aom_read_symbol_.exit91 ], [ 1, %aom_read_symbol_.exit61 ]
+  %.037 = phi i32 [ %212, %aom_read_symbol_.exit91 ], [ 6, %aom_read_symbol_.exit61 ]
+  %214 = shl i32 %.036, 3
+  %215 = or i32 %.038, %214
+  %216 = or i32 %215, %.037
+  %217 = add i32 %.035, %216
   %.not41 = icmp eq i32 %7, 0
-  %219 = sub nsw i32 0, %218
-  %220 = select i1 %.not41, i32 %218, i32 %219
-  ret i32 %220
+  %218 = sub nsw i32 0, %217
+  %219 = select i1 %.not41, i32 %217, i32 %218
+  ret i32 %219
 }
 
 declare zeroext i8 @av1_above_block_mode(ptr noundef) local_unnamed_addr #2

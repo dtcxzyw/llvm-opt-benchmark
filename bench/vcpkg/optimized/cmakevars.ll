@@ -9238,14 +9238,14 @@ define linkonce_odr dso_local void @_ZN3fmt3v116detail7get_argINS0_7contextENS0_
   %9 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %10 = load ptr, ptr %9, align 8, !noalias !354
   %11 = icmp slt i64 %6, 0
-  %12 = select i1 %11, i64 -24, i64 -8
-  %13 = getelementptr inbounds i8, ptr %10, i64 %12
+  %.v.i.i.i = select i1 %11, i64 -24, i64 -8
+  %12 = getelementptr inbounds i8, ptr %10, i64 %.v.i.i.i
   %14 = load i64, ptr %13, align 8, !tbaa !229, !noalias !354
   %.not14.not.i.i.i = icmp eq i64 %14, 0
   br i1 %.not14.not.i.i.i, label %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, label %.lr.ph.i.i.i
 
 .lr.ph.i.i.i:                                     ; preds = %8
-  %.v.i.i.i = select i1 %11, i64 -32, i64 -16
+  %.v.i.i.i = select i1 %11, i64 -16, i64 -16
   %15 = getelementptr inbounds i8, ptr %10, i64 %.v.i.i.i
   %16 = load ptr, ptr %15, align 8, !tbaa !223, !noalias !354
   br label %19
@@ -9278,12 +9278,12 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
   %31 = icmp sgt i64 %6, -1
   br i1 %31, label %35, label %32
 
-32:                                               ; preds = %29
-  %33 = trunc i64 %6 to i32
-  %34 = icmp slt i32 %27, %33
-  br i1 %34, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread
+16:                                               ; preds = %29
+  %33 = trunc i64 %6 to i16
+  %exitcond.not.i.i.i = icmp slt i32 %27, %33
+  br i1 %exitcond.not.i.i.i, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread
 
-35:                                               ; preds = %29
+31:                                               ; preds = %29
   %36 = icmp samesign ugt i32 %27, 14
   br i1 %36, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread, label %37
 
@@ -9297,30 +9297,30 @@ _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_vie
   %43 = icmp eq i32 %42, 0
   br i1 %43, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10
 
-_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10: ; preds = %37
+_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10:; preds = %37
   %44 = zext nneg i32 %27 to i64
   %45 = getelementptr inbounds nuw %"class.fmt::v11::detail::value", ptr %10, i64 %44
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(16) %0, ptr noundef nonnull align 16 dereferenceable(16) %45, i64 16, i1 false), !tbaa.struct !286
   br label %50
 
 _ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i: ; preds = %17, %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.i.i, %8, %4
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i32 0, ptr %46, align 16, !tbaa !282, !alias.scope !354
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i32 0, ptr %45, align 16, !tbaa !282, !alias.scope !354
   br label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread
 
 _ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit: ; preds = %32
-  %47 = zext nneg i32 %27 to i64
-  %48 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %10, i64 %47
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(20) %48, i64 20, i1 false), !tbaa.struct !287
+  %46 = zext nneg i32 %27 to i64
+  %47 = getelementptr inbounds nuw %"class.fmt::v11::basic_format_arg", ptr %10, i64 %46
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(20) %0, ptr noundef nonnull align 16 dereferenceable(20) %47, i64 20, i1 false), !tbaa.struct !287
   %.pre = load i32, ptr %30, align 16, !tbaa !282
-  %49 = icmp eq i32 %.pre, 0
-  br i1 %49, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread, label %50
+  %48 = icmp eq i32 %.pre, 0
+  br i1 %48, label %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread, label %49
 
-_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread: ; preds = %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, %37, %35, %32, %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit
+_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread: ; preds = %_ZNK3fmt3v1117basic_format_argsINS0_7contextEE6get_idIcEEiNS0_17basic_string_viewIT_EE.exit.thread.i.i, %37, %35, %16, %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit
   tail call void @_ZN3fmt3v1112report_errorEPKc(ptr noundef nonnull @.str.41) #26
   unreachable
 
-50:                                               ; preds = %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10, %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit
+49:                                               ; preds = %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit.thread10, %_ZN3fmt3v117context3argENS0_17basic_string_viewIcEE.exit
   ret void
 }
 

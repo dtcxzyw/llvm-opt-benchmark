@@ -850,22 +850,22 @@ define void @_RNvMNtCs8mTrBI1stz4_15turborepo_vt1006parserNtB2_6Parser13entire_s
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 %11
   call void @_RNvMs3_NtNtCs68wO5nsWeTG_5alloc11collections9vec_dequeINtB5_8VecDequeNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowE4iterB19_(ptr noalias noundef nonnull sret([32 x i8]) align 8 captures(none) dereferenceable(32) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %12), !noalias !122
   %13 = select i1 %.not.i.i, i64 48, i64 184
-  %14 = getelementptr inbounds nuw i8, ptr %1, i64 %13
-  %15 = load ptr, ptr %14, align 8, !alias.scope !123, !noalias !122, !nonnull !4, !noundef !4
+  %13 = getelementptr inbounds nuw i8, ptr %1, i64 %13
+  %14 = load ptr, ptr %13, align 8, !alias.scope !123, !noalias !122, !nonnull !4, !noundef !4
   %16 = select i1 %.not.i.i, i64 56, i64 192
   %17 = getelementptr inbounds nuw i8, ptr %1, i64 %16
   %18 = load i64, ptr %17, align 8, !alias.scope !123, !noalias !122, !noundef !4
   %19 = getelementptr inbounds { { { i64, ptr, {} }, i64 }, i8, [7 x i8] }, ptr %15, i64 %18
   call void @_RINvYINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowENtNtNtNtCs1LoaDTb72WA_4core4iter6traits8iterator8Iterator5chainINtNtNtB1T_5slice4iter4IterB13_EEB17_.llvm.18144538392194903364(ptr noalias noundef nonnull sret([48 x i8]) align 8 captures(none) dereferenceable(48) %4, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(32) %3, ptr noundef nonnull %15, ptr noundef nonnull %19), !noalias !102
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !120
-  %20 = call noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEINtNtNtBb_5slice4iter4IterB20_EENtNtNtB9_6traits8iterator8Iterator4foldjNCINvNvXs_NtB7_9enumerateINtB42_9EnumeratepEB3e_4fold9enumerateRB20_jNCNvMNtB24_4gridNtB54_4Grid18size_with_contents0E0EB24_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, i64 noundef 0, i64 noundef 0), !noalias !102
-  %21 = add i64 %20, 1
+  %16 = call noundef i64 @_RINvXs_NtNtNtCs1LoaDTb72WA_4core4iter8adapters5chainINtB5_5ChainINtNtNtNtCs68wO5nsWeTG_5alloc11collections9vec_deque4iter4IterNtNtCs8mTrBI1stz4_15turborepo_vt1003row3RowEINtNtNtBb_5slice4iter4IterB20_EENtNtNtB9_6traits8iterator8Iterator4foldjNCINvNvXs_NtB7_9enumerateINtB42_9EnumeratepEB3e_4fold9enumerateRB20_jNCNvMNtB24_4gridNtB54_4Grid18size_with_contents0E0EB24_(ptr noalias noundef nonnull align 8 captures(none) dereferenceable(48) %4, i64 noundef 0, i64 noundef 0), !noalias !102
+  %17 = add i64 %16, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !115
   store ptr %1, ptr %0, align 8, !alias.scope !102, !noalias !105
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %21, ptr %22, align 8, !alias.scope !102, !noalias !105
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i16 %10, ptr %23, align 8, !alias.scope !102, !noalias !105
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %17, ptr %18, align 8, !alias.scope !102, !noalias !105
+  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i16 %10, ptr %19, align 8, !alias.scope !102, !noalias !105
   ret void
 }
 

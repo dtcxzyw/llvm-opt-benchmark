@@ -68821,7 +68821,7 @@ define linkonce_odr hidden noundef ptr @_ZN4llvm15SmallVectorImplINS_6TripleEE15
   %13 = zext i32 %12 to i64
   %14 = getelementptr inbounds nuw %"class.llvm::Triple", ptr %11, i64 %13
   %15 = getelementptr inbounds i8, ptr %14, i64 -56
-  br label %108
+  br label %107
 
 16:                                               ; preds = %3
   %17 = ptrtoint ptr %1 to i64
@@ -69026,7 +69026,7 @@ _ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move_b
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %105, ptr noundef nonnull align 8 dereferenceable(24) %107, i64 24, i1 false)
   br label %108
 
-108:                                              ; preds = %_ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit, %10
+107:                                              ; preds = %_ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit, %10
   %.013 = phi ptr [ %15, %10 ], [ %32, %_ZSt13move_backwardIPN4llvm6TripleES2_ET0_T_S4_S3_.exit ]
   ret ptr %.013
 }

@@ -33712,8 +33712,8 @@ define noundef i64 @_ZN5image6codecs4webp8extended13ExtendedImage12get_buf_size1
   %4 = load i64, ptr %.0, align 8, !range !4239, !alias.scope !4378, !noundef !19
   switch i64 %4, label %default.unreachable [
     i64 0, label %5
-    i64 1, label %9
-    i64 2, label %13
+    i64 1, label %8
+    i64 2, label %11
   ]
 
 default.unreachable:                              ; preds = %1
@@ -33725,13 +33725,13 @@ default.unreachable:                              ; preds = %1
   %8 = load i64, ptr %7, align 8, !alias.scope !4378, !noundef !19
   br label %_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit
 
-9:                                                ; preds = %1
+8:                                                ; preds = %1
   %10 = select i1 %3, i64 32, i64 24
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 %10
   %12 = load i64, ptr %11, align 8, !alias.scope !4378, !noundef !19
   br label %_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit
 
-13:                                               ; preds = %1
+11:                                               ; preds = %1
   %14 = select i1 %3, i64 40, i64 32
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 %14
   %16 = load i16, ptr %15, align 8, !alias.scope !4381, !noundef !19
@@ -33744,7 +33744,7 @@ default.unreachable:                              ; preds = %1
   %23 = mul nuw nsw i64 %22, %21
   br label %_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit
 
-_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit: ; preds = %5, %9, %13
+_ZN5image6codecs4webp8extended10WebPStatic12get_buf_size17hc570ec87edc314aaE.exit: ; preds = %5, %8, %11
   %.0.i = phi i64 [ %8, %5 ], [ %12, %9 ], [ %23, %13 ]
   ret i64 %.0.i
 }

@@ -47832,7 +47832,7 @@ define hidden void @_ZN11ruff_linter5rules15flake8_builtins5rules24builtin_impor
   %26 = tail call noundef zeroext i1 @_ZN11ruff_linter5rules15flake8_builtins7helpers15shadows_builtin17hdd40d540449969f0E(ptr noalias noundef nonnull readonly align 1 %13, i64 noundef %14, i8 noundef %16, ptr noalias noundef nonnull readonly align 8 %20, i64 noundef %22, i8 noundef %24, i8 noundef %25)
   br i1 %26, label %27, label %42
 
-27:                                               ; preds = %2
+26:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !4783
@@ -47842,48 +47842,48 @@ define hidden void @_ZN11ruff_linter5rules15flake8_builtins5rules24builtin_impor
   %.sroa.53.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %5, i64 16
   store i64 0, ptr %.sroa.53.0..sroa_idx.i, align 8, !noalias !4783
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !4783
-  %28 = getelementptr inbounds nuw i8, ptr %4, i64 16
-  store i32 -536870880, ptr %28, align 8, !noalias !4783
+  %27 = getelementptr inbounds nuw i8, ptr %4, i64 16
+  store i32 -536870880, ptr %27, align 8, !noalias !4783
   %.sroa.4.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 20
   store i16 0, ptr %.sroa.4.0..sroa_idx.i, align 4, !noalias !4783
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %4, i64 22
   store i16 0, ptr %.sroa.5.0..sroa_idx.i, align 2, !noalias !4783
   store ptr %5, ptr %4, align 8, !noalias !4783
-  %29 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store ptr @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.37, ptr %29, align 8, !noalias !4783
-  %30 = invoke noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..nodes..Identifier$u20$as$u20$core..fmt..Display$GT$3fmt17he628d3fedb05e685E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
-          to label %33 unwind label %31, !noalias !4787
+  %28 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store ptr @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.37, ptr %28, align 8, !noalias !4783
+  %29 = invoke noundef zeroext i1 @"_ZN73_$LT$ruff_python_ast..nodes..Identifier$u20$as$u20$core..fmt..Display$GT$3fmt17he628d3fedb05e685E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(32) %.sroa.01.0, ptr noalias noundef nonnull align 8 dereferenceable(24) %4)
+          to label %33 unwind label %30, !noalias !4787
 
-31:                                               ; preds = %34, %27
-  %32 = landingpad { ptr, i32 }
+30:                                               ; preds = %33, %26
+  %31 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hba79b7f9900aea78E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #43
-          to label %37 unwind label %35, !noalias !4787
+          to label %37 unwind label %34, !noalias !4787
 
-33:                                               ; preds = %27
-  br i1 %30, label %34, label %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit", !prof !47
+32:                                               ; preds = %26
+  br i1 %29, label %33, label %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit", !prof !47
 
-34:                                               ; preds = %33
+33:                                               ; preds = %32
   invoke void @_ZN4core6result13unwrap_failed17he8e27e02739cd3d2E(ptr noalias noundef nonnull readonly align 1 @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.38, i64 noundef 55, ptr noundef nonnull align 1 %3, ptr noalias noundef readonly align 8 dereferenceable(32) @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.98, ptr noalias noundef readonly align 8 dereferenceable(24) @anon.a6b6a9a55df1a6fb8afb47e1f078e4b4.40) #42
-          to label %.noexc.i unwind label %31, !noalias !4787
+          to label %.noexc.i unwind label %30, !noalias !4787
 
-.noexc.i:                                         ; preds = %34
+.noexc.i:                                         ; preds = %33
   unreachable
 
-35:                                               ; preds = %31
-  %36 = landingpad { ptr, i32 }
+34:                                               ; preds = %30
+  %35 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hbadeae7294749c32E() #44, !noalias !4787
   unreachable
 
-37:                                               ; preds = %31
-  resume { ptr, i32 } %32
+36:                                               ; preds = %30
+  resume { ptr, i32 } %31
 
-"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit": ; preds = %33
+"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit": ; preds = %32
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %6, ptr noundef nonnull align 8 dereferenceable(24) %5, i64 24, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !4783
   call void @llvm.lifetime.end.p0(ptr nonnull %5), !noalias !4783
-  %38 = load i32, ptr %.sroa.01.0, align 8, !noundef !4
+  %37 = load i32, ptr %.sroa.01.0, align 8, !noundef !4
   %39 = select i1 %.not, i64 44, i64 4
   %40 = getelementptr inbounds nuw i8, ptr %1, i64 %39
   %41 = load i32, ptr %40, align 4, !noundef !4
@@ -47891,9 +47891,9 @@ define hidden void @_ZN11ruff_linter5rules15flake8_builtins5rules24builtin_impor
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @_ZN11ruff_linter8checkers3ast7Checker17report_diagnostic17heec61577efacc51fE(ptr noundef nonnull align 8 %0, ptr noalias noundef nonnull align 8 captures(none) dereferenceable(120) %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br label %42
+  br label %40
 
-42:                                               ; preds = %2, %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit"
+40:                                               ; preds = %2, %"_ZN49_$LT$T$u20$as$u20$alloc..string..SpecToString$GT$14spec_to_string17ha4643a15a7bd36b7E.exit"
   ret void
 }
 

@@ -1676,12 +1676,12 @@ _ZNK15G1PLABAllocator20alloc_buffers_lengthEa.exit.thread: ; preds = %_ZN15G1Col
   %39 = tail call noundef i64 asm sideeffect "lock xaddq $0,($2)", "=r,0,r,~{cc},~{memory},~{dirflag},~{fpsr},~{flags}"(i64 %36, ptr nonnull %38) #15, !srcloc !19
   br i1 %exitcond.not, label %40, label %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit, !llvm.loop !20
 
-40:                                               ; preds = %.split.us
+40:; preds = %.split.us
   %41 = load volatile ptr, ptr getelementptr inbounds nuw (i8, ptr @_ZN16LogTagSetMappingILN6LogTag4typeE49ELS1_115ELS1_0ELS1_0ELS1_0ELS1_0EE7_tagsetE, i64 48), align 8
   %.not58 = icmp eq ptr %41, null
   br i1 %.not58, label %59, label %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41
 
-_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41: ; preds = %40
+_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41:; preds = %40
   %42 = load ptr, ptr %0, align 8
   %43 = getelementptr inbounds nuw i8, ptr %42, i64 664
   %44 = tail call noundef i64 @_ZNK11G1EvacStats17desired_plab_sizeEj(ptr noundef nonnull align 8 dereferenceable(144) %43, i32 noundef %1) #15
@@ -1702,7 +1702,7 @@ _ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41: ; preds = %4
   tail call void (ptr, ...) @_ZN7LogImplILN6LogTag4typeE49ELS1_115ELS1_0ELS1_0ELS1_0ELS1_0EE5writeILN8LogLevel4typeE1EEEvPKcz(ptr noundef nonnull @.str.4, i64 noundef %44, i64 noundef %46, i64 noundef %48, i64 noundef %50, i64 noundef %53, i64 noundef %55, i64 noundef %57, i64 noundef %58)
   br label %59
 
-59:                                               ; preds = %40, %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41
+56:                                               ; preds = %40, %_ZN15G1CollectedHeap18alloc_buffer_statsE16G1HeapRegionAttr.exit41
   ret void
 }
 

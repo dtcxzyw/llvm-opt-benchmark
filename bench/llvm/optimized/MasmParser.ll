@@ -39135,11 +39135,11 @@ _ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move
   %107 = icmp ult i32 %106, 65
   br i1 %107, label %108, label %116
 
-108:                                              ; preds = %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
+111:                                              ; preds = %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
   %109 = select i1 %spec.select.i, i64 72, i64 32
   %110 = getelementptr inbounds nuw i8, ptr %.016.i.i, i64 %109
-  %111 = load i32, ptr %110, align 8, !tbaa !630
-  %112 = icmp ult i32 %111, 65
+  %113 = load i32, ptr %110, align 8, !tbaa !630
+  %112 = icmp ult i32 %113, 65
   br i1 %112, label %113, label %116
 
 113:                                              ; preds = %108
@@ -39149,11 +39149,11 @@ _ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit: ; preds = %_ZSt13move
   store i32 %115, ptr %105, align 8, !tbaa !630
   br label %_ZN4llvm8AsmTokenaSERKS0_.exit
 
-116:                                              ; preds = %108, %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
+114:                                              ; preds = %108, %_ZSt13move_backwardIPN4llvm8AsmTokenES2_ET0_T_S4_S3_.exit
   tail call void @_ZN4llvm5APInt14assignSlowCaseERKS0_(ptr noundef nonnull align 8 dereferenceable(12) %102, ptr noundef nonnull align 8 dereferenceable(12) %104) #27
   br label %_ZN4llvm8AsmTokenaSERKS0_.exit
 
-_ZN4llvm8AsmTokenaSERKS0_.exit:                   ; preds = %116, %113, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit
+_ZN4llvm8AsmTokenaSERKS0_.exit:                   ; preds = %114, %113, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit
   %.013 = phi ptr [ %41, %_ZN4llvm23SmallVectorTemplateBaseINS_8AsmTokenELb0EE9push_backERKS1_.exit ], [ %58, %113 ], [ %58, %116 ]
   ret ptr %.013
 }

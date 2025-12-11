@@ -9717,8 +9717,8 @@ _ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit: ; preds = %_ZN3zmq13socket_bas
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 64
   %39 = load i32, ptr %38, align 8, !tbaa !119
   %40 = icmp eq i32 %39, 1
-  %41 = select i1 %40, i64 8, i64 40
-  %42 = getelementptr inbounds nuw i8, ptr %37, i64 %41
+  %.idx.i = select i1 %40, i64 8, i64 40
+  %41 = getelementptr inbounds nuw i8, ptr %37, i64 %.idx.i
   %43 = load i64, ptr %42, align 8, !tbaa !16
   %44 = icmp eq i64 %43, 0
   br i1 %44, label %.loopexit, label %45
@@ -9733,32 +9733,32 @@ _ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit: ; preds = %_ZN3zmq13socket_bas
   %.not14 = icmp eq ptr %49, %50
   br i1 %.not14, label %.loopexit, label %.lr.ph
 
-.lr.ph:                                           ; preds = %45, %56
-  %.sroa.0.015 = phi ptr [ %57, %56 ], [ %49, %45 ]
-  %51 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
-  %52 = load ptr, ptr %51, align 8, !tbaa !202
-  %53 = icmp eq ptr %52, %1
-  br i1 %53, label %54, label %56
+.lr.ph:                                           ; preds = %45, %55
+  %.sroa.0.015 = phi ptr [ %56, %55 ], [ %49, %45 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
+  %51 = load ptr, ptr %50, align 8, !tbaa !202
+  %52 = icmp eq ptr %51, %1
+  br i1 %52, label %53, label %55
 
-54:                                               ; preds = %.lr.ph
-  %55 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
-  store ptr null, ptr %55, align 8, !tbaa !202
+53:                                               ; preds = %.lr.ph
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.015, i64 72
+  store ptr null, ptr %54, align 8, !tbaa !202
   br label %.loopexit
 
-56:                                               ; preds = %.lr.ph
-  %57 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.015) #40
-  %.not = icmp eq ptr %57, %50
+55:                                               ; preds = %.lr.ph
+  %56 = tail call noundef ptr @_ZSt18_Rb_tree_incrementPSt18_Rb_tree_node_base(ptr noundef nonnull %.sroa.0.015) #40
+  %.not = icmp eq ptr %56, %50
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !219
 
-.loopexit:                                        ; preds = %56, %45, %54, %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
-  %58 = tail call noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1444) %0)
-  br i1 %58, label %59, label %60
+.loopexit:                                        ; preds = %55, %45, %53, %_ZN3zmq7array_tINS_6pipe_tELi3EE5eraseEPS1_.exit
+  %57 = tail call noundef zeroext i1 @_ZNK3zmq5own_t14is_terminatingEv(ptr noundef nonnull align 8 dereferenceable(1444) %0)
+  br i1 %57, label %58, label %59
 
-59:                                               ; preds = %.loopexit
+58:                                               ; preds = %.loopexit
   tail call void @_ZN3zmq5own_t19unregister_term_ackEv(ptr noundef nonnull align 8 dereferenceable(1444) %0)
-  br label %60
+  br label %59
 
-60:                                               ; preds = %59, %.loopexit
+59:                                               ; preds = %58, %.loopexit
   ret void
 }
 
@@ -10202,7 +10202,7 @@ define void @_ZNK3zmq13socket_base_t13monitor_eventEmPKmmRKNS_19endpoint_uri_pai
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 1712
   %8 = load ptr, ptr %7, align 8, !tbaa !117
   %.not = icmp eq ptr %8, null
-  br i1 %.not, label %85, label %9
+  br i1 %.not, label %84, label %9
 
 9:                                                ; preds = %5
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -10210,7 +10210,7 @@ define void @_ZNK3zmq13socket_base_t13monitor_eventEmPKmmRKNS_19endpoint_uri_pai
   %11 = load i32, ptr %10, align 8, !tbaa !220
   switch i32 %11, label %84 [
     i32 1, label %12
-    i32 2, label %51
+    i32 2, label %50
   ]
 
 12:                                               ; preds = %9
@@ -10277,63 +10277,63 @@ define void @_ZNK3zmq13socket_base_t13monitor_eventEmPKmmRKNS_19endpoint_uri_pai
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %48, ptr align 1 %49, i64 %50, i1 false)
   br label %.sink.split
 
-51:                                               ; preds = %9
-  %52 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
-  %53 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
-  store i64 %1, ptr %53, align 1
-  %54 = load ptr, ptr %7, align 8, !tbaa !117
-  %55 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %54, i32 noundef 2)
-  %56 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
-  %57 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
-  store i64 %3, ptr %57, align 1
-  %58 = load ptr, ptr %7, align 8, !tbaa !117
-  %59 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %58, i32 noundef 2)
+50:                                               ; preds = %9
+  %51 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
+  %52 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
+  store i64 %1, ptr %52, align 1
+  %53 = load ptr, ptr %7, align 8, !tbaa !117
+  %54 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %53, i32 noundef 2)
+  %55 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
+  %56 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
+  store i64 %3, ptr %56, align 1
+  %57 = load ptr, ptr %7, align 8, !tbaa !117
+  %58 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %57, i32 noundef 2)
   %.not29 = icmp eq i64 %3, 0
   br i1 %.not29, label %._crit_edge, label %.lr.ph
 
-._crit_edge:                                      ; preds = %.lr.ph, %51
-  %60 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  %61 = load i64, ptr %60, align 8, !tbaa !16
-  %62 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef %61)
-  %63 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
-  %64 = load ptr, ptr %4, align 8, !tbaa !13
-  %65 = load i64, ptr %60, align 8, !tbaa !16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %63, ptr align 1 %64, i64 %65, i1 false)
-  %66 = load ptr, ptr %7, align 8, !tbaa !117
-  %67 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %66, i32 noundef 2)
-  %68 = getelementptr inbounds nuw i8, ptr %4, i64 32
-  %69 = getelementptr inbounds nuw i8, ptr %4, i64 40
-  %70 = load i64, ptr %69, align 8, !tbaa !16
-  %71 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef %70)
-  %72 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
-  %73 = load ptr, ptr %68, align 8, !tbaa !13
-  %74 = load i64, ptr %69, align 8, !tbaa !16
-  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %72, ptr align 1 %73, i64 %74, i1 false)
+._crit_edge:                                      ; preds = %.lr.ph, %50
+  %59 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  %60 = load i64, ptr %59, align 8, !tbaa !16
+  %61 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef %60)
+  %62 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
+  %63 = load ptr, ptr %4, align 8, !tbaa !13
+  %64 = load i64, ptr %59, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %62, ptr align 1 %63, i64 %64, i1 false)
+  %65 = load ptr, ptr %7, align 8, !tbaa !117
+  %66 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %65, i32 noundef 2)
+  %67 = getelementptr inbounds nuw i8, ptr %4, i64 32
+  %68 = getelementptr inbounds nuw i8, ptr %4, i64 40
+  %69 = load i64, ptr %68, align 8, !tbaa !16
+  %70 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef %69)
+  %71 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
+  %72 = load ptr, ptr %67, align 8, !tbaa !13
+  %73 = load i64, ptr %68, align 8, !tbaa !16
+  call void @llvm.memcpy.p0.p0.i64(ptr align 1 %71, ptr align 1 %72, i64 %73, i1 false)
   br label %.sink.split
 
-.lr.ph:                                           ; preds = %51, %.lr.ph
-  %.028 = phi i64 [ %81, %.lr.ph ], [ 0, %51 ]
-  %75 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
-  %76 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
-  %77 = getelementptr inbounds nuw i64, ptr %2, i64 %.028
-  %78 = load i64, ptr %77, align 8
-  store i64 %78, ptr %76, align 1
-  %79 = load ptr, ptr %7, align 8, !tbaa !117
-  %80 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %79, i32 noundef 2)
-  %81 = add nuw i64 %.028, 1
-  %exitcond.not = icmp eq i64 %81, %3
+.lr.ph:                                           ; preds = %50, %.lr.ph
+  %.028 = phi i64 [ %80, %.lr.ph ], [ 0, %50 ]
+  %74 = call i32 @zmq_msg_init_size(ptr noundef nonnull %6, i64 noundef 8)
+  %75 = call ptr @zmq_msg_data(ptr noundef nonnull %6)
+  %76 = getelementptr inbounds nuw i64, ptr %2, i64 %.028
+  %77 = load i64, ptr %76, align 8
+  store i64 %77, ptr %75, align 1
+  %78 = load ptr, ptr %7, align 8, !tbaa !117
+  %79 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %78, i32 noundef 2)
+  %80 = add nuw i64 %.028, 1
+  %exitcond.not = icmp eq i64 %80, %3
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph, !llvm.loop !221
 
 .sink.split:                                      ; preds = %31, %._crit_edge
-  %82 = load ptr, ptr %7, align 8, !tbaa !117
-  %83 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %82, i32 noundef 0)
+  %81 = load ptr, ptr %7, align 8, !tbaa !117
+  %82 = call i32 @zmq_msg_send(ptr noundef nonnull %6, ptr noundef %81, i32 noundef 0)
+  br label %83
+
+83:                                               ; preds = %.sink.split, %9
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
   br label %84
 
-84:                                               ; preds = %.sink.split, %9
-  call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %85
-
-85:                                               ; preds = %84, %5
+84:                                               ; preds = %83, %5
   ret void
 }
 

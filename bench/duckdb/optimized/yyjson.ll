@@ -60908,11 +60908,11 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit: ; preds = %_
   %59 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %59, align 8, !tbaa !75
   store ptr %.037.i.sink, ptr %1, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; preds = %18, %44, %45, %48, %16
   store ptr @.str.78, ptr %4, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 60:                                               ; preds = %9
   %61 = icmp eq i8 %14, 48
@@ -60927,7 +60927,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
 
 66:                                               ; preds = %62
   store ptr @.str.80, ptr %4, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 67:                                               ; preds = %62
   %68 = zext i8 %64 to i64
@@ -60943,7 +60943,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
   %74 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %74, align 8, !tbaa !75
   store ptr %63, ptr %1, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 .preheader90:                                     ; preds = %60, %.preheader90
   %.2 = phi ptr [ %77, %.preheader90 ], [ %13, %60 ]
@@ -60971,7 +60971,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
   %89 = getelementptr inbounds nuw i8, ptr %3, i64 8
   store ptr %6, ptr %89, align 8, !tbaa !75
   store ptr %.2, ptr %1, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 90:                                               ; preds = %78, %67
   %91 = phi i8 [ %64, %67 ], [ %75, %78 ]
@@ -60989,7 +60989,7 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
 
 98:                                               ; preds = %93
   store ptr @.str.79, ptr %4, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 .preheader88:                                     ; preds = %93, %.preheader88
   %.4 = phi ptr [ %101, %.preheader88 ], [ %95, %93 ]
@@ -61023,30 +61023,30 @@ _ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread: ; pre
 
 115:                                              ; preds = %104
   store ptr @.str.81, ptr %4, align 8, !tbaa !86
-  br label %125
+  br label %124
 
 .preheader:                                       ; preds = %104, %.preheader
-  %.5 = phi ptr [ %118, %.preheader ], [ %112, %104 ]
-  %116 = load i8, ptr %.5, align 1, !tbaa !75
-  %117 = add i8 %116, -58
-  %.not87 = icmp ult i8 %117, -10
-  %118 = getelementptr inbounds nuw i8, ptr %.5, i64 1
+  %.5 = phi ptr [ %117, %.preheader ], [ %112, %104 ]
+  %115 = load i8, ptr %.5, align 1, !tbaa !75
+  %116 = add i8 %115, -58
+  %.not87 = icmp ult i8 %116, -10
+  %117 = getelementptr inbounds nuw i8, ptr %.5, i64 1
   br i1 %.not87, label %.loopexit, label %.preheader, !llvm.loop !237
 
 .loopexit:                                        ; preds = %.preheader, %.loopexit89
   %.6 = phi ptr [ %.3, %.loopexit89 ], [ %.5, %.preheader ]
-  %119 = ptrtoint ptr %.6 to i64
-  %120 = ptrtoint ptr %6 to i64
-  %121 = sub i64 %119, %120
-  %122 = shl i64 %121, 8
-  %123 = or disjoint i64 %122, 1
-  store i64 %123, ptr %3, align 8, !tbaa !73
-  %124 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store ptr %6, ptr %124, align 8, !tbaa !75
+  %118 = ptrtoint ptr %.6 to i64
+  %119 = ptrtoint ptr %6 to i64
+  %120 = sub i64 %118, %119
+  %121 = shl i64 %120, 8
+  %122 = or disjoint i64 %121, 1
+  store i64 %122, ptr %3, align 8, !tbaa !73
+  %123 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store ptr %6, ptr %123, align 8, !tbaa !75
   store ptr %.6, ptr %1, align 8, !tbaa !86
-  br label %125
+  br label %124
 
-125:                                              ; preds = %.loopexit, %115, %98, %83, %72, %66, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit
+124:                                              ; preds = %.loopexit, %115, %98, %83, %72, %66, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit
   %.6.sink = phi ptr [ %.6, %.loopexit ], [ %112, %115 ], [ %95, %98 ], [ %.2, %83 ], [ %63, %72 ], [ %13, %66 ], [ %13, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread ], [ %.037.i.sink, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit ]
   %.0 = phi i1 [ true, %.loopexit ], [ false, %115 ], [ false, %98 ], [ true, %83 ], [ true, %72 ], [ false, %66 ], [ false, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit.thread ], [ true, %_ZN13duckdb_yyjsonL15read_inf_or_nanEbPPhS1_PNS_10yyjson_valE.exit ]
   store ptr %.6.sink, ptr %0, align 8, !tbaa !86

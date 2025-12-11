@@ -283,7 +283,7 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
 
 13:                                               ; preds = %3
   tail call fastcc void @mi_segment_free(ptr noundef nonnull %7, ptr noundef %2) #7
-  br label %37
+  br label %36
 
 14:                                               ; preds = %3
   %15 = getelementptr inbounds nuw i8, ptr %7, i64 72
@@ -293,20 +293,20 @@ define hidden void @_mi_segment_page_free(ptr noundef %0, i1 noundef zeroext %1,
 
 18:                                               ; preds = %14
   tail call fastcc void @mi_segment_abandon(ptr noundef nonnull %7, ptr noundef %2) #7
-  br label %37
+  br label %36
 
 19:                                               ; preds = %14
   %20 = add i64 %11, 1
   %21 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %22 = load i64, ptr %21, align 32, !tbaa !43
   %23 = icmp eq i64 %20, %22
-  br i1 %23, label %24, label %37
+  br i1 %23, label %24, label %36
 
 24:                                               ; preds = %19
   %25 = getelementptr inbounds nuw i8, ptr %7, i64 152
   %26 = load i32, ptr %25, align 8, !tbaa !3
   %27 = icmp ult i32 %26, 2
-  br i1 %27, label %mi_segment_free_queue.exit.i, label %37
+  br i1 %27, label %mi_segment_free_queue.exit.i, label %36
 
 mi_segment_free_queue.exit.i:                     ; preds = %24
   %28 = icmp eq i32 %26, 0
@@ -320,22 +320,22 @@ mi_segment_free_queue.exit.i:                     ; preds = %24
   %.not.i.i = icmp eq ptr %32, null
   br i1 %.not.i.i, label %36, label %34
 
-34:                                               ; preds = %mi_segment_free_queue.exit.i
+34:; preds = %mi_segment_free_queue.exit.i
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 48
   store ptr %9, ptr %35, align 8, !tbaa !44
   br label %mi_segment_insert_in_free_queue.exit
 
-36:                                               ; preds = %mi_segment_free_queue.exit.i
+35:                                               ; preds = %mi_segment_free_queue.exit.i
   %spec.select.idx = select i1 %28, i64 0, i64 16
   %spec.select = getelementptr inbounds nuw i8, ptr %2, i64 %spec.select.idx
   store ptr %9, ptr %spec.select, align 8, !tbaa !47
   br label %mi_segment_insert_in_free_queue.exit
 
-mi_segment_insert_in_free_queue.exit:             ; preds = %34, %36
+mi_segment_insert_in_free_queue.exit:             ; preds = %34, %35
   store ptr %9, ptr %31, align 8, !tbaa !45
-  br label %37
+  br label %36
 
-37:                                               ; preds = %18, %24, %mi_segment_insert_in_free_queue.exit, %19, %13
+36:                                               ; preds = %18, %24, %mi_segment_insert_in_free_queue.exit, %19, %13
   ret void
 }
 
@@ -1444,7 +1444,7 @@ mi_page_has_any_available.exit:                   ; preds = %79, %84
 
 96:                                               ; preds = %._crit_edge
   tail call fastcc void @mi_segment_free(ptr noundef nonnull %0, ptr noundef %4) #7
-  br label %111
+  br label %110
 
 97:                                               ; preds = %._crit_edge
   %98 = getelementptr inbounds nuw i8, ptr %0, i64 152
@@ -1452,7 +1452,7 @@ mi_page_has_any_available.exit:                   ; preds = %79, %84
   %100 = icmp ult i32 %99, 2
   %101 = icmp ult i64 %48, %.lcssa
   %or.cond58 = and i1 %101, %100
-  br i1 %or.cond58, label %mi_segment_free_queue.exit.i, label %111
+  br i1 %or.cond58, label %mi_segment_free_queue.exit.i, label %110
 
 mi_segment_free_queue.exit.i:                     ; preds = %97
   %102 = icmp eq i32 %99, 0
@@ -1462,26 +1462,26 @@ mi_segment_free_queue.exit.i:                     ; preds = %97
   %105 = getelementptr inbounds nuw i8, ptr %4, i64 %104
   %106 = load ptr, ptr %105, align 8, !tbaa !45
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store ptr %106, ptr %107, align 8, !tbaa !46
+  store ptr %105, ptr %107, align 8, !tbaa !46
   %.not.i.i = icmp eq ptr %106, null
   br i1 %.not.i.i, label %110, label %108
 
-108:                                              ; preds = %mi_segment_free_queue.exit.i
+108:; preds = %mi_segment_free_queue.exit.i
   %109 = getelementptr inbounds nuw i8, ptr %106, i64 48
   store ptr %0, ptr %109, align 8, !tbaa !44
   br label %mi_segment_insert_in_free_queue.exit
 
-110:                                              ; preds = %mi_segment_free_queue.exit.i
+109:                                              ; preds = %mi_segment_free_queue.exit.i
   %spec.select.idx = select i1 %102, i64 0, i64 16
   %spec.select = getelementptr inbounds nuw i8, ptr %4, i64 %spec.select.idx
   store ptr %0, ptr %spec.select, align 8, !tbaa !47
   br label %mi_segment_insert_in_free_queue.exit
 
-mi_segment_insert_in_free_queue.exit:             ; preds = %108, %110
-  store ptr %0, ptr %105, align 8, !tbaa !45
-  br label %111
+mi_segment_insert_in_free_queue.exit:             ; preds = %107, %109
+  store ptr %0, ptr %104, align 8, !tbaa !45
+  br label %110
 
-111:                                              ; preds = %97, %mi_segment_insert_in_free_queue.exit, %96
+110:                                              ; preds = %97, %mi_segment_insert_in_free_queue.exit, %96
   %.050 = phi ptr [ null, %96 ], [ %0, %mi_segment_insert_in_free_queue.exit ], [ %0, %97 ]
   ret ptr %.050
 }
@@ -2279,15 +2279,15 @@ define internal fastcc ptr @mi_segment_find_free(ptr noundef nonnull %0, ptr nou
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 104
   br label %13
 
-13:                                               ; preds = %.lr.ph, %105
-  %14 = phi i64 [ %5, %.lr.ph ], [ %106, %105 ]
-  %.01539 = phi i64 [ 0, %.lr.ph ], [ %107, %105 ]
+13:                                               ; preds = %.lr.ph, %104
+  %14 = phi i64 [ %5, %.lr.ph ], [ %105, %105 ]
+  %.01539 = phi i64 [ 0, %.lr.ph ], [ %106, %105 ]
   %15 = getelementptr inbounds nuw %struct.mi_page_s, ptr %6, i64 %.01539
   %16 = getelementptr inbounds nuw i8, ptr %15, i64 1
   %17 = load i8, ptr %16, align 1
   %18 = and i8 %17, 1
   %.not = icmp eq i8 %18, 0
-  br i1 %.not, label %19, label %105
+  br i1 %.not, label %19, label %104
 
 19:                                               ; preds = %13
   %20 = getelementptr inbounds nuw i8, ptr %15, i64 64
@@ -2396,7 +2396,7 @@ mi_segment_raw_page_start.exit.i.i:               ; preds = %59, %mi_segment_raw
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i8 0, ptr %3, align 1, !tbaa !81
   %63 = call zeroext i1 @_mi_os_commit(ptr noundef nonnull %.0.i.i.i, i64 noundef %.012.i.i.i, ptr noundef nonnull %3) #8
-  br i1 %63, label %mi_page_ensure_committed.exit.thread19.i, label %104
+  br i1 %63, label %mi_page_ensure_committed.exit.thread19.i, label %103
 
 mi_page_ensure_committed.exit.thread19.i:         ; preds = %mi_segment_raw_page_start.exit.i.i
   %64 = load i8, ptr %16, align 1
@@ -2484,7 +2484,7 @@ mi_segment_free_queue.exit.i.i:                   ; preds = %79
   %101 = icmp eq ptr %0, %100
   br i1 %101, label %102, label %mi_segment_queue_remove.exit.i.i
 
-102:                                              ; preds = %97
+102:; preds = %97
   %103 = load ptr, ptr %85, align 8, !tbaa !46
   store ptr %103, ptr %99, align 8, !tbaa !45
   br label %mi_segment_queue_remove.exit.i.i
@@ -2493,20 +2493,20 @@ mi_segment_queue_remove.exit.i.i:                 ; preds = %102, %97
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %83, i8 0, i64 16, i1 false)
   br label %.loopexit
 
-104:                                              ; preds = %mi_segment_raw_page_start.exit.i.i
+103:                                              ; preds = %mi_segment_raw_page_start.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %.pre48 = load i64, ptr %4, align 8, !tbaa !43
-  br label %105
+  br label %104
 
-105:                                              ; preds = %13, %104
-  %106 = phi i64 [ %14, %13 ], [ %.pre48, %104 ]
-  %107 = add nuw i64 %.01539, 1
-  %108 = icmp ult i64 %107, %106
-  br i1 %108, label %13, label %.loopexit, !llvm.loop !107
+104:                                              ; preds = %13, %103
+  %105 = phi i64 [ %14, %13 ], [ %.pre48, %104 ]
+  %106 = add nuw i64 %.01539, 1
+  %107 = icmp ult i64 %106, %105
+  br i1 %107, label %13, label %.loopexit, !llvm.loop !107
 
-.loopexit:                                        ; preds = %105, %2, %mi_segment_queue_remove.exit.i.i, %89, %79, %mi_page_ensure_committed.exit.thread.i
-  %109 = phi ptr [ %15, %mi_page_ensure_committed.exit.thread.i ], [ %15, %79 ], [ %15, %89 ], [ %15, %mi_segment_queue_remove.exit.i.i ], [ null, %2 ], [ null, %105 ]
-  ret ptr %109
+.loopexit:                                        ; preds = %104, %2, %mi_segment_queue_remove.exit.i.i, %89, %79, %mi_page_ensure_committed.exit.thread.i
+  %108 = phi ptr [ %15, %mi_page_ensure_committed.exit.thread.i ], [ %15, %79 ], [ %15, %89 ], [ %15, %mi_segment_queue_remove.exit.i.i ], [ null, %2 ], [ null, %105 ]
+  ret ptr %108
 }
 
 declare i64 @_mi_current_thread_count() local_unnamed_addr #2

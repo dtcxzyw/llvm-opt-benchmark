@@ -55780,7 +55780,7 @@ define internal fastcc void @_ZN6yara_x7scanner7context19verify_base64_match17hd
     i64 1, label %49
   ], !prof !7188
 
-default.unreachable103:                           ; preds = %27, %25, %23
+default.unreachable107:                           ; preds = %27, %25, %23
   unreachable
 
 29:                                               ; preds = %23
@@ -55996,8 +55996,8 @@ _ZN6base646engine6Engine6decode17he3480da83e3f0b5dE.exit: ; preds = %111
 117:                                              ; preds = %95
   %118 = add i64 %5, %2
   %119 = icmp ult i64 %118, %5
-  %.sroa.031.0.sroa.gep = getelementptr inbounds nuw i8, ptr %13, i64 16
-  %120 = load i64, ptr %.sroa.031.0.sroa.gep, align 8
+  %.sroa.gep98.sroa.gep100 = getelementptr inbounds nuw i8, ptr %13, i64 16
+  %120 = load i64, ptr %.sroa.gep98.sroa.gep100, align 8
   %.not60 = icmp ugt i64 %118, %120
   %or.cond = select i1 %119, i1 true, i1 %.not60
   br i1 %or.cond, label %select.unfold, label %121

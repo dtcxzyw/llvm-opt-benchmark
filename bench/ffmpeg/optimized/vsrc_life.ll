@@ -902,9 +902,9 @@ define internal void @fill_picture_rgb(ptr noundef readonly captures(none) %0, p
   br i1 %24, label %.lr.ph66.split, label %._crit_edge67
 
 .lr.ph66.split:                                   ; preds = %.lr.ph66, %._crit_edge
-  %25 = phi i32 [ %100, %._crit_edge ], [ %12, %.lr.ph66 ]
-  %26 = phi i32 [ %101, %._crit_edge ], [ %23, %.lr.ph66 ]
-  %.064 = phi i32 [ %102, %._crit_edge ], [ 0, %.lr.ph66 ]
+  %25 = phi i32 [ %98, %._crit_edge ], [ %12, %.lr.ph66 ]
+  %26 = phi i32 [ %99, %._crit_edge ], [ %23, %.lr.ph66 ]
+  %.064 = phi i32 [ %100, %._crit_edge ], [ 0, %.lr.ph66 ]
   %27 = icmp sgt i32 %26, 0
   br i1 %27, label %.lr.ph.preheader, label %._crit_edge
 
@@ -917,8 +917,8 @@ define internal void @fill_picture_rgb(ptr noundef readonly captures(none) %0, p
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %.lr.ph.preheader, %96
-  %33 = phi i32 [ %98, %96 ], [ %26, %.lr.ph.preheader ]
-  %.05663 = phi i32 [ %97, %96 ], [ 0, %.lr.ph.preheader ]
+  %33 = phi i32 [ %96, %96 ], [ %26, %.lr.ph.preheader ]
+  %.05663 = phi i32 [ %95, %96 ], [ 0, %.lr.ph.preheader ]
   %.05762 = phi ptr [ %.1, %96 ], [ %32, %.lr.ph.preheader ]
   %34 = mul nsw i32 %33, %.064
   %35 = add nsw i32 %34, %.05663
@@ -999,21 +999,21 @@ define internal void @fill_picture_rgb(ptr noundef readonly captures(none) %0, p
 
 96:                                               ; preds = %84, %42
   %.1 = getelementptr inbounds nuw i8, ptr %.05762, i64 3
-  %97 = add nuw nsw i32 %.05663, 1
-  %98 = load i32, ptr %15, align 8, !tbaa !20
-  %99 = icmp slt i32 %97, %98
-  br i1 %99, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !73
+  %95 = add nuw nsw i32 %.05663, 1
+  %96 = load i32, ptr %15, align 8, !tbaa !20
+  %97 = icmp slt i32 %95, %96
+  br i1 %97, label %.lr.ph, label %._crit_edge.loopexit, !llvm.loop !73
 
 ._crit_edge.loopexit:                             ; preds = %96
   %.pre = load i32, ptr %11, align 4, !tbaa !36
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %.lr.ph66.split
-  %100 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph66.split ]
-  %101 = phi i32 [ %98, %._crit_edge.loopexit ], [ %26, %.lr.ph66.split ]
-  %102 = add nuw nsw i32 %.064, 1
-  %103 = icmp slt i32 %102, %100
-  br i1 %103, label %.lr.ph66.split, label %._crit_edge67, !llvm.loop !74
+  %98 = phi i32 [ %.pre, %._crit_edge.loopexit ], [ %25, %.lr.ph66.split ]
+  %99 = phi i32 [ %96, %._crit_edge.loopexit ], [ %26, %.lr.ph66.split ]
+  %100 = add nuw nsw i32 %.064, 1
+  %101 = icmp slt i32 %100, %98
+  br i1 %101, label %.lr.ph66.split, label %._crit_edge67, !llvm.loop !74
 
 ._crit_edge67:                                    ; preds = %._crit_edge, %.lr.ph66, %2
   ret void

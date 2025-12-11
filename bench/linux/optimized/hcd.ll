@@ -346,7 +346,7 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
 
 21:                                               ; preds = %15
   tail call fastcc void @__usb_hcd_giveback_urb(ptr noundef %1)
-  br label %57
+  br label %50
 
 22:                                               ; preds = %15, %8
   %23 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -373,7 +373,7 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
   tail call void @_raw_spin_unlock(ptr noundef nonnull %29) #18
   br i1 %38, label %39, label %57
 
-39:                                               ; preds = %22
+39:; preds = %22
   %40 = select i1 %25, i64 385, i64 457
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 %40
   %42 = load i8, ptr %41, align 1, !range !10, !noundef !11
@@ -386,7 +386,7 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
   %48 = icmp eq i8 %46, 0
   br i1 %43, label %53, label %49
 
-49:                                               ; preds = %39
+49:  ; preds = %39
   br i1 %48, label %50, label %57
 
 50:                                               ; preds = %49
@@ -395,16 +395,16 @@ define dso_local void @usb_hcd_giveback_urb(ptr noundef %0, ptr noundef %1, i32 
   tail call void @__tasklet_hi_schedule(ptr noundef nonnull %52) #18
   br label %57
 
-53:                                               ; preds = %39
-  br i1 %48, label %54, label %57
+47:                                               ; preds = %39
+  br i1 %48, label %48, label %50
 
-54:                                               ; preds = %53
+48:                                               ; preds = %47
   %55 = select i1 %25, i64 408, i64 480
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 %55
   tail call void @__tasklet_schedule(ptr noundef nonnull %56) #18
   br label %57
 
-57:                                               ; preds = %54, %53, %50, %49, %22, %21
+50:                                               ; preds = %48, %47, %50, %49, %22, %21
   ret void
 }
 

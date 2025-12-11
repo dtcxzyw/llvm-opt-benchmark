@@ -826,7 +826,7 @@ define noundef zeroext i1 @duckdb_je_pac_decay_ms_set(ptr noundef %0, ptr nounde
   %.sink.i = getelementptr inbounds nuw i8, ptr %9, i64 %.sink.idx.i
   %10 = getelementptr inbounds nuw i8, ptr %1, i64 %.sink13.i
   %11 = tail call zeroext i1 @duckdb_je_decay_ms_valid(i64 noundef %3) #9
-  br i1 %11, label %12, label %36
+  br i1 %11, label %12, label %30
 
 12:                                               ; preds = %5
   %13 = select i1 %7, i64 58720, i64 60504
@@ -835,14 +835,14 @@ define noundef zeroext i1 @duckdb_je_pac_decay_ms_set(ptr noundef %0, ptr nounde
   %.not.i = icmp eq i32 %15, 0
   br i1 %.not.i, label %19, label %16
 
-16:                                               ; preds = %12
+15:                                               ; preds = %12
   tail call void @duckdb_je_malloc_mutex_lock_slow(ptr noundef nonnull %.sink12.i) #9
   %17 = select i1 %7, i64 58712, i64 60496
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 %17
   store atomic i8 1, ptr %18 monotonic, align 1
   br label %19
 
-19:                                               ; preds = %16, %12
+19: ; preds = %16, %12
   %20 = select i1 %7, i64 58704, i64 60488
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 %20
   %22 = load i64, ptr %21, align 8, !tbaa !51
@@ -854,7 +854,7 @@ define noundef zeroext i1 @duckdb_je_pac_decay_ms_set(ptr noundef %0, ptr nounde
   %.not.i.i = icmp eq ptr %26, %0
   br i1 %.not.i.i, label %malloc_mutex_lock.exit, label %27
 
-27:                                               ; preds = %19
+27:; preds = %19
   store ptr %0, ptr %25, align 8, !tbaa !55
   %28 = select i1 %7, i64 58688, i64 60472
   %29 = getelementptr inbounds nuw i8, ptr %1, i64 %28
@@ -867,15 +867,15 @@ malloc_mutex_lock.exit:                           ; preds = %19, %27
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
   call void @duckdb_je_nstime_init_update(ptr noundef nonnull %6) #9
   call void @duckdb_je_decay_reinit(ptr noundef nonnull %.sink12.i, ptr noundef nonnull %6, i64 noundef %3) #9
-  %32 = call zeroext i1 @duckdb_je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink12.i, ptr noundef %.sink.i, ptr noundef nonnull %10, i32 noundef %4)
+  %27 = call zeroext i1 @duckdb_je_pac_maybe_decay_purge(ptr noundef %0, ptr noundef nonnull %1, ptr noundef nonnull %.sink12.i, ptr noundef %.sink.i, ptr noundef nonnull %10, i32 noundef %4)
   %33 = select i1 %7, i64 58712, i64 60496
   %34 = getelementptr inbounds nuw i8, ptr %1, i64 %33
   store atomic i8 0, ptr %34 monotonic, align 1
   %35 = call i32 @pthread_mutex_unlock(ptr noundef nonnull %14) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %36
+  br label %30
 
-36:                                               ; preds = %5, %malloc_mutex_lock.exit
+30:                                               ; preds = %5, %malloc_mutex_lock.exit
   %.0 = xor i1 %11, true
   ret i1 %.0
 }
@@ -887,9 +887,9 @@ declare void @duckdb_je_decay_reinit(ptr noundef, ptr noundef, i64 noundef) loca
 ; Function Attrs: mustprogress nofree norecurse nounwind willreturn memory(argmem: readwrite) uwtable
 define i64 @duckdb_je_pac_decay_ms_get(ptr noundef readonly captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = icmp eq i32 %1, 1
-  %4 = select i1 %3, i64 58768, i64 60552
-  %5 = getelementptr inbounds nuw i8, ptr %0, i64 %4
-  %6 = load atomic i64, ptr %5 monotonic, align 8
+  %.sink12.v.i = select i1 %3, i64 58768, i64 60552
+  %.sink12.i = getelementptr inbounds nuw i8, ptr %0, i64 %.sink12.v.i
+  %6 = load atomic i64, ptr %.sink12.i monotonic, align 8
   ret i64 %6
 }
 

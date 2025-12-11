@@ -911,8 +911,8 @@ define hidden void @Curl_ssl_conn_config_update(ptr noundef readonly captures(no
   br i1 %.not, label %22, label %5
 
 5:                                                ; preds = %2
-  %. = select i1 %1, i64 1625, i64 1425
-  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.
+  %.v = select i1 %1, i64 1625, i64 1425
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 %.v
   %7 = load i8, ptr %6, align 1
   %8 = and i8 %7, 2
   %9 = select i1 %1, i64 945, i64 817
@@ -933,7 +933,7 @@ define hidden void @Curl_ssl_conn_config_update(ptr noundef readonly captures(no
   store i8 %21, ptr %10, align 1
   br label %22
 
-22:                                               ; preds = %5, %2
+22:; preds = %5, %2
   ret void
 }
 

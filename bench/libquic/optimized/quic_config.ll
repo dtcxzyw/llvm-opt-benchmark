@@ -5515,13 +5515,13 @@ define void @_ZNK3net10QuicConfig18ToHandshakeMessageEPNS_22CryptoHandshakeMessa
   %15 = select i1 %12, i64 180, i64 172
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 %15
   tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %14, ptr noundef nonnull align 4 dereferenceable(4) %16)
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 200
+  %16 = getelementptr inbounds nuw i8, ptr %0, i64 200
   %18 = load i8, ptr %17, align 8, !tbaa !29, !range !36, !noundef !37
   %19 = trunc nuw i8 %18 to i1
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %21 = load i32, ptr %20, align 8, !tbaa !25
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %19 = load i32, ptr %18, align 8, !tbaa !25
   %22 = select i1 %19, i64 212, i64 204
-  %23 = getelementptr inbounds nuw i8, ptr %0, i64 %22
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 %22
   tail call void @_ZN3net22CryptoHandshakeMessage8SetValueIjEEvjRKT_(ptr noundef nonnull align 8 dereferenceable(72) %1, i32 noundef %21, ptr noundef nonnull align 4 dereferenceable(4) %23)
   %24 = getelementptr inbounds nuw i8, ptr %0, i64 236
   %25 = load i8, ptr %24, align 4, !tbaa !74, !range !36, !noundef !37

@@ -2110,7 +2110,7 @@ define hidden void @_ZN6Assimp11MDLImporter22SkipSkinLump_3DGS_MDL7EPKhPS2_jjj(p
   %29 = landingpad { ptr, i32 }
           cleanup
   invoke void @__cxa_end_catch()
-          to label %_ZN9aiTextureD2Ev.exit unwind label %43
+          to label %_ZN9aiTextureD2Ev.exit unwind label %42
 
 _ZN9aiTextureD2Ev.exit:                           ; preds = %28
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -2133,32 +2133,32 @@ _ZN9aiTextureD2Ev.exit43:                         ; preds = %19
   %spec.select = getelementptr inbounds nuw i8, ptr %.1, i64 %spec.select.idx
   %35 = and i32 %3, 32
   %.not42 = icmp eq i32 %35, 0
-  br i1 %.not42, label %42, label %36
+  br i1 %.not42, label %41, label %36
 
 36:                                               ; preds = %33
   %37 = select i1 %.not, i64 4, i64 72
   %38 = getelementptr inbounds nuw i8, ptr %.1, i64 %37
   tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef nonnull %38)
   %.0.copyload = load i32, ptr %spec.select, align 1
-  %39 = sext i32 %.0.copyload to i64
-  %40 = getelementptr i8, ptr %spec.select, i64 %39
-  %41 = getelementptr i8, ptr %40, i64 4
-  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %41)
-  br label %42
+  %38 = sext i32 %.0.copyload to i64
+  %39 = getelementptr i8, ptr %spec.select, i64 %38
+  %40 = getelementptr i8, ptr %39, i64 4
+  tail call void @_ZN6Assimp11MDLImporter9SizeCheckEPKv(ptr noundef nonnull align 8 dereferenceable(159) %0, ptr noundef %40)
+  br label %41
 
-42:                                               ; preds = %36, %33
-  %.3 = phi ptr [ %41, %36 ], [ %spec.select, %33 ]
+41:                                               ; preds = %36, %33
+  %.3 = phi ptr [ %40, %36 ], [ %spec.select, %33 ]
   store ptr %.3, ptr %2, align 8
   ret void
 
-43:                                               ; preds = %28
-  %44 = landingpad { ptr, i32 }
+42:                                               ; preds = %28
+  %43 = landingpad { ptr, i32 }
           catch ptr null
-  %45 = extractvalue { ptr, i32 } %44, 0
-  tail call void @__clang_call_terminate(ptr %45) #26
+  %44 = extractvalue { ptr, i32 } %43, 0
+  tail call void @__clang_call_terminate(ptr %44) #26
   unreachable
 
-46:                                               ; preds = %24
+45:                                               ; preds = %24
   unreachable
 }
 

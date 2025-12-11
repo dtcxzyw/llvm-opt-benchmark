@@ -1131,9 +1131,9 @@ _ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit: ; pred
 
 if.end.i.i:                                       ; preds = %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit
   %isolate = getelementptr inbounds nuw i8, ptr %env, i64 8
-  %8 = load ptr, ptr %isolate, align 8
-  %9 = load i64, ptr %value.coerce, align 8
-  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %8, i64 noundef %9) #24
+  %7 = load ptr, ptr %isolate, align 8
+  %8 = load i64, ptr %value.coerce, align 8
+  %call2.i.i = tail call noundef ptr @_ZN2v812api_internal18GlobalizeReferenceEPNS_8internal7IsolateEm(ptr noundef %7, i64 noundef %8) #24
   br label %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
 
 _ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit: ; preds = %_ZN6v8impl7RefBaseC2EP10napi_env__jNS_9OwnershipEPFvS2_PvS4_ES4_S4_.exit, %if.end.i.i
@@ -1147,35 +1147,35 @@ _ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit: ; preds
   %call5.i = tail call noundef zeroext i1 @_ZNK2v85Value8IsSymbolEv(ptr noundef nonnull align 1 dereferenceable(1) %value.coerce) #24
   %frombool = zext i1 %call5.i to i8
   store i8 %frombool, ptr %can_be_weak_, align 8
-  %10 = load i32, ptr %refcount_.i, align 8
-  %cmp = icmp eq i32 %10, 0
+  %9 = load i32, ptr %refcount_.i, align 8
+  %cmp = icmp eq i32 %9, 0
   br i1 %cmp, label %if.then, label %if.end
 
 _ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread: ; preds = %_ZN2v86GlobalINS_5ValueEEC2IS1_EEPNS_7IsolateENS_5LocalIT_EE.exit
   store i8 1, ptr %can_be_weak_, align 8
-  %11 = load i32, ptr %refcount_.i, align 8
-  %cmp8 = icmp eq i32 %11, 0
+  %10 = load i32, ptr %refcount_.i, align 8
+  %cmp8 = icmp eq i32 %10, 0
   br i1 %cmp8, label %if.then.thread, label %if.end
 
 if.then.thread:                                   ; preds = %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit.thread
-  %12 = load ptr, ptr %persistent_, align 8
+  %11 = load ptr, ptr %persistent_, align 8
   br label %if.then.i
 
 if.then:                                          ; preds = %_ZN6v8impl12_GLOBAL__N_115CanBeHeldWeaklyEN2v85LocalINS1_5ValueEEE.exit
-  %13 = load ptr, ptr %persistent_, align 8
+  %12 = load ptr, ptr %persistent_, align 8
   br i1 %call5.i, label %if.then.i, label %if.else.i
 
 if.then.i:                                        ; preds = %if.then.thread, %if.then
-  %14 = phi ptr [ %12, %if.then.thread ], [ %13, %if.then ]
-  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %14, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
+  %13 = phi ptr [ %11, %if.then.thread ], [ %12, %if.then ]
+  tail call void @_ZN2v812api_internal8MakeWeakEPmPvPFvRKNS_16WeakCallbackInfoIvEEENS_16WeakCallbackTypeE(ptr noundef %13, ptr noundef nonnull align 8 dereferenceable(81) %this, ptr noundef nonnull @_ZN6v8impl9Reference12WeakCallbackERKN2v816WeakCallbackInfoIS0_EE, i32 noundef 0) #24
   br label %if.end
 
 if.else.i:                                        ; preds = %if.then
-  %cmp.i.i5 = icmp eq ptr %13, null
+  %cmp.i.i5 = icmp eq ptr %12, null
   br i1 %cmp.i.i5, label %if.end, label %if.end.i.i6
 
 if.end.i.i6:                                      ; preds = %if.else.i
-  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %13) #24
+  tail call void @_ZN2v812api_internal13DisposeGlobalEPm(ptr noundef nonnull %12) #24
   store ptr null, ptr %persistent_, align 8
   br label %if.end
 
@@ -6030,10 +6030,10 @@ if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
   br label %"_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i"
 
 "_ZZ38node_api_create_external_string_latin1ENK3$_0clEPN2v87IsolateE.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i
-  %8 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
+  %7 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
   store ptr %5, ptr %next_.i4.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 16), ptr %call2.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 96), ptr %8, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 96), ptr %7, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_129ExternalOneByteStringResourceE, i64 136), ptr %5, align 8
   %string_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
@@ -6172,15 +6172,15 @@ if.end.i.i.i:                                     ; preds = %while.cond.i.i.i.i.
   br i1 %cmp.not.i.i.i.i.i.i, label %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i", label %if.then.i.i.i.i.i.i
 
 if.then.i.i.i.i.i.i:                              ; preds = %if.end.i.i.i
-  %prev_5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %prev_5.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %7, i64 16
   store ptr %6, ptr %prev_5.i.i.i.i.i.i, align 8
   br label %"_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i"
 
 "_ZZ37node_api_create_external_string_utf16ENK3$_0clEPN2v87IsolateE.exit.i.i": ; preds = %if.then.i.i.i.i.i.i, %if.end.i.i.i
-  %9 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
+  %8 = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 16
   store ptr %6, ptr %next_.i4.i.i.i.i.i, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 16), ptr %call2.i.i.i, align 8
-  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 96), ptr %9, align 8
+  store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 96), ptr %8, align 8
   store ptr getelementptr inbounds nuw (i8, ptr @_ZTVN6v8impl12_GLOBAL__N_122ExternalStringResourceE, i64 136), ptr %6, align 8
   %string_.i.i.i.i = getelementptr inbounds nuw i8, ptr %call2.i.i.i, i64 80
   store ptr %str, ptr %string_.i.i.i.i, align 8
@@ -14997,7 +14997,7 @@ _ZN6v8impl16TrackedFinalizer3NewEP10napi_env__PFvS2_PvS3_ES3_S3_.exit: ; preds =
   store ptr %0, ptr %next_.i4.i.i, align 8
   %vtable = load ptr, ptr %env, align 8
   %vfn = getelementptr inbounds nuw i8, ptr %vtable, i64 16
-  %3 = load ptr, ptr %vfn, align 8
+  %2 = load ptr, ptr %vfn, align 8
   tail call void %3(ptr noundef nonnull align 8 dereferenceable(189) %env, ptr noundef nonnull %0) #24
   %last_error.i = getelementptr inbounds nuw i8, ptr %env, i64 136
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %last_error.i, i8 0, i64 24, i1 false)

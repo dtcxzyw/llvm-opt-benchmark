@@ -247,7 +247,7 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   %17 = tail call zeroext i1 %16(ptr noundef %0, ptr noundef nonnull %13, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, i1 noundef zeroext %6, ptr noundef %7) #4
   br i1 %17, label %30, label %18
 
-18:                                               ; preds = %10
+18:; preds = %10
   %19 = sub i64 %4, %3
   %20 = lshr i64 %19, 12
   %21 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -263,7 +263,7 @@ define hidden noundef zeroext i1 @je_pa_expand(ptr noundef %0, ptr noundef %1, p
   tail call void @je_emap_remap(ptr noundef %0, ptr noundef %29, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
   br label %30
 
-30:                                               ; preds = %18, %10, %8
+30:; preds = %18, %10, %8
   %.0 = phi i1 [ true, %8 ], [ true, %10 ], [ false, %18 ]
   ret i1 %.0
 }
@@ -273,7 +273,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
   %.val = load i64, ptr %2, align 8, !tbaa !59
   %8 = and i64 %.val, 65536
   %.not = icmp eq i64 %8, 0
-  br i1 %.not, label %9, label %29
+  br i1 %.not, label %9, label %28
 
 9:                                                ; preds = %7
   %10 = and i64 %.val, 16384
@@ -286,7 +286,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
   %16 = tail call zeroext i1 %15(ptr noundef %0, ptr noundef nonnull %12, ptr noundef nonnull %2, i64 noundef %3, i64 noundef %4, ptr noundef %6) #4
   br i1 %16, label %29, label %17
 
-17:                                               ; preds = %9
+17:; preds = %9
   %18 = sub i64 %3, %4
   %19 = lshr i64 %18, 12
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 8
@@ -302,7 +302,7 @@ define hidden noundef zeroext i1 @je_pa_shrink(ptr noundef %0, ptr noundef %1, p
   tail call void @je_emap_remap(ptr noundef %0, ptr noundef %28, ptr noundef nonnull %2, i32 noundef %5, i1 noundef zeroext false) #4
   br label %29
 
-29:                                               ; preds = %17, %9, %7
+28:                                               ; preds = %17, %9, %7
   %.0 = phi i1 [ true, %7 ], [ true, %9 ], [ false, %17 ]
   ret i1 %.0
 }

@@ -43,7 +43,7 @@ define range(i32 -173, 1) i32 @wc_Chacha_SetKey(ptr noundef writeonly captures(a
   %4 = icmp eq ptr %0, null
   %5 = icmp eq ptr %1, null
   %or.cond = or i1 %4, %5
-  br i1 %or.cond, label %40, label %6
+  br i1 %or.cond, label %37, label %6
 
 6:                                                ; preds = %3
   switch i32 %2, label %40 [
@@ -81,27 +81,27 @@ define range(i32 -173, 1) i32 @wc_Chacha_SetKey(ptr noundef writeonly captures(a
   %26 = select i1 %19, i64 24, i64 8
   %27 = getelementptr inbounds nuw i8, ptr %1, i64 %26
   %28 = load i32, ptr %27, align 4, !tbaa !8
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  store i32 %28, ptr %29, align 4, !tbaa !8
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  store i32 %28, ptr %28, align 4, !tbaa !8
   %30 = select i1 %19, i64 28, i64 12
   %31 = getelementptr inbounds nuw i8, ptr %1, i64 %30
   %32 = load i32, ptr %31, align 4, !tbaa !8
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 %32, ptr %33, align 4, !tbaa !8
   store i32 1634760805, ptr %0, align 4, !tbaa !8
-  %34 = select i1 %19, i32 857760878, i32 824206446
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 %34, ptr %35, align 4, !tbaa !8
-  %36 = select i1 %19, i32 2036477234, i32 2036477238
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %36, ptr %37, align 4, !tbaa !8
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store i32 1797285236, ptr %38, align 4, !tbaa !8
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  store i32 0, ptr %39, align 4, !tbaa !3
-  br label %40
+  %31 = select i1 %19, i32 857760878, i32 824206446
+  %32 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 %31, ptr %32, align 4, !tbaa !8
+  %33 = select i1 %19, i32 2036477234, i32 2036477238
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %33, ptr %34, align 4, !tbaa !8
+  %35 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store i32 1797285236, ptr %35, align 4, !tbaa !8
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  store i32 0, ptr %36, align 4, !tbaa !3
+  br label %37
 
-40:                                               ; preds = %6, %3, %7
+37:                                               ; preds = %6, %3, %7
   %.036 = phi i32 [ 0, %7 ], [ -173, %3 ], [ -173, %6 ]
   ret i32 %.036
 }

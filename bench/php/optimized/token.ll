@@ -109,14 +109,14 @@ define hidden void @lxb_css_syntax_token_consume(ptr noundef captures(none) %0) 
   %5 = getelementptr inbounds nuw i8, ptr %4, i64 16
   %6 = load i64, ptr %5, align 8, !tbaa !15
   %7 = icmp ult i64 %3, %6
-  br i1 %7, label %8, label %38
+  br i1 %7, label %8, label %37
 
 8:                                                ; preds = %1
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %10 = load i64, ptr %9, align 8, !tbaa !18
   %11 = add i64 %10, -1
   %or.cond.not = icmp ult i64 %11, %3
-  br i1 %or.cond.not, label %38, label %12
+  br i1 %or.cond.not, label %37, label %12
 
 12:                                               ; preds = %8
   %13 = load ptr, ptr %4, align 8, !tbaa !19
@@ -140,24 +140,24 @@ define hidden void @lxb_css_syntax_token_consume(ptr noundef captures(none) %0) 
   br label %lxb_css_syntax_token_string_free.exit
 
 lxb_css_syntax_token_string_free.exit:            ; preds = %12, %19
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %30 = load ptr, ptr %29, align 8, !tbaa !31
-  %31 = tail call ptr @lexbor_dobject_free(ptr noundef %30, ptr noundef nonnull %15) #8
-  %32 = load i64, ptr %2, align 8, !tbaa !4
-  %33 = add i64 %32, 1
-  store i64 %33, ptr %2, align 8, !tbaa !4
-  %34 = load ptr, ptr %0, align 8, !tbaa !14
-  %35 = getelementptr inbounds nuw i8, ptr %34, i64 16
-  %36 = load i64, ptr %35, align 8, !tbaa !15
-  %.not18 = icmp ult i64 %33, %36
-  br i1 %.not18, label %38, label %37
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %29 = load ptr, ptr %28, align 8, !tbaa !31
+  %30 = tail call ptr @lexbor_dobject_free(ptr noundef %29, ptr noundef nonnull %15) #8
+  %31 = load i64, ptr %2, align 8, !tbaa !4
+  %32 = add i64 %31, 1
+  store i64 %32, ptr %2, align 8, !tbaa !4
+  %33 = load ptr, ptr %0, align 8, !tbaa !14
+  %34 = getelementptr inbounds nuw i8, ptr %33, i64 16
+  %35 = load i64, ptr %34, align 8, !tbaa !15
+  %.not18 = icmp ult i64 %32, %35
+  br i1 %.not18, label %37, label %36
 
-37:                                               ; preds = %lxb_css_syntax_token_string_free.exit
-  store i64 0, ptr %35, align 8, !tbaa !15
+36:                                               ; preds = %lxb_css_syntax_token_string_free.exit
+  store i64 0, ptr %34, align 8, !tbaa !15
   store i64 0, ptr %2, align 8, !tbaa !4
-  br label %38
+  br label %37
 
-38:                                               ; preds = %1, %37, %lxb_css_syntax_token_string_free.exit, %8
+37:                                               ; preds = %1, %36, %lxb_css_syntax_token_string_free.exit, %8
   ret void
 }
 
@@ -166,7 +166,7 @@ define hidden void @lxb_css_syntax_token_string_free(ptr noundef readonly captur
   %3 = getelementptr inbounds nuw i8, ptr %1, i64 96
   %4 = load i8, ptr %3, align 8, !tbaa !22, !range !24, !noundef !25
   %5 = trunc nuw i8 %4 to i1
-  br i1 %5, label %6, label %16
+  br i1 %5, label %6, label %15
 
 6:                                                ; preds = %2
   %7 = getelementptr inbounds nuw i8, ptr %1, i64 80
@@ -180,7 +180,7 @@ define hidden void @lxb_css_syntax_token_string_free(ptr noundef readonly captur
   %15 = tail call ptr @lexbor_mraw_free(ptr noundef %11, ptr noundef %14) #8
   br label %16
 
-16:                                               ; preds = %6, %2
+15:                                               ; preds = %6, %2
   ret void
 }
 
@@ -204,8 +204,8 @@ define hidden void @lxb_css_syntax_token_consume_n(ptr noundef captures(none) %0
   br i1 %11, label %.lr.ph.split, label %._crit_edge
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %lxb_css_syntax_token_consume.exit
-  %12 = phi ptr [ %45, %lxb_css_syntax_token_consume.exit ], [ %8, %.lr.ph ]
-  %13 = phi i64 [ %46, %lxb_css_syntax_token_consume.exit ], [ %7, %.lr.ph ]
+  %12 = phi ptr [ %44, %lxb_css_syntax_token_consume.exit ], [ %8, %.lr.ph ]
+  %13 = phi i64 [ %45, %lxb_css_syntax_token_consume.exit ], [ %7, %.lr.ph ]
   %.03 = phi i32 [ %14, %lxb_css_syntax_token_consume.exit ], [ %1, %.lr.ph ]
   %14 = add i32 %.03, -1
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
@@ -233,32 +233,32 @@ define hidden void @lxb_css_syntax_token_consume_n(ptr noundef captures(none) %0
   %30 = load i32, ptr %29, align 8, !tbaa !26
   %31 = icmp eq i32 %30, 11
   %32 = load ptr, ptr %5, align 8, !tbaa !27
-  %33 = select i1 %31, i64 64, i64 24
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %33
+  %33 = select i1 %30, i64 64, i64 24
+  %34 = getelementptr inbounds nuw i8, ptr %24, i64 %32
   %35 = load ptr, ptr %34, align 8, !tbaa !28
   %36 = tail call ptr @lexbor_mraw_free(ptr noundef %32, ptr noundef %35) #8
   br label %lxb_css_syntax_token_string_free.exit.i
 
 lxb_css_syntax_token_string_free.exit.i:          ; preds = %28, %21
-  %37 = load ptr, ptr %6, align 8, !tbaa !31
-  %38 = tail call ptr @lexbor_dobject_free(ptr noundef %37, ptr noundef nonnull %24) #8
-  %39 = load i64, ptr %3, align 8, !tbaa !4
-  %40 = add i64 %39, 1
-  store i64 %40, ptr %3, align 8, !tbaa !4
-  %41 = load ptr, ptr %0, align 8, !tbaa !14
-  %42 = getelementptr inbounds nuw i8, ptr %41, i64 16
-  %43 = load i64, ptr %42, align 8, !tbaa !15
-  %.not18.i = icmp ult i64 %40, %43
-  br i1 %.not18.i, label %lxb_css_syntax_token_consume.exit, label %44
+  %36 = load ptr, ptr %6, align 8, !tbaa !31
+  %37 = tail call ptr @lexbor_dobject_free(ptr noundef %36, ptr noundef nonnull %24) #8
+  %38 = load i64, ptr %3, align 8, !tbaa !4
+  %39 = add i64 %38, 1
+  store i64 %39, ptr %3, align 8, !tbaa !4
+  %40 = load ptr, ptr %0, align 8, !tbaa !14
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 16
+  %42 = load i64, ptr %41, align 8, !tbaa !15
+  %.not18.i = icmp ult i64 %39, %42
+  br i1 %.not18.i, label %lxb_css_syntax_token_consume.exit, label %43
 
-44:                                               ; preds = %lxb_css_syntax_token_string_free.exit.i
-  store i64 0, ptr %42, align 8, !tbaa !15
+43:                                               ; preds = %lxb_css_syntax_token_string_free.exit.i
+  store i64 0, ptr %41, align 8, !tbaa !15
   store i64 0, ptr %3, align 8, !tbaa !4
   br label %lxb_css_syntax_token_consume.exit
 
-lxb_css_syntax_token_consume.exit:                ; preds = %.lr.ph.split, %18, %lxb_css_syntax_token_string_free.exit.i, %44
-  %45 = phi ptr [ %12, %.lr.ph.split ], [ %12, %18 ], [ %41, %lxb_css_syntax_token_string_free.exit.i ], [ %41, %44 ]
-  %46 = phi i64 [ %13, %.lr.ph.split ], [ %13, %18 ], [ %40, %lxb_css_syntax_token_string_free.exit.i ], [ 0, %44 ]
+lxb_css_syntax_token_consume.exit:                ; preds = %.lr.ph.split, %18, %lxb_css_syntax_token_string_free.exit.i, %43
+  %44 = phi ptr [ %12, %.lr.ph.split ], [ %12, %18 ], [ %40, %lxb_css_syntax_token_string_free.exit.i ], [ %40, %44 ]
+  %45 = phi i64 [ %13, %.lr.ph.split ], [ %13, %18 ], [ %39, %lxb_css_syntax_token_string_free.exit.i ], [ 0, %44 ]
   %.not = icmp eq i32 %14, 0
   br i1 %.not, label %._crit_edge, label %.lr.ph.split, !llvm.loop !32
 

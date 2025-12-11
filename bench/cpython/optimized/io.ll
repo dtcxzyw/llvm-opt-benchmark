@@ -2205,14 +2205,14 @@ define hidden noundef i32 @mpd_lsnprint_flags(ptr noundef initializes((0, 2)) %0
   %25 = getelementptr i8, ptr %.1, i64 %24
   store i8 93, ptr %spec.select, align 1, !tbaa !11
   store i8 0, ptr %25, align 1, !tbaa !11
-  %26 = ptrtoint ptr %25 to i64
-  %27 = ptrtoint ptr %0 to i64
-  %28 = sub i64 %26, %27
-  %29 = trunc i64 %28 to i32
+  %25 = ptrtoint ptr %25 to i64
+  %26 = ptrtoint ptr %0 to i64
+  %27 = sub i64 %25, %26
+  %28 = trunc i64 %27 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %12, %23
-  %.027 = phi i32 [ %29, %23 ], [ -1, %12 ]
+  %.027 = phi i32 [ %28, %23 ], [ -1, %12 ]
   ret i32 %.027
 }
 
@@ -2278,15 +2278,15 @@ define hidden noundef i32 @mpd_lsnprint_signals(ptr noundef initializes((0, 2)) 
   %27 = select i1 %.not, i64 1, i64 -1
   %28 = getelementptr i8, ptr %.241.ph, i64 %27
   store i8 93, ptr %spec.select, align 1, !tbaa !11
-  store i8 0, ptr %28, align 1, !tbaa !11
-  %29 = ptrtoint ptr %28 to i64
-  %30 = ptrtoint ptr %0 to i64
-  %31 = sub i64 %29, %30
-  %32 = trunc i64 %31 to i32
+  store i8 0, ptr %27, align 1, !tbaa !11
+  %28 = ptrtoint ptr %27 to i64
+  %29 = ptrtoint ptr %0 to i64
+  %30 = sub i64 %28, %29
+  %31 = trunc i64 %30 to i32
   br label %.loopexit
 
 .loopexit:                                        ; preds = %15, %26
-  %.2 = phi i32 [ %32, %26 ], [ -1, %15 ]
+  %.2 = phi i32 [ %31, %26 ], [ -1, %15 ]
   ret i32 %.2
 }
 
