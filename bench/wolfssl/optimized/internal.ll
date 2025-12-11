@@ -3488,28 +3488,28 @@ ForceZero.exit:                                   ; preds = %.lr.ph35.i, %.prehe
   %47 = phi ptr [ %23, %22 ], [ %44, %43 ]
   %48 = load ptr, ptr %47, align 8, !tbaa !195
   %.not28 = icmp eq ptr %48, null
-  br i1 %.not28, label %.preheader23.i35, label %49
+  br i1 %.not28, label %50, label %49
 
 49:                                               ; preds = %46
   tail call void @wolfSSL_Free(ptr noundef nonnull %48) #28
-  %.pre58 = load ptr, ptr %3, align 8, !tbaa !163
-  br label %.preheader23.i35
+  %.pre63 = load ptr, ptr %3, align 8, !tbaa !163
+  br label %50
 
-.preheader23.i35:                                 ; preds = %49, %46
-  %.pr = phi ptr [ %.pre58, %49 ], [ %47, %46 ]
-  store ptr null, ptr %.pr, align 8, !tbaa !195
+50:                                               ; preds = %49, %46
+  %51 = phi ptr [ %.pre63, %49 ], [ %47, %46 ]
+  store ptr null, ptr %51, align 8, !tbaa !195
   br label %.lr.ph29.i45
 
-.lr.ph29.i45:                                     ; preds = %.preheader23.i35, %.lr.ph29.i45
-  %.01528.i46 = phi ptr [ %50, %.lr.ph29.i45 ], [ %.pr, %.preheader23.i35 ]
-  %.01827.i47 = phi i32 [ %51, %.lr.ph29.i45 ], [ 224, %.preheader23.i35 ]
-  %50 = getelementptr inbounds nuw i8, ptr %.01528.i46, i64 8
+.lr.ph.i31:                                       ; preds = %50, %.lr.ph.i31
+  %.126.i32 = phi ptr [ %50, %.lr.ph29.i45 ], [ %51, %.preheader23.i35 ]
+  %.01625.i33 = phi i32 [ %60, %.lr.ph29.i45 ], [ 224, %.preheader23.i35 ]
+  %50 = getelementptr inbounds nuw i8, ptr %.126.i32, i64 8
   store volatile i64 0, ptr %.01528.i46, align 8, !tbaa !81
-  %51 = add nsw i32 %.01827.i47, -8
-  %.not53 = icmp eq i32 %51, 0
-  br i1 %.not53, label %ForceZero.exit48, label %.lr.ph29.i45, !llvm.loop !82
+  %60 = add nsw i32 %.01827.i47, -8
+  %61 = icmp eq i32 %60, 0
+  br i1 %61, label %.lr.ph35.i41, label %.lr.ph.i31, !llvm.loop !82
 
-ForceZero.exit48:                                 ; preds = %.lr.ph29.i45
+.lr.ph35.i41:                                     ; preds = %.lr.ph.i31
   tail call void @wolfSSL_Free(ptr noundef nonnull %.pr) #28
   br label %ForceZero.exit48.thread
 

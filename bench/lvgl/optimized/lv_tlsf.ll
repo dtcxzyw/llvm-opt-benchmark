@@ -399,20 +399,20 @@ block_link_next.exit:                             ; preds = %mapping_insert.exit
   %35 = getelementptr inbounds nuw i8, ptr %32, i64 24
   store ptr %10, ptr %35, align 8, !tbaa !21
   store ptr %10, ptr %31, align 8, !tbaa !13
-  %36 = shl nuw nsw i32 1, %.09.i.i
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %38 = load i32, ptr %37, align 8, !tbaa !3
-  %39 = or i32 %38, %36
-  store i32 %39, ptr %37, align 8, !tbaa !3
-  %40 = shl nuw i32 1, %.0.i.i
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %42 = getelementptr inbounds nuw i32, ptr %41, i64 %28
-  %43 = load i32, ptr %42, align 4, !tbaa !12
-  %44 = or i32 %43, %40
-  store i32 %44, ptr %42, align 4, !tbaa !12
-  %45 = and i64 %12, -8
+  %37 = shl nuw nsw i32 1, %.09.i.i
+  %38 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %39 = load i32, ptr %38, align 8, !tbaa !3
+  %40 = or i32 %39, %37
+  store i32 %40, ptr %38, align 8, !tbaa !3
+  %41 = shl nuw i32 1, %.0.i.i
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %43 = getelementptr inbounds nuw i32, ptr %42, i64 %28
+  %44 = load i32, ptr %43, align 4, !tbaa !12
+  %45 = or i32 %44, %41
+  store i32 %45, ptr %43, align 4, !tbaa !12
+  %46 = and i64 %12, -8
   %46 = ptrtoint ptr %33 to i64
-  %47 = add nsw i64 %45, -8
+  %48 = add nsw i64 %45, -8
   %48 = add i64 %47, %46
   %49 = inttoptr i64 %48 to ptr
   store ptr %10, ptr %49, align 8, !tbaa !22
@@ -692,20 +692,20 @@ block_link_next.exit.i:                           ; preds = %mapping_insert.exit
   %47 = getelementptr inbounds nuw i8, ptr %44, i64 24
   store ptr %22, ptr %47, align 8, !tbaa !21
   store ptr %22, ptr %43, align 8, !tbaa !13
-  %48 = shl nuw nsw i32 1, %.09.i.i.i
-  %49 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
-  %50 = load i32, ptr %49, align 8, !tbaa !3
-  %51 = or i32 %50, %48
-  store i32 %51, ptr %49, align 8, !tbaa !3
-  %52 = shl nuw i32 1, %.0.i.i.i
-  %53 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
-  %54 = getelementptr inbounds nuw i32, ptr %53, i64 %40
-  %55 = load i32, ptr %54, align 4, !tbaa !12
-  %56 = or i32 %55, %52
-  store i32 %56, ptr %54, align 4, !tbaa !12
-  %57 = and i64 %24, -8
+  %49 = shl nuw nsw i32 1, %.09.i.i.i
+  %50 = getelementptr inbounds nuw i8, ptr %.0.i, i64 32
+  %51 = load i32, ptr %50, align 8, !tbaa !3
+  %52 = or i32 %51, %49
+  store i32 %52, ptr %50, align 8, !tbaa !3
+  %53 = shl nuw i32 1, %.0.i.i.i
+  %54 = getelementptr inbounds nuw i8, ptr %.0.i, i64 36
+  %55 = getelementptr inbounds nuw i32, ptr %54, i64 %40
+  %56 = load i32, ptr %55, align 4, !tbaa !12
+  %57 = or i32 %56, %53
+  store i32 %57, ptr %55, align 4, !tbaa !12
+  %58 = and i64 %24, -8
   %58 = ptrtoint ptr %45 to i64
-  %59 = add nsw i64 %57, -8
+  %60 = add nsw i64 %57, -8
   %60 = add i64 %59, %58
   %61 = inttoptr i64 %60 to ptr
   store ptr %22, ptr %61, align 8, !tbaa !22
@@ -1280,41 +1280,41 @@ mapping_insert.exit.i.i:                          ; preds = %88, %85
   %103 = getelementptr inbounds ptr, ptr %101, i64 %102
   %104 = load ptr, ptr %103, align 8, !tbaa !13
   %.not.i.i.i = icmp eq ptr %104, null
-  br i1 %.not.i.i.i, label %.preheader.i.i9.i, label %block_insert.exit.i
+  br i1 %.not.i.i.i, label %.preheader.i.i9.i, label %105
 
 .preheader.i.i9.i:                                ; preds = %mapping_insert.exit.i.i, %.preheader.i.i9.i
   br label %.preheader.i.i9.i
 
-block_insert.exit.i:                              ; preds = %mapping_insert.exit.i.i
+105:                                              ; preds = %mapping_insert.exit.i.i
   store ptr %104, ptr %24, align 8, !tbaa !17
-  %105 = getelementptr inbounds nuw i8, ptr %22, i64 24
-  store ptr %0, ptr %105, align 8, !tbaa !21
-  %106 = getelementptr inbounds nuw i8, ptr %104, i64 24
-  store ptr %22, ptr %106, align 8, !tbaa !21
+  %106 = getelementptr inbounds nuw i8, ptr %22, i64 24
+  store ptr %0, ptr %106, align 8, !tbaa !21
+  %107 = getelementptr inbounds nuw i8, ptr %104, i64 24
+  store ptr %22, ptr %107, align 8, !tbaa !21
   store ptr %22, ptr %103, align 8, !tbaa !13
-  %107 = shl nuw i32 1, %.09.i.i.i
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %109 = load i32, ptr %108, align 8, !tbaa !3
-  %110 = or i32 %109, %107
-  store i32 %110, ptr %108, align 8, !tbaa !3
-  %111 = shl nuw i32 1, %.0.i.i.i
-  %112 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %113 = getelementptr inbounds i32, ptr %112, i64 %100
-  %114 = load i32, ptr %113, align 4, !tbaa !12
-  %115 = or i32 %114, %111
-  store i32 %115, ptr %113, align 4, !tbaa !12
+  %112 = shl nuw i32 1, %.09.i.i.i
+  %113 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %114 = load i32, ptr %113, align 8, !tbaa !3
+  %115 = or i32 %114, %112
+  store i32 %115, ptr %113, align 8, !tbaa !3
+  %116 = shl nuw i32 1, %.0.i.i.i
+  %117 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %118 = getelementptr inbounds i32, ptr %117, i64 %100
+  %119 = load i32, ptr %118, align 4, !tbaa !12
+  %120 = or i32 %119, %116
+  store i32 %120, ptr %118, align 4, !tbaa !12
   br label %block_trim_free_leading.exit
 
 block_trim_free_leading.exit:                     ; preds = %block_insert.exit.i, %43, %40, %adjust_request_size.exit48
   %.0 = phi ptr [ null, %adjust_request_size.exit48 ], [ %22, %40 ], [ %51, %block_insert.exit.i ], [ %22, %43 ]
-  %116 = tail call fastcc ptr @block_prepare_used(ptr noundef %0, ptr noundef %.0, i64 noundef %.0.i)
-  ret ptr %116
+  %121 = tail call fastcc ptr @block_prepare_used(ptr noundef %0, ptr noundef %.0, i64 noundef %.0.i)
+  ret ptr %121
 }
 
 ; Function Attrs: nofree norecurse nosync nounwind memory(readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define range(i64 4, 1) i64 @lv_tlsf_free(ptr noundef %0, ptr noundef %1) local_unnamed_addr #6 {
   %.not = icmp eq ptr %1, null
-  br i1 %.not, label %118, label %3
+  br i1 %.not, label %124, label %3
 
 3:                                                ; preds = %2
   %4 = getelementptr inbounds i8, ptr %1, i64 -16
@@ -1522,33 +1522,33 @@ mapping_insert.exit.i:                            ; preds = %88, %85
   %104 = getelementptr inbounds ptr, ptr %102, i64 %103
   %105 = load ptr, ptr %104, align 8, !tbaa !13
   %.not.i.i = icmp eq ptr %105, null
-  br i1 %.not.i.i, label %.preheader.i.i, label %block_insert.exit
+  br i1 %.not.i.i, label %.preheader.i.i, label %106
 
 .preheader.i.i:                                   ; preds = %mapping_insert.exit.i, %.preheader.i.i
   br label %.preheader.i.i
 
-block_insert.exit:                                ; preds = %mapping_insert.exit.i
-  %106 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
-  store ptr %105, ptr %106, align 8, !tbaa !17
-  %107 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
-  store ptr %0, ptr %107, align 8, !tbaa !21
-  %108 = getelementptr inbounds nuw i8, ptr %105, i64 24
-  store ptr %.0.i, ptr %108, align 8, !tbaa !21
+106:                                              ; preds = %mapping_insert.exit.i
+  %107 = getelementptr inbounds nuw i8, ptr %.0.i, i64 16
+  store ptr %105, ptr %107, align 8, !tbaa !17
+  %108 = getelementptr inbounds nuw i8, ptr %.0.i, i64 24
+  store ptr %0, ptr %108, align 8, !tbaa !21
+  %109 = getelementptr inbounds nuw i8, ptr %105, i64 24
+  store ptr %.0.i, ptr %109, align 8, !tbaa !21
   store ptr %.0.i, ptr %104, align 8, !tbaa !13
-  %109 = shl nuw i32 1, %.09.i.i
-  %110 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %111 = load i32, ptr %110, align 8, !tbaa !3
-  %112 = or i32 %111, %109
-  store i32 %112, ptr %110, align 8, !tbaa !3
-  %113 = shl nuw i32 1, %.0.i.i
-  %114 = getelementptr inbounds nuw i8, ptr %0, i64 36
-  %115 = getelementptr inbounds i32, ptr %114, i64 %101
-  %116 = load i32, ptr %115, align 4, !tbaa !12
-  %117 = or i32 %116, %113
-  store i32 %117, ptr %115, align 4, !tbaa !12
-  br label %118
+  %115 = shl nuw i32 1, %.09.i.i
+  %116 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %117 = load i32, ptr %116, align 8, !tbaa !3
+  %118 = or i32 %117, %115
+  store i32 %118, ptr %116, align 8, !tbaa !3
+  %119 = shl nuw i32 1, %.0.i.i
+  %120 = getelementptr inbounds nuw i8, ptr %0, i64 36
+  %121 = getelementptr inbounds i32, ptr %120, i64 %101
+  %122 = load i32, ptr %121, align 4, !tbaa !12
+  %123 = or i32 %122, %119
+  store i32 %123, ptr %121, align 4, !tbaa !12
+  br label %124
 
-118:                                              ; preds = %block_insert.exit, %2
+124:                                              ; preds = %block_insert.exit, %2
   %.0 = phi i64 [ %.val, %block_insert.exit ], [ 0, %2 ]
   ret i64 %.0
 }

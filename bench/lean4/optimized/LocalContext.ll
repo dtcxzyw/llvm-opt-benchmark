@@ -7120,8 +7120,8 @@ define ptr @l_Lean_LocalContext_mkLocalDecl(ptr noundef %0, ptr noundef %1, ptr 
   %14 = load ptr, ptr %13, align 8, !tbaa !9
   %15 = ptrtoint ptr %14 to i64
   %16 = and i64 %15, 1
-  %.not112 = icmp eq i64 %16, 0
-  br i1 %.not112, label %17, label %lean_inc.exit76
+  %.not113 = icmp eq i64 %16, 0
+  br i1 %.not113, label %17, label %lean_inc.exit76
 
 17:                                               ; preds = %12
   %.val.i = load i32, ptr %14, align 4, !tbaa !4
@@ -7144,8 +7144,8 @@ define ptr @l_Lean_LocalContext_mkLocalDecl(ptr noundef %0, ptr noundef %1, ptr 
 lean_inc.exit76:                                  ; preds = %22, %21, %19, %12
   %23 = ptrtoint ptr %1 to i64
   %24 = and i64 %23, 1
-  %.not113 = icmp eq i64 %24, 0
-  br i1 %.not113, label %25, label %lean_inc.exit75
+  %.not114 = icmp eq i64 %24, 0
+  br i1 %.not114, label %25, label %lean_inc.exit75
 
 25:                                               ; preds = %lean_inc.exit76
   %.val.i78 = load i32, ptr %1, align 4, !tbaa !4
@@ -7666,8 +7666,8 @@ define ptr @l_Lean_LocalContext_mkLetDecl(ptr noundef %0, ptr noundef %1, ptr no
   %15 = load ptr, ptr %14, align 8, !tbaa !9
   %16 = ptrtoint ptr %15 to i64
   %17 = and i64 %16, 1
-  %.not116 = icmp eq i64 %17, 0
-  br i1 %.not116, label %18, label %lean_inc.exit80
+  %.not117 = icmp eq i64 %17, 0
+  br i1 %.not117, label %18, label %lean_inc.exit80
 
 18:                                               ; preds = %13
   %.val.i = load i32, ptr %15, align 4, !tbaa !4
@@ -7690,8 +7690,8 @@ define ptr @l_Lean_LocalContext_mkLetDecl(ptr noundef %0, ptr noundef %1, ptr no
 lean_inc.exit80:                                  ; preds = %23, %22, %20, %13
   %24 = ptrtoint ptr %1 to i64
   %25 = and i64 %24, 1
-  %.not117 = icmp eq i64 %25, 0
-  br i1 %.not117, label %26, label %lean_inc.exit79
+  %.not118 = icmp eq i64 %25, 0
+  br i1 %.not118, label %26, label %lean_inc.exit79
 
 26:                                               ; preds = %lean_inc.exit80
   %.val.i82 = load i32, ptr %1, align 4, !tbaa !4

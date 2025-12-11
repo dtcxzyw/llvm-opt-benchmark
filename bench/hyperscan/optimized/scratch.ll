@@ -448,7 +448,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %89 = getelementptr inbounds nuw i8, ptr %87, i64 256
   br label %98
 
-90:                                               ; preds = %98
+90:; preds = %102
   %91 = ptrtoint ptr %103 to i64
   %92 = add i64 %91, 7
   %93 = and i64 %92, -8
@@ -460,62 +460,62 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %.not184 = icmp eq i32 %18, 0
   br i1 %.not184, label %._crit_edge, label %.lr.ph
 
-98:                                               ; preds = %72, %98
+102:                                              ; preds = %72, %102
   %indvars.iv = phi i64 [ 0, %72 ], [ %indvars.iv.next, %98 ]
-  %.0169176 = phi ptr [ %89, %72 ], [ %103, %98 ]
-  %99 = load ptr, ptr %88, align 64
-  %100 = getelementptr inbounds nuw ptr, ptr %99, i64 %indvars.iv
-  store ptr %.0169176, ptr %100, align 8
-  %101 = load i32, ptr %35, align 4
-  %102 = zext i32 %101 to i64
-  %103 = getelementptr inbounds nuw i8, ptr %.0169176, i64 %102
+  %.0169176 = phi ptr [ %89, %72 ], [ %107, %98 ]
+  %103 = load ptr, ptr %88, align 64
+  %104 = getelementptr inbounds nuw ptr, ptr %103, i64 %indvars.iv
+  store ptr %.0169176, ptr %104, align 8
+  %105 = load i32, ptr %35, align 4
+  %106 = zext i32 %105 to i64
+  %107 = getelementptr inbounds nuw i8, ptr %.0169176, i64 %106
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, 32
-  br i1 %exitcond.not, label %90, label %98
+  br i1 %exitcond.not, label %90, label %102
 
 ._crit_edge:                                      ; preds = %.lr.ph, %90
-  %.1.lcssa = phi ptr [ %97, %90 ], [ %153, %.lr.ph ]
-  %104 = ptrtoint ptr %.1.lcssa to i64
-  %105 = add i64 %104, 7
-  %106 = and i64 %105, -8
-  %107 = inttoptr i64 %106 to ptr
-  %108 = getelementptr inbounds nuw i8, ptr %75, i64 216
-  store ptr %107, ptr %108, align 8
-  %109 = getelementptr inbounds nuw i8, ptr %107, i64 %28
-  %110 = getelementptr inbounds nuw i8, ptr %75, i64 152
-  store ptr %109, ptr %110, align 8
-  %111 = getelementptr inbounds nuw i8, ptr %75, i64 16
-  store i32 %12, ptr %111, align 16
-  %112 = getelementptr inbounds nuw i8, ptr %109, i64 %41
-  %113 = getelementptr inbounds nuw i8, ptr %75, i64 160
-  store ptr %112, ptr %113, align 32
-  %114 = getelementptr inbounds nuw i8, ptr %75, i64 20
-  store i32 %14, ptr %114, align 4
-  %115 = getelementptr inbounds nuw i8, ptr %112, i64 %42
-  %116 = ptrtoint ptr %115 to i64
-  %117 = add i64 %116, 63
-  %118 = and i64 %117, -64
-  %119 = inttoptr i64 %118 to ptr
-  %120 = getelementptr inbounds nuw i8, ptr %75, i64 336
-  %121 = getelementptr inbounds nuw i8, ptr %75, i64 368
-  store ptr %119, ptr %121, align 16
-  %122 = shl nuw nsw i64 %50, 3
-  %123 = getelementptr inbounds nuw i8, ptr %119, i64 %122
-  %124 = getelementptr inbounds nuw i8, ptr %75, i64 376
-  store ptr %123, ptr %124, align 8
-  %125 = getelementptr inbounds nuw i8, ptr %123, i64 %122
-  %126 = getelementptr inbounds nuw i8, ptr %75, i64 184
-  store ptr %125, ptr %126, align 8
-  %127 = getelementptr inbounds nuw i8, ptr %125, i64 %47
-  %128 = getelementptr inbounds nuw i8, ptr %75, i64 416
-  store ptr %127, ptr %128, align 32
-  %129 = load i32, ptr %44, align 8
-  %130 = zext i32 %129 to i64
-  %131 = getelementptr inbounds nuw i8, ptr %127, i64 %130
-  store ptr %131, ptr %120, align 16
-  %132 = zext i32 %10 to i64
-  %133 = getelementptr inbounds nuw i8, ptr %131, i64 %132
-  %134 = getelementptr inbounds nuw i8, ptr %75, i64 344
+  %.1.lcssa = phi ptr [ %97, %90 ], [ %157, %.lr.ph ]
+  %108 = ptrtoint ptr %.1.lcssa to i64
+  %109 = add i64 %108, 7
+  %110 = and i64 %109, -8
+  %111 = inttoptr i64 %110 to ptr
+  %112 = getelementptr inbounds nuw i8, ptr %75, i64 216
+  store ptr %111, ptr %112, align 8
+  %113 = getelementptr inbounds nuw i8, ptr %111, i64 %28
+  %114 = getelementptr inbounds nuw i8, ptr %75, i64 152
+  store ptr %113, ptr %114, align 8
+  %115 = getelementptr inbounds nuw i8, ptr %75, i64 16
+  store i32 %12, ptr %115, align 16
+  %116 = getelementptr inbounds nuw i8, ptr %113, i64 %41
+  %117 = getelementptr inbounds nuw i8, ptr %75, i64 160
+  store ptr %116, ptr %117, align 32
+  %118 = getelementptr inbounds nuw i8, ptr %75, i64 20
+  store i32 %14, ptr %118, align 4
+  %119 = getelementptr inbounds nuw i8, ptr %116, i64 %42
+  %120 = ptrtoint ptr %119 to i64
+  %121 = add i64 %120, 63
+  %122 = and i64 %121, -64
+  %123 = inttoptr i64 %122 to ptr
+  %124 = getelementptr inbounds nuw i8, ptr %75, i64 336
+  %125 = getelementptr inbounds nuw i8, ptr %75, i64 368
+  store ptr %123, ptr %125, align 16
+  %126 = shl nuw nsw i64 %50, 3
+  %127 = getelementptr inbounds nuw i8, ptr %123, i64 %126
+  %128 = getelementptr inbounds nuw i8, ptr %75, i64 376
+  store ptr %127, ptr %128, align 8
+  %129 = getelementptr inbounds nuw i8, ptr %127, i64 %126
+  %130 = getelementptr inbounds nuw i8, ptr %75, i64 184
+  store ptr %129, ptr %130, align 8
+  %131 = getelementptr inbounds nuw i8, ptr %129, i64 %47
+  %132 = getelementptr inbounds nuw i8, ptr %75, i64 416
+  store ptr %131, ptr %132, align 32
+  %133 = load i32, ptr %44, align 8
+  %134 = zext i32 %133 to i64
+  %135 = getelementptr inbounds nuw i8, ptr %131, i64 %134
+  store ptr %135, ptr %124, align 16
+  %136 = zext i32 %10 to i64
+  %137 = getelementptr inbounds nuw i8, ptr %135, i64 %136
+  %138 = getelementptr inbounds nuw i8, ptr %75, i64 344
   store ptr %133, ptr %134, align 8
   %135 = getelementptr inbounds nuw i8, ptr %133, i64 %132
   %136 = getelementptr inbounds nuw i8, ptr %75, i64 352
@@ -523,7 +523,7 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   %137 = getelementptr inbounds nuw i8, ptr %135, i64 %132
   %138 = getelementptr inbounds nuw i8, ptr %75, i64 360
   store ptr %137, ptr %138, align 8
-  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %132
+  %139 = getelementptr inbounds nuw i8, ptr %137, i64 %136
   %140 = getelementptr inbounds nuw i8, ptr %75, i64 440
   store ptr %139, ptr %140, align 8
   %141 = getelementptr inbounds nuw i8, ptr %139, i64 %53
@@ -543,28 +543,28 @@ define internal fastcc range(i32 -9, 1) i32 @alloc_scratch(ptr noundef readonly 
   br i1 %.not173180, label %.loopexit, label %.lr.ph183.preheader
 
 .lr.ph183.preheader:                              ; preds = %._crit_edge
-  %150 = load ptr, ptr %82, align 16
+  %154 = load ptr, ptr %82, align 16
   br label %.lr.ph183
 
 .lr.ph:                                           ; preds = %90, %.lr.ph
   %indvars.iv187 = phi i64 [ %indvars.iv.next188, %.lr.ph ], [ 0, %90 ]
-  %.1178 = phi ptr [ %153, %.lr.ph ], [ %97, %90 ]
-  %151 = load ptr, ptr %95, align 8
-  %152 = getelementptr inbounds nuw ptr, ptr %151, i64 %indvars.iv187
-  store ptr %.1178, ptr %152, align 8
-  %153 = getelementptr inbounds nuw i8, ptr %.1178, i64 %30
+  %.1178 = phi ptr [ %157, %.lr.ph ], [ %97, %90 ]
+  %155 = load ptr, ptr %95, align 8
+  %156 = getelementptr inbounds nuw ptr, ptr %155, i64 %indvars.iv187
+  store ptr %.1178, ptr %156, align 8
+  %157 = getelementptr inbounds nuw i8, ptr %.1178, i64 %30
   %indvars.iv.next188 = add nuw nsw i64 %indvars.iv187, 1
   %exitcond190.not = icmp eq i64 %indvars.iv.next188, %29
   br i1 %exitcond190.not, label %._crit_edge, label %.lr.ph
 
 .lr.ph183:                                        ; preds = %.lr.ph183.preheader, %.lr.ph183
-  %.0181 = phi ptr [ %155, %.lr.ph183 ], [ %150, %.lr.ph183.preheader ]
-  %154 = getelementptr inbounds nuw i8, ptr %.0181, i64 72
-  store ptr %75, ptr %154, align 8
-  %155 = getelementptr inbounds nuw i8, ptr %.0181, i64 344
-  %156 = load ptr, ptr %82, align 16
-  %157 = getelementptr inbounds nuw %struct.mq, ptr %156, i64 %26
-  %.not173 = icmp eq ptr %155, %157
+  %.0181 = phi ptr [ %159, %.lr.ph183 ], [ %154, %.lr.ph183.preheader ]
+  %158 = getelementptr inbounds nuw i8, ptr %.0181, i64 72
+  store ptr %75, ptr %158, align 8
+  %159 = getelementptr inbounds nuw i8, ptr %.0181, i64 344
+  %160 = load ptr, ptr %82, align 16
+  %161 = getelementptr inbounds nuw %struct.mq, ptr %160, i64 %26
+  %.not173 = icmp eq ptr %159, %161
   br i1 %.not173, label %.loopexit, label %.lr.ph183
 
 .loopexit:                                        ; preds = %.lr.ph183, %._crit_edge, %70

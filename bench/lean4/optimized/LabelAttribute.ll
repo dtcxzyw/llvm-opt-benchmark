@@ -5670,8 +5670,8 @@ lean_inc.exit480:                                 ; preds = %12, %11, %9, %3
 15:                                               ; preds = %lean_inc.exit480
   %16 = ptrtoint ptr %1 to i64
   %17 = and i64 %16, 1
-  %.not781 = icmp eq i64 %17, 0
-  br i1 %.not781, label %18, label %lean_dec.exit495
+  %.not782 = icmp eq i64 %17, 0
+  br i1 %.not782, label %18, label %lean_dec.exit495
 
 18:                                               ; preds = %15
   %19 = load i32, ptr %1, align 4, !tbaa !8
@@ -7629,8 +7629,8 @@ lean_obj_tag.exit702:                             ; preds = %715, %718
   %723 = tail call ptr @l_Lean_quoteNameMk(ptr noundef %55) #6
   %724 = ptrtoint ptr %723 to i64
   %725 = and i64 %724, 1
-  %.not780 = icmp eq i64 %725, 0
-  br i1 %.not780, label %726, label %lean_inc.exit434
+  %.not781 = icmp eq i64 %725, 0
+  br i1 %.not781, label %726, label %lean_inc.exit434
 
 726:                                              ; preds = %722
   %.val.i703 = load i32, ptr %723, align 4, !tbaa !8
@@ -8122,17 +8122,17 @@ lean_inc.exit:                                    ; preds = %920, %919, %917, %l
   unreachable
 
 lean_alloc_ctor.exit:                             ; preds = %lean_inc.exit, %lean_inc.exit427, %lean_dec.exit494
-  %.sink850 = phi ptr [ %32, %lean_dec.exit494 ], [ %800, %lean_inc.exit427 ], [ %925, %lean_inc.exit ]
-  %.sink847 = phi i32 [ 16908312, %lean_dec.exit494 ], [ 131096, %lean_inc.exit427 ], [ 131096, %lean_inc.exit ]
+  %.sink851 = phi ptr [ %32, %lean_dec.exit494 ], [ %800, %lean_inc.exit427 ], [ %925, %lean_inc.exit ]
+  %.sink848 = phi i32 [ 16908312, %lean_dec.exit494 ], [ 131096, %lean_inc.exit427 ], [ 131096, %lean_inc.exit ]
   %.sink = phi ptr [ inttoptr (i64 3 to ptr), %lean_dec.exit494 ], [ %799, %lean_inc.exit427 ], [ %924, %lean_inc.exit ]
-  %928 = getelementptr inbounds nuw i8, ptr %.sink850, i64 4
-  store i32 1, ptr %.sink850, align 4, !tbaa !8
-  store i32 %.sink847, ptr %928, align 4
-  %929 = getelementptr inbounds nuw i8, ptr %.sink850, i64 8
+  %928 = getelementptr inbounds nuw i8, ptr %.sink851, i64 4
+  store i32 1, ptr %.sink851, align 4, !tbaa !8
+  store i32 %.sink848, ptr %928, align 4
+  %929 = getelementptr inbounds nuw i8, ptr %.sink851, i64 8
   store ptr %.sink, ptr %929, align 8, !tbaa !4
-  %930 = getelementptr inbounds nuw i8, ptr %.sink850, i64 16
+  %930 = getelementptr inbounds nuw i8, ptr %.sink851, i64 16
   store ptr %2, ptr %930, align 8, !tbaa !4
-  ret ptr %.sink850
+  ret ptr %.sink851
 }
 
 declare zeroext i8 @l_Lean_Syntax_isOfKind(ptr noundef, ptr noundef) local_unnamed_addr #1

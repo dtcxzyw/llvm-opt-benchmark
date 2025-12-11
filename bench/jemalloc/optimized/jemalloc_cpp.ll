@@ -86,44 +86,44 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %1
   %.not.i2 = icmp eq i32 %27, %30
   br i1 %.not.i2, label %37, label %31, !prof !4
 
-31:                                               ; preds = %20
+31:; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load ptr, ptr %24, align 8, !tbaa !19
   store ptr %32, ptr %23, align 8, !tbaa !12
   store i64 %17, ptr %13, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !20
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !20
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
-37:                                               ; preds = %20
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  %39 = load i16, ptr %38, align 4, !tbaa !21
-  %40 = zext i16 %39 to i32
+35:                                               ; preds = %20
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  %37 = load i16, ptr %36, align 4, !tbaa !21
+  %40 = zext i16 %37 to i32
   %.not21.i = icmp eq i32 %27, %40
   br i1 %.not21.i, label %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, label %41, !prof !4
 
-41:                                               ; preds = %37
+41: ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %43 = load ptr, ptr %24, align 8, !tbaa !19
-  store ptr %42, ptr %23, align 8, !tbaa !12
-  %44 = ptrtoint ptr %42 to i64
-  %45 = trunc i64 %44 to i16
+  store ptr %39, ptr %23, align 8, !tbaa !12
+  %38 = ptrtoint ptr %42 to i64
+  %42 = trunc i64 %44 to i16
   store i16 %45, ptr %28, align 8, !tbaa !18
   store i64 %17, ptr %13, align 8, !tbaa !9
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !20
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %46, align 8, !tbaa !20
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !20
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %43, align 8, !tbaa !20
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
-_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %37
-  %49 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb0EEPvm(i64 noundef %0), !callees !5
+_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %35
+  %46 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb0EEPvm(i64 noundef %0), !callees !5
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
-_ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %18, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, %41, %31, %4
-  %.1.i = phi ptr [ %5, %4 ], [ %19, %18 ], [ %33, %31 ], [ %43, %41 ], [ %49, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
+_ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %18, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, %38, %31, %4
+  %.1.i = phi ptr [ %5, %4 ], [ %19, %18 ], [ %31, %31 ], [ %40, %38 ], [ %46, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
   ret ptr %.1.i
 }
 
@@ -171,44 +171,44 @@ _ZL28sz_size2index_usize_fastpathmPjPm.exit.i:    ; preds = %1
   %.not.i2 = icmp eq i32 %27, %30
   br i1 %.not.i2, label %37, label %31, !prof !4
 
-31:                                               ; preds = %20
+31:; preds = %20
   %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %33 = load ptr, ptr %24, align 8, !tbaa !19
   store ptr %32, ptr %23, align 8, !tbaa !12
   store i64 %17, ptr %13, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !20
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !20
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
-37:                                               ; preds = %20
-  %38 = getelementptr inbounds nuw i8, ptr %23, i64 20
-  %39 = load i16, ptr %38, align 4, !tbaa !21
-  %40 = zext i16 %39 to i32
+35:                                               ; preds = %20
+  %36 = getelementptr inbounds nuw i8, ptr %23, i64 20
+  %37 = load i16, ptr %36, align 4, !tbaa !21
+  %40 = zext i16 %37 to i32
   %.not21.i = icmp eq i32 %27, %40
   br i1 %.not21.i, label %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, label %41, !prof !4
 
-41:                                               ; preds = %37
+41: ; preds = %37
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 8
   %43 = load ptr, ptr %24, align 8, !tbaa !19
-  store ptr %42, ptr %23, align 8, !tbaa !12
-  %44 = ptrtoint ptr %42 to i64
-  %45 = trunc i64 %44 to i16
+  store ptr %39, ptr %23, align 8, !tbaa !12
+  %38 = ptrtoint ptr %42 to i64
+  %42 = trunc i64 %44 to i16
   store i16 %45, ptr %28, align 8, !tbaa !18
   store i64 %17, ptr %13, align 8, !tbaa !9
-  %46 = getelementptr inbounds nuw i8, ptr %23, i64 8
-  %47 = load i64, ptr %46, align 8, !tbaa !20
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %46, align 8, !tbaa !20
+  %43 = getelementptr inbounds nuw i8, ptr %23, i64 8
+  %44 = load i64, ptr %43, align 8, !tbaa !20
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %43, align 8, !tbaa !20
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
-_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %37
-  %49 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb0EEPvm(i64 noundef %0), !callees !5
+_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %35
+  %46 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb0EEPvm(i64 noundef %0), !callees !5
   br label %_ZL16imalloc_fastpathmPFPvmE.exit
 
-_ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %18, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, %41, %31, %4
-  %.1.i = phi ptr [ %5, %4 ], [ %19, %18 ], [ %33, %31 ], [ %43, %41 ], [ %49, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
+_ZL16imalloc_fastpathmPFPvmE.exit:                ; preds = %18, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, %38, %31, %4
+  %.1.i = phi ptr [ %5, %4 ], [ %19, %18 ], [ %31, %31 ], [ %40, %38 ], [ %46, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
   ret ptr %.1.i
 }
 
@@ -257,43 +257,43 @@ define dso_local noalias noundef ptr @_ZnwmRKSt9nothrow_t(i64 noundef %0, ptr no
   br i1 %.not.i11, label %37, label %.noexc5, !prof !4
 
 .noexc5:                                          ; preds = %21
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %33 = load ptr, ptr %25, align 8, !tbaa !19
-  store ptr %32, ptr %24, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %31 = load ptr, ptr %25, align 8, !tbaa !19
+  store ptr %30, ptr %24, align 8, !tbaa !12
   store i64 %18, ptr %14, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !20
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !20
   br label %_ZL7newImplILb1EEPvm.exit
 
-37:                                               ; preds = %21
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %39 = load i16, ptr %38, align 4, !tbaa !21
-  %40 = zext i16 %39 to i32
+35:                                               ; preds = %21
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %37 = load i16, ptr %36, align 4, !tbaa !21
+  %40 = zext i16 %37 to i32
   %.not21.i = icmp eq i32 %28, %40
   br i1 %.not21.i, label %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, label %.noexc6, !prof !4
 
-.noexc6:                                          ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %42 = load ptr, ptr %25, align 8, !tbaa !19
-  store ptr %41, ptr %24, align 8, !tbaa !12
-  %43 = ptrtoint ptr %41 to i64
-  %44 = trunc i64 %43 to i16
-  store i16 %44, ptr %29, align 8, !tbaa !18
+.noexc6:                                          ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %39 = load ptr, ptr %25, align 8, !tbaa !19
+  store ptr %38, ptr %24, align 8, !tbaa !12
+  %40 = ptrtoint ptr %38 to i64
+  %41 = trunc i64 %40 to i16
+  store i16 %41, ptr %29, align 8, !tbaa !18
   store i64 %18, ptr %14, align 8, !tbaa !9
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !20
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %45, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !20
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %42, align 8, !tbaa !20
   br label %_ZL7newImplILb1EEPvm.exit
 
-_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %37
-  %48 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb1EEPvm(i64 noundef %0), !callees !5
+_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %35
+  %45 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb1EEPvm(i64 noundef %0), !callees !5
   br label %_ZL7newImplILb1EEPvm.exit
 
 _ZL7newImplILb1EEPvm.exit:                        ; preds = %5, %.noexc5, %.noexc6, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, %19
-  %.1.i = phi ptr [ %6, %5 ], [ %20, %19 ], [ %33, %.noexc5 ], [ %42, %.noexc6 ], [ %48, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
+  %.1.i = phi ptr [ %6, %5 ], [ %20, %19 ], [ %31, %.noexc5 ], [ %39, %.noexc6 ], [ %45, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
   ret ptr %.1.i
 }
 
@@ -342,43 +342,43 @@ define dso_local noalias noundef ptr @_ZnamRKSt9nothrow_t(i64 noundef %0, ptr no
   br i1 %.not.i11, label %37, label %.noexc5, !prof !4
 
 .noexc5:                                          ; preds = %21
-  %32 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %33 = load ptr, ptr %25, align 8, !tbaa !19
-  store ptr %32, ptr %24, align 8, !tbaa !12
+  %30 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %31 = load ptr, ptr %25, align 8, !tbaa !19
+  store ptr %30, ptr %24, align 8, !tbaa !12
   store i64 %18, ptr %14, align 8, !tbaa !9
-  %34 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %35 = load i64, ptr %34, align 8, !tbaa !20
-  %36 = add i64 %35, 1
-  store i64 %36, ptr %34, align 8, !tbaa !20
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %33 = load i64, ptr %32, align 8, !tbaa !20
+  %34 = add i64 %33, 1
+  store i64 %34, ptr %32, align 8, !tbaa !20
   br label %_ZL7newImplILb1EEPvm.exit
 
-37:                                               ; preds = %21
-  %38 = getelementptr inbounds nuw i8, ptr %24, i64 20
-  %39 = load i16, ptr %38, align 4, !tbaa !21
-  %40 = zext i16 %39 to i32
+35:                                               ; preds = %21
+  %36 = getelementptr inbounds nuw i8, ptr %24, i64 20
+  %37 = load i16, ptr %36, align 4, !tbaa !21
+  %40 = zext i16 %37 to i32
   %.not21.i = icmp eq i32 %28, %40
   br i1 %.not21.i, label %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, label %.noexc6, !prof !4
 
-.noexc6:                                          ; preds = %37
-  %41 = getelementptr inbounds nuw i8, ptr %25, i64 8
-  %42 = load ptr, ptr %25, align 8, !tbaa !19
-  store ptr %41, ptr %24, align 8, !tbaa !12
-  %43 = ptrtoint ptr %41 to i64
-  %44 = trunc i64 %43 to i16
-  store i16 %44, ptr %29, align 8, !tbaa !18
+.noexc6:                                          ; preds = %35
+  %38 = getelementptr inbounds nuw i8, ptr %25, i64 8
+  %39 = load ptr, ptr %25, align 8, !tbaa !19
+  store ptr %38, ptr %24, align 8, !tbaa !12
+  %40 = ptrtoint ptr %38 to i64
+  %41 = trunc i64 %40 to i16
+  store i16 %41, ptr %29, align 8, !tbaa !18
   store i64 %18, ptr %14, align 8, !tbaa !9
-  %45 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  %46 = load i64, ptr %45, align 8, !tbaa !20
-  %47 = add i64 %46, 1
-  store i64 %47, ptr %45, align 8, !tbaa !20
+  %42 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %43 = load i64, ptr %42, align 8, !tbaa !20
+  %44 = add i64 %43, 1
+  store i64 %44, ptr %42, align 8, !tbaa !20
   br label %_ZL7newImplILb1EEPvm.exit
 
-_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %37
-  %48 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb1EEPvm(i64 noundef %0), !callees !5
+_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit:  ; preds = %35
+  %45 = tail call fastcc noundef ptr @_ZL15fallbackNewImplILb1EEPvm(i64 noundef %0), !callees !5
   br label %_ZL7newImplILb1EEPvm.exit
 
 _ZL7newImplILb1EEPvm.exit:                        ; preds = %5, %.noexc5, %.noexc6, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit, %19
-  %.1.i = phi ptr [ %6, %5 ], [ %20, %19 ], [ %33, %.noexc5 ], [ %42, %.noexc6 ], [ %48, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
+  %.1.i = phi ptr [ %6, %5 ], [ %20, %19 ], [ %31, %.noexc5 ], [ %39, %.noexc6 ], [ %45, %_ZL20cache_bin_alloc_implP11cache_bin_sPbb.exit ]
   ret ptr %.1.i
 }
 

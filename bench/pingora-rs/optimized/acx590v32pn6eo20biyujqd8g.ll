@@ -6643,7 +6643,7 @@ define hidden void @_ZN8arc_swap4debt7helping5Slots4help17h2d8e69b46d0bf67aE(ptr
     i64 3, label %.loopexit8
   ], !prof !273
 
-default.unreachable25:                            ; preds = %.backedge
+default.unreachable31:                            ; preds = %.backedge
   unreachable
 
 .loopexit8:                                       ; preds = %.backedge, %23
@@ -6718,8 +6718,8 @@ default.unreachable25:                            ; preds = %.backedge
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
   unreachable
 
-common.resume:                                    ; preds = %62, %67, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %63, %67 ], [ %63, %62 ]
+common.resume:                                    ; preds = %.loopexit9, %65, %34
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %lpad.loopexit, %67 ], [ %lpad.loopexit, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17hf7bd4b393d731f3aE.exit": ; preds = %27, %36, %39
@@ -6727,13 +6727,13 @@ common.resume:                                    ; preds = %62, %67, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %42, ptr %9, align 8
   %43 = invoke noundef ptr @"_ZN71_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$arc_swap..ref_cnt..RefCnt$GT$6as_ptr17h0697427cf70d9e9bE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
-          to label %48 unwind label %62
+          to label %48 unwind label %.loopexit9
 
 44:                                               ; preds = %25
   %45 = load atomic i64, ptr %1 seq_cst, align 8
   %46 = load i64, ptr %10, align 8, !noundef !3
   %47 = icmp eq i64 %45, %46
-  br i1 %47, label %.loopexit, label %70
+  br i1 %47, label %.loopexit, label %68
 
 48:                                               ; preds = %"_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17hf7bd4b393d731f3aE.exit"
   %49 = ptrtoint ptr %43 to i64
@@ -6767,7 +6767,7 @@ common.resume:                                    ; preds = %62, %67, %34
   %.pr = load i64, ptr %10, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %"_ZN4core3ptr124drop_in_place$LT$alloc..sync..Arc$LT$alloc..collections..btree..set..BTreeSet$LT$pingora_load_balancing..Backend$GT$$GT$$GT$17h420a8e38ce4e3b45E.exit", %70
+.backedge.backedge:                               ; preds = %"_ZN4core3ptr124drop_in_place$LT$alloc..sync..Arc$LT$alloc..collections..btree..set..BTreeSet$LT$pingora_load_balancing..Backend$GT$$GT$$GT$17h420a8e38ce4e3b45E.exit", %68
   %.be = phi i64 [ %45, %70 ], [ %.pr, %"_ZN4core3ptr124drop_in_place$LT$alloc..sync..Arc$LT$alloc..collections..btree..set..BTreeSet$LT$pingora_load_balancing..Backend$GT$$GT$$GT$17h420a8e38ce4e3b45E.exit" ]
   br label %.backedge
 
@@ -6776,28 +6776,28 @@ common.resume:                                    ; preds = %62, %67, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-62:                                               ; preds = %"_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17hf7bd4b393d731f3aE.exit"
-  %63 = landingpad { ptr, i32 }
+.loopexit9:                                       ; preds = %"_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17hf7bd4b393d731f3aE.exit"
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !281)
   call void @llvm.experimental.noalias.scope.decl(metadata !284)
-  %64 = load ptr, ptr %9, align 8, !alias.scope !287, !nonnull !3, !noundef !3
-  %65 = atomicrmw sub ptr %64, i64 1 release, align 8, !noalias !287
-  %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %common.resume
+  %62 = load ptr, ptr %9, align 8, !alias.scope !287, !nonnull !3, !noundef !3
+  %63 = atomicrmw sub ptr %62, i64 1 release, align 8, !noalias !287
+  %64 = icmp eq i64 %63, 1
+  br i1 %64, label %65, label %common.resume
 
-67:                                               ; preds = %62
+65:                                               ; preds = %.loopexit9
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17haef3ab0c4601cc40E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %common.resume unwind label %68
+          to label %common.resume unwind label %66
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %65
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
   unreachable
 
-70:                                               ; preds = %44
+68:                                               ; preds = %44
   store i64 %45, ptr %10, align 8
   br label %.backedge.backedge
 }
@@ -6831,7 +6831,7 @@ define hidden void @_ZN8arc_swap4debt7helping5Slots4help17h87e00bf7e6d26d9fE(ptr
     i64 3, label %.loopexit8
   ], !prof !273
 
-default.unreachable25:                            ; preds = %.backedge
+default.unreachable31:                            ; preds = %.backedge
   unreachable
 
 .loopexit8:                                       ; preds = %.backedge, %23
@@ -6906,8 +6906,8 @@ default.unreachable25:                            ; preds = %.backedge
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
   unreachable
 
-common.resume:                                    ; preds = %62, %67, %34
-  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %63, %67 ], [ %63, %62 ]
+common.resume:                                    ; preds = %.loopexit9, %65, %34
+  %common.resume.op = phi { ptr, i32 } [ %35, %34 ], [ %lpad.loopexit, %67 ], [ %lpad.loopexit, %62 ]
   resume { ptr, i32 } %common.resume.op
 
 "_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17h720e2579c38d4928E.exit": ; preds = %27, %36, %39
@@ -6915,13 +6915,13 @@ common.resume:                                    ; preds = %62, %67, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   store ptr %42, ptr %9, align 8
   %43 = invoke noundef ptr @"_ZN71_$LT$alloc..sync..Arc$LT$T$GT$$u20$as$u20$arc_swap..ref_cnt..RefCnt$GT$6as_ptr17hcb80942698e02222E"(ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %9)
-          to label %48 unwind label %62
+          to label %48 unwind label %.loopexit9
 
 44:                                               ; preds = %25
   %45 = load atomic i64, ptr %1 seq_cst, align 8
   %46 = load i64, ptr %10, align 8, !noundef !3
   %47 = icmp eq i64 %45, %46
-  br i1 %47, label %.loopexit, label %70
+  br i1 %47, label %.loopexit, label %68
 
 48:                                               ; preds = %"_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17h720e2579c38d4928E.exit"
   %49 = ptrtoint ptr %43 to i64
@@ -6955,7 +6955,7 @@ common.resume:                                    ; preds = %62, %67, %34
   %.pr = load i64, ptr %10, align 8
   br label %.backedge.backedge
 
-.backedge.backedge:                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$pingora_load_balancing..health_check..HealthInner$GT$$GT$17hec6ba6d498df6c8cE.exit", %70
+.backedge.backedge:                               ; preds = %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$pingora_load_balancing..health_check..HealthInner$GT$$GT$17hec6ba6d498df6c8cE.exit", %68
   %.be = phi i64 [ %45, %70 ], [ %.pr, %"_ZN4core3ptr94drop_in_place$LT$alloc..sync..Arc$LT$pingora_load_balancing..health_check..HealthInner$GT$$GT$17hec6ba6d498df6c8cE.exit" ]
   br label %.backedge
 
@@ -6964,28 +6964,28 @@ common.resume:                                    ; preds = %62, %67, %34
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %.loopexit
 
-62:                                               ; preds = %"_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17h720e2579c38d4928E.exit"
-  %63 = landingpad { ptr, i32 }
+.loopexit9:                                       ; preds = %"_ZN124_$LT$arc_swap..strategy..hybrid..HybridStrategy$LT$Cfg$GT$$u20$as$u20$arc_swap..strategy..sealed..InnerStrategy$LT$T$GT$$GT$16wait_for_readers28_$u7b$$u7b$closure$u7d$$u7d$17h720e2579c38d4928E.exit"
+  %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
   call void @llvm.experimental.noalias.scope.decl(metadata !295)
   call void @llvm.experimental.noalias.scope.decl(metadata !298)
-  %64 = load ptr, ptr %9, align 8, !alias.scope !301, !nonnull !3, !noundef !3
-  %65 = atomicrmw sub ptr %64, i64 1 release, align 8, !noalias !301
-  %66 = icmp eq i64 %65, 1
-  br i1 %66, label %67, label %common.resume
+  %62 = load ptr, ptr %9, align 8, !alias.scope !301, !nonnull !3, !noundef !3
+  %63 = atomicrmw sub ptr %62, i64 1 release, align 8, !noalias !301
+  %64 = icmp eq i64 %63, 1
+  br i1 %64, label %65, label %common.resume
 
-67:                                               ; preds = %62
+65:                                               ; preds = %.loopexit9
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h21d657e7e498c192E"(ptr noalias noundef nonnull align 8 dereferenceable(8) %9)
-          to label %common.resume unwind label %68
+          to label %common.resume unwind label %66
 
-68:                                               ; preds = %67
-  %69 = landingpad { ptr, i32 }
+66:                                               ; preds = %65
+  %67 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #22
   unreachable
 
-70:                                               ; preds = %44
+68:                                               ; preds = %44
   store i64 %45, ptr %10, align 8
   br label %.backedge.backedge
 }

@@ -3119,8 +3119,8 @@ lean_obj_tag.exit162:                             ; preds = %105, %108
   %116 = load ptr, ptr %115, align 8, !tbaa !4
   %117 = ptrtoint ptr %116 to i64
   %118 = and i64 %117, 1
-  %.not196 = icmp eq i64 %118, 0
-  br i1 %.not196, label %119, label %lean_dec.exit118
+  %.not197 = icmp eq i64 %118, 0
+  br i1 %.not197, label %119, label %lean_dec.exit118
 
 119:                                              ; preds = %114
   %120 = load i32, ptr %116, align 4, !tbaa !8
@@ -3166,8 +3166,8 @@ lean_alloc_ctor.exit163:                          ; preds = %lean_dec.exit118
   %134 = load ptr, ptr %133, align 8, !tbaa !4
   %135 = ptrtoint ptr %134 to i64
   %136 = and i64 %135, 1
-  %.not194 = icmp eq i64 %136, 0
-  br i1 %.not194, label %137, label %lean_inc.exit105
+  %.not195 = icmp eq i64 %136, 0
+  br i1 %.not195, label %137, label %lean_inc.exit105
 
 137:                                              ; preds = %132
   %.val.i164 = load i32, ptr %134, align 4, !tbaa !8
@@ -3296,8 +3296,8 @@ lean_dec.exit115:                                 ; preds = %175, %174, %172, %l
   %181 = load ptr, ptr %180, align 8, !tbaa !4
   %182 = ptrtoint ptr %181 to i64
   %183 = and i64 %182, 1
-  %.not191 = icmp eq i64 %183, 0
-  br i1 %.not191, label %184, label %lean_inc.exit104
+  %.not192 = icmp eq i64 %183, 0
+  br i1 %.not192, label %184, label %lean_inc.exit104
 
 184:                                              ; preds = %177
   %.val.i169 = load i32, ptr %181, align 4, !tbaa !8
@@ -3320,8 +3320,8 @@ lean_dec.exit115:                                 ; preds = %175, %174, %172, %l
 lean_inc.exit104:                                 ; preds = %189, %188, %186, %177
   %190 = ptrtoint ptr %179 to i64
   %191 = and i64 %190, 1
-  %.not192 = icmp eq i64 %191, 0
-  br i1 %.not192, label %192, label %lean_inc.exit103
+  %.not193 = icmp eq i64 %191, 0
+  br i1 %.not193, label %192, label %lean_inc.exit103
 
 192:                                              ; preds = %lean_inc.exit104
   %.val.i172 = load i32, ptr %179, align 4, !tbaa !8

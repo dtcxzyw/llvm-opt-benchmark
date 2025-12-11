@@ -83930,13 +83930,13 @@ _ZN4llvm7adl_endIRNS_13TinyPtrVectorIPNS_11AnalysisKeyEEEEEDTclsr10adl_detailE8e
   %31 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !2804
   %33 = icmp eq ptr %32, @_ZN4llvm9AAManager3KeyE
-  br i1 %33, label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit18, label %34
+  br i1 %33, label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit17, label %34
 
 34:                                               ; preds = %30
   %35 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   %36 = load ptr, ptr %35, align 8, !tbaa !2804
   %37 = icmp eq ptr %36, @_ZN4llvm9AAManager3KeyE
-  br i1 %37, label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit20, label %38
+  br i1 %37, label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit19, label %38
 
 38:                                               ; preds = %34
   %39 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 32
@@ -83991,15 +83991,15 @@ _ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exi
   %55 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 8
   br label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i
 
-_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit18: ; preds = %30
+_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit17: ; preds = %30
   %56 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 16
   br label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i
 
-_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit20: ; preds = %34
+_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit19: ; preds = %34
   %57 = getelementptr inbounds nuw i8, ptr %.02946.i.i.i.i, i64 24
   br label %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i
 
-_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i: ; preds = %23, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit18, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit20, %54, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %43
+_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i: ; preds = %23, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit17, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit19, %54, %._crit_edge._crit_edge52.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i, %43
   %.028.i.i.i.i = phi ptr [ %.0.i.i.i.i5.i, %54 ], [ %.029.lcssa.i.i.i.i, %43 ], [ %.1.i.i.i.i, %._crit_edge._crit_edge.i.i.i.i ], [ %.2.i.i.i.i, %._crit_edge._crit_edge52.i.i.i.i ], [ %55, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit ], [ %56, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit18 ], [ %57, %_ZSt4findIPPN4llvm11AnalysisKeyES2_ET_S4_S4_RKT0_.exit.i.loopexit.split.loop.exit20 ], [ %.02946.i.i.i.i, %23 ]
   br i1 %6, label %_ZN4llvm13TinyPtrVectorIPNS_11AnalysisKeyEE5beginEv.exit.i.i.i.i8.i, label %60
 
@@ -84050,7 +84050,7 @@ _ZN4llvm23SmallVectorTemplateBaseIPNS_11AnalysisKeyELb1EE9push_backES2_.exit.i: 
   store i32 1, ptr %73, align 8, !tbaa !33
   br label %78
 
-78:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11AnalysisKeyELb1EE9push_backES2_.exit.i, %70
+69:                                               ; preds = %_ZN4llvm23SmallVectorTemplateBaseIPNS_11AnalysisKeyELb1EE9push_backES2_.exit.i, %70
   %.0.copyload.i.i.i.i.i.i5.i = phi i64 [ %76, %_ZN4llvm23SmallVectorTemplateBaseIPNS_11AnalysisKeyELb1EE9push_backES2_.exit.i ], [ %.0.copyload.i.i.i.i.i.i.i.i.i.i.i.i, %70 ]
   %79 = and i64 %.0.copyload.i.i.i.i.i.i5.i, -8
   %80 = inttoptr i64 %79 to ptr

@@ -939,10 +939,10 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   br label %105
 
 105:                                              ; preds = %100, %94
-  %.not163212 = icmp ugt i32 %18, %19
-  br i1 %.not163212, label %._crit_edge218, label %.lr.ph217.split.preheader
+  %.not163217 = icmp ugt i32 %18, %19
+  br i1 %.not163217, label %._crit_edge223, label %.lr.ph222.split.preheader
 
-.lr.ph217.split.preheader:                        ; preds = %105
+.lr.ph222.split.preheader:                        ; preds = %105
   %106 = icmp sgt i32 %43, 2
   %107 = getelementptr inbounds nuw i8, ptr %8, i64 48
   %108 = getelementptr inbounds nuw i8, ptr %8, i64 68
@@ -950,24 +950,24 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   %109 = icmp samesign ugt i32 %43, 3
   %110 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %111 = getelementptr inbounds nuw i8, ptr %8, i64 8
-  br label %.lr.ph217.split
+  br label %.lr.ph222.split
 
-.lr.ph217.split:                                  ; preds = %.lr.ph217.split.preheader, %._crit_edge
-  %.0130215 = phi i32 [ %.3133.ph, %._crit_edge ], [ 1, %.lr.ph217.split.preheader ]
-  %.0134214 = phi i32 [ %192, %._crit_edge ], [ %18, %.lr.ph217.split.preheader ]
-  %.not166213 = phi i1 [ false, %._crit_edge ], [ true, %.lr.ph217.split.preheader ]
+.lr.ph222.split:                                  ; preds = %.lr.ph222.split.preheader, %._crit_edge
+  %.0130220 = phi i32 [ %.3133.ph, %._crit_edge ], [ 1, %.lr.ph217.split.preheader ]
+  %.0134219 = phi i32 [ %192, %._crit_edge ], [ %18, %.lr.ph217.split.preheader ]
+  %.not166218 = phi i1 [ false, %._crit_edge ], [ true, %.lr.ph217.split.preheader ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   br i1 %106, label %112, label %117
 
-112:                                              ; preds = %.lr.ph217.split
+112:                                              ; preds = %.lr.ph222.split
   %113 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.10, i32 noundef %.0134214) #13
+  %114 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %113, ptr noundef nonnull @.str.10, i32 noundef %.0134219) #13
   %115 = load ptr, ptr @stderr, align 8, !tbaa !20
   %116 = call i32 @fflush(ptr noundef %115)
   br label %117
 
-117:                                              ; preds = %112, %.lr.ph217.split
-  %118 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0134214, double noundef %14, i32 noundef %38, i64 %.sroa.0.0.copyload)
+117:                                              ; preds = %112, %.lr.ph222.split
+  %118 = call fastcc i64 @FASTCOVER_ctx_init(ptr noundef %8, ptr noundef %2, ptr noundef %3, i32 noundef %4, i32 noundef %.0134219, double noundef %14, i32 noundef %38, i64 %.sroa.0.0.copyload)
   %119 = icmp ult i64 %118, -119
   br i1 %119, label %127, label %.split.us
 
@@ -984,10 +984,10 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
 
 126:                                              ; preds = %.split.us, %121
   call void @COVER_best_destroy(ptr noundef nonnull %7) #14
-  br label %.thread200
+  br label %.thread205
 
 127:                                              ; preds = %117
-  br i1 %.not166213, label %128, label %.lr.ph
+  br i1 %.not166218, label %128, label %.lr.ph
 
 128:                                              ; preds = %127
   %129 = load i64, ptr %107, align 8, !tbaa !23
@@ -995,18 +995,18 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   br label %.lr.ph
 
 .lr.ph:                                           ; preds = %128, %127
-  %130 = icmp eq i32 %.0134214, 0
+  %130 = icmp eq i32 %.0134219, 0
   br label %131
 
 131:                                              ; preds = %.lr.ph, %188
-  %.2132211 = phi i32 [ %.0130215, %.lr.ph ], [ %.3133.ph, %188 ]
-  %.0135209 = phi i32 [ %22, %.lr.ph ], [ %189, %188 ]
+  %.2132216 = phi i32 [ %.0130220, %.lr.ph ], [ %.3133.ph, %188 ]
+  %.0135214 = phi i32 [ %22, %.lr.ph ], [ %189, %188 ]
   %132 = call noalias dereferenceable_or_null(72) ptr @malloc(i64 noundef 72) #16
   br i1 %106, label %133, label %138
 
 133:                                              ; preds = %131
   %134 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.11, i32 noundef %.0135209) #13
+  %135 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %134, ptr noundef nonnull @.str.11, i32 noundef %.0135214) #13
   %136 = load ptr, ptr @stderr, align 8, !tbaa !20
   %137 = call i32 @fflush(ptr noundef %136)
   br label %138
@@ -1045,8 +1045,8 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(12) %.sroa.10.sroa.4.0..sroa.10.0..sroa_idx.sroa_idx, ptr noundef nonnull align 4 dereferenceable(12) %.sroa.10.sroa.4, i64 12, i1 false), !tbaa.struct !62
   %.sroa.11.0..sroa_idx = getelementptr inbounds nuw i8, ptr %132, i64 68
   store i32 0, ptr %.sroa.11.0..sroa_idx, align 4
-  store i32 %.0135209, ptr %149, align 8, !tbaa !63
-  store i32 %.0134214, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !64
+  store i32 %.0135214, ptr %149, align 8, !tbaa !63
+  store i32 %.0134219, ptr %.sroa.5.0..sroa_idx, align 4, !tbaa !64
   store double %14, ptr %.sroa.8.0..sroa_idx, align 8, !tbaa !65
   store i32 %27, ptr %.sroa.6.0..sroa_idx, align 8, !tbaa !66
   store i32 0, ptr %.sroa.9.0..sroa_idx, align 8, !tbaa !67
@@ -1054,20 +1054,20 @@ define i64 @ZDICT_optimizeTrainFromBuffer_fastCover(ptr noundef writeonly captur
   %151 = getelementptr inbounds nuw i8, ptr %132, i64 60
   store i32 %150, ptr %151, align 4, !tbaa !68
   %152 = load i32, ptr %108, align 4, !tbaa !39
-  %153 = icmp eq i32 %.0135209, 0
+  %153 = icmp eq i32 %.0135214, 0
   %or.cond.i = or i1 %153, %130
   br i1 %or.cond.i, label %FASTCOVER_checkParameters.exit.thread, label %154
 
 154:                                              ; preds = %146
-  switch i32 %.0134214, label %FASTCOVER_checkParameters.exit.thread [
+  switch i32 %.0134219, label %FASTCOVER_checkParameters.exit.thread [
     i32 8, label %155
     i32 6, label %155
   ]
 
 155:                                              ; preds = %154, %154
-  %156 = zext i32 %.0135209 to i64
+  %156 = zext i32 %.0135214 to i64
   %157 = icmp ult i64 %1, %156
-  %158 = icmp ugt i32 %.0134214, %.0135209
+  %158 = icmp ugt i32 %.0134219, %.0135214
   %or.cond20.i = or i1 %157, %158
   %159 = add i32 %152, -32
   %or.cond7.i = icmp ult i32 %159, -31
@@ -1116,7 +1116,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   %176 = call i64 @clock() #14
   store i64 %176, ptr @g_time, align 8, !tbaa !40
   %177 = load ptr, ptr @stderr, align 8, !tbaa !20
-  %178 = mul i32 %.2132211, 100
+  %178 = mul i32 %.2132216, 100
   %179 = udiv i32 %178, %34
   %180 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %177, ptr noundef nonnull @.str.13, i32 noundef %179) #13
   %181 = load ptr, ptr @stderr, align 8, !tbaa !20
@@ -1124,7 +1124,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   br label %183
 
 183:                                              ; preds = %175, %170, %169
-  %184 = add i32 %.2132211, 1
+  %184 = add i32 %.2132216, 1
   br label %188
 
 185:                                              ; preds = %139, %141
@@ -1135,15 +1135,15 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   %187 = load ptr, ptr %111, align 8, !tbaa !33
   call void @free(ptr noundef %187) #14
   store ptr null, ptr %111, align 8, !tbaa !33
-  br label %.thread200
+  br label %.thread205
 
 188:                                              ; preds = %183, %166
-  %.3133.ph = phi i32 [ %.2132211, %166 ], [ %184, %183 ]
-  %189 = add i32 %.0135209, %30
+  %.3133.ph = phi i32 [ %.2132216, %166 ], [ %184, %183 ]
+  %189 = add i32 %.0135214, %30
   %.not167 = icmp ugt i32 %189, %23
   br i1 %.not167, label %._crit_edge, label %131, !llvm.loop !69
 
-.thread200:                                       ; preds = %185, %126
+.thread205:                                       ; preds = %185, %126
   %.3.ph = phi i64 [ %118, %126 ], [ -64, %185 ]
   call void @POOL_free(ptr noundef %.0142) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
@@ -1157,21 +1157,21 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   %191 = load ptr, ptr %111, align 8, !tbaa !33
   call void @free(ptr noundef %191) #14
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %192 = add i32 %.0134214, 2
+  %192 = add i32 %.0134219, 2
   %.not163 = icmp ugt i32 %192, %19
-  br i1 %.not163, label %._crit_edge218, label %.lr.ph217.split, !llvm.loop !70
+  br i1 %.not163, label %._crit_edge223, label %.lr.ph222.split, !llvm.loop !70
 
-._crit_edge218:                                   ; preds = %._crit_edge, %105
+._crit_edge223:                                   ; preds = %._crit_edge, %105
   br i1 %99, label %193, label %198
 
-193:                                              ; preds = %._crit_edge218
+193:                                              ; preds = %._crit_edge223
   %194 = load ptr, ptr @stderr, align 8, !tbaa !20
   %195 = call i32 (ptr, ptr, ...) @fprintf(ptr noundef %194, ptr noundef nonnull @.str.14, ptr noundef nonnull @.str.15) #13
   %196 = load ptr, ptr @stderr, align 8, !tbaa !20
   %197 = call i32 @fflush(ptr noundef %196)
   br label %198
 
-198:                                              ; preds = %193, %._crit_edge218
+198:                                              ; preds = %193, %._crit_edge223
   %199 = getelementptr inbounds nuw i8, ptr %7, i64 160
   %200 = load i64, ptr %199, align 8, !tbaa !71
   %201 = icmp ult i64 %200, -119
@@ -1186,28 +1186,28 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   %204 = getelementptr inbounds nuw i8, ptr %7, i64 104
   %205 = load i64, ptr %204, align 8, !tbaa !73
   %206 = getelementptr inbounds nuw i8, ptr %7, i64 112
-  %.sroa.0181.0.copyload = load i32, ptr %206, align 8
-  %.sroa.4182.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 116
-  %.sroa.4182.0.copyload = load i32, ptr %.sroa.4182.0..sroa_idx, align 4
-  %.sroa.5183.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
-  %.sroa.5183.0.copyload = load i32, ptr %.sroa.5183.0..sroa_idx, align 8
-  %.sroa.6184.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 124
-  %.sroa.6184.0.copyload = load i32, ptr %.sroa.6184.0..sroa_idx, align 4
-  %.sroa.7185.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 128
-  %.sroa.7185.0.copyload = load double, ptr %.sroa.7185.0..sroa_idx, align 8
-  %.sroa.8186.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 136
-  %.sroa.8186.0.copyload = load i32, ptr %.sroa.8186.0..sroa_idx, align 8
-  store i32 %.sroa.0181.0.copyload, ptr %5, align 8, !tbaa !55
-  store i32 %.sroa.4182.0.copyload, ptr %15, align 4, !tbaa !54
-  store i32 %.sroa.5183.0.copyload, ptr %24, align 4, !tbaa !56
-  store i32 %.sroa.6184.0.copyload, ptr %9, align 8, !tbaa !52
-  store double %.sroa.7185.0.copyload, ptr %11, align 8, !tbaa !53
+  %.sroa.0186.0.copyload = load i32, ptr %206, align 8
+  %.sroa.4187.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 116
+  %.sroa.4187.0.copyload = load i32, ptr %.sroa.4187.0..sroa_idx, align 4
+  %.sroa.5188.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 120
+  %.sroa.5188.0.copyload = load i32, ptr %.sroa.5188.0..sroa_idx, align 8
+  %.sroa.6189.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 124
+  %.sroa.6189.0.copyload = load i32, ptr %.sroa.6189.0..sroa_idx, align 4
+  %.sroa.7190.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 128
+  %.sroa.7190.0.copyload = load double, ptr %.sroa.7190.0..sroa_idx, align 8
+  %.sroa.8191.0..sroa_idx = getelementptr inbounds nuw i8, ptr %7, i64 136
+  %.sroa.8191.0.copyload = load i32, ptr %.sroa.8191.0..sroa_idx, align 8
+  store i32 %.sroa.0186.0.copyload, ptr %5, align 8, !tbaa !55
+  store i32 %.sroa.4187.0.copyload, ptr %15, align 4, !tbaa !54
+  store i32 %.sroa.5188.0.copyload, ptr %24, align 4, !tbaa !56
+  store i32 %.sroa.6189.0.copyload, ptr %9, align 8, !tbaa !52
+  store double %.sroa.7190.0.copyload, ptr %11, align 8, !tbaa !53
   store i32 %38, ptr %35, align 8, !tbaa !11
   store i32 %41, ptr %39, align 8, !tbaa !12
   %207 = getelementptr inbounds nuw i8, ptr %5, i64 44
   %208 = getelementptr inbounds nuw i8, ptr %7, i64 144
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(12) %207, ptr noundef nonnull align 8 dereferenceable(12) %208, i64 12, i1 false)
-  store i32 %.sroa.8186.0.copyload, ptr %.sroa.8179.0..sroa_idx, align 4, !tbaa !74
+  store i32 %.sroa.8191.0.copyload, ptr %.sroa.8179.0..sroa_idx, align 4, !tbaa !74
   %209 = getelementptr inbounds nuw i8, ptr %7, i64 96
   %210 = load ptr, ptr %209, align 8, !tbaa !75
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %0, ptr align 1 %210, i64 %205, i1 false)
@@ -1215,7 +1215,7 @@ FASTCOVER_checkParameters.exit:                   ; preds = %155
   call void @POOL_free(ptr noundef %.0142) #14
   br label %211
 
-211:                                              ; preds = %.thread200, %202, %203, %91, %82, %84, %73, %75, %64, %66, %54, %56, %45, %47
+211:                                              ; preds = %.thread205, %202, %203, %91, %82, %84, %73, %75, %64, %66, %54, %56, %45, %47
   %.0 = phi i64 [ -42, %47 ], [ -42, %45 ], [ -42, %56 ], [ -42, %54 ], [ -42, %66 ], [ -42, %64 ], [ -72, %75 ], [ -72, %73 ], [ -70, %84 ], [ -70, %82 ], [ -64, %91 ], [ %200, %202 ], [ %205, %203 ], [ %.3.ph, %.thread200 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.10.sroa.4)

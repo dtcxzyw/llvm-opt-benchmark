@@ -16066,7 +16066,7 @@ rb_obj_write.exit:                                ; preds = %ibf_load_location_s
   %.not.i14 = icmp eq i64 %3003, 27
   br i1 %.not.i14, label %RB_FL_UNSET.exit, label %3004
 
-3004:                                             ; preds = %rb_obj_write.exit
+3004:; preds = %rb_obj_write.exit
   %3005 = and i64 %3001, -393217
   store i64 %3005, ptr %0, align 8, !tbaa !80
   br label %RB_FL_UNSET.exit

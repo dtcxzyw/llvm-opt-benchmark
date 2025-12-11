@@ -4498,8 +4498,8 @@ lean_obj_tag.exit:                                ; preds = %lean_inc.exit153, %
   %25 = load ptr, ptr %6, align 8, !tbaa !10
   %26 = ptrtoint ptr %25 to i64
   %27 = and i64 %26, 1
-  %.not274 = icmp eq i64 %27, 0
-  br i1 %.not274, label %28, label %lean_dec.exit141
+  %.not276 = icmp eq i64 %27, 0
+  br i1 %.not276, label %28, label %lean_dec.exit141
 
 28:                                               ; preds = %24
   %29 = load i32, ptr %25, align 4, !tbaa !4
@@ -4528,8 +4528,8 @@ lean_dec.exit141:                                 ; preds = %34, %33, %31, %24
   %37 = load ptr, ptr %36, align 8, !tbaa !10
   %38 = ptrtoint ptr %37 to i64
   %39 = and i64 %38, 1
-  %.not272 = icmp eq i64 %39, 0
-  br i1 %.not272, label %40, label %lean_inc.exit152
+  %.not274 = icmp eq i64 %39, 0
+  br i1 %.not274, label %40, label %lean_inc.exit152
 
 40:                                               ; preds = %35
   %.val.i198 = load i32, ptr %37, align 4, !tbaa !4
@@ -4552,8 +4552,8 @@ lean_dec.exit141:                                 ; preds = %34, %33, %31, %24
 lean_inc.exit152:                                 ; preds = %45, %44, %42, %35
   %46 = ptrtoint ptr %5 to i64
   %47 = and i64 %46, 1
-  %.not273 = icmp eq i64 %47, 0
-  br i1 %.not273, label %48, label %lean_dec.exit140
+  %.not275 = icmp eq i64 %47, 0
+  br i1 %.not275, label %48, label %lean_dec.exit140
 
 48:                                               ; preds = %lean_inc.exit152
   %49 = load i32, ptr %5, align 4, !tbaa !4
@@ -4675,8 +4675,8 @@ lean_obj_tag.exit207:                             ; preds = %85, %88
   %94 = load ptr, ptr %93, align 8, !tbaa !10
   %95 = ptrtoint ptr %94 to i64
   %96 = and i64 %95, 1
-  %.not269 = icmp eq i64 %96, 0
-  br i1 %.not269, label %97, label %lean_inc.exit150
+  %.not270 = icmp eq i64 %96, 0
+  br i1 %.not270, label %97, label %lean_inc.exit150
 
 97:                                               ; preds = %92
   %.val.i208 = load i32, ptr %94, align 4, !tbaa !4
@@ -4699,8 +4699,8 @@ lean_obj_tag.exit207:                             ; preds = %85, %88
 lean_inc.exit150:                                 ; preds = %102, %101, %99, %92
   %103 = ptrtoint ptr %5 to i64
   %104 = and i64 %103, 1
-  %.not270 = icmp eq i64 %104, 0
-  br i1 %.not270, label %105, label %lean_dec.exit138
+  %.not271 = icmp eq i64 %104, 0
+  br i1 %.not271, label %105, label %lean_dec.exit138
 
 105:                                              ; preds = %lean_inc.exit150
   %106 = load i32, ptr %5, align 4, !tbaa !4
@@ -4752,8 +4752,8 @@ lean_dec.exit138:                                 ; preds = %111, %110, %108, %l
   %124 = load ptr, ptr %123, align 8, !tbaa !10
   %125 = ptrtoint ptr %124 to i64
   %126 = and i64 %125, 1
-  %.not271 = icmp eq i64 %126, 0
-  br i1 %.not271, label %127, label %lean_inc.exit149
+  %.not272 = icmp eq i64 %126, 0
+  br i1 %.not272, label %127, label %lean_inc.exit149
 
 127:                                              ; preds = %122
   %.val.i211 = load i32, ptr %124, align 4, !tbaa !4
@@ -5437,16 +5437,16 @@ lean_alloc_ctor.exit250:                          ; preds = %369
   %373 = getelementptr inbounds nuw i8, ptr %370, i64 4
   store i32 1, ptr %370, align 4, !tbaa !4
   store i32 16842768, ptr %373, align 4
-  %.pre275 = ptrtoint ptr %370 to i64
+  %.pre277 = ptrtoint ptr %370 to i64
   br label %374
 
 374:                                              ; preds = %lean_alloc_ctor.exit249, %lean_alloc_ctor.exit250
-  %.pre-phi276 = phi i64 [ %367, %lean_alloc_ctor.exit249 ], [ %.pre275, %lean_alloc_ctor.exit250 ]
+  %.pre-phi278 = phi i64 [ %367, %lean_alloc_ctor.exit249 ], [ %.pre277, %lean_alloc_ctor.exit250 ]
   %.0122 = phi ptr [ %.0123, %lean_alloc_ctor.exit249 ], [ %370, %lean_alloc_ctor.exit250 ]
   %375 = getelementptr inbounds nuw i8, ptr %.0122, i64 8
   store ptr %362, ptr %375, align 8, !tbaa !10
   %376 = tail call ptr @l_liftExcept___at_Lean_Elab_liftMacroM___spec__1(ptr noundef %.0122, ptr noundef %2, ptr noundef %253) #7
-  %377 = and i64 %.pre-phi276, 1
+  %377 = and i64 %.pre-phi278, 1
   %.not258 = icmp eq i64 %377, 0
   br i1 %.not258, label %378, label %lean_dec.exit137
 

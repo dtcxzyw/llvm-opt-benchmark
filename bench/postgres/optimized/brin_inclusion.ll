@@ -32,8 +32,8 @@ define dso_local noundef i64 @brin_inclusion_opcinfo(ptr noundef readonly captur
   store ptr %10, ptr %11, align 8
   %12 = getelementptr inbounds nuw i8, ptr %6, i64 24
   store ptr %5, ptr %12, align 8
-  %13 = getelementptr inbounds nuw i8, ptr %6, i64 32
-  store ptr %5, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %6, i64 32
+  store ptr %5, ptr %15, align 8
   %14 = ptrtoint ptr %6 to i64
   ret i64 %14
 }

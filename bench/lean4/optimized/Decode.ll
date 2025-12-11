@@ -3679,14 +3679,14 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc_ref.exit
   store i16 1, ptr %20, align 2, !tbaa !11
   %21 = getelementptr inbounds nuw i8, ptr %14, i64 24
   store ptr %7, ptr %21, align 8, !tbaa !9
-  %.not = icmp eq i64 %4, 0
-  br i1 %.not, label %22, label %41
+  %.not64 = icmp eq i64 %4, 0
+  br i1 %.not64, label %22, label %41
 
 22:                                               ; preds = %lean_nat_lt.exit
   %23 = ptrtoint ptr %14 to i64
   %24 = and i64 %23, 1
-  %.not64 = icmp eq i64 %24, 0
-  br i1 %.not64, label %25, label %lean_dec.exit42
+  %.not65 = icmp eq i64 %24, 0
+  br i1 %.not65, label %25, label %lean_dec.exit42
 
 25:                                               ; preds = %22
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %14) #4
@@ -3695,8 +3695,8 @@ lean_nat_lt.exit:                                 ; preds = %lean_inc_ref.exit
 lean_dec.exit42:                                  ; preds = %22, %25
   %26 = ptrtoint ptr %0 to i64
   %27 = and i64 %26, 1
-  %.not65 = icmp eq i64 %27, 0
-  br i1 %.not65, label %28, label %lean_dec.exit41
+  %.not66 = icmp eq i64 %27, 0
+  br i1 %.not66, label %28, label %lean_dec.exit41
 
 28:                                               ; preds = %lean_dec.exit42
   %29 = load i32, ptr %0, align 4, !tbaa !4

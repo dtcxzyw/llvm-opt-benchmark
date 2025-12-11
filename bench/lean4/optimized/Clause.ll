@@ -8464,14 +8464,14 @@ lean_nat_lt.exit:                                 ; preds = %lean_alloc_ctor.exi
   store i32 16842768, ptr %51, align 4
   %52 = getelementptr inbounds nuw i8, ptr %48, i64 8
   store ptr %42, ptr %52, align 8, !tbaa !4
-  %.not180 = icmp eq i64 %4, 0
-  br i1 %.not180, label %53, label %57
+  %.not181 = icmp eq i64 %4, 0
+  br i1 %.not181, label %53, label %57
 
 53:                                               ; preds = %lean_nat_lt.exit
   %54 = ptrtoint ptr %48 to i64
   %55 = and i64 %54, 1
-  %.not184 = icmp eq i64 %55, 0
-  br i1 %.not184, label %56, label %lean_dec.exit106
+  %.not185 = icmp eq i64 %55, 0
+  br i1 %.not185, label %56, label %lean_dec.exit106
 
 56:                                               ; preds = %53
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %48) #5
@@ -8579,16 +8579,16 @@ l_Array_foldlMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultClause_o
 
 lean_obj_tag.exit:                                ; preds = %90, %93
   %.0.i164 = phi i32 [ %92, %90 ], [ %95, %93 ]
-  %.not181 = icmp eq i32 %.0.i164, 0
-  br i1 %.not181, label %lean_dec.exit101, label %96
+  %.not182 = icmp eq i32 %.0.i164, 0
+  br i1 %.not182, label %lean_dec.exit101, label %96
 
 96:                                               ; preds = %lean_obj_tag.exit
   %97 = getelementptr inbounds nuw i8, ptr %.018.lcssa.i, i64 8
   %98 = load ptr, ptr %97, align 8, !tbaa !4
   %99 = ptrtoint ptr %98 to i64
   %100 = and i64 %99, 1
-  %.not182 = icmp eq i64 %100, 0
-  br i1 %.not182, label %101, label %lean_inc.exit91
+  %.not183 = icmp eq i64 %100, 0
+  br i1 %.not183, label %101, label %lean_inc.exit91
 
 101:                                              ; preds = %96
   %.val.i166 = load i32, ptr %98, align 4, !tbaa !8
@@ -8635,8 +8635,8 @@ lean_dec.exit106:                                 ; preds = %lean_inc.exit91, %1
   %115 = load ptr, ptr %114, align 8, !tbaa !4
   %116 = ptrtoint ptr %115 to i64
   %117 = and i64 %116, 1
-  %.not185 = icmp eq i64 %117, 0
-  br i1 %.not185, label %118, label %lean_inc.exit
+  %.not186 = icmp eq i64 %117, 0
+  br i1 %.not186, label %118, label %lean_inc.exit
 
 118:                                              ; preds = %lean_dec.exit106
   %.val.i169 = load i32, ptr %115, align 4, !tbaa !8
@@ -8659,8 +8659,8 @@ lean_dec.exit106:                                 ; preds = %lean_inc.exit91, %1
 lean_inc.exit:                                    ; preds = %123, %122, %120, %lean_dec.exit106
   %124 = ptrtoint ptr %.086 to i64
   %125 = and i64 %124, 1
-  %.not186 = icmp eq i64 %125, 0
-  br i1 %.not186, label %126, label %lean_nat_lt.exit150
+  %.not187 = icmp eq i64 %125, 0
+  br i1 %.not187, label %126, label %lean_nat_lt.exit150
 
 126:                                              ; preds = %lean_inc.exit
   %127 = load i32, ptr %.086, align 4, !tbaa !8
@@ -8684,11 +8684,11 @@ lean_nat_lt.exit150:                              ; preds = %lean_inc.exit, %129
   %133 = getelementptr i8, ptr %115, i64 8
   %.val = load i64, ptr %133, align 8, !tbaa !17
   %.mask = and i64 %.val, 9223372036854775807
-  %.not187 = icmp eq i64 %.mask, 0
-  br i1 %.not187, label %lean_dec.exit95, label %lean_dec.exit93
+  %.not188 = icmp eq i64 %.mask, 0
+  br i1 %.not188, label %lean_dec.exit95, label %lean_dec.exit93
 
 lean_dec.exit95:                                  ; preds = %lean_nat_lt.exit150
-  br i1 %.not185, label %134, label %lean_dec.exit94
+  br i1 %.not186, label %134, label %lean_dec.exit94
 
 134:                                              ; preds = %lean_dec.exit95
   %135 = load i32, ptr %115, align 4, !tbaa !8
@@ -8714,7 +8714,7 @@ lean_dec.exit94:                                  ; preds = %140, %139, %137, %l
 
 lean_dec.exit93:                                  ; preds = %lean_nat_lt.exit150
   %142 = tail call ptr @l_Array_foldrMUnsafe_fold___at_Std_Tactic_BVDecide_LRAT_Internal_DefaultClause_ofArray___spec__3(ptr noundef %0, ptr noundef nonnull %115, i64 noundef %.mask, i64 noundef 0, ptr noundef nonnull inttoptr (i64 1 to ptr))
-  br i1 %.not185, label %143, label %lean_dec.exit
+  br i1 %.not186, label %143, label %lean_dec.exit
 
 143:                                              ; preds = %lean_dec.exit93
   %144 = load i32, ptr %115, align 4, !tbaa !8

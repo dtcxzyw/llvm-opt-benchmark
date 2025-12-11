@@ -393,21 +393,21 @@ define ptr @duckdb_je_tcache_alloc_small_hard(ptr noundef %0, ptr noundef %1, pt
   store ptr %24, ptr %3, align 8, !tbaa !32
   br label %cache_bin_alloc_impl.exit
 
-30:                                               ; preds = %6
-  %31 = getelementptr inbounds nuw i8, ptr %3, i64 20
-  %32 = load i16, ptr %31, align 4, !tbaa !38
-  %33 = zext i16 %32 to i32
+28:                                               ; preds = %6
+  %29 = getelementptr inbounds nuw i8, ptr %3, i64 20
+  %30 = load i16, ptr %29, align 4, !tbaa !38
+  %33 = zext i16 %30 to i32
   %.not21.i = icmp eq i32 %25, %33
   br i1 %.not21.i, label %cache_bin_alloc_impl.exit, label %34, !prof !3
 
-34:                                               ; preds = %30
+34:; preds = %30
   store ptr %24, ptr %3, align 8, !tbaa !32
   %35 = ptrtoint ptr %24 to i64
   %36 = trunc i64 %35 to i16
   store i16 %36, ptr %26, align 8, !tbaa !37
   br label %cache_bin_alloc_impl.exit
 
-cache_bin_alloc_impl.exit:                        ; preds = %30, %29, %34
+cache_bin_alloc_impl.exit:                        ; preds = %28, %29, %34
   %.sink = phi i8 [ 1, %29 ], [ 1, %34 ], [ 0, %30 ]
   %.0.i = phi ptr [ %21, %29 ], [ %21, %34 ], [ null, %30 ]
   store i8 %.sink, ptr %5, align 1, !tbaa !17

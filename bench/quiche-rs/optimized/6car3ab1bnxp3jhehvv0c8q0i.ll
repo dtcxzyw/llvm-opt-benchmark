@@ -59,7 +59,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !9
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !9
   store ptr %17, ptr %0, align 8, !alias.scope !9
-  br label %37
+  br label %38
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -89,7 +89,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call void @_ZN21intrusive_collections6rbtree11post_insert17h877714c470e276dcE(ptr noalias noundef nonnull align 1 %18, ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+  br label %38
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !8
@@ -107,7 +107,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !16
   br label %33
 
-37:                                               ; preds = %33, %22
+38:                                               ; preds = %33, %22
   ret void
 }
 
@@ -160,7 +160,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !25
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !25
   store ptr %17, ptr %0, align 8, !alias.scope !25
-  br label %37
+  br label %38
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -190,7 +190,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call void @_ZN21intrusive_collections6rbtree11post_insert17h877714c470e276dcE(ptr noalias noundef nonnull align 1 %18, ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+  br label %38
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !8
@@ -208,7 +208,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !32
   br label %33
 
-37:                                               ; preds = %33, %22
+38:                                               ; preds = %33, %22
   ret void
 }
 
@@ -261,7 +261,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store i64 1, ptr %6, align 8, !noalias !41
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %17, i8 0, i64 16, i1 false), !noalias !41
   store ptr %17, ptr %0, align 8, !alias.scope !41
-  br label %37
+  br label %38
 
 23:                                               ; preds = %.backedge, %20
   %.sroa.04.0 = phi ptr [ %19, %20 ], [ %.sroa.04.0.be, %.backedge ]
@@ -291,7 +291,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
 33:                                               ; preds = %35, %29
   call void @_ZN21intrusive_collections6rbtree11post_insert17h877714c470e276dcE(ptr noalias noundef nonnull align 1 %18, ptr noundef nonnull %17, ptr noalias noundef nonnull align 8 dereferenceable(8) %0)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br label %37
+  br label %38
 
 34:                                               ; preds = %23
   %.sroa.04.0.val14 = load ptr, ptr %.sroa.04.0, align 8, !noundef !8
@@ -309,7 +309,7 @@ define internal fastcc void @"_ZN21intrusive_collections6rbtree15RBTree$LT$A$GT$
   store ptr %17, ptr %.sroa.04.0, align 8, !noalias !48
   br label %33
 
-37:                                               ; preds = %33, %22
+38:                                               ; preds = %33, %22
   ret void
 }
 
