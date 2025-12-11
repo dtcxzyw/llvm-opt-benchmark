@@ -5698,81 +5698,80 @@ define linkonce_odr hidden void @_ZN20G1ParScanThreadState20write_ref_field_post
   %19 = load ptr, ptr %18, align 8
   %20 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %19, i64 %17
   %.sroa.0.0.copyload.i.i.i = load i24, ptr %20, align 1
-  %.sroa.1.0.extract.shift = lshr i24 %.sroa.0.0.copyload.i.i.i, 8
-  %.sroa.1.0.extract.trunc = trunc i24 %.sroa.1.0.extract.shift to i8
-  %21 = icmp eq i8 %.sroa.1.0.extract.trunc, -2
-  br i1 %21, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %22
+  %21 = and i24 %.sroa.0.0.copyload.i.i.i, 65280
+  %22 = icmp eq i24 %21, 65024
+  br i1 %22, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %23
 
-22:                                               ; preds = %11
-  %23 = lshr i64 %5, %16
-  %24 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %19, i64 %23
-  %.sroa.0.0.copyload.i.i.i10 = load i24, ptr %24, align 1
-  %25 = and i24 %.sroa.0.0.copyload.i.i.i10, 32768
-  %26 = icmp eq i24 %25, 0
-  br i1 %26, label %27, label %49
+23:                                               ; preds = %11
+  %24 = lshr i64 %5, %16
+  %25 = getelementptr inbounds %struct.G1HeapRegionAttr, ptr %19, i64 %24
+  %.sroa.0.0.copyload.i.i.i10 = load i24, ptr %25, align 1
+  %26 = and i24 %.sroa.0.0.copyload.i.i.i10, 32768
+  %27 = icmp eq i24 %26, 0
+  br i1 %27, label %28, label %50
 
-27:                                               ; preds = %22
-  %28 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %29 = load ptr, ptr %28, align 8
-  %30 = getelementptr inbounds nuw i8, ptr %29, i64 48
-  %31 = load ptr, ptr %30, align 8
-  %32 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %33 = zext nneg i32 %32 to i64
-  %34 = lshr i64 %4, %33
-  %35 = getelementptr inbounds i8, ptr %31, i64 %34
-  %36 = getelementptr inbounds nuw i8, ptr %29, i64 40
-  %37 = load ptr, ptr %36, align 8
-  %38 = ptrtoint ptr %35 to i64
-  %39 = ptrtoint ptr %37 to i64
-  %40 = sub i64 %38, %39
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %42 = load i64, ptr %41, align 8
-  %.not.i.not.i = icmp eq i64 %42, %40
-  br i1 %.not.i.not.i, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %43
+28:                                               ; preds = %23
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
+  %30 = load ptr, ptr %29, align 8
+  %31 = getelementptr inbounds nuw i8, ptr %30, i64 48
+  %32 = load ptr, ptr %31, align 8
+  %33 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %34 = zext nneg i32 %33 to i64
+  %35 = lshr i64 %4, %34
+  %36 = getelementptr inbounds i8, ptr %32, i64 %35
+  %37 = getelementptr inbounds nuw i8, ptr %30, i64 40
+  %38 = load ptr, ptr %37, align 8
+  %39 = ptrtoint ptr %36 to i64
+  %40 = ptrtoint ptr %38 to i64
+  %41 = sub i64 %39, %40
+  %42 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %43 = load i64, ptr %42, align 8
+  %.not.i.not.i = icmp eq i64 %43, %41
+  br i1 %.not.i.not.i, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %44
 
-43:                                               ; preds = %27
-  %44 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %45 = getelementptr inbounds i8, ptr %37, i64 %40
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %44, ptr noundef %45) #19
-  store i64 %40, ptr %41, align 8
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 624
-  %47 = load i64, ptr %46, align 8
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %46, align 8
+44:                                               ; preds = %28
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %46 = getelementptr inbounds i8, ptr %38, i64 %41
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %45, ptr noundef %46) #19
+  store i64 %41, ptr %42, align 8
+  %47 = getelementptr inbounds nuw i8, ptr %0, i64 624
+  %48 = load i64, ptr %47, align 8
+  %49 = add i64 %48, 1
+  store i64 %49, ptr %47, align 8
   br label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit
 
-49:                                               ; preds = %22
-  %.sroa.0.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i.i.i10 to i8
-  %.not.i = icmp eq i8 %.sroa.0.0.extract.trunc.i, 0
-  br i1 %.not.i, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %50
+50:                                               ; preds = %23
+  %51 = and i24 %.sroa.0.0.copyload.i.i.i10, 255
+  %.not.i = icmp eq i24 %51, 0
+  br i1 %.not.i, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %52
 
-50:                                               ; preds = %49
-  %51 = getelementptr inbounds nuw i8, ptr %0, i64 88
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 48
+52:                                               ; preds = %50
+  %53 = getelementptr inbounds nuw i8, ptr %0, i64 88
   %54 = load ptr, ptr %53, align 8
-  %55 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
-  %56 = zext nneg i32 %55 to i64
-  %57 = lshr i64 %4, %56
-  %58 = getelementptr inbounds i8, ptr %54, i64 %57
-  %59 = getelementptr inbounds nuw i8, ptr %52, i64 40
-  %60 = load ptr, ptr %59, align 8
-  %61 = ptrtoint ptr %58 to i64
-  %62 = ptrtoint ptr %60 to i64
-  %63 = sub i64 %61, %62
-  %64 = getelementptr inbounds nuw i8, ptr %0, i64 432
-  %65 = load i64, ptr %64, align 8
-  %.not.i.not.i11 = icmp eq i64 %65, %63
-  br i1 %.not.i.not.i11, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %66
+  %55 = getelementptr inbounds nuw i8, ptr %54, i64 48
+  %56 = load ptr, ptr %55, align 8
+  %57 = load i32, ptr @_ZN9CardTable11_card_shiftE, align 4
+  %58 = zext nneg i32 %57 to i64
+  %59 = lshr i64 %4, %58
+  %60 = getelementptr inbounds i8, ptr %56, i64 %59
+  %61 = getelementptr inbounds nuw i8, ptr %54, i64 40
+  %62 = load ptr, ptr %61, align 8
+  %63 = ptrtoint ptr %60 to i64
+  %64 = ptrtoint ptr %62 to i64
+  %65 = sub i64 %63, %64
+  %66 = getelementptr inbounds nuw i8, ptr %0, i64 432
+  %67 = load i64, ptr %66, align 8
+  %.not.i.not.i11 = icmp eq i64 %67, %65
+  br i1 %.not.i.not.i11, label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit, label %68
 
-66:                                               ; preds = %50
-  %67 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %68 = getelementptr inbounds i8, ptr %60, i64 %63
-  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %67, ptr noundef %68) #19
-  store i64 %63, ptr %64, align 8
+68:                                               ; preds = %52
+  %69 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %70 = getelementptr inbounds i8, ptr %62, i64 %65
+  tail call void @_ZN27G1RedirtyCardsLocalQueueSet7enqueueEPv(ptr noundef nonnull align 8 dereferenceable(64) %69, ptr noundef %70) #19
+  store i64 %65, ptr %66, align 8
   br label %_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit
 
-_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit: ; preds = %66, %50, %49, %43, %27, %11, %3
+_ZN20G1ParScanThreadState34enqueue_card_into_evac_fail_regionIP12HeapWordImplEEvPT_P7oopDesc.exit: ; preds = %68, %52, %50, %44, %28, %11, %3
   ret void
 }
 

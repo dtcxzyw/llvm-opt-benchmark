@@ -13261,24 +13261,24 @@ define noundef zeroext i1 @"_ZN87_$LT$regex_automata..nfa..thompson..error..Buil
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: write) uwtable
 define hidden void @_ZN14regex_automata4util8alphabet11ByteClasses15representatives17h8a09b651f5f94716E(ptr noalias noundef writeonly sret({ { i64, i64 }, ptr, i64, { i8, i8 }, [6 x i8] }) align 8 captures(none) dereferenceable(40) initializes((0, 33)) %0, ptr noalias noundef readonly align 1 dereferenceable(256) %1, i24 %2) unnamed_addr #7 personality ptr @rust_eh_personality {
-  %.sroa.0.0.extract.trunc = trunc i24 %2 to i8
   %.sroa.2.0.extract.shift = lshr i24 %2, 8
   %.sroa.3.0.extract.shift = lshr i24 %2, 16
   %.sroa.3.0.extract.trunc = zext nneg i24 %.sroa.3.0.extract.shift to i64
   %4 = and i24 %.sroa.2.0.extract.shift, 255
   %5 = zext nneg i24 %4 to i64
-  %6 = icmp eq i8 %.sroa.0.0.extract.trunc, 0
-  %7 = zext i1 %6 to i64
-  %.sroa.415.0 = add nuw nsw i64 %.sroa.3.0.extract.trunc, %7
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %1, ptr %8, align 8
-  %9 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  store i64 %5, ptr %9, align 8
+  %6 = and i24 %2, 255
+  %7 = icmp eq i24 %6, 0
+  %8 = zext i1 %7 to i64
+  %.sroa.415.0 = add nuw nsw i64 %.sroa.3.0.extract.trunc, %8
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %1, ptr %9, align 8
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  store i64 %5, ptr %10, align 8
   store i64 1, ptr %0, align 8
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sroa.415.0, ptr %10, align 8
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  store i8 0, ptr %11, align 8
+  %11 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %.sroa.415.0, ptr %11, align 8
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  store i8 0, ptr %12, align 8
   ret void
 }
 

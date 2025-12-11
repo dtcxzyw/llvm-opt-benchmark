@@ -9567,8 +9567,28 @@ define void @"_ZN95_$LT$ruff_workspace..options..DeprecatedTopLevelLintOptions$u
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
-define range(i40 0, 4311810306) i40 @_ZN14ruff_workspace7options24Flake8AnnotationsOptions13into_settings17hbe575e803fe4509aE(i40 %0) unnamed_addr #3 {
-  %.sroa.02.0.insert.insert = and i40 %0, 4311810305
+define range(i40 0, 4328521728) i40 @_ZN14ruff_workspace7options24Flake8AnnotationsOptions13into_settings17hbe575e803fe4509aE(i40 %0) unnamed_addr #3 {
+  %2 = and i40 %0, 255
+  %.not = icmp eq i40 %2, 2
+  %3 = and i40 %0, 65280
+  %.not22 = icmp eq i40 %3, 512
+  %4 = and i40 %0, 16711680
+  %.not23 = icmp eq i40 %4, 131072
+  %5 = and i40 %0, 4278190080
+  %.not24 = icmp eq i40 %5, 33554432
+  %.sroa.56.0.insert.ext = and i40 %0, 4294967296
+  %6 = and i40 %0, 16777216
+  %.sroa.45.0.insert.ext = select i1 %.not24, i40 0, i40 %6
+  %.sroa.45.0.insert.insert = or disjoint i40 %.sroa.45.0.insert.ext, %.sroa.56.0.insert.ext
+  %7 = and i40 %0, 65536
+  %.sroa.34.0.insert.ext = select i1 %.not23, i40 0, i40 %7
+  %.sroa.34.0.insert.insert = or disjoint i40 %.sroa.45.0.insert.insert, %.sroa.34.0.insert.ext
+  %8 = and i40 %0, 256
+  %.sroa.23.0.insert.ext = select i1 %.not22, i40 0, i40 %8
+  %.sroa.23.0.insert.insert = or disjoint i40 %.sroa.34.0.insert.insert, %.sroa.23.0.insert.ext
+  %9 = and i40 %0, 1
+  %.sroa.02.0.insert.ext = select i1 %.not, i40 0, i40 %9
+  %.sroa.02.0.insert.insert = or disjoint i40 %.sroa.23.0.insert.insert, %.sroa.02.0.insert.ext
   ret i40 %.sroa.02.0.insert.insert
 }
 
@@ -14993,7 +15013,12 @@ define range(i48 0, 8589934592) i48 @_ZN14ruff_workspace7options18PycodestyleOpt
   %.sroa.01.0.extract.trunc = trunc i48 %0 to i16
   %.not = icmp eq i16 %.sroa.01.0.extract.trunc, 0
   %spec.select = select i1 %.not, i16 %1, i16 %.sroa.01.0.extract.trunc
-  %.sroa.24.0.insert.insert = and i48 %0, 8589869056
+  %3 = and i48 %0, 1095216660480
+  %.not12 = icmp eq i48 %3, 8589934592
+  %4 = and i48 %0, 4294967296
+  %.sroa.35.0.insert.ext = select i1 %.not12, i48 0, i48 %4
+  %.sroa.24.0.insert.ext = and i48 %0, 4294901760
+  %.sroa.24.0.insert.insert = or disjoint i48 %.sroa.35.0.insert.ext, %.sroa.24.0.insert.ext
   %.sroa.03.0.insert.ext = zext i16 %spec.select to i48
   %.sroa.03.0.insert.insert = or disjoint i48 %.sroa.24.0.insert.insert, %.sroa.03.0.insert.ext
   ret i48 %.sroa.03.0.insert.insert

@@ -10549,8 +10549,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 112
   call void @llvm.experimental.noalias.scope.decl(metadata !2450)
   call void @llvm.experimental.noalias.scope.decl(metadata !2453)
-  %26 = trunc i128 %20 to i64
-  %27 = icmp eq i64 %26, 1
+  %26 = and i128 %20, 18446744073709551615
+  %27 = icmp eq i128 %26, 1
   %28 = load ptr, ptr %25, align 16, !alias.scope !2456, !nonnull !4, !align !57, !noundef !4
   br i1 %27, label %29, label %42
 
@@ -10702,8 +10702,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 79:                                               ; preds = %.noexc16.i
   call void @llvm.experimental.noalias.scope.decl(metadata !2507)
   call void @llvm.experimental.noalias.scope.decl(metadata !2510)
-  %80 = trunc i128 %75 to i64
-  %81 = icmp eq i64 %80, 1
+  %80 = and i128 %75, 18446744073709551615
+  %81 = icmp eq i128 %80, 1
   %82 = load ptr, ptr %70, align 16, !alias.scope !2513, !noalias !2476, !nonnull !4, !align !57, !noundef !4
   br i1 %81, label %83, label %96
 
@@ -13748,8 +13748,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !3525)
   call void @llvm.experimental.noalias.scope.decl(metadata !3528)
-  %29 = trunc i128 %23 to i64
-  %30 = icmp eq i64 %29, 1
+  %29 = and i128 %23, 18446744073709551615
+  %30 = icmp eq i128 %29, 1
   %31 = load ptr, ptr %28, align 16, !alias.scope !3531, !nonnull !4, !align !57, !noundef !4
   br i1 %30, label %32, label %45
 
@@ -13903,8 +13903,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 85:                                               ; preds = %.noexc16.i
   call void @llvm.experimental.noalias.scope.decl(metadata !3593)
   call void @llvm.experimental.noalias.scope.decl(metadata !3596)
-  %86 = trunc i128 %81 to i64
-  %87 = icmp eq i64 %86, 1
+  %86 = and i128 %81, 18446744073709551615
+  %87 = icmp eq i128 %86, 1
   %88 = load ptr, ptr %76, align 16, !alias.scope !3599, !noalias !3562, !nonnull !4, !align !57, !noundef !4
   br i1 %87, label %89, label %102
 
@@ -27256,8 +27256,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !8266)
   call void @llvm.experimental.noalias.scope.decl(metadata !8269)
-  %28 = trunc i128 %22 to i64
-  %29 = icmp eq i64 %28, 1
+  %28 = and i128 %22, 18446744073709551615
+  %29 = icmp eq i128 %28, 1
   %30 = load ptr, ptr %27, align 16, !alias.scope !8272, !nonnull !4, !align !57, !noundef !4
   br i1 %29, label %31, label %44
 
@@ -27410,8 +27410,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 83:                                               ; preds = %.noexc16.i
   call void @llvm.experimental.noalias.scope.decl(metadata !8334)
   call void @llvm.experimental.noalias.scope.decl(metadata !8337)
-  %84 = trunc i128 %79 to i64
-  %85 = icmp eq i64 %84, 1
+  %84 = and i128 %79, 18446744073709551615
+  %85 = icmp eq i128 %84, 1
   %86 = load ptr, ptr %74, align 16, !alias.scope !8340, !noalias !8303, !nonnull !4, !align !57, !noundef !4
   br i1 %85, label %87, label %100
 
@@ -31657,8 +31657,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %27 = getelementptr inbounds nuw i8, ptr %16, i64 112
   call void @llvm.experimental.noalias.scope.decl(metadata !9763)
   call void @llvm.experimental.noalias.scope.decl(metadata !9766)
-  %28 = trunc i128 %22 to i64
-  %29 = icmp eq i64 %28, 1
+  %28 = and i128 %22, 18446744073709551615
+  %29 = icmp eq i128 %28, 1
   %30 = load ptr, ptr %27, align 16, !alias.scope !9769, !nonnull !4, !align !57, !noundef !4
   br i1 %29, label %31, label %44
 
@@ -31811,8 +31811,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 83:                                               ; preds = %.noexc16.i
   call void @llvm.experimental.noalias.scope.decl(metadata !9831)
   call void @llvm.experimental.noalias.scope.decl(metadata !9834)
-  %84 = trunc i128 %79 to i64
-  %85 = icmp eq i64 %84, 1
+  %84 = and i128 %79, 18446744073709551615
+  %85 = icmp eq i128 %84, 1
   %86 = load ptr, ptr %74, align 16, !alias.scope !9837, !noalias !9800, !nonnull !4, !align !57, !noundef !4
   br i1 %85, label %87, label %100
 
@@ -37519,8 +37519,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %28 = getelementptr inbounds nuw i8, ptr %16, i64 144
   call void @llvm.experimental.noalias.scope.decl(metadata !11834)
   call void @llvm.experimental.noalias.scope.decl(metadata !11837)
-  %29 = trunc i128 %23 to i64
-  %30 = icmp eq i64 %29, 1
+  %29 = and i128 %23, 18446744073709551615
+  %30 = icmp eq i128 %29, 1
   %31 = load ptr, ptr %28, align 16, !alias.scope !11840, !nonnull !4, !align !57, !noundef !4
   br i1 %30, label %32, label %45
 
@@ -37674,8 +37674,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 85:                                               ; preds = %.noexc16.i
   call void @llvm.experimental.noalias.scope.decl(metadata !11902)
   call void @llvm.experimental.noalias.scope.decl(metadata !11905)
-  %86 = trunc i128 %81 to i64
-  %87 = icmp eq i64 %86, 1
+  %86 = and i128 %81, 18446744073709551615
+  %87 = icmp eq i128 %86, 1
   %88 = load ptr, ptr %76, align 16, !alias.scope !11908, !noalias !11871, !nonnull !4, !align !57, !noundef !4
   br i1 %87, label %89, label %102
 
@@ -38308,8 +38308,8 @@ define hidden void @"_ZN110_$LT$arrow_buffer..buffer..immutable..Buffer$u20$as$u
   %26 = getelementptr inbounds nuw i8, ptr %14, i64 128
   call void @llvm.experimental.noalias.scope.decl(metadata !12103)
   call void @llvm.experimental.noalias.scope.decl(metadata !12106)
-  %27 = trunc i128 %21 to i64
-  %28 = icmp eq i64 %27, 1
+  %27 = and i128 %21, 18446744073709551615
+  %28 = icmp eq i128 %27, 1
   %29 = load ptr, ptr %26, align 16, !alias.scope !12109, !nonnull !4, !align !57, !noundef !4
   br i1 %28, label %30, label %43
 
@@ -38462,8 +38462,8 @@ _ZN12arrow_buffer6buffer7mutable13MutableBuffer7reserve17hf23e37ca235a0348E.exit
 81:                                               ; preds = %.noexc16.i
   call void @llvm.experimental.noalias.scope.decl(metadata !12160)
   call void @llvm.experimental.noalias.scope.decl(metadata !12163)
-  %82 = trunc i128 %77 to i64
-  %83 = icmp eq i64 %82, 1
+  %82 = and i128 %77, 18446744073709551615
+  %83 = icmp eq i128 %82, 1
   %84 = load ptr, ptr %72, align 16, !alias.scope !12166, !noalias !12129, !nonnull !4, !align !57, !noundef !4
   br i1 %83, label %85, label %98
 
@@ -56488,10 +56488,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.2145.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.8, i64 256, i1 false)
   store i128 %.sroa.0.0.copyload142, ptr %23, align 16, !alias.scope !16929
   %123 = add nsw i128 %.sroa.0.0.copyload142, -3
-  %124 = trunc nsw i128 %123 to i64
-  %125 = icmp ult i128 %123, 35
-  %126 = icmp eq i64 %124, 30
-  %127 = select i1 %125, i1 %126, i1 false
+  %124 = icmp ult i128 %123, 35
+  %125 = and i128 %123, 18446744073709551615
+  %126 = icmp eq i128 %125, 30
+  %127 = and i1 %124, %126
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %122
@@ -56940,10 +56940,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
 269:                                              ; preds = %182, %244
   %270 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %271 = add nsw i128 %270, -3
-  %272 = trunc nuw nsw i128 %271 to i64
-  %273 = icmp ult i128 %271, 35
-  %274 = icmp eq i64 %272, 30
-  %275 = select i1 %273, i1 %274, i1 false
+  %272 = icmp ult i128 %271, 35
+  %273 = and i128 %271, 18446744073709551615
+  %274 = icmp eq i128 %273, 30
+  %275 = and i1 %272, %274
   br i1 %275, label %265, label %276
 
 276:                                              ; preds = %269
@@ -56960,10 +56960,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
 279:                                              ; preds = %245, %143
   %280 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %281 = add nsw i128 %280, -3
-  %282 = trunc nuw nsw i128 %281 to i64
-  %283 = icmp ult i128 %281, 35
-  %284 = icmp eq i64 %282, 30
-  %285 = select i1 %283, i1 %284, i1 false
+  %282 = icmp ult i128 %281, 35
+  %283 = and i128 %281, 18446744073709551615
+  %284 = icmp eq i128 %283, 30
+  %285 = and i1 %282, %284
   br i1 %285, label %277, label %286
 
 286:                                              ; preds = %279
@@ -56983,10 +56983,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h08d4caf
   %.pn195 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i" ], [ %153, %152 ], [ %eh.lpad-body117, %.body116 ], [ %lpad.thr_comm.split-lp304, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i.thread303" ], [ %lpad.loopexit.split-lp235, %.loopexit.split-lp233 ], [ %172, %.body.i129 ]
   %287 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %288 = add nsw i128 %287, -3
-  %289 = trunc nuw nsw i128 %288 to i64
-  %290 = icmp ult i128 %288, 35
-  %291 = icmp eq i64 %289, 30
-  %292 = select i1 %290, i1 %291, i1 false
+  %289 = icmp ult i128 %288, 35
+  %290 = and i128 %288, 18446744073709551615
+  %291 = icmp eq i128 %290, 30
+  %292 = and i1 %289, %291
   br i1 %292, label %.thread198, label %293
 
 293:                                              ; preds = %.thread196
@@ -57332,10 +57332,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.2145.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.8, i64 256, i1 false)
   store i128 %.sroa.0.0.copyload142, ptr %23, align 16, !alias.scope !17074
   %123 = add nsw i128 %.sroa.0.0.copyload142, -3
-  %124 = trunc nsw i128 %123 to i64
-  %125 = icmp ult i128 %123, 35
-  %126 = icmp eq i64 %124, 30
-  %127 = select i1 %125, i1 %126, i1 false
+  %124 = icmp ult i128 %123, 35
+  %125 = and i128 %123, 18446744073709551615
+  %126 = icmp eq i128 %125, 30
+  %127 = and i1 %124, %126
   br i1 %127, label %128, label %131
 
 128:                                              ; preds = %122
@@ -57784,10 +57784,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
 269:                                              ; preds = %182, %244
   %270 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %271 = add nsw i128 %270, -3
-  %272 = trunc nuw nsw i128 %271 to i64
-  %273 = icmp ult i128 %271, 35
-  %274 = icmp eq i64 %272, 30
-  %275 = select i1 %273, i1 %274, i1 false
+  %272 = icmp ult i128 %271, 35
+  %273 = and i128 %271, 18446744073709551615
+  %274 = icmp eq i128 %273, 30
+  %275 = and i1 %272, %274
   br i1 %275, label %265, label %276
 
 276:                                              ; preds = %269
@@ -57804,10 +57804,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
 279:                                              ; preds = %245, %143
   %280 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %281 = add nsw i128 %280, -3
-  %282 = trunc nuw nsw i128 %281 to i64
-  %283 = icmp ult i128 %281, 35
-  %284 = icmp eq i64 %282, 30
-  %285 = select i1 %283, i1 %284, i1 false
+  %282 = icmp ult i128 %281, 35
+  %283 = and i128 %281, 18446744073709551615
+  %284 = icmp eq i128 %283, 30
+  %285 = and i1 %282, %284
   br i1 %285, label %277, label %286
 
 286:                                              ; preds = %279
@@ -57827,10 +57827,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17h6ab7510
   %.pn195 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i" ], [ %153, %152 ], [ %eh.lpad-body117, %.body116 ], [ %lpad.thr_comm.split-lp304, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i.thread303" ], [ %lpad.loopexit.split-lp235, %.loopexit.split-lp233 ], [ %172, %.body.i129 ]
   %287 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %288 = add nsw i128 %287, -3
-  %289 = trunc nuw nsw i128 %288 to i64
-  %290 = icmp ult i128 %288, 35
-  %291 = icmp eq i64 %289, 30
-  %292 = select i1 %290, i1 %291, i1 false
+  %289 = icmp ult i128 %288, 35
+  %290 = and i128 %288, 18446744073709551615
+  %291 = icmp eq i128 %290, 30
+  %292 = and i1 %289, %291
   br i1 %292, label %.thread198, label %293
 
 293:                                              ; preds = %.thread196
@@ -58216,10 +58216,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
   store i128 %.sroa.0164.0.copyload165428, ptr %23, align 16, !alias.scope !17196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %.sroa.2168.0..sroa_idx, ptr noundef nonnull align 16 dereferenceable(256) %.sroa.2168, i64 256, i1 false), !alias.scope !17196
   %133 = add nsw i128 %.sroa.0164.0.copyload165428, -3
-  %134 = trunc nsw i128 %133 to i64
-  %135 = icmp ult i128 %133, 35
-  %136 = icmp eq i64 %134, 30
-  %137 = select i1 %135, i1 %136, i1 false
+  %134 = icmp ult i128 %133, 35
+  %135 = and i128 %133, 18446744073709551615
+  %136 = icmp eq i128 %135, 30
+  %137 = and i1 %134, %136
   br i1 %137, label %138, label %141
 
 138:                                              ; preds = %.lr.ph
@@ -58666,10 +58666,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
 279:                                              ; preds = %192, %254
   %280 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %281 = add nsw i128 %280, -3
-  %282 = trunc nuw nsw i128 %281 to i64
-  %283 = icmp ult i128 %281, 35
-  %284 = icmp eq i64 %282, 30
-  %285 = select i1 %283, i1 %284, i1 false
+  %282 = icmp ult i128 %281, 35
+  %283 = and i128 %281, 18446744073709551615
+  %284 = icmp eq i128 %283, 30
+  %285 = and i1 %282, %284
   br i1 %285, label %275, label %286
 
 286:                                              ; preds = %279
@@ -58739,10 +58739,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
 310:                                              ; preds = %255, %153
   %311 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %312 = add nsw i128 %311, -3
-  %313 = trunc nuw nsw i128 %312 to i64
-  %314 = icmp ult i128 %312, 35
-  %315 = icmp eq i64 %313, 30
-  %316 = select i1 %314, i1 %315, i1 false
+  %313 = icmp ult i128 %312, 35
+  %314 = and i128 %312, 18446744073709551615
+  %315 = icmp eq i128 %314, 30
+  %316 = and i1 %313, %315
   br i1 %316, label %287, label %317
 
 317:                                              ; preds = %310
@@ -58763,10 +58763,10 @@ define hidden void @_ZN15datafusion_expr12logical_plan7builder7project17hc60f3f9
   %.pn218 = phi { ptr, i32 } [ %lpad.thr_comm.split-lp, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i136" ], [ %163, %162 ], [ %eh.lpad-body119, %.body118 ], [ %lpad.thr_comm.split-lp349, %"_ZN4core3ptr181drop_in_place$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$datafusion_expr..expr..Expr$C$alloc..alloc..Global$GT$$GT$17h717fda2760a43039E.llvm.4057250340930679409.exit.i136.thread348" ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ], [ %182, %.body.i135 ]
   %319 = load i128, ptr %23, align 16, !range !17001, !noundef !4
   %320 = add nsw i128 %319, -3
-  %321 = trunc nuw nsw i128 %320 to i64
-  %322 = icmp ult i128 %320, 35
-  %323 = icmp eq i64 %321, 30
-  %324 = select i1 %322, i1 %323, i1 false
+  %321 = icmp ult i128 %320, 35
+  %322 = and i128 %320, 18446744073709551615
+  %323 = icmp eq i128 %322, 30
+  %324 = and i1 %321, %323
   br i1 %324, label %.thread221, label %325
 
 325:                                              ; preds = %.thread219

@@ -567,7 +567,6 @@ define dso_local noundef zeroext i1 @_ZN4llvm14DWARFFormValue12extractValueERKNS
   %8 = alloca %"class.llvm::Error", align 8
   %9 = alloca %class.anon, align 1
   %10 = alloca %"class.llvm::Error", align 8
-  %.sroa.056.0.extract.trunc = trunc i48 %3 to i16
   %11 = trunc i48 %3 to i32
   %12 = lshr i32 %11, 16
   %.sroa.458.0.extract.shift = lshr i48 %3, 24
@@ -598,226 +597,227 @@ _ZN4llvm5ErrorD2Ev.exit:                          ; preds = %6, %15
   %.pr65 = load i16, ptr %0, align 8, !tbaa !3
   br label %23
 
-23:                                               ; preds = %79, %_ZN4llvm5ErrorD2Ev.exit
-  %24 = phi i16 [ %81, %79 ], [ %.pr65, %_ZN4llvm5ErrorD2Ev.exit ]
-  switch i16 %24, label %78 [
+23:                                               ; preds = %80, %_ZN4llvm5ErrorD2Ev.exit
+  %24 = phi i16 [ %82, %80 ], [ %.pr65, %_ZN4llvm5ErrorD2Ev.exit ]
+  switch i16 %24, label %79 [
     i16 1, label %25
     i16 16, label %25
-    i16 24, label %34
-    i16 9, label %34
-    i16 10, label %36
-    i16 3, label %39
-    i16 4, label %42
-    i16 11, label %45
-    i16 17, label %45
-    i16 12, label %45
-    i16 37, label %45
-    i16 41, label %45
-    i16 5, label %48
-    i16 18, label %48
-    i16 38, label %48
-    i16 42, label %48
-    i16 39, label %51
-    i16 43, label %51
-    i16 6, label %54
-    i16 19, label %54
-    i16 28, label %54
-    i16 40, label %54
-    i16 44, label %54
-    i16 7, label %56
-    i16 20, label %56
-    i16 36, label %56
+    i16 24, label %35
+    i16 9, label %35
+    i16 10, label %37
+    i16 3, label %40
+    i16 4, label %43
+    i16 11, label %46
+    i16 17, label %46
+    i16 12, label %46
+    i16 37, label %46
+    i16 41, label %46
+    i16 5, label %49
+    i16 18, label %49
+    i16 38, label %49
+    i16 42, label %49
+    i16 39, label %52
+    i16 43, label %52
+    i16 6, label %55
+    i16 19, label %55
+    i16 28, label %55
+    i16 40, label %55
+    i16 44, label %55
+    i16 7, label %57
+    i16 20, label %57
+    i16 36, label %57
     i16 30, label %.critedge.thread
-    i16 13, label %58
-    i16 15, label %60
-    i16 21, label %60
-    i16 35, label %60
-    i16 34, label %60
-    i16 7937, label %60
-    i16 7938, label %60
-    i16 27, label %60
-    i16 26, label %60
-    i16 8193, label %62
-    i16 8, label %69
-    i16 22, label %79
-    i16 14, label %72
-    i16 23, label %72
-    i16 7968, label %72
-    i16 7969, label %72
-    i16 31, label %72
-    i16 29, label %72
-    i16 25, label %75
-    i16 32, label %76
+    i16 13, label %59
+    i16 15, label %61
+    i16 21, label %61
+    i16 35, label %61
+    i16 34, label %61
+    i16 7937, label %61
+    i16 7938, label %61
+    i16 27, label %61
+    i16 26, label %61
+    i16 8193, label %63
+    i16 8, label %70
+    i16 22, label %80
+    i16 14, label %73
+    i16 23, label %73
+    i16 7968, label %73
+    i16 7969, label %73
+    i16 31, label %73
+    i16 29, label %73
+    i16 25, label %76
+    i16 32, label %77
     i16 33, label %.critedge
   ]
 
 25:                                               ; preds = %23, %23
   %26 = icmp eq i16 %24, 1
-  %27 = icmp eq i16 %.sroa.056.0.extract.trunc, 2
-  %28 = icmp eq i8 %.sroa.458.0.extract.trunc, 0
-  %..i.i.i = select i1 %28, i32 4, i32 8
-  %29 = select i1 %26, i1 true, i1 %27
-  %30 = and i32 %12, 255
-  %31 = select i1 %29, i32 %30, i32 %..i.i.i
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %31, ptr noundef %2, ptr noundef nonnull %32, ptr noundef nonnull %10) #20
-  store i64 %33, ptr %21, align 8, !tbaa !16
+  %27 = and i48 %3, 65535
+  %28 = icmp eq i48 %27, 2
+  %29 = icmp eq i8 %.sroa.458.0.extract.trunc, 0
+  %..i.i.i = select i1 %29, i32 4, i32 8
+  %30 = select i1 %26, i1 true, i1 %28
+  %31 = and i32 %12, 255
+  %32 = select i1 %30, i32 %31, i32 %..i.i.i
+  %33 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %34 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %32, ptr noundef %2, ptr noundef nonnull %33, ptr noundef nonnull %10) #20
+  store i64 %34, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-34:                                               ; preds = %23, %23
-  %35 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+35:                                               ; preds = %23, %23
+  %36 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
   br label %.critedge.thread
 
-36:                                               ; preds = %23
-  %37 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %38 = zext i8 %37 to i64
+37:                                               ; preds = %23
+  %38 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %39 = zext i8 %38 to i64
   br label %.critedge.thread
 
-39:                                               ; preds = %23
-  %40 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %41 = zext i16 %40 to i64
+40:                                               ; preds = %23
+  %41 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %42 = zext i16 %41 to i64
   br label %.critedge.thread
 
-42:                                               ; preds = %23
-  %43 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %44 = zext i32 %43 to i64
+43:                                               ; preds = %23
+  %44 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %45 = zext i32 %44 to i64
   br label %.critedge.thread
 
-45:                                               ; preds = %23, %23, %23, %23, %23
-  %46 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %47 = zext i8 %46 to i64
-  store i64 %47, ptr %21, align 8, !tbaa !16
+46:                                               ; preds = %23, %23, %23, %23, %23
+  %47 = call noundef zeroext i8 @_ZNK4llvm13DataExtractor5getU8EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %48 = zext i8 %47 to i64
+  store i64 %48, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-48:                                               ; preds = %23, %23, %23, %23
-  %49 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %50 = zext i16 %49 to i64
-  store i64 %50, ptr %21, align 8, !tbaa !16
+49:                                               ; preds = %23, %23, %23, %23
+  %50 = call noundef zeroext i16 @_ZNK4llvm13DataExtractor6getU16EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %51 = zext i16 %50 to i64
+  store i64 %51, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-51:                                               ; preds = %23, %23
-  %52 = call noundef i32 @_ZNK4llvm13DataExtractor6getU24EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %53 = zext i32 %52 to i64
-  store i64 %53, ptr %21, align 8, !tbaa !16
+52:                                               ; preds = %23, %23
+  %53 = call noundef i32 @_ZNK4llvm13DataExtractor6getU24EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %54 = zext i32 %53 to i64
+  store i64 %54, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-54:                                               ; preds = %23, %23, %23, %23, %23
-  %55 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef %2, ptr noundef null, ptr noundef nonnull %10) #20
-  store i64 %55, ptr %21, align 8, !tbaa !16
+55:                                               ; preds = %23, %23, %23, %23, %23
+  %56 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 4, ptr noundef %2, ptr noundef null, ptr noundef nonnull %10) #20
+  store i64 %56, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-56:                                               ; preds = %23, %23, %23
-  %57 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 8, ptr noundef %2, ptr noundef null, ptr noundef nonnull %10) #20
-  store i64 %57, ptr %21, align 8, !tbaa !16
+57:                                               ; preds = %23, %23, %23
+  %58 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef 8, ptr noundef %2, ptr noundef null, ptr noundef nonnull %10) #20
+  store i64 %58, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-58:                                               ; preds = %23
-  %59 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  store i64 %59, ptr %21, align 8, !tbaa !16
+59:                                               ; preds = %23
+  %60 = call noundef i64 @_ZNK4llvm13DataExtractor10getSLEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  store i64 %60, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-60:                                               ; preds = %23, %23, %23, %23, %23, %23, %23, %23
-  %61 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  store i64 %61, ptr %21, align 8, !tbaa !16
+61:                                               ; preds = %23, %23, %23, %23, %23, %23, %23, %23
+  %62 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  store i64 %62, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-62:                                               ; preds = %23
-  %63 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %64 = shl i64 %63, 32
-  store i64 %64, ptr %21, align 8, !tbaa !16
-  %65 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %66 = zext i32 %65 to i64
-  %67 = load i64, ptr %21, align 8, !tbaa !16
-  %68 = or i64 %67, %66
-  store i64 %68, ptr %21, align 8, !tbaa !16
+63:                                               ; preds = %23
+  %64 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %65 = shl i64 %64, 32
+  store i64 %65, ptr %21, align 8, !tbaa !16
+  %66 = call noundef i32 @_ZNK4llvm13DataExtractor6getU32EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %67 = zext i32 %66 to i64
+  %68 = load i64, ptr %21, align 8, !tbaa !16
+  %69 = or i64 %68, %67
+  store i64 %69, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-69:                                               ; preds = %23
-  %70 = call { ptr, i64 } @_ZNK4llvm13DataExtractor10getCStrRefEPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %71 = extractvalue { ptr, i64 } %70, 0
-  store ptr %71, ptr %21, align 8, !tbaa !16
+70:                                               ; preds = %23
+  %71 = call { ptr, i64 } @_ZNK4llvm13DataExtractor10getCStrRefEPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %72 = extractvalue { ptr, i64 } %71, 0
+  store ptr %72, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-72:                                               ; preds = %23, %23, %23, %23, %23, %23
-  %73 = icmp eq i8 %.sroa.458.0.extract.trunc, 0
-  %..i.i = select i1 %73, i32 4, i32 8
-  %74 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %..i.i, ptr noundef %2, ptr noundef null, ptr noundef nonnull %10) #20
-  store i64 %74, ptr %21, align 8, !tbaa !16
-  br label %.critedge
-
-75:                                               ; preds = %23
-  store i64 1, ptr %21, align 8, !tbaa !16
+73:                                               ; preds = %23, %23, %23, %23, %23, %23
+  %74 = icmp eq i8 %.sroa.458.0.extract.trunc, 0
+  %..i.i = select i1 %74, i32 4, i32 8
+  %75 = call noundef i64 @_ZNK4llvm18DWARFDataExtractor17getRelocatedValueEjPmS1_PNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(40) %1, i32 noundef %..i.i, ptr noundef %2, ptr noundef null, ptr noundef nonnull %10) #20
+  store i64 %75, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
 76:                                               ; preds = %23
-  %77 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  store i64 %77, ptr %21, align 8, !tbaa !16
+  store i64 1, ptr %21, align 8, !tbaa !16
   br label %.critedge
 
-78:                                               ; preds = %23
-  unreachable
+77:                                               ; preds = %23
+  %78 = call noundef i64 @_ZNK4llvm13DataExtractor6getU64EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  store i64 %78, ptr %21, align 8, !tbaa !16
+  br label %.critedge
 
 79:                                               ; preds = %23
-  %80 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
-  %81 = trunc i64 %80 to i16
-  store i16 %81, ptr %0, align 8, !tbaa !3
-  %82 = load ptr, ptr %10, align 8, !tbaa !79
-  %.not = icmp eq ptr %82, null
+  unreachable
+
+80:                                               ; preds = %23
+  %81 = call noundef i64 @_ZNK4llvm13DataExtractor10getULEB128EPmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, ptr noundef nonnull %10) #20
+  %82 = trunc i64 %81 to i16
+  store i16 %82, ptr %0, align 8, !tbaa !3
+  %83 = load ptr, ptr %10, align 8, !tbaa !79
+  %.not = icmp eq ptr %83, null
   br i1 %.not, label %23, label %.critedge.thread110, !llvm.loop !82
 
-.critedge.thread110:                              ; preds = %79
+.critedge.thread110:                              ; preds = %80
   store ptr null, ptr %10, align 8, !tbaa !79
-  br label %85
+  br label %86
 
-.critedge.thread:                                 ; preds = %23, %34, %36, %39, %42
-  %.sink = phi i64 [ %35, %34 ], [ %38, %36 ], [ %41, %39 ], [ %44, %42 ], [ 16, %23 ]
+.critedge.thread:                                 ; preds = %23, %35, %37, %40, %43
+  %.sink = phi i64 [ %36, %35 ], [ %39, %37 ], [ %42, %40 ], [ %45, %43 ], [ 16, %23 ]
   store i64 %.sink, ptr %21, align 8, !tbaa !16
-  %83 = call { ptr, i64 } @_ZNK4llvm13DataExtractor8getBytesEPmmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, i64 noundef %.sink, ptr noundef nonnull %10) #20
-  %84 = extractvalue { ptr, i64 } %83, 0
-  store ptr %84, ptr %22, align 8, !tbaa !78
+  %84 = call { ptr, i64 } @_ZNK4llvm13DataExtractor8getBytesEPmmPNS_5ErrorE(ptr noundef nonnull align 8 dereferenceable(18) %1, ptr noundef %2, i64 noundef %.sink, ptr noundef nonnull %10) #20
+  %85 = extractvalue { ptr, i64 } %84, 0
+  store ptr %85, ptr %22, align 8, !tbaa !78
   br label %.critedge
 
-.critedge:                                        ; preds = %23, %25, %45, %48, %51, %54, %56, %58, %60, %62, %69, %72, %75, %76, %.critedge.thread
+.critedge:                                        ; preds = %23, %25, %46, %49, %52, %55, %57, %59, %61, %63, %70, %73, %76, %77, %.critedge.thread
   %.pr109 = load ptr, ptr %10, align 8, !tbaa !79
   store ptr null, ptr %10, align 8, !tbaa !79
   %.not67 = icmp eq ptr %.pr109, null
-  br i1 %.not67, label %_ZN4llvm5ErrorD2Ev.exit51, label %85
+  br i1 %.not67, label %_ZN4llvm5ErrorD2Ev.exit51, label %86
 
-85:                                               ; preds = %.critedge.thread110, %.critedge
-  %86 = phi ptr [ %82, %.critedge.thread110 ], [ %.pr109, %.critedge ]
+86:                                               ; preds = %.critedge.thread110, %.critedge
+  %87 = phi ptr [ %83, %.critedge.thread110 ], [ %.pr109, %.critedge ]
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
-  store ptr %86, ptr %8, align 8, !tbaa !79
+  store ptr %87, ptr %8, align 8, !tbaa !79
   call void @_ZN4llvm12handleErrorsIJZNS_12consumeErrorENS_5ErrorEEUlRKNS_13ErrorInfoBaseEE_EEES1_S1_DpOT_(ptr dead_on_unwind nonnull writable sret(%"class.llvm::Error") align 8 %7, ptr noundef nonnull %8, ptr noundef nonnull align 1 dereferenceable(1) %9)
-  %87 = load ptr, ptr %8, align 8, !tbaa !79
-  %88 = icmp eq ptr %87, null
-  br i1 %88, label %_ZN4llvm5ErrorD2Ev.exit50, label %89
+  %88 = load ptr, ptr %8, align 8, !tbaa !79
+  %89 = icmp eq ptr %88, null
+  br i1 %89, label %_ZN4llvm5ErrorD2Ev.exit50, label %90
 
-89:                                               ; preds = %85
-  %90 = load ptr, ptr %87, align 8, !tbaa !84
-  %91 = getelementptr inbounds nuw i8, ptr %90, i64 8
-  %92 = load ptr, ptr %91, align 8
-  call void %92(ptr noundef nonnull align 8 dereferenceable(8) %87) #20
+90:                                               ; preds = %86
+  %91 = load ptr, ptr %88, align 8, !tbaa !84
+  %92 = getelementptr inbounds nuw i8, ptr %91, i64 8
+  %93 = load ptr, ptr %92, align 8
+  call void %93(ptr noundef nonnull align 8 dereferenceable(8) %88) #20
   br label %_ZN4llvm5ErrorD2Ev.exit50
 
-_ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %85, %89
+_ZN4llvm5ErrorD2Ev.exit50:                        ; preds = %86, %90
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %.pr = load ptr, ptr %10, align 8, !tbaa !79
-  %93 = icmp eq ptr %.pr, null
-  br i1 %93, label %_ZN4llvm5ErrorD2Ev.exit51, label %94
+  %94 = icmp eq ptr %.pr, null
+  br i1 %94, label %_ZN4llvm5ErrorD2Ev.exit51, label %95
 
-94:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit50
-  %95 = load ptr, ptr %.pr, align 8, !tbaa !84
-  %96 = getelementptr inbounds nuw i8, ptr %95, i64 8
-  %97 = load ptr, ptr %96, align 8
-  call void %97(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
+95:                                               ; preds = %_ZN4llvm5ErrorD2Ev.exit50
+  %96 = load ptr, ptr %.pr, align 8, !tbaa !84
+  %97 = getelementptr inbounds nuw i8, ptr %96, i64 8
+  %98 = load ptr, ptr %97, align 8
+  call void %98(ptr noundef nonnull align 8 dereferenceable(8) %.pr) #20
   br label %_ZN4llvm5ErrorD2Ev.exit51
 
-_ZN4llvm5ErrorD2Ev.exit51:                        ; preds = %.critedge, %_ZN4llvm5ErrorD2Ev.exit50, %94
-  %.not67113 = phi i1 [ true, %.critedge ], [ false, %_ZN4llvm5ErrorD2Ev.exit50 ], [ false, %94 ]
+_ZN4llvm5ErrorD2Ev.exit51:                        ; preds = %.critedge, %_ZN4llvm5ErrorD2Ev.exit50, %95
+  %.not67113 = phi i1 [ true, %.critedge ], [ false, %_ZN4llvm5ErrorD2Ev.exit50 ], [ false, %95 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   ret i1 %.not67113
 }

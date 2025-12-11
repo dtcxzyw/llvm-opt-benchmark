@@ -6235,162 +6235,162 @@ define hidden noundef range(i8 0, 3) i8 @_ZN21ruff_python_formatter6string9norma
   %15 = extractvalue { i8, i8 } %13, 1
   %16 = tail call noundef zeroext i1 @_ZN15ruff_python_ast14python_version13PythonVersion16supports_pep_70117h503e073f9d59e5cbE(i8 noundef %14, i8 noundef %15)
   %17 = tail call i24 @_ZN21ruff_python_formatter7context15PyFormatContext14f_string_state17hcaf129e52b9320f0E(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9)
-  %.sroa.015.0.extract.trunc = trunc i24 %17 to i8
-  %18 = icmp eq i8 %.sroa.015.0.extract.trunc, 2
-  br i1 %18, label %31, label %19
+  %18 = and i24 %17, 255
+  %19 = icmp eq i24 %18, 2
+  br i1 %19, label %32, label %20
 
-19:                                               ; preds = %3
+20:                                               ; preds = %3
   %.sroa.01.1.extract.shift.i = lshr i24 %17, 8
   %.sroa.01.1.extract.trunc.i = trunc i24 %.sroa.01.1.extract.shift.i to i8
-  %20 = tail call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %.sroa.01.1.extract.trunc.i)
-  %21 = tail call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %20)
-  br i1 %21, label %24, label %22
+  %21 = tail call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %.sroa.01.1.extract.trunc.i)
+  %22 = tail call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %21)
+  br i1 %22, label %25, label %23
 
-22:                                               ; preds = %24, %19
-  %23 = call noundef zeroext i1 @_ZN21ruff_python_formatter7options10QuoteStyle11is_preserve17h1d5757d9ae94d6feE(i8 noundef %spec.select)
-  %brmerge.demorgan = and i1 %16, %23
-  br i1 %brmerge.demorgan, label %31, label %28
+23:                                               ; preds = %25, %20
+  %24 = call noundef zeroext i1 @_ZN21ruff_python_formatter7options10QuoteStyle11is_preserve17h1d5757d9ae94d6feE(i8 noundef %spec.select)
+  %brmerge.demorgan = and i1 %16, %24
+  br i1 %brmerge.demorgan, label %32, label %29
 
-24:                                               ; preds = %19
-  %25 = call noundef i8 @_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-  %26 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %25)
-  %27 = call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %26)
-  br i1 %27, label %22, label %31
+25:                                               ; preds = %20
+  %26 = call noundef i8 @_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  %27 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %26)
+  %28 = call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %27)
+  br i1 %28, label %23, label %32
 
-28:                                               ; preds = %22
-  %29 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17h702703188cd01f13E"(i8 noundef %.sroa.01.1.extract.trunc.i)
+29:                                               ; preds = %23
+  %30 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$11quote_style17h702703188cd01f13E"(i8 noundef %.sroa.01.1.extract.trunc.i)
   br label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split
 
-_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split: ; preds = %28, %84
-  %.sink = phi i1 [ %85, %84 ], [ %29, %28 ]
+_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split: ; preds = %29, %85
+  %.sink = phi i1 [ %86, %85 ], [ %30, %29 ]
   %.sroa.014.0 = xor i1 %.sink, true
-  %30 = call noundef i8 @"_ZN21ruff_python_formatter6string127_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..str..Quote$GT$$u20$for$u20$ruff_python_formatter..options..QuoteStyle$GT$4from17haa17c7fa99638271E"(i1 noundef zeroext %.sroa.014.0)
+  %31 = call noundef i8 @"_ZN21ruff_python_formatter6string127_$LT$impl$u20$core..convert..From$LT$ruff_python_ast..str..Quote$GT$$u20$for$u20$ruff_python_formatter..options..QuoteStyle$GT$4from17haa17c7fa99638271E"(i1 noundef zeroext %.sroa.014.0)
   br label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit
 
-_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit: ; preds = %52, %75, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split, %82, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, %31, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
-  %.sroa.0.1 = phi i8 [ %spec.select, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread ], [ 2, %31 ], [ 2, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit ], [ 1, %82 ], [ %30, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split ], [ 2, %75 ], [ 2, %52 ]
+_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit: ; preds = %53, %76, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split, %83, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, %32, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
+  %.sroa.0.1 = phi i8 [ %spec.select, %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread ], [ 2, %32 ], [ 2, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit ], [ 1, %83 ], [ %31, %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split ], [ 2, %76 ], [ 2, %53 ]
   ret i8 %.sroa.0.1
 
-31:                                               ; preds = %24, %22, %3
-  %32 = call noundef zeroext i1 @_ZN21ruff_python_formatter7options10QuoteStyle11is_preserve17h1d5757d9ae94d6feE(i8 noundef %spec.select)
-  br i1 %32, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %33
+32:                                               ; preds = %25, %23, %3
+  %33 = call noundef zeroext i1 @_ZN21ruff_python_formatter7options10QuoteStyle11is_preserve17h1d5757d9ae94d6feE(i8 noundef %spec.select)
+  br i1 %33, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %34
 
-33:                                               ; preds = %31
-  %34 = load i64, ptr %5, align 8, !range !254, !noundef !3
-  %35 = icmp eq i64 %34, 2
-  br i1 %35, label %36, label %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
+34:                                               ; preds = %32
+  %35 = load i64, ptr %5, align 8, !range !254, !noundef !3
+  %36 = icmp eq i64 %35, 2
+  br i1 %36, label %37, label %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
 
-36:                                               ; preds = %33
-  %37 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
-  br i1 %16, label %61, label %41
+37:                                               ; preds = %34
+  %38 = load ptr, ptr %6, align 8, !nonnull !3, !align !4, !noundef !3
+  br i1 %16, label %62, label %42
 
-_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread: ; preds = %.backedge.i.i, %61, %33
-  %38 = call noundef i8 @_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
-  %39 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %38)
-  %40 = call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %39)
-  br i1 %40, label %82, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit
+_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread: ; preds = %.backedge.i.i, %62, %34
+  %39 = call noundef i8 @_ZN15ruff_python_ast10expression14StringLikePart5flags17h11d1ddce4978610cE(ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %5)
+  %40 = call noundef zeroext i1 @"_ZN94_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$ruff_python_ast..nodes..StringFlags$GT$13triple_quotes17hb3e591711f534707E"(i8 noundef %39)
+  %41 = call noundef zeroext i1 @_ZN15ruff_python_ast3str12TripleQuotes6is_yes17h2faf035de3b33c27E(i1 noundef zeroext %40)
+  br i1 %41, label %83, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit
 
-41:                                               ; preds = %36
-  %42 = call { ptr, ptr } @_ZN15ruff_python_ast5nodes15FStringElements11expressions17ha3d2ed451b0984dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37), !noalias !457
-  %43 = extractvalue { ptr, ptr } %42, 0
-  %44 = extractvalue { ptr, ptr } %42, 1
-  %45 = icmp ne ptr %44, null
-  call void @llvm.assume(i1 %45)
-  %.not.i.i = icmp eq ptr %43, %44
+42:                                               ; preds = %37
+  %43 = call { ptr, ptr } @_ZN15ruff_python_ast5nodes15FStringElements11expressions17ha3d2ed451b0984dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38), !noalias !457
+  %44 = extractvalue { ptr, ptr } %43, 0
+  %45 = extractvalue { ptr, ptr } %43, 1
+  %46 = icmp ne ptr %45, null
+  call void @llvm.assume(i1 %46)
+  %.not.i.i = icmp eq ptr %44, %45
   br i1 %.not.i.i, label %.loopexit, label %.lr.ph.i.i
 
-.lr.ph.i.i:                                       ; preds = %41
-  %46 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %47 = load i8, ptr %46, align 8, !alias.scope !460, !noalias !457
-  br label %48
+.lr.ph.i.i:                                       ; preds = %42
+  %47 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %48 = load i8, ptr %47, align 8, !alias.scope !460, !noalias !457
+  br label %49
 
-48:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i", %.lr.ph.i.i
-  %49 = phi ptr [ %43, %.lr.ph.i.i ], [ %50, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i" ]
-  %50 = getelementptr inbounds nuw i8, ptr %49, i64 80
+49:                                               ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i", %.lr.ph.i.i
+  %50 = phi ptr [ %44, %.lr.ph.i.i ], [ %51, %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i" ]
+  %51 = getelementptr inbounds nuw i8, ptr %50, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !462)
-  %51 = load i64, ptr %49, align 8, !range !36, !alias.scope !465, !noalias !468, !noundef !3
-  %switch.i.i.i = icmp slt i64 %51, -9223372036854775806
-  br i1 %switch.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i", label %52
+  %52 = load i64, ptr %50, align 8, !range !36, !alias.scope !465, !noalias !468, !noundef !3
+  %switch.i.i.i = icmp slt i64 %52, -9223372036854775806
+  br i1 %switch.i.i.i, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i", label %53
 
-52:                                               ; preds = %48
-  %53 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9), !noalias !471
-  %54 = extractvalue { ptr, i64 } %53, 0
-  %55 = extractvalue { ptr, i64 } %53, 1
-  %56 = call { ptr, i64 } @"_ZN57_$LT$str$u20$as$u20$ruff_text_size..traits..TextSlice$GT$5slice17h9e6a6b44f2ca2f72E"(ptr noalias noundef nonnull readonly align 1 %54, i64 noundef %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %49), !noalias !468
-  %57 = extractvalue { ptr, i64 } %56, 0
-  %58 = extractvalue { ptr, i64 } %56, 1
-  %59 = call noundef i8 @"_ZN122_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..FStringFlags$GT$$GT$4from17hd0a3347062a297b5E"(i8 noundef %47), !noalias !468
-  %60 = call fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9normalize23contains_opposite_quote17h4d9d40761eb1b746E(ptr noalias noundef nonnull readonly align 1 %57, i64 noundef %58, i8 noundef %59), !noalias !468
-  br i1 %60, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i"
+53:                                               ; preds = %49
+  %54 = call { ptr, i64 } @_ZN21ruff_python_formatter7context15PyFormatContext6source17h977323e7f0b1b18aE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9), !noalias !471
+  %55 = extractvalue { ptr, i64 } %54, 0
+  %56 = extractvalue { ptr, i64 } %54, 1
+  %57 = call { ptr, i64 } @"_ZN57_$LT$str$u20$as$u20$ruff_text_size..traits..TextSlice$GT$5slice17h9e6a6b44f2ca2f72E"(ptr noalias noundef nonnull readonly align 1 %55, i64 noundef %56, ptr noalias noundef nonnull readonly align 8 dereferenceable(80) %50), !noalias !468
+  %58 = extractvalue { ptr, i64 } %57, 0
+  %59 = extractvalue { ptr, i64 } %57, 1
+  %60 = call noundef i8 @"_ZN122_$LT$ruff_python_ast..nodes..AnyStringFlags$u20$as$u20$core..convert..From$LT$ruff_python_ast..nodes..FStringFlags$GT$$GT$4from17hd0a3347062a297b5E"(i8 noundef %48), !noalias !468
+  %61 = call fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9normalize23contains_opposite_quote17h4d9d40761eb1b746E(ptr noalias noundef nonnull readonly align 1 %58, i64 noundef %59, i8 noundef %60), !noalias !468
+  br i1 %61, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i"
 
-"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i": ; preds = %52, %48
-  %.not7.i.i = icmp eq ptr %50, %44
-  br i1 %.not7.i.i, label %.loopexit, label %48
+"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i": ; preds = %53, %49
+  %.not7.i.i = icmp eq ptr %51, %45
+  br i1 %.not7.i.i, label %.loopexit, label %49
 
-61:                                               ; preds = %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit.thread, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, %36
-  %62 = call { ptr, ptr } @_ZN15ruff_python_ast5nodes15FStringElements11expressions17ha3d2ed451b0984dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37), !noalias !476
-  %63 = extractvalue { ptr, ptr } %62, 0
-  %64 = extractvalue { ptr, ptr } %62, 1
-  %65 = icmp ne ptr %64, null
-  call void @llvm.assume(i1 %65)
-  %.not.i.i19 = icmp eq ptr %63, %64
+62:                                               ; preds = %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit.thread, %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, %37
+  %63 = call { ptr, ptr } @_ZN15ruff_python_ast5nodes15FStringElements11expressions17ha3d2ed451b0984dbE(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38), !noalias !476
+  %64 = extractvalue { ptr, ptr } %63, 0
+  %65 = extractvalue { ptr, ptr } %63, 1
+  %66 = icmp ne ptr %65, null
+  call void @llvm.assume(i1 %66)
+  %.not.i.i19 = icmp eq ptr %64, %65
   br i1 %.not.i.i19, label %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread, label %.lr.ph.i.i20
 
-.lr.ph.i.i20:                                     ; preds = %61
-  %66 = getelementptr inbounds nuw i8, ptr %37, i64 32
-  %67 = load i8, ptr %66, align 8, !alias.scope !479, !noalias !476
-  br label %68
+.lr.ph.i.i20:                                     ; preds = %62
+  %67 = getelementptr inbounds nuw i8, ptr %38, i64 32
+  %68 = load i8, ptr %67, align 8, !alias.scope !479, !noalias !476
+  br label %69
 
-68:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i20
-  %69 = phi ptr [ %63, %.lr.ph.i.i20 ], [ %70, %.backedge.i.i ]
-  %70 = getelementptr inbounds nuw i8, ptr %69, i64 80
+69:                                               ; preds = %.backedge.i.i, %.lr.ph.i.i20
+  %70 = phi ptr [ %64, %.lr.ph.i.i20 ], [ %71, %.backedge.i.i ]
+  %71 = getelementptr inbounds nuw i8, ptr %70, i64 80
   call void @llvm.experimental.noalias.scope.decl(metadata !481)
-  %71 = load i64, ptr %69, align 8, !range !36, !alias.scope !484, !noalias !487, !noundef !3
-  %72 = icmp eq i64 %71, -9223372036854775807
-  br i1 %72, label %.backedge.i.i, label %73
+  %72 = load i64, ptr %70, align 8, !range !36, !alias.scope !484, !noalias !487, !noundef !3
+  %73 = icmp eq i64 %72, -9223372036854775807
+  br i1 %73, label %.backedge.i.i, label %74
 
-73:                                               ; preds = %68
-  %74 = getelementptr inbounds nuw i8, ptr %69, i64 64
-  %.val7.i.i.i = load ptr, ptr %74, align 8, !alias.scope !481, !noalias !487, !align !4, !noundef !3
+74:                                               ; preds = %69
+  %75 = getelementptr inbounds nuw i8, ptr %70, i64 64
+  %.val7.i.i.i = load ptr, ptr %75, align 8, !alias.scope !481, !noalias !487, !align !4, !noundef !3
   %.not.i.i.i.i.i = icmp eq ptr %.val7.i.i.i, null
-  br i1 %.not.i.i.i.i.i, label %.backedge.i.i, label %75
+  br i1 %.not.i.i.i.i.i, label %.backedge.i.i, label %76
 
-75:                                               ; preds = %73
-  %76 = icmp ne i64 %71, -9223372036854775808
-  %77 = call fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug35has_format_spec_with_opposite_quote17hb8addfcfffea0c2fE(ptr noalias noundef readonly align 8 dereferenceable(24) %.val7.i.i.i, i8 noundef %67, ptr noalias noundef readonly align 8 dereferenceable(64) %9, i1 noundef zeroext %76), !noalias !490
-  br i1 %77, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %.backedge.i.i
+76:                                               ; preds = %74
+  %77 = icmp ne i64 %72, -9223372036854775808
+  %78 = call fastcc noundef zeroext i1 @_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug35has_format_spec_with_opposite_quote17hb8addfcfffea0c2fE(ptr noalias noundef readonly align 8 dereferenceable(24) %.val7.i.i.i, i8 noundef %68, ptr noalias noundef readonly align 8 dereferenceable(64) %9, i1 noundef zeroext %77), !noalias !490
+  br i1 %78, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %.backedge.i.i
 
-.backedge.i.i:                                    ; preds = %75, %73, %68
-  %.not8.i.i = icmp eq ptr %70, %64
-  br i1 %.not8.i.i, label %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread, label %68
+.backedge.i.i:                                    ; preds = %76, %74, %69
+  %.not8.i.i = icmp eq ptr %71, %65
+  br i1 %.not8.i.i, label %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread, label %69
 
-.loopexit:                                        ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i", %41
+.loopexit:                                        ; preds = %"_ZN4core4iter8adapters10filter_map19filter_map_try_fold28_$u7b$$u7b$closure$u7d$$u7d$17hf63e0547cfa8fbe5E.exit.backedge.i.i", %42
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !491
   store ptr %9, ptr %4, align 8, !noalias !491
-  %78 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i8 0, ptr %78, align 8, !noalias !491
-  %79 = call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37), !noalias !495
-  %80 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !495
-  br i1 %80, label %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, label %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit.thread
+  %79 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i8 0, ptr %79, align 8, !noalias !491
+  %80 = call { i64, ptr } @"_ZN121_$LT$ruff_python_ast..generated..AnyNodeRef$u20$as$u20$core..convert..From$LT$$RF$ruff_python_ast..nodes..FString$GT$$GT$4from17hd38dc24739f945faE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38), !noalias !495
+  %81 = call noundef zeroext i1 @_ZN15ruff_python_ast7visitor12source_order15TraversalSignal11is_traverse17h2332606f2288ce97E(i1 noundef zeroext false), !noalias !495
+  br i1 %81, label %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit, label %_ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit.thread
 
 _ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit.thread: ; preds = %.loopexit
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !491
-  br label %61
+  br label %62
 
 _ZN21ruff_python_formatter6string9normalize66is_fstring_with_triple_quoted_literal_expression_containing_quotes17h2d0c7e2ce7ae187cE.exit: ; preds = %.loopexit
-  call void @"_ZN15ruff_python_ast4node49_$LT$impl$u20$ruff_python_ast..nodes..FString$GT$18visit_source_order17h80b8264ff496b9fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %37, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
-  %.pre.i = load i8, ptr %78, align 8, !range !157, !noalias !491
-  %81 = trunc nuw i8 %.pre.i to i1
+  call void @"_ZN15ruff_python_ast4node49_$LT$impl$u20$ruff_python_ast..nodes..FString$GT$18visit_source_order17h80b8264ff496b9fbE"(ptr noalias noundef nonnull readonly align 8 dereferenceable(40) %38, ptr noalias noundef nonnull align 8 dereferenceable(16) %4)
+  %.pre.i = load i8, ptr %79, align 8, !range !157, !noalias !491
+  %82 = trunc nuw i8 %.pre.i to i1
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !491
-  br i1 %81, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %61
+  br i1 %82, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %62
 
-82:                                               ; preds = %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
-  %83 = call noundef i8 @_ZN21ruff_python_formatter7context15PyFormatContext9docstring17heee761aadea4cadaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9)
-  %.not = icmp eq i8 %83, 2
-  br i1 %.not, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %84
+83:                                               ; preds = %_ZN21ruff_python_formatter6string9normalize44is_fstring_with_quoted_format_spec_and_debug17h720d8c75a08aa9f1E.exit.thread
+  %84 = call noundef i8 @_ZN21ruff_python_formatter7context15PyFormatContext9docstring17heee761aadea4cadaE(ptr noalias noundef nonnull readonly align 8 dereferenceable(64) %9)
+  %.not = icmp eq i8 %84, 2
+  br i1 %.not, label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit, label %85
 
-84:                                               ; preds = %82
-  %85 = trunc nuw i8 %83 to i1
+85:                                               ; preds = %83
+  %86 = trunc nuw i8 %84 to i1
   br label %_ZN21ruff_python_formatter6string9normalize39is_fstring_with_quoted_debug_expression17h1dfc0798ba75a8cbE.exit.sink.split
 }
 

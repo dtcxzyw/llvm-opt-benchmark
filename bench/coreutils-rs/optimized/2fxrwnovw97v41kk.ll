@@ -2070,10 +2070,10 @@ define void @_ZN5uu_du2du17h0d5f2f12fdf6b866E(ptr noalias noundef writeonly sret
 229:                                              ; preds = %213
   %.sroa.015.0.copyload = load i128, ptr %47, align 16
   %.sroa.018.0.copyload = load i128, ptr %1, align 16
-  %230 = trunc i128 %.sroa.015.0.copyload to i64
-  %231 = icmp eq i64 %230, 1
-  %232 = trunc i128 %.sroa.018.0.copyload to i64
-  %233 = icmp eq i64 %232, 1
+  %230 = and i128 %.sroa.015.0.copyload, 18446744073709551615
+  %231 = icmp eq i128 %230, 1
+  %232 = and i128 %.sroa.018.0.copyload, 18446744073709551615
+  %233 = icmp eq i128 %232, 1
   %or.cond = select i1 %231, i1 %233, i1 false
   br i1 %or.cond, label %234, label %228
 

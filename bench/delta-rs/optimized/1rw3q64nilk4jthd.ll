@@ -2078,10 +2078,10 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %15 = load ptr, ptr %14, align 16, !noalias !257, !nonnull !7, !align !258, !noundef !7
   %16 = load i128, ptr %15, align 16, !range !256, !noalias !257, !noundef !7
   %17 = add nsw i128 %16, -3
-  %18 = trunc nuw nsw i128 %17 to i64
-  %19 = icmp ugt i128 %17, 34
-  %20 = icmp ne i64 %18, 24
-  %.not2.i.i.i.i = select i1 %19, i1 true, i1 %20
+  %18 = icmp ugt i128 %17, 34
+  %19 = and i128 %17, 18446744073709551615
+  %20 = icmp ne i128 %19, 24
+  %.not2.i.i.i.i = or i1 %18, %20
   br i1 %.not2.i.i.i.i, label %22, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.thread7.i.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.thread7.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.i.i", %.lr.ph.i.i
@@ -2611,10 +2611,10 @@ define hidden void @"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u2
   %15 = load ptr, ptr %14, align 16, !noalias !506, !nonnull !7, !align !258, !noundef !7
   %16 = load i128, ptr %15, align 16, !range !256, !noalias !506, !noundef !7
   %17 = add nsw i128 %16, -3
-  %18 = trunc nuw nsw i128 %17 to i64
-  %19 = icmp ugt i128 %17, 34
-  %20 = icmp ne i64 %18, 24
-  %.not2.i.i.i.i = select i1 %19, i1 true, i1 %20
+  %18 = icmp ugt i128 %17, 34
+  %19 = and i128 %17, 18446744073709551615
+  %20 = icmp ne i128 %19, 24
+  %.not2.i.i.i.i = or i1 %18, %20
   br i1 %.not2.i.i.i.i, label %22, label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.thread7.i.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.thread7.i.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.i.i", %.lr.ph.i.i
@@ -3887,10 +3887,10 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN108_$LT$cor
   %13 = load ptr, ptr %12, align 16, !noalias !931, !nonnull !7, !align !258, !noundef !7
   %14 = load i128, ptr %13, align 16, !range !256, !noalias !931, !noundef !7
   %15 = add nsw i128 %14, -3
-  %16 = trunc nuw nsw i128 %15 to i64
-  %17 = icmp ugt i128 %15, 34
-  %18 = icmp ne i64 %16, 24
-  %.not2.i.i.i = select i1 %17, i1 true, i1 %18
+  %16 = icmp ugt i128 %15, 34
+  %17 = and i128 %15, 18446744073709551615
+  %18 = icmp ne i128 %17, 24
+  %.not2.i.i.i = or i1 %16, %18
   br i1 %.not2.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.thread7.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.thread7.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.i", %.lr.ph.i
@@ -4016,10 +4016,10 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN108_$LT$cor
   %13 = load ptr, ptr %12, align 16, !noalias !990, !nonnull !7, !align !258, !noundef !7
   %14 = load i128, ptr %13, align 16, !range !256, !noalias !990, !noundef !7
   %15 = add nsw i128 %14, -3
-  %16 = trunc nuw nsw i128 %15 to i64
-  %17 = icmp ugt i128 %15, 34
-  %18 = icmp ne i64 %16, 24
-  %.not2.i.i.i = select i1 %17, i1 true, i1 %18
+  %16 = icmp ugt i128 %15, 34
+  %17 = and i128 %15, 18446744073709551615
+  %18 = icmp ne i128 %17, 24
+  %.not2.i.i.i = or i1 %16, %18
   br i1 %.not2.i.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split.i", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.thread7.i"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.thread7.i": ; preds = %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.i", %.lr.ph.i
@@ -47839,10 +47839,10 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
   %14 = load ptr, ptr %13, align 16, !nonnull !7, !align !258, !noundef !7
   %15 = load i128, ptr %14, align 16, !range !256, !noundef !7
   %16 = add nsw i128 %15, -3
-  %17 = trunc nuw nsw i128 %16 to i64
-  %18 = icmp ugt i128 %16, 34
-  %19 = icmp ne i64 %17, 24
-  %.not2.i.i = select i1 %18, i1 true, i1 %19
+  %17 = icmp ugt i128 %16, 34
+  %18 = and i128 %16, 18446744073709551615
+  %19 = icmp ne i128 %18, 24
+  %.not2.i.i = or i1 %17, %19
   br i1 %.not2.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.thread7"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit.thread7": ; preds = %.lr.ph, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17hb9954aac52040bf9E.exit"
@@ -47885,10 +47885,10 @@ define hidden noundef align 16 dereferenceable_or_null(272) ptr @"_ZN91_$LT$core
   %14 = load ptr, ptr %13, align 16, !nonnull !7, !align !258, !noundef !7
   %15 = load i128, ptr %14, align 16, !range !256, !noundef !7
   %16 = add nsw i128 %15, -3
-  %17 = trunc nuw nsw i128 %16 to i64
-  %18 = icmp ugt i128 %16, 34
-  %19 = icmp ne i64 %17, 24
-  %.not2.i.i = select i1 %18, i1 true, i1 %19
+  %17 = icmp ugt i128 %16, 34
+  %18 = and i128 %16, 18446744073709551615
+  %19 = icmp ne i128 %18, 24
+  %.not2.i.i = or i1 %17, %19
   br i1 %.not2.i.i, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h30d3f904c7f3531bE.llvm.240573438051967091.exit.thread.sink.split", label %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.thread7"
 
 "_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit.thread7": ; preds = %.lr.ph, %"_ZN4core3ops8function5impls79_$LT$impl$u20$core..ops..function..FnMut$LT$A$GT$$u20$for$u20$$RF$mut$u20$F$GT$8call_mut17he79f0908f55bc1b3E.exit"

@@ -13202,9 +13202,9 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %.fr to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %.fr, 64
-  %cmp.i.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc.i, 0
+  %1 = and i128 %.fr, 18446744073709551615
+  %cmp.i.i = icmp eq i128 %1, 0
   %x.addr.0.i.i = select i1 %cmp.i.i, i128 %coerce.sroa.2.0.extract.shift.i, i128 %.fr
   %n.0.i.i = select i1 %cmp.i.i, i32 65, i32 1
   %and3.i.i = and i128 %x.addr.0.i.i, 4294967295
@@ -13244,8 +13244,8 @@ _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit, %entry
-  %1 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
-  ret i64 %1
+  %2 = phi i64 [ 1, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13266,9 +13266,9 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %and.i to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %and.i, 64
-  %cmp.i.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc.i, 0
+  %1 = and i128 %and.i, 18446744073709551615
+  %cmp.i.i = icmp eq i128 %1, 0
   %x.addr.0.i.i = select i1 %cmp.i.i, i128 %coerce.sroa.2.0.extract.shift.i, i128 %and.i
   %n.0.i.i = select i1 %cmp.i.i, i32 65, i32 1
   %and3.i.i = and i128 %x.addr.0.i.i, 4294967295
@@ -13308,8 +13308,8 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
-  ret i64 %1
+  %2 = phi i64 [ 1, %entry ], [ 1, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13896,9 +13896,9 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %.fr to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %.fr, 64
-  %cmp.i.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc.i, 0
+  %1 = and i128 %.fr, 18446744073709551615
+  %cmp.i.i = icmp eq i128 %1, 0
   %x.addr.0.i.i = select i1 %cmp.i.i, i128 %coerce.sroa.2.0.extract.shift.i, i128 %.fr
   %n.0.i.i = select i1 %cmp.i.i, i32 65, i32 1
   %and3.i.i = and i128 %x.addr.0.i.i, 4294967295
@@ -13939,8 +13939,8 @@ _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit, %entry
-  %1 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
-  ret i64 %1
+  %2 = phi i64 [ 33, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -13961,9 +13961,9 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %and.i to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %and.i, 64
-  %cmp.i.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc.i, 0
+  %1 = and i128 %and.i, 18446744073709551615
+  %cmp.i.i = icmp eq i128 %1, 0
   %x.addr.0.i.i = select i1 %cmp.i.i, i128 %coerce.sroa.2.0.extract.shift.i, i128 %and.i
   %n.0.i.i = select i1 %cmp.i.i, i32 65, i32 1
   %and3.i.i = and i128 %x.addr.0.i.i, 4294967295
@@ -14004,8 +14004,8 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 33, %entry ], [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
-  ret i64 %1
+  %2 = phi i64 [ 33, %entry ], [ 33, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14603,9 +14603,9 @@ entry:
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %.fr to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %.fr, 64
-  %cmp.i.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc.i, 0
+  %1 = and i128 %.fr, 18446744073709551615
+  %cmp.i.i = icmp eq i128 %1, 0
   %x.addr.0.i.i = select i1 %cmp.i.i, i128 %coerce.sroa.2.0.extract.shift.i, i128 %.fr
   %n.0.i.i = select i1 %cmp.i.i, i32 65, i32 1
   %and3.i.i = and i128 %x.addr.0.i.i, 4294967295
@@ -14646,8 +14646,8 @@ _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit: ; preds = %entry
   br label %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit, %entry
-  %1 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
-  ret i64 %1
+  %2 = phi i64 [ 65, %entry ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE11DoFindFirstEv.exit ]
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -14668,9 +14668,9 @@ if.then.i:                                        ; preds = %entry
   br i1 %tobool.not.i.i, label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread, label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
-  %coerce.sroa.0.0.extract.trunc.i = trunc i128 %and.i to i64
   %coerce.sroa.2.0.extract.shift.i = lshr i128 %and.i, 64
-  %cmp.i.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc.i, 0
+  %1 = and i128 %and.i, 18446744073709551615
+  %cmp.i.i = icmp eq i128 %1, 0
   %x.addr.0.i.i = select i1 %cmp.i.i, i128 %coerce.sroa.2.0.extract.shift.i, i128 %and.i
   %n.0.i.i = select i1 %cmp.i.i, i32 65, i32 1
   %and3.i.i = and i128 %x.addr.0.i.i, 4294967295
@@ -14711,8 +14711,8 @@ _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit: ; preds = %if.then.i
   br label %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread
 
 _ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit.thread: ; preds = %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit, %if.then.i, %entry
-  %1 = phi i64 [ 65, %entry ], [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
-  ret i64 %1
+  %2 = phi i64 [ 65, %entry ], [ 65, %if.then.i ], [ %spec.select, %_ZNK5eastl10BitsetBaseILm1EoE10DoFindNextEm.exit ]
+  ret i64 %2
 }
 
 ; Function Attrs: mustprogress uwtable
@@ -15467,9 +15467,9 @@ entry:
   br i1 %tobool.not.i, label %if.end, label %_ZN5eastl11GetFirstBitEo.exit
 
 _ZN5eastl11GetFirstBitEo.exit:                    ; preds = %entry
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %0 to i64
   %coerce.sroa.2.0.extract.shift = lshr i128 %0, 64
-  %cmp.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc, 0
+  %1 = and i128 %0, 18446744073709551615
+  %cmp.i = icmp eq i128 %1, 0
   %x.addr.0.i = select i1 %cmp.i, i128 %coerce.sroa.2.0.extract.shift, i128 %0
   %n.0.i = select i1 %cmp.i, i32 65, i32 1
   %and3.i = and i128 %x.addr.0.i, 4294967295
@@ -15514,15 +15514,15 @@ if.then:                                          ; preds = %_ZN5eastl11GetFirst
 
 if.end:                                           ; preds = %entry, %_ZN5eastl11GetFirstBitEo.exit
   %arrayidx3 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i128, ptr %arrayidx3, align 16
-  %tobool.not.i8 = icmp eq i128 %1, 0
+  %2 = load i128, ptr %arrayidx3, align 16
+  %tobool.not.i8 = icmp eq i128 %2, 0
   br i1 %tobool.not.i8, label %return, label %_ZN5eastl11GetFirstBitEo.exit47
 
 _ZN5eastl11GetFirstBitEo.exit47:                  ; preds = %if.end
-  %coerce4.sroa.0.0.extract.trunc = trunc i128 %1 to i64
-  %coerce4.sroa.2.0.extract.shift = lshr i128 %1, 64
-  %cmp.i10 = icmp eq i64 %coerce4.sroa.0.0.extract.trunc, 0
-  %x.addr.0.i11 = select i1 %cmp.i10, i128 %coerce4.sroa.2.0.extract.shift, i128 %1
+  %coerce4.sroa.2.0.extract.shift = lshr i128 %2, 64
+  %3 = and i128 %2, 18446744073709551615
+  %cmp.i10 = icmp eq i128 %3, 0
+  %x.addr.0.i11 = select i1 %cmp.i10, i128 %coerce4.sroa.2.0.extract.shift, i128 %2
   %n.0.i12 = select i1 %cmp.i10, i32 65, i32 1
   %and3.i13 = and i128 %x.addr.0.i11, 4294967295
   %cmp4.i14 = icmp eq i128 %and3.i13, 0
@@ -15594,9 +15594,9 @@ if.then:                                          ; preds = %entry
   br i1 %tobool.not.i, label %if.end, label %_ZN5eastl11GetFirstBitEo.exit
 
 _ZN5eastl11GetFirstBitEo.exit:                    ; preds = %if.then
-  %coerce.sroa.0.0.extract.trunc = trunc i128 %and to i64
   %coerce.sroa.2.0.extract.shift = lshr i128 %and, 64
-  %cmp.i = icmp eq i64 %coerce.sroa.0.0.extract.trunc, 0
+  %1 = and i128 %and, 18446744073709551615
+  %cmp.i = icmp eq i128 %1, 0
   %x.addr.0.i = select i1 %cmp.i, i128 %coerce.sroa.2.0.extract.shift, i128 %and
   %n.0.i = select i1 %cmp.i, i32 65, i32 1
   %and3.i = and i128 %x.addr.0.i, 4294967295
@@ -15641,15 +15641,15 @@ if.then3:                                         ; preds = %_ZN5eastl11GetFirst
 
 if.end:                                           ; preds = %if.then, %_ZN5eastl11GetFirstBitEo.exit
   %arrayidx5 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %1 = load i128, ptr %arrayidx5, align 16
-  %tobool.not.i13 = icmp eq i128 %1, 0
+  %2 = load i128, ptr %arrayidx5, align 16
+  %tobool.not.i13 = icmp eq i128 %2, 0
   br i1 %tobool.not.i13, label %return, label %_ZN5eastl11GetFirstBitEo.exit52
 
 _ZN5eastl11GetFirstBitEo.exit52:                  ; preds = %if.end
-  %coerce6.sroa.0.0.extract.trunc = trunc i128 %1 to i64
-  %coerce6.sroa.2.0.extract.shift = lshr i128 %1, 64
-  %cmp.i15 = icmp eq i64 %coerce6.sroa.0.0.extract.trunc, 0
-  %x.addr.0.i16 = select i1 %cmp.i15, i128 %coerce6.sroa.2.0.extract.shift, i128 %1
+  %coerce6.sroa.2.0.extract.shift = lshr i128 %2, 64
+  %3 = and i128 %2, 18446744073709551615
+  %cmp.i15 = icmp eq i128 %3, 0
+  %x.addr.0.i16 = select i1 %cmp.i15, i128 %coerce6.sroa.2.0.extract.shift, i128 %2
   %n.0.i17 = select i1 %cmp.i15, i32 65, i32 1
   %and3.i18 = and i128 %x.addr.0.i16, 4294967295
   %cmp4.i19 = icmp eq i128 %and3.i18, 0
@@ -15699,17 +15699,17 @@ if.else:                                          ; preds = %entry
 if.then13:                                        ; preds = %if.else
   %sub = add nsw i64 %last_find, -127
   %arrayidx16 = getelementptr inbounds nuw i8, ptr %this, i64 16
-  %2 = load i128, ptr %arrayidx16, align 16
+  %4 = load i128, ptr %arrayidx16, align 16
   %sh_prom17 = zext nneg i64 %sub to i128
   %shl18 = shl nsw i128 -1, %sh_prom17
-  %and19 = and i128 %2, %shl18
+  %and19 = and i128 %4, %shl18
   %tobool.not.i57 = icmp eq i128 %and19, 0
   br i1 %tobool.not.i57, label %return, label %_ZN5eastl11GetFirstBitEo.exit96
 
 _ZN5eastl11GetFirstBitEo.exit96:                  ; preds = %if.then13
-  %coerce21.sroa.0.0.extract.trunc = trunc i128 %and19 to i64
   %coerce21.sroa.2.0.extract.shift = lshr i128 %and19, 64
-  %cmp.i59 = icmp eq i64 %coerce21.sroa.0.0.extract.trunc, 0
+  %5 = and i128 %and19, 18446744073709551615
+  %cmp.i59 = icmp eq i128 %5, 0
   %x.addr.0.i60 = select i1 %cmp.i59, i128 %coerce21.sroa.2.0.extract.shift, i128 %and19
   %n.0.i61 = select i1 %cmp.i59, i32 65, i32 1
   %and3.i62 = and i128 %x.addr.0.i60, 4294967295

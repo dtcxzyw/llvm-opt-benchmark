@@ -967,7 +967,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit"
   %.pre = load i64, ptr %9, align 8, !alias.scope !207, !noalias !210
-  %.pre64 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 3)
+  %.pre72 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 3)
   br label %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit.thread": ; preds = %18, %15, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit"
@@ -980,7 +980,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   unreachable
 
 _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge", %3
-  %.sink.i.pre-phi = phi i64 [ %.pre64, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge" ], [ %.sink.i.i, %3 ]
+  %.sink.i.pre-phi = phi i64 [ %.pre72, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge" ], [ %.sink.i.i, %3 ]
   %29 = phi i64 [ %.pre, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17h0f8b606d17c2fe98E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge" ], [ %10, %3 ]
   %30 = icmp ugt i64 %29, 3
   %31 = load ptr, ptr %0, align 8, !alias.scope !207, !noalias !210, !nonnull !8
@@ -995,21 +995,21 @@ _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17Sma
   %storemerge.lcssa = phi i64 [ %32, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ], [ %.sink.i.pre-phi, %53 ]
   store i64 %storemerge.lcssa, ptr %.sink9.i, align 8
   %34 = icmp eq ptr %.sroa.0.0.lcssa, %2
-  br i1 %34, label %.loopexit, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36"
+  br i1 %34, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36"
 
 .lr.ph:                                           ; preds = %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit, %53
-  %storemerge60 = phi i64 [ %56, %53 ], [ %32, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
-  %.sroa.0.059 = phi ptr [ %54, %53 ], [ %1, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
-  %35 = icmp eq ptr %.sroa.0.059, %2
+  %storemerge67 = phi i64 [ %56, %53 ], [ %32, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
+  %.sroa.0.066 = phi ptr [ %54, %53 ], [ %1, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
+  %35 = icmp eq ptr %.sroa.0.066, %2
   br i1 %35, label %.thread, label %51
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36": ; preds = %._crit_edge, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h9fad2cc59e4268a0E.exit"
-  %.sroa.050.080 = phi ptr [ %36, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h9fad2cc59e4268a0E.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.050.080, i64 3
-  %.sroa.0.0.copyload.i.i26 = load i24, ptr %.sroa.050.080, align 1, !alias.scope !212, !noalias !215
-  %.sroa.04.0.extract.trunc.i27 = trunc i24 %.sroa.0.0.copyload.i.i26 to i8
-  %37 = icmp eq i8 %.sroa.04.0.extract.trunc.i27, 8
-  br i1 %37, label %.loopexit, label %38
+  %.sroa.050.069 = phi ptr [ %36, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h9fad2cc59e4268a0E.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.050.069, i64 3
+  %.sroa.0.0.copyload.i.i26 = load i24, ptr %.sroa.050.069, align 1, !alias.scope !212, !noalias !215
+  %.sroa.0.0.insert.ext.i34 = and i24 %.sroa.0.0.copyload.i.i26, 255
+  %37 = icmp eq i24 %.sroa.0.0.insert.ext.i34, 8
+  br i1 %37, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36.thread", label %38
 
 38:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36"
   %39 = load i64, ptr %9, align 8, !alias.scope !218, !noalias !223, !noundef !8
@@ -1038,13 +1038,13 @@ _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17Sma
   %49 = add i64 %48, 1
   store i64 %49, ptr %.sroa.04.0.i, align 8, !alias.scope !225
   %50 = icmp eq ptr %36, %2
-  br i1 %50, label %.loopexit, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36"
+  br i1 %50, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36"
 
-.loopexit:                                        ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36", %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h9fad2cc59e4268a0E.exit", %._crit_edge, %.thread
+"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36.thread": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36", %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h9fad2cc59e4268a0E.exit", %._crit_edge, %.thread
   ret void
 
 51:                                               ; preds = %.lr.ph
-  %.sroa.0.0.copyload.i.i = load i24, ptr %.sroa.0.059, align 1, !alias.scope !226, !noalias !229
+  %.sroa.0.0.copyload.i.i = load i24, ptr %.sroa.0.066, align 1, !alias.scope !226, !noalias !229
   %.sroa.04.0.extract.trunc.i = trunc i24 %.sroa.0.0.copyload.i.i to i8
   %52 = icmp eq i8 %.sroa.04.0.extract.trunc.i, 8
   br i1 %52, label %.thread, label %53
@@ -1052,18 +1052,18 @@ _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17Sma
 53:                                               ; preds = %51
   %.sroa.04.1.extract.shift.i = lshr i24 %.sroa.0.0.copyload.i.i, 8
   %.sroa.04.1.extract.trunc.i = trunc nuw i24 %.sroa.04.1.extract.shift.i to i16
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.059, i64 3
-  %55 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sink10.i, i64 %storemerge60
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.066, i64 3
+  %55 = getelementptr inbounds { i8, [2 x i8] }, ptr %.sink10.i, i64 %storemerge67
   store i8 %.sroa.04.0.extract.trunc.i, ptr %55, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 1
   store i16 %.sroa.04.1.extract.trunc.i, ptr %.sroa.2.0..sroa_idx, align 1
-  %56 = add i64 %storemerge60, 1
+  %56 = add i64 %storemerge67, 1
   %exitcond.not = icmp eq i64 %56, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %51
-  store i64 %storemerge60, ptr %.sink9.i, align 8
-  br label %.loopexit
+  store i64 %storemerge67, ptr %.sink9.i, align 8
+  br label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h90855cd7e918c7b9E.exit36.thread"
 }
 
 ; Function Attrs: nonlazybind uwtable
@@ -1111,7 +1111,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge": ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit"
   %.pre = load i64, ptr %9, align 8, !alias.scope !240, !noalias !243
-  %.pre64 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 3)
+  %.pre72 = tail call i64 @llvm.umax.i64(i64 %.pre, i64 3)
   br label %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit
 
 "_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit.thread": ; preds = %18, %15, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit"
@@ -1124,7 +1124,7 @@ define hidden void @"_ZN133_$LT$smallvec..SmallVec$LT$A$GT$$u20$as$u20$core..ite
   unreachable
 
 _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge", %3
-  %.sink.i.pre-phi = phi i64 [ %.pre64, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge" ], [ %.sink.i.i, %3 ]
+  %.sink.i.pre-phi = phi i64 [ %.pre72, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge" ], [ %.sink.i.i, %3 ]
   %29 = phi i64 [ %.pre, %"_ZN8smallvec17SmallVec$LT$A$GT$11try_reserve17hd19bb440343c5013E.exit._ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit_crit_edge" ], [ %10, %3 ]
   %30 = icmp ugt i64 %29, 3
   %31 = load ptr, ptr %0, align 8, !alias.scope !240, !noalias !243, !nonnull !8
@@ -1139,21 +1139,21 @@ _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17Sma
   %storemerge.lcssa = phi i64 [ %32, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ], [ %.sink.i.pre-phi, %53 ]
   store i64 %storemerge.lcssa, ptr %.sink9.i, align 8
   %34 = icmp eq ptr %.sroa.0.0.lcssa, %2
-  br i1 %34, label %.loopexit, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36"
+  br i1 %34, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36"
 
 .lr.ph:                                           ; preds = %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit, %53
-  %storemerge60 = phi i64 [ %56, %53 ], [ %32, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
-  %.sroa.0.059 = phi ptr [ %54, %53 ], [ %1, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
-  %35 = icmp eq ptr %.sroa.0.059, %2
+  %storemerge67 = phi i64 [ %56, %53 ], [ %32, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
+  %.sroa.0.066 = phi ptr [ %54, %53 ], [ %1, %_ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit ]
+  %35 = icmp eq ptr %.sroa.0.066, %2
   br i1 %35, label %.thread, label %51
 
 "_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36": ; preds = %._crit_edge, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h97f9cf2ec1452fd1E.exit"
-  %.sroa.050.080 = phi ptr [ %36, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h97f9cf2ec1452fd1E.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sroa.050.080, i64 5
-  %.sroa.0.0.copyload.i.i26 = load i40, ptr %.sroa.050.080, align 1, !alias.scope !245, !noalias !248
-  %.sroa.04.0.extract.trunc.i27 = trunc i40 %.sroa.0.0.copyload.i.i26 to i8
-  %37 = icmp eq i8 %.sroa.04.0.extract.trunc.i27, 8
-  br i1 %37, label %.loopexit, label %38
+  %.sroa.050.069 = phi ptr [ %36, %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h97f9cf2ec1452fd1E.exit" ], [ %.sroa.0.0.lcssa, %._crit_edge ]
+  %36 = getelementptr inbounds nuw i8, ptr %.sroa.050.069, i64 5
+  %.sroa.0.0.copyload.i.i26 = load i40, ptr %.sroa.050.069, align 1, !alias.scope !245, !noalias !248
+  %.sroa.0.0.insert.ext.i34 = and i40 %.sroa.0.0.copyload.i.i26, 255
+  %37 = icmp eq i40 %.sroa.0.0.insert.ext.i34, 8
+  br i1 %37, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36.thread", label %38
 
 38:                                               ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36"
   %39 = load i64, ptr %9, align 8, !alias.scope !251, !noalias !256, !noundef !8
@@ -1182,13 +1182,13 @@ _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17Sma
   %49 = add i64 %48, 1
   store i64 %49, ptr %.sroa.04.0.i, align 8, !alias.scope !258
   %50 = icmp eq ptr %36, %2
-  br i1 %50, label %.loopexit, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36"
+  br i1 %50, label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36.thread", label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36"
 
-.loopexit:                                        ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36", %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h97f9cf2ec1452fd1E.exit", %._crit_edge, %.thread
+"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36.thread": ; preds = %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36", %"_ZN8smallvec17SmallVec$LT$A$GT$4push17h97f9cf2ec1452fd1E.exit", %._crit_edge, %.thread
   ret void
 
 51:                                               ; preds = %.lr.ph
-  %.sroa.0.0.copyload.i.i = load i40, ptr %.sroa.0.059, align 1, !alias.scope !259, !noalias !262
+  %.sroa.0.0.copyload.i.i = load i40, ptr %.sroa.0.066, align 1, !alias.scope !259, !noalias !262
   %.sroa.04.0.extract.trunc.i = trunc i40 %.sroa.0.0.copyload.i.i to i8
   %52 = icmp eq i8 %.sroa.04.0.extract.trunc.i, 8
   br i1 %52, label %.thread, label %53
@@ -1196,18 +1196,18 @@ _ZN8smallvec10infallible17h4fa5216895ffdf1dE.exit: ; preds = %"_ZN8smallvec17Sma
 53:                                               ; preds = %51
   %.sroa.04.1.extract.shift.i = lshr i40 %.sroa.0.0.copyload.i.i, 8
   %.sroa.04.1.extract.trunc.i = trunc nuw i40 %.sroa.04.1.extract.shift.i to i32
-  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.059, i64 5
-  %55 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sink10.i, i64 %storemerge60
+  %54 = getelementptr inbounds nuw i8, ptr %.sroa.0.066, i64 5
+  %55 = getelementptr inbounds { i8, [4 x i8] }, ptr %.sink10.i, i64 %storemerge67
   store i8 %.sroa.04.0.extract.trunc.i, ptr %55, align 1
   %.sroa.2.0..sroa_idx = getelementptr inbounds nuw i8, ptr %55, i64 1
   store i32 %.sroa.04.1.extract.trunc.i, ptr %.sroa.2.0..sroa_idx, align 1
-  %56 = add i64 %storemerge60, 1
+  %56 = add i64 %storemerge67, 1
   %exitcond.not = icmp eq i64 %56, %.sink.i.pre-phi
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph
 
 .thread:                                          ; preds = %.lr.ph, %51
-  store i64 %storemerge60, ptr %.sink9.i, align 8
-  br label %.loopexit
+  store i64 %storemerge67, ptr %.sink9.i, align 8
+  br label %"_ZN104_$LT$core..iter..adapters..cloned..Cloned$LT$I$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h6a88bdd20a794b9aE.exit36.thread"
 }
 
 ; Function Attrs: nonlazybind uwtable

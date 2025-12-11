@@ -183049,13 +183049,13 @@ define noundef zeroext i1 @"_ZN273_$LT$$LT$polars_plan..dsl..function_expr..rand
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(none) uwtable
 define { ptr, i64 } @"_ZN11polars_plan3dsl13function_expr6random118_$LT$impl$u20$core..convert..From$LT$polars_plan..dsl..function_expr..random..RandomMethod$GT$$u20$for$u20$$RF$str$GT$4from17he22a6df5925e676bE"(i24 %0) unnamed_addr #6 {
-  %.sroa.01.0.extract.trunc = trunc i24 %0 to i8
-  %.not = icmp eq i8 %.sroa.01.0.extract.trunc, 2
+  %2 = and i24 %0, 255
+  %.not = icmp eq i24 %2, 2
   %anon.afe9e91cad546e80c20547a8bf0cd769.616.anon.afe9e91cad546e80c20547a8bf0cd769.617 = select i1 %.not, ptr @anon.afe9e91cad546e80c20547a8bf0cd769.616, ptr @anon.afe9e91cad546e80c20547a8bf0cd769.617
   %. = select i1 %.not, i64 7, i64 6
-  %2 = insertvalue { ptr, i64 } poison, ptr %anon.afe9e91cad546e80c20547a8bf0cd769.616.anon.afe9e91cad546e80c20547a8bf0cd769.617, 0
-  %3 = insertvalue { ptr, i64 } %2, i64 %., 1
-  ret { ptr, i64 } %3
+  %3 = insertvalue { ptr, i64 } poison, ptr %anon.afe9e91cad546e80c20547a8bf0cd769.616.anon.afe9e91cad546e80c20547a8bf0cd769.617, 0
+  %4 = insertvalue { ptr, i64 } %3, i64 %., 1
+  ret { ptr, i64 } %4
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: read) uwtable

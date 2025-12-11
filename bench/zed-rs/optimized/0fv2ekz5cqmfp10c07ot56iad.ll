@@ -121016,7 +121016,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread32
+    i8 2, label %.thread39
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121076,14 +121076,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread32
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread39
 
-.thread32:                                        ; preds = %3, %25
-  %.sroa.03.012.i35.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i35.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i35.off8, ptr %5, align 1
+.thread39:                                        ; preds = %3, %25
+  %.sroa.03.012.i42.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i42.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i42.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i35.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i42.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %35 unwind label %33
@@ -121100,13 +121100,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr150drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hb9f5b2bf46764987E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   br label %"_ZN4core3ptr180drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h25dd1421aef1bc0cE.exit"
 
-33:                                               ; preds = %.thread32
+33:                                               ; preds = %.thread39
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %38
 
-35:                                               ; preds = %.thread32
+35:                                               ; preds = %.thread39
   %36 = load i64, ptr %6, align 8, !range !183, !noundef !9
   %trunc15 = trunc nuw i64 %36 to i1
   br i1 %trunc15, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit22", label %37
@@ -121159,7 +121159,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread31
+    i8 2, label %.thread38
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121219,14 +121219,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread31
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread38
 
-.thread31:                                        ; preds = %3, %25
-  %.sroa.03.012.i34.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i34.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i34.off8, ptr %5, align 1
+.thread38:                                        ; preds = %3, %25
+  %.sroa.03.012.i41.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i41.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i41.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i34.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i41.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %33 unwind label %31
@@ -121242,13 +121242,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr324drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpAddress$GT$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hd94323a78b701c51E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
   br label %"_ZN4core3ptr354drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..IpAddress$GT$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..sockets..network..ErrorCode$GT$$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h2743de12e4938de4E.exit"
 
-31:                                               ; preds = %.thread31
+31:                                               ; preds = %.thread38
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %37
 
-33:                                               ; preds = %.thread31
+33:                                               ; preds = %.thread38
   %34 = load i64, ptr %6, align 8, !range !768, !noundef !9
   %35 = icmp eq i64 %34, 2
   br i1 %35, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit20", label %36
@@ -121300,7 +121300,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread32
+    i8 2, label %.thread39
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121360,14 +121360,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread32
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread39
 
-.thread32:                                        ; preds = %3, %25
-  %.sroa.03.012.i35.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i35.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i35.off8, ptr %5, align 1
+.thread39:                                        ; preds = %3, %25
+  %.sroa.03.012.i42.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i42.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i42.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i35.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i42.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %35 unwind label %33
@@ -121384,13 +121384,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr366drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h5227dc819ba60eceE.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   br label %"_ZN4core3ptr396drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..open_at..$u7b$$u7b$closure$u7d$$u7d$..OpenResult$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h82c54506aa9dfb40E.exit"
 
-33:                                               ; preds = %.thread32
+33:                                               ; preds = %.thread39
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %38
 
-35:                                               ; preds = %.thread32
+35:                                               ; preds = %.thread39
   %36 = load i64, ptr %6, align 8, !range !183, !noundef !9
   %trunc15 = trunc nuw i64 %36 to i1
   br i1 %trunc15, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit22", label %37
@@ -121443,7 +121443,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread31
+    i8 2, label %.thread38
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121503,14 +121503,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread31
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread38
 
-.thread31:                                        ; preds = %3, %25
-  %.sroa.03.012.i34.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i34.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i34.off8, ptr %5, align 1
+.thread38:                                        ; preds = %3, %25
+  %.sroa.03.012.i41.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i41.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i41.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i34.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i41.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %33 unwind label %31
@@ -121526,13 +121526,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr184drop_in_place$LT$core..result..Result$LT$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hf17626142ee36da9E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(48) %6)
   br label %"_ZN4core3ptr214drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$bytes..bytes_mut..BytesMut$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h49bd279263f644eeE.exit"
 
-31:                                               ; preds = %.thread31
+31:                                               ; preds = %.thread38
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %37
 
-33:                                               ; preds = %.thread31
+33:                                               ; preds = %.thread38
   %34 = load i64, ptr %6, align 8, !range !718, !noundef !9
   %35 = icmp eq i64 %34, 3
   br i1 %35, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit20", label %36
@@ -121585,7 +121585,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %8, label %default.unreachable [
     i8 0, label %9
     i8 1, label %10
-    i8 2, label %.thread31
+    i8 2, label %.thread38
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121645,14 +121645,14 @@ default.unreachable:                              ; preds = %3
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %29, label %.thread31
+  br i1 %.sroa.0.0.i.i9.i, label %29, label %.thread38
 
-.thread31:                                        ; preds = %3, %26
-  %.sroa.03.012.i34.off8 = phi i8 [ %11, %26 ], [ 0, %3 ]
-  %.sroa.03.012.i34.off16 = phi i8 [ %.sroa.4.0.i.i.i, %26 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i34.off8, ptr %5, align 1
+.thread38:                                        ; preds = %3, %26
+  %.sroa.03.012.i41.off8 = phi i8 [ %11, %26 ], [ 0, %3 ]
+  %.sroa.03.012.i41.off16 = phi i8 [ %.sroa.4.0.i.i.i, %26 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i41.off8, ptr %5, align 1
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i34.off16, ptr %27, align 1
+  store i8 %.sroa.03.012.i41.off16, ptr %27, align 1
   %28 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %28, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %35 unwind label %33
@@ -121669,13 +121669,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr180drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h26142c56692e5689E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(192) %6)
   br label %"_ZN4core3ptr210drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$cap_primitives..fs..metadata..Metadata$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17ha0a7decdc119c1bcE.exit"
 
-33:                                               ; preds = %.thread31
+33:                                               ; preds = %.thread38
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %39
 
-35:                                               ; preds = %.thread31
+35:                                               ; preds = %.thread38
   %36 = load i32, ptr %7, align 8, !range !5752, !noundef !9
   %37 = icmp eq i32 %36, 1000000003
   br i1 %37, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit20", label %38
@@ -121727,7 +121727,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread30
+    i8 2, label %.thread37
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121787,14 +121787,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread30
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread37
 
-.thread30:                                        ; preds = %3, %25
-  %.sroa.03.012.i33.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i33.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i33.off8, ptr %5, align 1
+.thread37:                                        ; preds = %3, %25
+  %.sroa.03.012.i40.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i40.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i40.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i33.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i40.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %55 unwind label %53
@@ -121865,13 +121865,13 @@ common.resume:                                    ; preds = %.thread, %49
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda0153bb71158c44E.llvm.10833762189268282141"(ptr noalias noundef nonnull align 8 dereferenceable(16) %41)
   br label %"_ZN4core3ptr272drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$wasmtime_wasi..error..TrappableError$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..ErrorCode$GT$$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17h6964e8239d24830eE.exit"
 
-53:                                               ; preds = %.thread30
+53:                                               ; preds = %.thread37
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %58
 
-55:                                               ; preds = %.thread30
+55:                                               ; preds = %.thread37
   %56 = load i64, ptr %6, align 8, !range !183, !noundef !9
   %trunc15 = trunc nuw i64 %56 to i1
   br i1 %trunc15, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit22", label %57
@@ -121916,7 +121916,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %8, label %default.unreachable [
     i8 0, label %9
     i8 1, label %10
-    i8 2, label %.thread29
+    i8 2, label %.thread36
   ]
 
 default.unreachable:                              ; preds = %3
@@ -121976,14 +121976,14 @@ default.unreachable:                              ; preds = %3
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.sroa.0.0.i.i9.i, label %29, label %.thread29
+  br i1 %.sroa.0.0.i.i9.i, label %29, label %.thread36
 
-.thread29:                                        ; preds = %3, %26
-  %.sroa.03.012.i32.off8 = phi i8 [ %11, %26 ], [ 0, %3 ]
-  %.sroa.03.012.i32.off16 = phi i8 [ %.sroa.4.0.i.i.i, %26 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i32.off8, ptr %6, align 1
+.thread36:                                        ; preds = %3, %26
+  %.sroa.03.012.i39.off8 = phi i8 [ %11, %26 ], [ 0, %3 ]
+  %.sroa.03.012.i39.off16 = phi i8 [ %.sroa.4.0.i.i.i, %26 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i39.off8, ptr %6, align 1
   %27 = getelementptr inbounds nuw i8, ptr %6, i64 1
-  store i8 %.sroa.03.012.i32.off16, ptr %27, align 1
+  store i8 %.sroa.03.012.i39.off16, ptr %27, align 1
   %28 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %28, ptr noundef nonnull %7, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %71 unwind label %69
@@ -122099,13 +122099,13 @@ common.resume:                                    ; preds = %.thread, %65, %41, 
   call void @"_ZN72_$LT$alloc..boxed..Box$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hda0153bb71158c44E.llvm.10833762189268282141"(ptr noalias noundef nonnull align 8 dereferenceable(16) %57)
   br label %"_ZN4core3ptr533drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$alloc..vec..Vec$LT$core..result..Result$LT$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..DirectoryEntry$C$wasmtime_wasi..host..filesystem..$LT$impl$u20$wasmtime_wasi..bindings..async_io..wasi..filesystem..types..HostDescriptor$u20$for$u20$wasmtime_wasi..ctx..WasiImpl$LT$T$GT$$GT$..read_directory..$u7b$$u7b$closure$u7d$$u7d$..ReaddirError$GT$$GT$$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hd0611fc5fc33e6f9E.exit"
 
-69:                                               ; preds = %.thread29
+69:                                               ; preds = %.thread36
   %70 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %6)
           to label %.thread unwind label %75
 
-71:                                               ; preds = %.thread29
+71:                                               ; preds = %.thread36
   %72 = load i64, ptr %7, align 8, !range !768, !noundef !9
   %73 = icmp eq i64 %72, 2
   br i1 %73, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit20", label %74
@@ -122149,7 +122149,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread31
+    i8 2, label %.thread38
   ]
 
 default.unreachable:                              ; preds = %3
@@ -122209,14 +122209,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread31
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread38
 
-.thread31:                                        ; preds = %3, %25
-  %.sroa.03.012.i34.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i34.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i34.off8, ptr %5, align 1
+.thread38:                                        ; preds = %3, %25
+  %.sroa.03.012.i41.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i41.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i41.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i34.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i41.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %33 unwind label %31
@@ -122232,13 +122232,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr160drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h80e7bc6668a42241E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(32) %6)
   br label %"_ZN4core3ptr190drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$std..path..PathBuf$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hb92fdacc63ba10fcE.exit"
 
-31:                                               ; preds = %.thread31
+31:                                               ; preds = %.thread38
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %37
 
-33:                                               ; preds = %.thread31
+33:                                               ; preds = %.thread38
   %34 = load i64, ptr %6, align 8, !range !768, !noundef !9
   %35 = icmp eq i64 %34, 2
   br i1 %35, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit20", label %36
@@ -122290,7 +122290,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread32
+    i8 2, label %.thread39
   ]
 
 default.unreachable:                              ; preds = %3
@@ -122350,14 +122350,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread32
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread39
 
-.thread32:                                        ; preds = %3, %25
-  %.sroa.03.012.i35.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i35.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i35.off8, ptr %5, align 1
+.thread39:                                        ; preds = %3, %25
+  %.sroa.03.012.i42.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i42.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i42.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i35.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i42.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %35 unwind label %33
@@ -122374,13 +122374,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr147drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hc7dc5cb729afcee2E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   br label %"_ZN4core3ptr177drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$usize$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hb18fd589fc954f27E.exit"
 
-33:                                               ; preds = %.thread32
+33:                                               ; preds = %.thread39
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %38
 
-35:                                               ; preds = %.thread32
+35:                                               ; preds = %.thread39
   %36 = load i64, ptr %6, align 8, !range !183, !noundef !9
   %trunc15 = trunc nuw i64 %36 to i1
   br i1 %trunc15, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit22", label %37
@@ -122433,7 +122433,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %8
     i8 1, label %9
-    i8 2, label %.thread32
+    i8 2, label %.thread39
   ]
 
 default.unreachable:                              ; preds = %3
@@ -122493,14 +122493,14 @@ default.unreachable:                              ; preds = %3
 
 25:                                               ; preds = %23
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread32
+  br i1 %.sroa.0.0.i.i9.i, label %28, label %.thread39
 
-.thread32:                                        ; preds = %3, %25
-  %.sroa.03.012.i35.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
-  %.sroa.03.012.i35.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i35.off8, ptr %5, align 1
+.thread39:                                        ; preds = %3, %25
+  %.sroa.03.012.i42.off8 = phi i8 [ %10, %25 ], [ 0, %3 ]
+  %.sroa.03.012.i42.off16 = phi i8 [ %.sroa.4.0.i.i.i, %25 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i42.off8, ptr %5, align 1
   %26 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i35.off16, ptr %26, align 1
+  store i8 %.sroa.03.012.i42.off16, ptr %26, align 1
   %27 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %27, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %35 unwind label %33
@@ -122517,13 +122517,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr181drop_in_place$LT$core..result..Result$LT$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$17hb7df91be79e74ad9E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(24) %32)
   br label %"_ZN4core3ptr211drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$system_interface..fs..fd_flags..FdFlags$C$std..io..error..Error$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hcdba8baa26cd5213E.exit"
 
-33:                                               ; preds = %.thread32
+33:                                               ; preds = %.thread39
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %38
 
-35:                                               ; preds = %.thread32
+35:                                               ; preds = %.thread39
   %36 = load i64, ptr %6, align 8, !range !183, !noundef !9
   %trunc15 = trunc nuw i64 %36 to i1
   br i1 %trunc15, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit22", label %37
@@ -122577,7 +122577,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %8, label %default.unreachable [
     i8 0, label %9
     i8 1, label %10
-    i8 2, label %.thread31
+    i8 2, label %.thread38
   ]
 
 default.unreachable:                              ; preds = %3
@@ -122637,14 +122637,14 @@ default.unreachable:                              ; preds = %3
 
 26:                                               ; preds = %24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %29, label %.thread31
+  br i1 %.sroa.0.0.i.i9.i, label %29, label %.thread38
 
-.thread31:                                        ; preds = %3, %26
-  %.sroa.03.012.i34.off8 = phi i8 [ %11, %26 ], [ 0, %3 ]
-  %.sroa.03.012.i34.off16 = phi i8 [ %.sroa.4.0.i.i.i, %26 ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i34.off8, ptr %5, align 1
+.thread38:                                        ; preds = %3, %26
+  %.sroa.03.012.i41.off8 = phi i8 [ %11, %26 ], [ 0, %3 ]
+  %.sroa.03.012.i41.off16 = phi i8 [ %.sroa.4.0.i.i.i, %26 ], [ 0, %3 ]
+  store i8 %.sroa.03.012.i41.off8, ptr %5, align 1
   %27 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i34.off16, ptr %27, align 1
+  store i8 %.sroa.03.012.i41.off16, ptr %27, align 1
   %28 = load ptr, ptr %1, align 8, !nonnull !9, !noundef !9
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h4ef49f950b3ac777E(ptr noundef nonnull %28, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %.val)
           to label %35 unwind label %33
@@ -122661,13 +122661,13 @@ default.unreachable:                              ; preds = %3
   call void @"_ZN4core3ptr183drop_in_place$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$17h8a610ee9c971bd70E.llvm.16188651594484228709"(ptr noalias noundef nonnull align 8 dereferenceable(40) %6)
   br label %"_ZN4core3ptr213drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$$LP$alloc..vec..Vec$LT$u8$GT$$C$core..result..Result$LT$usize$C$std..io..error..Error$GT$$RP$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hb6679e72bf7299fbE.exit"
 
-33:                                               ; preds = %.thread31
+33:                                               ; preds = %.thread38
   %34 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN80_$LT$tokio..runtime..coop..RestoreOnPending$u20$as$u20$core..ops..drop..Drop$GT$4drop17hd9a8cee337a7fee6E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5)
           to label %.thread unwind label %39
 
-35:                                               ; preds = %.thread31
+35:                                               ; preds = %.thread38
   %36 = load i64, ptr %7, align 8, !range !718, !noundef !9
   %37 = icmp eq i64 %36, 3
   br i1 %37, label %"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..coop..RestoreOnPending$GT$17h03d679a24c9ad44eE.exit20", label %38

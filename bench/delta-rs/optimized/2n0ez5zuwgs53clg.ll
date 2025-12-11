@@ -7569,10 +7569,10 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h301f8fe827dc292dE(ptr
   %7 = alloca { i128, [32 x i64] }, align 16
   %8 = load i128, ptr %1, align 16, !range !1279, !noundef !4
   %9 = add nsw i128 %8, -3
-  %10 = trunc nuw nsw i128 %9 to i64
-  %11 = icmp ult i128 %9, 35
-  %12 = icmp eq i64 %10, 22
-  %13 = select i1 %11, i1 %12, i1 false
+  %10 = icmp ult i128 %9, 35
+  %11 = and i128 %9, 18446744073709551615
+  %12 = icmp eq i128 %11, 22
+  %13 = and i1 %10, %12
   br i1 %13, label %14, label %42
 
 14:                                               ; preds = %3
@@ -7598,10 +7598,10 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h301f8fe827dc292dE(ptr
   call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 272, i64 noundef 16) #47, !noalias !1282
   %23 = load i128, ptr %1, align 16, !range !1279, !noundef !4
   %24 = add nsw i128 %23, -3
-  %25 = trunc nuw nsw i128 %24 to i64
-  %26 = icmp ult i128 %24, 35
-  %27 = icmp eq i64 %25, 22
-  %28 = select i1 %26, i1 %27, i1 false
+  %25 = icmp ult i128 %24, 35
+  %26 = and i128 %24, 18446744073709551615
+  %27 = icmp eq i128 %26, 22
+  %28 = and i1 %25, %27
   br i1 %28, label %.thread, label %63
 
 29:                                               ; preds = %14
@@ -7704,10 +7704,10 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h301f8fe827dc292dE(ptr
   tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 272, i64 noundef 16) #47, !noalias !1305
   %56 = load i128, ptr %1, align 16, !range !1279, !noundef !4
   %57 = add nsw i128 %56, -3
-  %58 = trunc nuw nsw i128 %57 to i64
-  %59 = icmp ult i128 %57, 35
-  %60 = icmp eq i64 %58, 22
-  %61 = select i1 %59, i1 %60, i1 false
+  %58 = icmp ult i128 %57, 35
+  %59 = and i128 %57, 18446744073709551615
+  %60 = icmp eq i128 %59, 22
+  %61 = and i1 %58, %60
   br i1 %61, label %53, label %62
 
 62:                                               ; preds = %54
@@ -7732,10 +7732,10 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h5e31ec44c1c112f0E(ptr
   %7 = alloca { i128, [32 x i64] }, align 16
   %8 = load i128, ptr %1, align 16, !range !1279, !noundef !4
   %9 = add nsw i128 %8, -3
-  %10 = trunc nuw nsw i128 %9 to i64
-  %11 = icmp ult i128 %9, 35
-  %12 = icmp eq i64 %10, 22
-  %13 = select i1 %11, i1 %12, i1 false
+  %10 = icmp ult i128 %9, 35
+  %11 = and i128 %9, 18446744073709551615
+  %12 = icmp eq i128 %11, 22
+  %13 = and i1 %10, %12
   br i1 %13, label %14, label %21
 
 14:                                               ; preds = %3
@@ -7769,10 +7769,10 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h5e31ec44c1c112f0E(ptr
   call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 272, i64 noundef 16) #47, !noalias !1308
   %24 = load i128, ptr %1, align 16, !range !1279, !noundef !4
   %25 = add nsw i128 %24, -3
-  %26 = trunc nuw nsw i128 %25 to i64
-  %27 = icmp ult i128 %25, 35
-  %28 = icmp eq i64 %26, 22
-  %29 = select i1 %27, i1 %28, i1 false
+  %26 = icmp ult i128 %25, 35
+  %27 = and i128 %25, 18446744073709551615
+  %28 = icmp eq i128 %27, 22
+  %29 = and i1 %26, %28
   br i1 %29, label %.thread, label %65
 
 30:                                               ; preds = %14
@@ -7875,10 +7875,10 @@ define hidden void @_ZN15datafusion_expr4expr4Expr5alias17h5e31ec44c1c112f0E(ptr
   tail call void @__rust_dealloc(ptr noundef nonnull %16, i64 noundef 272, i64 noundef 16) #47, !noalias !1326
   %56 = load i128, ptr %1, align 16, !range !1279, !noundef !4
   %57 = add nsw i128 %56, -3
-  %58 = trunc nuw nsw i128 %57 to i64
-  %59 = icmp ult i128 %57, 35
-  %60 = icmp eq i64 %58, 22
-  %61 = select i1 %59, i1 %60, i1 false
+  %58 = icmp ult i128 %57, 35
+  %59 = and i128 %57, 18446744073709551615
+  %60 = icmp eq i128 %59, 22
+  %61 = and i1 %58, %60
   br i1 %61, label %53, label %62
 
 62:                                               ; preds = %54
@@ -19094,10 +19094,10 @@ define hidden void @_ZN17datafusion_common9tree_node8TreeNode12transform_up17h0b
   tail call void @llvm.experimental.noalias.scope.decl(metadata !2561)
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %16 = add nsw i128 %12, -3
-  %17 = trunc nuw nsw i128 %16 to i64
-  %18 = icmp ult i128 %16, 35
-  %19 = icmp eq i64 %17, 32
-  %20 = select i1 %18, i1 %19, i1 false
+  %17 = icmp ult i128 %16, 35
+  %18 = and i128 %16, 18446744073709551615
+  %19 = icmp eq i128 %18, 32
+  %20 = and i1 %17, %19
   br i1 %20, label %21, label %.thread3.i
 
 21:                                               ; preds = %15
@@ -19397,10 +19397,10 @@ define hidden void @_ZN17datafusion_common9tree_node8TreeNode12transform_up17h1d
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   %.val = load ptr, ptr %2, align 8
   %11 = add nsw i128 %7, -3
-  %12 = trunc nuw nsw i128 %11 to i64
-  %13 = icmp ult i128 %11, 35
-  %14 = icmp eq i64 %12, 1
-  %15 = select i1 %13, i1 %14, i1 false
+  %12 = icmp ult i128 %11, 35
+  %13 = and i128 %11, 18446744073709551615
+  %14 = icmp eq i128 %13, 1
+  %15 = and i1 %12, %14
   br i1 %15, label %16, label %35
 
 16:                                               ; preds = %10

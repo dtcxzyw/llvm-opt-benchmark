@@ -35102,7 +35102,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i.i.i:
   switch i8 %291, label %default.unreachable [
     i8 0, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i.i27.i.i
     i8 1, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.i
-    i8 2, label %.thread25.i.i.i
+    i8 2, label %.thread33.i.i.i
   ], !prof !3765
 
 _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i.i27.i.i: ; preds = %290
@@ -35111,7 +35111,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i.i27.i.i: ; pre
 
 .noexc.i28.i.i:                                   ; preds = %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i.i27.i.i
   %293 = icmp eq ptr %292, null
-  br i1 %293, label %.thread25.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.i
+  br i1 %293, label %.thread33.i.i.i, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.i
 
 _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.i: ; preds = %.noexc.i28.i.i, %290
   %.sroa.0.0.i.i4.i.i26.i.i = phi ptr [ %292, %.noexc.i28.i.i ], [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h268f2e8856e2389fE", %290 ]
@@ -35154,7 +35154,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.
 
 305:                                              ; preds = %304
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !3976
-  br i1 %.sroa.0.0.i.i9.i.i.i.i, label %306, label %.thread25.i.i.i
+  br i1 %.sroa.0.0.i.i9.i.i.i.i, label %306, label %.thread33.i.i.i
 
 306:                                              ; preds = %305
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !3976
@@ -35173,23 +35173,23 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i.i25.i.
   invoke void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..task..error..JoinError$GT$17hab4ec36e64fe9b5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %69)
           to label %.noexc16.i.thread.i.i unwind label %321, !noalias !3887
 
-.thread25.i.i.i:                                  ; preds = %305, %.noexc.i28.i.i, %290
-  %.sroa.03.012.i27.off8.i.i.i = phi i8 [ %295, %305 ], [ 0, %.noexc.i28.i.i ], [ 0, %290 ]
-  %.sroa.03.012.i27.off16.i.i.i = phi i8 [ %.sroa.4.0.i.i.i.i.i.i, %305 ], [ 0, %.noexc.i28.i.i ], [ 0, %290 ]
-  store i8 %.sroa.03.012.i27.off8.i.i.i, ptr %8, align 1, !noalias !3976
-  store i8 %.sroa.03.012.i27.off16.i.i.i, ptr %70, align 1, !noalias !3976
+.thread33.i.i.i:                                  ; preds = %305, %.noexc.i28.i.i, %290
+  %.sroa.03.012.i35.off8.i.i.i = phi i8 [ %295, %305 ], [ 0, %.noexc.i28.i.i ], [ 0, %290 ]
+  %.sroa.03.012.i35.off16.i.i.i = phi i8 [ %.sroa.4.0.i.i.i.i.i.i, %305 ], [ 0, %.noexc.i28.i.i ], [ 0, %290 ]
+  store i8 %.sroa.03.012.i35.off8.i.i.i, ptr %8, align 1, !noalias !3976
+  store i8 %.sroa.03.012.i35.off16.i.i.i, ptr %70, align 1, !noalias !3976
   %310 = load ptr, ptr %39, align 8, !alias.scope !3971, !noalias !3991, !nonnull !3, !noundef !3
   %311 = load ptr, ptr %11, align 8, !alias.scope !3974, !noalias !3992, !nonnull !3, !align !4, !noundef !3
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h9888db614b290332E(ptr noundef nonnull %310, ptr noundef nonnull %9, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %311)
           to label %314 unwind label %312, !noalias !3987
 
-312:                                              ; preds = %.thread25.i.i.i
+312:                                              ; preds = %.thread33.i.i.i
   %313 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h6311d253ce7c9442E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %8) #23
           to label %.thread.i.i.i unwind label %318, !noalias !3987
 
-314:                                              ; preds = %.thread25.i.i.i
+314:                                              ; preds = %.thread33.i.i.i
   %315 = load i64, ptr %9, align 8, !range !2841, !noalias !3976, !noundef !3
   %.not.i24.i.i = icmp eq i64 %315, 19
   br i1 %.not.i24.i.i, label %317, label %316
@@ -37684,7 +37684,7 @@ define hidden void @"_ZN96_$LT$tokio..runtime..task..join..JoinHandle$LT$T$GT$$u
   switch i8 %7, label %default.unreachable [
     i8 0, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i
     i8 1, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i
-    i8 2, label %.thread25
+    i8 2, label %.thread33
   ], !prof !3765
 
 default.unreachable:                              ; preds = %3
@@ -37696,7 +37696,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i: ; preds = %3
 
 .noexc:                                           ; preds = %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.i
   %9 = icmp eq ptr %8, null
-  br i1 %9, label %.thread25, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i
+  br i1 %9, label %.thread33, label %_ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i
 
 _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i: ; preds = %.noexc, %3
   %.sroa.0.0.i.i4.i = phi ptr [ %8, %.noexc ], [ @"_ZN5tokio7runtime7context7CONTEXT29_$u7b$$u7b$constant$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$3VAL17h268f2e8856e2389fE", %3 ]
@@ -37740,7 +37740,7 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i: ; pre
 
 22:                                               ; preds = %20
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.sroa.0.0.i.i9.i, label %23, label %.thread25
+  br i1 %.sroa.0.0.i.i9.i, label %23, label %.thread33
 
 23:                                               ; preds = %22
   store i64 19, ptr %0, align 8
@@ -37761,24 +37761,24 @@ _ZN4core3ops8function6FnOnce9call_once17h67c4ebd7c06c06a6E.exit.thread2.i: ; pre
   call void @"_ZN4core3ptr59drop_in_place$LT$tokio..runtime..task..error..JoinError$GT$17hab4ec36e64fe9b5cE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %27)
   br label %"_ZN4core3ptr184drop_in_place$LT$core..task..poll..Poll$LT$core..result..Result$LT$core..result..Result$LT$$LP$$RP$$C$polars_error..PolarsError$GT$$C$tokio..runtime..task..error..JoinError$GT$$GT$$GT$17hd2014276a35ed3a2E.exit"
 
-.thread25:                                        ; preds = %3, %.noexc, %22
-  %.sroa.03.012.i27.off8 = phi i8 [ %11, %22 ], [ 0, %.noexc ], [ 0, %3 ]
-  %.sroa.03.012.i27.off16 = phi i8 [ %.sroa.4.0.i.i.i, %22 ], [ 0, %.noexc ], [ 0, %3 ]
-  store i8 %.sroa.03.012.i27.off8, ptr %5, align 1
+.thread33:                                        ; preds = %.noexc, %3, %22
+  %.sroa.03.012.i35.off8 = phi i8 [ %11, %22 ], [ 0, %3 ], [ 0, %.noexc ]
+  %.sroa.03.012.i35.off16 = phi i8 [ %.sroa.4.0.i.i.i, %22 ], [ 0, %3 ], [ 0, %.noexc ]
+  store i8 %.sroa.03.012.i35.off8, ptr %5, align 1
   %28 = getelementptr inbounds nuw i8, ptr %5, i64 1
-  store i8 %.sroa.03.012.i27.off16, ptr %28, align 1
+  store i8 %.sroa.03.012.i35.off16, ptr %28, align 1
   %29 = load ptr, ptr %1, align 8, !nonnull !3, !noundef !3
   %30 = load ptr, ptr %2, align 8, !nonnull !3, !align !4, !noundef !3
   invoke void @_ZN5tokio7runtime4task3raw7RawTask15try_read_output17h9888db614b290332E(ptr noundef nonnull %29, ptr noundef nonnull %6, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %30)
           to label %33 unwind label %31
 
-31:                                               ; preds = %.thread25
+31:                                               ; preds = %.thread33
   %32 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr56drop_in_place$LT$tokio..task..coop..RestoreOnPending$GT$17h6311d253ce7c9442E"(ptr noalias noundef nonnull align 1 dereferenceable(2) %5) #23
           to label %.thread unwind label %37
 
-33:                                               ; preds = %.thread25
+33:                                               ; preds = %.thread33
   %34 = load i64, ptr %6, align 8, !range !2841, !noundef !3
   %.not = icmp eq i64 %34, 19
   br i1 %.not, label %36, label %35

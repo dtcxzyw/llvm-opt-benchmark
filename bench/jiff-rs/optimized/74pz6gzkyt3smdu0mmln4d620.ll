@@ -4646,8 +4646,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !322
   tail call void @llvm.experimental.noalias.scope.decl(metadata !323)
   %33 = icmp sgt i8 %.pn3.i9, -1
-  %34 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %34, 2
+  %34 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
@@ -4862,8 +4862,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !347
   tail call void @llvm.experimental.noalias.scope.decl(metadata !348)
   %33 = icmp sgt i8 %.pn3.i9, -1
-  %34 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %34, 2
+  %34 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
@@ -5068,8 +5068,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !366
   tail call void @llvm.experimental.noalias.scope.decl(metadata !367)
   %33 = icmp sgt i8 %.sroa.011.0, -1
-  %34 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %34, 2
+  %34 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
@@ -5266,8 +5266,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !385
   tail call void @llvm.experimental.noalias.scope.decl(metadata !386)
   %30 = icmp sgt i8 %12, -1
-  %31 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %31, 2
+  %31 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %31, 2
   %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
@@ -5469,8 +5469,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !404
   tail call void @llvm.experimental.noalias.scope.decl(metadata !405)
   %33 = icmp sgt i8 %.sroa.011.0, -1
-  %34 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %34, 2
+  %34 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
@@ -5667,8 +5667,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !423
   tail call void @llvm.experimental.noalias.scope.decl(metadata !424)
   %30 = icmp sgt i8 %12, -1
-  %31 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %31, 2
+  %31 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %31, 2
   %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
@@ -5957,8 +5957,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !456
   tail call void @llvm.experimental.noalias.scope.decl(metadata !457)
   %30 = icmp sgt i8 %12, -1
-  %31 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %31, 2
+  %31 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %31, 2
   %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
@@ -6170,8 +6170,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !480
   tail call void @llvm.experimental.noalias.scope.decl(metadata !481)
   %33 = icmp sgt i8 %.pn3.i9, -1
-  %34 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %34, 2
+  %34 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %34, 2
   %or.cond.i = select i1 %33, i1 %.not.i, i1 false, !prof !326
   %35 = lshr i24 %storemerge, 8
   %36 = trunc i24 %35 to i8
@@ -6867,8 +6867,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !526
   tail call void @llvm.experimental.noalias.scope.decl(metadata !527)
   %30 = icmp sgt i8 %12, -1
-  %31 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %31, 2
+  %31 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %31, 2
   %or.cond.i = select i1 %30, i1 %.not.i, i1 false, !prof !326
   %32 = lshr i24 %storemerge, 8
   %33 = trunc i24 %32 to i8
@@ -8612,8 +8612,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !659
   tail call void @llvm.experimental.noalias.scope.decl(metadata !660)
   %36 = icmp sgt i8 %18, -1
-  %37 = trunc i24 %storemerge.i to i8
-  %.not.i = icmp eq i8 %37, 2
+  %37 = and i24 %storemerge.i, 255
+  %.not.i = icmp eq i24 %37, 2
   %or.cond.i = select i1 %36, i1 %.not.i, i1 false, !prof !326
   %38 = lshr i24 %storemerge.i, 8
   %39 = trunc i24 %38 to i8
@@ -8929,8 +8929,8 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !688
   tail call void @llvm.experimental.noalias.scope.decl(metadata !689)
   %191 = icmp sgt i16 %172, -7
-  %192 = trunc i24 %storemerge to i8
-  %.not.i34 = icmp eq i8 %192, 2
+  %192 = and i24 %storemerge, 255
+  %.not.i34 = icmp eq i24 %192, 2
   %or.cond.i35 = select i1 %191, i1 %.not.i34, i1 false, !prof !326
   %193 = lshr i24 %storemerge, 8
   %194 = trunc i24 %193 to i8
@@ -9142,8 +9142,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !712
   tail call void @llvm.experimental.noalias.scope.decl(metadata !713)
   %35 = icmp sgt i8 %.pn3.i9, -1
-  %36 = trunc i24 %storemerge.i to i8
-  %.not.i = icmp eq i8 %36, 2
+  %36 = and i24 %storemerge.i, 255
+  %.not.i = icmp eq i24 %36, 2
   %or.cond.i = select i1 %35, i1 %.not.i, i1 false, !prof !326
   %37 = lshr i24 %storemerge.i, 8
   %38 = trunc i24 %37 to i8
@@ -9349,8 +9349,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !731
   tail call void @llvm.experimental.noalias.scope.decl(metadata !732)
   %36 = icmp sgt i8 %18, -1
-  %37 = trunc i24 %storemerge.i to i8
-  %.not.i = icmp eq i8 %37, 2
+  %37 = and i24 %storemerge.i, 255
+  %.not.i = icmp eq i24 %37, 2
   %or.cond.i = select i1 %36, i1 %.not.i, i1 false, !prof !326
   %38 = lshr i24 %storemerge.i, 8
   %39 = trunc i24 %38 to i8
@@ -9668,8 +9668,8 @@ _ZN4jiff5civil7weekday7Weekday28to_sunday_zero_offset_ranged17h0c87b2a045c7a7afE
   call void @llvm.lifetime.start.p0(ptr nonnull %8), !noalias !760
   tail call void @llvm.experimental.noalias.scope.decl(metadata !761)
   %193 = icmp sgt i16 %174, -7
-  %194 = trunc i24 %storemerge to i8
-  %.not.i34 = icmp eq i8 %194, 2
+  %194 = and i24 %storemerge, 255
+  %.not.i34 = icmp eq i24 %194, 2
   %or.cond.i35 = select i1 %193, i1 %.not.i34, i1 false, !prof !326
   %195 = lshr i24 %storemerge, 8
   %196 = trunc i24 %195 to i8
@@ -9878,8 +9878,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !784
   tail call void @llvm.experimental.noalias.scope.decl(metadata !785)
   %34 = icmp sgt i16 %.pn3.i5, -1
-  %35 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %35, 2
+  %35 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %35, 2
   %or.cond.i = select i1 %34, i1 %.not.i, i1 false, !prof !326
   %36 = lshr i24 %storemerge, 8
   %37 = trunc i24 %36 to i8
@@ -10142,8 +10142,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   store i24 %storemerge, ptr %5, align 4, !noalias !808
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !808
   tail call void @llvm.experimental.noalias.scope.decl(metadata !809)
-  %53 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %53, 2
+  %53 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %53, 2
   %54 = lshr i24 %storemerge, 8
   %55 = trunc i24 %54 to i8
   %56 = lshr i24 %storemerge, 16
@@ -10573,8 +10573,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !856
   tail call void @llvm.experimental.noalias.scope.decl(metadata !857)
   %37 = icmp sgt i16 %.pn3.i.ph, -1
-  %38 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %38, 2
+  %38 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %38, 2
   %or.cond.i = select i1 %37, i1 %.not.i, i1 false, !prof !326
   %39 = lshr i24 %storemerge, 8
   %40 = trunc i24 %39 to i8
@@ -10839,8 +10839,8 @@ define internal fastcc { i64, ptr } @"_ZN4jiff3fmt7strtime6format22Formatter$LT$
   store i24 %storemerge, ptr %5, align 4, !noalias !880
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !880
   tail call void @llvm.experimental.noalias.scope.decl(metadata !881)
-  %56 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %56, 2
+  %56 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %56, 2
   %57 = lshr i24 %storemerge, 8
   %58 = trunc i24 %57 to i8
   %59 = lshr i24 %storemerge, 16
@@ -11293,8 +11293,8 @@ _ZN4jiff5civil4date4Date11day_of_year17h61b3e7fa49b9cb0fE.exit.i.i: ; preds = %1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !928
   tail call void @llvm.experimental.noalias.scope.decl(metadata !929)
   %50 = icmp sgt i16 %.pn3.i.ph, -1
-  %51 = trunc i24 %storemerge to i8
-  %.not.i = icmp eq i8 %51, 2
+  %51 = and i24 %storemerge, 255
+  %.not.i = icmp eq i24 %51, 2
   %or.cond.i = select i1 %50, i1 %.not.i, i1 false, !prof !326
   %52 = lshr i24 %storemerge, 8
   %53 = trunc i24 %52 to i8

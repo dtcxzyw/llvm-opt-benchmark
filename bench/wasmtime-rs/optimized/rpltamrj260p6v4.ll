@@ -57814,8 +57814,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %3669 = tail call fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18u128_from_constant17he72ccb69ff86dca8E"(ptr nonnull %.val3907, i32 noundef %.sroa.69643.0.copyload)
   %3670 = extractvalue { i128, i128 } %3669, 0
   %3671 = extractvalue { i128, i128 } %3669, 1
-  %3672 = trunc nuw nsw i128 %3670 to i64
-  %3673 = icmp eq i64 %3672, 1
+  %3672 = and i128 %3670, 18446744073709551615
+  %3673 = icmp eq i128 %3672, 1
   %3674 = icmp eq i128 %3671, 0
   %or.cond34 = select i1 %3673, i1 %3674, i1 false
   br i1 %or.cond34, label %3675, label %1009
@@ -57874,8 +57874,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %3690 = tail call fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18u128_from_constant17he72ccb69ff86dca8E"(ptr nonnull %.val3908, i32 noundef %.sroa.69643.0.copyload)
   %3691 = extractvalue { i128, i128 } %3690, 0
   %3692 = extractvalue { i128, i128 } %3690, 1
-  %3693 = trunc nuw nsw i128 %3691 to i64
-  %3694 = icmp eq i64 %3693, 1
+  %3693 = and i128 %3691, 18446744073709551615
+  %3694 = icmp eq i128 %3693, 1
   %3695 = icmp eq i128 %3692, 0
   %or.cond37 = select i1 %3694, i1 %3695, i1 false
   br i1 %or.cond37, label %3696, label %1009
@@ -58059,8 +58059,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code21constructor_has_pmaxu
   %3766 = tail call fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18u128_from_constant17he72ccb69ff86dca8E"(ptr nonnull %.val3909, i32 noundef %.sroa.69668.0.copyload)
   %3767 = extractvalue { i128, i128 } %3766, 0
   %3768 = extractvalue { i128, i128 } %3766, 1
-  %3769 = trunc nuw nsw i128 %3767 to i64
-  %3770 = icmp eq i64 %3769, 1
+  %3769 = and i128 %3767, 18446744073709551615
+  %3770 = icmp eq i128 %3769, 1
   %3771 = icmp eq i128 %3768, 0
   %or.cond40 = select i1 %3770, i1 %3771, i1 false
   br i1 %or.cond40, label %3772, label %1009
@@ -63828,8 +63828,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %.val4122 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4
   %5848 = tail call fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$19u128_from_immediate17h8b173ea8a228b3c2E"(ptr nonnull %.val4122, i32 noundef %.sroa.277.12.extract.trunc7371)
   %5849 = extractvalue { i128, i128 } %5848, 0
-  %5850 = trunc nuw nsw i128 %5849 to i64
-  %5851 = icmp eq i64 %5850, 1
+  %5850 = and i128 %5849, 18446744073709551615
+  %5851 = icmp eq i128 %5850, 1
   br i1 %5851, label %5852, label %5854
 
 5852:                                             ; preds = %5847
@@ -73883,8 +73883,8 @@ _ZN17cranelift_codegen3isa3x645lower4isle14generated_code28constructor_amode_to_
   %9162 = tail call fastcc { i128, i128 } @"_ZN17cranelift_codegen3isa3x645lower4isle255_$LT$impl$u20$cranelift_codegen..isa..x64..lower..isle..generated_code..Context$u20$for$u20$cranelift_codegen..machinst..isle..IsleContext$LT$cranelift_codegen..isa..x64..lower..isle..generated_code..MInst$C$cranelift_codegen..isa..x64..X64Backend$GT$$GT$18u128_from_constant17he72ccb69ff86dca8E"(ptr nonnull %.val3910, i32 noundef %.sroa.47.0.copyload)
   %9163 = extractvalue { i128, i128 } %9162, 0
   %9164 = extractvalue { i128, i128 } %9162, 1
-  %9165 = trunc nuw nsw i128 %9163 to i64
-  %9166 = icmp eq i64 %9165, 1
+  %9165 = and i128 %9163, 18446744073709551615
+  %9166 = icmp eq i128 %9165, 1
   %9167 = icmp eq i128 %9164, 0
   %or.cond49 = select i1 %9166, i1 %9167, i1 false
   %.val3620 = load ptr, ptr %1, align 8, !nonnull !4, !align !17, !noundef !4

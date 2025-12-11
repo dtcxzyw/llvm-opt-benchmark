@@ -4604,12 +4604,12 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState14take_if_q
   %.sroa.0.0.copyload = load i128, ptr %1, align 16
   store i128 4, ptr %1, align 16
   %3 = add nsw i128 %.sroa.0.0.copyload, -2
-  %4 = trunc nuw nsw i128 %3 to i64
-  %5 = icmp ult i128 %3, 3
-  %6 = icmp ne i128 %3, 1
-  tail call void @llvm.assume(i1 %6)
-  %7 = icmp eq i64 %4, 0
-  %8 = select i1 %5, i1 %7, i1 false
+  %4 = icmp ult i128 %3, 3
+  %5 = icmp ne i128 %3, 1
+  tail call void @llvm.assume(i1 %5)
+  %6 = and i128 %3, 18446744073709551615
+  %7 = icmp eq i128 %6, 0
+  %8 = and i1 %4, %7
   br i1 %8, label %9, label %11
 
 9:                                                ; preds = %2
@@ -4636,12 +4636,12 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   store i128 4, ptr %1, align 16
   %7 = load i128, ptr %6, align 16, !range !39, !noundef !8
   %8 = add nsw i128 %7, -2
-  %9 = trunc nuw nsw i128 %8 to i64
-  %10 = icmp ugt i128 %8, 2
-  %11 = icmp ne i128 %8, 1
-  tail call void @llvm.assume(i1 %11)
-  %12 = icmp eq i64 %9, 1
-  %13 = select i1 %10, i1 true, i1 %12
+  %9 = icmp ugt i128 %8, 2
+  %10 = icmp ne i128 %8, 1
+  tail call void @llvm.assume(i1 %10)
+  %11 = and i128 %8, 18446744073709551615
+  %12 = icmp eq i128 %11, 1
+  %13 = or i1 %9, %12
   br i1 %13, label %14, label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit"
 
 14:                                               ; preds = %3
@@ -4718,12 +4718,12 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
 .loopexit:                                        ; preds = %23
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %72
 
 .loopexit.split-lp:                               ; preds = %53, %54, %40, %43
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %71
+  br label %72
 
 48:                                               ; preds = %.noexc10, %40
   %.sink25.i = phi ptr [ %47, %.noexc10 ], [ %42, %40 ]
@@ -4747,7 +4747,7 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   %51 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN4core3ptr49drop_in_place$LT$quiche..packet..ConnectionId$GT$17h38ae87c0006482bbE"(ptr noalias noundef nonnull align 8 dereferenceable(24) %5) #25
-          to label %71 unwind label %68
+          to label %72 unwind label %69
 
 52:                                               ; preds = %48
   br i1 %49, label %54, label %53
@@ -4769,35 +4769,36 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(15248) %0, ptr noundef nonnull align 16 dereferenceable(15248) %6, i64 15248, i1 false)
   %57 = load i128, ptr %6, align 16, !range !39, !noundef !8
   %58 = add nsw i128 %57, -2
-  %59 = trunc nsw i128 %58 to i64
-  %60 = icmp ugt i128 %58, 2
-  %61 = icmp ne i128 %58, 1
-  call void @llvm.assume(i1 %61)
-  %62 = icmp eq i64 %59, 1
-  %63 = select i1 %60, i1 true, i1 %62
+  %59 = icmp ugt i128 %58, 2
+  %60 = icmp ne i128 %58, 1
+  call void @llvm.assume(i1 %60)
+  %61 = and i128 %58, 18446744073709551615
+  %62 = icmp eq i128 %61, 1
+  %63 = or i1 %59, %62
   br i1 %63, label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13", label %64
 
-"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13": ; preds = %67, %65, %64, %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit", %56
+"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13": ; preds = %68, %66, %64, %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit", %56
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret void
 
 64:                                               ; preds = %56
-  switch i64 %59, label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13" [
-    i64 0, label %65
-    i64 1, label %67
+  %65 = trunc nuw nsw i128 %58 to i64
+  switch i64 %65, label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13" [
+    i64 0, label %66
+    i64 1, label %68
   ]
 
-65:                                               ; preds = %64
-  %66 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  call void @"_ZN4core3ptr39drop_in_place$LT$quiche..Connection$GT$17hb5ef83b4646cb2e1E"(ptr noalias noundef nonnull align 16 dereferenceable(15216) %66)
+66:                                               ; preds = %64
+  %67 = getelementptr inbounds nuw i8, ptr %6, i64 16
+  call void @"_ZN4core3ptr39drop_in_place$LT$quiche..Connection$GT$17hb5ef83b4646cb2e1E"(ptr noalias noundef nonnull align 16 dereferenceable(15216) %67)
   br label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13"
 
-67:                                               ; preds = %64
+68:                                               ; preds = %64
   call void @"_ZN4core3ptr77drop_in_place$LT$tokio_quiche..quic..router..connector..PendingConnection$GT$17hc5c2459a741d0a7fE"(ptr noalias noundef nonnull align 16 dereferenceable(15248) %6)
   br label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13"
 
-68:                                               ; preds = %80, %79, %50
-  %69 = landingpad { ptr, i32 }
+69:                                               ; preds = %81, %80, %50
+  %70 = landingpad { ptr, i32 }
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17hccd47ddd364deb23E() #24
   unreachable
@@ -4807,28 +4808,28 @@ define void @_ZN12tokio_quiche4quic6router9connector15ConnectionState30take_if_p
   store i128 2, ptr %0, align 16
   br label %"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E.exit13"
 
-70:                                               ; preds = %80, %79
+71:                                               ; preds = %81, %80
   resume { ptr, i32 } %.pn.ph
 
-71:                                               ; preds = %.loopexit, %.loopexit.split-lp, %50
+72:                                               ; preds = %.loopexit, %.loopexit.split-lp, %50
   %.pn.ph = phi { ptr, i32 } [ %51, %50 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
-  %72 = load i128, ptr %6, align 16, !range !39, !noundef !8
-  %73 = add nsw i128 %72, -2
-  %74 = trunc nuw nsw i128 %73 to i64
-  %75 = icmp ugt i128 %73, 2
-  %76 = icmp ne i128 %73, 1
+  %73 = load i128, ptr %6, align 16, !range !39, !noundef !8
+  %74 = add nsw i128 %73, -2
+  %75 = icmp ugt i128 %74, 2
+  %76 = icmp ne i128 %74, 1
   call void @llvm.assume(i1 %76)
-  %77 = icmp eq i64 %74, 1
-  %78 = select i1 %75, i1 true, i1 %77
-  br i1 %78, label %80, label %79
+  %77 = and i128 %74, 18446744073709551615
+  %78 = icmp eq i128 %77, 1
+  %79 = or i1 %75, %78
+  br i1 %79, label %81, label %80
 
-79:                                               ; preds = %71
+80:                                               ; preds = %72
   invoke fastcc void @"_ZN4core3ptr75drop_in_place$LT$tokio_quiche..quic..router..connector..ConnectionState$GT$17haffd05166d420a53E"(ptr noalias noundef align 16 dereferenceable(15248) %6) #25
-          to label %70 unwind label %68
+          to label %71 unwind label %69
 
-80:                                               ; preds = %71
+81:                                               ; preds = %72
   invoke void @"_ZN4core3ptr77drop_in_place$LT$tokio_quiche..quic..router..connector..PendingConnection$GT$17hc5c2459a741d0a7fE"(ptr noalias noundef nonnull align 16 dereferenceable(15248) %6) #25
-          to label %70 unwind label %68
+          to label %71 unwind label %69
 }
 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable

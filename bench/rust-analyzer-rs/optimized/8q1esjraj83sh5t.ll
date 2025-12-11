@@ -20232,8 +20232,8 @@ default.unreachable622:                           ; preds = %227, %224, %102, %8
 
 334:                                              ; preds = %105
   %335 = extractvalue { i128, i128 } %107, 0
-  %336 = trunc i128 %335 to i64
-  %337 = icmp eq i64 %336, 0
+  %336 = and i128 %335, 18446744073709551615
+  %337 = icmp eq i128 %336, 0
   %338 = extractvalue { i128, i128 } %107, 1
   %extract.t378 = trunc i128 %338 to i64
   br i1 %337, label %344, label %339
@@ -26564,8 +26564,8 @@ define internal fastcc void @"_ZN6hir_ty3mir4eval4shim4simd46_$LT$impl$u20$hir_t
   %34 = tail call { i128, i128 } @_ZN6hir_ty9consteval15try_const_usize17h92e5b264d9d057aaE(ptr noundef nonnull align 1 %.64.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %.72.val, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %31)
   %35 = extractvalue { i128, i128 } %34, 0
   %36 = extractvalue { i128, i128 } %34, 1
-  %37 = trunc i128 %35 to i64
-  %38 = icmp eq i64 %37, 0
+  %37 = and i128 %35, 18446744073709551615
+  %38 = icmp eq i128 %37, 0
   br i1 %38, label %43, label %46
 
 39:                                               ; preds = %24, %12
@@ -33467,8 +33467,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit10.i: ; preds = %"_ZN73_$LT$$u5b$A$
 
 .noexc383:                                        ; preds = %2170
   %2175 = extractvalue { i128, i128 } %2174, 0
-  %2176 = trunc i128 %2175 to i64
-  %2177 = icmp eq i64 %2176, 0
+  %2176 = and i128 %2175, 18446744073709551615
+  %2177 = icmp eq i128 %2176, 0
   br i1 %2177, label %2181, label %2184
 
 2178:                                             ; preds = %2160
@@ -57508,8 +57508,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit.i658: ; preds = %590
 
 666:                                              ; preds = %658
   %667 = extractvalue { i128, i128 } %662, 0
-  %668 = trunc i128 %667 to i64
-  %669 = icmp eq i64 %668, 0
+  %668 = and i128 %667, 18446744073709551615
+  %669 = icmp eq i128 %668, 0
   br i1 %669, label %670, label %675
 
 670:                                              ; preds = %666
@@ -65937,8 +65937,8 @@ default.unreachable3620:                          ; preds = %1032, %1476, %1187,
   %169 = getelementptr inbounds nuw i8, ptr %2, i64 8
   %170 = tail call { i128, i128 } @_ZN6hir_ty9consteval15try_const_usize17h92e5b264d9d057aaE(ptr noundef nonnull align 1 %166, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %168, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %169)
   %171 = extractvalue { i128, i128 } %170, 0
-  %172 = trunc i128 %171 to i64
-  %173 = icmp eq i64 %172, 0
+  %172 = and i128 %171, 18446744073709551615
+  %173 = icmp eq i128 %172, 0
   br i1 %173, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit2246, label %253
 
 174:                                              ; preds = %4
@@ -72344,8 +72344,8 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit135: ; preds = %52
 
 219:                                              ; preds = %212
   %220 = extractvalue { i128, i128 } %218, 0
-  %221 = trunc i128 %220 to i64
-  %222 = icmp eq i64 %221, 0
+  %221 = and i128 %220, 18446744073709551615
+  %222 = icmp eq i128 %221, 0
   br i1 %222, label %223, label %225
 
 223:                                              ; preds = %219
@@ -80299,8 +80299,8 @@ define internal fastcc void @_ZN6hir_ty3mir4eval9Evaluator17create_memory_map3re
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 24
   %59 = tail call { i128, i128 } @_ZN6hir_ty9consteval15try_const_usize17h92e5b264d9d057aaE(ptr noundef nonnull align 1 %55, ptr noalias noundef nonnull readonly align 8 dereferenceable(24) %57, ptr noalias noundef nonnull readonly align 8 dereferenceable(8) %58)
   %60 = extractvalue { i128, i128 } %59, 0
-  %61 = trunc i128 %60 to i64
-  %62 = icmp eq i64 %61, 0
+  %61 = and i128 %60, 18446744073709551615
+  %62 = icmp eq i128 %61, 0
   br i1 %62, label %_ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit, label %515
 
 63:                                               ; preds = %42
@@ -82922,8 +82922,8 @@ default.unreachable696:                           ; preds = %67, %64
 
 306:                                              ; preds = %76
   %307 = extractvalue { i128, i128 } %82, 0
-  %308 = trunc i128 %307 to i64
-  %309 = icmp eq i64 %308, 0
+  %308 = and i128 %307, 18446744073709551615
+  %309 = icmp eq i128 %308, 0
   br i1 %309, label %310, label %315
 
 310:                                              ; preds = %306
