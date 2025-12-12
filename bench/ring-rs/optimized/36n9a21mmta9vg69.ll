@@ -272,17 +272,11 @@ define hidden void @_ZN4ring4aead6chacha3Key3new17hef935251f887e877E(ptr noalias
   %11 = shufflevector <1 x i32> %10, <1 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %12 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %13 = load <4 x i32>, ptr %12, align 1, !alias.scope !5, !noalias !8
-  %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <8 x i32> <i32 0, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %15 = shufflevector <4 x i32> %13, <4 x i32> poison, <8 x i32> <i32 poison, i32 1, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %16 = shufflevector <4 x i32> %13, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 2, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %17 = shufflevector <4 x i32> %13, <4 x i32> poison, <8 x i32> <i32 poison, i32 poison, i32 poison, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.0.4.vec.insert = shufflevector <4 x i32> %3, <4 x i32> %5, <8 x i32> <i32 0, i32 4, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.0.8.vec.insert = shufflevector <8 x i32> %.sroa.0.4.vec.insert, <8 x i32> %8, <8 x i32> <i32 0, i32 1, i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
   %.sroa.0.12.vec.insert = shufflevector <8 x i32> %.sroa.0.8.vec.insert, <8 x i32> %11, <8 x i32> <i32 0, i32 1, i32 2, i32 8, i32 poison, i32 poison, i32 poison, i32 poison>
-  %.sroa.0.16.vec.insert = shufflevector <8 x i32> %.sroa.0.12.vec.insert, <8 x i32> %14, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 poison, i32 poison, i32 poison>
-  %.sroa.0.20.vec.insert = shufflevector <8 x i32> %.sroa.0.16.vec.insert, <8 x i32> %15, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 9, i32 poison, i32 poison>
-  %.sroa.0.24.vec.insert = shufflevector <8 x i32> %.sroa.0.20.vec.insert, <8 x i32> %16, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 10, i32 poison>
-  %.sroa.0.28.vec.insert = shufflevector <8 x i32> %.sroa.0.24.vec.insert, <8 x i32> %17, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 4, i32 5, i32 6, i32 11>
+  %14 = shufflevector <4 x i32> %13, <4 x i32> poison, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 poison, i32 poison, i32 poison, i32 poison>
+  %.sroa.0.28.vec.insert = shufflevector <8 x i32> %.sroa.0.12.vec.insert, <8 x i32> %14, <8 x i32> <i32 0, i32 1, i32 2, i32 3, i32 8, i32 9, i32 10, i32 11>
   store <8 x i32> %.sroa.0.28.vec.insert, ptr %0, align 4
   ret void
 }
