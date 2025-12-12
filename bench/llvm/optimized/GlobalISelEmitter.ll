@@ -5831,14 +5831,14 @@ _ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llv
 
 .thread.i:                                        ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit.thread, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit
   %.sroa.0289.0589 = phi i64 [ %.pre.i137, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit.thread ], [ %.sink.i157, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit ], [ %.sink.i157, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i ]
-  %1483 = inttoptr i64 %.sroa.0289.0589 to ptr
-  %1484 = load i8, ptr %369, align 8, !alias.scope !303
-  %1485 = or i8 %1484, 1
-  store i8 %1485, ptr %369, align 8, !alias.scope !303
-  store ptr %1483, ptr %85, align 8, !tbaa !429, !alias.scope !695
+  %1478 = inttoptr i64 %.sroa.0289.0589 to ptr
+  %1479 = load i8, ptr %369, align 8, !alias.scope !303
+  %1480 = or i8 %1479, 1
+  store i8 %1480, ptr %369, align 8, !alias.scope !303
+  store ptr %1478, ptr %85, align 8, !tbaa !429, !alias.scope !695
   br label %_ZN4llvm8ExpectedIRNS_2gi13BuildMIActionEED2Ev.exit.i
 
-_ZN4llvm5ErrorD2Ev.exit285.i:                     ; preds = %.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i
+_ZN4llvm5ErrorD2Ev.exit282.i:                     ; preds = %.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !698
   store i8 1, ptr %436, align 1, !tbaa !221, !noalias !698
   store ptr @.str.280, ptr %11, align 8, !tbaa !61, !noalias !698
