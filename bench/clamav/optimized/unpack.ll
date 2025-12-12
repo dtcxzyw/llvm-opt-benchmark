@@ -15028,7 +15028,7 @@ define void @_ZN6Unpack4InitEmb(ptr noundef nonnull align 8 captures(none) deref
   %.not = icmp ule i64 %spec.store.select, %8
   %9 = icmp ugt i64 %1, 4295032831
   %or.cond35 = or i1 %9, %.not
-  br i1 %or.cond35, label %59, label %10
+  br i1 %or.cond35, label %56, label %10
 
 10:                                               ; preds = %6
   %spec.store.select1 = tail call i64 @llvm.umin.i64(i64 %spec.store.select, i64 1073741824)
@@ -15057,40 +15057,40 @@ define void @_ZN6Unpack4InitEmb(ptr noundef nonnull align 8 captures(none) deref
 
 20:                                               ; preds = %17, %.thread
   %21 = phi i1 [ false, %.thread ], [ %.not28, %17 ]
-  %22 = tail call noalias ptr @malloc(i64 noundef %spec.store.select1) #27
-  %23 = icmp eq ptr %22, null
-  br i1 %23, label %.thread38, label %33
+  %calloc = tail call noalias ptr @malloc(i64 noundef %spec.store.select1) #27
+  %22 = icmp eq ptr %calloc, null
+  br i1 %22, label %.thread38, label %32
 
 .thread38:                                        ; preds = %.thread, %20
-  %24 = phi i1 [ %21, %20 ], [ false, %.thread ]
-  %25 = icmp samesign ult i64 %1, 16777216
-  %or.cond = or i1 %25, %24
-  br i1 %or.cond, label %26, label %28
+  %23 = phi i1 [ %21, %20 ], [ false, %.thread ]
+  %24 = icmp samesign ult i64 %1, 16777216
+  %or.cond = or i1 %24, %23
+  br i1 %or.cond, label %25, label %27
 
-26:                                               ; preds = %.thread38
-  %27 = tail call ptr @__cxa_allocate_exception(i64 8) #26
-  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %27, align 8, !tbaa !59
-  tail call void @__cxa_throw(ptr nonnull %27, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
+25:                                               ; preds = %.thread38
+  %26 = tail call ptr @__cxa_allocate_exception(i64 8) #26
+  store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVSt9bad_alloc, i64 16), ptr %26, align 8, !tbaa !59
+  tail call void @__cxa_throw(ptr nonnull %26, ptr nonnull @_ZTISt9bad_alloc, ptr nonnull @_ZNSt9bad_allocD1Ev) #28
   unreachable
 
-28:                                               ; preds = %.thread38
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 19312
-  %30 = load ptr, ptr %29, align 8, !tbaa !161
-  %.not29 = icmp eq ptr %30, null
-  br i1 %.not29, label %.thread45, label %31
+27:                                               ; preds = %.thread38
+  %28 = getelementptr inbounds nuw i8, ptr %0, i64 19312
+  %29 = load ptr, ptr %28, align 8, !tbaa !161
+  %.not29 = icmp eq ptr %29, null
+  br i1 %.not29, label %.thread45, label %30
 
-31:                                               ; preds = %28
-  tail call void @free(ptr noundef nonnull %30) #26
-  store ptr null, ptr %29, align 8, !tbaa !161
+30:                                               ; preds = %27
+  tail call void @free(ptr noundef nonnull %29) #26
+  store ptr null, ptr %28, align 8, !tbaa !161
   br label %.thread45
 
-.thread45:                                        ; preds = %28, %31
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 19320
-  tail call void @_ZN16FragmentedWindow4InitEm(ptr noundef nonnull align 8 dereferenceable(512) %32, i64 noundef %spec.store.select1)
+.thread45:                                        ; preds = %27, %30
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 19320
+  tail call void @_ZN16FragmentedWindow4InitEm(ptr noundef nonnull align 8 dereferenceable(512) %31, i64 noundef %spec.store.select1)
   store i8 1, ptr %11, align 8, !tbaa !280
-  br label %56
+  br label %53
 
-33:                                               ; preds = %20
+32:                                               ; preds = %20
   %.pre = load i8, ptr %11, align 8, !tbaa !280, !range !207
   %34 = trunc nuw i8 %.pre to i1
   br i1 %34, label %56, label %35
@@ -15100,56 +15100,56 @@ define void @_ZN6Unpack4InitEmb(ptr noundef nonnull align 8 captures(none) deref
   br i1 %21, label %.preheader, label %.loopexit
 
 .preheader:                                       ; preds = %35
-  %36 = load i64, ptr %7, align 8, !tbaa !164
-  %.not3039 = icmp eq i64 %36, 0
+  %33 = load i64, ptr %7, align 8, !tbaa !164
+  %.not3039 = icmp eq i64 %33, 0
   br i1 %.not3039, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader
-  %37 = getelementptr inbounds nuw i8, ptr %0, i64 19312
-  %38 = load ptr, ptr %37, align 8, !tbaa !161
-  %39 = getelementptr inbounds nuw i8, ptr %0, i64 160
-  %40 = load i64, ptr %39, align 8, !tbaa !157
-  %41 = add i64 %36, -1
-  %42 = add nsw i64 %spec.store.select1, -1
-  %43 = add i64 %36, 1
-  %umax = tail call i64 @llvm.umax.i64(i64 %43, i64 2)
-  br label %44
+  %34 = getelementptr inbounds nuw i8, ptr %0, i64 19312
+  %35 = load ptr, ptr %34, align 8, !tbaa !161
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 160
+  %37 = load i64, ptr %36, align 8, !tbaa !157
+  %38 = add i64 %33, -1
+  %39 = add nsw i64 %spec.store.select1, -1
+  %40 = add i64 %33, 1
+  %umax = tail call i64 @llvm.umax.i64(i64 %40, i64 2)
+  br label %41
 
-44:                                               ; preds = %.lr.ph, %44
-  %.040 = phi i64 [ 1, %.lr.ph ], [ %51, %44 ]
-  %45 = sub i64 %40, %.040
-  %46 = and i64 %45, %41
-  %47 = getelementptr inbounds nuw i8, ptr %38, i64 %46
-  %48 = load i8, ptr %47, align 1, !tbaa !27
-  %49 = and i64 %45, %42
-  %50 = getelementptr inbounds nuw i8, ptr %22, i64 %49
-  store i8 %48, ptr %50, align 1, !tbaa !27
-  %51 = add nuw i64 %.040, 1
-  %exitcond = icmp eq i64 %51, %umax
-  br i1 %exitcond, label %.loopexit, label %44, !llvm.loop !329
+41:                                               ; preds = %.lr.ph, %41
+  %.040 = phi i64 [ 1, %.lr.ph ], [ %48, %44 ]
+  %42 = sub i64 %37, %.040
+  %43 = and i64 %42, %38
+  %44 = getelementptr inbounds nuw i8, ptr %35, i64 %43
+  %45 = load i8, ptr %44, align 1, !tbaa !27
+  %46 = and i64 %42, %39
+  %47 = getelementptr inbounds nuw i8, ptr %calloc, i64 %46
+  store i8 %45, ptr %47, align 1, !tbaa !27
+  %48 = add nuw i64 %.040, 1
+  %exitcond = icmp eq i64 %48, %umax
+  br i1 %exitcond, label %.loopexit, label %41, !llvm.loop !329
 
-.loopexit:                                        ; preds = %44, %.preheader, %35
-  %52 = getelementptr inbounds nuw i8, ptr %0, i64 19312
-  %53 = load ptr, ptr %52, align 8, !tbaa !161
-  %.not31 = icmp eq ptr %53, null
-  br i1 %.not31, label %55, label %54
+.loopexit:                                        ; preds = %41, %.preheader, %35
+  %49 = getelementptr inbounds nuw i8, ptr %0, i64 19312
+  %50 = load ptr, ptr %49, align 8, !tbaa !161
+  %.not31 = icmp eq ptr %50, null
+  br i1 %.not31, label %52, label %51
 
-54:                                               ; preds = %.loopexit
-  tail call void @free(ptr noundef nonnull %53) #26
-  br label %55
+51:                                               ; preds = %.loopexit
+  tail call void @free(ptr noundef nonnull %50) #26
+  br label %52
 
-55:                                               ; preds = %54, %.loopexit
-  store ptr %22, ptr %52, align 8, !tbaa !161
+52:                                               ; preds = %51, %.loopexit
+  store ptr %calloc, ptr %49, align 8, !tbaa !161
+  br label %53
+
+53:                                               ; preds = %.thread45, %55, %32
+  store i64 %spec.store.select1, ptr %7, align 8, !tbaa !164
+  %54 = add nsw i64 %spec.store.select1, -1
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 59680
+  store i64 %54, ptr %55, align 8, !tbaa !159
   br label %56
 
-56:                                               ; preds = %.thread45, %55, %33
-  store i64 %spec.store.select1, ptr %7, align 8, !tbaa !164
-  %57 = add nsw i64 %spec.store.select1, -1
-  %58 = getelementptr inbounds nuw i8, ptr %0, i64 59680
-  store i64 %57, ptr %58, align 8, !tbaa !159
-  br label %59
-
-59:                                               ; preds = %6, %56
+56:                                               ; preds = %6, %53
   ret void
 }
 

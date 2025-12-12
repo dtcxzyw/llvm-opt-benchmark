@@ -80,71 +80,71 @@ define internal range(i32 0, 2) i32 @create_segments(i64 noundef %0, ptr noundef
   br label %.lr.ph89
 
 .lr.ph92:                                         ; preds = %.lr.ph89
-  %34 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  br label %38
+  %32 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  br label %36
 
 .lr.ph89:                                         ; preds = %.lr.ph89.preheader, %.lr.ph89
   %indvars.iv = phi i64 [ 0, %.lr.ph89.preheader ], [ %indvars.iv.next, %.lr.ph89 ]
-  %35 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %32, i64 %indvars.iv
-  %36 = load ptr, ptr %1, align 8, !tbaa !11
-  %37 = getelementptr inbounds nuw ptr, ptr %36, i64 %indvars.iv
-  store ptr %35, ptr %37, align 8, !tbaa !11
+  %33 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %32, i64 %indvars.iv
+  %34 = load ptr, ptr %1, align 8, !tbaa !11
+  %35 = getelementptr inbounds nuw ptr, ptr %34, i64 %indvars.iv
+  store ptr %33, ptr %35, align 8, !tbaa !11
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.lr.ph92, label %.lr.ph89
 
-38:                                               ; preds = %.lr.ph92, %57
+36:                                               ; preds = %.lr.ph92, %55
   %indvars.iv99 = phi i64 [ 0, %.lr.ph92 ], [ %indvars.iv.next100, %57 ]
-  %.07590 = phi i64 [ %0, %.lr.ph92 ], [ %61, %57 ]
-  %39 = call i64 @llvm.umin.i64(i64 %.07590, i64 %.17486)
+  %.07590 = phi i64 [ %0, %.lr.ph92 ], [ %59, %57 ]
+  %37 = call i64 @llvm.umin.i64(i64 %.07590, i64 %.17486)
   %.not81 = icmp eq i64 %indvars.iv99, 0
-  br i1 %.not81, label %44, label %40
+  br i1 %.not81, label %42, label %38
 
-40:                                               ; preds = %38
-  %41 = call i32 @shmget(i32 noundef 0, i64 noundef %39, i32 noundef 1920) #7
-  %42 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %32, i64 %indvars.iv99
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 32
-  store i32 %41, ptr %43, align 8, !tbaa !12
-  br label %45
+38:                                               ; preds = %36
+  %39 = call i32 @shmget(i32 noundef 0, i64 noundef %37, i32 noundef 1920) #7
+  %40 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %32, i64 %indvars.iv99
+  %41 = getelementptr inbounds nuw i8, ptr %40, i64 32
+  store i32 %39, ptr %41, align 8, !tbaa !12
+  br label %43
 
-44:                                               ; preds = %38
-  store i32 %14, ptr %34, align 8, !tbaa !12
-  br label %45
+42:                                               ; preds = %36
+  store i32 %14, ptr %32, align 8, !tbaa !12
+  br label %43
 
-45:                                               ; preds = %44, %40
-  %46 = phi i32 [ %14, %44 ], [ %41, %40 ]
-  %47 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %32, i64 %indvars.iv99
-  %48 = getelementptr inbounds nuw i8, ptr %47, i64 32
-  %49 = icmp eq i32 %46, -1
-  br i1 %49, label %.loopexit, label %50
+43:                                               ; preds = %42, %38
+  %44 = phi i32 [ %14, %44 ], [ %39, %40 ]
+  %45 = getelementptr inbounds nuw %struct.zend_shared_segment_shm, ptr %32, i64 %indvars.iv99
+  %46 = getelementptr inbounds nuw i8, ptr %45, i64 32
+  %47 = icmp eq i32 %44, -1
+  br i1 %47, label %.loopexit, label %48
 
-50:                                               ; preds = %45
-  %51 = call ptr @shmat(i32 noundef %46, ptr noundef null, i32 noundef 0) #7
-  %52 = getelementptr inbounds nuw i8, ptr %47, i64 24
-  store ptr %51, ptr %52, align 8, !tbaa !16
-  %53 = icmp eq ptr %51, inttoptr (i64 -1 to ptr)
-  br i1 %53, label %54, label %57
+48:                                               ; preds = %43
+  %49 = call ptr @shmat(i32 noundef %44, ptr noundef null, i32 noundef 0) #7
+  %50 = getelementptr inbounds nuw i8, ptr %45, i64 24
+  store ptr %49, ptr %50, align 8, !tbaa !16
+  %51 = icmp eq ptr %49, inttoptr (i64 -1 to ptr)
+  br i1 %51, label %52, label %55
 
-54:                                               ; preds = %50
+52:                                               ; preds = %48
   store ptr @.str.2, ptr %3, align 8, !tbaa !4
-  %55 = load i32, ptr %48, align 8, !tbaa !12
-  %56 = call i32 @shmctl(i32 noundef %55, i32 noundef 0, ptr noundef nonnull %5) #7
+  %53 = load i32, ptr %46, align 8, !tbaa !12
+  %54 = call i32 @shmctl(i32 noundef %53, i32 noundef 0, ptr noundef nonnull %5) #7
   br label %.loopexit
 
-57:                                               ; preds = %50
-  %58 = load i32, ptr %48, align 8, !tbaa !12
-  %59 = call i32 @shmctl(i32 noundef %58, i32 noundef 0, ptr noundef nonnull %5) #7
-  %60 = getelementptr inbounds nuw i8, ptr %47, i64 16
-  store i64 0, ptr %60, align 8, !tbaa !17
-  store i64 %39, ptr %47, align 8, !tbaa !18
-  %61 = sub i64 %.07590, %39
+55:                                               ; preds = %48
+  %56 = load i32, ptr %46, align 8, !tbaa !12
+  %57 = call i32 @shmctl(i32 noundef %56, i32 noundef 0, ptr noundef nonnull %5) #7
+  %58 = getelementptr inbounds nuw i8, ptr %45, i64 16
+  store i64 0, ptr %58, align 8, !tbaa !17
+  store i64 %37, ptr %45, align 8, !tbaa !18
+  %59 = sub i64 %.07590, %37
   %indvars.iv.next100 = add nuw nsw i64 %indvars.iv99, 1
-  %62 = load i32, ptr %2, align 4, !tbaa !9
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next100, %63
-  br i1 %64, label %38, label %.loopexit
+  %60 = load i32, ptr %2, align 4, !tbaa !9
+  %61 = sext i32 %60 to i64
+  %62 = icmp slt i64 %indvars.iv.next100, %61
+  br i1 %62, label %36, label %.loopexit
 
-.loopexit:                                        ; preds = %45, %57, %28, %54, %27, %._crit_edge
+.loopexit:                                        ; preds = %43, %55, %28, %52, %27, %._crit_edge
   %.0 = phi i32 [ 0, %._crit_edge ], [ 0, %54 ], [ 0, %27 ], [ 1, %28 ], [ 0, %45 ], [ 1, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   ret i32 %.0

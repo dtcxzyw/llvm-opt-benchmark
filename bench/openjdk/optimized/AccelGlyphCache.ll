@@ -141,20 +141,20 @@ define hidden ptr @AccelGlyphCache_AddGlyph(ptr noundef %0, ptr noundef %1) loca
   %67 = fadd float %59, %66
   %68 = getelementptr inbounds nuw i8, ptr %40, i64 64
   store float %67, ptr %68, align 8
-  br i1 %21, label %69, label %70
+  br i1 %21, label %.thread129, label %70
 
-69:                                               ; preds = %42
+.thread129:                                       ; preds = %42
   store ptr %40, ptr %0, align 8
   br label %74
 
-70:                                               ; preds = %42
+70: ; preds = %42
   %71 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %72 = load ptr, ptr %71, align 8
   %73 = getelementptr inbounds nuw i8, ptr %72, i64 16
   store ptr %40, ptr %73, align 8
   br label %74
 
-74:                                               ; preds = %69, %70
+74: ; preds = %.thread129, %70
   %75 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %40, ptr %75, align 8
   %76 = getelementptr inbounds nuw i8, ptr %40, i64 16

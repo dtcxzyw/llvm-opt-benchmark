@@ -880,30 +880,30 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2s_Simd128_mall
   %7 = zext i1 %1 to i8
   %.not.i = icmp eq i8 %.sroa.43.0.copyload, 0
   %..i = select i1 %.not.i, i64 0, i64 64
-  %8 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
-  store i16 %.sroa.01.0.insert.insert, ptr %8, align 8
-  %.sroa.092.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 2
+  %9 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #27
+  store i16 %.sroa.01.0.insert.insert, ptr %9, align 8
+  %.sroa.092.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 2
   store i8 %7, ptr %.sroa.092.sroa.5.0..sroa_idx.i, align 2, !tbaa !10
-  %.sroa.092.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 3
+  %.sroa.092.sroa.6.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 3
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(5) %.sroa.092.sroa.6.0..sroa_idx.i, i8 0, i64 5, i1 false)
-  %.sroa.092.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 8
+  %.sroa.092.sroa.7.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 8
   store ptr %5, ptr %.sroa.092.sroa.7.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.092.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 16
+  %.sroa.092.sroa.8.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 16
   store ptr %6, ptr %.sroa.092.sroa.8.0..sroa_idx.i, align 8, !tbaa !12
-  %.sroa.493.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 24
+  %.sroa.493.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 24
   store ptr %4, ptr %.sroa.493.0..sroa_idx.i, align 8, !tbaa !14
-  %.sroa.594.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %8, i64 32
+  %.sroa.594.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %9, i64 32
   store i64 %..i, ptr %.sroa.594.0..sroa_idx.i, align 8, !tbaa !16
   %9 = load i8, ptr %.sroa.43.0..sroa_idx, align 1, !tbaa !18
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %malloc_raw.exit, label %11
 
-11:                                               ; preds = %3
-  %12 = zext i8 %9 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %12, i1 false)
+10:                                               ; preds = %3
+  %11 = zext i8 %9 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %11, i1 false)
   br label %malloc_raw.exit
 
-malloc_raw.exit:                                  ; preds = %3, %11
+malloc_raw.exit:                                  ; preds = %3, %10
   %.sroa.0.0.copyload.i = load i8, ptr %0, align 8, !tbaa !3
   %.sroa.5.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 2
   %.sroa.5.0.copyload.i = load i16, ptr %.sroa.5.0..sroa_idx.i, align 2
@@ -950,8 +950,8 @@ malloc_raw.exit:                                  ; preds = %3, %11
   %37 = xor i32 %.sroa.14.0.copyload.val.i, 528734635
   %38 = xor i32 %.val.i, 1541459225
   %39 = insertelement <4 x i32> poison, i32 %30, i64 0
-  %40 = insertelement <4 x i32> %39, i32 %31, i64 1
-  %41 = insertelement <4 x i32> %40, i32 %32, i64 2
+  %39 = insertelement <4 x i32> %39, i32 %31, i64 1
+  %40 = insertelement <4 x i32> %39, i32 %32, i64 2
   %42 = insertelement <4 x i32> %41, i32 %34, i64 3
   store <4 x i32> %42, ptr %6, align 16, !tbaa !3
   %43 = insertelement <4 x i32> poison, i32 %35, i64 0

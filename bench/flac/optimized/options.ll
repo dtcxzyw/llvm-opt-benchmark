@@ -2285,7 +2285,7 @@ define internal fastcc ptr @append_argument(ptr noundef captures(none) %0, i32 n
   %.pre.i = load ptr, ptr %8, align 8, !tbaa !45
   br label %11
 
-11:                                               ; preds = %10, %6
+11:; preds = %10, %6
   %12 = phi ptr [ %.pre.i, %10 ], [ %7, %6 ]
   %13 = load i32, ptr %3, align 4, !tbaa !62
   %14 = zext i32 %13 to i64
@@ -2307,11 +2307,11 @@ define internal fastcc ptr @append_argument(ptr noundef captures(none) %0, i32 n
 
 22:                                               ; preds = %20
   tail call void @die(ptr noundef nonnull @.str.97) #19
-  %.pre22.i = load i32, ptr %3, align 4, !tbaa !62
+  %.pre23.i = load i32, ptr %3, align 4, !tbaa !62
   br label %23
 
 23:                                               ; preds = %22, %20
-  %24 = phi i32 [ %.pre22.i, %22 ], [ %17, %20 ]
+  %24 = phi i32 [ %.pre23.i, %22 ], [ %17, %20 ]
   %25 = shl i32 %24, 1
   store i32 %25, ptr %3, align 4, !tbaa !62
   %26 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -2343,11 +2343,11 @@ safe_realloc_mul_2op_.exit.i:                     ; preds = %23
 
 35:                                               ; preds = %safe_realloc_mul_2op_.exit.i, %safe_realloc_mul_2op_.exit.thread.i
   tail call void @die(ptr noundef nonnull @.str.97) #19
-  %.pre23.i = load ptr, ptr %26, align 8, !tbaa !45
+  %.pre24.i = load ptr, ptr %26, align 8, !tbaa !45
   br label %36
 
 36:                                               ; preds = %35, %safe_realloc_mul_2op_.exit.i, %safe_realloc_mul_2op_.exit.thread20.i
-  %37 = phi ptr [ %31, %safe_realloc_mul_2op_.exit.thread20.i ], [ %.pre23.i, %35 ], [ %33, %safe_realloc_mul_2op_.exit.i ]
+  %37 = phi ptr [ %31, %safe_realloc_mul_2op_.exit.thread20.i ], [ %.pre24.i, %35 ], [ %33, %safe_realloc_mul_2op_.exit.i ]
   %38 = zext i32 %17 to i64
   %39 = getelementptr inbounds nuw %struct.Argument, ptr %37, i64 %38
   %40 = load i32, ptr %3, align 4, !tbaa !62
@@ -2355,11 +2355,11 @@ safe_realloc_mul_2op_.exit.i:                     ; preds = %23
   %42 = zext i32 %41 to i64
   %43 = mul nuw nsw i64 %42, 24
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %39, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %43, i1 noundef false) #19
-  %.pre24.i = load i32, ptr %18, align 8, !tbaa !44
+  %.pre25.i = load i32, ptr %18, align 8, !tbaa !44
   br label %append_new_argument.exit
 
 append_new_argument.exit:                         ; preds = %16, %36
-  %44 = phi i32 [ %.pre24.i, %36 ], [ %19, %16 ]
+  %44 = phi i32 [ %.pre25.i, %36 ], [ %19, %16 ]
   %45 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %46 = load ptr, ptr %45, align 8, !tbaa !45
   %47 = add i32 %44, 1
@@ -2786,7 +2786,7 @@ define internal fastcc void @append_new_operation(ptr noundef captures(none) %0,
   %.pre = load ptr, ptr %3, align 8, !tbaa !34
   br label %11
 
-11:                                               ; preds = %10, %7
+11:; preds = %10, %7
   %12 = phi ptr [ %.pre, %10 ], [ %8, %7 ]
   %13 = load i32, ptr %4, align 4, !tbaa !79
   %14 = zext i32 %13 to i64
@@ -2808,11 +2808,11 @@ define internal fastcc void @append_new_operation(ptr noundef captures(none) %0,
 
 22:                                               ; preds = %20
   tail call void @die(ptr noundef nonnull @.str.97) #19
-  %.pre22 = load i32, ptr %4, align 4, !tbaa !79
+  %.pre23 = load i32, ptr %4, align 4, !tbaa !79
   br label %23
 
 23:                                               ; preds = %22, %20
-  %24 = phi i32 [ %.pre22, %22 ], [ %17, %20 ]
+  %24 = phi i32 [ %.pre23, %22 ], [ %17, %20 ]
   %25 = shl i32 %24, 1
   store i32 %25, ptr %4, align 4, !tbaa !79
   %26 = load ptr, ptr %3, align 8, !tbaa !34
@@ -2843,11 +2843,11 @@ safe_realloc_mul_2op_.exit:                       ; preds = %23
 
 34:                                               ; preds = %safe_realloc_mul_2op_.exit.thread, %safe_realloc_mul_2op_.exit
   tail call void @die(ptr noundef nonnull @.str.97) #19
-  %.pre23 = load ptr, ptr %3, align 8, !tbaa !34
+  %.pre24 = load ptr, ptr %3, align 8, !tbaa !34
   br label %35
 
 35:                                               ; preds = %safe_realloc_mul_2op_.exit.thread20, %34, %safe_realloc_mul_2op_.exit
-  %36 = phi ptr [ %30, %safe_realloc_mul_2op_.exit.thread20 ], [ %.pre23, %34 ], [ %32, %safe_realloc_mul_2op_.exit ]
+  %36 = phi ptr [ %30, %safe_realloc_mul_2op_.exit.thread20 ], [ %.pre24, %34 ], [ %32, %safe_realloc_mul_2op_.exit ]
   %37 = zext i32 %17 to i64
   %38 = getelementptr inbounds nuw %struct.Operation, ptr %36, i64 %37
   %39 = load i32, ptr %4, align 4, !tbaa !79
@@ -2855,11 +2855,11 @@ safe_realloc_mul_2op_.exit:                       ; preds = %23
   %41 = zext i32 %40 to i64
   %42 = mul nuw nsw i64 %41, 48
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %38, i8 noundef 0, i64 noundef range(i64 0, 206158430161) %42, i1 noundef false) #19
-  %.pre24 = load i32, ptr %18, align 8, !tbaa !33
+  %.pre25 = load i32, ptr %18, align 8, !tbaa !33
   br label %43
 
 43:                                               ; preds = %35, %16
-  %44 = phi i32 [ %.pre24, %35 ], [ %19, %16 ]
+  %44 = phi i32 [ %.pre25, %35 ], [ %19, %16 ]
   %45 = load ptr, ptr %3, align 8, !tbaa !34
   %46 = add i32 %44, 1
   store i32 %46, ptr %18, align 8, !tbaa !33

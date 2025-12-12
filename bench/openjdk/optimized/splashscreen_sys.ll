@@ -198,7 +198,7 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
 
 .thread52:                                        ; preds = %39
   store ptr null, ptr %8, align 8
-  br label %50
+  br label %47
 
 42:                                               ; preds = %39
   %43 = zext nneg i32 %40 to i64
@@ -206,7 +206,7 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
   %45 = call noalias ptr @malloc(i64 noundef %44) #19
   store ptr %45, ptr %8, align 8
   %.not49 = icmp eq ptr %45, null
-  br i1 %.not49, label %50, label %46
+  br i1 %.not49, label %47, label %46
 
 46:                                               ; preds = %42
   %47 = load i32, ptr %9, align 8
@@ -215,11 +215,11 @@ define hidden void @SplashInitFrameShape(ptr noundef %0, i32 noundef %1) local_u
   call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 2 %45, ptr nonnull align 2 %38, i64 %49, i1 false)
   br label %50
 
-50:                                               ; preds = %.thread52, %46, %42
+47:                                               ; preds = %.thread52, %46, %42
   call void @free(ptr noundef nonnull %38) #17
   br label %.thread
 
-.thread:                                          ; preds = %32, %15, %29, %2, %50
+.thread:                                          ; preds = %32, %15, %29, %2, %47
   ret void
 }
 

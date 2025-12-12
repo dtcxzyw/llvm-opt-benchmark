@@ -9371,41 +9371,41 @@ define internal void @submodule_summary_callback(ptr noundef readonly captures(n
   %.pre = load ptr, ptr %.phi.trans.insert, align 8, !tbaa !311
   br i1 %18, label %._crit_edge39, label %19
 
-19:                                               ; preds = %9
+19:   ; preds = %9
   %20 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %21 = load i16, ptr %20, align 8, !tbaa !308
   %22 = and i16 %21, -4096
   %23 = icmp eq i16 %22, -8192
   br i1 %23, label %._crit_edge39, label %61
 
-._crit_edge39:                                    ; preds = %9, %19
+._crit_edge39:; preds = %9, %19
   %24 = tail call noalias dereferenceable_or_null(96) ptr @malloc(i64 noundef 96) #25
   %25 = load i16, ptr %15, align 8, !tbaa !308
-  %26 = zext i16 %25 to i32
+  %24 = zext i16 %25 to i32
   store i32 %26, ptr %24, align 8, !tbaa !312
   %27 = getelementptr inbounds nuw i8, ptr %13, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
+  %26 = getelementptr inbounds nuw i8, ptr %.pre, i64 80
   %29 = load i16, ptr %28, align 8, !tbaa !308
   %30 = zext i16 %29 to i32
   %31 = getelementptr inbounds nuw i8, ptr %24, i64 4
   store i32 %30, ptr %31, align 4, !tbaa !313
-  %32 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(36) %32, ptr noundef nonnull align 8 dereferenceable(36) %14, i64 36, i1 false), !tbaa.struct !314
-  %33 = getelementptr inbounds nuw i8, ptr %24, i64 44
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 44
   %34 = load ptr, ptr %27, align 8, !tbaa !311
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(36) %33, ptr noundef nonnull align 8 dereferenceable(36) %34, i64 36, i1 false), !tbaa.struct !314
-  %35 = getelementptr inbounds nuw i8, ptr %13, i64 18
-  %36 = load i8, ptr %35, align 2, !tbaa !315
+  %33 = getelementptr inbounds nuw i8, ptr %13, i64 18
+  %34 = load i8, ptr %33, align 2, !tbaa !315
   %37 = getelementptr inbounds nuw i8, ptr %24, i64 80
   store i8 %36, ptr %37, align 8, !tbaa !241
   %38 = load ptr, ptr %13, align 8, !tbaa !304
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 40
-  %40 = load ptr, ptr %39, align 8, !tbaa !316
-  %41 = tail call ptr @xstrdup(ptr noundef %40) #20
+  %38 = load ptr, ptr %39, align 8, !tbaa !316
+  %41 = tail call ptr @xstrdup(ptr noundef %38) #20
   %42 = getelementptr inbounds nuw i8, ptr %24, i64 88
   store ptr %41, ptr %42, align 8, !tbaa !243
   %43 = load i32, ptr %7, align 4, !tbaa !235
-  %44 = load i32, ptr %8, align 8, !tbaa !317
+  %.pre43 = load i32, ptr %8, align 8, !tbaa !317
   %.not = icmp slt i32 %43, %44
   br i1 %.not, label %._crit_edge40, label %45
 
@@ -9413,27 +9413,27 @@ define internal void @submodule_summary_callback(ptr noundef readonly captures(n
   %.pre41 = load ptr, ptr %2, align 8, !tbaa !238
   br label %55
 
-45:                                               ; preds = %._crit_edge39
-  %46 = add nsw i32 %43, 1
-  %47 = mul i32 %44, 3
-  %48 = add i32 %47, 48
-  %49 = sdiv i32 %48, 2
-  %. = tail call i32 @llvm.smax.i32(i32 %49, i32 %46)
+39:                                               ; preds = %._crit_edge39
+  %40 = add nsw i32 %43, 1
+  %41 = mul i32 %44, 3
+  %42 = add i32 %41, 48
+  %43 = sdiv i32 %42, 2
+  %. = tail call i32 @llvm.smax.i32(i32 %43, i32 %40)
   store i32 %., ptr %8, align 8, !tbaa !317
-  %50 = sext i32 %. to i64
+  %44 = sext i32 %. to i64
   %mul.ov.i = icmp slt i32 %., 0
-  br i1 %mul.ov.i, label %51, label %st_mult.exit
+  br i1 %mul.ov.i, label %45, label %st_mult.exit
 
-51:                                               ; preds = %45
-  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.168, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %50) #21
+45:                                               ; preds = %39
+  tail call void (ptr, ...) @die(ptr noundef nonnull @.str.168, i64 noundef 8, i64 noundef range(i64 -2147483648, 2147483648) %44) #21
   unreachable
 
-st_mult.exit:                                     ; preds = %45
-  %52 = load ptr, ptr %2, align 8, !tbaa !238
-  %53 = shl nuw nsw i64 %50, 3
-  %54 = tail call ptr @xrealloc(ptr noundef %52, i64 noundef %53) #20
-  store ptr %54, ptr %2, align 8, !tbaa !238
-  %.pre42 = load i32, ptr %7, align 4, !tbaa !235
+st_mult.exit:                                     ; preds = %39
+  %46 = load ptr, ptr %2, align 8, !tbaa !238
+  %47 = shl nuw nsw i64 %44, 3
+  %48 = tail call ptr @xrealloc(ptr noundef %46, i64 noundef %47) #20
+  store ptr %48, ptr %2, align 8, !tbaa !238
+  %.pre44 = load i32, ptr %7, align 4, !tbaa !235
   br label %55
 
 55:                                               ; preds = %._crit_edge40, %st_mult.exit
@@ -9450,9 +9450,9 @@ st_mult.exit:                                     ; preds = %45
 61:                                               ; preds = %19, %55
   %62 = phi i32 [ %10, %19 ], [ %.pre43, %55 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %63 = sext i32 %62 to i64
-  %64 = icmp slt i64 %indvars.iv.next, %63
-  br i1 %64, label %9, label %._crit_edge, !llvm.loop !318
+  %57 = sext i32 %62 to i64
+  %58 = icmp slt i64 %indvars.iv.next, %57
+  br i1 %58, label %9, label %._crit_edge, !llvm.loop !318
 
 ._crit_edge:                                      ; preds = %61, %3
   ret void

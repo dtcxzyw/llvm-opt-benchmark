@@ -1779,22 +1779,22 @@ _ZN4llvm11safe_mallocEm.exit:                     ; preds = %_ZN4llvm17LiveInter
   br i1 %.not8, label %.loopexit, label %.lr.ph
 
 .lr.ph:                                           ; preds = %_ZN4llvm11safe_mallocEm.exit, %.lr.ph
-  %.09 = phi i32 [ %40, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
-  %33 = load ptr, ptr %7, align 8, !tbaa !96
-  %34 = zext i32 %.09 to i64
-  %35 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %33, i64 %34
-  store i32 0, ptr %35, align 8, !tbaa !9
-  %36 = getelementptr inbounds nuw i8, ptr %35, i64 8
-  %37 = getelementptr inbounds nuw i8, ptr %35, i64 200
-  store i32 0, ptr %37, align 8, !tbaa !28
-  %38 = getelementptr inbounds nuw i8, ptr %35, i64 204
-  store i32 0, ptr %38, align 4, !tbaa !29
-  %39 = getelementptr inbounds nuw i8, ptr %35, i64 208
-  store ptr %1, ptr %39, align 8, !tbaa !98
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %36, i8 0, i64 192, i1 false)
-  %40 = add i32 %.09, 1
-  %41 = load i32, ptr %0, align 8, !tbaa !94
-  %.not = icmp eq i32 %40, %41
+  %.09 = phi i32 [ %39, %.lr.ph ], [ 0, %_ZN4llvm11safe_mallocEm.exit ]
+  %32 = load ptr, ptr %7, align 8, !tbaa !96
+  %33 = zext i32 %.09 to i64
+  %34 = getelementptr inbounds nuw %"class.llvm::LiveIntervalUnion", ptr %32, i64 %33
+  store i32 0, ptr %34, align 8, !tbaa !9
+  %35 = getelementptr inbounds nuw i8, ptr %34, i64 8
+  %36 = getelementptr inbounds nuw i8, ptr %34, i64 200
+  store i32 0, ptr %36, align 8, !tbaa !28
+  %37 = getelementptr inbounds nuw i8, ptr %34, i64 204
+  store i32 0, ptr %37, align 4, !tbaa !29
+  %38 = getelementptr inbounds nuw i8, ptr %34, i64 208
+  store ptr %1, ptr %38, align 8, !tbaa !98
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(208) %35, i8 0, i64 192, i1 false)
+  %39 = add i32 %.09, 1
+  %40 = load i32, ptr %0, align 8, !tbaa !94
+  %.not = icmp eq i32 %39, %40
   br i1 %.not, label %.loopexit, label %.lr.ph, !llvm.loop !99
 
 .loopexit:                                        ; preds = %.lr.ph, %_ZN4llvm11safe_mallocEm.exit, %3

@@ -1493,7 +1493,7 @@ define internal range(i32 -30, 2) i32 @read_data(ptr noundef %0, ptr noundef wri
   store ptr null, ptr %1, align 8, !tbaa !92
   store i64 0, ptr %3, align 8, !tbaa !45
   store i64 0, ptr %2, align 8, !tbaa !45
-  br label %43
+  br label %42
 
 12:                                               ; preds = %4
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 32
@@ -1515,13 +1515,13 @@ define internal range(i32 -30, 2) i32 @read_data(ptr noundef %0, ptr noundef wri
 
 20:                                               ; preds = %16
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef 12, ptr noundef nonnull @.str.45) #19
-  br label %43
+  br label %42
 
 21:                                               ; preds = %._crit_edge, %12
   %22 = phi i32 [ %.pre, %._crit_edge ], [ %9, %12 ]
   %23 = phi ptr [ %18, %._crit_edge ], [ %14, %12 ]
   store ptr %23, ptr %1, align 8, !tbaa !92
-  %24 = getelementptr inbounds nuw i8, ptr %7, i64 40
+  %24 = getelementptr inbounds nuw i8, ptr %7, i64 39
   %25 = load i64, ptr %24, align 8, !tbaa !91
   store i64 %25, ptr %3, align 8, !tbaa !45
   %26 = getelementptr inbounds nuw i8, ptr %7, i64 24
@@ -1535,28 +1535,28 @@ define internal range(i32 -30, 2) i32 @read_data(ptr noundef %0, ptr noundef wri
   %33 = icmp slt i64 %32, 0
   br i1 %33, label %34, label %37
 
-34:                                               ; preds = %21
+34:; preds = %21
   %35 = tail call ptr @__errno_location() #22
   %36 = load i32, ptr %35, align 4, !tbaa !67
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef nonnull %0, i32 noundef %36, ptr noundef nonnull @.str.73) #19
   br label %43
 
-37:                                               ; preds = %21
+37:; preds = %21
   %38 = icmp eq i64 %32, 0
   br i1 %38, label %39, label %40
 
 39:                                               ; preds = %37
   store i64 0, ptr %2, align 8, !tbaa !45
-  br label %43
+  br label %42
 
-40:                                               ; preds = %37
-  %41 = load i64, ptr %24, align 8, !tbaa !91
-  %42 = add nsw i64 %41, %32
-  store i64 %42, ptr %24, align 8, !tbaa !91
+39:                                               ; preds = %37
+  %40 = load i64, ptr %24, align 8, !tbaa !91
+  %41 = add nsw i64 %40, %32
+  store i64 %41, ptr %24, align 8, !tbaa !91
   store i64 %32, ptr %2, align 8, !tbaa !45
-  br label %43
+  br label %42
 
-43:                                               ; preds = %40, %39, %34, %20, %11
+42:                                               ; preds = %39, %39, %34, %20, %11
   %.0 = phi i32 [ 1, %11 ], [ -30, %20 ], [ -20, %34 ], [ 1, %39 ], [ 0, %40 ]
   ret i32 %.0
 }

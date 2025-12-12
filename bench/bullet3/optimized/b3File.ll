@@ -256,7 +256,7 @@ define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 der
 71:                                               ; preds = %73
   %72 = tail call noalias ptr @fopen(ptr noundef %1, ptr noundef nonnull @.str)
   %.not = icmp eq ptr %72, null
-  br i1 %.not, label %100, label %77
+  br i1 %.not, label %99, label %77
 
 73:                                               ; preds = %3, %73
   %indvars.iv = phi i64 [ 0, %3 ], [ %indvars.iv.next, %73 ]
@@ -288,24 +288,24 @@ define dso_local void @_ZN6bParse5bFileC2EPKcS2_(ptr noundef nonnull align 8 der
   invoke void %91(ptr noundef nonnull align 8 dereferenceable(540) %0)
           to label %100 unwind label %92
 
-92:                                               ; preds = %77
+92:; preds = %77
   %93 = landingpad { ptr, i32 }
           cleanup
-  %94 = getelementptr inbounds nuw i8, ptr %0, i64 408
-  %95 = getelementptr inbounds nuw i8, ptr %0, i64 280
-  %96 = getelementptr inbounds nuw i8, ptr %0, i64 248
-  %97 = getelementptr inbounds nuw i8, ptr %0, i64 216
-  %98 = getelementptr inbounds nuw i8, ptr %0, i64 184
-  %99 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %94) #32
-  tail call void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %95) #32
-  tail call void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %96) #32
+  %93 = getelementptr inbounds nuw i8, ptr %0, i64 408
+  %94 = getelementptr inbounds nuw i8, ptr %0, i64 280
+  %95 = getelementptr inbounds nuw i8, ptr %0, i64 248
+  %96 = getelementptr inbounds nuw i8, ptr %0, i64 216
+  %97 = getelementptr inbounds nuw i8, ptr %0, i64 184
+  %98 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %93) #32
+  tail call void @_ZN9b3HashMapI9b3HashPtrN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %94) #32
+  tail call void @_ZN20b3AlignedObjectArrayIN6bParse9bChunkIndEED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %95) #32
   tail call void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %97) #32
   tail call void @_ZN20b3AlignedObjectArrayIPcED2Ev(ptr noundef nonnull align 8 dereferenceable(25) %98) #32
   tail call void @_ZN9b3HashMapI9b3HashPtrPN6bParse13bStructHandleEED2Ev(ptr noundef nonnull align 8 dereferenceable(128) %99) #32
   resume { ptr, i32 } %93
 
-100:                                              ; preds = %77, %71
+99:                                               ; preds = %77, %71
   ret void
 }
 

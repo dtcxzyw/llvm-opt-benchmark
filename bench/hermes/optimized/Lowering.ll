@@ -4024,9 +4024,9 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   store i32 %add.i.i15.i.i.i.i, ptr %Size.i.i13.i.i.i.i, align 8
   %add.ptr.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %call.i.i.i.i.i.i.i, i64 %mul.i.i.i.i.i.i
   store ptr %add.ptr.i.i.i.i.i, ptr %End.i.i.i.i, align 8
-  %sub.i17.i.i.i.i = add i64 %12, 7
-  %and.i19.i.i.i.i = and i64 %sub.i17.i.i.i.i, -8
-  %14 = inttoptr i64 %and.i19.i.i.i.i to ptr
+  %sub.i18.i.i.i.i = add i64 %12, 7
+  %and.i20.i.i.i.i = and i64 %sub.i18.i.i.i.i, -8
+  %14 = inttoptr i64 %and.i20.i.i.i.i to ptr
   %add.ptr19.i.i.i.i = getelementptr inbounds nuw i8, ptr %14, i64 32
   store ptr %add.ptr19.i.i.i.i, ptr %Allocator.i, align 8
   br label %"_ZN4llvh18RecyclingAllocatorINS_20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EEEN6hermes10DomTreeDFS9StackNodeIZL22orderBlocksByDominanceIZNS4_16LowerAllocObject13collectStoresEPNS4_15AllocObjectInstERKNS_8DenseMapIPNS4_10BasicBlockENS_11SmallVectorIPNS4_23StoreNewOwnPropertyInstELj4EEENS_12DenseMapInfoISD_EENS_6detail12DenseMapPairISD_SH_EEEERKNS4_13DominanceInfoEE3$_0ENSE_ISD_Lj4EEESS_SD_OT_E18OrderBlocksContextEELm32ELm8EE8AllocateEv.exit"

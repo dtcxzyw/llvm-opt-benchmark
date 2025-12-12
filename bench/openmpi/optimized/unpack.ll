@@ -4858,7 +4858,7 @@ define i32 @pmix20_bfrop_unpack_darray(ptr noundef %0, ptr noundef %1, ptr nound
   %wide.trip.count = zext nneg i32 %17 to i64
   br label %21
 
-21:                                               ; preds = %.lr.ph, %52
+21:                                               ; preds = %.lr.ph, %51
   %indvars.iv = phi i64 [ 0, %.lr.ph ], [ %indvars.iv.next, %52 ]
   %22 = getelementptr inbounds nuw %struct.pmix_data_array, ptr %2, i64 %indvars.iv
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %22, i8 0, i64 24, i1 false)
@@ -4891,12 +4891,12 @@ pmix20_bfrop_unpack_datatype.exit:                ; preds = %pmix_pointer_array_
 34:                                               ; preds = %31
   %35 = load i64, ptr %32, align 8, !tbaa !74
   %36 = icmp eq i64 %35, 0
-  br i1 %36, label %52, label %37
+  br i1 %36, label %51, label %37
 
 37:                                               ; preds = %34
   %38 = load i16, ptr %22, align 8, !tbaa !72
   %39 = icmp eq i16 %38, 0
-  br i1 %39, label %52, label %40
+  br i1 %39, label %51, label %40
 
 40:                                               ; preds = %37
   %41 = trunc i64 %35 to i32
@@ -4930,12 +4930,12 @@ switch.lookup:                                    ; preds = %switch.hole_check
   %.not46 = icmp eq i32 %51, 0
   br i1 %.not46, label %52, label %pmix20_bfrop_unpack_datatype.exit.thread
 
-52:                                               ; preds = %49, %34, %37
+51:                                               ; preds = %49, %34, %37
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %pmix20_bfrop_unpack_datatype.exit.thread, label %21, !llvm.loop !119
 
-pmix20_bfrop_unpack_datatype.exit.thread:         ; preds = %pmix20_bfrop_unpack_datatype.exit, %31, %switch.lookup, %49, %52, %pmix_pointer_array_get_item.exit.i, %21, %40, %switch.hole_check, %16
+pmix20_bfrop_unpack_datatype.exit.thread:         ; preds = %pmix20_bfrop_unpack_datatype.exit, %31, %switch.lookup, %49, %51, %pmix_pointer_array_get_item.exit.i, %21, %40, %switch.hole_check, %16
   %.037 = phi i32 [ 0, %16 ], [ -47, %switch.hole_check ], [ -16, %21 ], [ -16, %pmix_pointer_array_get_item.exit.i ], [ 0, %52 ], [ %51, %49 ], [ -32, %switch.lookup ], [ -47, %40 ], [ %33, %31 ], [ %30, %pmix20_bfrop_unpack_datatype.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   ret i32 %.037

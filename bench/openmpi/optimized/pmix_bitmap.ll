@@ -28,7 +28,7 @@ define internal void @pmix_bitmap_destruct(ptr noundef captures(none) %0) #1 {
   br i1 %.not, label %5, label %4
 
 4:                                                ; preds = %1
-  tail call void @free(ptr noundef nonnull %3) #14
+  tail call void @free(ptr noundef nonnull %3) #15
   store ptr null, ptr %2, align 8, !tbaa !3
   br label %5
 
@@ -79,7 +79,7 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   br i1 %.not, label %20, label %15
 
 15:                                               ; preds = %9
-  tail call void @free(ptr noundef nonnull %14) #14
+  tail call void @free(ptr noundef nonnull %14) #15
   %16 = load i32, ptr %6, align 4, !tbaa !14
   %17 = load i32, ptr %12, align 8, !tbaa !13
   %18 = icmp slt i32 %16, %17
@@ -93,10 +93,10 @@ define range(i32 -29, 1) i32 @pmix_bitmap_init(ptr noundef captures(address_is_n
   %21 = phi i32 [ %17, %15 ], [ %17, %19 ], [ %11, %9 ]
   %22 = sext i32 %21 to i64
   %23 = shl nsw i64 %22, 3
-  %24 = tail call noalias ptr @malloc(i64 noundef %23) #15
-  store ptr %24, ptr %13, align 8, !tbaa !3
-  %25 = icmp eq ptr %24, null
-  br i1 %25, label %29, label %pmix_bitmap_clear_all_bits.exit
+  %calloc = tail call noalias ptr @malloc(i64 noundef %23) #15
+  store ptr %calloc, ptr %13, align 8, !tbaa !3
+  %24 = icmp eq ptr %calloc, null
+  br i1 %24, label %29, label %pmix_bitmap_clear_all_bits.exit
 
 pmix_bitmap_clear_all_bits.exit:                  ; preds = %20
   %26 = load i32, ptr %12, align 8, !tbaa !13
@@ -612,7 +612,7 @@ define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures
   %6 = shl nsw i32 %5, 6
   %7 = or disjoint i32 %6, 1
   %8 = sext i32 %7 to i64
-  %9 = tail call noalias ptr @malloc(i64 noundef %8) #15
+  %9 = tail call noalias ptr @malloc(i64 noundef %8) #17
   %10 = icmp eq ptr %9, null
   br i1 %10, label %.loopexit, label %11
 
@@ -626,25 +626,25 @@ define noalias noundef ptr @pmix_bitmap_get_string(ptr noundef readonly captures
   br i1 %16, label %pmix_bitmap_is_set_bit.exit.lr.ph, label %.loopexit
 
 pmix_bitmap_is_set_bit.exit.lr.ph:                ; preds = %11
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 120
-  %18 = load ptr, ptr %17, align 8, !tbaa !3
+  %15 = getelementptr inbounds nuw i8, ptr %0, i64 120
+  %16 = load ptr, ptr %15, align 8, !tbaa !3
   %smax = tail call i32 @llvm.smax.i32(i32 %13, i32 1)
   %wide.trip.count = zext nneg i32 %smax to i64
   br label %pmix_bitmap_is_set_bit.exit
 
 pmix_bitmap_is_set_bit.exit:                      ; preds = %pmix_bitmap_is_set_bit.exit.lr.ph, %pmix_bitmap_is_set_bit.exit
   %indvars.iv = phi i64 [ 0, %pmix_bitmap_is_set_bit.exit.lr.ph ], [ %indvars.iv.next, %pmix_bitmap_is_set_bit.exit ]
-  %19 = lshr i64 %indvars.iv, 6
-  %20 = and i64 %indvars.iv, 63
-  %21 = and i64 %19, 67108863
-  %22 = getelementptr inbounds nuw i64, ptr %18, i64 %21
-  %23 = load i64, ptr %22, align 8, !tbaa !15
-  %24 = shl nuw i64 1, %20
-  %25 = and i64 %23, %24
-  %.not12.i.not = icmp eq i64 %25, 0
+  %17 = lshr i64 %indvars.iv, 6
+  %18 = and i64 %indvars.iv, 63
+  %19 = and i64 %17, 67108863
+  %20 = getelementptr inbounds nuw i64, ptr %16, i64 %19
+  %21 = load i64, ptr %20, align 8, !tbaa !15
+  %22 = shl nuw i64 1, %18
+  %23 = and i64 %21, %22
+  %.not12.i.not = icmp eq i64 %23, 0
   %spec.select = select i1 %.not12.i.not, i8 95, i8 88
-  %26 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
-  store i8 %spec.select, ptr %26, align 1, !tbaa !25
+  %24 = getelementptr inbounds nuw i8, ptr %9, i64 %indvars.iv
+  store i8 %spec.select, ptr %24, align 1, !tbaa !25
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %.loopexit, label %pmix_bitmap_is_set_bit.exit, !llvm.loop !26
@@ -762,7 +762,7 @@ define noundef zeroext i1 @pmix_bitmap_is_clear(ptr noundef readonly captures(no
 }
 
 ; Function Attrs: nocallback nocreateundeforpoison nofree nosync nounwind speculatable willreturn memory(none)
-declare i32 @llvm.smax.i32(i32, i32) #13
+declare i32 @llvm.smax.i32(i32, i32) #14
 
 attributes #0 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #1 = { mustprogress nounwind willreturn memory(readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx16,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

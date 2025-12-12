@@ -12251,8 +12251,8 @@ _ZN7cvflann10load_valueIiEEvP8_IO_FILERT_m.exit:  ; preds = %52
 _ZN7cvflann15PooledAllocator8allocateIPNS_11KMeansIndexINS_2L2IfEEE10KMeansNodeEEEPT_m.exit: ; preds = %.thread.i.i24, %94
   %101 = phi ptr [ %48, %94 ], [ %.pre, %.thread.i.i24 ]
   %.1.i.i22 = phi ptr [ %96, %94 ], [ null, %.thread.i.i24 ]
-  %102 = getelementptr inbounds nuw i8, ptr %101, i64 24
-  store ptr %.1.i.i22, ptr %102, align 8, !tbaa !329
+  %103 = getelementptr inbounds nuw i8, ptr %101, i64 24
+  store ptr %.1.i.i22, ptr %103, align 8, !tbaa !329
   %103 = load i32, ptr %70, align 8, !tbaa !230
   %104 = icmp sgt i32 %103, 0
   br i1 %104, label %.lr.ph, label %.loopexit

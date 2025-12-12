@@ -225,7 +225,7 @@ fetchErrorName.exit:                              ; preds = %7, %10
   %.0.in.i = select i1 %17, ptr %16, ptr %13
   %.0.i = load ptr, ptr %.0.in.i, align 8, !tbaa !11
   %.not = icmp eq ptr %.0.i, null
-  br i1 %.not, label %18, label %49
+  br i1 %.not, label %18, label %48
 
 18:                                               ; preds = %fetchErrorName.exit
   %19 = load ptr, ptr @gBundle, align 8, !tbaa !8
@@ -244,7 +244,7 @@ fetchErrorName.exit:                              ; preds = %7, %10
   %27 = icmp sgt i32 %26, 0
   %28 = icmp eq ptr %25, null
   %or.cond = select i1 %27, i1 true, i1 %28
-  br i1 %or.cond, label %.thread, label %40
+  br i1 %or.cond, label %.thread, label %39
 
 .thread:                                          ; preds = %23, %21, %18
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -267,27 +267,27 @@ fetchErrorName.exit:                              ; preds = %7, %10
   %39 = add i32 %38, 1
   call void @u_charsToUChars_77(ptr noundef nonnull %.020, ptr noundef %36, i32 noundef %39) #8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %40
+  br label %39
 
-40:                                               ; preds = %23, %32
+39:                                               ; preds = %23, %32
   %.2 = phi ptr [ %36, %32 ], [ %25, %23 ]
-  %41 = icmp sgt i32 %0, -1
-  br i1 %41, label %42, label %45
+  %40 = icmp sgt i32 %0, -1
+  br i1 %40, label %41, label %44
 
-42:                                               ; preds = %40
-  %43 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
-  %44 = getelementptr inbounds nuw ptr, ptr %43, i64 %12
-  store ptr %.2, ptr %44, align 8, !tbaa !11
-  br label %49
+41:                                               ; preds = %39
+  %42 = load ptr, ptr @gErrMessages, align 8, !tbaa !17
+  %43 = getelementptr inbounds nuw ptr, ptr %42, i64 %12
+  store ptr %.2, ptr %43, align 8, !tbaa !11
+  br label %48
 
-45:                                               ; preds = %40
-  %46 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
-  %47 = getelementptr ptr, ptr %46, i64 %14
-  %48 = getelementptr i8, ptr %47, i64 1024
-  store ptr %.2, ptr %48, align 8, !tbaa !11
-  br label %49
+44:                                               ; preds = %39
+  %45 = load ptr, ptr @gInfoMessages, align 8, !tbaa !17
+  %46 = getelementptr ptr, ptr %45, i64 %14
+  %47 = getelementptr i8, ptr %46, i64 1024
+  store ptr %.2, ptr %47, align 8, !tbaa !11
+  br label %48
 
-49:                                               ; preds = %42, %45, %fetchErrorName.exit
+48:                                               ; preds = %41, %44, %fetchErrorName.exit
   %.0 = phi ptr [ %.0.i, %fetchErrorName.exit ], [ %.2, %45 ], [ %.2, %42 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)

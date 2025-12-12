@@ -7512,14 +7512,14 @@ common.ret50:                                     ; preds = %13, %11, %2, %16, %
 13:                                               ; preds = %11
   %14 = tail call i32 @H5Tget_nmembers(i64 noundef %0) #16
   %15 = icmp sgt i32 %14, 0
-  br i1 %15, label %16, label %common.ret50
+  br i1 %15, label %.lr.ph.preheader, label %common.ret50
 
-16:                                               ; preds = %13
+.lr.ph.preheader:                                 ; preds = %13
   store i32 %14, ptr %1, align 8, !tbaa !61
-  %17 = zext nneg i32 %14 to i64
-  %18 = tail call noalias ptr @calloc(i64 noundef %17, i64 noundef 8) #19
-  %19 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store ptr %18, ptr %19, align 8, !tbaa !66
+  %16 = zext nneg i32 %14 to i64
+  %17 = tail call noalias ptr @calloc(i64 noundef %16, i64 noundef 8) #19
+  %18 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store ptr %17, ptr %18, align 8, !tbaa !66
   %20 = load i32, ptr %1, align 8, !tbaa !61
   %21 = zext i32 %20 to i64
   %22 = tail call noalias ptr @calloc(i64 noundef %21, i64 noundef 8) #19
@@ -7534,7 +7534,7 @@ common.ret50:                                     ; preds = %13, %11, %2, %16, %
   %.not = icmp eq i32 %28, 0
   br i1 %.not, label %common.ret50, label %.lr.ph
 
-.lr.ph:                                           ; preds = %16, %.lr.ph
+.lr.ph:  ; preds = %16, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %16 ]
   %29 = trunc nuw i64 %indvars.iv to i32
   %30 = tail call i64 @H5Tget_member_type(i64 noundef %0, i32 noundef %29) #16
@@ -7546,7 +7546,7 @@ common.ret50:                                     ; preds = %13, %11, %2, %16, %
   %35 = getelementptr inbounds nuw i64, ptr %34, i64 %indvars.iv
   store i64 %33, ptr %35, align 8, !tbaa !15
   %36 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #20
-  %37 = load ptr, ptr %27, align 8, !tbaa !67
+  %35 = load ptr, ptr %27, align 8, !tbaa !67
   %38 = getelementptr inbounds nuw ptr, ptr %37, i64 %indvars.iv
   store ptr %36, ptr %38, align 8, !tbaa !68
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %36, i8 0, i64 32, i1 false)
@@ -7556,10 +7556,10 @@ common.ret50:                                     ; preds = %13, %11, %2, %16, %
   %42 = load ptr, ptr %38, align 8, !tbaa !68
   tail call fastcc void @get_member_types(i64 noundef %41, ptr noundef %42)
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
-  %43 = load i32, ptr %1, align 8, !tbaa !61
-  %44 = zext i32 %43 to i64
-  %45 = icmp samesign ult i64 %indvars.iv.next, %44
-  br i1 %45, label %.lr.ph, label %common.ret50, !llvm.loop !88
+  %37 = load i32, ptr %1, align 8, !tbaa !61
+  %38 = zext i32 %37 to i64
+  %39 = icmp samesign ult i64 %indvars.iv.next, %38
+  br i1 %39, label %.lr.ph, label %common.ret50, !llvm.loop !88
 }
 
 ; Function Attrs: nounwind uwtable

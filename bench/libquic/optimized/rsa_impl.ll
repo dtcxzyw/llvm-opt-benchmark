@@ -803,7 +803,7 @@ define internal fastcc ptr @rsa_blinding_get(ptr noundef %0, ptr noundef nonnull
 
 20:                                               ; preds = %13
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
-  br label %56
+  br label %51
 
 thread-pre-split:                                 ; preds = %13
   %.pr = load i32, ptr %4, align 8, !tbaa !34
@@ -814,7 +814,7 @@ thread-pre-split:                                 ; preds = %13
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
   %22 = tail call ptr @BN_BLINDING_new() #8
   %23 = icmp eq ptr %22, null
-  br i1 %23, label %56, label %24
+  br i1 %23, label %51, label %24
 
 24:                                               ; preds = %.thread
   %25 = icmp ugt i32 %21, 1023
@@ -822,7 +822,7 @@ thread-pre-split:                                 ; preds = %13
 
 26:                                               ; preds = %24
   store i32 1024, ptr %1, align 4, !tbaa !24
-  br label %56
+  br label %51
 
 27:                                               ; preds = %24
   tail call void @CRYPTO_MUTEX_lock_write(ptr noundef nonnull %3) #8
@@ -832,7 +832,7 @@ thread-pre-split:                                 ; preds = %13
   %31 = shl nuw nsw i64 %30, 3
   %32 = tail call noalias ptr @malloc(i64 noundef %31) #9
   %33 = icmp eq ptr %32, null
-  br i1 %33, label %55, label %34
+  br i1 %33, label %50, label %34
 
 34:                                               ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 184
@@ -847,11 +847,11 @@ thread-pre-split:                                 ; preds = %13
   %42 = zext i32 %41 to i64
   %43 = tail call noalias ptr @malloc(i64 noundef %42) #9
   %44 = icmp eq ptr %43, null
-  br i1 %44, label %54, label %45
+  br i1 %44, label %49, label %45
 
-45:                                               ; preds = %34
-  %46 = getelementptr inbounds nuw i8, ptr %0, i64 192
-  %47 = load ptr, ptr %46, align 8, !tbaa !32
+45:    ; preds = %34
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 192
+  %47 = load ptr, ptr %45, align 8, !tbaa !32
   %48 = load i32, ptr %4, align 8, !tbaa !34
   %49 = zext i32 %48 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr nonnull align 1 %43, ptr align 1 %47, i64 %49, i1 false)
@@ -860,25 +860,25 @@ thread-pre-split:                                 ; preds = %13
   store i32 %48, ptr %1, align 4, !tbaa !24
   tail call void @free(ptr noundef %36) #8
   store ptr %32, ptr %35, align 8, !tbaa !37
-  %51 = load ptr, ptr %46, align 8, !tbaa !32
-  tail call void @free(ptr noundef %51) #8
+  %46 = load ptr, ptr %46, align 8, !tbaa !32
+  tail call void @free(ptr noundef %46) #8
   store ptr %43, ptr %46, align 8, !tbaa !32
-  %52 = load i32, ptr %4, align 8, !tbaa !34
-  %53 = add i32 %52, 1
-  store i32 %53, ptr %4, align 8, !tbaa !34
+  %47 = load i32, ptr %4, align 8, !tbaa !34
+  %48 = add i32 %47, 1
+  store i32 %48, ptr %4, align 8, !tbaa !34
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
-  br label %56
+  br label %51
 
-54:                                               ; preds = %34
+49:                                               ; preds = %34
   tail call void @free(ptr noundef nonnull %32) #8
-  br label %55
+  br label %50
 
-55:                                               ; preds = %27, %54
+50:                                               ; preds = %27, %49
   tail call void @CRYPTO_MUTEX_unlock(ptr noundef nonnull %3) #8
   tail call void @BN_BLINDING_free(ptr noundef nonnull %22) #8
-  br label %56
+  br label %51
 
-56:                                               ; preds = %.thread, %55, %45, %26, %20
+51:                                               ; preds = %.thread, %50, %45, %26, %20
   %.051 = phi ptr [ %19, %20 ], [ %22, %26 ], [ null, %55 ], [ %22, %45 ], [ null, %.thread ]
   ret ptr %.051
 }

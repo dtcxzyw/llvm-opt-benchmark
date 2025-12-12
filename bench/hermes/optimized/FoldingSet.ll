@@ -2109,9 +2109,9 @@ _ZN4llvh20BumpPtrAllocatorImplINS_15MallocAllocatorELm4096ELm4096EE12StartNewSla
   store i32 %add.i.i15, ptr %Size.i.i13, align 8
   %add.ptr.i = getelementptr inbounds nuw i8, ptr %call.i.i.i, i64 %mul.i.i
   store ptr %add.ptr.i, ptr %End, align 8
-  %sub.i17 = add i64 %add.i.i, %17
-  %and.i19 = and i64 %sub.i17, %not.i.i
-  %19 = inttoptr i64 %and.i19 to ptr
+  %sub.i18 = add i64 %add.i.i, %17
+  %and.i20 = and i64 %sub.i18, %not.i.i
+  %19 = inttoptr i64 %and.i20 to ptr
   %add.ptr19 = getelementptr inbounds i8, ptr %19, i64 %Size
   store ptr %add.ptr19, ptr %this, align 8
   br label %return

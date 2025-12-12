@@ -241,11 +241,11 @@ define noalias noundef ptr @dt_sqlite3_escape_wildcards(ptr noundef readonly cap
 13:                                               ; preds = %.preheader, %.preheader, %.preheader
   %14 = getelementptr inbounds nuw i8, ptr %.0, i64 1
   store i8 126, ptr %.0, align 1, !tbaa !6
-  %.pre = load i8, ptr %.028, align 1, !tbaa !6
+  %.pre42 = load i8, ptr %.028, align 1, !tbaa !6
   br label %15
 
 15:                                               ; preds = %.preheader, %13
-  %16 = phi i8 [ %.pre, %13 ], [ %12, %.preheader ]
+  %16 = phi i8 [ %.pre42, %13 ], [ %12, %.preheader ]
   %.1 = phi ptr [ %14, %13 ], [ %.0, %.preheader ]
   %17 = getelementptr inbounds nuw i8, ptr %.1, i64 1
   store i8 %16, ptr %.1, align 1, !tbaa !6

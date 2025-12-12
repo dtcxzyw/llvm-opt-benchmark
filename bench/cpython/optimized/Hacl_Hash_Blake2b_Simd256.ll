@@ -1017,7 +1017,7 @@ define hidden noalias noundef ptr @python_hashlib_Hacl_Hash_Blake2b_Simd256_mall
   %10 = icmp eq i8 %9, 0
   br i1 %10, label %malloc_raw.exit, label %11
 
-11:                                               ; preds = %3
+11: ; preds = %3
   %12 = zext i8 %9 to i64
   tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %4, ptr readonly align 1 %2, i64 %12, i1 false)
   %13 = shl nuw nsw i64 %12, 8
@@ -1036,49 +1036,49 @@ malloc_raw.exit:                                  ; preds = %3, %11
   %.sroa.8.0.copyload.i = load i64, ptr %.sroa.8.0..sroa_idx.i, align 8, !tbaa !8
   %.sroa.9.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 16
   %.sroa.9.0.copyload.i = load i16, ptr %.sroa.9.0..sroa_idx.i, align 8
-  %14 = zext i16 %.sroa.9.0.copyload.i to i64
+  %12 = zext i16 %.sroa.9.0.copyload.i to i64
   %.sroa.1169.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 24
   %.sroa.1169.0.copyload.i = load ptr, ptr %.sroa.1169.0..sroa_idx.i, align 8, !tbaa !14
   %.sroa.13.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %.sroa.13.0.copyload.i = load ptr, ptr %.sroa.13.0..sroa_idx.i, align 8, !tbaa !14
-  %15 = getelementptr i8, ptr %6, i64 32
-  %16 = getelementptr i8, ptr %6, i64 64
-  %17 = getelementptr i8, ptr %6, i64 96
-  store <4 x i64> <i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935>, ptr %16, align 32, !tbaa !3
-  store <4 x i64> <i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809>, ptr %17, align 32, !tbaa !3
+  %13 = getelementptr i8, ptr %6, i64 32
+  %14 = getelementptr i8, ptr %6, i64 64
+  %15 = getelementptr i8, ptr %6, i64 96
+  store <4 x i64> <i64 7640891576956012808, i64 -4942790177534073029, i64 4354685564936845355, i64 -6534734903238641935>, ptr %14, align 32, !tbaa !3
+  store <4 x i64> <i64 5840696475078001361, i64 -7276294671716946913, i64 2270897969802886507, i64 6620516959819538809>, ptr %15, align 32, !tbaa !3
   %.sroa.1169.0.copyload.val.i = load i64, ptr %.sroa.1169.0.copyload.i, align 1
-  %18 = getelementptr i8, ptr %.sroa.1169.0.copyload.i, i64 8
-  %.val116.i = load i64, ptr %18, align 1
+  %16 = getelementptr i8, ptr %.sroa.1169.0.copyload.i, i64 8
+  %.val116.i = load i64, ptr %16, align 1
   %.sroa.13.0.copyload.val.i = load i64, ptr %.sroa.13.0.copyload.i, align 1
-  %19 = getelementptr i8, ptr %.sroa.13.0.copyload.i, i64 8
-  %.val.i = load i64, ptr %19, align 1
-  %20 = zext i8 %.sroa.0.0.copyload.i to i64
-  %21 = zext i8 %.sroa.5.0.copyload.i to i64
-  %22 = shl nuw nsw i64 %21, 16
-  %23 = zext i8 %.sroa.6.0.copyload.i to i64
-  %24 = shl nuw nsw i64 %23, 24
-  %25 = zext i32 %.sroa.7.0.copyload.i to i64
-  %26 = shl nuw i64 %25, 32
-  %27 = or disjoint i64 %.pre-phi.i, %20
-  %28 = add nuw nsw i64 %22, %27
-  %29 = add nuw nsw i64 %28, %24
-  %30 = add nuw nsw i64 %29, %26
-  %31 = xor i64 %30, 7640891576956012808
-  %32 = xor i64 %.sroa.8.0.copyload.i, -4942790177534073029
-  %33 = xor i64 %14, 4354685564936845355
-  %34 = xor i64 %.sroa.1169.0.copyload.val.i, 5840696475078001361
-  %35 = xor i64 %.val116.i, -7276294671716946913
-  %36 = xor i64 %.sroa.13.0.copyload.val.i, 2270897969802886507
-  %37 = xor i64 %.val.i, 6620516959819538809
-  %38 = insertelement <4 x i64> <i64 poison, i64 poison, i64 poison, i64 -6534734903238641935>, i64 %31, i64 0
-  %39 = insertelement <4 x i64> %38, i64 %32, i64 1
-  %40 = insertelement <4 x i64> %39, i64 %33, i64 2
-  store <4 x i64> %40, ptr %6, align 32, !tbaa !3
-  %41 = insertelement <4 x i64> poison, i64 %34, i64 0
-  %42 = insertelement <4 x i64> %41, i64 %35, i64 1
-  %43 = insertelement <4 x i64> %42, i64 %36, i64 2
-  %44 = insertelement <4 x i64> %43, i64 %37, i64 3
-  store <4 x i64> %44, ptr %15, align 32, !tbaa !3
+  %17 = getelementptr i8, ptr %.sroa.13.0.copyload.i, i64 8
+  %.val.i = load i64, ptr %17, align 1
+  %18 = zext i8 %.sroa.0.0.copyload.i to i64
+  %19 = zext i8 %.sroa.5.0.copyload.i to i64
+  %20 = shl nuw nsw i64 %19, 16
+  %21 = zext i8 %.sroa.6.0.copyload.i to i64
+  %22 = shl nuw nsw i64 %21, 24
+  %23 = zext i32 %.sroa.7.0.copyload.i to i64
+  %24 = shl nuw i64 %23, 32
+  %25 = or disjoint i64 %.pre-phi.i, %18
+  %26 = add nuw nsw i64 %20, %25
+  %27 = add nuw nsw i64 %26, %22
+  %28 = add nuw nsw i64 %27, %24
+  %29 = xor i64 %28, 7640891576956012808
+  %30 = xor i64 %.sroa.8.0.copyload.i, -4942790177534073029
+  %31 = xor i64 %12, 4354685564936845355
+  %32 = xor i64 %.sroa.1169.0.copyload.val.i, 5840696475078001361
+  %33 = xor i64 %.val116.i, -7276294671716946913
+  %34 = xor i64 %.sroa.13.0.copyload.val.i, 2270897969802886507
+  %35 = xor i64 %.val.i, 6620516959819538809
+  %36 = insertelement <4 x i64> <i64 poison, i64 poison, i64 poison, i64 -6534734903238641935>, i64 %29, i64 0
+  %37 = insertelement <4 x i64> %36, i64 %30, i64 1
+  %38 = insertelement <4 x i64> %37, i64 %31, i64 2
+  store <4 x i64> %38, ptr %6, align 32, !tbaa !3
+  %39 = insertelement <4 x i64> poison, i64 %32, i64 0
+  %40 = insertelement <4 x i64> %39, i64 %33, i64 1
+  %41 = insertelement <4 x i64> %40, i64 %34, i64 2
+  %42 = insertelement <4 x i64> %41, i64 %35, i64 3
+  store <4 x i64> %42, ptr %13, align 32, !tbaa !3
   ret ptr %8
 }
 

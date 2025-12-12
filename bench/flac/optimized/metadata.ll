@@ -1690,7 +1690,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %32 = icmp eq i32 %31, %28
   br i1 %32, label %33, label %37
 
-33:                                               ; preds = %27
+33:; preds = %27
   %34 = getelementptr inbounds nuw i8, ptr %0, i64 56
   store i32 0, ptr %34, align 8, !tbaa !30
   %35 = tail call noalias noundef dereferenceable_or_null(1) ptr @malloc(i64 noundef 1) #27
@@ -1698,7 +1698,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %36 = icmp eq ptr %35, null
   br i1 %36, label %51, label %50
 
-37:                                               ; preds = %27
+37: ; preds = %27
   %38 = xor i32 %28, -1
   %39 = add i32 %31, %38
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 56
@@ -1710,7 +1710,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   %44 = icmp eq ptr %43, null
   br i1 %44, label %51, label %45
 
-45:                                               ; preds = %37
+45: ; preds = %37
   %46 = getelementptr inbounds nuw i8, ptr %spec.select, i64 1
   %47 = load i32, ptr %40, align 8, !tbaa !30
   %48 = zext i32 %47 to i64
@@ -1719,7 +1719,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit: ; preds = %_ZN
   store i8 0, ptr %49, align 1, !tbaa !20
   br label %50
 
-50:                                               ; preds = %33, %45
+50: ; preds = %33, %45
   br label %51
 
 51:                                               ; preds = %37, %33, %_ZN4FLAC8Metadata13VorbisComment5Entry17clear_field_valueEv.exit, %50
@@ -1906,7 +1906,7 @@ _ZN4FLAC8Metadata13VorbisComment5Entry11clear_entryEv.exit: ; preds = %1, %4
   %.not = icmp eq i32 %27, 0
   br i1 %.not, label %34, label %28
 
-28:                                               ; preds = %17
+28: ; preds = %17
   %29 = zext i32 %26 to i64
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 %29
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 48

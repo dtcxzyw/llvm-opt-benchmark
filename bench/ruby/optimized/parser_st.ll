@@ -16,7 +16,7 @@ target triple = "x86_64-pc-linux-gnu"
 ; Function Attrs: nounwind sspstrong memory(readwrite, target_mem0: none, target_mem1: none) uwtable
 define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr noundef captures(ret: address, provenance) %0, ptr noundef %1, i64 noundef %2) local_unnamed_addr #0 {
   %4 = icmp ugt i64 %2, 4611686018427387903
-  br i1 %4, label %49, label %5
+  br i1 %4, label %46, label %5
 
 5:                                                ; preds = %3
   %6 = tail call range(i64 0, 65) i64 @llvm.ctlz.i64(i64 %2, i1 false)
@@ -61,7 +61,7 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
 
 30:                                               ; preds = %23
   tail call void @free(ptr noundef nonnull %0) #27
-  br label %49
+  br label %46
 
 31:                                               ; preds = %._crit_edge, %21
   %32 = phi ptr [ %27, %._crit_edge ], [ null, %21 ]
@@ -74,20 +74,20 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   %37 = icmp eq ptr %35, null
   br i1 %37, label %38, label %39
 
-38:                                               ; preds = %31
+31:                                               ; preds = %31
   tail call void @free(ptr noundef %32) #27
   tail call void @free(ptr noundef nonnull %0) #27
-  br label %49
+  br label %46
 
-39:                                               ; preds = %31
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store i64 0, ptr %40, align 8, !tbaa !26
-  %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %41, i8 0, i64 16, i1 false)
+38:                                               ; preds = %31
+  %39 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store i64 0, ptr %39, align 8, !tbaa !26
+  %40 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %40, i8 0, i64 16, i1 false)
   %.not.i = icmp eq ptr %32, null
-  br i1 %.not.i, label %make_tab_empty.exit, label %42
+  br i1 %.not.i, label %make_tab_empty.exit, label %41
 
-42:                                               ; preds = %39
+41:                                               ; preds = %38
   %.val.i = load i8, ptr %0, align 8, !tbaa !17
   %43 = zext i8 %.val.i to i64
   %44 = getelementptr %struct.st_features, ptr @features, i64 %43
@@ -97,12 +97,12 @@ define dso_local noundef ptr @rb_parser_st_init_existing_table_with_size(ptr nou
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 %32, i8 noundef 0, i64 noundef %47, i1 noundef false) #27
   br label %make_tab_empty.exit
 
-make_tab_empty.exit:                              ; preds = %39, %42
-  %48 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store i32 0, ptr %48, align 4, !tbaa !27
-  br label %49
+make_tab_empty.exit:                              ; preds = %38, %41
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store i32 0, ptr %45, align 4, !tbaa !27
+  br label %46
 
-49:                                               ; preds = %3, %make_tab_empty.exit, %38, %30
+46:                                               ; preds = %3, %make_tab_empty.exit, %38, %30
   %.0 = phi ptr [ null, %38 ], [ %0, %make_tab_empty.exit ], [ null, %30 ], [ null, %3 ]
   ret ptr %.0
 }
@@ -1608,13 +1608,13 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly capture
   %23 = icmp eq ptr %21, null
   br i1 %23, label %nonempty_memcpy.exit26, label %24
 
-24:                                               ; preds = %17
+24:; preds = %17
   %.val22 = load i8, ptr %1, align 8, !tbaa !17
   %25 = zext nneg i8 %.val22 to i64
   %.not.i = icmp ugt i8 %.val22, 60
   br i1 %.not.i, label %nonempty_memcpy.exit, label %26
 
-26:                                               ; preds = %24
+26:  ; preds = %24
   %27 = shl i64 24, %25
   %28 = getelementptr inbounds nuw i8, ptr %1, i64 48
   %29 = load ptr, ptr %28, align 8, !tbaa !25
@@ -1622,23 +1622,23 @@ define dso_local noundef ptr @rb_parser_st_replace(ptr noundef writeonly capture
   br label %nonempty_memcpy.exit
 
 nonempty_memcpy.exit:                             ; preds = %24, %26
-  %30 = load ptr, ptr %3, align 8, !tbaa !23
-  %.not = icmp eq ptr %30, null
-  br i1 %.not, label %nonempty_memcpy.exit26, label %31
+  %27 = load ptr, ptr %3, align 8, !tbaa !23
+  %.not = icmp eq ptr %27, null
+  br i1 %.not, label %nonempty_memcpy.exit26, label %28
 
-31:                                               ; preds = %nonempty_memcpy.exit
-  %32 = getelementptr %struct.st_features, ptr @features, i64 %25
-  %33 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %34 = load i64, ptr %33, align 8, !tbaa !24
-  %35 = shl i64 %34, 3
-  %.not.i24 = icmp eq i64 %35, 0
-  br i1 %.not.i24, label %nonempty_memcpy.exit26, label %36
+28:                                               ; preds = %nonempty_memcpy.exit
+  %29 = getelementptr %struct.st_features, ptr @features, i64 %25
+  %30 = getelementptr inbounds nuw i8, ptr %29, i64 8
+  %31 = load i64, ptr %30, align 8, !tbaa !24
+  %32 = shl i64 %31, 3
+  %.not.i24 = icmp eq i64 %32, 0
+  br i1 %.not.i24, label %nonempty_memcpy.exit26, label %33
 
-36:                                               ; preds = %31
-  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull readonly align 1 %30, i64 noundef range(i64 1, 0) %35, i1 noundef false) #27
+33:                                               ; preds = %28
+  tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 1 %18, ptr noundef nonnull readonly align 1 %27, i64 noundef range(i64 1, 0) %32, i1 noundef false) #27
   br label %nonempty_memcpy.exit26
 
-nonempty_memcpy.exit26:                           ; preds = %36, %31, %nonempty_memcpy.exit, %17, %8
+nonempty_memcpy.exit26:                           ; preds = %33, %28, %nonempty_memcpy.exit, %17, %8
   %.0 = phi ptr [ null, %8 ], [ null, %17 ], [ %0, %nonempty_memcpy.exit ], [ %0, %31 ], [ %0, %36 ]
   ret ptr %.0
 }

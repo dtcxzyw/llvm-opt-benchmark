@@ -463,11 +463,11 @@ define void @_ZN8nanobind6detail12cleanup_list6expandEv(ptr noundef nonnull alig
   %.not5 = icmp eq i32 %15, 6
   br i1 %.not5, label %17, label %16
 
-16:                                               ; preds = %9
+15:                                               ; preds = %9
   tail call void @free(ptr noundef %11) #27
-  br label %17
+  br label %16
 
-17:                                               ; preds = %16, %9
+16:                                               ; preds = %15, %9
   store ptr %7, ptr %10, align 8
   store i32 %4, ptr %2, align 4
   ret void
