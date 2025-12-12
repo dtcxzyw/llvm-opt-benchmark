@@ -289,13 +289,13 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(pt
   store ptr null, ptr %0, align 8, !tbaa !3
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  br i1 %14, label %18, label %23
+  br i1 %14, label %17, label %23
 
-18:                                               ; preds = %13
+17:                                               ; preds = %13
   store i8 104, ptr %15, align 2, !tbaa !3
   store i8 0, ptr %16, align 1, !tbaa !3
-  store ptr %1, ptr %17, align 8, !tbaa !3
+  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %1, ptr %18, align 8, !tbaa !3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   store i64 %2, ptr %19, align 8, !tbaa !3
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
@@ -304,35 +304,36 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t9init_dataEPvmPFvS1_S1_ES1_(pt
   store i8 0, ptr %20, align 8, !tbaa !3
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
   store i32 0, ptr %22, align 4, !tbaa !3
-  br label %32
+  br label %33
 
 23:                                               ; preds = %13
   store i8 102, ptr %15, align 2, !tbaa !3
-  %24 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 1 dereferenceable(7) %16, i8 0, i64 7, i1 false)
-  store ptr %24, ptr %17, align 8, !tbaa !3
+  %24 = tail call noalias dereferenceable_or_null(40) ptr @malloc(i64 noundef 40) #20
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %24, ptr %25, align 8, !tbaa !3
   %.not = icmp eq ptr %24, null
-  br i1 %.not, label %25, label %27
+  br i1 %.not, label %26, label %28
 
-25:                                               ; preds = %23
-  %26 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %26, align 4, !tbaa !22
-  br label %32
+26:                                               ; preds = %23
+  %27 = tail call ptr @__errno_location() #21
+  store i32 12, ptr %27, align 4, !tbaa !22
+  br label %33
 
-27:                                               ; preds = %23
+28:                                               ; preds = %23
   store ptr %1, ptr %24, align 8, !tbaa !10
-  %28 = getelementptr inbounds nuw i8, ptr %24, i64 8
-  store i64 %2, ptr %28, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw i8, ptr %24, i64 16
-  store ptr %3, ptr %29, align 8, !tbaa !18
-  %30 = getelementptr inbounds nuw i8, ptr %24, i64 24
-  store ptr %4, ptr %30, align 8, !tbaa !19
-  %31 = getelementptr inbounds nuw i8, ptr %24, i64 32
-  store i32 0, ptr %31, align 8, !tbaa !20
-  br label %32
+  %29 = getelementptr inbounds nuw i8, ptr %24, i64 8
+  store i64 %2, ptr %29, align 8, !tbaa !17
+  %30 = getelementptr inbounds nuw i8, ptr %24, i64 16
+  store ptr %3, ptr %30, align 8, !tbaa !18
+  %31 = getelementptr inbounds nuw i8, ptr %24, i64 24
+  store ptr %4, ptr %31, align 8, !tbaa !19
+  %32 = getelementptr inbounds nuw i8, ptr %24, i64 32
+  store i32 0, ptr %32, align 8, !tbaa !20
+  br label %33
 
-32:                                               ; preds = %18, %27, %25
-  %.0 = phi i32 [ -1, %25 ], [ 0, %27 ], [ 0, %18 ]
+33:                                               ; preds = %17, %28, %26
+  %.0 = phi i32 [ -1, %26 ], [ 0, %28 ], [ 0, %17 ]
   ret i32 %.0
 }
 
@@ -348,7 +349,7 @@ define noundef i32 @_ZN3zmq5msg_t4initEv(ptr noundef nonnull writeonly align 8 c
   ret i32 0
 }
 
-; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite)
+; Function Attrs: mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write)
 declare noalias noundef ptr @malloc(i64 noundef) local_unnamed_addr #5
 
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none)
@@ -460,7 +461,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noun
   store ptr null, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  br i1 %4, label %17, label %7
+  br i1 %4, label %19, label %7
 
 7:                                                ; preds = %3
   store i8 102, ptr %5, align 2, !tbaa !3
@@ -484,36 +485,38 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t14init_subscribeEmPKh(ptr noun
   store i64 %1, ptr %14, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
-  store i8 12, ptr %6, align 1, !tbaa !3
-  br label %23
+  %16 = load i8, ptr %6, align 1, !tbaa !3
+  %17 = or i8 %16, 12
+  store i8 %17, ptr %6, align 1, !tbaa !3
+  br label %25
 
 _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %7, %10
-  %16 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %16, align 4, !tbaa !22
-  br label %25
+  %18 = tail call ptr @__errno_location() #21
+  store i32 12, ptr %18, align 4, !tbaa !22
+  br label %27
 
-17:                                               ; preds = %3
+19:                                               ; preds = %3
   store i8 101, ptr %5, align 2, !tbaa !3
-  %18 = trunc nuw nsw i64 %1 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %18, ptr %19, align 1, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 0, ptr %21, align 1, !tbaa !3
-  store i8 0, ptr %20, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %22, align 4, !tbaa !3
+  %20 = trunc nuw nsw i64 %1 to i8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 %20, ptr %21, align 1, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  store i8 0, ptr %23, align 1, !tbaa !3
+  store i8 0, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %24, align 4, !tbaa !3
   store i8 12, ptr %6, align 1, !tbaa !3
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %25, label %23
+  br i1 %.not, label %27, label %25
 
-23:                                               ; preds = %.thread, %17
-  %24 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %2, i64 %1, i1 false)
-  br label %25
+25:                                               ; preds = %.thread, %19
+  %26 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %2, i64 %1, i1 false)
+  br label %27
 
-25:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %17, %23
-  %.0.i7 = phi i32 [ 0, %17 ], [ 0, %23 ], [ -1, %_ZN3zmq5msg_t9init_sizeEm.exit ]
+27:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %19, %25
+  %.0.i7 = phi i32 [ 0, %19 ], [ 0, %25 ], [ -1, %_ZN3zmq5msg_t9init_sizeEm.exit ]
   ret i32 %.0.i7
 }
 
@@ -532,7 +535,7 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef
   store ptr null, ptr %0, align 8, !tbaa !3
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 42
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 43
-  br i1 %4, label %17, label %7
+  br i1 %4, label %19, label %7
 
 7:                                                ; preds = %3
   store i8 102, ptr %5, align 2, !tbaa !3
@@ -556,36 +559,38 @@ define noundef range(i32 -1, 1) i32 @_ZN3zmq5msg_t11init_cancelEmPKh(ptr noundef
   store i64 %1, ptr %14, align 8, !tbaa !17
   %15 = getelementptr inbounds nuw i8, ptr %12, i64 16
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(20) %15, i8 0, i64 20, i1 false)
-  store i8 16, ptr %6, align 1, !tbaa !3
-  br label %23
+  %16 = load i8, ptr %6, align 1, !tbaa !3
+  %17 = or i8 %16, 16
+  store i8 %17, ptr %6, align 1, !tbaa !3
+  br label %25
 
 _ZN3zmq5msg_t9init_sizeEm.exit:                   ; preds = %7, %10
-  %16 = tail call ptr @__errno_location() #21
-  store i32 12, ptr %16, align 4, !tbaa !22
-  br label %25
+  %18 = tail call ptr @__errno_location() #21
+  store i32 12, ptr %18, align 4, !tbaa !22
+  br label %27
 
-17:                                               ; preds = %3
+19:                                               ; preds = %3
   store i8 101, ptr %5, align 2, !tbaa !3
-  %18 = trunc nuw nsw i64 %1 to i8
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 41
-  store i8 %18, ptr %19, align 1, !tbaa !3
-  %20 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 49
-  store i8 0, ptr %21, align 1, !tbaa !3
-  store i8 0, ptr %20, align 8, !tbaa !3
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 44
-  store i32 0, ptr %22, align 4, !tbaa !3
+  %20 = trunc nuw nsw i64 %1 to i8
+  %21 = getelementptr inbounds nuw i8, ptr %0, i64 41
+  store i8 %20, ptr %21, align 1, !tbaa !3
+  %22 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %23 = getelementptr inbounds nuw i8, ptr %0, i64 49
+  store i8 0, ptr %23, align 1, !tbaa !3
+  store i8 0, ptr %22, align 8, !tbaa !3
+  %24 = getelementptr inbounds nuw i8, ptr %0, i64 44
+  store i32 0, ptr %24, align 4, !tbaa !3
   store i8 16, ptr %6, align 1, !tbaa !3
   %.not = icmp eq i64 %1, 0
-  br i1 %.not, label %25, label %23
+  br i1 %.not, label %27, label %25
 
-23:                                               ; preds = %.thread, %17
-  %24 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %24, ptr align 1 %2, i64 %1, i1 false)
-  br label %25
+25:                                               ; preds = %.thread, %19
+  %26 = tail call noundef ptr @_ZN3zmq5msg_t4dataEv(ptr noundef nonnull align 8 dereferenceable(64) %0)
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %26, ptr align 1 %2, i64 %1, i1 false)
+  br label %27
 
-25:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %17, %23
-  %.0.i7 = phi i32 [ 0, %17 ], [ 0, %23 ], [ -1, %_ZN3zmq5msg_t9init_sizeEm.exit ]
+27:                                               ; preds = %_ZN3zmq5msg_t9init_sizeEm.exit, %19, %25
+  %.0.i7 = phi i32 [ 0, %19 ], [ 0, %25 ], [ -1, %_ZN3zmq5msg_t9init_sizeEm.exit ]
   ret i32 %.0.i7
 }
 
@@ -1781,7 +1786,7 @@ attributes #1 = { mustprogress uwtable "min-legal-vector-width"="0" "no-trapping
 attributes #2 = { mustprogress nofree nounwind willreturn memory(write, inaccessiblemem: readwrite, target_mem0: none, target_mem1: none) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #3 = { mustprogress nocallback nofree nounwind willreturn memory(argmem: readwrite) }
 attributes #4 = { mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: write) uwtable "min-legal-vector-width"="0" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
-attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
+attributes #5 = { mustprogress nofree nounwind willreturn allockind("alloc,uninitialized") allocsize(0) memory(inaccessiblemem: readwrite, errnomem: write) "alloc-family"="malloc" "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #6 = { mustprogress nofree nosync nounwind willreturn memory(none) "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #7 = { nofree nounwind "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }
 attributes #8 = { "no-trapping-math"="true" "stack-protector-buffer-size"="8" "target-cpu"="x86-64" "target-features"="+cmov,+cx8,+fxsr,+mmx,+sse,+sse2,+x87" "tune-cpu"="generic" }

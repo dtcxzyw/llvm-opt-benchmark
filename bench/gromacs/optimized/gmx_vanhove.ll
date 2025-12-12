@@ -1245,16 +1245,12 @@ _ZL13gmx_snew_implIiEvPKcS1_iRPT_m.exit355:       ; preds = %_ZL13gmx_snew_implI
   %516 = sext i32 %.0257.fr to i64
   %517 = getelementptr inbounds ptr, ptr %.0549, i64 %516
   %518 = getelementptr inbounds nuw i32, ptr %.0548, i64 %495
-  br i1 %515, label %.lr.ph624.split, label %.lr.ph624.split.us.preheader
+  br i1 %515, label %.lr.ph624.split, label %.lr.ph624.split.us
 
-.lr.ph624.split.us.preheader:                     ; preds = %.lr.ph624
-  %.pre798 = load i32, ptr @_ZZ11gmx_vanhoveiPPcE5ftmax, align 4, !tbaa !4
-  br label %.lr.ph624.split.us
-
-.lr.ph624.split.us:                               ; preds = %.lr.ph624.split.us.preheader, %545
-  %519 = phi i32 [ %510, %.lr.ph624.split.us.preheader ], [ %546, %545 ]
-  %520 = phi i32 [ %.pre798, %.lr.ph624.split.us.preheader ], [ %547, %545 ]
-  %indvars.iv729 = phi i64 [ 0, %.lr.ph624.split.us.preheader ], [ %indvars.iv.next730, %545 ]
+.lr.ph624.split.us:                               ; preds = %.lr.ph624, %545
+  %519 = phi i32 [ %546, %545 ], [ %510, %.lr.ph624 ]
+  %520 = phi i32 [ %547, %545 ], [ %498, %.lr.ph624 ]
+  %indvars.iv729 = phi i64 [ %indvars.iv.next730, %545 ], [ 0, %.lr.ph624 ]
   %521 = getelementptr inbounds nuw [3 x float], ptr %512, i64 %indvars.iv729
   %522 = getelementptr inbounds nuw [3 x float], ptr %514, i64 %indvars.iv729
   %523 = load float, ptr %522, align 4, !tbaa !32
