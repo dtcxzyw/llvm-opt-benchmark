@@ -5815,30 +5815,30 @@ _ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i: ; preds = %_
   %1477 = load ptr, ptr %1476, align 8, !noalias !680
   call void %1477(ptr noundef nonnull align 8 dereferenceable(8) %1377) #28, !noalias !680
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !680
-  br i1 %.sroa.6.5, label %.thread.i, label %_ZN4llvm5ErrorD2Ev.exit282.i
+  br i1 %.sroa.6.5, label %.thread.i, label %.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i
 
 _ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit: ; preds = %_ZN4llvm5ErrorD2Ev.exit40.i
   call void @llvm.lifetime.end.p0(ptr nonnull %6), !noalias !680
-  br i1 %.sroa.6.5, label %.thread.i, label %_ZN4llvm5ErrorD2Ev.exit282.i
+  br i1 %.sroa.6.5, label %.thread.i, label %.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i
+
+.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i: ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit
+  %1478 = getelementptr inbounds nuw i8, ptr %.sroa.0272.0334, i64 32
+  %1479 = load ptr, ptr %1478, align 8, !tbaa !403, !noalias !303
+  %1480 = getelementptr inbounds nuw i8, ptr %.sroa.0272.0334, i64 40
+  %1481 = load ptr, ptr %1480, align 8, !tbaa !401, !noalias !303
+  %1482 = icmp eq ptr %1481, %1479
+  br i1 %1482, label %_ZN4llvm5ErrorD2Ev.exit286.i, label %_ZN4llvm5ErrorD2Ev.exit285.i
 
 .thread.i:                                        ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit.thread, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit
   %.sroa.0289.0589 = phi i64 [ %.pre.i137, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit.thread ], [ %.sink.i157, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit ], [ %.sink.i157, %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i ]
-  %1478 = inttoptr i64 %.sroa.0289.0589 to ptr
-  %1479 = load i8, ptr %369, align 8, !alias.scope !303
-  %1480 = or i8 %1479, 1
-  store i8 %1480, ptr %369, align 8, !alias.scope !303
-  store ptr %1478, ptr %85, align 8, !tbaa !429, !alias.scope !695
+  %1483 = inttoptr i64 %.sroa.0289.0589 to ptr
+  %1484 = load i8, ptr %369, align 8, !alias.scope !303
+  %1485 = or i8 %1484, 1
+  store i8 %1485, ptr %369, align 8, !alias.scope !303
+  store ptr %1483, ptr %85, align 8, !tbaa !429, !alias.scope !695
   br label %_ZN4llvm8ExpectedIRNS_2gi13BuildMIActionEED2Ev.exit.i
 
-_ZN4llvm5ErrorD2Ev.exit282.i:                     ; preds = %_ZNKSt14default_deleteIN4llvm13ErrorInfoBaseEEclEPS1_.exit.i.i52.i, %_ZNK12_GLOBAL__N_117GlobalISelEmitter34createAndImportInstructionRendererERN4llvm2gi11RuleMatcherERNS2_18InstructionMatcherERKNS1_15TreePatternNodeE.exit
-  %1481 = getelementptr inbounds nuw i8, ptr %.sroa.0272.0334, i64 32
-  %1482 = load ptr, ptr %1481, align 8, !tbaa !403, !noalias !303
-  %1483 = getelementptr inbounds nuw i8, ptr %.sroa.0272.0334, i64 40
-  %1484 = load ptr, ptr %1483, align 8, !tbaa !401, !noalias !303
-  %1485 = icmp eq ptr %1484, %1482
-  br i1 %1485, label %_ZN4llvm5ErrorD2Ev.exit286.i, label %_ZN4llvm5ErrorD2Ev.exit285.i
-
-_ZN4llvm5ErrorD2Ev.exit285.i:                     ; preds = %_ZN4llvm5ErrorD2Ev.exit282.i
+_ZN4llvm5ErrorD2Ev.exit285.i:                     ; preds = %.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i
   call void @llvm.lifetime.start.p0(ptr nonnull %11), !noalias !698
   store i8 1, ptr %436, align 1, !tbaa !221, !noalias !698
   store ptr @.str.280, ptr %11, align 8, !tbaa !61, !noalias !698
@@ -5855,7 +5855,7 @@ _ZN4llvm5ErrorD2Ev.exit285.i:                     ; preds = %_ZN4llvm5ErrorD2Ev.
   store ptr %1489, ptr %85, align 8, !tbaa !429, !alias.scope !709
   br label %_ZN4llvm8ExpectedIRNS_2gi13BuildMIActionEED2Ev.exit.i
 
-_ZN4llvm5ErrorD2Ev.exit286.i:                     ; preds = %_ZN4llvm5ErrorD2Ev.exit282.i
+_ZN4llvm5ErrorD2Ev.exit286.i:                     ; preds = %.critedge127._ZN4llvm5ErrorD2Ev.exit282_crit_edge.i
   %1492 = inttoptr i64 %.sink.i157 to ptr
   call void @_ZN4llvm2gi13BuildMIAction18chooseInsnToMutateERNS0_11RuleMatcherE(ptr noundef nonnull align 8 dereferenceable(184) %1492, ptr noundef nonnull align 8 dereferenceable(472) %28) #28, !noalias !303
   call void @llvm.lifetime.start.p0(ptr nonnull %68), !noalias !303
