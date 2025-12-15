@@ -3120,21 +3120,21 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   %.str.113.sink = phi ptr [ @.str.112, %5 ], [ @.str.113, %4 ]
   tail call void @scratch_buffer_append(ptr noundef nonnull %.str.113.sink) #11
   %.not = icmp eq ptr %2, null
-  br i1 %.not, label %._crit_edge131, label %13
+  br i1 %.not, label %._crit_edge130, label %13
 
 13:                                               ; preds = %12
   %14 = getelementptr inbounds i8, ptr %2, i64 -8
   %15 = load i32, ptr %14, align 4
-  %.not132 = icmp eq i32 %15, 0
-  br i1 %.not132, label %._crit_edge131, label %.lr.ph130
+  %.not131 = icmp eq i32 %15, 0
+  br i1 %.not131, label %._crit_edge130, label %.lr.ph129
 
-.lr.ph130:                                        ; preds = %13
+.lr.ph129:                                        ; preds = %13
   %16 = select i1 %3, ptr @.str.112, ptr @.str.114
   %17 = select i1 %3, ptr @.str.121, ptr @.str.122
   %wide.trip.count = zext i32 %15 to i64
   br label %18
 
-18:                                               ; preds = %.lr.ph130, %138
+18:                                               ; preds = %.lr.ph129, %138
   %indvars.iv = phi i64 [ 0, %.lr.ph130 ], [ %indvars.iv.next, %138 ]
   %19 = getelementptr inbounds nuw ptr, ptr %2, i64 %indvars.iv
   %20 = load ptr, ptr %19, align 8
@@ -3192,8 +3192,8 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   br label %.loopexit
 
 .lr.ph:                                           ; preds = %.preheader, %52
-  %.091116 = phi ptr [ %54, %52 ], [ %35, %.preheader ]
-  %51 = load i32, ptr %.091116, align 8
+  %.091115 = phi ptr [ %54, %52 ], [ %35, %.preheader ]
+  %51 = load i32, ptr %.091115, align 8
   switch i32 %51, label %.critedge [
     i32 1, label %.preheader._crit_edge
     i32 43, label %.preheader._crit_edge
@@ -3204,7 +3204,7 @@ define internal fastcc zeroext i1 @sema_append_generate_parameterized_name(ptr n
   ]
 
 52:                                               ; preds = %.lr.ph
-  %53 = getelementptr inbounds nuw i8, ptr %.091116, i64 8
+  %53 = getelementptr inbounds nuw i8, ptr %.091115, i64 8
   %54 = load ptr, ptr %53, align 8
   %55 = icmp eq ptr %54, %46
   br i1 %55, label %.preheader._crit_edge, label %.lr.ph
@@ -3386,14 +3386,14 @@ switch.early.test:                                ; preds = %85
 138:                                              ; preds = %69, %68, %105, %134, %137, %133, %100, %102
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge131, label %18, !llvm.loop !18
+  br i1 %exitcond.not, label %._crit_edge130, label %18, !llvm.loop !18
 
-._crit_edge131:                                   ; preds = %138, %12, %13
+._crit_edge130:                                   ; preds = %138, %12, %13
   %139 = select i1 %3, ptr @.str.112, ptr @.str.123
   tail call void @scratch_buffer_append(ptr noundef nonnull %139) #11
   br label %.loopexit
 
-.loopexit:                                        ; preds = %73, %64, %27, %._crit_edge131, %88, %.preheader._crit_edge, %48, %38
+.loopexit:                                        ; preds = %73, %64, %27, %._crit_edge130, %88, %.preheader._crit_edge, %48, %38
   %.094 = phi i1 [ false, %38 ], [ false, %48 ], [ false, %.preheader._crit_edge ], [ %92, %88 ], [ true, %._crit_edge131 ], [ false, %27 ], [ false, %64 ], [ false, %73 ]
   ret i1 %.094
 }

@@ -2284,17 +2284,17 @@ _ZN5Eigen6MatrixIdLi3ELi3ELi0ELi3ELi3EEaSINS_13CwiseBinaryOpINS_8internal13scala
   %289 = getelementptr inbounds nuw i8, ptr %7, i64 24
   store double %288, ptr %289, align 8, !tbaa !30
   %290 = fdiv double 5.000000e-01, %287
-  %foldExtExtBinop293 = fsub <2 x double> %.sink252, %.sink250
-  %291 = extractelement <2 x double> %foldExtExtBinop293, i64 1
+  %foldExtExtBinop255 = fsub <2 x double> %.sink252, %.sink250
+  %291 = extractelement <2 x double> %foldExtExtBinop255, i64 1
   %292 = fmul double %290, %291
   store double %292, ptr %7, align 16, !tbaa !30
-  %foldExtExtBinop295 = fsub <2 x double> %.sink250, %.sink248
-  %293 = extractelement <2 x double> %foldExtExtBinop295, i64 0
+  %foldExtExtBinop257 = fsub <2 x double> %.sink250, %.sink248
+  %293 = extractelement <2 x double> %foldExtExtBinop257, i64 0
   %294 = fmul double %290, %293
   %295 = getelementptr inbounds nuw i8, ptr %7, i64 8
   store double %294, ptr %295, align 8, !tbaa !30
-  %foldExtExtBinop297 = fsub <2 x double> %.sink253, %.sink248
-  %296 = extractelement <2 x double> %foldExtExtBinop297, i64 1
+  %foldExtExtBinop259 = fsub <2 x double> %.sink253, %.sink248
+  %296 = extractelement <2 x double> %foldExtExtBinop259, i64 1
   %297 = fmul double %290, %296
   %298 = getelementptr inbounds nuw i8, ptr %7, i64 16
   store double %297, ptr %298, align 16, !tbaa !30
@@ -2395,8 +2395,8 @@ _ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10Matrix
   %366 = fadd <2 x double> %362, %365
   %367 = fmul <2 x double> %353, <double 1.000000e+00, double 0.000000e+00>
   %368 = fadd <2 x double> %366, %367
-  %.sroa.3.16..sroa_idx305 = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 16
-  store <2 x double> %368, ptr %.sroa.3.16..sroa_idx305, align 16, !tbaa !14
+  %.sroa.3.16..sroa_idx267 = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 16
+  store <2 x double> %368, ptr %.sroa.3.16..sroa_idx267, align 16, !tbaa !14
   %369 = fmul <2 x double> %24, %347
   %370 = getelementptr inbounds nuw i8, ptr %5, i64 48
   %371 = load <2 x double>, ptr %370, align 16, !tbaa !14
@@ -2413,8 +2413,8 @@ _ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10Matrix
   %.sroa.0197.0..sroa.0197.0..sroa.0197.0. = load <2 x double>, ptr %.sroa.0197, align 16
   %382 = shufflevector <2 x double> %.sroa.0197.0..sroa.0197.0..sroa.0197.0., <2 x double> poison, <2 x i32> zeroinitializer
   %383 = fmul <2 x double> %355, %382
-  %.sroa.3.8..sroa_idx304 = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 8
-  %.sroa.3.8..sroa.3.8..sroa.3.24. = load <2 x double>, ptr %.sroa.3.8..sroa_idx304, align 8, !tbaa !14
+  %.sroa.3.8..sroa_idx266 = getelementptr inbounds nuw i8, ptr %.sroa.3, i64 8
+  %.sroa.3.8..sroa.3.8..sroa.3.24. = load <2 x double>, ptr %.sroa.3.8..sroa_idx266, align 8, !tbaa !14
   %.sroa.0197.8..sroa_idx = getelementptr inbounds nuw i8, ptr %.sroa.0197, i64 8
   %.sroa.0197.8..sroa.0197.8..sroa.0197.8. = load <2 x double>, ptr %.sroa.0197.8..sroa_idx, align 8
   %384 = shufflevector <2 x double> %.sroa.0197.8..sroa.0197.8..sroa.0197.8., <2 x double> poison, <2 x i32> zeroinitializer
@@ -2423,11 +2423,11 @@ _ZN5Eigen10QuaternionIdLi0EEC2INS_6MatrixIdLi3ELi3ELi0ELi3ELi3EEEEERKNS_10Matrix
   %387 = shufflevector <2 x double> %.sroa.0197.8..sroa.0197.8..sroa.0197.8., <2 x double> poison, <2 x i32> <i32 1, i32 1>
   %388 = fmul <2 x double> %375, %387
   %389 = fadd <2 x double> %388, %386
-  %foldExtExtBinop299 = fmul <2 x double> %.sroa.0197.0..sroa.0197.0..sroa.0197.0., %361
-  %390 = extractelement <2 x double> %foldExtExtBinop299, i64 0
-  %shift301 = shufflevector <2 x double> %368, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
-  %foldExtExtBinop302 = fmul <2 x double> %.sroa.0197.8..sroa.0197.8..sroa.0197.8., %shift301
-  %391 = extractelement <2 x double> %foldExtExtBinop302, i64 0
+  %foldExtExtBinop261 = fmul <2 x double> %.sroa.0197.0..sroa.0197.0..sroa.0197.0., %361
+  %390 = extractelement <2 x double> %foldExtExtBinop261, i64 0
+  %shift263 = shufflevector <2 x double> %368, <2 x double> poison, <2 x i32> <i32 1, i32 poison>
+  %foldExtExtBinop264 = fmul <2 x double> %.sroa.0197.8..sroa.0197.8..sroa.0197.8., %shift263
+  %391 = extractelement <2 x double> %foldExtExtBinop264, i64 0
   %392 = extractelement <2 x double> %.sroa.0197.8..sroa.0197.8..sroa.0197.8., i64 1
   %393 = fmul double %381, %392
   %394 = fadd double %393, %391

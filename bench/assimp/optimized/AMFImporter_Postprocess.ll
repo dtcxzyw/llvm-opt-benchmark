@@ -3027,10 +3027,10 @@ _ZNSt7__cxx1110_List_baseIN6Assimp11AMFImporter12SComplexFaceESaIS3_EED2Ev.exit:
   store i32 4, ptr %107, align 8
   %115 = getelementptr inbounds nuw i8, ptr %.sroa.0533.01303, i64 32
   %116 = load i64, ptr %115, align 8
-  %.fr1895 = freeze i64 %116
-  %117 = trunc i64 %.fr1895 to i32
+  %.fr = freeze i64 %116
+  %117 = trunc i64 %.fr to i32
   store i32 %117, ptr %110, align 8
-  %118 = and i64 %.fr1895, 4294967295
+  %118 = and i64 %.fr, 4294967295
   %119 = shl nuw nsw i64 %118, 4
   %120 = or disjoint i64 %119, 8
   %121 = invoke noalias noundef nonnull ptr @_Znam(i64 noundef %120) #32
@@ -3058,7 +3058,7 @@ _ZNSt7__cxx1110_List_baseIN6Assimp11AMFImporter12SComplexFaceESaIS3_EED2Ev.exit:
 .loopexit606:                                     ; preds = %127, %122
   %132 = getelementptr inbounds nuw i8, ptr %107, i64 208
   store ptr %123, ptr %132, align 8
-  %133 = mul i64 %.fr1895, 6
+  %133 = mul i64 %.fr, 6
   %134 = and i64 %133, 8589934590
   %.not576 = icmp eq i64 %134, 0
   br i1 %.not576, label %_ZNSt6vectorI9aiColor4tIfESaIS1_EE7reserveEm.exit, label %_ZNSt12_Vector_baseI10aiVector3tIfESaIS1_EE11_M_allocateEm.exit.i
@@ -3550,8 +3550,8 @@ _ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backEOS1_.exit246: ; preds = %_ZNSt6vect
   %.not149 = icmp eq i64 %.5.lcssa.i, %275
   %.sroa.05.023.i.pre1805 = load ptr, ptr %106, align 8
   %.not6.i248 = icmp eq ptr %.sroa.05.023.i.pre1805, %106
-  %or.cond2386 = select i1 %.not149, i1 true, i1 %.not6.i248
-  br i1 %or.cond2386, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_2clERNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEmm.exit258", label %.lr.ph8.i249
+  %or.cond2383 = select i1 %.not149, i1 true, i1 %.not6.i248
+  br i1 %or.cond2383, label %"_ZZN6Assimp11AMFImporter24Postprocess_BuildMeshSetERK7AMFMeshRKSt6vectorI10aiVector3tIfESaIS6_EERKS4_IP8AMFColorSaISC_EEPKSB_RS4_IP6aiMeshSaISK_EER6aiNodeENK3$_2clERNSt7__cxx114listINS0_12SComplexFaceESaIST_EEEmm.exit258", label %.lr.ph8.i249
 
 .lr.ph8.i249:                                     ; preds = %_ZNSt6vectorI9aiColor4tIfESaIS1_EE9push_backEOS1_.exit246
   %276 = trunc nuw i64 %275 to i32

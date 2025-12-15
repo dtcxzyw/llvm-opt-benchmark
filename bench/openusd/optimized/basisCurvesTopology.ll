@@ -2217,8 +2217,8 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %62 = phi ptr [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit ], [ %61, %59 ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 456
   %64 = load ptr, ptr %63, align 8
-  %.fr76 = freeze ptr %64
-  %65 = ptrtoint ptr %.fr76 to i64
+  %.fr72 = freeze ptr %64
+  %65 = ptrtoint ptr %.fr72 to i64
   %66 = xor i64 %.sroa.061.0, %65
   %67 = icmp ult i64 %66, 8
   %68 = and i64 %.sroa.061.0, 7

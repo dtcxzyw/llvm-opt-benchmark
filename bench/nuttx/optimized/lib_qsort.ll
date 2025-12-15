@@ -705,7 +705,7 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
 
 swapfunc.exit310:                                 ; preds = %.preheader341, %286, %273
   %299 = ptrtoint ptr %.1229.lcssa to i64
-  %300 = ptrtoint ptr %.1227.lcssa to i64
+  %299 = ptrtoint ptr %.1227.lcssa to i64
   %301 = sub i64 %299, %300
   %302 = ptrtoint ptr %236 to i64
   %303 = add i64 %2, %299

@@ -799,31 +799,31 @@ _ZN6plic_t20context_best_pendingEPK14plic_context_t.exit: ; preds = %.loopexit.i
 
 _ZN6plic_t14context_updateEPK14plic_context_t.exit.thread: ; preds = %39, %2
   %.028..i1518.ph = phi i32 [ 0, %2 ], [ %.028..i, %39 ]
-  %60 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %61 = load i8, ptr %60, align 8, !tbaa !56, !range !57, !noundef !58
-  %62 = trunc nuw i8 %61 to i1
-  %63 = select i1 %62, i64 2048, i64 512
-  br label %71
+  %62 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %63 = load i8, ptr %62, align 8, !tbaa !56, !range !57, !noundef !58
+  %64 = trunc nuw i8 %63 to i1
+  %65 = select i1 %64, i64 2048, i64 512
+  br label %73
 
 _ZN6plic_t14context_updateEPK14plic_context_t.exit: ; preds = %.loopexit.i.i
-  %64 = icmp eq i32 %.1.i.i, 0
-  %65 = icmp ule i8 %.130.i.i, %.fr
-  %66 = select i1 %65, i1 true, i1 %64
-  %67 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %68 = load i8, ptr %67, align 8, !tbaa !56, !range !57, !noundef !58
-  %69 = trunc nuw i8 %68 to i1
-  %70 = select i1 %69, i64 2048, i64 512
-  %spec.select = select i1 %66, i64 0, i64 %70
-  br label %71
+  %66 = icmp eq i32 %.1.i.i, 0
+  %67 = icmp ule i8 %.130.i.i, %.fr
+  %66 = select i1 %67, i1 true, i1 %66
+  %69 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %70 = load i8, ptr %69, align 8, !tbaa !56, !range !57, !noundef !58
+  %71 = trunc nuw i8 %70 to i1
+  %72 = select i1 %71, i64 2048, i64 512
+  %spec.select = select i1 %66, i64 0, i64 %72
+  br label %73
 
-71:                                               ; preds = %_ZN6plic_t14context_updateEPK14plic_context_t.exit, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread
-  %72 = phi i64 [ %63, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %70, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
+73:                                               ; preds = %_ZN6plic_t14context_updateEPK14plic_context_t.exit, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread
+  %74 = phi i64 [ %65, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %72, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
   %.028..i151827 = phi i32 [ %.028..i1518.ph, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %.028..i, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
-  %73 = phi i64 [ 0, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %spec.select, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
+  %75 = phi i64 [ 0, %_ZN6plic_t14context_updateEPK14plic_context_t.exit.thread ], [ %spec.select, %_ZN6plic_t14context_updateEPK14plic_context_t.exit ]
   %.pn = load ptr, ptr %1, align 8, !tbaa !59
   %.in = getelementptr inbounds nuw i8, ptr %.pn, i64 1264
-  %74 = load ptr, ptr %.in, align 8, !tbaa !60
-  tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %74, i64 noundef %72, i64 noundef %73) #30
+  %76 = load ptr, ptr %.in, align 8, !tbaa !60
+  tail call void @_ZN9mip_csr_t24backdoor_write_with_maskEmm(ptr noundef nonnull align 8 dereferenceable(48) %76, i64 noundef %74, i64 noundef %75) #30
   ret i32 %.028..i151827
 }
 

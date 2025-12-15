@@ -495,13 +495,13 @@ mqtt_send.exit:                                   ; preds = %19, %26
   br label %.critedge, !llvm.loop !94
 
 .critedgesplit:                                   ; preds = %62
-  %.pre135 = load i8, ptr %11, align 1
+  %.pre127 = load i8, ptr %11, align 1
   br label %.critedge
 
 .critedge:                                        ; preds = %.critedgesplit, %..critedge_crit_edge
-  %73 = phi i8 [ %68, %..critedge_crit_edge ], [ %.pre135, %.critedgesplit ]
+  %73 = phi i8 [ %68, %..critedge_crit_edge ], [ %.pre127, %.critedgesplit ]
   %74 = phi i64 [ %.pre, %..critedge_crit_edge ], [ %65, %.critedgesplit ]
-  %.lcssa134 = phi i1 [ true, %..critedge_crit_edge ], [ %64, %.critedgesplit ]
+  %.lcssa125 = phi i1 [ true, %..critedge_crit_edge ], [ %64, %.critedgesplit ]
   %.fr124 = freeze i64 %74
   %75 = icmp ne i64 %.fr124, 0
   %or.cond3 = and i1 %.lcssa134, %75

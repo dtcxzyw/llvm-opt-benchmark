@@ -8079,11 +8079,11 @@ sdslen.exit.thread:                               ; preds = %9, %sdslen.exit
 
 .preheader:                                       ; preds = %.lr.ph, %34
   %37 = icmp sgt i32 %.015, 0
-  br i1 %37, label %.lr.ph25.preheader, label %._crit_edge
+  br i1 %37, label %.lr.ph21.preheader, label %._crit_edge
 
-.lr.ph25.preheader:                               ; preds = %.preheader
+.lr.ph21.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %.015 to i64
-  br label %.lr.ph25
+  br label %.lr.ph21
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %34 ]
@@ -8096,18 +8096,18 @@ sdslen.exit.thread:                               ; preds = %9, %sdslen.exit
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %.lr.ph, label %.preheader, !llvm.loop !232
 
-.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
-  %indvars.iv27 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next28, %.lr.ph25 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
+.lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
+  %indvars.iv23 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next24, %.lr.ph25 ]
+  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv23
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   %45 = tail call noalias ptr @zstrdup(ptr noundef %44) #26
-  %46 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 328), i64 %indvars.iv27
+  %46 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 328), i64 %indvars.iv23
   store ptr %45, ptr %46, align 8, !tbaa !14
-  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph25, !llvm.loop !233
+  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !233
 
-._crit_edge:                                      ; preds = %.lr.ph25, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph21, %.preheader
   store i32 %.015, ptr getelementptr inbounds nuw (i8, ptr @server, i64 456), align 8, !tbaa !178
   br label %47
 

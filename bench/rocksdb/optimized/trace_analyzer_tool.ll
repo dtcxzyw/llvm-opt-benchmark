@@ -33880,8 +33880,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit
-  %.052 = phi i64 [ %34, %_ZNSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit ], [ %1, %4 ]
-  %10 = shl i64 %.052, 1
+  %.050 = phi i64 [ %34, %_ZNSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit ], [ %1, %4 ]
+  %10 = shl i64 %.050, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.std::pair.172", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -33935,7 +33935,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairImNSt7__cxx1112basic_stri
   %33 = phi i64 [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit.thread ], [ %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit ], [ %16, %18 ]
   %34 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit.thread ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit ], [ %11, %18 ]
   %35 = getelementptr inbounds %"struct.std::pair.172", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.std::pair.172", ptr %0, i64 %.052
+  %36 = getelementptr inbounds %"struct.std::pair.172", ptr %0, i64 %.050
   store i64 %33, ptr %36, align 8, !tbaa !348
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -33958,7 +33958,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %47 = load i64, ptr %46, align 8, !tbaa !51
   %48 = icmp ult i64 %47, 16
   tail call void @llvm.assume(i1 %48)
-  %.not22.i.i = icmp eq i64 %34, %.052
+  %.not22.i.i = icmp eq i64 %34, %.050
   br i1 %.not22.i.i, label %_ZNSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit, label %49, !prof !225
 
 49:                                               ; preds = %45
@@ -34159,11 +34159,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   %129 = load i64, ptr %122, align 8, !tbaa !16
   store i64 %129, ptr %120, align 8, !tbaa !16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.pre53 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !51
+  %.pre51 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !51
   br label %_ZNSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 
 _ZNSt4pairImNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit: ; preds = %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
-  %130 = phi i64 [ %126, %124 ], [ %.pre53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ]
+  %130 = phi i64 [ %126, %124 ], [ %.pre51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ]
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %130, ptr %132, align 8, !tbaa !51
@@ -34961,8 +34961,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit
-  %.052 = phi i64 [ %34, %_ZNSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit ], [ %1, %4 ]
-  %10 = shl i64 %.052, 1
+  %.050 = phi i64 [ %34, %_ZNSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit ], [ %1, %4 ]
+  %10 = shl i64 %.050, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.std::pair.174", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -35016,7 +35016,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdNSt7__cxx1112basic_stri
   %33 = phi double [ %15, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit.thread ], [ %16, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit ], [ %16, %18 ]
   %34 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit.thread ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterISt7greaterISt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEEEclINS_17__normal_iteratorIPSA_St6vectorISA_SaISA_EEEESJ_EEbT_T0_.exit ], [ %11, %18 ]
   %35 = getelementptr inbounds %"struct.std::pair.174", ptr %0, i64 %34
-  %36 = getelementptr inbounds %"struct.std::pair.174", ptr %0, i64 %.052
+  %36 = getelementptr inbounds %"struct.std::pair.174", ptr %0, i64 %.050
   store double %33, ptr %36, align 8, !tbaa !357
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 8
   %38 = getelementptr inbounds nuw i8, ptr %36, i64 8
@@ -35039,7 +35039,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %47 = load i64, ptr %46, align 8, !tbaa !51
   %48 = icmp ult i64 %47, 16
   tail call void @llvm.assume(i1 %48)
-  %.not22.i.i = icmp eq i64 %34, %.052
+  %.not22.i.i = icmp eq i64 %34, %.050
   br i1 %.not22.i.i, label %_ZNSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS6_.exit, label %49, !prof !225
 
 49:                                               ; preds = %45
@@ -35240,11 +35240,11 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
   %129 = load i64, ptr %122, align 8, !tbaa !16
   store i64 %129, ptr %120, align 8, !tbaa !16
   %.phi.trans.insert = getelementptr inbounds nuw i8, ptr %3, i64 16
-  %.pre53 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !51
+  %.pre51 = load i64, ptr %.phi.trans.insert, align 8, !tbaa !51
   br label %_ZNSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit
 
 _ZNSt4pairIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS6_.exit: ; preds = %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34
-  %130 = phi i64 [ %126, %124 ], [ %.pre53, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ]
+  %130 = phi i64 [ %126, %124 ], [ %.pre51, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i34 ]
   %131 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %132 = getelementptr inbounds nuw i8, ptr %6, i64 16
   store i64 %130, ptr %132, align 8, !tbaa !51

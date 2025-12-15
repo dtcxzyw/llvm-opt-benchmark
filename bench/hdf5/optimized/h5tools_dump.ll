@@ -8208,11 +8208,11 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   br i1 %189, label %.lr.ph206.split.us, label %.lr.ph206.split
 
 .lr.ph206.split.us:                               ; preds = %.lr.ph206, %.loopexit.us
-  %indvars.iv224 = phi i64 [ %indvars.iv.next225, %.loopexit.us ], [ 0, %.lr.ph206 ]
+  %indvars.iv222 = phi i64 [ %indvars.iv.next223, %.loopexit.us ], [ 0, %.lr.ph206 ]
   store i32 1, ptr %188, align 8, !tbaa !35
   call void @h5tools_simple_prefix(ptr noundef %0, ptr noundef %2, ptr noundef %3, i64 noundef 0, i32 noundef 0) #12
   %190 = call ptr @h5tools_str_reset(ptr noundef %1) #12
-  %191 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv224
+  %191 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv222
   %192 = load ptr, ptr %191, align 8, !tbaa !26
   %193 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.79, ptr noundef %192) #12
   %194 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %192) #16
@@ -8221,7 +8221,7 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   %197 = call i32 @llvm.smax.i32(i32 %196, i32 0)
   %198 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.200, i32 noundef %197, ptr noundef nonnull @.str) #12
   %199 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.201) #12
-  %200 = mul i64 %.0125, %indvars.iv224
+  %200 = mul i64 %.0125, %indvars.iv222
   %201 = getelementptr i8, ptr %125, i64 %200
   br label %202
 
@@ -8232,22 +8232,22 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   %205 = zext i8 %204 to i32
   %206 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.202, i32 noundef %205) #12
   %207 = add nuw i64 %.0119203.us, 1
-  %exitcond223.not = icmp eq i64 %207, %.0125
-  br i1 %exitcond223.not, label %.loopexit.us, label %202, !llvm.loop !139
+  %exitcond221.not = icmp eq i64 %207, %.0125
+  br i1 %exitcond221.not, label %.loopexit.us, label %202, !llvm.loop !139
 
 .loopexit.us:                                     ; preds = %202
   %208 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.167) #12
   %209 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  %indvars.iv.next225 = add nuw nsw i64 %indvars.iv224, 1
-  %exitcond228.not = icmp eq i64 %indvars.iv.next225, %104
-  br i1 %exitcond228.not, label %.loopexit201, label %.lr.ph206.split.us, !llvm.loop !140
+  %indvars.iv.next223 = add nuw nsw i64 %indvars.iv222, 1
+  %exitcond226.not = icmp eq i64 %indvars.iv.next223, %104
+  br i1 %exitcond226.not, label %.loopexit201, label %.lr.ph206.split.us, !llvm.loop !140
 
 .lr.ph206.split:                                  ; preds = %.lr.ph206, %.lr.ph206.split
-  %indvars.iv218 = phi i64 [ %indvars.iv.next219, %.lr.ph206.split ], [ 0, %.lr.ph206 ]
+  %indvars.iv216 = phi i64 [ %indvars.iv.next217, %.lr.ph206.split ], [ 0, %.lr.ph206 ]
   store i32 1, ptr %188, align 8, !tbaa !35
   call void @h5tools_simple_prefix(ptr noundef %0, ptr noundef %2, ptr noundef %3, i64 noundef 0, i32 noundef 0) #12
   %210 = call ptr @h5tools_str_reset(ptr noundef %1) #12
-  %211 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv218
+  %211 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv216
   %212 = load ptr, ptr %211, align 8, !tbaa !26
   %213 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.79, ptr noundef %212) #12
   %214 = call i64 @strlen(ptr noundef nonnull dereferenceable(1) %212) #16
@@ -8257,25 +8257,25 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   %218 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.200, i32 noundef %217, ptr noundef nonnull @.str) #12
   %219 = call i32 @H5Tget_sign(i64 noundef %.0128) #12
   %220 = icmp eq i32 %219, 0
-  %221 = mul i64 %.0125, %indvars.iv218
+  %221 = mul i64 %.0125, %indvars.iv216
   %222 = getelementptr inbounds nuw i8, ptr %125, i64 %221
   %.0.copyload18 = load i64, ptr %222, align 1
   %.str.203..str.204 = select i1 %220, ptr @.str.203, ptr @.str.204
   %223 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull %.str.203..str.204, i64 noundef %.0.copyload18) #12
   %224 = call ptr (ptr, ptr, ...) @h5tools_str_append(ptr noundef %1, ptr noundef nonnull @.str.167) #12
   %225 = call zeroext i1 @h5tools_render_element(ptr noundef %0, ptr noundef %2, ptr noundef nonnull %3, ptr noundef %1, ptr noundef nonnull %6, i64 noundef %spec.select, i64 noundef 0, i64 noundef 0) #12
-  %indvars.iv.next219 = add nuw nsw i64 %indvars.iv218, 1
-  %exitcond222.not = icmp eq i64 %indvars.iv.next219, %104
-  br i1 %exitcond222.not, label %.loopexit201, label %.lr.ph206.split, !llvm.loop !140
+  %indvars.iv.next217 = add nuw nsw i64 %indvars.iv216, 1
+  %exitcond220.not = icmp eq i64 %indvars.iv.next217, %104
+  br i1 %exitcond220.not, label %.loopexit201, label %.lr.ph206.split, !llvm.loop !140
 
 .loopexit201:                                     ; preds = %.lr.ph206.split, %.loopexit.us, %179, %183, %171, %159, %163, %151, %135, %139, %127
   %.1122 = phi i32 [ -1, %127 ], [ -1, %139 ], [ -1, %135 ], [ -1, %151 ], [ -1, %163 ], [ -1, %159 ], [ -1, %171 ], [ -1, %183 ], [ -1, %179 ], [ 0, %.loopexit.us ], [ 0, %.lr.ph206.split ]
-  %.not215 = icmp eq i32 %9, 0
-  br i1 %.not215, label %._crit_edge210, label %.lr.ph209
+  %.not213 = icmp eq i32 %9, 0
+  br i1 %.not213, label %._crit_edge210, label %.lr.ph209
 
 .lr.ph209:                                        ; preds = %.loopexit201, %230
-  %indvars.iv229 = phi i64 [ %indvars.iv.next230, %230 ], [ 0, %.loopexit201 ]
-  %226 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv229
+  %indvars.iv227 = phi i64 [ %indvars.iv.next228, %230 ], [ 0, %.loopexit201 ]
+  %226 = getelementptr inbounds nuw ptr, ptr %105, i64 %indvars.iv227
   %227 = load ptr, ptr %226, align 8, !tbaa !26
   %.not165 = icmp eq ptr %227, null
   br i1 %.not165, label %230, label %228
@@ -8285,21 +8285,21 @@ define range(i32 -1, 1) i32 @h5tools_print_enum(ptr noundef %0, ptr noundef %1, 
   br label %230
 
 230:                                              ; preds = %.lr.ph209, %228
-  %indvars.iv.next230 = add nuw nsw i64 %indvars.iv229, 1
-  %exitcond233.not = icmp eq i64 %indvars.iv.next230, %104
-  br i1 %exitcond233.not, label %._crit_edge210, label %.lr.ph209, !llvm.loop !141
+  %indvars.iv.next228 = add nuw nsw i64 %indvars.iv227, 1
+  %exitcond231.not = icmp eq i64 %indvars.iv.next228, %104
+  br i1 %exitcond231.not, label %._crit_edge210, label %.lr.ph209, !llvm.loop !141
 
 ._crit_edge210:                                   ; preds = %230, %.loopexit201
   call void @free(ptr noundef nonnull %105) #12
   br i1 %126, label %.thread176.thread, label %231
 
 231:                                              ; preds = %._crit_edge210.thread, %._crit_edge210
-  %.1122260262 = phi i32 [ 0, %._crit_edge210.thread ], [ %.1122, %._crit_edge210 ]
+  %.1122258260 = phi i32 [ 0, %._crit_edge210.thread ], [ %.1122, %._crit_edge210 ]
   call void @free(ptr noundef nonnull %125) #12
   br label %.thread176.thread
 
 .thread176.thread:                                ; preds = %._crit_edge210, %231, %49, %61, %57, %70, %82, %78, %107, %119, %115
-  %.1122174182191 = phi i32 [ -1, %115 ], [ -1, %119 ], [ -1, %107 ], [ -1, %78 ], [ -1, %82 ], [ -1, %70 ], [ -1, %57 ], [ -1, %61 ], [ -1, %49 ], [ %.1122260262, %231 ], [ %.1122, %._crit_edge210 ]
+  %.1122174182191 = phi i32 [ -1, %115 ], [ -1, %119 ], [ -1, %107 ], [ -1, %78 ], [ -1, %82 ], [ -1, %70 ], [ -1, %57 ], [ -1, %61 ], [ -1, %49 ], [ %.1122258260, %231 ], [ %.1122, %._crit_edge210 ]
   %232 = call i32 @H5Tclose(i64 noundef %28) #12
   %233 = icmp slt i32 %232, 0
   br i1 %233, label %234, label %.thread176.thread193

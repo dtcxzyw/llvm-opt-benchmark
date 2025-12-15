@@ -90240,7 +90240,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_13BinaryBuilder
   %.0.copyload.i30.i = load i64, ptr %49, align 1
   %.0.copyload.i31.i = load i64, ptr %2, align 1
   %.0.copyload.i30.i.fr = freeze i64 %.0.copyload.i30.i
-  %50 = mul i64 %.0.copyload.i30.i.fr, -7046029288634856825
+  %51 = mul i64 %.0.copyload.i30.i.fr, -7046029288634856825
   %.0.copyload.i31.i.fr = freeze i64 %.0.copyload.i31.i
   %51 = mul i64 %.0.copyload.i31.i.fr, -4417276706812531889
   %52 = xor i64 %51, %50
@@ -103562,7 +103562,7 @@ define linkonce_odr void @_ZN5arrow8internal15BinaryMemoTableINS_18LargeBinaryBu
   %.0.copyload.i30.i = load i64, ptr %51, align 1
   %.0.copyload.i31.i = load i64, ptr %2, align 1
   %.0.copyload.i30.i.fr = freeze i64 %.0.copyload.i30.i
-  %52 = mul i64 %.0.copyload.i30.i.fr, -7046029288634856825
+  %53 = mul i64 %.0.copyload.i30.i.fr, -7046029288634856825
   %.0.copyload.i31.i.fr = freeze i64 %.0.copyload.i31.i
   %53 = mul i64 %.0.copyload.i31.i.fr, -4417276706812531889
   %54 = xor i64 %53, %52

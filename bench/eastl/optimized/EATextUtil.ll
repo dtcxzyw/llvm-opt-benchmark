@@ -3182,12 +3182,12 @@ while.body.us84:                                  ; preds = %land.rhs.us74
 if.else.us.loopexit:                              ; preds = %land.rhs.us.us
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre = and i64 %indvars.iv, 4294967295
-  %.pre101 = add nsw i32 %j.073.us, %23
-  %.pre102 = sext i32 %.pre101 to i64
+  %.pre100 = add nsw i32 %j.073.us, %23
+  %.pre101 = sext i32 %.pre100 to i64
   br label %if.else.us
 
 if.else.us:                                       ; preds = %land.rhs.us74, %if.else.us.loopexit
-  %idxprom18.us.pre-phi = phi i64 [ %.pre102, %if.else.us.loopexit ], [ %idxprom3.us79, %land.rhs.us74 ]
+  %idxprom18.us.pre-phi = phi i64 [ %.pre101, %if.else.us.loopexit ], [ %idxprom3.us79, %land.rhs.us74 ]
   %idxprom27.us.pre-phi = phi i64 [ %.pre, %if.else.us.loopexit ], [ %idxprom.us76, %land.rhs.us74 ]
   %.us-phi.us = phi i32 [ %23, %if.else.us.loopexit ], [ %i.067.us75, %land.rhs.us74 ]
   %sub15.us = sub i32 %sub.i, %.us-phi.us

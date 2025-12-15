@@ -28245,18 +28245,18 @@ ntt_free.exit138.sink.split.i:                    ; preds = %ntt_vec_mul.exit
   br label %ntt_fft_partial.exit
 
 .preheader:                                       ; preds = %18, %.preheader
-  %.04964 = phi i64 [ %85, %.preheader ], [ 0, %18 ]
-  %81 = shl i64 %.04964, %13
+  %.04963 = phi i64 [ %85, %.preheader ], [ 0, %18 ]
+  %81 = shl i64 %.04963, %13
   %82 = getelementptr inbounds nuw i64, ptr %1, i64 %81
   %83 = getelementptr inbounds nuw i64, ptr %2, i64 %81
   %84 = tail call fastcc i32 @ntt_conv(ptr noundef %0, ptr noundef %82, ptr noundef %83, i32 noundef %10, i32 noundef %4, i64 noundef %5)
-  %85 = add nuw i64 %.04964, 1
+  %85 = add nuw i64 %.04963, 1
   %exitcond.not = icmp eq i64 %85, %12
   br i1 %exitcond.not, label %.split50, label %.preheader, !llvm.loop !163
 
 ntt_fft_partial.exit:                             ; preds = %ntt_free.exit138.sink.split.i, %.split50
-  %phi.call.in = phi i32 [ %.fr, %.split50 ], [ %.fr61, %ntt_free.exit138.sink.split.i ]
-  %phi.call = icmp ne i32 %phi.call.in, 0
+  %phi.call = phi i32 [ %.fr, %.split50 ], [ %.fr61, %ntt_free.exit138.sink.split.i ]
+  %phi.call = icmp ne i32 %phi.call, 0
   %spec.select60 = sext i1 %phi.call to i32
   br label %ntt_fft_partial.exit.thread
 

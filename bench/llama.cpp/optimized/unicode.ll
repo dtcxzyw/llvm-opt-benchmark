@@ -6725,8 +6725,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not131.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.thread.i.i", label %.critedge.i43.i
 
 .critedge.i43.i:                                  ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.i.i", %..critedge_crit_edge.i.i
-  %.pre-phi.i.i = phi i64 [ %.pre590.i.i, %..critedge_crit_edge.i.i ], [ %930, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.i.i" ]
-  %.not.i211.i.not.i = icmp ult i64 %.pre-phi.i.i, %.0114581.i.i
+  %.6125.i.us.i.pre-phi = phi i64 [ %.pre590.i.i, %..critedge_crit_edge.i.i ], [ %930, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.i.i" ]
+  %.not.i211.i.not.i = icmp ult i64 %.6125.i.us.i.pre-phi, %.0114581.i.i
   br i1 %.not.i211.i.not.i, label %.critedge.i43.split.us.i, label %.critedge.i43.split.preheader.i
 
 .critedge.i43.split.preheader.i:                  ; preds = %.critedge.i43.i

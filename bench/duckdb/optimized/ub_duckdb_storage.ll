@@ -21184,7 +21184,7 @@ define void @_ZN6duckdb9DataTable26VerifyForeignKeyConstraintENS_12optional_ptrI
   %33 = load ptr, ptr %32, align 8, !tbaa !916, !noalias !1172
   %34 = load ptr, ptr %31, align 8, !tbaa !919, !noalias !1172
   %.fr = freeze ptr %33
-  %35 = ptrtoint ptr %.fr to i64
+  %36 = ptrtoint ptr %.fr to i64
   %.fr216 = freeze ptr %34
   %36 = ptrtoint ptr %.fr216 to i64
   %37 = sub i64 %35, %36
@@ -21196,7 +21196,7 @@ define void @_ZN6duckdb9DataTable26VerifyForeignKeyConstraintENS_12optional_ptrI
   %41 = load ptr, ptr %40, align 8, !tbaa !1004, !noalias !1172
   %42 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !1005, !noalias !1172
   %.fr217 = freeze ptr %41
-  %43 = ptrtoint ptr %.fr217 to i64
+  %44 = ptrtoint ptr %.fr217 to i64
   %.fr218 = freeze ptr %42
   %44 = ptrtoint ptr %.fr218 to i64
   %45 = sub i64 %43, %44
@@ -21278,8 +21278,8 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKS1_EEEvDpOT_.exit: 
   %67 = getelementptr inbounds nuw i8, ptr %spec.select203, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !1126
   %69 = load ptr, ptr %spec.select203, align 8, !tbaa !1129
-  %.not223 = icmp eq ptr %68, %69
-  br i1 %.not223, label %._crit_edge, label %.lr.ph210
+  %.not217 = icmp eq ptr %68, %69
+  br i1 %.not217, label %._crit_edge, label %.lr.ph210
 
 ._crit_edge:                                      ; preds = %88, %.preheader205
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21412,9 +21412,9 @@ _ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit: ;
 
 128:                                              ; preds = %_ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit
   %.not = icmp eq ptr %127, null
-  br i1 %.not, label %._crit_edge224, label %129
+  br i1 %.not, label %._crit_edge218, label %129
 
-._crit_edge224:                                   ; preds = %128
+._crit_edge218:                                   ; preds = %128
   %.pre = select i1 %18, i64 %71, i64 0
   br label %156
 
@@ -21486,7 +21486,7 @@ _ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit: ;
           cleanup
   br label %272
 
-156:                                              ; preds = %._crit_edge224, %135
+156:                                              ; preds = %._crit_edge218, %135
   %.0.v.i159.pre-phi = phi i64 [ %.pre, %._crit_edge224 ], [ %.0.v.i, %135 ]
   %.0119 = phi i1 [ false, %._crit_edge224 ], [ %.0.i158, %135 ]
   %157 = getelementptr inbounds nuw i8, ptr %121, i64 8

@@ -2657,8 +2657,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %27, %
   %34 = load i32, ptr %33, align 8, !tbaa !36
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %36 = load i32, ptr %35, align 8, !tbaa !36
-  %.fr146 = freeze i32 %36
-  %37 = icmp eq i32 %34, %.fr146
+  %.fr = freeze i32 %36
+  %37 = icmp eq i32 %34, %.fr
   br i1 %37, label %58, label %38
 
 38:                                               ; preds = %32

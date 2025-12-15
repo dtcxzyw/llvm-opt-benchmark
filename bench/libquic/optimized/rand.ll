@@ -326,14 +326,14 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   br label %93
 
 93:                                               ; preds = %.preheader.us.us, %93
-  %indvars.iv90 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next91, %93 ]
-  %94 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv90
+  %indvars.iv87 = phi i64 [ 0, %.preheader.us.us ], [ %indvars.iv.next88, %93 ]
+  %94 = getelementptr inbounds nuw i8, ptr %6, i64 %indvars.iv87
   %95 = load i8, ptr %94, align 1, !tbaa !22
   %96 = lshr i8 %95, 4
   %97 = zext nneg i8 %96 to i64
   %98 = getelementptr inbounds nuw i8, ptr @_ZZ4RandRKSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EEE8hextable, i64 %97
   %99 = load i8, ptr %98, align 1, !tbaa !22
-  %100 = shl nuw i64 %indvars.iv90, 1
+  %100 = shl nuw i64 %indvars.iv87, 1
   %101 = getelementptr inbounds nuw i8, ptr %7, i64 %100
   store i8 %99, ptr %101, align 2, !tbaa !22
   %102 = and i8 %95, 15
@@ -343,9 +343,9 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %106 = getelementptr inbounds nuw i8, ptr %7, i64 %100
   %107 = getelementptr inbounds nuw i8, ptr %106, i64 1
   store i8 %105, ptr %107, align 1, !tbaa !22
-  %indvars.iv.next91 = add nuw nsw i64 %indvars.iv90, 1
-  %exitcond93.not = icmp eq i64 %indvars.iv.next91, 4096
-  br i1 %exitcond93.not, label %._crit_edge.us.us, label %93, !llvm.loop !38
+  %indvars.iv.next88 = add nuw nsw i64 %indvars.iv87, 1
+  %exitcond90.not = icmp eq i64 %indvars.iv.next88, 4096
+  br i1 %exitcond90.not, label %._crit_edge.us.us, label %93, !llvm.loop !38
 
 ._crit_edge.us.us:                                ; preds = %93
   %108 = load ptr, ptr @stdout, align 8, !tbaa !39
@@ -358,8 +358,8 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
   %110 = sub i64 %.149, %.03674.us
   %spec.select.us = call i64 @llvm.umin.i64(i64 %110, i64 4096)
   %111 = call i32 @RAND_bytes(ptr noundef nonnull %6, i64 noundef %spec.select.us)
-  %.not84 = icmp eq i64 %.149, %.03674.us
-  br i1 %.not84, label %._crit_edge.us, label %.lr.ph.us
+  %.not81 = icmp eq i64 %.149, %.03674.us
+  br i1 %.not81, label %._crit_edge.us, label %.lr.ph.us
 
 ._crit_edge.us:                                   ; preds = %.lr.ph.us, %.preheader.us
   %112 = shl nuw nsw i64 %spec.select.us, 1
@@ -421,21 +421,21 @@ _ZNSt6vectorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEESaIS5_EED2Ev.ex
 139:                                              ; preds = %.lr.ph76.split.split
   %140 = add i64 %spec.select, %.03674
   %141 = icmp ult i64 %140, %.149
-  br i1 %141, label %.lr.ph76.split.split, label %._crit_edge77.thread124, !llvm.loop !41
+  br i1 %141, label %.lr.ph76.split.split, label %._crit_edge77.thread123, !llvm.loop !41
 
 ._crit_edge77:                                    ; preds = %89
-  br i1 %.152, label %._crit_edge77.thread, label %._crit_edge77.thread124
+  br i1 %.152, label %._crit_edge77.thread, label %._crit_edge77.thread123
 
 ._crit_edge77.thread:                             ; preds = %115, %._crit_edge77
   %142 = load ptr, ptr @stdout, align 8, !tbaa !39
   %143 = call i64 @fwrite(ptr noundef nonnull @.str.1, i64 noundef 1, i64 noundef 1, ptr noundef %142)
   %.not58 = icmp eq i64 %143, 1
-  br i1 %.not58, label %._crit_edge77.thread124, label %.critedge
+  br i1 %.not58, label %._crit_edge77.thread123, label %.critedge
 
-._crit_edge77.thread124:                          ; preds = %139, %._crit_edge77.thread, %._crit_edge77
+._crit_edge77.thread123:                          ; preds = %139, %._crit_edge77.thread, %._crit_edge77
   br label %.critedge
 
-.critedge:                                        ; preds = %.lr.ph76.split.split, %._crit_edge.us, %._crit_edge.us.us, %.lr.ph76.split.split.us, %._crit_edge77.thread, %._crit_edge77.thread124
+.critedge:                                        ; preds = %.lr.ph76.split.split, %._crit_edge.us, %._crit_edge.us.us, %.lr.ph76.split.split.us, %._crit_edge77.thread, %._crit_edge77.thread123
   %.5 = phi i1 [ true, %._crit_edge77.thread124 ], [ false, %._crit_edge77.thread ], [ false, %.lr.ph76.split.split.us ], [ false, %._crit_edge.us.us ], [ false, %._crit_edge.us ], [ false, %.lr.ph76.split.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)

@@ -4210,8 +4210,8 @@ land.lhs.true177:                                 ; preds = %if.then174
 
 if.then181:                                       ; preds = %land.lhs.true177
   %76 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %.fr30 = freeze <4 x float> %76
-  %77 = shufflevector <4 x float> %.fr30, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %.fr5 = freeze <4 x float> %76
+  %77 = shufflevector <4 x float> %.fr5, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %78 = fcmp une <4 x float> %9, %77
   %79 = bitcast <4 x i1> %78 to i4
   %80 = icmp eq i4 %79, 0

@@ -69,8 +69,8 @@ define i64 @file_sendfile(ptr noundef %0, ptr noundef %1, ptr noundef captures(a
   br i1 %29, label %30, label %.critedge.i.preheader
 
 30:                                               ; preds = %28
-  %.not92.i = icmp eq i64 %.fr91.i, -4
-  br i1 %.not92.i, label %.preheader.split.i, label %.critedge.thread.thread.i, !llvm.loop !6
+  %.not88.i = icmp eq i64 %.fr91.i, -4
+  br i1 %.not88.i, label %.preheader.split.i, label %.critedge.thread.thread.i, !llvm.loop !6
 
 .critedge.i:                                      ; preds = %.critedge.i.preheader, %40
   %.062.i = phi i64 [ %.163.i, %40 ], [ %.062.i.ph, %.critedge.i.preheader ]

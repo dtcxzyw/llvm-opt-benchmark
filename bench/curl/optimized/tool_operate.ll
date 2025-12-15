@@ -846,11 +846,11 @@ define internal fastcc i32 @run_all_transfers(ptr noundef %0, ptr noundef %1, i3
   %123 = trunc nuw i8 %122 to i1
   %124 = icmp ne i32 %.072.i.i, 0
   %or.cond3.i.i = select i1 %123, i1 %124, i1 false
-  %spec.select67 = select i1 %or.cond3.i.i, i32 %.072.i.i, i32 %100
+  %spec.select68 = select i1 %or.cond3.i.i, i32 %.072.i.i, i32 %100
   br label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %119, %118
-  %.2.i.i = phi i32 [ %.072.i.i, %118 ], [ %spec.select67, %119 ]
+  %.2.i.i = phi i32 [ %.072.i.i, %118 ], [ %spec.select68, %119 ]
   switch i32 %.2.i.i, label %125 [
     i32 2, label %is_fatal_error.exit.thread.i.i
     i32 27, label %is_fatal_error.exit.thread.i.i

@@ -505,7 +505,7 @@ rxfc_cwm_bump_desired.exit.i:                     ; preds = %safe_mul_uint64_t.e
   br i1 %.not10.i, label %rxfc_update_cwm.exit, label %38
 
 38:                                               ; preds = %rxfc_cwm_bump_desired.exit.i
-  %.fr22.i.i = freeze i64 %3
+  %.fr.i.i = freeze i64 %3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !30
   %.fr19.i.i = freeze i64 %40
@@ -562,8 +562,8 @@ safe_muldiv_time.exit.thread17.i.i.i.i:           ; preds = %safe_mul_time.exit3
 
 rxfc_should_bump_window_size.exit.i.i:            ; preds = %safe_muldiv_time.exit.thread17.i.i.i.i, %safe_mul_time.exit35.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
   %.sroa.03.0.i.i.i.i = phi i64 [ 0, %safe_muldiv_time.exit.thread17.i.i.i.i ], [ %54, %safe_muldiv_time.exit.thread.i.i.i.i ], [ %67, %safe_mul_time.exit35.i.i.i.i.i ]
-  %69 = icmp ugt i64 %.fr22.i.i, 4611686018427387903
-  %70 = shl nuw i64 %.fr22.i.i, 2
+  %69 = icmp ugt i64 %.fr.i.i, 4611686018427387903
+  %70 = shl nuw i64 %.fr.i.i, 2
   %.sroa.02.0.i.i.i.i = select i1 %69, i64 -1, i64 %70
   %.not.i.i = icmp ult i64 %.sroa.03.0.i.i.i.i, %.sroa.02.0.i.i.i.i
   %71 = shl i64 %22, 1

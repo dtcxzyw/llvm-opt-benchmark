@@ -519,7 +519,7 @@ _ZN4abslltENS_8DurationES0_.exit:                 ; preds = %2
 5:                                                ; preds = %_ZN4abslltENS_8DurationES0_.exit
   %6 = tail call { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64 %.fr62, i32 %1, i64 0, i32 4) #14
   %.fr = freeze { i64, i32 } %6
-  %.fca.0.extract = extractvalue { i64, i32 } %.fr, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %.fr, 0
   %.fca.1.extract = extractvalue { i64, i32 } %.fr, 1
   br label %_ZN4abslltENS_8DurationES0_.exit.thread
 
