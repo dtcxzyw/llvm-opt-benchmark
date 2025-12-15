@@ -2533,9 +2533,9 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %64 = load ptr, ptr %63, align 8
   %65 = getelementptr inbounds nuw i8, ptr %64, i64 4
   %.not.i = icmp eq ptr %64, null
-  br i1 %.not.i, label %.critedge, label %.lr.ph91
+  br i1 %.not.i, label %.critedge, label %.lr.ph90
 
-.lr.ph91:                                         ; preds = %51
+.lr.ph90:                                         ; preds = %51
   %66 = getelementptr inbounds nuw i8, ptr %64, i64 16
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %68 = getelementptr inbounds nuw i8, ptr %1, i64 328
@@ -2547,16 +2547,16 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %74 = getelementptr inbounds nuw i8, ptr %1, i64 26
   %75 = load i32, ptr %65, align 4
   %76 = icmp sgt i32 %75, 0
-  br i1 %76, label %.lr.ph159, label %.critedge
+  br i1 %76, label %.lr.ph158, label %.critedge
 
-.lr.ph159:                                        ; preds = %.lr.ph91, %.thread
-  %.0132.i87158 = phi double [ %.1133.i, %.thread ], [ 0.000000e+00, %.lr.ph91 ]
-  %.0130.i88157 = phi double [ %.1131.i, %.thread ], [ 0.000000e+00, %.lr.ph91 ]
-  %.0128.i89156 = phi double [ %.1129.i, %.thread ], [ 0.000000e+00, %.lr.ph91 ]
-  %.0125.i90155 = phi i1 [ %.1.i, %.thread ], [ false, %.lr.ph91 ]
-  %indvars.iv111154 = phi i64 [ %indvars.iv.next112, %.thread ], [ 0, %.lr.ph91 ]
+.lr.ph158:                                        ; preds = %.lr.ph90, %.thread
+  %.0132.i86157 = phi double [ %.1133.i, %.thread ], [ 0.000000e+00, %.lr.ph90 ]
+  %.0130.i87156 = phi double [ %.1131.i, %.thread ], [ 0.000000e+00, %.lr.ph90 ]
+  %.0128.i88155 = phi double [ %.1129.i, %.thread ], [ 0.000000e+00, %.lr.ph90 ]
+  %.0125.i89154 = phi i1 [ %.1.i, %.thread ], [ false, %.lr.ph90 ]
+  %indvars.iv110153 = phi i64 [ %indvars.iv.next111, %.thread ], [ 0, %.lr.ph90 ]
   %77 = load ptr, ptr %66, align 8
-  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv111154
+  %78 = getelementptr inbounds nuw %union.ListCell, ptr %77, i64 %indvars.iv110153
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   %79 = load ptr, ptr %78, align 8
   store ptr %79, ptr %9, align 8
@@ -2568,7 +2568,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
 .critedge.i:                                      ; preds = %.thread
   br i1 %.1.i, label %249, label %.critedge
 
-82:                                               ; preds = %.lr.ph159
+82:                                               ; preds = %.lr.ph158
   %83 = getelementptr inbounds nuw i8, ptr %79, i64 8
   %84 = load i32, ptr %83, align 8
   %85 = load ptr, ptr %67, align 8
@@ -2605,17 +2605,17 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %104 = load ptr, ptr %68, align 8
   %105 = getelementptr inbounds nuw i8, ptr %104, i64 4
   %.not148.i = icmp eq ptr %104, null
-  br i1 %.not148.i, label %.critedge153.i, label %.lr.ph77
+  br i1 %.not148.i, label %.critedge153.i, label %.lr.ph76
 
-.lr.ph77:                                         ; preds = %103
+.lr.ph76:                                         ; preds = %103
   %106 = getelementptr inbounds nuw i8, ptr %104, i64 16
   %107 = load i32, ptr %105, align 4
   %108 = icmp sgt i32 %107, 0
-  br i1 %108, label %.lr.ph84, label %.critedge153.i
+  br i1 %108, label %.lr.ph83, label %.critedge153.i
 
-.lr.ph84:                                         ; preds = %.lr.ph77, %129
-  %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph77 ]
-  %.0135.i7682 = phi ptr [ %.1136.i, %129 ], [ null, %.lr.ph77 ]
+.lr.ph83:                                         ; preds = %.lr.ph76, %129
+  %indvars.iv = phi i64 [ %indvars.iv.next, %129 ], [ 0, %.lr.ph76 ]
+  %.0135.i7581 = phi ptr [ %.1136.i, %129 ], [ null, %.lr.ph76 ]
   %109 = load ptr, ptr %106, align 8
   %110 = getelementptr inbounds nuw %union.ListCell, ptr %109, i64 %indvars.iv
   %111 = load ptr, ptr %110, align 8
@@ -2625,8 +2625,8 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %115 = call zeroext i1 @bms_overlap(ptr noundef %113, ptr noundef %114) #9
   br i1 %115, label %129, label %126
 
-.critedge153.i:                                   ; preds = %129, %.lr.ph77, %103
-  %.0135.i.lcssa = phi ptr [ null, %103 ], [ null, %.lr.ph77 ], [ %.1136.i, %129 ]
+.critedge153.i:                                   ; preds = %129, %.lr.ph76, %103
+  %.0135.i.lcssa = phi ptr [ null, %103 ], [ null, %.lr.ph76 ], [ %.1136.i, %129 ]
   %116 = getelementptr inbounds nuw i8, ptr %89, i64 328
   store ptr %.0135.i.lcssa, ptr %116, align 8
   %117 = load ptr, ptr %70, align 8
@@ -2641,18 +2641,18 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %125 = trunc nuw i8 %124 to i1
   br i1 %125, label %135, label %133
 
-126:                                              ; preds = %.lr.ph84
+126:                                              ; preds = %.lr.ph83
   %127 = call ptr @adjust_appendrel_attrs(ptr noundef %0, ptr noundef nonnull %111, i32 noundef 1, ptr noundef nonnull %9) #9
-  %128 = call ptr @lappend(ptr noundef %.0135.i7682, ptr noundef %127) #9
+  %128 = call ptr @lappend(ptr noundef %.0135.i7581, ptr noundef %127) #9
   br label %129
 
-129:                                              ; preds = %126, %.lr.ph84
-  %.1136.i = phi ptr [ %.0135.i7682, %.lr.ph84 ], [ %128, %126 ]
+129:                                              ; preds = %126, %.lr.ph83
+  %.1136.i = phi ptr [ %.0135.i7581, %.lr.ph83 ], [ %128, %126 ]
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %130 = load i32, ptr %105, align 4
   %131 = sext i32 %130 to i64
   %132 = icmp slt i64 %indvars.iv.next, %131
-  br i1 %132, label %.lr.ph84, label %.critedge153.i
+  br i1 %132, label %.lr.ph83, label %.critedge153.i
 
 133:                                              ; preds = %.critedge153.i
   %134 = call zeroext i1 @has_useful_pathkeys(ptr noundef %0, ptr noundef nonnull %1) #9
@@ -2710,15 +2710,15 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
 160:                                              ; preds = %159, %155
   %161 = getelementptr inbounds nuw i8, ptr %89, i64 200
   %162 = load double, ptr %161, align 8
-  %163 = fadd double %.0128.i89156, %162
+  %163 = fadd double %.0128.i88155, %162
   %164 = getelementptr inbounds nuw i8, ptr %89, i64 16
   %165 = load double, ptr %164, align 8
-  %166 = fadd double %.0130.i88157, %165
+  %166 = fadd double %.0130.i87156, %165
   %167 = load ptr, ptr %121, align 8
   %168 = getelementptr inbounds nuw i8, ptr %167, i64 40
   %169 = load i32, ptr %168, align 8
   %170 = sitofp i32 %169 to double
-  %171 = call double @llvm.fmuladd.f64(double %170, double %165, double %.0132.i87158)
+  %171 = call double @llvm.fmuladd.f64(double %170, double %165, double %.0132.i86157)
   %172 = load ptr, ptr %70, align 8
   %173 = getelementptr inbounds nuw i8, ptr %172, i64 8
   %174 = load ptr, ptr %173, align 8
@@ -2736,25 +2736,25 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %.not151.i, label %.thread, label %.split
 
 .split:                                           ; preds = %160, %245
-  %indvars.iv108 = phi i64 [ %indvars.iv.next109, %245 ], [ 0, %160 ]
+  %indvars.iv107 = phi i64 [ %indvars.iv.next108, %245 ], [ 0, %160 ]
   br i1 %.not150.i, label %191, label %184
 
 184:                                              ; preds = %.split
   %185 = load i32, ptr %178, align 4
   %186 = sext i32 %185 to i64
-  %187 = icmp slt i64 %indvars.iv108, %186
+  %187 = icmp slt i64 %indvars.iv107, %186
   br i1 %187, label %188, label %191
 
 188:                                              ; preds = %184
   %189 = load ptr, ptr %179, align 8
-  %190 = getelementptr inbounds nuw %union.ListCell, ptr %189, i64 %indvars.iv108
+  %190 = getelementptr inbounds nuw %union.ListCell, ptr %189, i64 %indvars.iv107
   br label %191
 
 191:                                              ; preds = %188, %184, %.split
   %192 = phi ptr [ %190, %188 ], [ null, %184 ], [ null, %.split ]
   %193 = load i32, ptr %177, align 4
   %194 = sext i32 %193 to i64
-  %195 = icmp slt i64 %indvars.iv108, %194
+  %195 = icmp slt i64 %indvars.iv107, %194
   br i1 %195, label %196, label %.thread
 
 196:                                              ; preds = %191
@@ -2765,7 +2765,7 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   br i1 %200, label %201, label %.thread
 
 201:                                              ; preds = %196
-  %202 = getelementptr inbounds nuw %union.ListCell, ptr %197, i64 %indvars.iv108
+  %202 = getelementptr inbounds nuw %union.ListCell, ptr %197, i64 %indvars.iv107
   %203 = load ptr, ptr %192, align 8
   %204 = load ptr, ptr %202, align 8
   %205 = load i32, ptr %203, align 4
@@ -2826,20 +2826,20 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   br label %245
 
 245:                                              ; preds = %239, %207, %201
-  %indvars.iv.next109 = add nuw nsw i64 %indvars.iv108, 1
+  %indvars.iv.next108 = add nuw nsw i64 %indvars.iv107, 1
   br label %.split, !llvm.loop !18
 
-.thread:                                          ; preds = %196, %191, %160, %153, %93, %82, %.lr.ph159
-  %.1133.i = phi double [ %.0132.i87158, %93 ], [ %.0132.i87158, %.lr.ph159 ], [ %.0132.i87158, %82 ], [ %.0132.i87158, %153 ], [ %171, %160 ], [ %171, %191 ], [ %171, %196 ]
-  %.1131.i = phi double [ %.0130.i88157, %93 ], [ %.0130.i88157, %.lr.ph159 ], [ %.0130.i88157, %82 ], [ %.0130.i88157, %153 ], [ %166, %160 ], [ %166, %191 ], [ %166, %196 ]
-  %.1129.i = phi double [ %.0128.i89156, %93 ], [ %.0128.i89156, %.lr.ph159 ], [ %.0128.i89156, %82 ], [ %.0128.i89156, %153 ], [ %163, %160 ], [ %163, %191 ], [ %163, %196 ]
-  %.1.i = phi i1 [ %.0125.i90155, %93 ], [ %.0125.i90155, %.lr.ph159 ], [ %.0125.i90155, %82 ], [ %.0125.i90155, %153 ], [ true, %160 ], [ true, %191 ], [ true, %196 ]
+.thread:                                          ; preds = %196, %191, %160, %153, %93, %82, %.lr.ph158
+  %.1133.i = phi double [ %.0132.i86157, %93 ], [ %.0132.i86157, %.lr.ph158 ], [ %.0132.i86157, %82 ], [ %.0132.i86157, %153 ], [ %171, %160 ], [ %171, %191 ], [ %171, %196 ]
+  %.1131.i = phi double [ %.0130.i87156, %93 ], [ %.0130.i87156, %.lr.ph158 ], [ %.0130.i87156, %82 ], [ %.0130.i87156, %153 ], [ %166, %160 ], [ %166, %191 ], [ %166, %196 ]
+  %.1129.i = phi double [ %.0128.i88155, %93 ], [ %.0128.i88155, %.lr.ph158 ], [ %.0128.i88155, %82 ], [ %.0128.i88155, %153 ], [ %163, %160 ], [ %163, %191 ], [ %163, %196 ]
+  %.1.i = phi i1 [ %.0125.i89154, %93 ], [ %.0125.i89154, %.lr.ph158 ], [ %.0125.i89154, %82 ], [ %.0125.i89154, %153 ], [ true, %160 ], [ true, %191 ], [ true, %196 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %indvars.iv.next112 = add nuw nsw i64 %indvars.iv111154, 1
+  %indvars.iv.next111 = add nuw nsw i64 %indvars.iv110153, 1
   %246 = load i32, ptr %65, align 4
   %247 = sext i32 %246 to i64
-  %248 = icmp slt i64 %indvars.iv.next112, %247
-  br i1 %248, label %.lr.ph159, label %.critedge.i
+  %248 = icmp slt i64 %indvars.iv.next111, %247
+  br i1 %248, label %.lr.ph158, label %.critedge.i
 
 249:                                              ; preds = %.critedge.i
   %250 = getelementptr inbounds nuw i8, ptr %1, i64 200
@@ -2852,31 +2852,31 @@ define internal fastcc void @set_rel_size(ptr noundef %0, ptr noundef %1, i32 no
   %255 = load ptr, ptr %70, align 8
   %256 = getelementptr inbounds nuw i8, ptr %255, i64 40
   store i32 %254, ptr %256, align 8
-  %.not146.i101 = icmp slt i32 %58, 0
-  br i1 %.not146.i101, label %set_append_rel_size.exit, label %.lr.ph103
+  %.not146.i100 = icmp slt i32 %58, 0
+  br i1 %.not146.i100, label %set_append_rel_size.exit, label %.lr.ph102
 
-.lr.ph103:                                        ; preds = %249
+.lr.ph102:                                        ; preds = %249
   %257 = getelementptr inbounds nuw i8, ptr %1, i64 136
   %258 = add nsw i32 %54, 1
   %259 = sub nsw i32 %258, %57
   %wide.trip.count = zext i32 %259 to i64
   br label %260
 
-260:                                              ; preds = %.lr.ph103, %260
-  %indvars.iv113 = phi i64 [ 0, %.lr.ph103 ], [ %indvars.iv.next114, %260 ]
-  %261 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv113
+260:                                              ; preds = %.lr.ph102, %260
+  %indvars.iv112 = phi i64 [ 0, %.lr.ph102 ], [ %indvars.iv.next113, %260 ]
+  %261 = getelementptr inbounds nuw double, ptr %62, i64 %indvars.iv112
   %262 = load double, ptr %261, align 8
   %263 = fdiv double %262, %.1131.i
   %264 = call double @llvm.rint.f64(double %263)
   %265 = fptosi double %264 to i32
   %266 = load ptr, ptr %257, align 8
-  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %indvars.iv113
+  %267 = getelementptr inbounds nuw i32, ptr %266, i64 %indvars.iv112
   store i32 %265, ptr %267, align 4
-  %indvars.iv.next114 = add nuw nsw i64 %indvars.iv113, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next114, %wide.trip.count
+  %indvars.iv.next113 = add nuw nsw i64 %indvars.iv112, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next113, %wide.trip.count
   br i1 %exitcond.not, label %set_append_rel_size.exit, label %260, !llvm.loop !19
 
-.critedge:                                        ; preds = %.lr.ph91, %51, %.critedge.i
+.critedge:                                        ; preds = %.lr.ph90, %51, %.critedge.i
   %268 = getelementptr inbounds nuw i8, ptr %1, i64 16
   store double 0.000000e+00, ptr %268, align 8
   %269 = getelementptr inbounds nuw i8, ptr %1, i64 32

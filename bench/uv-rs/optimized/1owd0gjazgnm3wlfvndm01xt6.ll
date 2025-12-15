@@ -4025,7 +4025,7 @@ _ZN4core5clone5Clone5clone17h64b5e3bdd38c4920E.exit.i.i.i.i.i.i.i: ; preds = %34
   unreachable
 
 .body129.i.i.i.i:                                 ; preds = %.thread355.i.i.i.i, %.thread8.i.i.i, %705, %704, %.thread344.i.i.i.i, %.thread.i.i.i, %.body.i.i.i.i.i
-  %.pn96.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn96.pn216.i411.i.i.i, %.thread8.i.i.i ], [ %.pn96.pn216.i.i.i.i, %704 ], [ %.pn96.pn216349358.i.i.i.i, %.thread355.i.i.i.i ], [ %.pn96.pn216.i.i.i.i, %705 ], [ %eh.lpad-body.i128.i.i.i.i, %.body.i.i.i.i.i ], [ %701, %.thread344.i.i.i.i ], [ %698, %.thread.i.i.i ]
+  %.pn96.pn.pn.i.i.i.i = phi { ptr, i32 } [ %.pn96.pn216.i511.i.i.i, %.thread8.i.i.i ], [ %.pn96.pn216.i.i.i.i, %704 ], [ %.pn96.pn216349358.i.i.i.i, %.thread355.i.i.i.i ], [ %.pn96.pn216.i.i.i.i, %705 ], [ %eh.lpad-body.i128.i.i.i.i, %.body.i.i.i.i.i ], [ %701, %.thread344.i.i.i.i ], [ %698, %.thread.i.i.i ]
   invoke void @"_ZN4core3ptr459drop_in_place$LT$core..iter..adapters..chain..Chain$LT$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_client..registry_client..VersionSourceDist$GT$$C$uv_client..registry_client..VersionFiles..all..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$uv_client..registry_client..VersionWheel$GT$$C$uv_client..registry_client..VersionFiles..all..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf45cb3a6a5684844E"(ptr noalias noundef nonnull align 8 dereferenceable(64) %57) #70
           to label %384 unwind label %564, !noalias !488
 
@@ -4901,7 +4901,7 @@ _ZN3std4sync6poison4Flag4done17hfa9f992a19b42526E.exit.i.i.i.i.i.i: ; preds = %5
   br i1 %.sroa.022.0214.i.i.i.i, label %.thread355.i.i.i.i, label %.body129.i.i.i.i
 
 .thread8.i.i.i:                                   ; preds = %704, %.thread.i.i.i
-  %.pn96.pn216.i411.i.i.i = phi { ptr, i32 } [ %.pn96.pn216.i.i.i.i, %704 ], [ %698, %.thread.i.i.i ]
+  %.pn96.pn216.i511.i.i.i = phi { ptr, i32 } [ %.pn96.pn216.i.i.i.i, %704 ], [ %698, %.thread.i.i.i ]
   invoke void @"_ZN4core3ptr78drop_in_place$LT$uv_distribution_filename..source_dist..SourceDistFilename$GT$17h46163fbac4ec310fE"(ptr noalias noundef nonnull align 8 dereferenceable(32) %56) #70
           to label %.body129.i.i.i.i unwind label %564, !noalias !488
 

@@ -38916,7 +38916,7 @@ _ZN6duckdbL10ClampSliceINS_12list_entry_tElNS_19ListSliceOperationsEEEbRKT_RT0_S
   br label %.noexc26.i
 
 174:                                              ; preds = %.thread.i, %.noexc25.i
-  %.059136.i76.i = phi i64 [ 0, %.thread.i ], [ %168, %.noexc25.i ]
+  %.059136.i75.i = phi i64 [ 0, %.thread.i ], [ %168, %.noexc25.i ]
   br i1 %166, label %175, label %.thread147.i.i
 
 .thread147.i.i:                                   ; preds = %174
@@ -38964,7 +38964,7 @@ _ZN6duckdbL10ClampSliceINS_12list_entry_tElNS_19ListSliceOperationsEEEbRKT_RT0_S
           to label %_ZN6duckdbL20ExecuteConstantSliceINS_12list_entry_tElNS_19ListSliceOperationsEEEvRNS_6VectorES4_S4_S4_NS_12optional_ptrIS3_Lb1EEEmRNS_15SelectionVectorERmS6_bb.exit.i unwind label %188
 
 .noexc26.i:                                       ; preds = %_ZN6duckdb19ListSliceOperations19SliceValueWithStepsERNS_6VectorERNS_15SelectionVectorENS_12list_entry_tElllRm.exit.i.i, %..loopexit_crit_edge.i.i.i, %171
-  %.059135156.i.i = phi i64 [ %168, %171 ], [ %.059136.i76.i, %_ZN6duckdb19ListSliceOperations19SliceValueWithStepsERNS_6VectorERNS_15SelectionVectorENS_12list_entry_tElllRm.exit.i.i ], [ %.059136.i76.i, %..loopexit_crit_edge.i.i.i ]
+  %.059135156.i.i = phi i64 [ %168, %171 ], [ %.059136.i75.i, %_ZN6duckdb19ListSliceOperations19SliceValueWithStepsERNS_6VectorERNS_15SelectionVectorENS_12list_entry_tElllRm.exit.i.i ], [ %.059136.i75.i, %..loopexit_crit_edge.i.i.i ]
   invoke void @_ZNK6duckdb12optional_ptrINS_6VectorELb1EE10CheckValidEv(ptr noundef nonnull align 8 dereferenceable(8) %40)
           to label %.noexc29.i unwind label %188
 

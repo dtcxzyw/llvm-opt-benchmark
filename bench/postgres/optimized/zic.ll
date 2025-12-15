@@ -2954,10 +2954,10 @@ addtt.exit.i:                                     ; preds = %size_product.exit.i
   br i1 %1267, label %.thread, label %.critedge473.i
 
 .thread:                                          ; preds = %._crit_edge720.i, %1266
-  %.1316.lcssa987.i479 = phi i64 [ %.1316.lcssa.ph.i, %1266 ], [ %811, %._crit_edge720.i ]
-  %.1308.lcssa988.i476 = phi i64 [ %.1308.lcssa.ph.i, %1266 ], [ 0, %._crit_edge720.i ]
-  %.3303.lcssa989.i474 = phi i64 [ %.3303.lcssa.ph.i, %1266 ], [ %.0300736.i, %._crit_edge720.i ]
-  %.3292.lcssa990.i472 = phi i64 [ %.3292.lcssa.ph.i, %1266 ], [ %.0289738.i, %._crit_edge720.i ]
+  %.1316.lcssa987.i482 = phi i64 [ %.1316.lcssa.ph.i, %1266 ], [ %811, %._crit_edge720.i ]
+  %.1308.lcssa988.i479 = phi i64 [ %.1308.lcssa.ph.i, %1266 ], [ 0, %._crit_edge720.i ]
+  %.3303.lcssa989.i476 = phi i64 [ %.3303.lcssa.ph.i, %1266 ], [ %.0300736.i, %._crit_edge720.i ]
+  %.3292.lcssa990.i473 = phi i64 [ %.3292.lcssa.ph.i, %1266 ], [ %.0289738.i, %._crit_edge720.i ]
   %.3.lcssa991.i470 = phi i32 [ %.3.lcssa.ph.i, %1266 ], [ %.0275740.i, %._crit_edge720.i ]
   %1268 = getelementptr inbounds nuw i8, ptr %796, i64 40
   %1269 = load ptr, ptr %1268, align 8
@@ -3009,16 +3009,16 @@ thread-pre-split454.i:                            ; preds = %1273
   br label %1285
 
 1285:                                             ; preds = %.critedge473.i, %thread-pre-split454.i
-  %.1316.lcssa987.i478 = phi i64 [ %.1316.lcssa.ph.i, %.critedge473.i ], [ %.1316.lcssa987.i479, %thread-pre-split454.i ]
-  %.1308.lcssa988.i477 = phi i64 [ %.1308.lcssa.ph.i, %.critedge473.i ], [ %.1308.lcssa988.i476, %thread-pre-split454.i ]
-  %.3303.lcssa989.i475 = phi i64 [ %.3303.lcssa.ph.i, %.critedge473.i ], [ %.3303.lcssa989.i474, %thread-pre-split454.i ]
-  %.3292.lcssa990.i473 = phi i64 [ %.3292.lcssa.ph.i, %.critedge473.i ], [ %.3292.lcssa990.i472, %thread-pre-split454.i ]
+  %.1316.lcssa987.i481 = phi i64 [ %.1316.lcssa.ph.i, %.critedge473.i ], [ %.1316.lcssa987.i482, %thread-pre-split454.i ]
+  %.1308.lcssa988.i478 = phi i64 [ %.1308.lcssa.ph.i, %.critedge473.i ], [ %.1308.lcssa988.i479, %thread-pre-split454.i ]
+  %.3303.lcssa989.i475 = phi i64 [ %.3303.lcssa.ph.i, %.critedge473.i ], [ %.3303.lcssa989.i476, %thread-pre-split454.i ]
+  %.3292.lcssa990.i472 = phi i64 [ %.3292.lcssa.ph.i, %.critedge473.i ], [ %.3292.lcssa990.i473, %thread-pre-split454.i ]
   %.3.lcssa991.i469 = phi i32 [ %.3.lcssa.ph.i, %.critedge473.i ], [ %.3.lcssa991.i470, %thread-pre-split454.i ]
   %1286 = load i64, ptr %810, align 8
-  %1287 = icmp ne i64 %.1316.lcssa987.i478, %1286
+  %1287 = icmp ne i64 %.1316.lcssa987.i481, %1286
   %1288 = trunc nuw i8 %.0319735.i to i1
   %1289 = trunc nuw i8 %.0322734.i to i1
-  %1290 = call fastcc i32 @addtype(i64 noundef %.1316.lcssa987.i478, ptr noundef nonnull %477, i1 noundef zeroext %1287, i1 noundef zeroext %1288, i1 noundef zeroext %1289)
+  %1290 = call fastcc i32 @addtype(i64 noundef %.1316.lcssa987.i481, ptr noundef nonnull %477, i1 noundef zeroext %1287, i1 noundef zeroext %1288, i1 noundef zeroext %1289)
   %1291 = icmp sgt i32 %.3.lcssa991.i469, -1
   %or.cond9.i = or i1 %1291, %1287
   %spec.select346.i = select i1 %or.cond9.i, i32 %.3.lcssa991.i469, i32 %1290
@@ -3026,9 +3026,9 @@ thread-pre-split454.i:                            ; preds = %1273
   br label %.thread444.i
 
 .thread444.i:                                     ; preds = %1285, %1282, %._crit_edge720.i, %._crit_edge720.loopexit.i, %840, %oadd.exit.i81
-  %.2291453.i = phi i64 [ %.3292.lcssa990.i472, %1282 ], [ %.3292.lcssa990.i473, %1285 ], [ %.0289738.i, %._crit_edge720.i ], [ %.0289738.i, %840 ], [ %.0289738.i, %oadd.exit.i81 ], [ %.3292.lcssa.ph.i, %._crit_edge720.loopexit.i ]
-  %.2302452.i = phi i64 [ %.3303.lcssa989.i474, %1282 ], [ %.3303.lcssa989.i475, %1285 ], [ %.0300736.i, %._crit_edge720.i ], [ %.0300736.i, %840 ], [ %.0300736.i, %oadd.exit.i81 ], [ %.3303.lcssa.ph.i, %._crit_edge720.loopexit.i ]
-  %.0307451.i = phi i64 [ %.1308.lcssa988.i476, %1282 ], [ %.1308.lcssa988.i477, %1285 ], [ 0, %._crit_edge720.i ], [ %820, %840 ], [ %820, %oadd.exit.i81 ], [ %.1308.lcssa.ph.i, %._crit_edge720.loopexit.i ]
+  %.2291453.i = phi i64 [ %.3292.lcssa990.i473, %1282 ], [ %.3292.lcssa990.i472, %1285 ], [ %.0289738.i, %._crit_edge720.i ], [ %.0289738.i, %840 ], [ %.0289738.i, %oadd.exit.i81 ], [ %.3292.lcssa.ph.i, %._crit_edge720.loopexit.i ]
+  %.2302452.i = phi i64 [ %.3303.lcssa989.i476, %1282 ], [ %.3303.lcssa989.i475, %1285 ], [ %.0300736.i, %._crit_edge720.i ], [ %.0300736.i, %840 ], [ %.0300736.i, %oadd.exit.i81 ], [ %.3303.lcssa.ph.i, %._crit_edge720.loopexit.i ]
+  %.0307451.i = phi i64 [ %.1308.lcssa988.i479, %1282 ], [ %.1308.lcssa988.i478, %1285 ], [ 0, %._crit_edge720.i ], [ %820, %840 ], [ %820, %oadd.exit.i81 ], [ %.1308.lcssa.ph.i, %._crit_edge720.loopexit.i ]
   %.7.i = phi i32 [ %.3.lcssa991.i470, %1282 ], [ %spec.select346.i, %1285 ], [ %.0275740.i, %._crit_edge720.i ], [ %.0275740.i, %840 ], [ %839, %oadd.exit.i81 ], [ %.3.lcssa.ph.i, %._crit_edge720.loopexit.i ]
   br i1 %804, label %1292, label %tadd.exit405.i
 

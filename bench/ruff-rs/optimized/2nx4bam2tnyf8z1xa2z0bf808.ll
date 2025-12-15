@@ -56279,7 +56279,7 @@ _ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit.thread.i84: ;
           to label %_ZN18ruff_python_parser6parser6Parser3eat17hea616b01a625fb6cE.exit146.thread unwind label %1052
 
 .body.i35.thread.thread278.thread285:             ; preds = %.body.i35.thread.thread.thread, %1098, %1161, %.thread259, %.body.i35.thread.thread278, %.body51.i
-  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i262, %.thread259 ], [ %.pn.i34235246, %.body.i35.thread.thread278 ], [ %eh.lpad-body52.i, %.body51.i ], [ %1162, %1161 ], [ %1099, %1098 ], [ %1134, %.body.i35.thread.thread.thread ]
+  %.pn39.pn.i = phi { ptr, i32 } [ %.pn39.i262, %.thread259 ], [ %.pn.i34235245, %.body.i35.thread.thread278 ], [ %eh.lpad-body52.i, %.body51.i ], [ %1162, %1161 ], [ %1099, %1098 ], [ %1134, %.body.i35.thread.thread.thread ]
   %.sroa.035.1.i = phi i1 [ false, %.thread259 ], [ false, %.body.i35.thread.thread278 ], [ %1054, %.body51.i ], [ false, %1161 ], [ false, %1098 ], [ false, %.body.i35.thread.thread.thread ]
   %.sroa.030.1.i = phi i8 [ %.sroa.030.2.i, %.thread259 ], [ %.sroa.030.2.i, %.body.i35.thread.thread278 ], [ %.sroa.030.0.lpad-body.i, %.body51.i ], [ %.sroa.030.2.i, %1161 ], [ %.sroa.030.2.i, %1098 ], [ %.sroa.030.2.i, %.body.i35.thread.thread.thread ]
   %1051 = trunc nuw i8 %.sroa.030.1.i to i1
@@ -56456,7 +56456,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17had7821f4a9ca56b1E.exit138: ; p
   br label %1084
 
 .body.i35.thread.thread278:                       ; preds = %1172
-  br i1 %.sroa.034.3.i236244, label %.thread259, label %.body.i35.thread.thread278.thread285
+  br i1 %.sroa.034.3.i236243, label %.thread259, label %.body.i35.thread.thread278.thread285
 
 1098:                                             ; preds = %1143
   %1099 = landingpad { ptr, i32 }
@@ -56714,8 +56714,8 @@ _ZN18ruff_python_parser6parser6Parser9add_error17had7821f4a9ca56b1E.exit125: ; p
   br i1 %1171, label %.thread259, label %1172
 
 1172:                                             ; preds = %.body.i35.thread.thread.thread, %.thread238, %.body.i35.thread.thread
-  %.pn.i34235246 = phi { ptr, i32 } [ %eh.lpad-body120, %.thread238 ], [ %.pn.i34267, %.body.i35.thread.thread ], [ %1134, %.body.i35.thread.thread.thread ]
-  %.sroa.034.3.i236244 = phi i1 [ true, %.thread238 ], [ true, %.body.i35.thread.thread ], [ false, %.body.i35.thread.thread.thread ]
+  %.pn.i34235245 = phi { ptr, i32 } [ %eh.lpad-body120, %.thread238 ], [ %.pn.i34267, %.body.i35.thread.thread ], [ %1134, %.body.i35.thread.thread.thread ]
+  %.sroa.034.3.i236243 = phi i1 [ true, %.thread238 ], [ true, %.body.i35.thread.thread ], [ false, %.body.i35.thread.thread.thread ]
   invoke fastcc void @"_ZN4core3ptr56drop_in_place$LT$ruff_python_ast..generated..Pattern$GT$17h51f2e9c9b483df39E"(ptr noalias noundef align 8 dereferenceable(88) %71) #41
           to label %.body.i35.thread.thread278 unwind label %1087, !noalias !8679
 
@@ -56726,7 +56726,7 @@ _ZN18ruff_python_parser6parser6Parser9add_error17had7821f4a9ca56b1E.exit125: ; p
           to label %.thread259 unwind label %1087, !noalias !8679
 
 .thread259:                                       ; preds = %1173, %.thread570, %1150, %.body.i35.thread, %.thread238, %.body.i35.thread.thread278
-  %.pn39.i262 = phi { ptr, i32 } [ %.pn.i34235246, %.body.i35.thread.thread278 ], [ %eh.lpad-body120, %.thread238 ], [ %1151, %1150 ], [ %1144, %.body.i35.thread ], [ %1086, %.thread570 ], [ %.pn.i34267, %1173 ]
+  %.pn39.i262 = phi { ptr, i32 } [ %.pn.i34235245, %.body.i35.thread.thread278 ], [ %eh.lpad-body120, %.thread238 ], [ %1151, %1150 ], [ %1144, %.body.i35.thread ], [ %1086, %.thread570 ], [ %.pn.i34267, %1173 ]
   invoke fastcc void @"_ZN4core3ptr78drop_in_place$LT$alloc..boxed..Box$LT$ruff_python_ast..generated..Expr$GT$$GT$17h5650e92f0d1d2371E"(ptr noalias noundef align 8 dereferenceable(8) %77) #41
           to label %.body.i35.thread.thread278.thread285 unwind label %1087, !noalias !8679
 

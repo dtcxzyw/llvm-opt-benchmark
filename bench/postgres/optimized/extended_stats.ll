@@ -2853,24 +2853,24 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   %174 = getelementptr inbounds nuw i8, ptr %.0149.lcssa.i, i64 16
   %175 = load i32, ptr %173, align 4
   %176 = icmp sgt i32 %175, 0
-  br i1 %176, label %.lr.ph33, label %.critedge175.i
+  br i1 %176, label %.lr.ph35, label %.critedge175.i
 
-.lr.ph33:                                         ; preds = %.lr.ph215.i, %209
-  %.0156211.i31 = phi double [ %.1157.i, %209 ], [ 0.000000e+00, %.lr.ph215.i ]
-  %.0154212.i30 = phi double [ %.1155.i, %209 ], [ 0.000000e+00, %.lr.ph215.i ]
-  %indvars.iv231.i29 = phi i64 [ %indvars.iv.next232.i, %209 ], [ 0, %.lr.ph215.i ]
-  %indvars37 = trunc i64 %indvars.iv231.i29 to i32
+.lr.ph35:                                         ; preds = %.lr.ph215.i, %209
+  %.0156211.i33 = phi double [ %.1157.i, %209 ], [ 0.000000e+00, %.lr.ph215.i ]
+  %.0154212.i32 = phi double [ %.1155.i, %209 ], [ 0.000000e+00, %.lr.ph215.i ]
+  %indvars.iv231.i31 = phi i64 [ %indvars.iv.next232.i, %209 ], [ 0, %.lr.ph215.i ]
+  %indvars39 = trunc i64 %indvars.iv231.i31 to i32
   %177 = load ptr, ptr %174, align 8
-  %178 = getelementptr inbounds nuw %union.ListCell, ptr %177, i64 %indvars.iv231.i29
+  %178 = getelementptr inbounds nuw %union.ListCell, ptr %177, i64 %indvars.iv231.i31
   %179 = load ptr, ptr %178, align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %12)
   call void @llvm.lifetime.start.p0(ptr nonnull %13)
   call void @llvm.lifetime.start.p0(ptr nonnull %14)
   call void @llvm.lifetime.start.p0(ptr nonnull %15)
   %180 = call double @clause_selectivity_ext(ptr noundef %0, ptr noundef %179, i32 noundef %2, i32 noundef %3, ptr noundef %4, i1 noundef zeroext false) #10
-  %181 = fmul double %.0154212.i30, %180
+  %181 = fmul double %.0154212.i32, %180
   %182 = fsub double %180, %181
-  %183 = fadd double %.0154212.i30, %182
+  %183 = fadd double %.0154212.i32, %182
   %184 = fcmp olt double %183, 0.000000e+00
   br i1 %184, label %191, label %188
 
@@ -2882,17 +2882,17 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   br label %.backedge
 
-188:                                              ; preds = %.lr.ph33
+188:                                              ; preds = %.lr.ph35
   %189 = fcmp ogt double %183, 1.000000e+00
   br i1 %189, label %190, label %191
 
 190:                                              ; preds = %188
   br label %191
 
-191:                                              ; preds = %190, %188, %.lr.ph33
-  %.1155.i = phi double [ 1.000000e+00, %190 ], [ %183, %188 ], [ 0.000000e+00, %.lr.ph33 ]
+191:                                              ; preds = %190, %188, %.lr.ph35
+  %.1155.i = phi double [ 1.000000e+00, %190 ], [ %183, %188 ], [ 0.000000e+00, %.lr.ph35 ]
   %192 = call double @mcv_clause_selectivity_or(ptr noundef %0, ptr noundef nonnull %107, ptr noundef %172, ptr noundef %179, ptr noundef nonnull %11, ptr noundef nonnull %12, ptr noundef nonnull %13, ptr noundef nonnull %14, ptr noundef nonnull %15) #10
-  %193 = call zeroext i1 @bms_is_member(i32 noundef %indvars37, ptr noundef %.0151.lcssa.i) #10
+  %193 = call zeroext i1 @bms_is_member(i32 noundef %indvars39, ptr noundef %.0151.lcssa.i) #10
   br i1 %193, label %198, label %194
 
 194:                                              ; preds = %191
@@ -2908,7 +2908,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   %201 = load double, ptr %15, align 8
   %202 = call double @mcv_combine_selectivities(double noundef %181, double noundef %199, double noundef %200, double noundef %201) #10
   %203 = fsub double %.0147.i, %202
-  %204 = fadd double %.0156211.i31, %203
+  %204 = fadd double %.0156211.i33, %203
   %205 = fcmp olt double %204, 0.000000e+00
   br i1 %205, label %209, label %206
 
@@ -2921,7 +2921,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
 
 209:                                              ; preds = %208, %206, %198
   %.1157.i = phi double [ 1.000000e+00, %208 ], [ %204, %206 ], [ 0.000000e+00, %198 ]
-  %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i29, 1
+  %indvars.iv.next232.i = add nuw nsw i64 %indvars.iv231.i31, 1
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
@@ -2929,7 +2929,7 @@ stat_covers_expressions.exit.i:                   ; preds = %.lr.ph.i.us.i.i, %.
   %210 = load i32, ptr %173, align 4
   %211 = sext i32 %210 to i64
   %212 = icmp slt i64 %indvars.iv.next232.i, %211
-  br i1 %212, label %.lr.ph33, label %.critedge175.i
+  br i1 %212, label %.lr.ph35, label %.critedge175.i
 
 213:                                              ; preds = %.critedge173.i
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
