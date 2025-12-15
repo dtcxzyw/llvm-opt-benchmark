@@ -89,16 +89,16 @@ _ZN4absl13time_internalL29GetCurrentTimeNanosFromSystemEv.exit: ; preds = %0
 define weak dso_local void @AbslInternalSleepFor(i64 %0, i32 %1) local_unnamed_addr #0 {
   %3 = alloca %struct.timespec, align 8
   %4 = alloca %"class.absl::Duration", align 8
+  %.fr = freeze i32 %1
   store i64 %0, ptr %4, align 8
   %.sroa.224.0..sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i32 %1, ptr %.sroa.224.0..sroa_idx, align 8
+  store i32 %.fr, ptr %.sroa.224.0..sroa_idx, align 8
   %5 = getelementptr inbounds nuw i8, ptr %3, i64 8
   br label %6
 
 6:                                                ; preds = %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit, %2
-  %.sroa.222.0.copyload = phi i32 [ %.sroa.222.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %1, %2 ]
+  %.sroa.222.0.copyload = phi i32 [ %.sroa.222.0.copyload.pre.fr, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %.fr, %2 ]
   %.val37 = phi i64 [ %.sroa.021.0.copyload.pre, %_ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit ], [ %0, %2 ]
-  %.sroa.222.0.copyload.fr = freeze i32 %.sroa.222.0.copyload
   %.not.i.i = icmp eq i64 %.val37, 0
   br i1 %.not.i.i, label %_ZN4abslgtENS_8DurationES0_.exit, label %7
 
@@ -107,12 +107,12 @@ define weak dso_local void @AbslInternalSleepFor(i64 %0, i32 %1) local_unnamed_a
   br i1 %8, label %.thread, label %20
 
 _ZN4abslgtENS_8DurationES0_.exit:                 ; preds = %6
-  %.not = icmp eq i32 %.sroa.222.0.copyload.fr, 0
+  %.not = icmp eq i32 %.sroa.222.0.copyload, 0
   br i1 %.not, label %20, label %.thread
 
 .thread:                                          ; preds = %7, %_ZN4abslgtENS_8DurationES0_.exit
   %.not.i.i25 = icmp eq i64 %.val37, 9223372036854775807
-  %9 = select i1 %.not.i.i25, i32 0, i32 %.sroa.222.0.copyload.fr
+  %9 = select i1 %.not.i.i25, i32 0, i32 %.sroa.222.0.copyload
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   %10 = call { i64, i64 } @_ZN4absl10ToTimespecENS_8DurationE(i64 %.val37, i32 %9) #6
   %11 = extractvalue { i64, i64 } %10, 0
@@ -137,6 +137,7 @@ _ZN4absl12_GLOBAL__N_19SleepOnceENS_8DurationE.exit: ; preds = %13, %15
   %19 = call noundef nonnull align 4 dereferenceable(12) ptr @_ZN4absl8DurationmIES0_(ptr noundef nonnull align 4 dereferenceable(12) %4, i64 %.val37, i32 %9)
   %.sroa.021.0.copyload.pre = load i64, ptr %4, align 8
   %.sroa.222.0.copyload.pre = load i32, ptr %.sroa.224.0..sroa_idx, align 8, !tbaa !11
+  %.sroa.222.0.copyload.pre.fr = freeze i32 %.sroa.222.0.copyload.pre
   br label %6, !llvm.loop !15
 
 20:                                               ; preds = %7, %_ZN4abslgtENS_8DurationES0_.exit

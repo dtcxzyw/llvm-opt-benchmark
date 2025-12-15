@@ -846,11 +846,11 @@ define internal fastcc i32 @run_all_transfers(ptr noundef %0, ptr noundef %1, i3
   %123 = trunc nuw i8 %122 to i1
   %124 = icmp ne i32 %.072.i.i, 0
   %or.cond3.i.i = select i1 %123, i1 %124, i1 false
-  %spec.select68 = select i1 %or.cond3.i.i, i32 %.072.i.i, i32 %100
+  %spec.select67 = select i1 %or.cond3.i.i, i32 %.072.i.i, i32 %100
   br label %select.unfold.i.i
 
 select.unfold.i.i:                                ; preds = %119, %118
-  %.2.i.i = phi i32 [ %.072.i.i, %118 ], [ %spec.select68, %119 ]
+  %.2.i.i = phi i32 [ %.072.i.i, %118 ], [ %spec.select67, %119 ]
   switch i32 %.2.i.i, label %125 [
     i32 2, label %is_fatal_error.exit.thread.i.i
     i32 27, label %is_fatal_error.exit.thread.i.i
@@ -1056,6 +1056,7 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
 196:                                              ; preds = %192, %179
   %.247.i = phi i32 [ %.04581.i, %179 ], [ %195, %192 ]
   %197 = call fastcc i32 @post_per_transfer(ptr noundef nonnull %0, ptr noundef nonnull %.04980.i, i32 noundef %.247.i, ptr noundef %6, ptr noundef %7)
+  %.fr110.i = freeze i32 %197
   %198 = load i8, ptr %6, align 1, !tbaa !71, !range !34, !noundef !40
   %199 = trunc nuw i8 %198 to i1
   br i1 %199, label %200, label %202
@@ -1065,7 +1066,7 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
   br label %.sink.split.i, !llvm.loop !80
 
 202:                                              ; preds = %196
-  switch i32 %197, label %203 [
+  switch i32 %.fr110.i, label %203 [
     i32 2, label %is_fatal_error.exit.thread.i
     i32 27, label %is_fatal_error.exit.thread.i
     i32 48, label %is_fatal_error.exit.thread.i
@@ -1083,7 +1084,8 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
 
 206:                                              ; preds = %.preheader, %208
   %207 = call fastcc i32 @create_transfer(ptr noundef nonnull %0, ptr noundef %1, ptr noundef %4, ptr noundef %5)
-  %.not66.not.i.not.not = icmp ne i32 %207, 0
+  %.fr114.i = freeze i32 %207
+  %.not66.not.i.not.not = icmp ne i32 %.fr114.i, 0
   br i1 %.not66.not.i.not.not, label %is_fatal_error.exit.thread.i, label %208
 
 208:                                              ; preds = %206
@@ -1093,8 +1095,8 @@ parallel_transfers.exit:                          ; preds = %23, %42, %162
 
 is_fatal_error.exit.thread.i:                     ; preds = %208, %206, %203, %202, %202, %202, %202
   %.052.i = phi i1 [ true, %203 ], [ true, %202 ], [ true, %202 ], [ true, %202 ], [ true, %202 ], [ %.not66.not.i.not.not, %206 ], [ %.not66.not.i.not.not, %208 ]
-  %.4.i = phi i32 [ %.247.i, %203 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ 0, %208 ], [ %207, %206 ]
-  %.3.i28 = phi i32 [ %197, %203 ], [ %197, %202 ], [ %197, %202 ], [ %197, %202 ], [ %197, %202 ], [ %197, %208 ], [ %207, %206 ]
+  %.4.i = phi i32 [ %.247.i, %203 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ %.247.i, %202 ], [ 0, %208 ], [ %.fr114.i, %206 ]
+  %.3.i28 = phi i32 [ %.fr110.i, %203 ], [ %.fr110.i, %202 ], [ %.fr110.i, %202 ], [ %.fr110.i, %202 ], [ %.fr110.i, %202 ], [ %.fr110.i, %208 ], [ %.fr114.i, %206 ]
   %211 = load ptr, ptr %.04980.i, align 8, !tbaa !74
   %212 = getelementptr inbounds nuw i8, ptr %.04980.i, i64 8
   %213 = load ptr, ptr %212, align 8, !tbaa !75
@@ -1146,7 +1148,7 @@ del_per_transfer.exit.i:                          ; preds = %216, %214
   %.sink.i = phi i64 [ %231, %228 ], [ %201, %200 ]
   %.150.ph.i = phi ptr [ %211, %228 ], [ %.04980.i, %200 ]
   %.348.ph108.i = phi i32 [ %.4.i, %228 ], [ %.247.i, %200 ]
-  %.2.ph109.i = phi i32 [ %.3.i28, %228 ], [ %197, %200 ]
+  %.2.ph109.i = phi i32 [ %.3.i28, %228 ], [ %.fr110.i, %200 ]
   tail call void @tool_go_sleep(i64 noundef %.sink.i) #16
   br label %232
 
@@ -1161,11 +1163,10 @@ del_per_transfer.exit.i:                          ; preds = %216, %214
 .loopexit.i:                                      ; preds = %del_per_transfer.exit.i, %190, %186
   %.146.i = phi i32 [ %.4.i, %del_per_transfer.exit.i ], [ %191, %190 ], [ %187, %186 ]
   %.1.i = phi i32 [ %.3.i28, %del_per_transfer.exit.i ], [ %.04482.i, %190 ], [ %.04482.i, %186 ]
-  %.1.fr.i = freeze i32 %.1.i
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  %.not69.i = icmp eq i32 %.1.fr.i, 0
-  %233 = select i1 %.not69.i, i32 %.146.i, i32 %.1.fr.i
+  %.not69.i = icmp eq i32 %.1.i, 0
+  %233 = select i1 %.not69.i, i32 %.146.i, i32 %.1.i
   %.not70.i = icmp eq i32 %233, 0
   br i1 %.not70.i, label %serial_transfers.exit, label %234
 

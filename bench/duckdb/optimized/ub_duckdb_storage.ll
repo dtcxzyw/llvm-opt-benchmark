@@ -21183,26 +21183,29 @@ define void @_ZN6duckdb9DataTable26VerifyForeignKeyConstraintENS_12optional_ptrI
   %32 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 88
   %33 = load ptr, ptr %32, align 8, !tbaa !916, !noalias !1172
   %34 = load ptr, ptr %31, align 8, !tbaa !919, !noalias !1172
-  %35 = ptrtoint ptr %33 to i64
-  %36 = ptrtoint ptr %34 to i64
+  %.fr = freeze ptr %33
+  %35 = ptrtoint ptr %.fr to i64
+  %.fr216 = freeze ptr %34
+  %36 = ptrtoint ptr %.fr216 to i64
   %37 = sub i64 %35, %36
-  %38 = ashr exact i64 %37, 3
+  %38 = ashr i64 %37, 3
   br label %_ZN6duckdb10ColumnList18ColumnListIterator3endEv.exit
 
 39:                                               ; preds = %28
   %40 = getelementptr inbounds nuw i8, ptr %.fca.0.extract, i64 8
   %41 = load ptr, ptr %40, align 8, !tbaa !1004, !noalias !1172
   %42 = load ptr, ptr %.fca.0.extract, align 8, !tbaa !1005, !noalias !1172
-  %43 = ptrtoint ptr %41 to i64
-  %44 = ptrtoint ptr %42 to i64
+  %.fr217 = freeze ptr %41
+  %43 = ptrtoint ptr %.fr217 to i64
+  %.fr218 = freeze ptr %42
+  %44 = ptrtoint ptr %.fr218 to i64
   %45 = sub i64 %43, %44
-  %46 = sdiv exact i64 %45, 216
+  %46 = sdiv i64 %45, 216
   br label %_ZN6duckdb10ColumnList18ColumnListIterator3endEv.exit
 
 _ZN6duckdb10ColumnList18ColumnListIterator3endEv.exit: ; preds = %30, %39
   %47 = phi i64 [ %38, %30 ], [ %46, %39 ]
-  %.fr216 = freeze i64 %47
-  %.not.i206 = icmp eq i64 %.fr216, 0
+  %.not.i206 = icmp eq i64 %47, 0
   br i1 %.not.i206, label %_ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternalneERKS2_.exit, label %.lr.ph.split.preheader
 
 .lr.ph.split.preheader:                           ; preds = %_ZN6duckdb10ColumnList18ColumnListIterator3endEv.exit
@@ -21259,7 +21262,7 @@ _ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternaldeEv.e
 
 _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKS1_EEEvDpOT_.exit: ; preds = %.noexc153, %63
   %64 = add i64 %.sroa.8185.0208, 1
-  %.not.i = icmp eq i64 %64, %.fr216
+  %.not.i = icmp eq i64 %64, %47
   br i1 %.not.i, label %_ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternalneERKS2_.exit, label %.lr.ph.split
 
 .split:                                           ; preds = %63, %60, %54, %52, %_ZNK6duckdb10ColumnList18ColumnListIterator29ColumnLogicalIteratorInternaldeEv.exit
@@ -21275,8 +21278,8 @@ _ZNSt6vectorIN6duckdb11LogicalTypeESaIS1_EE12emplace_backIJRKS1_EEEvDpOT_.exit: 
   %67 = getelementptr inbounds nuw i8, ptr %spec.select203, i64 8
   %68 = load ptr, ptr %67, align 8, !tbaa !1126
   %69 = load ptr, ptr %spec.select203, align 8, !tbaa !1129
-  %.not217 = icmp eq ptr %68, %69
-  br i1 %.not217, label %._crit_edge, label %.lr.ph210
+  %.not223 = icmp eq ptr %68, %69
+  br i1 %.not223, label %._crit_edge, label %.lr.ph210
 
 ._crit_edge:                                      ; preds = %88, %.preheader205
   %70 = getelementptr inbounds nuw i8, ptr %4, i64 24
@@ -21409,9 +21412,9 @@ _ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit: ;
 
 128:                                              ; preds = %_ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit
   %.not = icmp eq ptr %127, null
-  br i1 %.not, label %._crit_edge218, label %129
+  br i1 %.not, label %._crit_edge224, label %129
 
-._crit_edge218:                                   ; preds = %128
+._crit_edge224:                                   ; preds = %128
   %.pre = select i1 %18, i64 %71, i64 0
   br label %156
 
@@ -21483,9 +21486,9 @@ _ZN6duckdb12LocalStorage3GetERNS_13ClientContextERNS_16AttachedDatabaseE.exit: ;
           cleanup
   br label %272
 
-156:                                              ; preds = %._crit_edge218, %135
-  %.0.v.i159.pre-phi = phi i64 [ %.pre, %._crit_edge218 ], [ %.0.v.i, %135 ]
-  %.0119 = phi i1 [ false, %._crit_edge218 ], [ %.0.i158, %135 ]
+156:                                              ; preds = %._crit_edge224, %135
+  %.0.v.i159.pre-phi = phi i64 [ %.pre, %._crit_edge224 ], [ %.0.v.i, %135 ]
+  %.0119 = phi i1 [ false, %._crit_edge224 ], [ %.0.i158, %135 ]
   %157 = getelementptr inbounds nuw i8, ptr %121, i64 8
   %158 = load i64, ptr %157, align 8
   %.0.i160 = icmp ne i64 %158, %.0.v.i159.pre-phi

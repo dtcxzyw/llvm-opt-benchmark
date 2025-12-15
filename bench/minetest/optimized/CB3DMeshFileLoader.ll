@@ -3960,8 +3960,6 @@ while.body:                                       ; preds = %if.end261, %while.b
   %10 = phi <4 x float> [ <float 0.000000e+00, float 1.000000e+00, float 0.000000e+00, float 0.000000e+00>, %while.body.lr.ph ], [ %132, %if.end261 ]
   %11 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph ], [ %42, %if.end261 ]
   %12 = phi <2 x float> [ zeroinitializer, %while.body.lr.ph ], [ %43, %if.end261 ]
-  %.fr4 = freeze <4 x float> %9
-  %.fr = freeze <4 x float> %10
   call void @llvm.lifetime.start.p0(ptr nonnull %frame)
   %13 = load ptr, ptr %B3DFile, align 8, !tbaa !53
   %vtable24 = load ptr, ptr %13, align 8, !tbaa !3
@@ -4205,16 +4203,16 @@ if.then174:                                       ; preds = %if.end171
   br i1 %cmp176.not, label %if.else212, label %land.lhs.true177
 
 land.lhs.true177:                                 ; preds = %if.then174
-  %73 = fcmp une <4 x float> %.fr, %.fr4
+  %73 = fcmp une <4 x float> %10, %9
   %74 = bitcast <4 x i1> %73 to i4
   %75 = icmp eq i4 %74, 0
   br i1 %75, label %if.then181, label %if.end241
 
 if.then181:                                       ; preds = %land.lhs.true177
   %76 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %.fr5 = freeze <4 x float> %76
-  %77 = shufflevector <4 x float> %.fr5, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
-  %78 = fcmp une <4 x float> %.fr4, %77
+  %.fr30 = freeze <4 x float> %76
+  %77 = shufflevector <4 x float> %.fr30, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %78 = fcmp une <4 x float> %9, %77
   %79 = bitcast <4 x i1> %78 to i4
   %80 = icmp eq i4 %79, 0
   br i1 %80, label %if.then188, label %if.else192
@@ -4238,22 +4236,23 @@ if.else192:                                       ; preds = %if.then181
   store float %sub200, ptr %call198, align 4, !tbaa !192
   %rotation = getelementptr inbounds nuw i8, ptr %call198, i64 4
   %85 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %86 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %.fr12 = freeze <4 x float> %85
+  %86 = shufflevector <4 x float> %.fr12, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   store <4 x float> %86, ptr %rotation, align 4, !tbaa !113
-  %87 = fmul <4 x float> %85, %85
+  %87 = fmul <4 x float> %.fr12, %.fr12
   %mul4.i = extractelement <4 x float> %87, i64 2
-  %88 = extractelement <4 x float> %85, i64 1
+  %88 = extractelement <4 x float> %.fr12, i64 1
   %89 = call float @llvm.fmuladd.f32(float %88, float %88, float %mul4.i)
-  %90 = extractelement <4 x float> %85, i64 3
+  %90 = extractelement <4 x float> %.fr12, i64 3
   %91 = call float @llvm.fmuladd.f32(float %90, float %90, float %89)
-  %92 = extractelement <4 x float> %85, i64 0
+  %92 = extractelement <4 x float> %.fr12, i64 0
   %93 = call float @llvm.fmuladd.f32(float %92, float %92, float %91)
   %conv.i = fpext float %93 to double
   %sqrt.i = call double @llvm.sqrt.f64(double %conv.i)
   %div.i.i = fdiv double 1.000000e+00, %sqrt.i
   %conv7.i = fptrunc double %div.i.i to float
   %94 = insertelement <4 x float> poison, float %conv7.i, i64 0
-  %95 = shufflevector <4 x float> %85, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %95 = shufflevector <4 x float> %.fr12, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %96 = shufflevector <4 x float> %94, <4 x float> poison, <4 x i32> zeroinitializer
   %97 = fmul <4 x float> %95, %96
   br label %if.end261
@@ -4274,28 +4273,29 @@ if.then217:                                       ; preds = %if.else212
   store float %sub223, ptr %call221, align 4, !tbaa !192
   %rotation226 = getelementptr inbounds nuw i8, ptr %call221, i64 4
   %101 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %102 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %.fr21 = freeze <4 x float> %101
+  %102 = shufflevector <4 x float> %.fr21, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   store <4 x float> %102, ptr %rotation226, align 4, !tbaa !113
-  %103 = fmul <4 x float> %101, %101
+  %103 = fmul <4 x float> %.fr21, %.fr21
   %mul4.i425 = extractelement <4 x float> %103, i64 2
-  %104 = extractelement <4 x float> %101, i64 1
+  %104 = extractelement <4 x float> %.fr21, i64 1
   %105 = call float @llvm.fmuladd.f32(float %104, float %104, float %mul4.i425)
-  %106 = extractelement <4 x float> %101, i64 3
+  %106 = extractelement <4 x float> %.fr21, i64 3
   %107 = call float @llvm.fmuladd.f32(float %106, float %106, float %105)
-  %108 = extractelement <4 x float> %101, i64 0
+  %108 = extractelement <4 x float> %.fr21, i64 0
   %109 = call float @llvm.fmuladd.f32(float %108, float %108, float %107)
   %conv.i428 = fpext float %109 to double
   %sqrt.i429 = call double @llvm.sqrt.f64(double %conv.i428)
   %div.i.i430 = fdiv double 1.000000e+00, %sqrt.i429
   %conv7.i431 = fptrunc double %div.i.i430 to float
   %110 = insertelement <4 x float> poison, float %conv7.i431, i64 0
-  %111 = shufflevector <4 x float> %101, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %111 = shufflevector <4 x float> %.fr21, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %112 = shufflevector <4 x float> %110, <4 x float> poison, <4 x i32> zeroinitializer
   %113 = fmul <4 x float> %111, %112
   br label %if.end261
 
 if.end241:                                        ; preds = %if.else212, %land.lhs.true177
-  %114 = phi <4 x float> [ %.fr, %if.else212 ], [ %.fr4, %land.lhs.true177 ]
+  %114 = phi <4 x float> [ %10, %if.else212 ], [ %9, %land.lhs.true177 ]
   %115 = load ptr, ptr %AnimatedMesh, align 8, !tbaa !54
   %vtable243 = load ptr, ptr %115, align 8, !tbaa !3
   %vfn244 = getelementptr inbounds nuw i8, ptr %vtable243, i64 280
@@ -4307,22 +4307,23 @@ if.end241:                                        ; preds = %if.else212, %land.l
   store float %sub247, ptr %call245, align 4, !tbaa !192
   %rotation250 = getelementptr inbounds nuw i8, ptr %call245, i64 4
   %118 = load <4 x float>, ptr %data, align 16, !tbaa !113
-  %119 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
+  %.fr = freeze <4 x float> %118
+  %119 = shufflevector <4 x float> %.fr, <4 x float> poison, <4 x i32> <i32 1, i32 2, i32 3, i32 0>
   store <4 x float> %119, ptr %rotation250, align 4, !tbaa !113
-  %120 = fmul <4 x float> %118, %118
+  %120 = fmul <4 x float> %.fr, %.fr
   %mul4.i440 = extractelement <4 x float> %120, i64 2
-  %121 = extractelement <4 x float> %118, i64 1
+  %121 = extractelement <4 x float> %.fr, i64 1
   %122 = call float @llvm.fmuladd.f32(float %121, float %121, float %mul4.i440)
-  %123 = extractelement <4 x float> %118, i64 3
+  %123 = extractelement <4 x float> %.fr, i64 3
   %124 = call float @llvm.fmuladd.f32(float %123, float %123, float %122)
-  %125 = extractelement <4 x float> %118, i64 0
+  %125 = extractelement <4 x float> %.fr, i64 0
   %126 = call float @llvm.fmuladd.f32(float %125, float %125, float %124)
   %conv.i443 = fpext float %126 to double
   %sqrt.i444 = call double @llvm.sqrt.f64(double %conv.i443)
   %div.i.i445 = fdiv double 1.000000e+00, %sqrt.i444
   %conv7.i446 = fptrunc double %div.i.i445 to float
   %127 = insertelement <4 x float> poison, float %conv7.i446, i64 0
-  %128 = shufflevector <4 x float> %118, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
+  %128 = shufflevector <4 x float> %.fr, <4 x float> poison, <4 x i32> <i32 1, i32 0, i32 3, i32 2>
   %129 = shufflevector <4 x float> %127, <4 x float> poison, <4 x i32> zeroinitializer
   %130 = fmul <4 x float> %128, %129
   br label %if.end261
@@ -4330,8 +4331,8 @@ if.end241:                                        ; preds = %if.else212, %land.l
 if.end261:                                        ; preds = %if.end241, %if.then217, %if.else192, %if.then188, %if.end171
   %oldRotKey.2 = phi ptr [ %oldRotKey.0486, %if.end171 ], [ %call245, %if.end241 ], [ null, %if.then217 ], [ %oldRotKey.0486, %if.then188 ], [ %call198, %if.else192 ]
   %isFirst.sroa.7.1 = phi i8 [ %isFirst.sroa.7.0487, %if.end171 ], [ %isFirst.sroa.7.0487, %if.end241 ], [ 0, %if.then217 ], [ %isFirst.sroa.7.0487, %if.then188 ], [ %isFirst.sroa.7.0487, %if.else192 ]
-  %131 = phi <4 x float> [ %.fr4, %if.end171 ], [ %130, %if.end241 ], [ %.fr4, %if.then217 ], [ %.fr4, %if.then188 ], [ %97, %if.else192 ]
-  %132 = phi <4 x float> [ %.fr, %if.end171 ], [ %114, %if.end241 ], [ %113, %if.then217 ], [ %.fr, %if.then188 ], [ %.fr4, %if.else192 ]
+  %131 = phi <4 x float> [ %9, %if.end171 ], [ %130, %if.end241 ], [ %9, %if.then217 ], [ %9, %if.then188 ], [ %97, %if.else192 ]
+  %132 = phi <4 x float> [ %10, %if.end171 ], [ %114, %if.end241 ], [ %113, %if.then217 ], [ %10, %if.then188 ], [ %9, %if.else192 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %data)
   call void @llvm.lifetime.end.p0(ptr nonnull %frame)
   %133 = load ptr, ptr %_M_finish.i.i.i, align 8, !tbaa !61

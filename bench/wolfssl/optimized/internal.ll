@@ -12196,19 +12196,21 @@ RetrySendAlert.exit.i:                            ; preds = %17
   %181 = getelementptr inbounds nuw i8, ptr %0, i64 152
   %182 = load ptr, ptr %181, align 8, !tbaa !116
   %183 = tail call i32 @wc_RsaSetRNG(ptr noundef %179, ptr noundef %182) #28
-  %.not.i224 = icmp eq i32 %183, 0
+  %.fr315 = freeze i32 %183
+  %.not.i224 = icmp eq i32 %.fr315, 0
   br i1 %.not.i224, label %184, label %RsaDec.exit
 
 184:                                              ; preds = %177
   %185 = zext i32 %175 to i64
   %186 = getelementptr inbounds nuw i8, ptr %1, i64 %185
   %187 = call i32 @wc_RsaPrivateDecryptInline(ptr noundef %186, i32 noundef %173, ptr noundef nonnull %5, ptr noundef %179) #28
-  %188 = add i32 %187, -1
+  %.fr316 = freeze i32 %187
+  %188 = add i32 %.fr316, -1
   %189 = lshr i32 %188, 31
   %190 = trunc nuw nsw i32 %189 to i8
   %191 = add nsw i8 %190, -1
   %192 = sext i8 %191 to i32
-  %193 = and i32 %187, %192
+  %193 = and i32 %.fr316, %192
   store i32 %193, ptr %180, align 4, !tbaa !49
   br label %194
 
@@ -12235,7 +12237,7 @@ RsaDec.exit.thread:                               ; preds = %ctMaskCopy.exit.loo
   br label %DhAgree.exit.thread272
 
 RsaDec.exit:                                      ; preds = %ctMaskCopy.exit.loopexit.i, %177
-  %.0.i225 = phi i32 [ %183, %177 ], [ %187, %ctMaskCopy.exit.loopexit.i ]
+  %.0.i225 = phi i32 [ %.fr315, %177 ], [ %.fr316, %ctMaskCopy.exit.loopexit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %202 = icmp eq i32 %.0.i225, -173
   br i1 %202, label %SendAlert.exit, label %DhAgree.exit.thread272
@@ -12245,8 +12247,7 @@ DhAgree.exit.thread272:                           ; preds = %RsaDec.exit.thread,
   %203 = load i32, ptr %180, align 4, !tbaa !339
   %.fr = freeze i32 %203
   %.not205 = icmp eq i32 %.fr, 48
-  %.0.i225266.fr = freeze i32 %.0.i225266
-  %204 = select i1 %.not205, i32 %.0.i225266.fr, i32 -201
+  %204 = select i1 %.not205, i32 %.0.i225266, i32 -201
   br label %252
 
 205:                                              ; preds = %.thread259
@@ -12404,8 +12405,8 @@ ctMaskCopy.exit:                                  ; preds = %275
   %283 = load ptr, ptr %6, align 16, !tbaa !336
   %.not207 = icmp ne ptr %283, null
   %284 = icmp sgt i32 %.fr288, -1
-  %or.cond317 = and i1 %.not207, %284
-  br i1 %or.cond317, label %.preheader.split.us, label %.loopexit
+  %or.cond319 = and i1 %.not207, %284
+  br i1 %or.cond319, label %.preheader.split.us, label %.loopexit
 
 .preheader.split.us:                              ; preds = %ctMaskCopy.exit, %.preheader.split.us
   %indvars.iv = phi i64 [ %indvars.iv.next, %.preheader.split.us ], [ 2, %ctMaskCopy.exit ]
@@ -16861,8 +16862,8 @@ define i32 @BuildMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   %53 = and i64 %21, 36028797018963968
   %.not209 = icmp eq i64 %53, 0
   %54 = select i1 %.not209, i32 0, i32 %35
-  %spec.select264 = sub i32 %51, %54
-  %.pn = add i32 %spec.select264, -4
+  %spec.select265 = sub i32 %51, %54
+  %.pn = add i32 %spec.select265, -4
   %.sink = urem i32 %.pn, %42
   %55 = getelementptr inbounds nuw i8, ptr %11, i64 8
   %.not210 = icmp eq i32 %.sink, 0
@@ -16894,14 +16895,14 @@ define i32 @BuildMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br label %.sink.split
 
 .sink.split:                                      ; preds = %63, %.thread228
-  %.sink266 = phi i32 [ %57, %.thread228 ], [ %70, %63 ]
+  %.sink267 = phi i32 [ %57, %.thread228 ], [ %70, %63 ]
   %.ph = phi i32 [ %50, %.thread228 ], [ %64, %63 ]
-  store i32 %.sink266, ptr %28, align 4, !tbaa !391
+  store i32 %.sink267, ptr %28, align 4, !tbaa !391
   br label %71
 
 71:                                               ; preds = %.sink.split, %25
   %72 = phi i32 [ 0, %25 ], [ %.ph, %.sink.split ]
-  %73 = phi i32 [ %36, %25 ], [ %.sink266, %.sink.split ]
+  %73 = phi i32 [ %36, %25 ], [ %.sink267, %.sink.split ]
   br i1 %.not, label %74, label %.thread240
 
 74:                                               ; preds = %71
@@ -16925,17 +16926,17 @@ define i32 @BuildMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
 
 ._crit_edge:                                      ; preds = %78
   %.pre = load i32, ptr %28, align 4, !tbaa !391
-  %.pre246 = load i32, ptr %30, align 16, !tbaa !387
-  %.pre247 = load i8, ptr %32, align 4, !tbaa !388
-  %.pre248 = load i32, ptr %77, align 8, !tbaa !392
-  %.pre249.pre = load i32, ptr %29, align 4, !tbaa !385
+  %.pre247 = load i32, ptr %30, align 16, !tbaa !387
+  %.pre248 = load i8, ptr %32, align 4, !tbaa !388
+  %.pre249 = load i32, ptr %77, align 8, !tbaa !392
+  %.pre250.pre = load i32, ptr %29, align 4, !tbaa !385
   br label %84
 
 84:                                               ; preds = %._crit_edge, %76
-  %.pre249 = phi i32 [ %.pre249.pre, %._crit_edge ], [ 5, %76 ]
-  %85 = phi i32 [ %.pre248, %._crit_edge ], [ 0, %76 ]
-  %86 = phi i8 [ %.pre247, %._crit_edge ], [ %31, %76 ]
-  %87 = phi i32 [ %.pre246, %._crit_edge ], [ 5, %76 ]
+  %.pre250 = phi i32 [ %.pre250.pre, %._crit_edge ], [ 5, %76 ]
+  %85 = phi i32 [ %.pre249, %._crit_edge ], [ 0, %76 ]
+  %86 = phi i8 [ %.pre248, %._crit_edge ], [ %31, %76 ]
+  %87 = phi i32 [ %.pre247, %._crit_edge ], [ 5, %76 ]
   %88 = phi i32 [ %.pre, %._crit_edge ], [ %73, %76 ]
   %89 = sub i32 %88, %87
   %90 = trunc i32 %89 to i16
@@ -16947,18 +16948,18 @@ define i32 @BuildMessage(ptr noundef %0, ptr noundef %1, i32 noundef %2, ptr nou
   br i1 %.not214, label %101, label %93
 
 93:                                               ; preds = %84
-  %94 = zext i32 %.pre249 to i64
+  %94 = zext i32 %.pre250 to i64
   %95 = getelementptr inbounds nuw i8, ptr %1, i64 %94
   %96 = getelementptr inbounds nuw i8, ptr %11, i64 32
   %97 = load ptr, ptr %96, align 16, !tbaa !394
   %98 = call noundef i32 @llvm.umin.i32(i32 %85, i32 16)
   %99 = zext nneg i32 %98 to i64
   call void @llvm.memcpy.p0.p0.i64(ptr align 1 %95, ptr align 1 %97, i64 %99, i1 false)
-  %100 = add i32 %.pre249, %98
+  %100 = add i32 %.pre250, %98
   br label %101
 
 101:                                              ; preds = %93, %84
-  %102 = phi i32 [ %100, %93 ], [ %.pre249, %84 ]
+  %102 = phi i32 [ %100, %93 ], [ %.pre250, %84 ]
   %103 = zext i32 %102 to i64
   %104 = getelementptr inbounds nuw i8, ptr %1, i64 %103
   %105 = sext i32 %4 to i64
@@ -17008,22 +17009,22 @@ HashOutput.exit:                                  ; preds = %109
   br label %132
 
 132:                                              ; preds = %122, %132
-  %.0245 = phi i32 [ 0, %122 ], [ %136, %132 ]
-  %.1244 = phi i32 [ %.0191, %122 ], [ %133, %132 ]
-  %133 = add i32 %.1244, 1
-  %134 = zext i32 %.1244 to i64
+  %.0246 = phi i32 [ 0, %122 ], [ %136, %132 ]
+  %.1245 = phi i32 [ %.0191, %122 ], [ %133, %132 ]
+  %133 = add i32 %.1245, 1
+  %134 = zext i32 %.1245 to i64
   %135 = getelementptr inbounds nuw i8, ptr %1, i64 %134
   store i8 %130, ptr %135, align 1, !tbaa !45
-  %136 = add nuw i32 %.0245, 1
+  %136 = add nuw i32 %.0246, 1
   %exitcond = icmp eq i32 %136, %umax
   br i1 %exitcond, label %137, label %132, !llvm.loop !396
 
 137:                                              ; preds = %132
-  %.pre250 = load i8, ptr %37, align 1, !tbaa !225
+  %.pre251 = load i8, ptr %37, align 1, !tbaa !225
   br label %.thread233
 
 .thread233:                                       ; preds = %119, %137
-  %138 = phi i8 [ %.pre250, %137 ], [ %120, %119 ]
+  %138 = phi i8 [ %.pre251, %137 ], [ %120, %119 ]
   store i8 3, ptr %26, align 1, !tbaa !389
   %.not218 = icmp eq i8 %138, 2
   br i1 %.not218, label %.thread, label %139
@@ -17064,9 +17065,9 @@ HashOutput.exit:                                  ; preds = %109
   %163 = load i32, ptr %11, align 16
   %164 = trunc i32 %163 to i16
   %165 = select i1 %.not221, i16 0, i16 %164
-  %.sink267 = sub i16 %162, %165
+  %.sink268 = sub i16 %162, %165
   %166 = load i8, ptr %32, align 4, !tbaa !388
-  %167 = call fastcc i32 @Encrypt(ptr noundef %0, ptr noundef %161, ptr noundef %161, i16 noundef zeroext %.sink267, i8 noundef zeroext %166)
+  %167 = call fastcc i32 @Encrypt(ptr noundef %0, ptr noundef %161, ptr noundef %161, i16 noundef zeroext %.sink268, i8 noundef zeroext %166)
   %.not222 = icmp eq i32 %167, 0
   br i1 %.not222, label %178, label %.thread235.sink.split
 
@@ -17081,8 +17082,8 @@ HashOutput.exit:                                  ; preds = %109
   %174 = load i32, ptr %11, align 16
   %175 = trunc i32 %174 to i16
   %176 = select i1 %.not224, i16 0, i16 %175
-  %.sink270 = sub i16 %173, %176
-  %177 = zext i16 %.sink270 to i32
+  %.sink271 = sub i16 %173, %176
+  %177 = zext i16 %.sink271 to i32
   call fastcc void @ForceZero(ptr noundef %172, i32 noundef %177)
   br label %.thread235
 
@@ -17094,7 +17095,7 @@ HashOutput.exit:                                  ; preds = %109
   br i1 %.not223, label %..thread240_crit_edge, label %181
 
 ..thread240_crit_edge:                            ; preds = %178
-  %.pre251 = load i32, ptr %28, align 4
+  %.pre252 = load i32, ptr %28, align 4
   br label %.thread240
 
 181:                                              ; preds = %178
@@ -17118,11 +17119,11 @@ HashOutput.exit:                                  ; preds = %109
   %199 = load i8, ptr %32, align 4, !tbaa !388
   %200 = zext i8 %199 to i32
   %201 = call i32 %183(ptr noundef nonnull %0, ptr noundef nonnull %191, ptr noundef %194, i32 noundef %198, i32 noundef -1, i32 noundef %200, i32 noundef 0, i32 noundef %9) #28
-  %.10.fr = freeze i32 %201
+  %.fr243 = freeze i32 %201
   store i8 0, ptr %26, align 1, !tbaa !389
-  %202 = icmp eq i32 %.10.fr, 0
+  %202 = icmp eq i32 %.fr243, 0
   %203 = load i32, ptr %28, align 4
-  %spec.select = select i1 %202, i32 %203, i32 %.10.fr
+  %spec.select = select i1 %202, i32 %203, i32 %.fr243
   br label %205
 
 .thread235:                                       ; preds = %.thread235.sink.split, %78, %HashOutput.exit, %142, %74, %39, %46, %109
@@ -17131,7 +17132,7 @@ HashOutput.exit:                                  ; preds = %109
   br label %205
 
 .thread240:                                       ; preds = %..thread240_crit_edge, %71
-  %204 = phi i32 [ %.pre251, %..thread240_crit_edge ], [ %73, %71 ]
+  %204 = phi i32 [ %.pre252, %..thread240_crit_edge ], [ %73, %71 ]
   store i8 0, ptr %26, align 1, !tbaa !389
   br label %205
 

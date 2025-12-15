@@ -34756,7 +34756,8 @@ if.then491:                                       ; preds = %invoke.cont489
 if.end493:                                        ; preds = %if.then491, %invoke.cont489
   %had_errors_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %340 = load i8, ptr %had_errors_, align 8
-  %tobool494 = trunc i8 %340 to i1
+  %.fr = freeze i8 %340
+  %tobool494 = trunc i8 %.fr to i1
   br i1 %tobool494, label %if.end541, label %if.then495
 
 if.then495:                                       ; preds = %if.end493
@@ -35179,10 +35180,11 @@ if.then537:                                       ; preds = %_ZNSt6vectorIN6goog
 if.end539:                                        ; preds = %if.then537, %_ZNSt6vectorIN6google8protobuf12_GLOBAL__N_118OptionsToInterpretESaIS3_EE5clearEv.exit
   call void @_ZN6google8protobuf17DescriptorBuilder17OptionInterpreterD2Ev(ptr noundef nonnull align 8 dereferenceable(152) %option_interpreter) #38
   %.pre224 = load i8, ptr %had_errors_, align 8
+  %.pre224.fr = freeze i8 %.pre224
   br label %if.end541
 
 if.end541:                                        ; preds = %if.end539, %if.end493
-  %410 = phi i8 [ %.pre224, %if.end539 ], [ %340, %if.end493 ]
+  %410 = phi i8 [ %.pre224.fr, %if.end539 ], [ %.fr, %if.end493 ]
   %tobool543 = trunc i8 %410 to i1
   br i1 %tobool543, label %if.end552, label %land.lhs.true544
 
@@ -35375,10 +35377,11 @@ if.then.i.i.i.i.i815:                             ; preds = %lor.lhs.false.i.i.i
 if.then548.if.end552_crit_edge:                   ; preds = %"_ZN6google8protobuf8internal9VisitImplINS1_11VisitorImplIZNS0_17DescriptorBuilder13BuildFileImplERKNS0_19FileDescriptorProtoERNS1_13FlatAllocatorEE3$_5EEE5VisitIJKNS0_22ServiceDescriptorProtoEEEEvRKNS0_17ServiceDescriptorEDpRT_.exit.i.i", %for.cond25.preheader.i.i810
   call void @llvm.lifetime.end.p0(ptr nonnull %ref.tmp.i807)
   %.pre225 = load i8, ptr %had_errors_, align 8
+  %.pre225.fr = freeze i8 %.pre225
   br label %if.end552
 
 if.end552:                                        ; preds = %if.then548.if.end552_crit_edge, %land.lhs.true544, %if.end541
-  %452 = phi i8 [ %.pre225, %if.then548.if.end552_crit_edge ], [ %410, %land.lhs.true544 ], [ %410, %if.end541 ]
+  %452 = phi i8 [ %.pre225.fr, %if.then548.if.end552_crit_edge ], [ %410, %land.lhs.true544 ], [ %410, %if.end541 ]
   %tobool554 = trunc i8 %452 to i1
   %453 = load i32, ptr %current_size_.i.i.i.i520, align 8
   %cmp560713 = icmp sgt i32 %453, 0
@@ -35415,12 +35418,12 @@ for.inc567:                                       ; preds = %invoke.cont564
 
 if.end570.loopexit.loopexit:                      ; preds = %for.inc567
   %.pre226.pre = load i8, ptr %had_errors_, align 8
+  %.pre226.pre.fr = freeze i8 %.pre226.pre
   br label %if.end570
 
 if.end570:                                        ; preds = %if.end570.loopexit.loopexit, %if.end552
-  %461 = phi i8 [ %452, %if.end552 ], [ %.pre226.pre, %if.end570.loopexit.loopexit ]
-  %.fr = freeze i8 %461
-  %tobool572 = trunc i8 %.fr to i1
+  %461 = phi i8 [ %452, %if.end552 ], [ %.pre226.pre.fr, %if.end570.loopexit.loopexit ]
+  %tobool572 = trunc i8 %461 to i1
   %compressed_tuple_.i.i.i630 = getelementptr inbounds nuw i8, ptr %this, i64 272
   %462 = load i64, ptr %compressed_tuple_.i.i.i630, align 8
   %tobool.not.i631 = icmp eq i64 %462, 0

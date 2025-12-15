@@ -3883,21 +3883,22 @@ rb_darray_size.exit.i:                            ; preds = %1, %._crit_edge.i
   %12 = load i16, ptr %11, align 8, !tbaa !189
   %13 = getelementptr inbounds nuw i8, ptr %11, i64 40
   %14 = load i64, ptr %13, align 8, !tbaa !257
+  %.fr30.i = freeze i64 %14
   %15 = getelementptr inbounds nuw i8, ptr %11, i64 2
   %16 = load i16, ptr %15, align 2, !tbaa !258
   %17 = zext i16 %16 to i64
-  %18 = sext i16 %12 to i64
+  %.fr29.i = freeze i16 %12
+  %18 = sext i16 %.fr29.i to i64
   %19 = mul nsw i64 %17, %18
-  %20 = add i64 %19, %14
-  %21 = icmp ult i64 %14, %20
+  %20 = add i64 %19, %.fr30.i
+  %21 = icmp ult i64 %.fr30.i, %20
   br i1 %21, label %.preheader.i, label %._crit_edge.i
 
 .preheader.i:                                     ; preds = %8, %.split.us.i
-  %.02426.i = phi i64 [ %38, %.split.us.i ], [ %14, %8 ]
-  %.02426.fr.i = freeze i64 %.02426.i
-  %22 = inttoptr i64 %.02426.fr.i to ptr
-  %23 = icmp eq i64 %.02426.fr.i, 0
-  %24 = and i64 %.02426.fr.i, 7
+  %.02426.i = phi i64 [ %38, %.split.us.i ], [ %.fr30.i, %8 ]
+  %22 = inttoptr i64 %.02426.i to ptr
+  %23 = icmp eq i64 %.02426.i, 0
+  %24 = and i64 %.02426.i, 7
   %25 = icmp ne i64 %24, 0
   %26 = or i1 %23, %25
   %27 = load i64, ptr %22, align 8, !tbaa !113
@@ -3933,11 +3934,11 @@ RB_FL_UNSET.exit.i.us.i:                          ; preds = %.preheader.split.us
   br label %rb_gc_obj_free_vm_weak_references.exit.us.i
 
 36:                                               ; preds = %RB_FL_UNSET.exit.i.us.i
-  call void @rb_gc_free_dsymbol(i64 noundef %.02426.fr.i) #6
+  call void @rb_gc_free_dsymbol(i64 noundef %.02426.i) #6
   br label %rb_gc_obj_free_vm_weak_references.exit.us.i
 
 rb_gc_obj_free_vm_weak_references.exit.us.i:      ; preds = %36, %35, %34, %31, %RB_FL_UNSET.exit.i.us.i
-  %37 = call zeroext i1 @rb_gc_obj_free(ptr noundef %0, i64 noundef %.02426.fr.i)
+  %37 = call zeroext i1 @rb_gc_obj_free(ptr noundef %0, i64 noundef %.02426.i)
   br i1 %37, label %.split.us.sink.split.i, label %.split.us.i
 
 .split.us.sink.split.i:                           ; preds = %rb_gc_obj_free_vm_weak_references.exit.i, %rb_gc_obj_free_vm_weak_references.exit.us.i
@@ -3945,7 +3946,7 @@ rb_gc_obj_free_vm_weak_references.exit.us.i:      ; preds = %36, %35, %34, %31, 
   br label %.split.us.i
 
 .split.us.i:                                      ; preds = %rb_gc_obj_free_vm_weak_references.exit.i, %.preheader.split.i, %.split.us.sink.split.i, %rb_gc_obj_free_vm_weak_references.exit.us.i, %.preheader.split.us.i
-  %38 = add i64 %.02426.fr.i, %18
+  %38 = add i64 %.02426.i, %18
   %39 = icmp ult i64 %38, %20
   br i1 %39, label %.preheader.i, label %._crit_edge.loopexit.i, !llvm.loop !261
 
@@ -3960,7 +3961,7 @@ RB_FL_ABLE.exit.i.i.i:                            ; preds = %.preheader.split.i
   br i1 %or.cond.i.i, label %RB_FL_UNSET.exit.i.i, label %RB_FL_ABLE.exit.i12.i.i
 
 RB_FL_ABLE.exit.i12.i.i:                          ; preds = %RB_FL_ABLE.exit.i.i.i
-  call void @rb_free_generic_ivar(i64 noundef %.02426.fr.i) #6
+  call void @rb_free_generic_ivar(i64 noundef %.02426.i) #6
   %41 = load i64, ptr %22, align 8, !tbaa !113
   %42 = and i64 %41, 31
   %.not.i13.i.i = icmp eq i64 %42, 27
@@ -3991,7 +3992,7 @@ RB_FL_ABLE.exit.i14.i.i:                          ; preds = %RB_FL_UNSET.exit.i.
 
 RB_FL_ABLE.exit.i19.i.i:                          ; preds = %RB_FL_ABLE.exit.i14.i.i
   call void @llvm.lifetime.start.p0(ptr nonnull %2)
-  store i64 %.02426.fr.i, ptr %2, align 8, !tbaa !93
+  store i64 %.02426.i, ptr %2, align 8, !tbaa !93
   %50 = call ptr @rb_vm_fstring_table() #70
   %51 = call i32 @rb_st_delete(ptr noundef %50, ptr noundef nonnull %2, ptr noundef null) #6
   %52 = load i64, ptr %22, align 8, !tbaa !113
@@ -4009,7 +4010,7 @@ RB_FL_UNSET.exit21.i.i:                           ; preds = %54, %RB_FL_ABLE.exi
   br label %rb_gc_obj_free_vm_weak_references.exit.i
 
 56:                                               ; preds = %RB_FL_UNSET.exit.i.i
-  call void @rb_gc_free_dsymbol(i64 noundef %.02426.fr.i) #6
+  call void @rb_gc_free_dsymbol(i64 noundef %.02426.i) #6
   br label %rb_gc_obj_free_vm_weak_references.exit.i
 
 57:                                               ; preds = %RB_FL_UNSET.exit.i.i
@@ -4029,7 +4030,7 @@ RB_FL_UNSET.exit21.i.i:                           ; preds = %54, %RB_FL_ABLE.exi
   br label %rb_gc_obj_free_vm_weak_references.exit.i
 
 rb_gc_obj_free_vm_weak_references.exit.i:         ; preds = %61, %60, %57, %56, %RB_FL_UNSET.exit21.i.i, %RB_FL_ABLE.exit.i14.i.i, %RB_FL_UNSET.exit.i.i
-  %62 = call zeroext i1 @rb_gc_obj_free(ptr noundef %0, i64 noundef %.02426.fr.i)
+  %62 = call zeroext i1 @rb_gc_obj_free(ptr noundef %0, i64 noundef %.02426.i)
   br i1 %62, label %.split.us.sink.split.i, label %.split.us.i
 
 ._crit_edge.loopexit.i:                           ; preds = %.split.us.i

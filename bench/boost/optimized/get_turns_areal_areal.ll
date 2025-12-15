@@ -153027,15 +153027,18 @@ _ZN5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_inters
 ; Function Attrs: mustprogress uwtable
 define linkonce_odr hidden void @_ZNK5boost8geometry8strategy12intersection18cartesian_segmentsIvE25segment_intersection_infoIiNS0_13segment_ratioIiEEE6assignINS0_5model5pointIiLm2ENS0_2cs9cartesianEEENSA_17referring_segmentIKSE_EEEEvRT_RKT0_RKiSO_RKS7_(ptr noundef nonnull align 8 dereferenceable(48) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 8 dereferenceable(16) %2, ptr noundef nonnull align 4 dereferenceable(4) %3, ptr noundef nonnull align 4 dereferenceable(4) %4, ptr noundef nonnull align 8 dereferenceable(16) %5) local_unnamed_addr #3 comdat align 2 {
   %7 = load i32, ptr %5, align 8, !tbaa !263
-  %8 = sext i32 %7 to i64
+  %.fr43 = freeze i32 %7
+  %8 = sext i32 %.fr43 to i64
   %9 = getelementptr inbounds nuw i8, ptr %5, i64 4
   %10 = load i32, ptr %9, align 4, !tbaa !263
   %.fr = freeze i32 %10
   %11 = sext i32 %.fr to i64
   %12 = load i32, ptr %3, align 4, !tbaa !263
-  %13 = sext i32 %12 to i64
+  %.fr44 = freeze i32 %12
+  %13 = sext i32 %.fr44 to i64
   %14 = load i32, ptr %4, align 4, !tbaa !263
-  %15 = sext i32 %14 to i64
+  %.fr45 = freeze i32 %14
+  %15 = sext i32 %.fr45 to i64
   %16 = load ptr, ptr %2, align 8, !tbaa !2660
   %17 = load i32, ptr %16, align 4, !tbaa !263
   %18 = mul nsw i64 %13, %8
@@ -153080,9 +153083,8 @@ define linkonce_odr hidden void @_ZNK5boost8geometry8strategy12intersection18car
 _ZN5boost8geometry4math6divideIlEET_RKS3_S5_.exit: ; preds = %24, %28, %33, %37
   %.sink23.i.i = phi i64 [ %31, %28 ], [ %27, %24 ], [ %40, %37 ], [ %36, %33 ]
   %.sink22.i.i = phi i64 [ -1, %28 ], [ 1, %24 ], [ 1, %37 ], [ -1, %33 ]
-  %.sink23.i.i.fr = freeze i64 %.sink23.i.i
-  %41 = sdiv i64 %.sink23.i.i.fr, %11
-  %42 = add i64 %41, %.sink22.i.i
+  %41 = sdiv i64 %.sink23.i.i, %11
+  %42 = add nsw i64 %41, %.sink22.i.i
   %43 = icmp sgt i64 %42, 2147483647
   br i1 %43, label %48, label %44
 
@@ -153124,13 +153126,13 @@ _ZN5boost8geometry4util12numeric_castIilEET_RKT0_.exit: ; preds = %6, %44
 60:                                               ; preds = %59
   %61 = sub nsw i64 1, %11
   %62 = lshr i64 %61, 1
-  %63 = add nsw i64 %62, %54
+  %63 = add nsw i64 %54, %62
   br label %_ZN5boost8geometry4math6divideIlEET_RKS3_S5_.exit14
 
 64:                                               ; preds = %59
   %65 = add nuw nsw i64 %11, 1
   %66 = lshr i64 %65, 1
-  %67 = add nsw i64 %66, %54
+  %67 = add nsw i64 %54, %66
   br label %_ZN5boost8geometry4math6divideIlEET_RKS3_S5_.exit14
 
 68:                                               ; preds = %56
@@ -153151,9 +153153,8 @@ _ZN5boost8geometry4util12numeric_castIilEET_RKT0_.exit: ; preds = %6, %44
 _ZN5boost8geometry4math6divideIlEET_RKS3_S5_.exit14: ; preds = %60, %64, %69, %73
   %.sink23.i.i12 = phi i64 [ %67, %64 ], [ %63, %60 ], [ %76, %73 ], [ %72, %69 ]
   %.sink22.i.i13 = phi i64 [ -1, %64 ], [ 1, %60 ], [ 1, %73 ], [ -1, %69 ]
-  %.sink23.i.i12.fr = freeze i64 %.sink23.i.i12
-  %77 = sdiv i64 %.sink23.i.i12.fr, %11
-  %78 = add i64 %77, %.sink22.i.i13
+  %77 = sdiv i64 %.sink23.i.i12, %11
+  %78 = add nsw i64 %77, %.sink22.i.i13
   %79 = icmp sgt i64 %78, 2147483647
   br i1 %79, label %84, label %80
 

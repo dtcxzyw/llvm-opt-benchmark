@@ -12798,10 +12798,10 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   br i1 %47, label %.lr.ph, label %._crit_edge, !prof !22
 
 .lr.ph:                                           ; preds = %46, %55
-  %.246.i80152 = phi ptr [ %56, %55 ], [ %.044.i77, %46 ]
-  %.251.i79151 = phi ptr [ %57, %55 ], [ %.049.i76, %46 ]
-  %.251.i79.val100 = load i64, ptr %.251.i79151, align 1, !tbaa !19
-  %.246.i80.val99 = load i64, ptr %.246.i80152, align 1, !tbaa !19
+  %.246.i80155 = phi ptr [ %56, %55 ], [ %.044.i77, %46 ]
+  %.251.i79154 = phi ptr [ %57, %55 ], [ %.049.i76, %46 ]
+  %.251.i79.val100 = load i64, ptr %.251.i79154, align 1, !tbaa !19
+  %.246.i80.val99 = load i64, ptr %.246.i80155, align 1, !tbaa !19
   %.not59.i89 = icmp eq i64 %.251.i79.val100, %.246.i80.val99
   br i1 %.not59.i89, label %55, label %.thread110
 
@@ -12809,15 +12809,15 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %48 = xor i64 %.246.i80.val99, %.251.i79.val100
   %49 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %48, i1 true)
   %50 = lshr i64 %49, 3
-  %51 = getelementptr inbounds nuw i8, ptr %.246.i80152, i64 %50
+  %51 = getelementptr inbounds nuw i8, ptr %.246.i80155, i64 %50
   %52 = ptrtoint ptr %51 to i64
   %53 = sub i64 %52, %33
   %54 = trunc i64 %53 to i32
   br label %84
 
 55:                                               ; preds = %.lr.ph
-  %56 = getelementptr inbounds nuw i8, ptr %.246.i80152, i64 8
-  %57 = getelementptr inbounds nuw i8, ptr %.251.i79151, i64 8
+  %56 = getelementptr inbounds nuw i8, ptr %.246.i80155, i64 8
+  %57 = getelementptr inbounds nuw i8, ptr %.251.i79154, i64 8
   %58 = icmp ult ptr %56, %36
   br i1 %58, label %.lr.ph, label %._crit_edge, !prof !23
 
@@ -12916,14 +12916,15 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   br i1 %.not.i, label %.thread118, label %110
 
 .thread118:                                       ; preds = %107
-  %108 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %108 = getelementptr i8, ptr %0, i64 8
   %109 = getelementptr inbounds nuw i8, ptr %99, i64 8
   br label %115
 
 110:                                              ; preds = %107
   %111 = xor i64 %.val105, %.val102
   %112 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %111, i1 true)
-  %113 = trunc nuw nsw i64 %112 to i32
+  %.fr142 = freeze i64 %112
+  %113 = trunc i64 %.fr142 to i32
   %114 = lshr i32 %113, 3
   br label %153
 
@@ -12931,53 +12932,54 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   %.049.i = phi ptr [ %99, %95 ], [ %109, %.thread118 ]
   %.044.i = phi ptr [ %0, %95 ], [ %108, %.thread118 ]
   %116 = icmp ult ptr %.044.i, %105
-  br i1 %116, label %.lr.ph157, label %._crit_edge158, !prof !22
+  br i1 %116, label %.lr.ph160, label %._crit_edge161, !prof !22
 
-.lr.ph157:                                        ; preds = %115, %124
-  %.246.i155 = phi ptr [ %125, %124 ], [ %.044.i, %115 ]
-  %.251.i154 = phi ptr [ %126, %124 ], [ %.049.i, %115 ]
-  %.251.i.val104 = load i64, ptr %.251.i154, align 1, !tbaa !19
-  %.246.i.val103 = load i64, ptr %.246.i155, align 1, !tbaa !19
+.lr.ph160:                                        ; preds = %115, %124
+  %.246.i158 = phi ptr [ %125, %124 ], [ %.044.i, %115 ]
+  %.251.i157 = phi ptr [ %126, %124 ], [ %.049.i, %115 ]
+  %.251.i.val104 = load i64, ptr %.251.i157, align 1, !tbaa !19
+  %.246.i.val103 = load i64, ptr %.246.i158, align 1, !tbaa !19
   %.not59.i = icmp eq i64 %.251.i.val104, %.246.i.val103
   br i1 %.not59.i, label %124, label %.thread122
 
-.thread122:                                       ; preds = %.lr.ph157
+.thread122:                                       ; preds = %.lr.ph160
   %117 = xor i64 %.246.i.val103, %.251.i.val104
   %118 = tail call range(i64 0, 65) i64 @llvm.cttz.i64(i64 range(i64 1, 0) %117, i1 true)
-  %119 = lshr i64 %118, 3
-  %120 = getelementptr inbounds nuw i8, ptr %.246.i155, i64 %119
+  %.fr143 = freeze i64 %118
+  %119 = lshr i64 %.fr143, 3
+  %120 = getelementptr i8, ptr %.246.i158, i64 %119
   %121 = ptrtoint ptr %120 to i64
   %122 = sub i64 %121, %102
   %123 = trunc i64 %122 to i32
   br label %153
 
-124:                                              ; preds = %.lr.ph157
-  %125 = getelementptr inbounds nuw i8, ptr %.246.i155, i64 8
-  %126 = getelementptr inbounds nuw i8, ptr %.251.i154, i64 8
+124:                                              ; preds = %.lr.ph160
+  %125 = getelementptr i8, ptr %.246.i158, i64 8
+  %126 = getelementptr inbounds nuw i8, ptr %.251.i157, i64 8
   %127 = icmp ult ptr %125, %105
-  br i1 %127, label %.lr.ph157, label %._crit_edge158, !prof !23
+  br i1 %127, label %.lr.ph160, label %._crit_edge161, !prof !23
 
-._crit_edge158:                                   ; preds = %124, %115
+._crit_edge161:                                   ; preds = %124, %115
   %.251.i.lcssa = phi ptr [ %.049.i, %115 ], [ %126, %124 ]
   %.246.i.lcssa = phi ptr [ %.044.i, %115 ], [ %125, %124 ]
   %128 = getelementptr inbounds i8, ptr %104, i64 -3
   %129 = icmp ult ptr %.246.i.lcssa, %128
   br i1 %129, label %130, label %135
 
-130:                                              ; preds = %._crit_edge158
+130:                                              ; preds = %._crit_edge161
   %.251.i.val = load i32, ptr %.251.i.lcssa, align 1, !tbaa !15
   %.246.i.val = load i32, ptr %.246.i.lcssa, align 1, !tbaa !15
   %131 = icmp eq i32 %.251.i.val, %.246.i.val
   br i1 %131, label %132, label %135
 
 132:                                              ; preds = %130
-  %133 = getelementptr inbounds nuw i8, ptr %.246.i.lcssa, i64 4
+  %133 = getelementptr i8, ptr %.246.i.lcssa, i64 4
   %134 = getelementptr inbounds nuw i8, ptr %.251.i.lcssa, i64 4
   br label %135
 
-135:                                              ; preds = %132, %130, %._crit_edge158
-  %.453.i = phi ptr [ %134, %132 ], [ %.251.i.lcssa, %130 ], [ %.251.i.lcssa, %._crit_edge158 ]
-  %.448.i = phi ptr [ %133, %132 ], [ %.246.i.lcssa, %130 ], [ %.246.i.lcssa, %._crit_edge158 ]
+135:                                              ; preds = %132, %130, %._crit_edge161
+  %.453.i = phi ptr [ %134, %132 ], [ %.251.i.lcssa, %130 ], [ %.251.i.lcssa, %._crit_edge161 ]
+  %.448.i = phi ptr [ %133, %132 ], [ %.246.i.lcssa, %130 ], [ %.246.i.lcssa, %._crit_edge161 ]
   %136 = getelementptr inbounds i8, ptr %104, i64 -1
   %137 = icmp ult ptr %.448.i, %136
   br i1 %137, label %138, label %143
@@ -12989,7 +12991,7 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
   br i1 %139, label %140, label %143
 
 140:                                              ; preds = %138
-  %141 = getelementptr inbounds nuw i8, ptr %.448.i, i64 2
+  %141 = getelementptr i8, ptr %.448.i, i64 2
   %142 = getelementptr inbounds nuw i8, ptr %.453.i, i64 2
   br label %143
 
@@ -13002,9 +13004,11 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
 145:                                              ; preds = %143
   %146 = load i8, ptr %.554.i, align 1, !tbaa !26
   %147 = load i8, ptr %.5.i, align 1, !tbaa !26
-  %148 = icmp eq i8 %146, %147
+  %.fr = freeze i8 %146
+  %.fr141 = freeze i8 %147
+  %148 = icmp eq i8 %.fr, %.fr141
   %spec.select.i.idx = zext i1 %148 to i64
-  %spec.select.i = getelementptr inbounds nuw i8, ptr %.5.i, i64 %spec.select.i.idx
+  %spec.select.i = getelementptr i8, ptr %.5.i, i64 %spec.select.i.idx
   br label %149
 
 149:                                              ; preds = %145, %143
@@ -13016,15 +13020,14 @@ define internal { i64, i32 } @LZ4MID_searchExtDict(ptr noundef %0, i32 noundef %
 
 153:                                              ; preds = %149, %110, %.thread122
   %.2.i = phi i32 [ %152, %149 ], [ %114, %110 ], [ %123, %.thread122 ]
-  %.2.i.fr = freeze i32 %.2.i
-  %154 = icmp slt i32 %.2.i.fr, 4
-  %spec.select = select i1 %154, i32 0, i32 %.2.i.fr
-  %spec.select141 = select i1 %154, i32 0, i32 %93
+  %154 = icmp slt i32 %.2.i, 4
+  %spec.select = select i1 %154, i32 0, i32 %.2.i
+  %spec.select144 = select i1 %154, i32 0, i32 %93
   br label %.thread136
 
 .thread136:                                       ; preds = %153, %.thread114, %84
   %.sroa.063.sroa.4.3 = phi i32 [ %.2.i87, %84 ], [ 0, %.thread114 ], [ %spec.select, %153 ]
-  %.sroa.063.sroa.0.3 = phi i32 [ %24, %84 ], [ 0, %.thread114 ], [ %spec.select141, %153 ]
+  %.sroa.063.sroa.0.3 = phi i32 [ %24, %84 ], [ 0, %.thread114 ], [ %spec.select144, %153 ]
   %.sroa.063.sroa.4.0.insert.ext = zext nneg i32 %.sroa.063.sroa.4.3 to i64
   %.sroa.063.sroa.4.0.insert.shift = shl nuw nsw i64 %.sroa.063.sroa.4.0.insert.ext, 32
   %.sroa.063.sroa.0.0.insert.ext = zext nneg i32 %.sroa.063.sroa.0.3 to i64

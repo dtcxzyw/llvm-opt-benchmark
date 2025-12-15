@@ -33298,6 +33298,7 @@ stbi__get8.exit36.i:                              ; preds = %stbi__refill_buffer
   %143 = getelementptr inbounds nuw i8, ptr %139, i64 1
   store ptr %143, ptr %2, align 8
   %144 = load i8, ptr %139, align 1
+  %.fr.i = freeze i8 %144
   br label %stbi__get8.exit42.i
 
 145:                                              ; preds = %140
@@ -33328,10 +33329,11 @@ stbi__get8.exit36.i:                              ; preds = %stbi__refill_buffer
   %161 = sext i32 %156 to i64
   %162 = getelementptr inbounds i8, ptr %153, i64 %161
   %.pre.i38.i = load i8, ptr %153, align 1
+  %.pre.i38.fr.i = freeze i8 %.pre.i38.i
   br label %stbi__refill_buffer.exit.i39.i
 
 stbi__refill_buffer.exit.i39.i:                   ; preds = %160, %158
-  %163 = phi i8 [ 0, %158 ], [ %.pre.i38.i, %160 ]
+  %163 = phi i8 [ 0, %158 ], [ %.pre.i38.fr.i, %160 ]
   %.sink.i.i40.i = phi ptr [ %159, %158 ], [ %162, %160 ]
   store ptr %.sink.i.i40.i, ptr %4, align 8
   %164 = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -33339,9 +33341,8 @@ stbi__refill_buffer.exit.i39.i:                   ; preds = %160, %158
   br label %stbi__get8.exit42.i
 
 stbi__get8.exit42.i:                              ; preds = %stbi__refill_buffer.exit.i39.i, %142
-  %.0.i41.i = phi i8 [ %144, %142 ], [ %163, %stbi__refill_buffer.exit.i39.i ]
-  %.0.i41.fr.i = freeze i8 %.0.i41.i
-  %.not12.i = icmp eq i8 %.0.i41.fr.i, 97
+  %.0.i41.i = phi i8 [ %.fr.i, %142 ], [ %163, %stbi__refill_buffer.exit.i39.i ]
+  %.not12.i = icmp eq i8 %.0.i41.i, 97
   %spec.select.i = zext i1 %.not12.i to i32
   br label %stbi__gif_test_raw.exit
 
@@ -39324,6 +39325,7 @@ stbi__get8.exit300:                               ; preds = %438, %441, %stbi__r
   %465 = getelementptr inbounds nuw i8, ptr %462, i64 1
   store ptr %465, ptr %7, align 8
   %466 = load i8, ptr %462, align 1
+  %.fr = freeze i8 %466
   br label %stbi__get8.exit306
 
 467:                                              ; preds = %stbi__get8.exit300
@@ -39354,10 +39356,11 @@ stbi__get8.exit300:                               ; preds = %438, %441, %stbi__r
   %483 = sext i32 %478 to i64
   %484 = getelementptr inbounds i8, ptr %475, i64 %483
   %.pre.i302 = load i8, ptr %475, align 1
+  %.pre.i302.fr = freeze i8 %.pre.i302
   br label %stbi__refill_buffer.exit.i303
 
 stbi__refill_buffer.exit.i303:                    ; preds = %482, %480
-  %485 = phi i8 [ 0, %480 ], [ %.pre.i302, %482 ]
+  %485 = phi i8 [ 0, %480 ], [ %.pre.i302.fr, %482 ]
   %.sink.i.i304 = phi ptr [ %481, %480 ], [ %484, %482 ]
   store ptr %.sink.i.i304, ptr %9, align 8
   %486 = getelementptr inbounds nuw i8, ptr %0, i64 57
@@ -39365,11 +39368,10 @@ stbi__refill_buffer.exit.i303:                    ; preds = %482, %480
   br label %stbi__get8.exit306
 
 stbi__get8.exit306:                               ; preds = %464, %467, %stbi__refill_buffer.exit.i303
-  %.0.i305 = phi i8 [ %466, %464 ], [ %485, %stbi__refill_buffer.exit.i303 ], [ 0, %467 ]
+  %.0.i305 = phi i8 [ %.fr, %464 ], [ %485, %stbi__refill_buffer.exit.i303 ], [ 0, %467 ]
   store i32 0, ptr %6, align 4
   %487 = icmp ugt i8 %.0.i227, 7
-  %.0.i305.fr = freeze i8 %.0.i305
-  %488 = lshr i8 %.0.i305.fr, 5
+  %488 = lshr i8 %.0.i305, 5
   %489 = and i8 %488, 1
   %490 = icmp ne i8 %.0.i221, 0
   br i1 %490, label %491, label %495

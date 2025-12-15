@@ -5656,7 +5656,8 @@ spa_pod_builder_pad.exit.thread.i.i:              ; preds = %603
 .critedge.i.i.i.i:                                ; preds = %616
   %619 = load ptr, ptr %29, align 8
   %620 = call i32 %618(ptr noundef %619, i32 noundef %610) #16
-  %621 = icmp eq i32 %620, 0
+  %.fr.i.i = freeze i32 %620
+  %621 = icmp eq i32 %.fr.i.i, 0
   br i1 %621, label %.critedge.i.thread.i.i.i, label %.critedge.thread.i.i.i.i
 
 .critedge.i.thread.i.i.i:                         ; preds = %.critedge.i.i.i.i, %607
@@ -6125,7 +6126,8 @@ spa_pod_builder_raw.exit24.i:                     ; preds = %spa_pod_builder_raw
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %104 = load ptr, ptr %103, align 8
   %105 = tail call i32 %102(ptr noundef %104, i32 noundef %91) #16
-  %106 = icmp eq i32 %105, 0
+  %.fr.i = freeze i32 %105
+  %106 = icmp eq i32 %.fr.i, 0
   br i1 %106, label %.critedge.i.thread.i.i, label %.critedge.thread.i.i.i
 
 .critedge.i.thread.i.i:                           ; preds = %.critedge.i.i.i, %92
@@ -6294,7 +6296,8 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %68 = load ptr, ptr %67, align 8
   %69 = tail call i32 %66(ptr noundef %68, i32 noundef %57) #16
-  %70 = icmp eq i32 %69, 0
+  %.fr = freeze i32 %69
+  %70 = icmp eq i32 %.fr, 0
   br i1 %70, label %.critedge.i.thread.i, label %.critedge.thread.i.i
 
 .critedge.i.thread.i:                             ; preds = %.critedge.i.i, %54
@@ -6439,7 +6442,8 @@ spa_pod_builder_raw.exit:                         ; preds = %.lr.ph.i, %.critedg
   %53 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %54 = load ptr, ptr %53, align 8
   %55 = tail call i32 %52(ptr noundef %54, i32 noundef %43) #16
-  %56 = icmp eq i32 %55, 0
+  %.fr = freeze i32 %55
+  %56 = icmp eq i32 %.fr, 0
   br i1 %56, label %.critedge.i.thread.i, label %.critedge.thread.i.i
 
 .critedge.i.thread.i:                             ; preds = %.critedge.i.i, %40

@@ -7308,7 +7308,7 @@ define hidden noundef i32 @_ZN2dd11bdd_manager15mk_cofactor_recEjj(ptr noundef n
 
 .lr.ph.split.preheader:                           ; preds = %tailrecurse.outer, %.lr.ph.lr.ph
   %.tr64.ph113 = phi i32 [ %2, %.lr.ph.lr.ph ], [ %.048, %tailrecurse.outer ]
-  %.tr63.ph112 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %.047, %tailrecurse.outer ]
+  %.tr63.ph112 = phi i32 [ %1, %.lr.ph.lr.ph ], [ %.047.fr, %tailrecurse.outer ]
   %10 = zext i32 %.tr63.ph112 to i64
   %11 = getelementptr inbounds nuw %"struct.dd::bdd_manager::bdd_node", ptr %9, i64 %10
   %12 = load i32, ptr %11, align 4
@@ -7388,7 +7388,8 @@ tailrecurse.outer:                                ; preds = %50, %46
   %.048 = phi i32 [ %49, %46 ], [ %44, %50 ]
   %.047.in = phi ptr [ %47, %46 ], [ %51, %50 ]
   %.047 = load i32, ptr %.047.in, align 4, !tbaa !49
-  %52 = icmp ult i32 %.047, 2
+  %.047.fr = freeze i32 %.047
+  %52 = icmp ult i32 %.047.fr, 2
   %53 = icmp ult i32 %.048, 2
   %or.cond85 = or i1 %52, %53
   br i1 %or.cond85, label %.loopexit, label %.lr.ph.split.preheader
@@ -7549,7 +7550,7 @@ _ZN2dd11bdd_manager3popEj.exit:                   ; preds = %_ZN2dd11bdd_manager
   br label %.loopexit
 
 .loopexit:                                        ; preds = %tailrecurse.outer, %tailrecurse, %38, %3, %77, %_ZN2dd11bdd_manager3popEj.exit, %30, %27
-  %.0 = phi i32 [ %29, %27 ], [ %32, %30 ], [ %79, %77 ], [ %128, %_ZN2dd11bdd_manager3popEj.exit ], [ %1, %3 ], [ %.tr63.ph112, %38 ], [ %.tr63.ph112, %tailrecurse ], [ %.047, %tailrecurse.outer ]
+  %.0 = phi i32 [ %29, %27 ], [ %32, %30 ], [ %79, %77 ], [ %128, %_ZN2dd11bdd_manager3popEj.exit ], [ %1, %3 ], [ %.tr63.ph112, %38 ], [ %.tr63.ph112, %tailrecurse ], [ %.047.fr, %tailrecurse.outer ]
   ret i32 %.0
 }
 

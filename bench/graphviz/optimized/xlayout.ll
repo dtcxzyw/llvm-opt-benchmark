@@ -405,6 +405,8 @@ xinit_params.exit.i:                              ; preds = %126, %125
   %.024.lcssa.i.i.i.i = phi double [ %192, %._crit_edge.i.loopexit.i.i.i ], [ %181, %166 ]
   %.023.lcssa.i.i.i.i = phi double [ %188, %._crit_edge.i.loopexit.i.i.i ], [ %176, %166 ]
   %198 = call double @llvm.fabs.f64(double %.pre-phi.i.i.i)
+  %.fr.i.i.i.i = freeze double %197
+  %.fr29.i.i.i.i = freeze double %196
   %199 = load i8, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 16), align 8, !tbaa !14, !range !16, !noundef !17
   %200 = trunc nuw i8 %199 to i1
   %201 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 48
@@ -434,30 +436,36 @@ WD2.exit10.thread.i.i.i.i.i:                      ; preds = %._crit_edge.i.i.i.i
   br i1 %218, label %applyRep.exit.i.i, label %231
 
 219:                                              ; preds = %WD2.exit10.i.i.i.i.i
-  %220 = fsub double %197, %196
+  %220 = fsub double %.fr.i.i.i.i, %.fr29.i.i.i.i
   %221 = call double @llvm.fabs.f64(double %220)
   %222 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 56
   %223 = load double, ptr %222, align 8, !tbaa !43
-  %224 = fmul double %223, 5.000000e-01
+  %.fr32.i.i.i.i = freeze double %223
+  %224 = fmul double %.fr32.i.i.i.i, 5.000000e-01
   %225 = load double, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8, !tbaa !19
-  %226 = fadd double %224, %225
+  %.fr33.i.i.i.i = freeze double %225
+  %226 = fadd double %224, %.fr33.i.i.i.i
   %227 = getelementptr inbounds nuw i8, ptr %.val26.i.i.i.i, i64 56
   %228 = load double, ptr %227, align 8, !tbaa !43
-  %229 = fmul double %228, 5.000000e-01
-  %230 = fadd double %225, %229
+  %.fr37.i.i.i.i = freeze double %228
+  %229 = fmul double %.fr37.i.i.i.i, 5.000000e-01
+  %230 = fadd double %.fr33.i.i.i.i, %229
   br label %overlap.exit.i.i.i.i
 
 231:                                              ; preds = %WD2.exit10.thread.i.i.i.i.i
-  %232 = fsub double %197, %196
+  %232 = fsub double %.fr.i.i.i.i, %.fr29.i.i.i.i
   %233 = call double @llvm.fabs.f64(double %232)
   %234 = getelementptr inbounds nuw i8, ptr %.val.i.i.i.i, i64 56
   %235 = load double, ptr %234, align 8, !tbaa !43
   %236 = load double, ptr getelementptr inbounds nuw (i8, ptr @X_marg, i64 8), align 8, !tbaa !19
-  %237 = fmul double %235, %236
+  %.fr35.i.i.i.i = freeze double %236
+  %.fr34.i.i.i.i = freeze double %235
+  %237 = fmul double %.fr34.i.i.i.i, %.fr35.i.i.i.i
   %238 = fmul double %237, 5.000000e-01
   %239 = getelementptr inbounds nuw i8, ptr %.val26.i.i.i.i, i64 56
   %240 = load double, ptr %239, align 8, !tbaa !43
-  %241 = fmul double %236, %240
+  %.fr39.i.i.i.i = freeze double %240
+  %241 = fmul double %.fr35.i.i.i.i, %.fr39.i.i.i.i
   %242 = fmul double %241, 5.000000e-01
   br label %overlap.exit.i.i.i.i
 
@@ -465,11 +473,8 @@ overlap.exit.i.i.i.i:                             ; preds = %231, %219
   %243 = phi double [ %226, %219 ], [ %238, %231 ]
   %244 = phi double [ %221, %219 ], [ %233, %231 ]
   %245 = phi double [ %230, %219 ], [ %242, %231 ]
-  %.fr29.i.i.i.i = freeze double %243
-  %.fr30.i.i.i.i = freeze double %245
-  %246 = fadd double %.fr29.i.i.i.i, %.fr30.i.i.i.i
-  %.fr.i.i.i.i = freeze double %244
-  %247 = fcmp ugt double %.fr.i.i.i.i, %246
+  %246 = fadd double %243, %245
+  %247 = fcmp ugt double %244, %246
   br i1 %247, label %248, label %applyRep.exit.i.i
 
 248:                                              ; preds = %overlap.exit.i.i.i.i

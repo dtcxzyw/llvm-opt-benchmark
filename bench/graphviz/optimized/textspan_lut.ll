@@ -158,7 +158,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %8 = phi ptr [ %20, %.loopexit.us.us.i ], [ %6, %.lr.ph.i ]
   %.0725.us.us.i = phi i64 [ %18, %.loopexit.us.us.i ], [ 0, %.lr.ph.i ]
   %9 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %8) #17
-  %.not3559.i.us.us.i = icmp eq i64 %9, 0
+  %.fr65.i.us.us.i = freeze i64 %9
+  %.not3559.i.us.us.i = icmp eq i64 %.fr65.i.us.us.i, 0
   br i1 %.not3559.i.us.us.i, label %.loopexit, label %.lr.ph61.i.us.us.i
 
 .lr.ph61.i.us.us.i:                               ; preds = %.preheader37.i.us.us.i, %16
@@ -173,7 +174,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 16:                                               ; preds = %.lr.ph61.i.us.us.i
   %17 = add nuw i64 %.13460.i.us.us.i, 1
-  %.not35.i.us.us.i = icmp eq i64 %17, %9
+  %.not35.i.us.us.i = icmp eq i64 %17, %.fr65.i.us.us.i
   br i1 %.not35.i.us.us.i, label %.loopexit, label %.lr.ph61.i.us.us.i, !llvm.loop !18
 
 .loopexit.us.us.i:                                ; preds = %.lr.ph61.i.us.us.i
@@ -187,7 +188,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   %21 = phi ptr [ %69, %.loopexit.i ], [ %6, %.lr.ph.i ]
   %.0725.i = phi i64 [ %67, %.loopexit.i ], [ 0, %.lr.ph.i ]
   %22 = tail call i64 @strlen(ptr noundef nonnull readonly dereferenceable(1) %21) #17
-  %.not35.i = icmp eq i64 %22, 0
+  %.fr65.i.i = freeze i64 %22
+  %.not35.i = icmp eq i64 %.fr65.i.i, 0
   br i1 %.not35.i, label %.preheader37.i.i, label %.lr.ph.split.preheader.i.i
 
 .lr.ph.split.preheader.i.i:                       ; preds = %.lr.ph.split.i, %.outer.backedge.i.i
@@ -213,8 +215,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 29:                                               ; preds = %.lr.ph.split.i.i
   %30 = add i64 %.03242.i.i, 1
-  %.not65.i.i = icmp eq i64 %30, %.fr33.i
-  br i1 %.not65.i.i, label %.preheader.i.i, label %.lr.ph.split.i.i, !llvm.loop !20
+  %.not68.i.i = icmp eq i64 %30, %.fr33.i
+  br i1 %.not68.i.i, label %.preheader.i.i, label %.lr.ph.split.i.i, !llvm.loop !20
 
 .split.us.i.i:                                    ; preds = %.lr.ph.split.i.i
   %31 = getelementptr inbounds nuw i8, ptr %21, i64 %.033.ph52.i.i
@@ -244,7 +246,7 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 .outer.backedge.i.i:                              ; preds = %46, %.split.us.i.i
   %.032.ph.be.i.i = phi i64 [ %47, %46 ], [ %.03242.i.i, %.split.us.i.i ]
   %.033.ph.be.i.i = add nuw i64 %.033.ph52.i.i, 1
-  %48 = icmp ne i64 %.033.ph.be.i.i, %22
+  %48 = icmp ne i64 %.033.ph.be.i.i, %.fr65.i.i
   %49 = icmp ne i64 %.032.ph.be.i.i, %.fr33.i
   %50 = select i1 %49, i1 %48, i1 false
   br i1 %50, label %.lr.ph.split.preheader.i.i, label %.preheader37.i.i, !llvm.loop !20
@@ -255,8 +257,8 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
   br i1 %.not.i.i, label %.preheader.i.i, label %.lr.ph58.i.i, !llvm.loop !25
 
 .preheader.i.i:                                   ; preds = %51, %29, %.preheader37.i.i
-  %.033.ph.lcssa4187.i.i = phi i64 [ %.033.ph.lcssa41.i.i, %.preheader37.i.i ], [ %.033.ph52.i.i, %29 ], [ %.033.ph.lcssa41.i.i, %51 ]
-  %.not3559.i.i = icmp eq i64 %.033.ph.lcssa4187.i.i, %22
+  %.033.ph.lcssa4188.i.i = phi i64 [ %.033.ph.lcssa41.i.i, %.preheader37.i.i ], [ %.033.ph52.i.i, %29 ], [ %.033.ph.lcssa41.i.i, %51 ]
+  %.not3559.i.i = icmp eq i64 %.033.ph.lcssa4188.i.i, %.fr65.i.i
   br i1 %.not3559.i.i, label %.loopexit, label %.lr.ph61.i.i
 
 .lr.ph58.i.i:                                     ; preds = %.preheader37.i.i, %51
@@ -271,11 +273,11 @@ define internal fastcc nonnull ptr @get_metrics_for_font_family(ptr noundef %0) 
 
 59:                                               ; preds = %.lr.ph61.i.i
   %60 = add i64 %.13460.i.i, 1
-  %.not35.i.i = icmp eq i64 %60, %22
+  %.not35.i.i = icmp eq i64 %60, %.fr65.i.i
   br i1 %.not35.i.i, label %.loopexit, label %.lr.ph61.i.i, !llvm.loop !18
 
 .lr.ph61.i.i:                                     ; preds = %.preheader.i.i, %59
-  %.13460.i.i = phi i64 [ %60, %59 ], [ %.033.ph.lcssa4187.i.i, %.preheader.i.i ]
+  %.13460.i.i = phi i64 [ %60, %59 ], [ %.033.ph.lcssa4188.i.i, %.preheader.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %21, i64 %.13460.i.i
   %62 = load i8, ptr %61, align 1, !tbaa !3
   %63 = and i8 %62, -33

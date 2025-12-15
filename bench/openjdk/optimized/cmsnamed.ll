@@ -720,7 +720,7 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
 
 31:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.fr.i, %46 ]
+  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.i, %46 ]
   %32 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %.pre.i, i64 %indvars.iv.i
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, %.0.i
@@ -728,7 +728,7 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %.060.i, -1
-  %37 = trunc nuw i64 %indvars.iv.i to i32
+  %37 = trunc i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %36, i32 %37, i32 %.060.i
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %39 = load i16, ptr %38, align 2
@@ -744,14 +744,13 @@ strTo16.exit35:                                   ; preds = %strTo16.exit, %16
 
 46:                                               ; preds = %35, %31
   %.2.i = phi i32 [ %spec.select.i, %35 ], [ %.060.i, %31 ]
-  %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %46
-  %47 = icmp eq i32 %.2.fr.i, -1
-  %spec.select80.i = select i1 %47, i32 0, i32 %.2.fr.i
+  %47 = icmp eq i32 %.2.i, -1
+  %spec.select80.i = select i1 %47, i32 0, i32 %.2.i
   %48 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
@@ -882,7 +881,7 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
 
 31:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.fr.i, %46 ]
+  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.i, %46 ]
   %32 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %.pre.i, i64 %indvars.iv.i
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, %.0.i
@@ -890,7 +889,7 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %.060.i, -1
-  %37 = trunc nuw i64 %indvars.iv.i to i32
+  %37 = trunc i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %36, i32 %37, i32 %.060.i
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %39 = load i16, ptr %38, align 2
@@ -906,14 +905,13 @@ strTo16.exit27:                                   ; preds = %strTo16.exit, %16
 
 46:                                               ; preds = %35, %31
   %.2.i = phi i32 [ %spec.select.i, %35 ], [ %.060.i, %31 ]
-  %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %46
-  %47 = icmp eq i32 %.2.fr.i, -1
-  %spec.select80.i = select i1 %47, i32 0, i32 %.2.fr.i
+  %47 = icmp eq i32 %.2.i, -1
+  %spec.select80.i = select i1 %47, i32 0, i32 %.2.i
   %48 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
@@ -1182,7 +1180,7 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
 
 31:                                               ; preds = %46, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %46 ]
-  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.fr.i, %46 ]
+  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.i, %46 ]
   %32 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %.pre.i, i64 %indvars.iv.i
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, %.0.i
@@ -1190,7 +1188,7 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %.060.i, -1
-  %37 = trunc nuw i64 %indvars.iv.i to i32
+  %37 = trunc i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %36, i32 %37, i32 %.060.i
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %39 = load i16, ptr %38, align 2
@@ -1206,14 +1204,13 @@ strTo16.exit19:                                   ; preds = %strTo16.exit, %16
 
 46:                                               ; preds = %35, %31
   %.2.i = phi i32 [ %spec.select.i, %35 ], [ %.060.i, %31 ]
-  %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %46
-  %47 = icmp eq i32 %.2.fr.i, -1
-  %spec.select80.i = select i1 %47, i32 0, i32 %.2.fr.i
+  %47 = icmp eq i32 %.2.i, -1
+  %spec.select80.i = select i1 %47, i32 0, i32 %.2.i
   %48 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 
@@ -1328,7 +1325,7 @@ strTo16.exit11:                                   ; preds = %strTo16.exit, %16
 
 31:                                               ; preds = %41, %.lr.ph.i
   %indvars.iv.i = phi i64 [ 0, %.lr.ph.i ], [ %indvars.iv.next.i, %41 ]
-  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.fr.i, %41 ]
+  %.060.i = phi i32 [ -1, %.lr.ph.i ], [ %.2.i, %41 ]
   %32 = getelementptr inbounds nuw %struct._cmsMLUentry, ptr %.pre.i, i64 %indvars.iv.i
   %33 = load i16, ptr %32, align 4
   %34 = icmp eq i16 %33, %.0.i
@@ -1336,7 +1333,7 @@ strTo16.exit11:                                   ; preds = %strTo16.exit, %16
 
 35:                                               ; preds = %31
   %36 = icmp eq i32 %.060.i, -1
-  %37 = trunc nuw i64 %indvars.iv.i to i32
+  %37 = trunc i64 %indvars.iv.i to i32
   %spec.select.i = select i1 %36, i32 %37, i32 %.060.i
   %38 = getelementptr inbounds nuw i8, ptr %32, i64 2
   %39 = load i16, ptr %38, align 2
@@ -1345,14 +1342,13 @@ strTo16.exit11:                                   ; preds = %strTo16.exit, %16
 
 41:                                               ; preds = %35, %31
   %.2.i = phi i32 [ %spec.select.i, %35 ], [ %.060.i, %31 ]
-  %.2.fr.i = freeze i32 %.2.i
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.i, label %31, !llvm.loop !11
 
 ._crit_edge.i:                                    ; preds = %41
-  %42 = icmp eq i32 %.2.fr.i, -1
-  %spec.select80.i = select i1 %42, i32 0, i32 %.2.fr.i
+  %42 = icmp eq i32 %.2.i, -1
+  %spec.select80.i = select i1 %42, i32 0, i32 %.2.i
   %43 = sext i32 %spec.select80.i to i64
   br label %._crit_edge.thread.i
 

@@ -9046,35 +9046,35 @@ bf_set_nan.exit346:                               ; preds = %bf_delete.exit342, 
 276:                                              ; preds = %257
   %cond = icmp eq i32 %91, 10
   %277 = load i8, ptr %.8.ph534, align 1, !tbaa !88
+  %.fr = freeze i8 %277
   br i1 %cond, label %278, label %279
 
 278:                                              ; preds = %276
-  switch i8 %277, label %323 [
+  switch i8 %.fr, label %323 [
     i8 101, label %283
     i8 69, label %283
   ]
 
 279:                                              ; preds = %276
-  %280 = icmp eq i8 %277, 64
+  %280 = icmp eq i8 %.fr, 64
   br i1 %280, label %283, label %281
 
 281:                                              ; preds = %279
   br i1 %.not261, label %.thread555, label %282
 
 282:                                              ; preds = %281
-  switch i8 %277, label %.thread726 [
+  switch i8 %.fr, label %.thread726 [
     i8 112, label %283
     i8 80, label %283
   ]
 
 283:                                              ; preds = %282, %282, %278, %278, %279
-  %284 = phi i8 [ %277, %282 ], [ %277, %282 ], [ %277, %278 ], [ %277, %278 ], [ 64, %279 ]
+  %284 = phi i8 [ %.fr, %282 ], [ %.fr, %282 ], [ %.fr, %278 ], [ %.fr, %278 ], [ 64, %279 ]
   %285 = icmp ugt ptr %.8.ph534, %.2478
   br i1 %285, label %286, label %323
 
 286:                                              ; preds = %283
-  %.fr = freeze i8 %284
-  %287 = and i8 %.fr, -33
+  %287 = and i8 %284, -33
   %narrow = icmp ne i8 %287, 80
   %288 = getelementptr inbounds nuw i8, ptr %.8.ph534, i64 1
   %289 = load i8, ptr %288, align 1, !tbaa !88
@@ -28231,8 +28231,7 @@ ntt_vec_mul.exit:                                 ; preds = %37
 ntt_free.exit138.sink.split.i:                    ; preds = %ntt_vec_mul.exit
   %76 = trunc nsw i64 %5 to i32
   %77 = tail call fastcc i32 @ntt_fft(ptr noundef nonnull %0, ptr noundef nonnull %1, ptr noundef nonnull %1, ptr noundef %75, i32 noundef %3, i32 noundef 1, i32 noundef %76)
-  %.not119.i = icmp ne i32 %77, 0
-  %spec.select = sext i1 %.not119.i to i32
+  %.fr61 = freeze i32 %77
   %.val147.i = load ptr, ptr %0, align 8, !tbaa !22
   %.val.i.i136.i = load ptr, ptr %.val147.i, align 8, !tbaa !19
   %78 = getelementptr i8, ptr %.val147.i, i64 8
@@ -28242,23 +28241,23 @@ ntt_free.exit138.sink.split.i:                    ; preds = %ntt_vec_mul.exit
 
 .split50:                                         ; preds = %.preheader
   %80 = tail call fastcc i32 @ntt_fft_partial(ptr noundef %0, ptr noundef %1, i32 noundef %9, i32 noundef %10, i64 noundef %12, i64 noundef %14, i32 noundef 1, i64 noundef %5)
+  %.fr = freeze i32 %80
   br label %ntt_fft_partial.exit
 
 .preheader:                                       ; preds = %18, %.preheader
-  %.04963 = phi i64 [ %85, %.preheader ], [ 0, %18 ]
-  %81 = shl i64 %.04963, %13
+  %.04964 = phi i64 [ %85, %.preheader ], [ 0, %18 ]
+  %81 = shl i64 %.04964, %13
   %82 = getelementptr inbounds nuw i64, ptr %1, i64 %81
   %83 = getelementptr inbounds nuw i64, ptr %2, i64 %81
   %84 = tail call fastcc i32 @ntt_conv(ptr noundef %0, ptr noundef %82, ptr noundef %83, i32 noundef %10, i32 noundef %4, i64 noundef %5)
-  %85 = add nuw i64 %.04963, 1
+  %85 = add nuw i64 %.04964, 1
   %exitcond.not = icmp eq i64 %85, %12
   br i1 %exitcond.not, label %.split50, label %.preheader, !llvm.loop !163
 
 ntt_fft_partial.exit:                             ; preds = %ntt_free.exit138.sink.split.i, %.split50
-  %phi.call = phi i32 [ %80, %.split50 ], [ %spec.select, %ntt_free.exit138.sink.split.i ]
-  %phi.call.fr = freeze i32 %phi.call
-  %.not55 = icmp ne i32 %phi.call.fr, 0
-  %spec.select60 = sext i1 %.not55 to i32
+  %phi.call.in = phi i32 [ %.fr, %.split50 ], [ %.fr61, %ntt_free.exit138.sink.split.i ]
+  %phi.call = icmp ne i32 %phi.call.in, 0
+  %spec.select60 = sext i1 %phi.call to i32
   br label %ntt_fft_partial.exit.thread
 
 ntt_fft_partial.exit.thread:                      ; preds = %ntt_fft_partial.exit, %ntt_vec_mul.exit, %16, %6

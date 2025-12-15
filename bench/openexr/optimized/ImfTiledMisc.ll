@@ -333,10 +333,10 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 12:                                               ; preds = %9
-  %13 = sub nsw i32 %2, %1
-  %14 = sub nsw i32 %4, %3
+  %13 = sub i32 %2, %1
+  %14 = sub i32 %4, %3
   %15 = tail call i32 @llvm.smax.i32(i32 %13, i32 %14)
-  %.sroa.speculated.i = add nsw i32 %15, 1
+  %.sroa.speculated.i = add i32 %15, 1
   %16 = icmp eq i32 %.val27, 0
   %17 = icmp sgt i32 %15, 0
   br i1 %16, label %18, label %22
@@ -437,7 +437,7 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.
 .lr.ph.i.i.i51:                                   ; preds = %51, %.lr.ph.i.i.i51
   %.06.i.i.i52 = phi i32 [ %52, %.lr.ph.i.i.i51 ], [ 0, %51 ]
   %.045.i.i.i53 = phi i32 [ %53, %.lr.ph.i.i.i51 ], [ %.sroa.speculated.i, %51 ]
-  %52 = add nuw nsw i32 %.06.i.i.i52, 1
+  %52 = add i32 %.06.i.i.i52, 1
   %53 = lshr i32 %.045.i.i.i53, 1
   %54 = icmp samesign ugt i32 %.045.i.i.i53, 3
   br i1 %54, label %.lr.ph.i.i.i51, label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43, !llvm.loop !35
@@ -452,18 +452,18 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.
   %56 = and i32 %.078.i.i.i47, 1
   %.not.i.i.i48 = icmp eq i32 %56, 0
   %spec.select.i.i.i49 = select i1 %.not.i.i.i48, i32 %.010.i.i.i45, i32 1
-  %57 = add nuw nsw i32 %.069.i.i.i46, 1
+  %57 = add i32 %.069.i.i.i46, 1
   %58 = lshr i32 %.078.i.i.i47, 1
   %59 = icmp samesign ugt i32 %.078.i.i.i47, 3
   br i1 %59, label %.lr.ph.i3.i.i44, label %._crit_edge.loopexit.i.i.i50, !llvm.loop !36
 
 ._crit_edge.loopexit.i.i.i50:                     ; preds = %.lr.ph.i3.i.i44
-  %60 = add nuw nsw i32 %spec.select.i.i.i49, %57
+  %60 = add i32 %spec.select.i.i.i49, %57
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43
 
 _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43: ; preds = %.lr.ph.i.i.i51, %._crit_edge.loopexit.i.i.i50, %55, %51
   %61 = phi i32 [ 0, %51 ], [ 0, %55 ], [ %60, %._crit_edge.loopexit.i.i.i50 ], [ %52, %.lr.ph.i.i.i51 ]
-  %62 = add nsw i32 %61, 1
+  %62 = add i32 %61, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 .loopexit71:                                      ; preds = %.lr.ph.i.i19.i, %._crit_edge.loopexit.i.i18.i, %37, %33
@@ -471,8 +471,8 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43: ; preds =
   %64 = add nsw i32 %63, 1
   store i32 %64, ptr %7, align 4, !tbaa !25
   %.val29 = load i32, ptr %11, align 4
-  %65 = sub nsw i32 %4, %3
-  %66 = add nsw i32 %65, 1
+  %65 = sub i32 %4, %3
+  %66 = add i32 %65, 1
   %67 = icmp eq i32 %.val29, 0
   %68 = icmp sgt i32 %65, 0
   br i1 %67, label %69, label %73
@@ -483,7 +483,7 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43: ; preds =
 .lr.ph.i.i19.i39:                                 ; preds = %69, %.lr.ph.i.i19.i39
   %.06.i.i20.i40 = phi i32 [ %70, %.lr.ph.i.i19.i39 ], [ 0, %69 ]
   %.045.i.i21.i41 = phi i32 [ %71, %.lr.ph.i.i19.i39 ], [ %66, %69 ]
-  %70 = add nuw nsw i32 %.06.i.i20.i40, 1
+  %70 = add i32 %.06.i.i20.i40, 1
   %71 = lshr i32 %.045.i.i21.i41, 1
   %72 = icmp samesign ugt i32 %.045.i.i21.i41, 3
   br i1 %72, label %.lr.ph.i.i19.i39, label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30, !llvm.loop !35
@@ -498,25 +498,24 @@ _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43: ; preds =
   %74 = and i32 %.078.i.i15.i35, 1
   %.not.i.i16.i36 = icmp eq i32 %74, 0
   %spec.select.i.i17.i37 = select i1 %.not.i.i16.i36, i32 %.010.i.i13.i33, i32 1
-  %75 = add nuw nsw i32 %.069.i.i14.i34, 1
+  %75 = add i32 %.069.i.i14.i34, 1
   %76 = lshr i32 %.078.i.i15.i35, 1
   %77 = icmp samesign ugt i32 %.078.i.i15.i35, 3
   br i1 %77, label %.lr.ph.i3.i12.i32, label %._crit_edge.loopexit.i.i18.i38, !llvm.loop !36
 
 ._crit_edge.loopexit.i.i18.i38:                   ; preds = %.lr.ph.i3.i12.i32
-  %78 = add nuw nsw i32 %spec.select.i.i17.i37, %75
+  %78 = add i32 %spec.select.i.i17.i37, %75
   br label %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30
 
 _ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30: ; preds = %.lr.ph.i.i19.i39, %._crit_edge.loopexit.i.i18.i38, %73, %69
   %79 = phi i32 [ 0, %69 ], [ 0, %73 ], [ %78, %._crit_edge.loopexit.i.i18.i38 ], [ %70, %.lr.ph.i.i19.i39 ]
-  %80 = add nsw i32 %79, 1
+  %80 = add i32 %79, 1
   br label %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
 
 _ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30
   %.val2966 = phi i32 [ %.val2969, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %.val29, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ %.val2965, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
   %.0.i31 = phi i32 [ %62, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit.i43 ], [ %80, %_ZN7Imf_3_412_GLOBAL__N_19roundLog2EiNS_17LevelRoundingModeE.exit22.i30 ], [ 1, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumXLevelsERKNS_15TileDescriptionEiiii.exit.thread ]
-  %.0.i31.fr = freeze i32 %.0.i31
-  store i32 %.0.i31.fr, ptr %8, align 4, !tbaa !25
+  store i32 %.0.i31, ptr %8, align 4, !tbaa !25
   %81 = load i32, ptr %7, align 4, !tbaa !25
   %82 = sext i32 %81 to i64
   %83 = icmp slt i32 %81, 0
@@ -524,9 +523,9 @@ _ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit:
   %85 = select i1 %83, i64 -1, i64 %84
   %86 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %85) #16
   store ptr %86, ptr %5, align 8, !tbaa !37
-  %87 = zext nneg i32 %.0.i31.fr to i64
-  %88 = icmp slt i32 %.0.i31.fr, 0
-  %89 = shl nuw nsw i64 %87, 2
+  %87 = sext i32 %.0.i31 to i64
+  %88 = icmp slt i32 %.0.i31, 0
+  %89 = shl nsw i64 %87, 2
   %spec.select = select i1 %88, i64 -1, i64 %89
   %90 = tail call noalias noundef nonnull ptr @_Znam(i64 noundef %spec.select) #16
   store ptr %90, ptr %6, align 8, !tbaa !37
@@ -570,7 +569,7 @@ _ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.
   br label %_ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit
 
 _ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit: ; preds = %_ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit
-  %110 = phi i32 [ %.pre, %_ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit ], [ %.0.i31.fr, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit ]
+  %110 = phi i32 [ %.pre, %_ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit.loopexit ], [ %.0.i31, %_ZN7Imf_3_412_GLOBAL__N_119calculateNumYLevelsERKNS_15TileDescriptionEiiii.exit ]
   %111 = icmp sgt i32 %110, 0
   br i1 %111, label %.lr.ph.i54, label %_ZN7Imf_3_412_GLOBAL__N_117calculateNumTilesEPiiiiiNS_17LevelRoundingModeE.exit63
 

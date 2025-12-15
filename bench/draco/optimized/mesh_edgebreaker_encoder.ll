@@ -623,11 +623,11 @@ define void @_ZN5draco22MeshEdgebreakerEncoder28ComputeNumberOfEncodedPointsEv(p
   %.pre200 = lshr exact i64 %.pre198, 2
   %36 = getelementptr inbounds nuw i8, ptr %78, i64 192
   %37 = getelementptr inbounds nuw i8, ptr %8, i64 24
-  %38 = ptrtoint ptr %.sroa.11.0.lcssa.fr to i64
+  %38 = ptrtoint ptr %.sroa.11.1 to i64
   %39 = ptrtoint ptr %.sroa.0117.1 to i64
   %40 = sub i64 %38, %39
   %41 = ashr exact i64 %40, 3
-  %.not175 = icmp eq ptr %.sroa.11.0.lcssa.fr, %.sroa.0117.1
+  %.not175 = icmp eq ptr %.sroa.11.1, %.sroa.0117.1
   %umax = tail call i64 @llvm.umax.i64(i64 %41, i64 1)
   %wide.trip.count = and i64 %.pre200, 4294967295
   br label %92
@@ -636,7 +636,7 @@ define void @_ZN5draco22MeshEdgebreakerEncoder28ComputeNumberOfEncodedPointsEv(p
   %indvars.iv = phi i64 [ %indvars.iv.next, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit ], [ 0, %9 ]
   %42 = phi ptr [ %82, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit ], [ %28, %9 ]
   %.sroa.0117.0153 = phi ptr [ %.sroa.0117.1, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit ], [ null, %9 ]
-  %.sroa.11.0152 = phi ptr [ %.sroa.11.0.lcssa.fr, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit ], [ null, %9 ]
+  %.sroa.11.0152 = phi ptr [ %.sroa.11.1, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit ], [ null, %9 ]
   %.sroa.15.0151 = phi ptr [ %.sroa.15.1, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit ], [ null, %9 ]
   %43 = getelementptr inbounds nuw %"class.std::unique_ptr.162", ptr %42, i64 %indvars.iv
   %44 = load ptr, ptr %43, align 8, !tbaa !90
@@ -663,7 +663,7 @@ define void @_ZN5draco22MeshEdgebreakerEncoder28ComputeNumberOfEncodedPointsEv(p
 
 56:                                               ; preds = %55
   store ptr %53, ptr %.sroa.11.0152, align 8, !tbaa !98
-  %57 = getelementptr inbounds nuw i8, ptr %.sroa.11.0152, i64 8
+  %57 = getelementptr i8, ptr %.sroa.11.0152, i64 8
   br label %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit
 
 58:                                               ; preds = %55
@@ -704,7 +704,7 @@ _ZNKSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE12_M_check_lenEmPKc.ex
   br label %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i
 
 _ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE11_S_relocateEPS3_S6_S6_RS4_.exit16.i.i: ; preds = %73, %.noexc76
-  %74 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %74 = getelementptr i8, ptr %71, i64 8
   %.not.i17.i.i = icmp eq ptr %.sroa.0117.0153, null
   br i1 %.not.i17.i.i, label %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i, label %75
 
@@ -737,7 +737,6 @@ _ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE9push_backERKS3_.exit: 
   %.sroa.15.1 = phi ptr [ %.sroa.15.0151, %.lr.ph ], [ %.sroa.15.0151, %54 ], [ %76, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.15.0151, %56 ]
   %.sroa.11.1 = phi ptr [ %.sroa.11.0152, %.lr.ph ], [ %.sroa.11.0152, %54 ], [ %74, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %57, %56 ]
   %.sroa.0117.1 = phi ptr [ %.sroa.0117.0153, %.lr.ph ], [ %.sroa.0117.0153, %54 ], [ %70, %_ZNSt6vectorIPKN5draco24MeshAttributeCornerTableESaIS3_EE17_M_realloc_insertIJRKS3_EEEvN9__gnu_cxx17__normal_iteratorIPS3_S5_EEDpOT_.exit.i ], [ %.sroa.0117.0153, %56 ]
-  %.sroa.11.0.lcssa.fr = freeze ptr %.sroa.11.1
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %78 = load ptr, ptr %23, align 8, !tbaa !36
   %79 = getelementptr inbounds nuw i8, ptr %78, i64 16

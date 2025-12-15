@@ -1563,7 +1563,9 @@ updateminmax.exit352.thread.i:                    ; preds = %528
   %609 = load i32, ptr %608, align 4
   %610 = getelementptr inbounds nuw i8, ptr %595, i64 44
   %611 = load i32, ptr %610, align 4
-  %612 = sub i32 %609, %611
+  %.fr211.i.i = freeze i32 %609
+  %.fr212.i.i = freeze i32 %611
+  %612 = sub i32 %.fr211.i.i, %.fr212.i.i
   %.not20.i.i.i = icmp eq i32 %612, 0
   br i1 %.not20.i.i.i, label %613, label %rule_cmp.exit.i.i
 
@@ -1572,13 +1574,14 @@ updateminmax.exit352.thread.i:                    ; preds = %528
   %615 = load i32, ptr %614, align 4
   %616 = getelementptr inbounds nuw i8, ptr %595, i64 52
   %617 = load i32, ptr %616, align 4
-  %618 = sub i32 %615, %617
+  %.fr.i.i = freeze i32 %615
+  %.fr210.i.i = freeze i32 %617
+  %618 = sub i32 %.fr.i.i, %.fr210.i.i
   br label %rule_cmp.exit.i.i
 
 rule_cmp.exit.i.i:                                ; preds = %613, %607
   %.0.i.i.i = phi i32 [ %618, %613 ], [ %612, %607 ]
-  %.0.i.fr.i.i = freeze i32 %.0.i.i.i
-  %619 = icmp slt i32 %.0.i.fr.i.i, 0
+  %619 = icmp slt i32 %.0.i.i.i, 0
   br i1 %619, label %rule_cmp.exit.thread.i.i, label %rule_cmp.exit.thread195.i.i
 
 rule_cmp.exit.thread.i.i:                         ; preds = %rule_cmp.exit.i.i, %605, %599
@@ -1606,7 +1609,9 @@ rule_cmp.exit.thread195.i.i:                      ; preds = %rule_cmp.exit.threa
   %629 = load i32, ptr %628, align 4
   %630 = getelementptr inbounds nuw i8, ptr %595, i64 44
   %631 = load i32, ptr %630, align 4
-  %632 = sub i32 %629, %631
+  %.fr215.i.i = freeze i32 %629
+  %.fr216.i.i = freeze i32 %631
+  %632 = sub i32 %.fr215.i.i, %.fr216.i.i
   %.not20.i131.i.i = icmp eq i32 %632, 0
   br i1 %.not20.i131.i.i, label %633, label %rule_cmp.exit133.i.i
 
@@ -1615,13 +1620,14 @@ rule_cmp.exit.thread195.i.i:                      ; preds = %rule_cmp.exit.threa
   %635 = load i32, ptr %634, align 4
   %636 = getelementptr inbounds nuw i8, ptr %595, i64 52
   %637 = load i32, ptr %636, align 4
-  %638 = sub i32 %635, %637
+  %.fr213.i.i = freeze i32 %635
+  %.fr214.i.i = freeze i32 %637
+  %638 = sub i32 %.fr213.i.i, %.fr214.i.i
   br label %rule_cmp.exit133.i.i
 
 rule_cmp.exit133.i.i:                             ; preds = %633, %627
   %.0.i130.i.i = phi i32 [ %638, %633 ], [ %632, %627 ]
-  %.0.i130.fr.i.i = freeze i32 %.0.i130.i.i
-  %639 = icmp slt i32 %.0.i130.fr.i.i, 0
+  %639 = icmp slt i32 %.0.i130.i.i, 0
   br i1 %639, label %rule_cmp.exit133.thread.i.i, label %rule_cmp.exit133.thread202.i.i
 
 rule_cmp.exit133.thread.i.i:                      ; preds = %rule_cmp.exit133.i.i, %625, %rule_cmp.exit.thread195.i.i

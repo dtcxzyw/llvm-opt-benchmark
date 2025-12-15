@@ -814,6 +814,7 @@ define i64 @ZSTD_getFrameContentSize(ptr noundef %0, i64 noundef %1) local_unnam
   %.not17.i = icmp eq i64 %13, 0
   %14 = load i64, ptr %3, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
+  %.fr = freeze i64 %14
   br i1 %.not17.i, label %ZSTD_getDecompressedSize_legacy.exit, label %ZSTD_getDecompressedSize_legacy.exit.thread
 
 15:                                               ; preds = %11
@@ -822,6 +823,7 @@ define i64 @ZSTD_getFrameContentSize(ptr noundef %0, i64 noundef %1) local_unnam
   %.not16.i = icmp eq i64 %16, 0
   %17 = load i64, ptr %4, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
+  %.fr17 = freeze i64 %17
   br i1 %.not16.i, label %ZSTD_getDecompressedSize_legacy.exit, label %ZSTD_getDecompressedSize_legacy.exit.thread
 
 18:                                               ; preds = %11
@@ -830,12 +832,12 @@ define i64 @ZSTD_getFrameContentSize(ptr noundef %0, i64 noundef %1) local_unnam
   %.not.i = icmp eq i64 %19, 0
   %20 = load i64, ptr %5, align 8
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  %.fr18 = freeze i64 %20
   br i1 %.not.i, label %ZSTD_getDecompressedSize_legacy.exit, label %ZSTD_getDecompressedSize_legacy.exit.thread
 
 ZSTD_getDecompressedSize_legacy.exit:             ; preds = %18, %15, %12
-  %.0.i9 = phi i64 [ %14, %12 ], [ %17, %15 ], [ %20, %18 ]
-  %.0.i9.fr = freeze i64 %.0.i9
-  %21 = icmp eq i64 %.0.i9.fr, 0
+  %.0.i9 = phi i64 [ %.fr, %12 ], [ %.fr17, %15 ], [ %.fr18, %18 ]
+  %21 = icmp eq i64 %.0.i9, 0
   br i1 %21, label %ZSTD_getDecompressedSize_legacy.exit.thread, label %27
 
 ZSTD_getDecompressedSize_legacy.exit.thread:      ; preds = %18, %15, %12, %ZSTD_getDecompressedSize_legacy.exit
@@ -855,7 +857,7 @@ ZSTD_isLegacy.exit.thread:                        ; preds = %8, %2
   br label %27
 
 27:                                               ; preds = %ZSTD_getDecompressedSize_legacy.exit.thread, %ZSTD_getDecompressedSize_legacy.exit, %ZSTD_isLegacy.exit.thread
-  %.0 = phi i64 [ %.1, %ZSTD_isLegacy.exit.thread ], [ -1, %ZSTD_getDecompressedSize_legacy.exit.thread ], [ %.0.i9.fr, %ZSTD_getDecompressedSize_legacy.exit ]
+  %.0 = phi i64 [ %.1, %ZSTD_isLegacy.exit.thread ], [ -1, %ZSTD_getDecompressedSize_legacy.exit.thread ], [ %.0.i9, %ZSTD_getDecompressedSize_legacy.exit ]
   ret i64 %.0
 }
 
@@ -1364,7 +1366,8 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   %.082 = phi ptr [ %14, %13 ], [ %5, %8 ]
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 30104
   %18 = load i32, ptr %17, align 8, !tbaa !34
-  %19 = icmp ne i32 %18, 0
+  %.fr285 = freeze i32 %18
+  %19 = icmp ne i32 %.fr285, 0
   %20 = select i1 %19, i64 1, i64 5
   %.not97221268277 = icmp ult i64 %4, %20
   br i1 %.not97221268277, label %.outer184._crit_edge, label %.lr.ph.lr.ph.lr.ph
@@ -1433,8 +1436,7 @@ define internal fastcc i64 @ZSTD_decompressMultiFrame(ptr noundef %0, ptr nounde
   %.079.ph187271 = phi i64 [ %.079.ph281, %.lr.ph.lr.ph ], [ %110, %.outer184 ]
   %.0135.ph186270 = phi i64 [ %.0135.ph279, %.lr.ph.lr.ph ], [ %112, %.outer184 ]
   %.0140.ph185269 = phi ptr [ %.0140.ph278, %.lr.ph.lr.ph ], [ %111, %.outer184 ]
-  %.fr = freeze i1 %67
-  br i1 %.fr, label %.thread159, label %.lr.ph.split
+  br i1 %67, label %.thread159, label %.lr.ph.split
 
 .lr.ph.split:                                     ; preds = %.lr.ph, %127
   %.0135223 = phi i64 [ %129, %127 ], [ %.0135.ph186270, %.lr.ph ]
@@ -1571,7 +1573,8 @@ ZSTD_decompressLegacy.exit:                       ; preds = %90, %96, %102
   %111 = getelementptr inbounds nuw i8, ptr %.0140222, i64 %78
   %112 = sub i64 %.0135223, %78
   %113 = load i32, ptr %17, align 8, !tbaa !34
-  %114 = icmp ne i32 %113, 0
+  %.fr287 = freeze i32 %113
+  %114 = icmp ne i32 %.fr287, 0
   %115 = select i1 %114, i64 1, i64 5
   %.not97221 = icmp ult i64 %112, %115
   br i1 %.not97221, label %.outer184._crit_edge, label %.lr.ph
@@ -1917,7 +1920,8 @@ ZSTD_decompressFrame.exit:                        ; preds = %255, %268, %146, %Z
   %274 = getelementptr inbounds nuw i8, ptr %.075.ph188272, i64 %.0.i114
   %275 = sub i64 %.079.ph187271, %.0.i114
   %276 = load i32, ptr %17, align 8, !tbaa !34
-  %277 = icmp ne i32 %276, 0
+  %.fr286 = freeze i32 %276
+  %277 = icmp ne i32 %.fr286, 0
   %278 = select i1 %277, i64 1, i64 5
   %.not97221268 = icmp ult i64 %.4139, %278
   br i1 %.not97221268, label %.outer184._crit_edge, label %.lr.ph.lr.ph, !llvm.loop !116

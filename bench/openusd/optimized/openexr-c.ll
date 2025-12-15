@@ -16356,6 +16356,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8
   %31 = call i32 %30(ptr noundef %28, ptr noundef %.064, i64 noundef %27, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 0) #53
+  %.fr84 = freeze i32 %31
   %32 = load i64, ptr %4, align 8
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %34, label %.loopexit
@@ -16373,6 +16374,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %41 = load ptr, ptr %40, align 8
   %42 = load ptr, ptr %0, align 8
   %43 = call i32 %41(ptr noundef %39, ptr noundef %42, i64 noundef 4096, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 1) #53
+  %.fr83 = freeze i32 %43
   %44 = load i64, ptr %5, align 8
   %45 = icmp sgt i64 %44, 0
   br i1 %45, label %46, label %47
@@ -16391,10 +16393,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 64
   %52 = load ptr, ptr %51, align 8
   %53 = call i32 %52(ptr noundef %50, i32 noundef 10, ptr noundef nonnull @.str.155) #53
+  %.fr = freeze i32 %53
   br label %.loopexit
 
 54:                                               ; preds = %34, %46, %13
-  %.2 = phi i32 [ %.05061, %13 ], [ %31, %34 ], [ %43, %46 ]
+  %.2 = phi i32 [ %.05061, %13 ], [ %.fr84, %34 ], [ %.fr83, %46 ]
   %.149 = phi i64 [ %21, %13 ], [ %35, %34 ], [ %.04862, %46 ]
   %.146 = phi i64 [ %23, %13 ], [ %37, %34 ], [ %.04563, %46 ]
   %.1 = phi ptr [ %22, %13 ], [ %36, %34 ], [ %.064, %46 ]
@@ -16403,12 +16406,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
 
 .loopexit:                                        ; preds = %54, %26, %47, %49
   %.04559 = phi i64 [ %.04563, %49 ], [ %.04563, %47 ], [ %.146, %54 ], [ %.04563, %26 ]
-  %.151 = phi i32 [ %53, %49 ], [ %43, %47 ], [ %.2, %54 ], [ %31, %26 ]
-  %.151.fr = freeze i32 %.151
-  %55 = icmp eq i32 %.151.fr, -1
+  %.151 = phi i32 [ %.fr, %49 ], [ %.fr83, %47 ], [ %.2, %54 ], [ %.fr84, %26 ]
+  %55 = icmp eq i32 %.151, -1
   %56 = icmp eq i64 %.04559, %2
   %. = select i1 %56, i32 0, i32 10
-  %spec.select82 = select i1 %55, i32 %., i32 %.151.fr
+  %spec.select82 = select i1 %55, i32 %., i32 %.151
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %3
@@ -16457,6 +16459,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
   %21 = load ptr, ptr %20, align 8
   %22 = load ptr, ptr %0, align 8
   %23 = call i32 %21(ptr noundef %19, ptr noundef %22, i64 noundef 4096, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #53
+  %.fr57 = freeze i32 %23
   %24 = load i64, ptr %3, align 8
   %25 = icmp sgt i64 %24, 0
   br i1 %25, label %26, label %27
@@ -16475,24 +16478,24 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
   %31 = getelementptr inbounds nuw i8, ptr %30, i64 64
   %32 = load ptr, ptr %31, align 8
   %33 = call i32 %32(ptr noundef %30, i32 noundef 10, ptr noundef nonnull @.str.155) #53
+  %.fr = freeze i32 %33
   br label %.loopexit
 
 34:                                               ; preds = %26, %12
   %35 = phi i64 [ %15, %12 ], [ %24, %26 ]
   %.131 = phi i64 [ %16, %12 ], [ %.03041, %26 ]
-  %.2 = phi i32 [ %.02842, %12 ], [ %23, %26 ]
+  %.2 = phi i32 [ %.02842, %12 ], [ %.fr57, %26 ]
   %.1 = phi i64 [ %17, %12 ], [ %.02743, %26 ]
   %.not = icmp eq i64 %.131, 0
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !78
 
 .loopexit:                                        ; preds = %34, %27, %29
   %.02736 = phi i64 [ %.02743, %29 ], [ %.02743, %27 ], [ %.1, %34 ]
-  %.129 = phi i32 [ %33, %29 ], [ %23, %27 ], [ %.2, %34 ]
-  %.129.fr = freeze i32 %.129
-  %36 = icmp eq i32 %.129.fr, -1
+  %.129 = phi i32 [ %.fr, %29 ], [ %.fr57, %27 ], [ %.2, %34 ]
+  %36 = icmp eq i32 %.129, -1
   %37 = icmp eq i64 %.02736, %4
   %. = select i1 %37, i32 0, i32 10
-  %spec.select56 = select i1 %36, i32 %., i32 %.129.fr
+  %spec.select56 = select i1 %36, i32 %., i32 %.129
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %2

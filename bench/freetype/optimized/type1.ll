@@ -3072,9 +3072,9 @@ switch.lookup:                                    ; preds = %13
   %.not443 = icmp ne ptr %3, null
   %22 = icmp sgt i64 %4, 7
   %or.cond448 = and i1 %.not443, %22
-  br i1 %or.cond448, label %switch.lookup540, label %.thread498
+  br i1 %or.cond448, label %switch.lookup549, label %.thread498
 
-switch.lookup540:                                 ; preds = %21
+switch.lookup549:                                 ; preds = %21
   %23 = shl nuw nsw i32 %2, 3
   %24 = zext nneg i32 %23 to i64
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 %24
@@ -3103,10 +3103,11 @@ switch.lookup540:                                 ; preds = %21
 
 34:                                               ; preds = %31
   %35 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %33) #18
-  %36 = add i64 %35, 1
+  %.fr = freeze i64 %35
+  %36 = add i64 %.fr, 1
   %.not439 = icmp eq ptr %3, null
   %.not440 = icmp ult i64 %6, %36
-  %or.cond450 = select i1 %.not439, i1 true, i1 %.not440
+  %or.cond450 = or i1 %.not439, %.not440
   br i1 %or.cond450, label %345, label %37
 
 37:                                               ; preds = %34
@@ -3150,10 +3151,11 @@ switch.lookup540:                                 ; preds = %21
   %56 = getelementptr inbounds nuw ptr, ptr %54, i64 %55
   %57 = load ptr, ptr %56, align 8, !tbaa !155
   %58 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %57) #18
-  %59 = add i64 %58, 1
+  %.fr507 = freeze i64 %58
+  %59 = add i64 %.fr507, 1
   %.not434 = icmp eq ptr %3, null
   %.not435 = icmp ult i64 %6, %59
-  %or.cond453 = select i1 %.not434, i1 true, i1 %.not435
+  %or.cond453 = or i1 %.not434, %.not435
   br i1 %or.cond453, label %345, label %60
 
 60:                                               ; preds = %52
@@ -3172,7 +3174,8 @@ switch.lookup540:                                 ; preds = %21
   %68 = zext i32 %2 to i64
   %69 = getelementptr inbounds nuw i32, ptr %67, i64 %68
   %70 = load i32, ptr %69, align 4, !tbaa !19
-  %71 = add i32 %70, 1
+  %.fr508 = freeze i32 %70
+  %71 = add i32 %.fr508, 1
   %72 = zext i32 %71 to i64
   %.not432 = icmp eq ptr %3, null
   %.not433 = icmp samesign ult i64 %6, %72
@@ -3221,10 +3224,11 @@ switch.lookup540:                                 ; preds = %21
   %97 = getelementptr inbounds nuw ptr, ptr %95, i64 %96
   %98 = load ptr, ptr %97, align 8, !tbaa !155
   %99 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %98) #18
-  %100 = add i64 %99, 1
+  %.fr509 = freeze i64 %99
+  %100 = add i64 %.fr509, 1
   %.not429 = icmp eq ptr %3, null
   %.not430 = icmp ult i64 %6, %100
-  %or.cond456 = select i1 %.not429, i1 true, i1 %.not430
+  %or.cond456 = or i1 %.not429, %.not430
   br i1 %or.cond456, label %345, label %101
 
 101:                                              ; preds = %93
@@ -3278,7 +3282,8 @@ switch.lookup540:                                 ; preds = %21
   %123 = zext i32 %.1497 to i64
   %124 = getelementptr inbounds nuw i32, ptr %122, i64 %123
   %125 = load i32, ptr %124, align 4, !tbaa !19
-  %126 = add i32 %125, 1
+  %.fr515 = freeze i32 %125
+  %126 = add i32 %.fr515, 1
   %127 = zext i32 %126 to i64
   %.not426 = icmp eq ptr %3, null
   %.not427 = icmp samesign ult i64 %6, %127
@@ -3686,10 +3691,11 @@ switch.lookup540:                                 ; preds = %21
 
 308:                                              ; preds = %305
   %309 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %307) #18
-  %310 = add i64 %309, 1
+  %.fr510 = freeze i64 %309
+  %310 = add i64 %.fr510, 1
   %.not384 = icmp eq ptr %3, null
   %.not385 = icmp ult i64 %6, %310
-  %or.cond486 = select i1 %.not384, i1 true, i1 %.not385
+  %or.cond486 = or i1 %.not384, %.not385
   br i1 %or.cond486, label %345, label %311
 
 311:                                              ; preds = %308
@@ -3704,10 +3710,11 @@ switch.lookup540:                                 ; preds = %21
 
 315:                                              ; preds = %312
   %316 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %314) #18
-  %317 = add i64 %316, 1
+  %.fr511 = freeze i64 %316
+  %317 = add i64 %.fr511, 1
   %.not381 = icmp eq ptr %3, null
   %.not382 = icmp ult i64 %6, %317
-  %or.cond487 = select i1 %.not381, i1 true, i1 %.not382
+  %or.cond487 = or i1 %.not381, %.not382
   br i1 %or.cond487, label %345, label %318
 
 318:                                              ; preds = %315
@@ -3722,10 +3729,11 @@ switch.lookup540:                                 ; preds = %21
 
 322:                                              ; preds = %319
   %323 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %321) #18
-  %324 = add i64 %323, 1
+  %.fr512 = freeze i64 %323
+  %324 = add i64 %.fr512, 1
   %.not378 = icmp eq ptr %3, null
   %.not379 = icmp ult i64 %6, %324
-  %or.cond488 = select i1 %.not378, i1 true, i1 %.not379
+  %or.cond488 = or i1 %.not378, %.not379
   br i1 %or.cond488, label %345, label %325
 
 325:                                              ; preds = %322
@@ -3740,10 +3748,11 @@ switch.lookup540:                                 ; preds = %21
 
 329:                                              ; preds = %326
   %330 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %328) #18
-  %331 = add i64 %330, 1
+  %.fr513 = freeze i64 %330
+  %331 = add i64 %.fr513, 1
   %.not375 = icmp eq ptr %3, null
   %.not376 = icmp ult i64 %6, %331
-  %or.cond489 = select i1 %.not375, i1 true, i1 %.not376
+  %or.cond489 = or i1 %.not375, %.not376
   br i1 %or.cond489, label %345, label %332
 
 332:                                              ; preds = %329
@@ -3758,10 +3767,11 @@ switch.lookup540:                                 ; preds = %21
 
 336:                                              ; preds = %333
   %337 = tail call i64 @strlen(ptr noundef nonnull dereferenceable(1) %335) #18
-  %338 = add i64 %337, 1
+  %.fr514 = freeze i64 %337
+  %338 = add i64 %.fr514, 1
   %.not372 = icmp eq ptr %3, null
   %.not373 = icmp ult i64 %6, %338
-  %or.cond490 = select i1 %.not372, i1 true, i1 %.not373
+  %or.cond490 = or i1 %.not372, %.not373
   br i1 %or.cond490, label %345, label %339
 
 339:                                              ; preds = %336
@@ -3782,15 +3792,14 @@ switch.lookup540:                                 ; preds = %21
 
 345:                                              ; preds = %128, %120, %339, %336, %332, %329, %325, %322, %318, %315, %311, %308, %101, %93, %73, %65, %60, %52, %37, %34
   %.0326 = phi i64 [ %36, %37 ], [ %36, %34 ], [ %59, %60 ], [ %59, %52 ], [ %72, %73 ], [ %72, %65 ], [ %100, %101 ], [ %100, %93 ], [ %310, %311 ], [ %310, %308 ], [ %317, %318 ], [ %317, %315 ], [ %324, %325 ], [ %324, %322 ], [ %331, %332 ], [ %331, %329 ], [ %338, %339 ], [ %338, %336 ], [ %127, %128 ], [ %127, %120 ]
-  %.0326.fr = freeze i64 %.0326
-  %346 = icmp eq i64 %.0326.fr, 0
+  %346 = icmp eq i64 %.0326, 0
   br i1 %346, label %.thread502, label %.thread498
 
 .thread502:                                       ; preds = %110, %114, %117, %333, %326, %319, %312, %305, %262, %242, %226, %210, %194, %178, %147, %85, %89, %61, %48, %31, %19, %11, %5, %345
   br label %.thread498
 
-.thread498:                                       ; preds = %21, %switch.lookup540, %13, %switch.lookup, %340, %342, %300, %302, %295, %297, %290, %292, %286, %287, %281, %283, %276, %278, %271, %273, %265, %267, %258, %259, %254, %255, %247, %249, %238, %239, %231, %233, %222, %223, %215, %217, %206, %207, %199, %201, %190, %191, %183, %185, %174, %175, %169, %171, %164, %166, %159, %161, %152, %154, %143, %144, %138, %140, %133, %135, %102, %104, %80, %82, %43, %45, %38, %40, %27, %28, %7, %8, %345, %.thread502
-  %347 = phi i64 [ -1, %.thread502 ], [ %.0326.fr, %345 ], [ 8, %21 ], [ 8, %switch.lookup540 ], [ 8, %13 ], [ 8, %switch.lookup ], [ 8, %340 ], [ 8, %342 ], [ 2, %300 ], [ 2, %302 ], [ 2, %295 ], [ 2, %297 ], [ 2, %290 ], [ 2, %292 ], [ 1, %286 ], [ 1, %287 ], [ 8, %281 ], [ 8, %283 ], [ 8, %276 ], [ 8, %278 ], [ 4, %271 ], [ 4, %273 ], [ 2, %265 ], [ 2, %267 ], [ 1, %258 ], [ 1, %259 ], [ 1, %254 ], [ 1, %255 ], [ 2, %247 ], [ 2, %249 ], [ 1, %238 ], [ 1, %239 ], [ 2, %231 ], [ 2, %233 ], [ 1, %222 ], [ 1, %223 ], [ 2, %215 ], [ 2, %217 ], [ 1, %206 ], [ 1, %207 ], [ 2, %199 ], [ 2, %201 ], [ 1, %190 ], [ 1, %191 ], [ 2, %183 ], [ 2, %185 ], [ 1, %174 ], [ 1, %175 ], [ 4, %169 ], [ 4, %171 ], [ 4, %164 ], [ 4, %166 ], [ 8, %159 ], [ 8, %161 ], [ 2, %152 ], [ 2, %154 ], [ 1, %143 ], [ 1, %144 ], [ 2, %138 ], [ 2, %140 ], [ 2, %133 ], [ 2, %135 ], [ 4, %102 ], [ 4, %104 ], [ 4, %80 ], [ 4, %82 ], [ 4, %43 ], [ 4, %45 ], [ 4, %38 ], [ 4, %40 ], [ 1, %27 ], [ 1, %28 ], [ 1, %7 ], [ 1, %8 ]
+.thread498:                                       ; preds = %21, %switch.lookup549, %13, %switch.lookup, %340, %342, %300, %302, %295, %297, %290, %292, %286, %287, %281, %283, %276, %278, %271, %273, %265, %267, %258, %259, %254, %255, %247, %249, %238, %239, %231, %233, %222, %223, %215, %217, %206, %207, %199, %201, %190, %191, %183, %185, %174, %175, %169, %171, %164, %166, %159, %161, %152, %154, %143, %144, %138, %140, %133, %135, %102, %104, %80, %82, %43, %45, %38, %40, %27, %28, %7, %8, %345, %.thread502
+  %347 = phi i64 [ -1, %.thread502 ], [ %.0326, %345 ], [ 8, %21 ], [ 8, %switch.lookup549 ], [ 8, %13 ], [ 8, %switch.lookup ], [ 8, %340 ], [ 8, %342 ], [ 2, %300 ], [ 2, %302 ], [ 2, %295 ], [ 2, %297 ], [ 2, %290 ], [ 2, %292 ], [ 1, %286 ], [ 1, %287 ], [ 8, %281 ], [ 8, %283 ], [ 8, %276 ], [ 8, %278 ], [ 4, %271 ], [ 4, %273 ], [ 2, %265 ], [ 2, %267 ], [ 1, %258 ], [ 1, %259 ], [ 1, %254 ], [ 1, %255 ], [ 2, %247 ], [ 2, %249 ], [ 1, %238 ], [ 1, %239 ], [ 2, %231 ], [ 2, %233 ], [ 1, %222 ], [ 1, %223 ], [ 2, %215 ], [ 2, %217 ], [ 1, %206 ], [ 1, %207 ], [ 2, %199 ], [ 2, %201 ], [ 1, %190 ], [ 1, %191 ], [ 2, %183 ], [ 2, %185 ], [ 1, %174 ], [ 1, %175 ], [ 4, %169 ], [ 4, %171 ], [ 4, %164 ], [ 4, %166 ], [ 8, %159 ], [ 8, %161 ], [ 2, %152 ], [ 2, %154 ], [ 1, %143 ], [ 1, %144 ], [ 2, %138 ], [ 2, %140 ], [ 2, %133 ], [ 2, %135 ], [ 4, %102 ], [ 4, %104 ], [ 4, %80 ], [ 4, %82 ], [ 4, %43 ], [ 4, %45 ], [ 4, %38 ], [ 4, %40 ], [ 1, %27 ], [ 1, %28 ], [ 1, %7 ], [ 1, %8 ]
   ret i64 %347
 }
 

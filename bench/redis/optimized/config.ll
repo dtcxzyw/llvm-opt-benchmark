@@ -8020,7 +8020,8 @@ define internal range(i32 0, 2) i32 @setConfigBindOption(ptr readnone captures(n
   %10 = load ptr, ptr %1, align 8, !tbaa !14
   %11 = getelementptr inbounds i8, ptr %10, i64 -1
   %12 = load i8, ptr %11, align 1, !tbaa !56
-  %13 = zext i8 %12 to i32
+  %.fr = freeze i8 %12
+  %13 = zext i8 %.fr to i32
   %14 = and i32 %13, 7
   switch i32 %14, label %sdslen.exit.thread [
     i32 0, label %15
@@ -8038,30 +8039,33 @@ define internal range(i32 0, 2) i32 @setConfigBindOption(ptr readnone captures(n
 18:                                               ; preds = %9
   %19 = getelementptr inbounds i8, ptr %10, i64 -3
   %20 = load i8, ptr %19, align 1, !tbaa !56
-  %21 = zext i8 %20 to i64
+  %.fr19 = freeze i8 %20
+  %21 = zext i8 %.fr19 to i64
   br label %sdslen.exit
 
 22:                                               ; preds = %9
   %23 = getelementptr inbounds i8, ptr %10, i64 -5
   %24 = load i16, ptr %23, align 1, !tbaa !57
-  %25 = zext i16 %24 to i64
+  %.fr20 = freeze i16 %24
+  %25 = zext i16 %.fr20 to i64
   br label %sdslen.exit
 
 26:                                               ; preds = %9
   %27 = getelementptr inbounds i8, ptr %10, i64 -9
   %28 = load i32, ptr %27, align 1, !tbaa !59
-  %29 = zext i32 %28 to i64
+  %.fr21 = freeze i32 %28
+  %29 = zext i32 %.fr21 to i64
   br label %sdslen.exit
 
 30:                                               ; preds = %9
   %31 = getelementptr inbounds i8, ptr %10, i64 -17
   %32 = load i64, ptr %31, align 1, !tbaa !60
+  %.fr22 = freeze i64 %32
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %15, %18, %22, %26, %30
-  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %32, %30 ]
-  %.0.i.fr = freeze i64 %.0.i
-  %33 = icmp eq i64 %.0.i.fr, 0
+  %.0.i = phi i64 [ %17, %15 ], [ %21, %18 ], [ %25, %22 ], [ %29, %26 ], [ %.fr22, %30 ]
+  %33 = icmp eq i64 %.0.i, 0
   br i1 %33, label %sdslen.exit.thread, label %34
 
 sdslen.exit.thread:                               ; preds = %9, %sdslen.exit
@@ -8075,11 +8079,11 @@ sdslen.exit.thread:                               ; preds = %9, %sdslen.exit
 
 .preheader:                                       ; preds = %.lr.ph, %34
   %37 = icmp sgt i32 %.015, 0
-  br i1 %37, label %.lr.ph21.preheader, label %._crit_edge
+  br i1 %37, label %.lr.ph25.preheader, label %._crit_edge
 
-.lr.ph21.preheader:                               ; preds = %.preheader
+.lr.ph25.preheader:                               ; preds = %.preheader
   %wide.trip.count = zext nneg i32 %.015 to i64
-  br label %.lr.ph21
+  br label %.lr.ph25
 
 .lr.ph:                                           ; preds = %34, %.lr.ph
   %indvars.iv = phi i64 [ %indvars.iv.next, %.lr.ph ], [ 0, %34 ]
@@ -8092,18 +8096,18 @@ sdslen.exit.thread:                               ; preds = %9, %sdslen.exit
   %42 = icmp slt i64 %indvars.iv.next, %41
   br i1 %42, label %.lr.ph, label %.preheader, !llvm.loop !232
 
-.lr.ph21:                                         ; preds = %.lr.ph21.preheader, %.lr.ph21
-  %indvars.iv23 = phi i64 [ 0, %.lr.ph21.preheader ], [ %indvars.iv.next24, %.lr.ph21 ]
-  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv23
+.lr.ph25:                                         ; preds = %.lr.ph25.preheader, %.lr.ph25
+  %indvars.iv27 = phi i64 [ 0, %.lr.ph25.preheader ], [ %indvars.iv.next28, %.lr.ph25 ]
+  %43 = getelementptr inbounds nuw ptr, ptr %1, i64 %indvars.iv27
   %44 = load ptr, ptr %43, align 8, !tbaa !14
   %45 = tail call noalias ptr @zstrdup(ptr noundef %44) #26
-  %46 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 328), i64 %indvars.iv23
+  %46 = getelementptr inbounds nuw ptr, ptr getelementptr inbounds nuw (i8, ptr @server, i64 328), i64 %indvars.iv27
   store ptr %45, ptr %46, align 8, !tbaa !14
-  %indvars.iv.next24 = add nuw nsw i64 %indvars.iv23, 1
-  %exitcond.not = icmp eq i64 %indvars.iv.next24, %wide.trip.count
-  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph21, !llvm.loop !233
+  %indvars.iv.next28 = add nuw nsw i64 %indvars.iv27, 1
+  %exitcond.not = icmp eq i64 %indvars.iv.next28, %wide.trip.count
+  br i1 %exitcond.not, label %._crit_edge, label %.lr.ph25, !llvm.loop !233
 
-._crit_edge:                                      ; preds = %.lr.ph21, %.preheader
+._crit_edge:                                      ; preds = %.lr.ph25, %.preheader
   store i32 %.015, ptr getelementptr inbounds nuw (i8, ptr @server, i64 456), align 8, !tbaa !178
   br label %47
 

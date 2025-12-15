@@ -313,7 +313,8 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 176:                                              ; preds = %174
   %177 = load i32, ptr %25, align 4
-  %178 = sub nsw i32 0, %177
+  %.fr = freeze i32 %177
+  %178 = sub i32 0, %.fr
   br label %250
 
 179:                                              ; preds = %174
@@ -351,7 +352,8 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 193:                                              ; preds = %191
   %194 = load i32, ptr %25, align 4
-  %195 = sub nsw i32 0, %194
+  %.fr162 = freeze i32 %194
+  %195 = sub i32 0, %.fr162
   br label %250
 
 196:                                              ; preds = %191
@@ -373,8 +375,9 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 206:                                              ; preds = %204
   %207 = load i32, ptr %25, align 4
-  %208 = sub nsw i32 0, %207
-  %209 = icmp ne i32 %207, 13
+  %.fr163 = freeze i32 %207
+  %208 = sub i32 0, %.fr163
+  %209 = icmp ne i32 %.fr163, 13
   %210 = load i64, ptr %131, align 8
   %211 = icmp sgt i64 %210, 0
   %or.cond6.i = select i1 %209, i1 true, i1 %211
@@ -389,7 +392,8 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 215:                                              ; preds = %212
   %216 = load i32, ptr %25, align 4
-  %217 = sub nsw i32 0, %216
+  %.fr164 = freeze i32 %216
+  %217 = sub i32 0, %.fr164
   br label %250
 
 218:                                              ; preds = %212
@@ -402,8 +406,9 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 224:                                              ; preds = %218
   %225 = load i32, ptr %25, align 4
-  %226 = sub nsw i32 0, %225
-  %.not80.i = icmp eq i32 %225, 1
+  %.fr165 = freeze i32 %225
+  %226 = sub i32 0, %.fr165
+  %.not80.i = icmp eq i32 %.fr165, 1
   br i1 %.not80.i, label %227, label %250
 
 227:                                              ; preds = %224
@@ -430,17 +435,18 @@ uv__fs_close.exit:                                ; preds = %159, %163
 
 238:                                              ; preds = %235
   %239 = load i32, ptr %25, align 4
-  %240 = sub nsw i32 0, %239
+  %.fr166 = freeze i32 %239
+  %240 = sub i32 0, %.fr166
   br label %250
 
 241:                                              ; preds = %235, %229
   %242 = load i64, ptr %137, align 8
-  %cond227 = icmp eq i64 %242, 0
-  br i1 %cond227, label %.thread, label %.lr.ph
+  %cond232 = icmp eq i64 %242, 0
+  br i1 %cond232, label %.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %241, %247
-  %.060.i229 = phi i64 [ %249, %247 ], [ 0, %241 ]
-  %.061.i228 = phi i64 [ %248, %247 ], [ %242, %241 ]
+  %.060.i234 = phi i64 [ %249, %247 ], [ 0, %241 ]
+  %.061.i233 = phi i64 [ %248, %247 ], [ %242, %241 ]
   store i32 6, ptr %118, align 8
   store i32 5, ptr %119, align 8
   store ptr null, ptr %123, align 8
@@ -448,29 +454,29 @@ uv__fs_close.exit:                                ; preds = %159, %163
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %121, i8 0, i64 40, i1 false)
   store i32 %170, ptr %125, align 4
   store i32 %185, ptr %138, align 8
-  store i64 %.060.i229, ptr %139, align 8
-  store i64 %.061.i228, ptr %140, align 8
+  store i64 %.060.i234, ptr %139, align 8
+  store i64 %.061.i233, ptr %140, align 8
   call void @uv__fs_work(ptr noundef nonnull %127)
   %243 = load i64, ptr %120, align 8
+  %.fr167 = freeze i64 %243
   call void @uv_fs_req_cleanup(ptr noundef nonnull %18)
-  %244 = icmp slt i64 %243, 0
+  %244 = icmp slt i64 %.fr167, 0
   br i1 %244, label %245, label %247
 
 245:                                              ; preds = %.lr.ph
-  %246 = trunc i64 %243 to i32
+  %246 = trunc i64 %.fr167 to i32
   br label %250
 
 247:                                              ; preds = %.lr.ph
-  %248 = sub nsw i64 %.061.i228, %243
-  %249 = add nuw nsw i64 %243, %.060.i229
+  %248 = sub nsw i64 %.061.i233, %.fr167
+  %249 = add nuw nsw i64 %.fr167, %.060.i234
   %cond = icmp eq i64 %248, 0
   br i1 %cond, label %.thread, label %.lr.ph
 
 250:                                              ; preds = %245, %238, %224, %215, %206, %193, %176
   %.067.i = phi i32 [ -1, %176 ], [ %185, %193 ], [ %185, %206 ], [ %185, %215 ], [ %185, %224 ], [ %185, %238 ], [ %185, %245 ]
   %.062.i = phi i32 [ %178, %176 ], [ %195, %193 ], [ %208, %206 ], [ %217, %215 ], [ %226, %224 ], [ %240, %238 ], [ %246, %245 ]
-  %.062.i.fr = freeze i32 %.062.i
-  %spec.select161 = call i32 @llvm.smin.i32(i32 %.062.i.fr, i32 0)
+  %spec.select161 = call i32 @llvm.smin.i32(i32 %.062.i, i32 0)
   br label %.thread
 
 .thread:                                          ; preds = %247, %241, %250, %179, %227, %232, %200
@@ -1246,9 +1252,9 @@ uv__fs_closedir.exit:                             ; preds = %571, %575
   br i1 %595, label %uv__fs_readlink.exit.thread, label %596
 
 596:                                              ; preds = %592, %590
-  %.lcssa288 = phi i64 [ %spec.store.select.i.i, %592 ], [ %587, %590 ]
+  %.lcssa292 = phi i64 [ %spec.store.select.i.i, %592 ], [ %587, %590 ]
   %.0.i98 = phi ptr [ %594, %592 ], [ %582, %590 ]
-  %597 = getelementptr inbounds i8, ptr %.0.i98, i64 %.lcssa288
+  %597 = getelementptr inbounds i8, ptr %.0.i98, i64 %.lcssa292
   store i8 0, ptr %597, align 1
   br label %.thread159
 
@@ -1924,8 +1930,8 @@ uv__fs_write_all.exit:                            ; preds = %.loopexit.i, %854
   unreachable
 
 .thread159:                                       ; preds = %602, %596, %uv__fs_closedir.exit
-  %.lcssa396.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
-  store ptr %.lcssa396.sink, ptr %42, align 8
+  %.lcssa397.sink = phi ptr [ %.0.i98, %596 ], [ null, %uv__fs_closedir.exit ], [ %603, %602 ]
+  store ptr %.lcssa397.sink, ptr %42, align 8
   %856 = getelementptr inbounds i8, ptr %0, i64 -248
   store i64 0, ptr %856, align 8
   br label %866

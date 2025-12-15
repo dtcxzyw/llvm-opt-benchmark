@@ -2805,7 +2805,8 @@ define range(i32 0, 2) i32 @glfwUpdateGamepadMappings(ptr noundef readonly captu
 
 .preheader46:                                     ; preds = %1
   %5 = load i8, ptr %0, align 1, !tbaa !3
-  %.not3548 = icmp eq i8 %5, 0
+  %.fr = freeze i8 %5
+  %.not3548 = icmp eq i8 %.fr, 0
   br i1 %.not3548, label %.preheader.preheader, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.preheader46
@@ -2817,15 +2818,14 @@ define range(i32 0, 2) i32 @glfwUpdateGamepadMappings(ptr noundef readonly captu
   br label %.loopexit
 
 8:                                                ; preds = %.lr.ph, %42
-  %9 = phi i8 [ %5, %.lr.ph ], [ %43, %42 ]
+  %9 = phi i8 [ %.fr, %.lr.ph ], [ %.fr51, %42 ]
   %.02849 = phi ptr [ %0, %.lr.ph ], [ %.1, %42 ]
-  %.fr = freeze i8 %9
-  %10 = add i8 %.fr, -48
+  %10 = add i8 %9, -48
   %or.cond = icmp ult i8 %10, 10
   br i1 %or.cond, label %11, label %switch.early.test
 
 switch.early.test:                                ; preds = %8
-  switch i8 %.fr, label %37 [
+  switch i8 %9, label %37 [
     i8 102, label %11
     i8 101, label %11
     i8 100, label %11
@@ -2916,7 +2916,8 @@ switch.early.test:                                ; preds = %8
 42:                                               ; preds = %37, %35
   %.1 = phi ptr [ %36, %35 ], [ %41, %37 ]
   %43 = load i8, ptr %.1, align 1, !tbaa !3
-  %.not35 = icmp eq i8 %43, 0
+  %.fr51 = freeze i8 %43
+  %.not35 = icmp eq i8 %.fr51, 0
   br i1 %.not35, label %.preheader.preheader, label %8
 
 .preheader.preheader:                             ; preds = %42, %.preheader46

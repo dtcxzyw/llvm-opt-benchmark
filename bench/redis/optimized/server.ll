@@ -18110,7 +18110,8 @@ expandProcTitleTemplate.exit:                     ; preds = %1
 4:                                                ; preds = %expandProcTitleTemplate.exit
   %5 = getelementptr inbounds i8, ptr %3, i64 -1
   %6 = load i8, ptr %5, align 1, !tbaa !38
-  %7 = zext i8 %6 to i32
+  %.fr = freeze i8 %6
+  %7 = zext i8 %.fr to i32
   %8 = and i32 %7, 7
   switch i32 %8, label %sdslen.exit.thread [
     i32 0, label %9
@@ -18128,30 +18129,33 @@ expandProcTitleTemplate.exit:                     ; preds = %1
 12:                                               ; preds = %4
   %13 = getelementptr inbounds i8, ptr %3, i64 -3
   %14 = load i8, ptr %13, align 1, !tbaa !38
-  %15 = zext i8 %14 to i64
+  %.fr12 = freeze i8 %14
+  %15 = zext i8 %.fr12 to i64
   br label %sdslen.exit
 
 16:                                               ; preds = %4
   %17 = getelementptr inbounds i8, ptr %3, i64 -5
   %18 = load i16, ptr %17, align 1, !tbaa !52
-  %19 = zext i16 %18 to i64
+  %.fr13 = freeze i16 %18
+  %19 = zext i16 %.fr13 to i64
   br label %sdslen.exit
 
 20:                                               ; preds = %4
   %21 = getelementptr inbounds i8, ptr %3, i64 -9
   %22 = load i32, ptr %21, align 1, !tbaa !50
-  %23 = zext i32 %22 to i64
+  %.fr14 = freeze i32 %22
+  %23 = zext i32 %.fr14 to i64
   br label %sdslen.exit
 
 24:                                               ; preds = %4
   %25 = getelementptr inbounds i8, ptr %3, i64 -17
   %26 = load i64, ptr %25, align 1, !tbaa !54
+  %.fr15 = freeze i64 %26
   br label %sdslen.exit
 
 sdslen.exit:                                      ; preds = %9, %12, %16, %20, %24
-  %.0.i7 = phi i64 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %26, %24 ]
-  %.0.i7.fr = freeze i64 %.0.i7
-  %27 = icmp eq i64 %.0.i7.fr, 0
+  %.0.i7 = phi i64 [ %11, %9 ], [ %15, %12 ], [ %19, %16 ], [ %23, %20 ], [ %.fr15, %24 ]
+  %27 = icmp eq i64 %.0.i7, 0
   br i1 %27, label %sdslen.exit.thread, label %28
 
 sdslen.exit.thread:                               ; preds = %4, %sdslen.exit

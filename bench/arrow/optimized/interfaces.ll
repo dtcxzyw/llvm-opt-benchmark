@@ -6748,7 +6748,6 @@ _ZN5arrow4util12ArrowLogBaselsIA87_cEERS1_RKT_.exit: ; preds = %.noexc24, %.noex
 
 73:                                               ; preds = %52, %_ZN5arrow4util12ArrowLogBaselsIA87_cEERS1_RKT_.exit, %22
   %.113 = phi i32 [ 0, %22 ], [ %.2142, %_ZN5arrow4util12ArrowLogBaselsIA87_cEERS1_RKT_.exit ], [ %53, %52 ]
-  %.113.fr = freeze i32 %.113
   %74 = load ptr, ptr %3, align 8, !tbaa !113
   %75 = icmp eq ptr %74, %12
   br i1 %75, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
@@ -6778,8 +6777,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit29: ; preds = %78,
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i: ; preds = %73, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
-  %83 = icmp sgt i32 %.113.fr, 0
-  %spec.select = select i1 %83, i32 %.113.fr, i32 8
+  %83 = icmp sgt i32 %.113, 0
+  %spec.select = select i1 %83, i32 %.113, i32 8
   br label %84
 
 84:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i, %.thread3

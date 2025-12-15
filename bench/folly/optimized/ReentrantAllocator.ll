@@ -209,15 +209,15 @@ define noundef ptr @_ZN5folly6detail24reentrant_allocator_base8allocateEmm(ptr n
   %.fr120 = freeze i64 %12
   %13 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %14 = load atomic i64, ptr %13 acquire, align 8
-  %.fr = freeze i64 %14
-  %.0.i.i = inttoptr i64 %.fr to ptr
+  %.fr124 = freeze i64 %14
+  %.0.i.i = inttoptr i64 %.fr124 to ptr
   %15 = add i64 %2, -1
   %16 = sub i64 0, %2
   %.not.i33 = icmp eq i64 %.fr120, 0
   br i1 %.not.i33, label %.outer.us, label %.split63
 
 .outer.us:                                        ; preds = %11
-  %.not32.us = icmp eq i64 %.fr, 0
+  %.not32.us = icmp eq i64 %.fr124, 0
   %17 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 8
   br i1 %.not32.us, label %.split70.us, label %.outer.split.split.us65.preheader
 
@@ -230,8 +230,8 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us: ;
   %20 = load atomic i64, ptr %17 acquire, align 8
   %21 = add i64 %15, %20
   %22 = and i64 %21, %16
-  %.not127.not = icmp eq i64 %22, %23
-  br i1 %.not127.not, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us, label %.split70.us
+  %.not131.not = icmp eq i64 %22, %23
+  br i1 %.not131.not, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us, label %.split70.us
 
 .outer.split.split.us65.preheader:                ; preds = %.outer.us
   %23 = sub i64 0, %1
@@ -246,25 +246,24 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us: ;
 
 .outer.us76:                                      ; preds = %.split63, %.outer.us76.backedge
   %.043.ph.us77 = phi ptr [ %.043.ph.us77.be, %.outer.us76.backedge ], [ %.0.i.i, %.split63 ]
-  %.043.ph.us77.fr = freeze ptr %.043.ph.us77
-  %.not32.us79 = icmp eq ptr %.043.ph.us77.fr, null
-  %27 = getelementptr inbounds nuw i8, ptr %.043.ph.us77.fr, i64 8
+  %.not32.us79 = icmp eq ptr %.043.ph.us77, null
+  %27 = getelementptr inbounds nuw i8, ptr %.043.ph.us77, i64 8
   br i1 %.not32.us79, label %.split.split.us81, label %.outer.split.split.us90
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us: ; preds = %.split.split.us81
-  store ptr %.043.ph.us77.fr, ptr %46, align 8, !tbaa !30
-  %28 = getelementptr inbounds nuw i8, ptr %46, i64 8
+  store ptr %.043.ph.us77, ptr %.fr127, align 8, !tbaa !30
+  %28 = getelementptr inbounds nuw i8, ptr %.fr127, i64 8
   store i64 16, ptr %28, align 8, !tbaa !25
   %29 = load ptr, ptr %0, align 8, !tbaa !7
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 24
-  %31 = ptrtoint ptr %.043.ph.us77.fr to i64
-  %32 = ptrtoint ptr %46 to i64
+  %31 = ptrtoint ptr %.043.ph.us77 to i64
+  %32 = ptrtoint ptr %.fr127 to i64
   %33 = cmpxchg weak ptr %30, i64 %31, i64 %32 release monotonic, align 8
   %34 = extractvalue { i64, i1 } %33, 1
   br i1 %34, label %.outer.us76.backedge, label %35
 
 35:                                               ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us
-  %36 = tail call i32 @munmap(ptr noundef nonnull %46, i64 noundef %.fr120) #4
+  %36 = tail call i32 @munmap(ptr noundef nonnull %.fr127, i64 noundef %.fr120) #4
   %.not6.i.us = icmp eq i32 %36, 0
   br i1 %.not6.i.us, label %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us, label %.split95.us
 
@@ -272,36 +271,37 @@ _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us: ; preds = %35
   %37 = load ptr, ptr %0, align 8, !tbaa !7
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 24
   %39 = load atomic i64, ptr %38 acquire, align 8
-  %.0.i.i38.us = inttoptr i64 %39 to ptr
+  %.fr = freeze i64 %39
+  %.0.i.i38.us = inttoptr i64 %.fr to ptr
   br label %.outer.us76.backedge
 
 .outer.us76.backedge:                             ; preds = %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us
-  %.043.ph.us77.be = phi ptr [ %.0.i.i38.us, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us ], [ %46, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us ]
+  %.043.ph.us77.be = phi ptr [ %.0.i.i38.us, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit.us ], [ %.fr127, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us ]
   br label %.outer.us76
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83: ; preds = %.outer.split.split.us90
   %40 = cmpxchg weak ptr %27, i64 %42, i64 %45 release monotonic, align 8
   %41 = extractvalue { i64, i1 } %40, 1
-  br i1 %41, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152, label %.outer.split.split.us90
+  br i1 %41, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit154, label %.outer.split.split.us90
 
 .outer.split.split.us90:                          ; preds = %.outer.us76, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83
   %42 = load atomic i64, ptr %27 acquire, align 8
   %43 = add i64 %15, %42
   %44 = and i64 %43, %16
   %45 = add i64 %44, %1
-  %.not125 = icmp ugt i64 %45, %.fr120
-  br i1 %.not125, label %.split.split.us81, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83
+  %.not129 = icmp ugt i64 %45, %.fr120
+  br i1 %.not129, label %.split.split.us81, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83
 
 .split.split.us81:                                ; preds = %.outer.split.split.us90, %.outer.us76
   %46 = tail call ptr @mmap(ptr noundef null, i64 noundef %.fr120, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #4
-  %.not4.i34.us = icmp eq ptr %46, inttoptr (i64 -1 to ptr)
+  %.fr127 = freeze ptr %46
+  %.not4.i34.us = icmp eq ptr %.fr127, inttoptr (i64 -1 to ptr)
   br i1 %.not4.i34.us, label %.split99.us, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35.us
 
 .outer:                                           ; preds = %.split63, %.outer.backedge
   %.043.ph = phi ptr [ %.043.ph.be, %.outer.backedge ], [ %.0.i.i, %.split63 ]
-  %.043.ph.fr = freeze ptr %.043.ph
-  %.not32 = icmp eq ptr %.043.ph.fr, null
-  %47 = getelementptr inbounds nuw i8, ptr %.043.ph.fr, i64 8
+  %.not32 = icmp eq ptr %.043.ph, null
+  %47 = getelementptr inbounds nuw i8, ptr %.043.ph, i64 8
   br i1 %.not32, label %.split.us, label %.outer.split.split
 
 .outer.split.split:                               ; preds = %.outer, %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
@@ -309,12 +309,13 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83:
   %49 = add i64 %15, %48
   %50 = and i64 %49, %16
   %51 = add i64 %50, %1
-  %.not123 = icmp ugt i64 %51, %.fr120
-  br i1 %.not123, label %.split.us, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
+  %.not126 = icmp ugt i64 %51, %.fr120
+  br i1 %.not126, label %.split.us, label %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
 
 .split.us:                                        ; preds = %.outer.split.split, %.outer
   %52 = tail call ptr @mmap(ptr noundef null, i64 noundef %.fr120, i32 noundef 3, i32 noundef 34, i32 noundef -1, i64 noundef 0) #4
-  %.not4.i34 = icmp eq ptr %52, inttoptr (i64 -1 to ptr)
+  %.fr123 = freeze ptr %52
+  %.not4.i34 = icmp eq ptr %.fr123, inttoptr (i64 -1 to ptr)
   br i1 %.not4.i34, label %.split99.us, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35
 
 .split70.us:                                      ; preds = %.outer.split.split.us65, %.outer.us
@@ -326,23 +327,23 @@ _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83:
   unreachable
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35: ; preds = %.split.us
-  store ptr %.043.ph.fr, ptr %52, align 8, !tbaa !30
-  %53 = getelementptr inbounds nuw i8, ptr %52, i64 8
+  store ptr %.043.ph, ptr %.fr123, align 8, !tbaa !30
+  %53 = getelementptr inbounds nuw i8, ptr %.fr123, i64 8
   store i64 16, ptr %53, align 8, !tbaa !25
   %54 = load ptr, ptr %0, align 8, !tbaa !7
   %55 = getelementptr inbounds nuw i8, ptr %54, i64 24
-  %56 = ptrtoint ptr %.043.ph.fr to i64
-  %57 = ptrtoint ptr %52 to i64
+  %56 = ptrtoint ptr %.043.ph to i64
+  %57 = ptrtoint ptr %.fr123 to i64
   %58 = cmpxchg weak ptr %55, i64 %56, i64 %57 release monotonic, align 8
   %59 = extractvalue { i64, i1 } %58, 1
   br i1 %59, label %.outer.backedge, label %60
 
 .outer.backedge:                                  ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit
-  %.043.ph.be = phi ptr [ %.0.i.i38, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit ], [ %52, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35 ]
+  %.043.ph.be = phi ptr [ %.0.i.i38, %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit ], [ %.fr123, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35 ]
   br label %.outer
 
 60:                                               ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit35
-  %61 = tail call i32 @munmap(ptr noundef nonnull %52, i64 noundef %.fr120) #4
+  %61 = tail call i32 @munmap(ptr noundef nonnull %.fr123, i64 noundef %.fr120) #4
   %.not6.i = icmp eq i32 %61, 0
   br i1 %.not6.i, label %_ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit, label %.split95.us
 
@@ -354,28 +355,29 @@ _ZN5folly12_GLOBAL__N_120reentrant_deallocateEPvm.exit: ; preds = %60
   %62 = load ptr, ptr %0, align 8, !tbaa !7
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 24
   %64 = load atomic i64, ptr %63 acquire, align 8
-  %.0.i.i38 = inttoptr i64 %64 to ptr
+  %.fr122 = freeze i64 %64
+  %.0.i.i38 = inttoptr i64 %.fr122 to ptr
   br label %.outer.backedge
 
 _ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit: ; preds = %.outer.split.split
   %65 = cmpxchg weak ptr %47, i64 %48, i64 %51 release monotonic, align 8
   %66 = extractvalue { i64, i1 } %65, 1
-  br i1 %66, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151, label %.outer.split.split
+  br i1 %66, label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit153, label %.outer.split.split
 
 _ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us
   %67 = getelementptr inbounds nuw i8, ptr %.0.i.i, i64 %22
   br label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit
 
-_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
-  %68 = getelementptr inbounds nuw i8, ptr %.043.ph.fr, i64 %50
+_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit153: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit
+  %68 = getelementptr inbounds nuw i8, ptr %.043.ph, i64 %50
   br label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit
 
-_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83
-  %69 = getelementptr inbounds nuw i8, ptr %.043.ph.us77.fr, i64 %44
+_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit154: ; preds = %_ZNSt13__atomic_baseImE21compare_exchange_weakERmmSt12memory_orderS2_.exit.us83
+  %69 = getelementptr inbounds nuw i8, ptr %.043.ph.us77, i64 %44
   br label %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit
 
-_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit: ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit, %8, %3
-  %.0 = phi ptr [ @_ZN5folly12_GLOBAL__N_15dummyE, %3 ], [ %9, %8 ], [ %67, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit ], [ %68, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit151 ], [ %69, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit152 ]
+_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit: ; preds = %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit154, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit153, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit, %8, %3
+  %.0 = phi ptr [ @_ZN5folly12_GLOBAL__N_15dummyE, %3 ], [ %9, %8 ], [ %67, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit ], [ %68, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit153 ], [ %69, %_ZN5folly12_GLOBAL__N_118reentrant_allocateEm.exit.loopexit154 ]
   ret ptr %.0
 }
 

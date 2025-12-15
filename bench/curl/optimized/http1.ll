@@ -106,8 +106,9 @@ detect_line.exit.i:                               ; preds = %19
 28:                                               ; preds = %26
   %29 = load ptr, ptr %11, align 8, !tbaa !19
   %30 = call i32 @Curl_dyn_addn(ptr noundef nonnull %13, ptr noundef %29, i64 noundef %.pre.i) #6
-  store i32 %30, ptr %5, align 4, !tbaa !15
-  %.not35.i = icmp eq i32 %30, 0
+  %.fr = freeze i32 %30
+  store i32 %.fr, ptr %5, align 4, !tbaa !15
+  %.not35.i = icmp eq i32 %.fr, 0
   br i1 %.not35.i, label %31, label %next_line.exit.thread.loopexit
 
 31:                                               ; preds = %28
@@ -175,16 +176,16 @@ next_line.exit.thread47:                          ; preds = %49, %50, %51
 55:                                               ; preds = %19
   store i32 81, ptr %5, align 4, !tbaa !15
   %56 = call i32 @Curl_dyn_addn(ptr noundef nonnull %13, ptr noundef %.066, i64 noundef %.03563) #6
-  store i32 %56, ptr %5, align 4, !tbaa !15
-  %.not33.i = icmp ne i32 %56, 0
+  %.fr106 = freeze i32 %56
+  store i32 %.fr106, ptr %5, align 4, !tbaa !15
+  %.not33.i = icmp ne i32 %.fr106, 0
   %57 = icmp slt i64 %.03563, 0
   %or.cond = select i1 %.not33.i, i1 true, i1 %57
   br i1 %or.cond, label %next_line.exit.thread.loopexit, label %60
 
 next_line.exit.thread.loopexit:                   ; preds = %28, %55
-  %58 = phi i32 [ %30, %28 ], [ %56, %55 ]
-  %.fr = freeze i32 %58
-  %59 = icmp eq i32 %.fr, 81
+  %58 = phi i32 [ %.fr, %28 ], [ %.fr106, %55 ]
+  %59 = icmp eq i32 %58, 81
   %spec.select = select i1 %59, i64 %.03464, i64 -1
   br label %.loopexit.sink.split
 

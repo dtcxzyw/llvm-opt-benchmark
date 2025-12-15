@@ -60279,8 +60279,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %.pn834.pn = phi { ptr, i32 } [ %.pn834, %206 ], [ %.pn832, %175 ], [ %170, %168 ], [ %.pn830, %259 ], [ %.pn828, %228 ], [ %.pn826.ph, %893 ], [ %.pn762, %929 ], [ %.pn760, %898 ], [ %.pn757, %969 ], [ %.pn755, %938 ], [ %.pn753, %1009 ], [ %.pn, %978 ], [ %.pn824, %335 ]
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %165 = load i64, ptr %164, align 8, !range !5669, !noundef !5
-  %.1568.fr = freeze i8 %.1568
-  %166 = trunc i8 %.1568.fr to i1
+  %166 = trunc nuw i8 %.1568 to i1
   %167 = icmp sgt i64 %165, -9223372036854775807
   %or.cond871.not = and i1 %167, %166
   br i1 %or.cond871.not, label %1129, label %1123
@@ -62745,8 +62744,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit913: ; preds = %233
   %.4564 = phi i8 [ 1, %304 ], [ %.65661289, %.thread1281 ], [ 0, %886 ]
   %.4557 = phi i8 [ 1, %304 ], [ %.65591290, %.thread1281 ], [ 0, %886 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
-  %.4571.fr = freeze i8 %.4571
-  %888 = trunc i8 %.4571.fr to i1
+  %888 = trunc nuw i8 %.4571 to i1
   %889 = trunc nuw i8 %.4557 to i1
   %890 = trunc nuw i8 %.4687 to i1
   %891 = trunc nuw i8 %.4564 to i1
@@ -63817,8 +63815,7 @@ define internal fastcc void @"_ZN14datafusion_sql6select60_$LT$impl$u20$datafusi
   %.pn834.pn = phi { ptr, i32 } [ %.pn834, %206 ], [ %.pn832, %175 ], [ %170, %168 ], [ %.pn830, %259 ], [ %.pn828, %228 ], [ %.pn826.ph, %893 ], [ %.pn762, %929 ], [ %.pn760, %898 ], [ %.pn757, %969 ], [ %.pn755, %938 ], [ %.pn753, %1009 ], [ %.pn, %978 ], [ %.pn824, %335 ]
   %164 = getelementptr inbounds nuw i8, ptr %2, i64 936
   %165 = load i64, ptr %164, align 8, !range !5669, !noundef !5
-  %.1568.fr = freeze i8 %.1568
-  %166 = trunc i8 %.1568.fr to i1
+  %166 = trunc nuw i8 %.1568 to i1
   %167 = icmp sgt i64 %165, -9223372036854775807
   %or.cond871.not = and i1 %167, %166
   br i1 %or.cond871.not, label %1129, label %1123
@@ -66283,8 +66280,7 @@ _ZN5alloc3fmt6format17h7ead8f60e83381d7E.exit913: ; preds = %233
   %.4564 = phi i8 [ 1, %304 ], [ %.65661289, %.thread1281 ], [ 0, %886 ]
   %.4557 = phi i8 [ 1, %304 ], [ %.65591290, %.thread1281 ], [ 0, %886 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %117)
-  %.4571.fr = freeze i8 %.4571
-  %888 = trunc i8 %.4571.fr to i1
+  %888 = trunc nuw i8 %.4571 to i1
   %889 = trunc nuw i8 %.4557 to i1
   %890 = trunc nuw i8 %.4687 to i1
   %891 = trunc nuw i8 %.4564 to i1

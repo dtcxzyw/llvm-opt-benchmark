@@ -8668,13 +8668,12 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
 
 .critedge.i.i:                                    ; preds = %103, %99
   %.022.lcssa.i.i = phi i64 [ %104, %103 ], [ %.02227.i.i, %99 ]
-  %.022.lcssa.i.fr.i = freeze i64 %.022.lcssa.i.i
-  %.not26.i.i = icmp eq i64 %.022.lcssa.i.fr.i, 0
+  %.not26.i.i = icmp eq i64 %.022.lcssa.i.i, 0
   br i1 %.not26.i.i, label %373, label %107
 
 107:                                              ; preds = %.critedge.i.i
   %108 = add i64 %.029.i.i, %73
-  %109 = shl i64 %.022.lcssa.i.fr.i, 25
+  %109 = shl i64 %.022.lcssa.i.i, 25
   %110 = load atomic i64, ptr %66 seq_cst, align 8
   %.0.i.i.i.i.i.i = inttoptr i64 %110 to ptr
   %111 = shl i64 %108, 25
@@ -8682,16 +8681,16 @@ _Z20_mi_bitmap_try_claimPSt6atomicImEmmm.exit.i:  ; preds = %.lr.ph.i.i
   %113 = load ptr, ptr %67, align 8, !tbaa !142
   %114 = lshr i64 %108, 6
   %115 = and i64 %.029.i.i, 63
-  %116 = add i64 %.022.lcssa.i.fr.i, %115
+  %116 = add i64 %.022.lcssa.i.i, %115
   %117 = icmp ult i64 %116, 65
   br i1 %117, label %118, label %_ZL15mi_bitmap_mask_mm.exit24.i.i.i, !prof !23
 
 118:                                              ; preds = %107
-  %119 = icmp ugt i64 %.022.lcssa.i.fr.i, 63
+  %119 = icmp ugt i64 %.022.lcssa.i.i, 63
   br i1 %119, label %_ZL21mi_bitmap_mask_acrossmmmPmS_S_.exit.i.i, label %120
 
 120:                                              ; preds = %118
-  %notmask.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.fr.i
+  %notmask.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.i
   %121 = xor i64 %notmask.i.i.i.i, -1
   %122 = shl i64 %121, %115
   br label %_ZL21mi_bitmap_mask_acrossmmmPmS_S_.exit.i.i
@@ -8703,7 +8702,7 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i.i:              ; preds = %107
   %125 = xor i64 %notmask.i22.i.i.i, -1
   %126 = shl i64 %125, %115
   %.0.i23.i.i.i = select i1 %124, i64 -1, i64 %126
-  %127 = sub i64 %.022.lcssa.i.fr.i, %123
+  %127 = sub i64 %.022.lcssa.i.i, %123
   %128 = lshr i64 %127, 6
   %129 = and i64 %127, 63
   %130 = icmp eq i64 %129, 0
@@ -9200,11 +9199,11 @@ _Z15_mi_os_purge_exPvmbm.exit84.i:                ; preds = %257, %_ZL12unix_mad
   br i1 %117, label %338, label %_ZL15mi_bitmap_mask_mm.exit24.i.i.i.i, !prof !23
 
 338:                                              ; preds = %_Z15_mi_os_purge_exPvmbm.exit84.i
-  %339 = icmp ugt i64 %.022.lcssa.i.fr.i, 63
+  %339 = icmp ugt i64 %.022.lcssa.i.i, 63
   br i1 %339, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, label %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
 
 _Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i: ; preds = %338
-  %notmask.i.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.fr.i
+  %notmask.i.i.i.i.i = shl nsw i64 -1, %.022.lcssa.i.i
   %340 = xor i64 %notmask.i.i.i.i.i, -1
   %341 = shl i64 %340, %115
   %342 = xor i64 %341, -1
@@ -9218,7 +9217,7 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i.i.i:            ; preds = %_Z15_mi_os_purge_ex
   %notmask.i22.i.i.i.i = shl nsw i64 -1, %345
   %347 = xor i64 %notmask.i22.i.i.i.i, -1
   %348 = shl i64 %347, %115
-  %349 = sub i64 %.022.lcssa.i.fr.i, %345
+  %349 = sub i64 %.022.lcssa.i.i, %345
   %350 = lshr i64 %349, 6
   %351 = and i64 %349, 63
   %notmask.i25.i.i.i.i = shl nsw i64 -1, %351
@@ -9288,14 +9287,14 @@ _ZL15mi_bitmap_mask_mm.exit24.i.i19.i.i:          ; preds = %_Z25_mi_bitmap_uncl
   br label %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i
 
 _ZL14mi_arena_purgeP10mi_arena_smm.exit.i:        ; preds = %370, %._crit_edge.i34.i.i, %._crit_edge.thread.i42.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.thread.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.i.i, %_Z25_mi_bitmap_unclaim_acrossPSt6atomicImEmmm.exit.thread.i.i
-  %372 = icmp eq i64 %.022.lcssa.i.fr.i, %.145144.i
+  %372 = icmp eq i64 %.022.lcssa.i.i, %.145144.i
   %spec.select.i.i = select i1 %372, i1 true, i1 %.02328.i.i
   br label %373
 
 373:                                              ; preds = %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i, %.critedge.i.i
   %.1.i.i = phi i1 [ %spec.select.i.i, %_ZL14mi_arena_purgeP10mi_arena_smm.exit.i ], [ %.02328.i.i, %.critedge.i.i ]
   %374 = add i64 %.029.i.i, 1
-  %375 = add i64 %374, %.022.lcssa.i.fr.i
+  %375 = add i64 %374, %.022.lcssa.i.i
   %376 = icmp ult i64 %375, %97
   br i1 %376, label %.preheader.i.i, label %_ZL20mi_arena_purge_rangeP10mi_arena_smmmm.exit.i, !llvm.loop !158
 

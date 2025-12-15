@@ -257,17 +257,17 @@ invoke.cont4.lr.ph:                               ; preds = %invoke.cont3.prehea
   %status_ = getelementptr inbounds nuw i8, ptr %this, i64 128
   %.pre = load ptr, ptr %e_.i, align 8
   %.pre87 = load ptr, ptr %val_.i.i, align 8
+  %.pre.fr = freeze ptr %.pre
+  %.pre87.fr = freeze ptr %.pre87
   br label %invoke.cont4
 
 invoke.cont4:                                     ; preds = %invoke.cont4.lr.ph, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
   %5 = phi ptr [ %3, %invoke.cont4.lr.ph ], [ %24, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
   %6 = phi ptr [ %1, %invoke.cont4.lr.ph ], [ %25, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %7 = phi ptr [ %.pre87, %invoke.cont4.lr.ph ], [ %26, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %8 = phi ptr [ %.pre, %invoke.cont4.lr.ph ], [ %27, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
-  %.fr78 = freeze ptr %7
-  %.fr = freeze ptr %8
-  %sub.ptr.lhs.cast.i = ptrtoint ptr %.fr to i64
-  %sub.ptr.rhs.cast.i = ptrtoint ptr %.fr78 to i64
+  %7 = phi ptr [ %.pre87.fr, %invoke.cont4.lr.ph ], [ %26, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %8 = phi ptr [ %.pre.fr, %invoke.cont4.lr.ph ], [ %27, %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit ]
+  %sub.ptr.lhs.cast.i = ptrtoint ptr %8 to i64
+  %sub.ptr.rhs.cast.i = ptrtoint ptr %7 to i64
   %sub.ptr.sub.i = sub i64 %sub.ptr.lhs.cast.i, %sub.ptr.rhs.cast.i
   %tobool.not53 = icmp eq i64 %sub.ptr.sub.i, 0
   br i1 %tobool.not53, label %for.inc, label %while.body.lr.ph
@@ -279,7 +279,7 @@ while.body.lr.ph:                                 ; preds = %invoke.cont4
 
 while.body18.us.preheader:                        ; preds = %while.body.lr.ph
   %conv8.us = trunc nuw i64 %sub.ptr.sub.i to i32
-  store ptr %.fr78, ptr %zlibStream_, align 8
+  store ptr %7, ptr %zlibStream_, align 8
   store i32 %conv8.us, ptr %avail_in, align 8
   br label %while.body18.us
 
@@ -344,7 +344,7 @@ while.cond.loopexit.loopexit:                     ; preds = %while.cond15thread-
   br label %while.body.outer
 
 while.body.outer:                                 ; preds = %while.body.lr.ph, %while.cond.loopexit.loopexit
-  %.pre8889.ph = phi ptr [ %.pre88.pre, %while.cond.loopexit.loopexit ], [ %.fr78, %while.body.lr.ph ]
+  %.pre8889.ph = phi ptr [ %.pre88.pre, %while.cond.loopexit.loopexit ], [ %7, %while.body.lr.ph ]
   %remaining.055.ph = phi i64 [ %sub, %while.cond.loopexit.loopexit ], [ %sub.ptr.sub.i, %while.body.lr.ph ]
   %written.054.ph = phi i64 [ %add, %while.cond.loopexit.loopexit ], [ 0, %while.body.lr.ph ]
   br label %while.body
@@ -466,16 +466,18 @@ if.then.i.i.i:                                    ; preds = %for.inc
 if.else.i.i.i:                                    ; preds = %for.inc
   %data_.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %21, i64 8
   %22 = load ptr, ptr %data_.i.i.i.i.i, align 8
+  %.fr101 = freeze ptr %22
   %23 = load i64, ptr %21, align 8
-  %add.ptr.i.i.i.i.i = getelementptr inbounds i8, ptr %22, i64 %23
-  store ptr %22, ptr %val_.i.i, align 8
+  %.fr102 = freeze i64 %23
+  %add.ptr.i.i.i.i.i = getelementptr i8, ptr %.fr101, i64 %.fr102
+  store ptr %.fr101, ptr %val_.i.i, align 8
   store ptr %add.ptr.i.i.i.i.i, ptr %e_.i, align 8
   br label %_ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit
 
 _ZN5folly6detail14IteratorFacadeINS_5IOBuf8IteratorEKNS_5RangeIPKhEESt20forward_iterator_tagEppEv.exit: ; preds = %if.then.i.i.i, %if.else.i.i.i
   %24 = phi ptr [ null, %if.then.i.i.i ], [ %19, %if.else.i.i.i ]
   %25 = phi ptr [ null, %if.then.i.i.i ], [ %21, %if.else.i.i.i ]
-  %26 = phi ptr [ null, %if.then.i.i.i ], [ %22, %if.else.i.i.i ]
+  %26 = phi ptr [ null, %if.then.i.i.i ], [ %.fr101, %if.else.i.i.i ]
   %27 = phi ptr [ null, %if.then.i.i.i ], [ %add.ptr.i.i.i.i.i, %if.else.i.i.i ]
   %28 = load ptr, ptr %__end1, align 8
   %cmp.i.i.i.i = icmp ne ptr %25, %28

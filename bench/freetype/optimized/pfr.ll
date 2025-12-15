@@ -1725,8 +1725,8 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   %27 = getelementptr inbounds nuw %struct.PFR_CharRec_, ptr %25, i64 %26
   %28 = getelementptr inbounds nuw i8, ptr %14, i64 544
   %29 = load i32, ptr %28, align 8, !tbaa !112
-  %.not163.i = icmp eq i32 %29, 0
-  br i1 %.not163.i, label %pfr_slot_load_bitmap.exit.thread, label %.lr.ph.i
+  %.not164.i = icmp eq i32 %29, 0
+  br i1 %.not164.i, label %pfr_slot_load_bitmap.exit.thread, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %21
   %30 = getelementptr inbounds nuw i8, ptr %14, i64 552
@@ -1738,14 +1738,14 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   br label %36
 
 36:                                               ; preds = %45, %.lr.ph.i
-  %.088161.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %45 ]
-  %.089160.i = phi ptr [ %31, %.lr.ph.i ], [ %46, %45 ]
-  %37 = load i32, ptr %.089160.i, align 8, !tbaa !134
+  %.088162.i = phi i32 [ 0, %.lr.ph.i ], [ %47, %45 ]
+  %.089161.i = phi ptr [ %31, %.lr.ph.i ], [ %46, %45 ]
+  %37 = load i32, ptr %.089161.i, align 8, !tbaa !134
   %38 = icmp eq i32 %37, %34
   br i1 %38, label %39, label %45
 
 39:                                               ; preds = %36
-  %40 = getelementptr inbounds nuw i8, ptr %.089160.i, i64 4
+  %40 = getelementptr inbounds nuw i8, ptr %.089161.i, i64 4
   %41 = load i32, ptr %40, align 4, !tbaa !129
   %42 = load i16, ptr %35, align 2, !tbaa !187
   %43 = zext i16 %42 to i32
@@ -1753,17 +1753,17 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   br i1 %44, label %48, label %45
 
 45:                                               ; preds = %39, %36
-  %46 = getelementptr inbounds nuw i8, ptr %.089160.i, i64 40
-  %47 = add nuw i32 %.088161.i, 1
+  %46 = getelementptr inbounds nuw i8, ptr %.089161.i, i64 40
+  %47 = add nuw i32 %.088162.i, 1
   %exitcond.not.i = icmp eq i32 %47, %29
   br i1 %exitcond.not.i, label %pfr_slot_load_bitmap.exit.thread, label %36, !llvm.loop !188
 
 48:                                               ; preds = %39
-  %49 = getelementptr inbounds nuw i8, ptr %.089160.i, i64 8
+  %49 = getelementptr inbounds nuw i8, ptr %.089161.i, i64 8
   %50 = load i32, ptr %49, align 8, !tbaa !189
   %51 = getelementptr inbounds nuw i8, ptr %14, i64 632
   %52 = load i64, ptr %51, align 8, !tbaa !107
-  %53 = getelementptr inbounds nuw i8, ptr %.089160.i, i64 24
+  %53 = getelementptr inbounds nuw i8, ptr %.089161.i, i64 24
   %54 = load i32, ptr %53, align 8, !tbaa !190
   %55 = zext i32 %54 to i64
   %56 = add i64 %52, %55
@@ -1781,7 +1781,7 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   %62 = lshr i32 %50, 2
   %63 = and i32 %62, 1
   %.2.i = add nuw nsw i32 %.184.i, %63
-  %64 = getelementptr inbounds nuw i8, ptr %.089160.i, i64 28
+  %64 = getelementptr inbounds nuw i8, ptr %.089161.i, i64 28
   %65 = load i32, ptr %64, align 4, !tbaa !191
   %66 = mul i32 %65, %.2.i
   %67 = zext i32 %66 to i64
@@ -1974,7 +1974,8 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   %159 = and i32 %111, 2
   %.not105.i.i = icmp eq i32 %159, 0
   %160 = load i8, ptr %.us-phi.i.i, align 1, !tbaa !65
-  %161 = zext i8 %160 to i64
+  %.fr.i = freeze i8 %160
+  %161 = zext i8 %.fr.i to i64
   br i1 %.not105.i.i, label %169, label %162
 
 162:                                              ; preds = %158
@@ -1982,7 +1983,8 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
   %164 = shl nuw nsw i64 %161, 8
   %165 = getelementptr inbounds nuw i8, ptr %.us-phi.i.i, i64 1
   %166 = load i8, ptr %165, align 1, !tbaa !65
-  %167 = zext i8 %166 to i64
+  %.fr150.i = freeze i8 %166
+  %167 = zext i8 %.fr150.i to i64
   %168 = or disjoint i64 %164, %167
   br label %171
 
@@ -1993,7 +1995,6 @@ define internal i32 @pfr_slot_load(ptr noundef %0, ptr noundef readonly captures
 171:                                              ; preds = %169, %162
   %storemerge.i.i = phi i64 [ %161, %169 ], [ %168, %162 ]
   %.185.i.i = phi ptr [ %170, %169 ], [ %163, %162 ]
-  %storemerge.i.fr.i = freeze i64 %storemerge.i.i
   %172 = and i32 %111, 4
   %.not106.i.i = icmp eq i32 %172, 0
   %173 = load i8, ptr %.185.i.i, align 1, !tbaa !65
@@ -2025,7 +2026,7 @@ pfr_lookup_bitmap_data.exit.thread.i:             ; preds = %149, %124, %110
 pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %storemerge113.i.i = phi i64 [ %188, %186 ], [ %185, %178 ]
   tail call void @FT_Stream_ExitFrame(ptr noundef %23) #12
-  %189 = icmp eq i64 %storemerge.i.fr.i, 0
+  %189 = icmp eq i64 %storemerge.i.i, 0
   br i1 %189, label %pfr_slot_load_bitmap.exit.thread, label %190
 
 190:                                              ; preds = %pfr_lookup_bitmap_data.exit.i
@@ -2056,13 +2057,13 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %200 = zext i32 %195 to i64
   %201 = tail call i64 @FT_MulDiv(i64 noundef %193, i64 noundef %199, i64 noundef %200) #12
   %.pre.i = load i32, ptr %191, align 4, !tbaa !103
-  %.pre171.i = load i32, ptr %194, align 4, !tbaa !82
-  %.pre172.i = sext i32 %.pre.i to i64
+  %.pre172.i = load i32, ptr %194, align 4, !tbaa !82
+  %.pre173.i = sext i32 %.pre.i to i64
   br label %202
 
 202:                                              ; preds = %198, %190
-  %.pre-phi.i = phi i64 [ %.pre172.i, %198 ], [ %193, %190 ]
-  %203 = phi i32 [ %.pre171.i, %198 ], [ %195, %190 ]
+  %.pre-phi.i = phi i64 [ %.pre173.i, %198 ], [ %193, %190 ]
+  %203 = phi i32 [ %.pre172.i, %198 ], [ %195, %190 ]
   %204 = phi i64 [ %201, %198 ], [ %193, %190 ]
   %205 = getelementptr inbounds nuw i8, ptr %0, i64 112
   store i64 %204, ptr %205, align 8, !tbaa !194
@@ -2081,7 +2082,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   br i1 %.not109.i, label %216, label %pfr_slot_load_bitmap.exit.thread103
 
 216:                                              ; preds = %202
-  %217 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %23, i64 noundef %storemerge.i.fr.i) #12
+  %217 = tail call i32 @FT_Stream_EnterFrame(ptr noundef %23, i64 noundef %storemerge.i.i) #12
   %.not110.i = icmp eq i32 %217, 0
   br i1 %.not110.i, label %218, label %pfr_slot_load_bitmap.exit.thread103
 
@@ -2110,8 +2111,8 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %230 = mul nuw i64 %229, %227
   %231 = add nuw i64 %230, 7
   %232 = lshr i64 %231, 3
-  %.not151.i = icmp samesign ugt i64 %232, %storemerge.i.fr.i
-  br i1 %.not151.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
+  %.not152.i = icmp samesign ugt i64 %232, %storemerge.i.i
+  br i1 %.not152.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
 
 233:                                              ; preds = %223
   %234 = load i32, ptr %8, align 4, !tbaa !49
@@ -2119,9 +2120,9 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %236 = load i32, ptr %9, align 4, !tbaa !49
   %237 = zext i32 %236 to i64
   %238 = mul nuw i64 %237, %235
-  %239 = mul nuw nsw i64 %storemerge.i.fr.i, 15
-  %.not150.i = icmp ugt i64 %238, %239
-  br i1 %.not150.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
+  %239 = mul nuw nsw i64 %storemerge.i.i, 15
+  %.not151.i = icmp ugt i64 %238, %239
+  br i1 %.not151.i, label %pfr_slot_load_bitmap.exit.thread107, label %249
 
 240:                                              ; preds = %223
   %241 = load i32, ptr %8, align 4, !tbaa !49
@@ -2129,7 +2130,7 @@ pfr_lookup_bitmap_data.exit.i:                    ; preds = %186, %178
   %243 = load i32, ptr %9, align 4, !tbaa !49
   %244 = zext i32 %243 to i64
   %245 = mul nuw i64 %244, %242
-  %246 = add nuw nsw i64 %storemerge.i.fr.i, 1
+  %246 = add nuw nsw i64 %storemerge.i.i, 1
   %247 = lshr i64 %246, 1
   %248 = mul nuw nsw i64 %247, 255
   %.not.i = icmp ugt i64 %245, %248

@@ -147,11 +147,12 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   store i64 0, ptr %7, align 8, !tbaa !3
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   %55 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %7, i32 noundef 48) #10
-  %.not.i = icmp eq i32 %55, 0
+  %.fr = freeze i32 %55
+  %.not.i = icmp eq i32 %.fr, 0
   br i1 %.not.i, label %58, label %56
 
 56:                                               ; preds = %50
-  %57 = add nsw i32 %55, -21248
+  %57 = add i32 %.fr, -21248
   br label %pkcs7_get_signed_data.exit
 
 58:                                               ; preds = %50
@@ -163,21 +164,31 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
 
 62:                                               ; preds = %58
   %63 = call i32 @mbedtls_asn1_get_int(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %53) #10
-  %.not.i.i = icmp eq i32 %63, 0
-  %64 = add nsw i32 %63, -21504
+  %.fr80 = freeze i32 %63
+  %.not.i.i = icmp eq i32 %.fr80, 0
+  %64 = add i32 %.fr80, -21504
   %spec.select9.i.i = select i1 %.not.i.i, i32 0, i32 %64
   %65 = load i32, ptr %53, align 4, !tbaa !32
-  %.not8.i.i = icmp eq i32 %65, 1
+  %.fr79 = freeze i32 %65
+  %.not8.i.i = icmp eq i32 %.fr79, 1
   %spec.select.i.i = select i1 %.not8.i.i, i32 %spec.select9.i.i, i32 -21504
   %.not53.i = icmp eq i32 %spec.select.i.i, 0
-  br i1 %.not53.i, label %66, label %pkcs7_get_signed_data.exit
+  br i1 %.not53.i, label %66, label %pkcs7_get_signed_data.exit.thread89
+
+pkcs7_get_signed_data.exit.thread89:              ; preds = %62
+  call void @llvm.lifetime.end.p0(ptr nonnull %8)
+  call void @llvm.lifetime.end.p0(ptr nonnull %7)
+  call void @llvm.lifetime.end.p0(ptr nonnull %6)
+  call void @llvm.lifetime.end.p0(ptr nonnull %5)
+  br label %110
 
 66:                                               ; preds = %62
   %67 = getelementptr inbounds nuw i8, ptr %0, i64 32
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   store i64 0, ptr %4, align 8, !tbaa !3
   %68 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %54, ptr noundef nonnull %4, i32 noundef 49) #10
-  %.not.i63.i = icmp eq i32 %68, 0
+  %.fr82 = freeze i32 %68
+  %.not.i63.i = icmp eq i32 %.fr82, 0
   br i1 %.not.i63.i, label %69, label %pkcs7_get_digest_algorithm_set.exit.i
 
 69:                                               ; preds = %66
@@ -185,7 +196,8 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   %71 = load i64, ptr %4, align 8, !tbaa !3
   %72 = getelementptr inbounds nuw i8, ptr %70, i64 %71
   %73 = call i32 @mbedtls_asn1_get_alg_null(ptr noundef nonnull %5, ptr noundef %72, ptr noundef nonnull %67) #10
-  %.not14.i.i = icmp eq i32 %73, 0
+  %.fr83 = freeze i32 %73
+  %.not14.i.i = icmp eq i32 %.fr83, 0
   br i1 %.not14.i.i, label %74, label %pkcs7_get_digest_algorithm_set.exit.i
 
 74:                                               ; preds = %69
@@ -195,8 +207,8 @@ define hidden i32 @mbedtls_pkcs7_parse_der(ptr noundef %0, ptr noundef readonly 
   br i1 %.not15.i.i, label %pkcs7_get_digest_algorithm_set.exit.thread.i, label %pkcs7_get_signed_data.exit.thread
 
 pkcs7_get_digest_algorithm_set.exit.i:            ; preds = %69, %66
-  %.0.i.in.i = phi i32 [ %68, %66 ], [ %73, %69 ]
-  %.0.i.i = add nsw i32 %.0.i.in.i, -21760
+  %.0.i.in.i = phi i32 [ %.fr82, %66 ], [ %.fr83, %69 ]
+  %.0.i.i = add i32 %.0.i.in.i, -21760
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.not54.i = icmp eq i32 %.0.i.i, 0
   br i1 %.not54.i, label %pkcs7_get_digest_algorithm_set.exit.thread.i, label %pkcs7_get_signed_data.exit
@@ -210,7 +222,8 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
   call void @llvm.lifetime.start.p0(ptr nonnull %9)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %9, i8 0, i64 24, i1 false)
   %78 = call fastcc i32 @pkcs7_get_content_info_type(ptr noundef %5, ptr noundef %54, ptr noundef %6, ptr noundef %9)
-  %.not56.i = icmp eq i32 %78, 0
+  %.fr72 = freeze i32 %78
+  %.not56.i = icmp eq i32 %.fr72, 0
   br i1 %.not56.i, label %79, label %109
 
 79:                                               ; preds = %77
@@ -229,23 +242,27 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
 85:                                               ; preds = %82
   %86 = load ptr, ptr %5, align 8, !tbaa !7
   %87 = load ptr, ptr %6, align 8, !tbaa !7
-  %.not59.i = icmp eq ptr %86, %87
+  %.fr78 = freeze ptr %87
+  %.not59.i = icmp eq ptr %86, %.fr78
   br i1 %.not59.i, label %96, label %88
 
 88:                                               ; preds = %85
-  %89 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %87, ptr noundef nonnull %7, i32 noundef 160) #10
-  %.not61.i = icmp eq i32 %89, 0
+  %89 = call i32 @mbedtls_asn1_get_tag(ptr noundef nonnull %5, ptr noundef %.fr78, ptr noundef nonnull %7, i32 noundef 160) #10
+  %.fr71 = freeze i32 %89
+  %.not61.i = icmp eq i32 %.fr71, 0
   br i1 %.not61.i, label %92, label %90
 
 90:                                               ; preds = %88
-  %91 = add nsw i32 %89, -21632
+  %91 = add i32 %.fr71, -21632
   br label %109
 
 92:                                               ; preds = %88
   %93 = load i64, ptr %7, align 8, !tbaa !3
   %94 = load ptr, ptr %5, align 8, !tbaa !7
-  %95 = getelementptr inbounds nuw i8, ptr %94, i64 %93
-  %.not62.i = icmp eq ptr %95, %87
+  %.fr76 = freeze ptr %94
+  %.fr77 = freeze i64 %93
+  %95 = getelementptr i8, ptr %.fr76, i64 %.fr77
+  %.not62.i = icmp eq ptr %95, %.fr78
   %spec.select.i = select i1 %.not62.i, i32 -21376, i32 -21632
   br label %109
 
@@ -253,29 +270,32 @@ pkcs7_get_digest_algorithm_set.exit.thread.i:     ; preds = %pkcs7_get_digest_al
   %97 = getelementptr inbounds nuw i8, ptr %0, i64 64
   call void @mbedtls_x509_crt_init(ptr noundef nonnull %97) #10
   %98 = call fastcc i32 @pkcs7_get_certificates(ptr noundef %5, ptr noundef %54, ptr noundef %97)
-  %99 = icmp slt i32 %98, 0
+  %.fr73 = freeze i32 %98
+  %99 = icmp slt i32 %.fr73, 0
   br i1 %99, label %109, label %100
 
 100:                                              ; preds = %96
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 56
-  store i32 %98, ptr %101, align 8, !tbaa !35
+  store i32 %.fr73, ptr %101, align 8, !tbaa !35
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 808
   store i32 0, ptr %102, align 8, !tbaa !36
   %103 = getelementptr inbounds nuw i8, ptr %0, i64 1240
   %104 = call fastcc i32 @pkcs7_get_signers_info_set(ptr noundef %5, ptr noundef %54, ptr noundef %103, ptr noundef %67)
-  %105 = icmp slt i32 %104, 0
+  %.fr74 = freeze i32 %104
+  %105 = icmp slt i32 %.fr74, 0
   br i1 %105, label %109, label %106
 
 106:                                              ; preds = %100
   %107 = getelementptr inbounds nuw i8, ptr %0, i64 1232
-  store i32 %104, ptr %107, align 8, !tbaa !37
+  store i32 %.fr74, ptr %107, align 8, !tbaa !37
   %108 = load ptr, ptr %5, align 8, !tbaa !7
-  %.not60.i = icmp eq ptr %108, %54
+  %.fr75 = freeze ptr %108
+  %.not60.i = icmp eq ptr %.fr75, %54
   %..i = select i1 %.not60.i, i32 0, i32 -21248
   br label %109
 
 109:                                              ; preds = %106, %100, %96, %92, %90, %82, %79, %77
-  %.1.i = phi i32 [ %91, %90 ], [ %78, %77 ], [ -21632, %82 ], [ -21632, %79 ], [ %98, %96 ], [ %104, %100 ], [ %..i, %106 ], [ %spec.select.i, %92 ]
+  %.1.i = phi i32 [ %91, %90 ], [ %.fr72, %77 ], [ -21632, %82 ], [ -21632, %79 ], [ %.fr73, %96 ], [ %.fr74, %100 ], [ %..i, %106 ], [ %spec.select.i, %92 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   br label %pkcs7_get_signed_data.exit
 
@@ -287,18 +307,17 @@ pkcs7_get_signed_data.exit.thread:                ; preds = %pkcs7_get_digest_al
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.thread66
 
-pkcs7_get_signed_data.exit:                       ; preds = %56, %62, %pkcs7_get_digest_algorithm_set.exit.i, %109
-  %.0.i = phi i32 [ %57, %56 ], [ %.1.i, %109 ], [ %spec.select.i.i, %62 ], [ %.0.i.i, %pkcs7_get_digest_algorithm_set.exit.i ]
-  %.0.i.fr = freeze i32 %.0.i
+pkcs7_get_signed_data.exit:                       ; preds = %56, %pkcs7_get_digest_algorithm_set.exit.i, %109
+  %.0.i = phi i32 [ %57, %56 ], [ %.1.i, %109 ], [ %.0.i.i, %pkcs7_get_digest_algorithm_set.exit.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  %.not58 = icmp eq i32 %.0.i.fr, 0
+  %.not58 = icmp eq i32 %.0.i, 0
   br i1 %.not58, label %.thread69, label %110
 
-110:                                              ; preds = %pkcs7_get_signed_data.exit, %29, %43, %21
-  %.0 = phi i32 [ %22, %21 ], [ %45, %43 ], [ %30, %29 ], [ %.0.i.fr, %pkcs7_get_signed_data.exit ]
+110:                                              ; preds = %pkcs7_get_signed_data.exit.thread89, %pkcs7_get_signed_data.exit, %29, %43, %21
+  %.0 = phi i32 [ %22, %21 ], [ %45, %43 ], [ %30, %29 ], [ %.0.i, %pkcs7_get_signed_data.exit ], [ %spec.select.i.i, %pkcs7_get_signed_data.exit.thread89 ]
   %111 = icmp slt i32 %.0, 0
   br i1 %111, label %.thread66, label %.thread69
 

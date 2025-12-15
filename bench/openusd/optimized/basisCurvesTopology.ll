@@ -2164,22 +2164,23 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit: ; preds = %_ZNK32pxrInte
 40:                                               ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %42 = load i64, ptr %41, align 8, !noalias !21
-  %43 = and i64 %42, 7
+  %.fr72 = freeze i64 %42
+  %43 = and i64 %.fr72, 7
   %.not.i.i.i26 = icmp eq i64 %43, 0
   br i1 %.not.i.i.i26, label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit, label %44
 
 44:                                               ; preds = %40
-  %45 = and i64 %42, -8
+  %45 = and i64 %.fr72, -8
   %46 = inttoptr i64 %45 to ptr
   %47 = atomicrmw add ptr %46, i32 2 monotonic, align 4, !noalias !21
-  %48 = and i32 %47, 1
+  %.fr73 = freeze i32 %47
+  %48 = and i32 %.fr73, 1
   %.not1.i.i.i27 = icmp eq i32 %48, 0
-  %49 = select i1 %.not1.i.i.i27, i64 %45, i64 %42
+  %49 = select i1 %.not1.i.i.i27, i64 %45, i64 %.fr72
   br label %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit
 
 _ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit: ; preds = %44, %40
-  %.sroa.061.0 = phi i64 [ %42, %40 ], [ %49, %44 ]
-  %.sroa.061.0.fr = freeze i64 %.sroa.061.0
+  %.sroa.061.0 = phi i64 [ %.fr72, %40 ], [ %49, %44 ]
   %50 = load atomic i64, ptr @_ZN32pxrInternal_v0_24__pxrReserved__8HdTokensE seq_cst, align 8
   %51 = inttoptr i64 %50 to ptr
   %.not.i.i28 = icmp eq i64 %50, 0
@@ -2216,16 +2217,16 @@ _ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTy
   %62 = phi ptr [ %51, %_ZNK32pxrInternal_v0_24__pxrReserved__21HdBasisCurvesTopology12GetCurveWrapEv.exit ], [ %61, %59 ], [ %53, %_ZN32pxrInternal_v0_24__pxrReserved__27Tf_StaticDataDefaultFactoryINS_24HdTokens_StaticTokenTypeEE3NewEv.exit.i.i.i29 ]
   %63 = getelementptr inbounds nuw i8, ptr %62, i64 456
   %64 = load ptr, ptr %63, align 8
-  %.fr72 = freeze ptr %64
-  %65 = ptrtoint ptr %.fr72 to i64
-  %66 = xor i64 %.sroa.061.0.fr, %65
+  %.fr76 = freeze ptr %64
+  %65 = ptrtoint ptr %.fr76 to i64
+  %66 = xor i64 %.sroa.061.0, %65
   %67 = icmp ult i64 %66, 8
-  %68 = and i64 %.sroa.061.0.fr, 7
+  %68 = and i64 %.sroa.061.0, 7
   %.not.i.i34 = icmp eq i64 %68, 0
   br i1 %.not.i.i34, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit35, label %69
 
 69:                                               ; preds = %_ZNK32pxrInternal_v0_24__pxrReserved__12TfStaticDataINS_24HdTokens_StaticTokenTypeENS_27Tf_StaticDataDefaultFactoryIS1_EEEptEv.exit33
-  %70 = and i64 %.sroa.061.0.fr, -8
+  %70 = and i64 %.sroa.061.0, -8
   %71 = inttoptr i64 %70 to ptr
   %72 = atomicrmw sub ptr %71, i32 2 release, align 4
   br label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit35
@@ -2337,7 +2338,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
 
 .body31:                                          ; preds = %54, %118
   %eh.lpad-body32 = phi { ptr, i32 } [ %119, %118 ], [ %55, %54 ]
-  %120 = and i64 %.sroa.061.0.fr, 7
+  %120 = and i64 %.sroa.061.0, 7
   %.not.i.i46 = icmp eq i64 %120, 0
   br i1 %.not.i.i46, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25, label %_ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split
 
@@ -2379,7 +2380,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit45: ; preds = %_ZNK32pxrIn
   ret i64 %.016
 
 _ZN32pxrInternal_v0_24__pxrReserved__7TfTokenD2Ev.exit25.sink.split: ; preds = %.body41, %.body31, %.body
-  %.sroa.0.0.sink = phi i64 [ %.sroa.064.0, %.body ], [ %.sroa.061.0.fr, %.body31 ], [ %.sroa.0.0, %.body41 ]
+  %.sroa.0.0.sink = phi i64 [ %.sroa.064.0, %.body ], [ %.sroa.061.0, %.body31 ], [ %.sroa.0.0, %.body41 ]
   %.pn.ph = phi { ptr, i32 } [ %eh.lpad-body, %.body ], [ %eh.lpad-body32, %.body31 ], [ %eh.lpad-body42, %.body41 ]
   %134 = and i64 %.sroa.0.0.sink, -8
   %135 = inttoptr i64 %134 to ptr

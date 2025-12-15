@@ -2906,7 +2906,7 @@ return:                                           ; preds = %if.then7, %if.then7
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind memory(argmem: readwrite) uwtable
 define dso_local noundef i32 @_ZN2EA4StdC16BoyerMooreSearchEPKciS2_iPiS3_S3_i(ptr noundef readonly captures(none) %pPattern, i32 noundef %nPatternLength, ptr noundef readonly captures(none) %pSearchString, i32 noundef %nSearchStringLength, ptr noundef captures(none) %pPatternBuffer1, ptr noundef captures(none) %pPatternBuffer2, ptr noundef captures(none) %pAlphabetBuffer, i32 noundef %nAlphabetBufferSize) local_unnamed_addr #8 {
 entry:
-  %sub.i = add nsw i32 %nPatternLength, -1
+  %sub.i = add i32 %nPatternLength, -1
   %idxprom.i = sext i32 %sub.i to i64
   %arrayidx.i = getelementptr inbounds i32, ptr %pPatternBuffer2, i64 %idxprom.i
   store i32 %nPatternLength, ptr %arrayidx.i, align 4
@@ -3131,9 +3131,8 @@ while.cond.preheader.us:                          ; preds = %while.cond.preheade
   %j.073.us = phi i32 [ %add60.us, %for.inc.us ], [ 0, %while.cond.preheader.us.preheader ]
   %shift.072.us = phi i32 [ %shift.2.us, %for.inc.us ], [ %nPatternLength, %while.cond.preheader.us.preheader ]
   %u.071.us = phi i32 [ %u.1.us, %for.inc.us ], [ 0, %while.cond.preheader.us.preheader ]
-  %u.071.us.fr = freeze i32 %u.071.us
-  %cmp7.not.us.not = icmp eq i32 %u.071.us.fr, 0
-  %sub9.us = sub nsw i32 %sub.i, %shift.072.us
+  %cmp7.not.us.not = icmp eq i32 %u.071.us, 0
+  %sub9.us = sub i32 %sub.i, %shift.072.us
   br i1 %cmp7.not.us.not, label %land.rhs.us.us.preheader, label %land.rhs.us74
 
 land.rhs.us.us.preheader:                         ; preds = %while.cond.preheader.us
@@ -3154,13 +3153,13 @@ land.rhs.us74:                                    ; preds = %while.cond.preheade
   br i1 %cmp6.us81, label %while.body.us84, label %if.else.us
 
 if.then39.us:                                     ; preds = %if.else.us
-  %sub40.us = sub nsw i32 %nPatternLength, %cond..us
+  %sub40.us = sub i32 %nPatternLength, %cond..us
   %cond46.us = tail call i32 @llvm.smin.i32(i32 %sub40.us, i32 %sub15.us)
   br label %for.inc.us
 
 if.else47.us:                                     ; preds = %if.else.us
   %cmp48.us = icmp slt i32 %sub16.us, %add25.us
-  %add50.us = add nsw i32 %u.071.us.fr, 1
+  %add50.us = add i32 %u.071.us, 1
   %cond56.us = tail call i32 @llvm.smax.i32(i32 %cond..us, i32 %add50.us)
   %shift.1.us = select i1 %cmp48.us, i32 %cond56.us, i32 %cond..us
   br label %for.inc.us
@@ -3173,26 +3172,26 @@ for.inc.us:                                       ; preds = %if.else47.us, %if.t
   br i1 %cmp.not.us, label %return, label %while.cond.preheader.us, !llvm.loop !49
 
 while.body.us84:                                  ; preds = %land.rhs.us74
-  %dec.us85 = add nsw i32 %i.067.us75, -1
+  %dec.us85 = add i32 %i.067.us75, -1
   %cmp10.us = icmp eq i32 %dec.us85, %sub9.us
-  %spec.select = select i1 %cmp10.us, i32 %u.071.us.fr, i32 0
-  %i.1.us = sub nsw i32 %dec.us85, %spec.select
+  %spec.select = select i1 %cmp10.us, i32 %u.071.us, i32 0
+  %i.1.us = sub i32 %dec.us85, %spec.select
   %cmp2.us86 = icmp sgt i32 %i.1.us, -1
   br i1 %cmp2.us86, label %land.rhs.us74, label %return, !llvm.loop !50
 
 if.else.us.loopexit:                              ; preds = %land.rhs.us.us
   %23 = trunc nuw nsw i64 %indvars.iv to i32
   %.pre = and i64 %indvars.iv, 4294967295
-  %.pre100 = add nsw i32 %j.073.us, %23
-  %.pre101 = sext i32 %.pre100 to i64
+  %.pre101 = add nsw i32 %j.073.us, %23
+  %.pre102 = sext i32 %.pre101 to i64
   br label %if.else.us
 
 if.else.us:                                       ; preds = %land.rhs.us74, %if.else.us.loopexit
-  %idxprom18.us.pre-phi = phi i64 [ %.pre101, %if.else.us.loopexit ], [ %idxprom3.us79, %land.rhs.us74 ]
+  %idxprom18.us.pre-phi = phi i64 [ %.pre102, %if.else.us.loopexit ], [ %idxprom3.us79, %land.rhs.us74 ]
   %idxprom27.us.pre-phi = phi i64 [ %.pre, %if.else.us.loopexit ], [ %idxprom.us76, %land.rhs.us74 ]
   %.us-phi.us = phi i32 [ %23, %if.else.us.loopexit ], [ %i.067.us75, %land.rhs.us74 ]
-  %sub15.us = sub nsw i32 %sub.i, %.us-phi.us
-  %sub16.us = sub nsw i32 %u.071.us.fr, %sub15.us
+  %sub15.us = sub i32 %sub.i, %.us-phi.us
+  %sub16.us = sub i32 %u.071.us, %sub15.us
   %arrayidx19.us = getelementptr inbounds i8, ptr %pSearchString, i64 %idxprom18.us.pre-phi
   %24 = load i8, ptr %arrayidx19.us, align 1
   %idxprom21.us = sext i8 %24 to i64
@@ -3200,12 +3199,14 @@ if.else.us:                                       ; preds = %land.rhs.us74, %if.
   %25 = load i32, ptr %arrayidx22.us, align 4
   %reass.sub = sub i32 %.us-phi.us, %nPatternLength
   %add24.us = add i32 %reass.sub, 1
-  %add25.us = add i32 %add24.us, %25
+  %.fr = freeze i32 %25
+  %add25.us = add i32 %add24.us, %.fr
   %cond.us = tail call i32 @llvm.smax.i32(i32 %sub16.us, i32 %add25.us)
   %arrayidx28.us = getelementptr inbounds nuw i32, ptr %pPatternBuffer1, i64 %idxprom27.us.pre-phi
   %26 = load i32, ptr %arrayidx28.us, align 4
-  %cond..us = tail call i32 @llvm.smax.i32(i32 %cond.us, i32 %26)
-  %cmp38.not.us = icmp slt i32 %26, %cond.us
+  %.fr91 = freeze i32 %26
+  %cond..us = tail call i32 @llvm.smax.i32(i32 %cond.us, i32 %.fr91)
+  %cmp38.not.us = icmp slt i32 %.fr91, %cond.us
   br i1 %cmp38.not.us, label %if.else47.us, label %if.then39.us
 
 land.rhs.us.us:                                   ; preds = %land.rhs.us.us.preheader, %while.body.us.us

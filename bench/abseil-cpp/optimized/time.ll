@@ -508,23 +508,24 @@ define dso_local { i64, i32 } @_ZN4absl10FromChronoERKNSt6chrono10time_pointINS0
 ; Function Attrs: mustprogress nofree nosync nounwind willreturn memory(none) uwtable
 define dso_local i64 @_ZN4absl12ToChronoTimeENS_4TimeE(i64 %0, i32 %1) local_unnamed_addr #3 personality ptr @__gxx_personality_v0 {
   %3 = alloca %"class.absl::Duration", align 8
-  %.not.i = icmp eq i64 %0, 0
+  %.fr62 = freeze i64 %0
+  %.not.i = icmp eq i64 %.fr62, 0
   br i1 %.not.i, label %_ZN4abslltENS_8DurationES0_.exit.thread.thread, label %_ZN4abslltENS_8DurationES0_.exit
 
 _ZN4abslltENS_8DurationES0_.exit:                 ; preds = %2
-  %4 = icmp slt i64 %0, 0
+  %4 = icmp slt i64 %.fr62, 0
   br i1 %4, label %5, label %_ZN4abslltENS_8DurationES0_.exit.thread
 
 5:                                                ; preds = %_ZN4abslltENS_8DurationES0_.exit
-  %6 = tail call { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64 %0, i32 %1, i64 0, i32 4) #14
-  %.fca.0.extract = extractvalue { i64, i32 } %6, 0
-  %.fca.1.extract = extractvalue { i64, i32 } %6, 1
+  %6 = tail call { i64, i32 } @_ZN4absl5FloorENS_8DurationES0_(i64 %.fr62, i32 %1, i64 0, i32 4) #14
+  %.fr = freeze { i64, i32 } %6
+  %.fca.0.extract = extractvalue { i64, i32 } %.fr, 0
+  %.fca.1.extract = extractvalue { i64, i32 } %.fr, 1
   br label %_ZN4abslltENS_8DurationES0_.exit.thread
 
 _ZN4abslltENS_8DurationES0_.exit.thread:          ; preds = %5, %_ZN4abslltENS_8DurationES0_.exit
-  %.sroa.038.0 = phi i64 [ %.fca.0.extract, %5 ], [ %0, %_ZN4abslltENS_8DurationES0_.exit ]
+  %.sroa.038.0 = phi i64 [ %.fca.0.extract, %5 ], [ %.fr62, %_ZN4abslltENS_8DurationES0_.exit ]
   %.sroa.7.0 = phi i32 [ %.fca.1.extract, %5 ], [ %1, %_ZN4abslltENS_8DurationES0_.exit ]
-  %.sroa.038.0.fr = freeze i64 %.sroa.038.0
   %7 = icmp eq i32 %.sroa.7.0, -1
   br i1 %7, label %9, label %11
 
@@ -533,16 +534,16 @@ _ZN4abslltENS_8DurationES0_.exit.thread.thread:   ; preds = %2
   br i1 %8, label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_NS_8DurationE.exit, label %.thread
 
 9:                                                ; preds = %_ZN4abslltENS_8DurationES0_.exit.thread
-  %10 = icmp slt i64 %.sroa.038.0.fr, 0
+  %10 = icmp slt i64 %.sroa.038.0, 0
   %spec.select = select i1 %10, i64 -9223372036854775808, i64 9223372036854775807
   br label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_NS_8DurationE.exit
 
 11:                                               ; preds = %_ZN4abslltENS_8DurationES0_.exit.thread
-  %12 = icmp ult i64 %.sroa.038.0.fr, 8589934592
+  %12 = icmp ult i64 %.sroa.038.0, 8589934592
   br i1 %12, label %.thread, label %17
 
 .thread:                                          ; preds = %_ZN4abslltENS_8DurationES0_.exit.thread.thread, %11
-  %.sroa.038.05258 = phi i64 [ %.sroa.038.0.fr, %11 ], [ 0, %_ZN4abslltENS_8DurationES0_.exit.thread.thread ]
+  %.sroa.038.05258 = phi i64 [ %.sroa.038.0, %11 ], [ 0, %_ZN4abslltENS_8DurationES0_.exit.thread.thread ]
   %.sroa.7.05457 = phi i32 [ %.sroa.7.0, %11 ], [ %1, %_ZN4abslltENS_8DurationES0_.exit.thread.thread ]
   %13 = mul nuw nsw i64 %.sroa.038.05258, 1000000000
   %14 = lshr i32 %.sroa.7.05457, 2
@@ -552,10 +553,10 @@ _ZN4abslltENS_8DurationES0_.exit.thread.thread:   ; preds = %2
 
 17:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
-  store i64 %.sroa.038.0.fr, ptr %3, align 8
+  store i64 %.sroa.038.0, ptr %3, align 8
   %.sroa.212.0..sroa_idx.i.i.i.i = getelementptr inbounds nuw i8, ptr %3, i64 8
   store i32 %.sroa.7.0, ptr %.sroa.212.0..sroa_idx.i.i.i.i, align 8
-  %18 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %.sroa.038.0.fr, i32 %.sroa.7.0, i64 0, i32 4, ptr noundef nonnull %3) #13
+  %18 = call noundef i64 @_ZN4absl12IDivDurationENS_8DurationES0_PS0_(i64 %.sroa.038.0, i32 %.sroa.7.0, i64 0, i32 4, ptr noundef nonnull %3) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %_ZN4absl13time_internal16ToChronoDurationINSt6chrono8durationIlSt5ratioILl1ELl1000000000EEEEEET_NS_8DurationE.exit
 

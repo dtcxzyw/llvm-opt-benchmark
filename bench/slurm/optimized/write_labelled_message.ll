@@ -70,18 +70,20 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @write_labelled_message
   %30 = trunc i64 %29 to i32
   %31 = add nsw i32 %30, 1
   %32 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef %.04149.us, ptr noundef nonnull %22, i32 noundef %31)
-  %33 = icmp slt i32 %32, 1
+  %.fr95 = freeze i32 %32
+  %33 = icmp slt i32 %.fr95, 1
   br i1 %33, label %._crit_edge, label %37
 
 34:                                               ; preds = %.lr.ph.split.us
   %35 = call fastcc i32 @_write_line(i32 noundef %0, ptr noundef %18, ptr noundef nonnull @.str, ptr noundef nonnull %22, i32 noundef %.03950.us)
-  %36 = icmp slt i32 %35, 1
+  %.fr = freeze i32 %35
+  %36 = icmp slt i32 %.fr, 1
   br i1 %36, label %._crit_edge, label %37
 
 37:                                               ; preds = %34, %26
   %.243.us = phi ptr [ @.str, %34 ], [ %.04149.us, %26 ]
-  %.2.us = phi i32 [ %35, %34 ], [ %32, %26 ]
-  %.138.us = add nuw nsw i32 %.2.us, %.03751.us
+  %.2.us = phi i32 [ %.fr, %34 ], [ %.fr95, %26 ]
+  %.138.us = add i32 %.2.us, %.03751.us
   %.140.us = sub nsw i32 %.03950.us, %.2.us
   %38 = icmp sgt i32 %.140.us, 0
   br i1 %38, label %.lr.ph.split.us, label %.sink.split, !llvm.loop !8
@@ -98,7 +100,8 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @write_labelled_message
 
 44:                                               ; preds = %.lr.ph.split
   %45 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, i32 noundef %.03950)
-  %46 = icmp slt i32 %45, 1
+  %.fr96 = freeze i32 %45
+  %46 = icmp slt i32 %.fr96, 1
   br i1 %46, label %._crit_edge, label %55
 
 47:                                               ; preds = %.lr.ph.split
@@ -108,23 +111,23 @@ define dso_local range(i32 -2147483647, -2147483648) i32 @write_labelled_message
   %51 = trunc i64 %50 to i32
   %52 = add nsw i32 %51, 1
   %53 = tail call fastcc i32 @_write_line(i32 noundef %0, ptr noundef null, ptr noundef null, ptr noundef nonnull %40, i32 noundef %52)
-  %54 = icmp slt i32 %53, 1
+  %.fr97 = freeze i32 %53
+  %54 = icmp slt i32 %.fr97, 1
   br i1 %54, label %._crit_edge, label %55
 
 55:                                               ; preds = %47, %44
-  %.2 = phi i32 [ %45, %44 ], [ %53, %47 ]
-  %.138 = add nuw nsw i32 %.2, %.03751
+  %.2 = phi i32 [ %.fr96, %44 ], [ %.fr97, %47 ]
+  %.138 = add i32 %.2, %.03751
   %.140 = sub nsw i32 %.03950, %.2
   %56 = icmp sgt i32 %.140, 0
   br i1 %56, label %.lr.ph.split, label %.sink.split, !llvm.loop !8
 
 ._crit_edge:                                      ; preds = %44, %47, %34, %26
   %.037.lcssa = phi i32 [ %.03751.us, %26 ], [ %.03751.us, %34 ], [ %.03751, %47 ], [ %.03751, %44 ]
-  %.1 = phi i32 [ %35, %34 ], [ %32, %26 ], [ %45, %44 ], [ %53, %47 ]
-  %.037.lcssa.fr = freeze i32 %.037.lcssa
+  %.1 = phi i32 [ %.fr, %34 ], [ %.fr95, %26 ], [ %.fr96, %44 ], [ %.fr97, %47 ]
   call void @slurm_xfree(ptr noundef nonnull %10) #7
-  %.not = icmp eq i32 %.037.lcssa.fr, 0
-  %spec.select = select i1 %.not, i32 %.1, i32 %.037.lcssa.fr
+  %.not = icmp eq i32 %.037.lcssa, 0
+  %spec.select = select i1 %.not, i32 %.1, i32 %.037.lcssa
   br label %57
 
 .sink.split:                                      ; preds = %55, %37, %.thread, %17

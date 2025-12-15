@@ -16415,8 +16415,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEaSEOS6_.exit
-  %.050 = phi i64 [ %33, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEaSEOS6_.exit ], [ %1, %4 ]
-  %10 = shl i64 %.050, 1
+  %.052 = phi i64 [ %33, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEaSEOS6_.exit ], [ %1, %4 ]
+  %10 = shl i64 %.052, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.std::pair.97", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -16435,9 +16435,11 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !66
+  %.fr50 = freeze i64 %24
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !66
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %24)
+  %.fr51 = freeze i64 %26
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.fr51, i64 %.fr50)
   %27 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %27, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -16445,20 +16447,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %22
   %28 = load ptr, ptr %14, align 8, !tbaa !52
   %29 = load ptr, ptr %12, align 8, !tbaa !52
   %30 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %28, i64 noundef %.sroa.speculated.i.i.i.i) #27
-  %.not.i.i.i.i = icmp eq i32 %30, 0
+  %.fr = freeze i32 %30
+  %.not.i.i.i.i = icmp eq i32 %.fr, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %22
-  %31 = sub i64 %24, %26
+  %31 = sub i64 %.fr50, %.fr51
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %31, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
   %.0.i6.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
-  %.0.i.i.i.i.fr = freeze i32 %.0.i.i.i.i
-  %32 = icmp slt i32 %.0.i.i.i.i.fr, 0
+  %.0.i.i.i.i = phi i32 [ %.fr, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
+  %32 = icmp slt i32 %.0.i.i.i.i, 0
   br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread48
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit
@@ -16467,7 +16469,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread48: ; preds = %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread
   %33 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_lESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit ], [ %11, %20 ]
   %34 = getelementptr inbounds %"struct.std::pair.97", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"struct.std::pair.97", ptr %0, i64 %.050
+  %35 = getelementptr inbounds %"struct.std::pair.97", ptr %0, i64 %.052
   %36 = load ptr, ptr %35, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = icmp eq ptr %36, %37
@@ -16487,7 +16489,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %44 = load i64, ptr %43, align 8, !tbaa !66
   %45 = icmp ult i64 %44, 16
   tail call void @llvm.assume(i1 %45)
-  %.not22.i.i = icmp eq i64 %33, %.050
+  %.not22.i.i = icmp eq i64 %33, %.052
   br i1 %.not22.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEElEaSEOS6_.exit, label %46, !prof !174
 
 46:                                               ; preds = %42
@@ -33492,8 +33494,8 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
   br i1 %9, label %.lr.ph, label %._crit_edge
 
 .lr.ph:                                           ; preds = %4, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEaSEOS6_.exit
-  %.050 = phi i64 [ %33, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEaSEOS6_.exit ], [ %1, %4 ]
-  %10 = shl i64 %.050, 1
+  %.052 = phi i64 [ %33, %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEaSEOS6_.exit ], [ %1, %4 ]
+  %10 = shl i64 %.052, 1
   %11 = add i64 %10, 2
   %12 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %11
   %13 = or disjoint i64 %10, 1
@@ -33512,9 +33514,11 @@ define linkonce_odr void @_ZSt13__adjust_heapIN9__gnu_cxx17__normal_iteratorIPSt
 22:                                               ; preds = %20
   %23 = getelementptr inbounds nuw i8, ptr %12, i64 8
   %24 = load i64, ptr %23, align 8, !tbaa !66
+  %.fr50 = freeze i64 %24
   %25 = getelementptr inbounds nuw i8, ptr %14, i64 8
   %26 = load i64, ptr %25, align 8, !tbaa !66
-  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %26, i64 %24)
+  %.fr51 = freeze i64 %26
+  %.sroa.speculated.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.fr51, i64 %.fr50)
   %27 = icmp eq i64 %.sroa.speculated.i.i.i.i, 0
   br i1 %27, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i
 
@@ -33522,20 +33526,20 @@ _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i: ; preds = %22
   %28 = load ptr, ptr %14, align 8, !tbaa !52
   %29 = load ptr, ptr %12, align 8, !tbaa !52
   %30 = tail call i32 @memcmp(ptr noundef %29, ptr noundef %28, i64 noundef %.sroa.speculated.i.i.i.i) #27
-  %.not.i.i.i.i = icmp eq i32 %30, 0
+  %.fr = freeze i32 %30
+  %.not.i.i.i.i = icmp eq i32 %.fr, 0
   br i1 %.not.i.i.i.i, label %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit
 
 _ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %22
-  %31 = sub i64 %24, %26
+  %31 = sub i64 %.fr50, %.fr51
   %spec.select7.i.i.i.i.i = tail call i64 @llvm.smax.i64(i64 %31, i64 -2147483648)
   %.08.i.i.i.i.i = tail call i64 @llvm.smin.i64(i64 %spec.select7.i.i.i.i.i, i64 2147483647)
   %.0.i6.i.i.i.i = trunc nsw i64 %.08.i.i.i.i.i to i32
   br label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit: ; preds = %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i
-  %.0.i.i.i.i = phi i32 [ %30, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
-  %.0.i.i.i.i.fr = freeze i32 %.0.i.i.i.i
-  %32 = icmp slt i32 %.0.i.i.i.i.fr, 0
+  %.0.i.i.i.i = phi i32 [ %.fr, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.i.i.i.i ], [ %.0.i6.i.i.i.i, %_ZNSt11char_traitsIcE7compareEPKcS2_m.exit.thread.i.i.i.i ]
+  %32 = icmp slt i32 %.0.i.i.i.i, 0
   br i1 %32, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread, label %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread48
 
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread: ; preds = %.lr.ph, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit
@@ -33544,7 +33548,7 @@ _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic
 _ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread48: ; preds = %20, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread
   %33 = phi i64 [ %13, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit.thread ], [ %11, %_ZN9__gnu_cxx5__ops15_Iter_comp_iterIZN13sentencepiece6SortedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEESt6vectorISt4pairIT_T0_ESaISE_EERKSG_EUlRKSB_IS9_fESL_E_EclINS_17__normal_iteratorIPSJ_SA_ISJ_SaISJ_EEEEST_EEbSC_SD_.exit ], [ %11, %20 ]
   %34 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %33
-  %35 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.050
+  %35 = getelementptr inbounds %"struct.std::pair", ptr %0, i64 %.052
   %36 = load ptr, ptr %35, align 8, !tbaa !52
   %37 = getelementptr inbounds nuw i8, ptr %35, i64 16
   %38 = icmp eq ptr %36, %37
@@ -33564,7 +33568,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %44 = load i64, ptr %43, align 8, !tbaa !66
   %45 = icmp ult i64 %44, 16
   tail call void @llvm.assume(i1 %45)
-  %.not22.i.i = icmp eq i64 %33, %.050
+  %.not22.i.i = icmp eq i64 %33, %.052
   br i1 %.not22.i.i, label %_ZNSt4pairINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEfEaSEOS6_.exit, label %46, !prof !174
 
 46:                                               ; preds = %42

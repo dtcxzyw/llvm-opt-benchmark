@@ -462,11 +462,13 @@ define internal noundef zeroext i1 @X11_ShowCursor(ptr noundef readonly captures
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %7 = load ptr, ptr %6, align 8
   %8 = load i64, ptr %7, align 8
+  %.fr = freeze i64 %8
   br label %X11_CreateEmptyCursor.exit
 
 9:                                                ; preds = %1
   %10 = load i64, ptr @x11_empty_cursor, align 8
-  %11 = icmp eq i64 %10, 0
+  %.fr22 = freeze i64 %10
+  %11 = icmp eq i64 %.fr22, 0
   br i1 %11, label %12, label %X11_CreateEmptyCursor.exit
 
 12:                                               ; preds = %9
@@ -508,11 +510,11 @@ define internal noundef zeroext i1 @X11_ShowCursor(ptr noundef readonly captures
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
   %.pre.i = load i64, ptr @x11_empty_cursor, align 8
+  %.pre.i.fr = freeze i64 %.pre.i
   br label %X11_CreateEmptyCursor.exit
 
 X11_CreateEmptyCursor.exit:                       ; preds = %35, %9, %5
-  %.0 = phi i64 [ %8, %5 ], [ %.pre.i, %35 ], [ %10, %9 ]
-  %.0.fr = freeze i64 %.0
+  %.0 = phi i64 [ %.fr, %5 ], [ %.pre.i.fr, %35 ], [ %.fr22, %9 ]
   %36 = call ptr @SDL_GetVideoDevice() #5
   %37 = call ptr @SDL_GetVideoDevice() #5
   %38 = getelementptr inbounds nuw i8, ptr %37, i64 1656
@@ -526,7 +528,7 @@ X11_CreateEmptyCursor.exit:                       ; preds = %35, %9, %5
   br i1 %.not20, label %._crit_edge, label %.lr.ph
 
 .lr.ph:                                           ; preds = %X11_CreateEmptyCursor.exit
-  %.not18 = icmp eq i64 %.0.fr, 0
+  %.not18 = icmp eq i64 %.0, 0
   br i1 %.not18, label %.lr.ph.split.us, label %.lr.ph.split
 
 .lr.ph.split.us:                                  ; preds = %.lr.ph, %50
@@ -560,7 +562,7 @@ X11_CreateEmptyCursor.exit:                       ; preds = %35, %9, %5
   %55 = load ptr, ptr @X11_XDefineCursor, align 8
   %56 = getelementptr inbounds nuw i8, ptr %53, i64 8
   %57 = load i64, ptr %56, align 8
-  %58 = call i32 %55(ptr noundef %40, i64 noundef %57, i64 noundef %.0.fr) #5
+  %58 = call i32 %55(ptr noundef %40, i64 noundef %57, i64 noundef %.0) #5
   br label %59
 
 59:                                               ; preds = %54, %.lr.ph.split

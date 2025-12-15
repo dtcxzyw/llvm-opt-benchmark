@@ -5056,10 +5056,10 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i.i:          ; preds = %.noexc11.i, %322
   %.sroa.51.2.i = phi ptr [ %.sroa.51.3.i, %._crit_edge446.i.i ], [ %.sroa.51.0.i, %325 ]
   %.085449.i.i = phi i64 [ %335, %._crit_edge446.i.i ], [ 0, %325 ]
   %.sroa.0312.0448.i.i = phi ptr [ %337, %._crit_edge446.i.i ], [ %.sroa.0591.01879, %325 ]
-  %.085449.i.i.fr = freeze i64 %.085449.i.i
   %334 = load i64, ptr %.sroa.0312.0448.i.i, align 8, !tbaa !3, !noalias !117
-  %335 = add i64 %334, %.085449.i.i.fr
-  %336 = icmp ult i64 %.085449.i.i.fr, %335
+  %.fr = freeze i64 %334
+  %335 = add i64 %.fr, %.085449.i.i
+  %336 = icmp ult i64 %.085449.i.i, %335
   br i1 %336, label %.lr.ph445.i.i, label %._crit_edge446.i.i
 
 ._crit_edge446.i.i:                               ; preds = %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i", %.lr.ph451.i.i
@@ -5074,15 +5074,14 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i.i:          ; preds = %.noexc11.i, %322
   %.sroa.0102.5.i = phi ptr [ %.sroa.0102.6.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.sroa.0102.2.i, %.lr.ph451.i.i ]
   %.sroa.25.4.i = phi ptr [ %.sroa.25.5.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.sroa.25.1.i, %.lr.ph451.i.i ]
   %.sroa.51.5.i = phi ptr [ %.sroa.51.6.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.sroa.51.2.i, %.lr.ph451.i.i ]
-  %.088442.i.i = phi i64 [ %.593.i.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.085449.i.i.fr, %.lr.ph451.i.i ]
-  %.0346440.i.i = phi i64 [ %.4.i.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.085449.i.i.fr, %.lr.ph451.i.i ]
-  %.088442.i.i.fr = freeze i64 %.088442.i.i
-  %.not.i.i.i247 = icmp ugt i64 %.085449.i.i.fr, %.088442.i.i.fr
+  %.088442.i.i = phi i64 [ %.593.i.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.085449.i.i, %.lr.ph451.i.i ]
+  %.0346440.i.i = phi i64 [ %.4.i.i, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i" ], [ %.085449.i.i, %.lr.ph451.i.i ]
+  %.not.i.i.i247 = icmp ugt i64 %.085449.i.i, %.088442.i.i
   br i1 %.not.i.i.i247, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.thread.thread538.i.i", label %338
 
 338:                                              ; preds = %.lr.ph445.i.i
   %339 = load ptr, ptr %20, align 8, !tbaa !18, !noalias !117
-  %340 = getelementptr inbounds nuw i32, ptr %339, i64 %.088442.i.i.fr
+  %340 = getelementptr inbounds nuw i32, ptr %339, i64 %.088442.i.i
   %341 = load i32, ptr %340, align 4, !tbaa !20, !noalias !117
   %342 = load atomic i8, ptr @_ZGVZ26unicode_cpt_flags_from_cptjE5undef acquire, align 8, !noalias !117
   %343 = icmp eq i8 %342, 0
@@ -5142,7 +5141,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i.i:          ; preds = %.noexc11.i, %322
   ]
 
 367:                                              ; preds = %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit.i.i"
-  %368 = add nuw i64 %.088442.i.i.fr, 1
+  %368 = add nuw i64 %.088442.i.i, 1
   %369 = icmp ult i64 %368, %335
   br i1 %369, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit136.i.i", label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit156.i.i"
 
@@ -5150,7 +5149,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i.i:          ; preds = %.noexc11.i, %322
   %370 = load ptr, ptr %20, align 8, !tbaa !18, !noalias !117
   %371 = getelementptr inbounds nuw i32, ptr %370, i64 %368
   %372 = load i32, ptr %371, align 4, !tbaa !20, !noalias !117
-  %373 = add nuw i64 %.088442.i.i.fr, 2
+  %373 = add nuw i64 %.088442.i.i, 2
   switch i32 %372, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit136.thread.i.i" [
     i32 116, label %374
     i32 115, label %374
@@ -5226,7 +5225,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.sroa.0102.7.i = phi ptr [ %.sroa.0102.5.i, %374 ], [ %391, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i ], [ %.sroa.0102.5.i, %377 ]
   %.sroa.25.6.i = phi ptr [ %.sroa.25.4.i, %374 ], [ %395, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i ], [ %378, %377 ]
   %.sroa.51.7.i = phi ptr [ %.sroa.51.5.i, %374 ], [ %397, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i.i ], [ %.sroa.51.5.i, %377 ]
-  %398 = add i64 %375, %.088442.i.i.fr
+  %398 = add i64 %375, %.088442.i.i
   br label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i", !llvm.loop !120
 
 .loopexit.i.i:                                    ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i.i.i
@@ -5259,7 +5258,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %or.cond12.i.i, label %407, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit156.i.i"
 
 407:                                              ; preds = %404, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit141.i.i"
-  %408 = add nuw i64 %.088442.i.i.fr, 3
+  %408 = add nuw i64 %.088442.i.i, 3
   %409 = sub i64 %408, %.0346440.i.i
   %.not.i142.i.i = icmp eq i64 %408, %.0346440.i.i
   br i1 %.not.i142.i.i, label %432, label %410
@@ -5337,11 +5336,11 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.sroa.0102.8.i = phi ptr [ %.sroa.0102.5.i, %407 ], [ %425, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i149.i.i ], [ %.sroa.0102.5.i, %411 ]
   %.sroa.25.7.i = phi ptr [ %.sroa.25.4.i, %407 ], [ %429, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i149.i.i ], [ %412, %411 ]
   %.sroa.51.8.i = phi ptr [ %.sroa.51.5.i, %407 ], [ %431, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i149.i.i ], [ %.sroa.51.5.i, %411 ]
-  %433 = add i64 %409, %.088442.i.i.fr
+  %433 = add i64 %409, %.088442.i.i
   br label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i"
 
 434:                                              ; preds = %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit.i.i"
-  %435 = add nuw i64 %.088442.i.i.fr, 1
+  %435 = add nuw i64 %.088442.i.i, 1
   %436 = icmp ult i64 %435, %335
   br i1 %436, label %437, label %.lr.ph437.preheader.i.i
 
@@ -5411,10 +5410,10 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not.i.i, label %527, label %.lr.ph.preheader.i.i
 
 .lr.ph.preheader.i.i:                             ; preds = %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit156.i.i"
-  %468 = add nuw i64 %466, %.088442.i.i.fr
-  %469 = add i64 %.088442.i.i.fr, 1
+  %468 = add nuw i64 %466, %.088442.i.i
+  %469 = add nuw i64 %.088442.i.i, 1
   %470 = add i64 %469, %466
-  %.not.i157.i.i.not = icmp ult i64 %470, %.085449.i.i.fr
+  %.not.i157.i.i.not = icmp ult i64 %470, %.085449.i.i
   br i1 %.not.i157.i.i.not, label %.lr.ph.preheader.i.i.split.us, label %.lr.ph.i.i.preheader
 
 .lr.ph.i.i.preheader:                             ; preds = %.lr.ph.preheader.i.i
@@ -5572,10 +5571,10 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not100.i.i, label %588, label %.lr.ph428.preheader.i.i
 
 .lr.ph428.preheader.i.i:                          ; preds = %527
-  %529 = add nuw i64 %466, %.088442.i.i.fr
-  %530 = add i64 %.088442.i.i.fr, 1
+  %529 = add nuw i64 %466, %.088442.i.i
+  %530 = add nuw i64 %.088442.i.i, 1
   %531 = add i64 %530, %466
-  %.not.i172.i.i.not = icmp ult i64 %531, %.085449.i.i.fr
+  %.not.i172.i.i.not = icmp ult i64 %531, %.085449.i.i
   br i1 %.not.i172.i.i.not, label %.lr.ph428.preheader.i.i.split.us, label %.lr.ph428.i.i.preheader
 
 .lr.ph428.i.i.preheader:                          ; preds = %.lr.ph428.preheader.i.i
@@ -5718,10 +5717,10 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %or.cond391.i.i, label %.lr.ph437.preheader.i.i, label %.lr.ph433.preheader.i.i
 
 .lr.ph433.preheader.i.i:                          ; preds = %588
-  %590 = add nuw i64 %466, %.088442.i.i.fr
-  %591 = add i64 %.088442.i.i.fr, 1
+  %590 = add nuw i64 %466, %.088442.i.i
+  %591 = add nuw i64 %.088442.i.i, 1
   %592 = add i64 %591, %466
-  %.not.i187.i.i.not = icmp ult i64 %592, %.085449.i.i.fr
+  %.not.i187.i.i.not = icmp ult i64 %592, %.085449.i.i
   br i1 %.not.i187.i.i.not, label %.lr.ph433.preheader.i.i.split.us, label %.lr.ph433.i.i.preheader
 
 .lr.ph433.i.i.preheader:                          ; preds = %.lr.ph433.preheader.i.i
@@ -5859,12 +5858,12 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i"
 
 .lr.ph437.preheader.i.i:                          ; preds = %588, %434
-  %umax.i.i = call i64 @llvm.umax.i64(i64 %.088442.i.i.fr, i64 %335)
+  %umax.i.i = call i64 @llvm.umax.i64(i64 %.088442.i.i, i64 %335)
   br label %.lr.ph437.i.i
 
 .lr.ph437.i.i:                                    ; preds = %681, %.lr.ph437.preheader.i.i
   %.0436.i.i = phi i64 [ %682, %681 ], [ 0, %.lr.ph437.preheader.i.i ]
-  %649 = add nuw i64 %.0436.i.i, %.088442.i.i.fr
+  %649 = add nuw i64 %.0436.i.i, %.088442.i.i
   %650 = icmp ult i64 %649, %335
   br i1 %650, label %651, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.thread.thread.i.i"
 
@@ -5930,8 +5929,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 
 681:                                              ; preds = %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.i.i"
   %682 = add i64 %.0436.i.i, 1
-  %683 = add i64 %682, %.088442.i.i.fr
-  %.not.i202.i.i = icmp ugt i64 %.085449.i.i.fr, %683
+  %683 = add i64 %682, %.088442.i.i
+  %.not.i202.i.i = icmp ugt i64 %.085449.i.i, %683
   br i1 %.not.i202.i.i, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.thread.i.i", label %.lr.ph437.i.i, !llvm.loop !124
 
 "_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.thread.i.i": ; preds = %681
@@ -5954,7 +5953,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not106.i.i, label %.thread385.i.i, label %690
 
 690:                                              ; preds = %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit207.i.i"
-  %691 = add i64 %.088442.i.i.fr, -1
+  %691 = add i64 %.088442.i.i, -1
   %692 = add i64 %691, %.0436.i.i
   %693 = sub i64 %692, %.0346440.i.i
   %.not.i208.i.i = icmp eq i64 %692, %.0346440.i.i
@@ -6093,7 +6092,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i"
 
 "_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.thread.thread538.i.i": ; preds = %715, %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit205.thread.i.i", %.lr.ph445.i.i
-  %740 = add i64 %.088442.i.i.fr, 1
+  %740 = add i64 %.088442.i.i, 1
   %741 = sub i64 %740, %.0346440.i.i
   %.not.i230.i.i = icmp eq i64 %740, %.0346440.i.i
   br i1 %.not.i230.i.i, label %"_ZZL31unicode_regex_split_custom_gpt2RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit171.i.i", label %742
@@ -6276,10 +6275,10 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i15.i:        ; preds = %.noexc57.i, %787
   %.sroa.61.2.i = phi ptr [ %.sroa.61.3.i, %._crit_edge.i17.i ], [ %.sroa.61.0.i, %790 ]
   %.0114581.i.i = phi i64 [ %800, %._crit_edge.i17.i ], [ 0, %790 ]
   %.sroa.0407.0580.i.i = phi ptr [ %802, %._crit_edge.i17.i ], [ %.sroa.0591.01879, %790 ]
-  %.0114581.i.fr.i = freeze i64 %.0114581.i.i
   %799 = load i64, ptr %.sroa.0407.0580.i.i, align 8, !tbaa !3, !noalias !125
-  %800 = add i64 %799, %.0114581.i.fr.i
-  %801 = icmp ult i64 %.0114581.i.fr.i, %800
+  %.fr.i = freeze i64 %799
+  %800 = add i64 %.fr.i, %.0114581.i.i
+  %801 = icmp ult i64 %.0114581.i.i, %800
   br i1 %801, label %.lr.ph578.i.i, label %._crit_edge.i17.i
 
 ._crit_edge.i17.i:                                ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i", %.lr.ph583.i.i
@@ -6294,15 +6293,14 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i15.i:        ; preds = %.noexc57.i, %787
   %.sroa.0.5.i = phi ptr [ %.sroa.0.7.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.sroa.0.2.i, %.lr.ph583.i.i ]
   %.sroa.29.4.i = phi ptr [ %.sroa.29.6.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.sroa.29.1.i, %.lr.ph583.i.i ]
   %.sroa.61.5.i = phi ptr [ %.sroa.61.7.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.sroa.61.2.i, %.lr.ph583.i.i ]
-  %.0119577.i.i = phi i64 [ %.5124.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.0114581.i.fr.i, %.lr.ph583.i.i ]
-  %.0576.i.i = phi i64 [ %.4.i21.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.0114581.i.fr.i, %.lr.ph583.i.i ]
-  %.0119577.i.i.fr = freeze i64 %.0119577.i.i
-  %.not.i.i19.i = icmp ugt i64 %.0114581.i.fr.i, %.0119577.i.i.fr
+  %.0119577.i.i = phi i64 [ %.5124.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.0114581.i.i, %.lr.ph583.i.i ]
+  %.0576.i.i = phi i64 [ %.4.i21.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i" ], [ %.0114581.i.i, %.lr.ph583.i.i ]
+  %.not.i.i19.i = icmp ugt i64 %.0114581.i.i, %.0119577.i.i
   br i1 %.not.i.i19.i, label %.thread491.i.i, label %803
 
 803:                                              ; preds = %.lr.ph578.i.i
   %804 = load ptr, ptr %19, align 8, !tbaa !18, !noalias !125
-  %805 = getelementptr inbounds nuw i32, ptr %804, i64 %.0119577.i.i.fr
+  %805 = getelementptr inbounds nuw i32, ptr %804, i64 %.0119577.i.i
   %806 = load i32, ptr %805, align 4, !tbaa !20, !noalias !125
   %807 = load atomic i8, ptr @_ZGVZ26unicode_cpt_flags_from_cptjE5undef acquire, align 8, !noalias !125
   %808 = icmp eq i8 %807, 0
@@ -6363,7 +6361,7 @@ _ZNSt6vectorImSaImEE7reserveEm.exit.i15.i:        ; preds = %.noexc57.i, %787
   ]
 
 832:                                              ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit.i.i"
-  %833 = add nuw i64 %.0119577.i.i.fr, 1
+  %833 = add nuw i64 %.0119577.i.i, 1
   %834 = icmp ult i64 %833, %800
   br i1 %834, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit174.i.i", label %.thread471.i.i
 
@@ -6409,7 +6407,7 @@ _ZSt7advanceIPKSt4pairIjjElEvRT_T0_.exit.i.i.i.i.i: ; preds = %"_ZZL33unicode_re
 
 _Z15unicode_tolowerj.exit.i.i:                    ; preds = %.then.i.i, %849, %"_ZSt11lower_boundIPKSt4pairIjjEjZ15unicode_tolowerjE3$_0ET_S5_S5_RKT0_T1_.exit.i.i.i"
   %.0.i.i.i = phi i32 [ %837, %"_ZSt11lower_boundIPKSt4pairIjjEjZ15unicode_tolowerjE3$_0ET_S5_S5_RKT0_T1_.exit.i.i.i" ], [ %.0.pre.i.then.val.i.i, %.then.i.i ], [ %837, %849 ]
-  %853 = add nuw i64 %.0119577.i.i.fr, 2
+  %853 = add nuw i64 %.0119577.i.i, 2
   switch i32 %.0.i.i.i, label %879 [
     i32 116, label %854
     i32 115, label %854
@@ -6485,7 +6483,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.sroa.0.12.i = phi ptr [ %.sroa.0.5.i, %854 ], [ %871, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i51.i ], [ %.sroa.0.5.i, %857 ]
   %.sroa.29.9.i = phi ptr [ %.sroa.29.4.i, %854 ], [ %875, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i51.i ], [ %858, %857 ]
   %.sroa.61.12.i = phi ptr [ %.sroa.61.5.i, %854 ], [ %877, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i.i51.i ], [ %.sroa.61.5.i, %857 ]
-  %878 = add i64 %855, %.0119577.i.i.fr
+  %878 = add i64 %855, %.0119577.i.i
   br label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i", !llvm.loop !128
 
 .loopexit520.i.i:                                 ; preds = %_ZNKSt6vectorImSaImEE12_M_check_lenEmPKc.exit.i.i.i217.i.i
@@ -6562,7 +6560,7 @@ _Z15unicode_tolowerj.exit195.i.i:                 ; preds = %.then411.i.i, %890,
   br i1 %or.cond12.i53.i, label %899, label %.thread471.i.i
 
 899:                                              ; preds = %896, %_Z15unicode_tolowerj.exit195.i.i
-  %900 = add nuw i64 %.0119577.i.i.fr, 3
+  %900 = add nuw i64 %.0119577.i.i, 3
   %901 = sub i64 %900, %.0576.i.i
   %.not.i196.i.i = icmp eq i64 %900, %.0576.i.i
   br i1 %.not.i196.i.i, label %924, label %902
@@ -6640,7 +6638,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.sroa.0.13.i = phi ptr [ %.sroa.0.5.i, %899 ], [ %917, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i203.i.i ], [ %.sroa.0.5.i, %903 ]
   %.sroa.29.10.i = phi ptr [ %.sroa.29.4.i, %899 ], [ %921, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i203.i.i ], [ %904, %903 ]
   %.sroa.61.13.i = phi ptr [ %.sroa.61.5.i, %899 ], [ %923, %_ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIPmS1_EEDpOT_.exit.i.i203.i.i ], [ %.sroa.61.5.i, %903 ]
-  %925 = add i64 %901, %.0119577.i.i.fr
+  %925 = add i64 %901, %.0119577.i.i
   br label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i"
 
 .thread471.i.i:                                   ; preds = %896, %879, %832, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit.i.i"
@@ -6654,14 +6652,14 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not130.i.i, label %.thread491.i.i, label %..critedge_crit_edge.i.i
 
 ..critedge_crit_edge.i.i:                         ; preds = %927
-  %.pre590.i.i = add nuw i64 %.0119577.i.i.fr, 1
+  %.pre590.i.i = add nuw i64 %.0119577.i.i, 1
   br label %.critedge.i43.i
 
 .thread491.i.i:                                   ; preds = %927, %.lr.ph578.i.i
   %929 = phi i32 [ %806, %927 ], [ -1, %.lr.ph578.i.i ]
   %.sroa.0.0.i456474490494.i.i = phi i16 [ %.sroa.0.0.copyload.i.i20.i, %927 ], [ 0, %.lr.ph578.i.i ]
-  %930 = add nuw i64 %.0119577.i.i.fr, 1
-  %.not.i207.i.i = icmp ule i64 %.0114581.i.fr.i, %930
+  %930 = add nuw i64 %.0119577.i.i, 1
+  %.not.i207.i.i = icmp ule i64 %.0114581.i.i, %930
   %931 = icmp ult i64 %930, %800
   %or.cond495.i.i = and i1 %.not.i207.i.i, %931
   br i1 %or.cond495.i.i, label %932, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.thread.i.i"
@@ -6727,17 +6725,20 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not131.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.thread.i.i", label %.critedge.i43.i
 
 .critedge.i43.i:                                  ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.i.i", %..critedge_crit_edge.i.i
-  %.6125.i.us.i.pre-phi = phi i64 [ %930, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.i.i" ], [ %.pre590.i.i, %..critedge_crit_edge.i.i ]
-  %.pre-phi.i.fr.i = freeze i64 %.6125.i.us.i.pre-phi
-  %.not.i211.i.not.i = icmp ult i64 %.pre-phi.i.fr.i, %.0114581.i.fr.i
-  br i1 %.not.i211.i.not.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.thread.i.i", label %.critedge.i43.split.preheader.i
+  %.pre-phi.i.i = phi i64 [ %.pre590.i.i, %..critedge_crit_edge.i.i ], [ %930, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.i.i" ]
+  %.not.i211.i.not.i = icmp ult i64 %.pre-phi.i.i, %.0114581.i.i
+  br i1 %.not.i211.i.not.i, label %.critedge.i43.split.us.i, label %.critedge.i43.split.preheader.i
 
 .critedge.i43.split.preheader.i:                  ; preds = %.critedge.i43.i
-  %umax.i = call i64 @llvm.umax.i64(i64 %800, i64 %.pre-phi.i.fr.i)
+  %umax.i = call i64 @llvm.umax.i64(i64 %800, i64 %.pre-phi.i.i)
   br label %.critedge.i43.split.i
 
+.critedge.i43.split.us.i:                         ; preds = %.critedge.i43.i
+  %.6125.i.us.i = add nuw i64 %.0119577.i.i, 1
+  br label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.thread.i.i"
+
 .critedge.i43.split.i:                            ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i", %.critedge.i43.split.preheader.i
-  %.6125.in.i.i = phi i64 [ %.6125.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i" ], [ %.0119577.i.i.fr, %.critedge.i43.split.preheader.i ]
+  %.6125.in.i.i = phi i64 [ %.6125.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i" ], [ %.0119577.i.i, %.critedge.i43.split.preheader.i ]
   %.6125.i.i = add i64 %.6125.in.i.i, 1
   %962 = icmp ult i64 %.6125.i.i, %800
   br i1 %962, label %963, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.thread.i.i"
@@ -6802,8 +6803,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.not132.i.i = icmp eq i16 %992, 0
   br i1 %.not132.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.thread.i.i", label %.critedge.i43.split.i, !llvm.loop !129
 
-"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.thread.i.i": ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i", %.critedge.i43.split.i, %.critedge.i43.i
-  %.us-phi.i = phi i64 [ %.pre-phi.i.fr.i, %.critedge.i43.i ], [ %.6125.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i" ], [ %umax.i, %.critedge.i43.split.i ]
+"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.thread.i.i": ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i", %.critedge.i43.split.i, %.critedge.i43.split.us.i
+  %.us-phi.i = phi i64 [ %.6125.i.us.i, %.critedge.i43.split.us.i ], [ %.6125.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit214.i.i" ], [ %umax.i, %.critedge.i43.split.i ]
   %993 = sub i64 %.us-phi.i, %.0576.i.i
   %.not.i215.i.i = icmp eq i64 %.us-phi.i, %.0576.i.i
   br i1 %.not.i215.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i", label %994
@@ -6875,8 +6876,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not133.i.i, label %1098, label %.preheader509.i.i
 
 .preheader509.i.i:                                ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit210.thread.i.i"
-  %.not.i226549.i.i = icmp ule i64 %.0114581.i.fr.i, %.0119577.i.i.fr
-  %1018 = icmp ult i64 %.0119577.i.i.fr, %800
+  %.not.i226549.i.i = icmp ule i64 %.0114581.i.i, %.0119577.i.i
+  %1018 = icmp ult i64 %.0119577.i.i, %800
   %or.cond497550.i.i = and i1 %.not.i226549.i.i, %1018
   br i1 %or.cond497550.i.i, label %.lr.ph.i26.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit229.thread.i.i"
 
@@ -6884,8 +6885,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.sroa.0.10.i = phi ptr [ %.sroa.0.11.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.sroa.0.5.i, %.preheader509.i.i ]
   %.sroa.29.7.i = phi ptr [ %.sroa.29.8.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.sroa.29.4.i, %.preheader509.i.i ]
   %.sroa.61.10.i = phi ptr [ %.sroa.61.11.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.sroa.61.5.i, %.preheader509.i.i ]
-  %.0115553.i.i = phi i64 [ %.1116.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.0119577.i.i.fr, %.preheader509.i.i ]
-  %.7552.i.i = phi i64 [ %1049, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.0119577.i.i.fr, %.preheader509.i.i ]
+  %.0115553.i.i = phi i64 [ %.1116.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.0119577.i.i, %.preheader509.i.i ]
+  %.7552.i.i = phi i64 [ %1049, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.0119577.i.i, %.preheader509.i.i ]
   %.5551.i.i = phi i64 [ %.6.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ], [ %.0576.i.i, %.preheader509.i.i ]
   %1019 = load ptr, ptr %19, align 8, !tbaa !18, !noalias !125
   %1020 = getelementptr inbounds nuw i32, ptr %1019, i64 %.7552.i.i
@@ -7038,7 +7039,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %.sroa.29.5.i = phi ptr [ %.sroa.29.4.i, %.preheader509.i.i ], [ %.sroa.29.7.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit229.i.i" ], [ %.sroa.29.8.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ]
   %.sroa.61.6.i = phi ptr [ %.sroa.61.5.i, %.preheader509.i.i ], [ %.sroa.61.10.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit229.i.i" ], [ %.sroa.61.11.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ]
   %.5.lcssa.i.i = phi i64 [ %.0576.i.i, %.preheader509.i.i ], [ %.5551.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit229.i.i" ], [ %.6.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ]
-  %.7.lcssa.i.i = phi i64 [ %.0119577.i.i.fr, %.preheader509.i.i ], [ %.7552.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit229.i.i" ], [ %1049, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ]
+  %.7.lcssa.i.i = phi i64 [ %.0119577.i.i, %.preheader509.i.i ], [ %.7552.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit229.i.i" ], [ %1049, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit240.i.i" ]
   %1076 = sub i64 %.7.lcssa.i.i, %.5.lcssa.i.i
   %.not.i241.i.i = icmp eq i64 %.7.lcssa.i.i, %.5.lcssa.i.i
   br i1 %.not.i241.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i", label %1077
@@ -7109,8 +7110,8 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %1099, label %1100, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit255.i.i"
 
 1100:                                             ; preds = %1098
-  %1101 = add nuw i64 %.0119577.i.i.fr, 1
-  %.not.i252.i.i = icmp ule i64 %.0114581.i.fr.i, %1101
+  %1101 = add nuw i64 %.0119577.i.i, 1
+  %.not.i252.i.i = icmp ule i64 %.0114581.i.i, %1101
   %1102 = icmp ult i64 %1101, %800
   %or.cond498.i.i = and i1 %.not.i252.i.i, %1102
   br i1 %or.cond498.i.i, label %1103, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit255.i.i"
@@ -7182,26 +7183,26 @@ _Z26unicode_cpt_flags_from_cptj.exit512:          ; preds = %1113, %1116, %1119
   br i1 %or.cond499.i.i, label %.preheader.i.i, label %1136
 
 .preheader.i.i:                                   ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit255.i.i"
-  %.not.i275562.i.i = icmp ule i64 %.0114581.i.fr.i, %.0119577.i.i.fr
-  %1134 = icmp ult i64 %.0119577.i.i.fr, %800
+  %.not.i275562.i.i = icmp ule i64 %.0114581.i.i, %.0119577.i.i
+  %1134 = icmp ult i64 %.0119577.i.i, %800
   %or.cond504563.i.i = and i1 %.not.i275562.i.i, %1134
   br i1 %or.cond504563.i.i, label %.lr.ph567.preheader.i.i, label %.thread669.i.i
 
 .lr.ph567.preheader.i.i:                          ; preds = %.preheader.i.i
   %.pre588.i.i = load ptr, ptr %19, align 8, !tbaa !18, !noalias !125
-  %1135 = sub nuw i64 %800, %.0119577.i.i.fr
+  %1135 = sub nuw i64 %800, %.0119577.i.i
   br label %.lr.ph567.i.i
 
 1136:                                             ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit255.i.i"
   %1137 = zext i1 %1099 to i64
-  %1138 = add nuw i64 %.0119577.i.i.fr, %1137
+  %1138 = add nuw i64 %.0119577.i.i, %1137
   %.not137557.i.i = icmp eq i16 %storemerge.i38.i, 0
   br i1 %.not137557.i.i, label %.critedge16.i.i, label %.lr.ph560.i.preheader.i
 
 .lr.ph560.i.preheader.i:                          ; preds = %1136
-  %1139 = add i64 %.0119577.i.i.fr, 1
+  %1139 = add nuw i64 %.0119577.i.i, 1
   %1140 = add i64 %1139, %1137
-  %.not.i256.i.i.not = icmp ult i64 %1140, %.0114581.i.fr.i
+  %.not.i256.i.i.not = icmp ult i64 %1140, %.0114581.i.i
   br i1 %.not.i256.i.i.not, label %.lr.ph560.i.preheader.i.split.us, label %.lr.ph560.i.i.preheader
 
 .lr.ph560.i.i.preheader:                          ; preds = %.lr.ph560.i.preheader.i
@@ -7282,7 +7283,7 @@ _Z26unicode_cpt_flags_from_cptj.exit512:          ; preds = %1113, %1116, %1119
 
 .critedge16.i.i:                                  ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit259.i.i", %.lr.ph560.i.preheader.i.split.us, %1136
   %.8.lcssa.i.i = phi i64 [ %1138, %1136 ], [ %1141, %.lr.ph560.i.preheader.i.split.us ], [ %1142, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit259.i.i" ]
-  %.not.i260.i.i = icmp ule i64 %.0114581.i.fr.i, %.8.lcssa.i.i
+  %.not.i260.i.i = icmp ule i64 %.0114581.i.i, %.8.lcssa.i.i
   %1175 = icmp ult i64 %.8.lcssa.i.i, %800
   %or.cond502.i.i = and i1 %.not.i260.i.i, %1175
   %.pre.i39.i = load ptr, ptr %19, align 8, !noalias !125
@@ -7309,7 +7310,7 @@ _Z26unicode_cpt_flags_from_cptj.exit512:          ; preds = %1113, %1116, %1119
 
 1180:                                             ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit263.i.i", %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit263.i.i"
   %1181 = add i64 %.9.i.i, 1
-  %.not.i262.i40.i = icmp ule i64 %.0114581.i.fr.i, %1181
+  %.not.i262.i40.i = icmp ule i64 %.0114581.i.i, %1181
   %1182 = icmp ult i64 %1181, %800
   %or.cond503.i.i = and i1 %.not.i262.i40.i, %1182
   br i1 %or.cond503.i.i, label %1183, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit263.i.i.backedge"
@@ -7401,7 +7402,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   %1210 = phi ptr [ %1240, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit280.thread.i.i" ], [ %.pre588.i.i, %.lr.ph567.preheader.i.i ]
   %.0103565.i.i = phi i64 [ %.1104.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit280.thread.i.i" ], [ 0, %.lr.ph567.preheader.i.i ]
   %.0105564.i.i = phi i64 [ %1245, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit280.thread.i.i" ], [ 0, %.lr.ph567.preheader.i.i ]
-  %1211 = add nuw i64 %.0105564.i.i, %.0119577.i.i.fr
+  %1211 = add nuw i64 %.0105564.i.i, %.0119577.i.i
   %1212 = getelementptr inbounds nuw i32, ptr %1210, i64 %1211
   %1213 = load i32, ptr %1212, align 4, !tbaa !20, !noalias !125
   %1214 = load atomic i8, ptr @_ZGVZ26unicode_cpt_flags_from_cptjE5undef acquire, align 8, !noalias !125
@@ -7476,7 +7477,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
 "_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit280.thread.i.i": ; preds = %1243, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit280.i.i"
   %.1104.i.i = phi i64 [ %1244, %1243 ], [ %.0103565.i.i, %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit280.i.i" ]
   %1245 = add i64 %.0105564.i.i, 1
-  %1246 = add i64 %1245, %.0119577.i.i.fr
+  %1246 = add i64 %1245, %.0119577.i.i
   %1247 = icmp ult i64 %1246, %800
   br i1 %1247, label %.lr.ph567.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_1clEm.exit278.thread.i.i", !llvm.loop !133
 
@@ -7577,7 +7578,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br i1 %.not140.i.i, label %.thread486.i.i, label %1278
 
 1278:                                             ; preds = %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_0clEm.exit293.i.i"
-  %1279 = add i64 %.0119577.i.i.fr, -1
+  %1279 = add i64 %.0119577.i.i, -1
   %1280 = add i64 %1279, %.0105.lcssa.i.i
   %1281 = sub i64 %1280, %.0576.i.i
   %.not.i294.i.i = icmp eq i64 %1280, %.0576.i.i
@@ -7697,7 +7698,7 @@ _ZNSt6vectorImSaImEE17_M_realloc_insertIJRKmEEEvN9__gnu_cxx17__normal_iteratorIP
   br label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i"
 
 .thread669.i.i:                                   ; preds = %1303, %.preheader.i.i
-  %1326 = add i64 %.0119577.i.i.fr, 1
+  %1326 = add i64 %.0119577.i.i, 1
   %1327 = sub i64 %1326, %.0576.i.i
   %.not.i316.i.i = icmp eq i64 %1326, %.0576.i.i
   br i1 %.not.i316.i.i, label %"_ZZL33unicode_regex_split_custom_llama3RKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEERKSt6vectorImSaImEEENK3$_2clEm.exit225.i.i", label %1328

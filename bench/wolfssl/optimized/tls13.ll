@@ -3346,15 +3346,17 @@ define range(i32 1, 0) i32 @CreateRSAEncodedSig(ptr noundef %0, ptr noundef %1, 
 
 10:                                               ; preds = %7
   %11 = call i32 @wc_Sha256Update(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2) #11
-  %12 = icmp eq i32 %11, 0
+  %.fr32 = freeze i32 %11
+  %12 = icmp eq i32 %.fr32, 0
   br i1 %12, label %13, label %15
 
 13:                                               ; preds = %10
   %14 = call i32 @wc_Sha256Final(ptr noundef nonnull %6, ptr noundef %0) #11
+  %.fr = freeze i32 %14
   br label %15
 
 15:                                               ; preds = %13, %10
-  %.1 = phi i32 [ %14, %13 ], [ %11, %10 ]
+  %.1 = phi i32 [ %.fr, %13 ], [ %.fr32, %10 ]
   call void @wc_Sha256Free(ptr noundef nonnull %6) #11
   br label %34
 
@@ -3365,15 +3367,17 @@ define range(i32 1, 0) i32 @CreateRSAEncodedSig(ptr noundef %0, ptr noundef %1, 
 
 19:                                               ; preds = %16
   %20 = call i32 @wc_Sha384Update(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2) #11
-  %21 = icmp eq i32 %20, 0
+  %.fr34 = freeze i32 %20
+  %21 = icmp eq i32 %.fr34, 0
   br i1 %21, label %22, label %24
 
 22:                                               ; preds = %19
   %23 = call i32 @wc_Sha384Final(ptr noundef nonnull %6, ptr noundef %0) #11
+  %.fr33 = freeze i32 %23
   br label %24
 
 24:                                               ; preds = %22, %19
-  %.4 = phi i32 [ %23, %22 ], [ %20, %19 ]
+  %.4 = phi i32 [ %.fr33, %22 ], [ %.fr34, %19 ]
   call void @wc_Sha384Free(ptr noundef nonnull %6) #11
   br label %34
 
@@ -3384,24 +3388,25 @@ define range(i32 1, 0) i32 @CreateRSAEncodedSig(ptr noundef %0, ptr noundef %1, 
 
 28:                                               ; preds = %25
   %29 = call i32 @wc_Sha512Update(ptr noundef nonnull %6, ptr noundef %1, i32 noundef %2) #11
-  %30 = icmp eq i32 %29, 0
+  %.fr36 = freeze i32 %29
+  %30 = icmp eq i32 %.fr36, 0
   br i1 %30, label %31, label %33
 
 31:                                               ; preds = %28
   %32 = call i32 @wc_Sha512Final(ptr noundef nonnull %6, ptr noundef %0) #11
+  %.fr35 = freeze i32 %32
   br label %33
 
 33:                                               ; preds = %31, %28
-  %.6 = phi i32 [ %32, %31 ], [ %29, %28 ]
+  %.6 = phi i32 [ %.fr35, %31 ], [ %.fr36, %28 ]
   call void @wc_Sha512Free(ptr noundef nonnull %6) #11
   br label %34
 
 34:                                               ; preds = %33, %24, %15
   %.021 = phi i32 [ 32, %15 ], [ 48, %24 ], [ 64, %33 ]
   %.2 = phi i32 [ %.1, %15 ], [ %.4, %24 ], [ %.6, %33 ]
-  %.2.fr = freeze i32 %.2
-  %.not = icmp eq i32 %.2.fr, 0
-  %spec.select = select i1 %.not, i32 %.021, i32 %.2.fr
+  %.not = icmp eq i32 %.2, 0
+  %spec.select = select i1 %.not, i32 %.021, i32 %.2
   br label %.thread
 
 .thread:                                          ; preds = %34, %5, %25, %16, %7
@@ -7685,15 +7690,17 @@ define internal fastcc range(i32 1, 0) i32 @CreateECCEncodedSig(ptr noundef %0, 
 
 8:                                                ; preds = %5
   %9 = call i32 @wc_Sha256Update(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %1) #11
-  %10 = icmp eq i32 %9, 0
+  %.fr31 = freeze i32 %9
+  %10 = icmp eq i32 %.fr31, 0
   br i1 %10, label %11, label %13
 
 11:                                               ; preds = %8
   %12 = call i32 @wc_Sha256Final(ptr noundef nonnull %4, ptr noundef %0) #11
+  %.fr = freeze i32 %12
   br label %13
 
 13:                                               ; preds = %11, %8
-  %.1 = phi i32 [ %12, %11 ], [ %9, %8 ]
+  %.1 = phi i32 [ %.fr, %11 ], [ %.fr31, %8 ]
   call void @wc_Sha256Free(ptr noundef nonnull %4) #11
   br label %32
 
@@ -7704,15 +7711,17 @@ define internal fastcc range(i32 1, 0) i32 @CreateECCEncodedSig(ptr noundef %0, 
 
 17:                                               ; preds = %14
   %18 = call i32 @wc_Sha384Update(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %1) #11
-  %19 = icmp eq i32 %18, 0
+  %.fr33 = freeze i32 %18
+  %19 = icmp eq i32 %.fr33, 0
   br i1 %19, label %20, label %22
 
 20:                                               ; preds = %17
   %21 = call i32 @wc_Sha384Final(ptr noundef nonnull %4, ptr noundef %0) #11
+  %.fr32 = freeze i32 %21
   br label %22
 
 22:                                               ; preds = %20, %17
-  %.4 = phi i32 [ %21, %20 ], [ %18, %17 ]
+  %.4 = phi i32 [ %.fr32, %20 ], [ %.fr33, %17 ]
   call void @wc_Sha384Free(ptr noundef nonnull %4) #11
   br label %32
 
@@ -7723,24 +7732,25 @@ define internal fastcc range(i32 1, 0) i32 @CreateECCEncodedSig(ptr noundef %0, 
 
 26:                                               ; preds = %23
   %27 = call i32 @wc_Sha512Update(ptr noundef nonnull %4, ptr noundef %0, i32 noundef %1) #11
-  %28 = icmp eq i32 %27, 0
+  %.fr35 = freeze i32 %27
+  %28 = icmp eq i32 %.fr35, 0
   br i1 %28, label %29, label %31
 
 29:                                               ; preds = %26
   %30 = call i32 @wc_Sha512Final(ptr noundef nonnull %4, ptr noundef %0) #11
+  %.fr34 = freeze i32 %30
   br label %31
 
 31:                                               ; preds = %29, %26
-  %.6 = phi i32 [ %30, %29 ], [ %27, %26 ]
+  %.6 = phi i32 [ %.fr34, %29 ], [ %.fr35, %26 ]
   call void @wc_Sha512Free(ptr noundef nonnull %4) #11
   br label %32
 
 32:                                               ; preds = %31, %22, %13
   %.019 = phi i32 [ 32, %13 ], [ 48, %22 ], [ 64, %31 ]
   %.2 = phi i32 [ %.1, %13 ], [ %.4, %22 ], [ %.6, %31 ]
-  %.2.fr = freeze i32 %.2
-  %.not = icmp eq i32 %.2.fr, 0
-  %spec.select = select i1 %.not, i32 %.019, i32 %.2.fr
+  %.not = icmp eq i32 %.2, 0
+  %spec.select = select i1 %.not, i32 %.019, i32 %.2
   br label %.thread
 
 .thread:                                          ; preds = %32, %3, %23, %14, %5

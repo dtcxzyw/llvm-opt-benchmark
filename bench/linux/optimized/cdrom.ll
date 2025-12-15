@@ -3541,14 +3541,13 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   %.sroa.8.3.ph = phi i32 [ %.sroa.8.1, %652 ], [ %.sroa.8.2, %674 ]
   %.sroa.11.3.ph = phi i32 [ %.sroa.11.1, %652 ], [ %.sroa.11.2, %674 ]
   %.sroa.15.3.ph = phi i32 [ %.sroa.15.1, %652 ], [ %.sroa.15.2, %674 ]
-  %.sroa.0.3.ph.fr = freeze i32 %.sroa.0.3.ph
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   %681 = icmp sgt i32 %.sroa.8.3.ph, 0
   br i1 %681, label %682, label %689
 
 682:                                              ; preds = %680
-  %683 = icmp ne i32 %.sroa.0.3.ph.fr, 0
+  %683 = icmp ne i32 %.sroa.0.3.ph, 0
   %684 = icmp ne i32 %.sroa.11.3.ph, 0
   %685 = select i1 %683, i1 true, i1 %684
   %686 = icmp ne i32 %.sroa.15.3.ph, 0
@@ -3565,7 +3564,7 @@ define dso_local i32 @cdrom_ioctl(ptr noundef %0, ptr noundef %1, i32 noundef %2
   br i1 %692, label %766, label %693
 
 693:                                              ; preds = %691
-  %694 = icmp sgt i32 %.sroa.0.3.ph.fr, 0
+  %694 = icmp sgt i32 %.sroa.0.3.ph, 0
   %spec.select = select i1 %694, i32 101, i32 0
   br label %766
 
@@ -6557,8 +6556,7 @@ define internal fastcc range(i32 -124, 2) i32 @check_for_audio_disc(ptr noundef 
   %.sroa.6.3.ph = phi i32 [ %.sroa.6.1, %65 ], [ %.sroa.6.2, %73 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %.sroa.6.3.ph.fr = freeze i32 %.sroa.6.3.ph
-  %84 = icmp eq i32 %.sroa.6.3.ph.fr, 0
+  %84 = icmp eq i32 %.sroa.6.3.ph, 0
   br i1 %84, label %85, label %86
 
 85:                                               ; preds = %.thread, %83

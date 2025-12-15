@@ -9331,15 +9331,14 @@ if.end48:                                         ; preds = %for.body44, %if.end
   %expcnt.084 = phi i32 [ 0, %if.end19.thread ], [ %inc, %if.end40 ], [ %inc, %for.body44 ]
   %fract.0 = phi double [ %call12, %if.end19.thread ], [ %fract.1, %if.end40 ], [ %fract.1, %for.body44 ]
   %t.1.idx = phi i64 [ 1, %if.end19.thread ], [ 1, %if.end40 ], [ %t.2.add, %for.body44 ]
-  %sub86.fr = freeze i32 %sub86
   %incdec.ptr20.ptr85 = getelementptr inbounds nuw i8, ptr %buffer, i64 1
   %sub.ptr.rhs.cast = ptrtoint ptr %incdec.ptr20.ptr85 to i64
   %9 = trunc i64 %t.1.idx to i32
   %conv51 = add i32 %9, -1
-  %cmp4987 = icmp slt i32 %sub86.fr, 0
+  %cmp4987 = icmp slt i32 %sub86, 0
   %storemerge = select i1 %cmp4987, i32 %expcnt.084, i32 %conv51
   store i32 %storemerge, ptr %decimalPos, align 4
-  %cmp55123 = icmp sgt i32 %sub86.fr, 0
+  %cmp55123 = icmp sgt i32 %sub86, 0
   %tobool5699124 = fcmp une double %fract.0, 0.000000e+00
   %10 = select i1 %cmp55123, i1 %tobool5699124, i1 false
   br i1 %10, label %while.body.lr.ph.preheader, label %while.end
@@ -9352,7 +9351,7 @@ while.body.preheader:                             ; preds = %if.else64, %while.b
   %leading.0.ph130 = phi i1 [ false, %if.else64 ], [ %cmp54, %while.body.lr.ph.preheader ]
   %t.3.idx.ph128 = phi i64 [ %t.3.add76, %if.else64 ], [ %t.1.idx, %while.body.lr.ph.preheader ]
   %fract.2.ph127 = phi double [ %call58, %if.else64 ], [ %fract.0, %while.body.lr.ph.preheader ]
-  %nDigitCountAfterDecimal.0.ph125 = phi i32 [ %sub69, %if.else64 ], [ %sub86.fr, %while.body.lr.ph.preheader ]
+  %nDigitCountAfterDecimal.0.ph125 = phi i32 [ %sub69, %if.else64 ], [ %sub86, %while.body.lr.ph.preheader ]
   br label %while.body
 
 while.body:                                       ; preds = %while.body.preheader, %if.then62
@@ -9388,7 +9387,7 @@ if.else64:                                        ; preds = %while.body
 
 while.end:                                        ; preds = %if.else64, %if.end48
   %t.3.idx.ph.lcssa98 = phi i64 [ %t.1.idx, %if.end48 ], [ %t.3.add76, %if.else64 ]
-  %nDigitCountAfterDecimal.0.ph.lcssa = phi i32 [ %sub86.fr, %if.end48 ], [ %sub69, %if.else64 ]
+  %nDigitCountAfterDecimal.0.ph.lcssa = phi i32 [ %sub86, %if.end48 ], [ %sub69, %if.else64 ]
   %fract.2.lcssa = phi double [ %fract.0, %if.end48 ], [ %call58, %if.else64 ]
   %tobool56.lcssa = phi i1 [ %tobool5699124, %if.end48 ], [ %tobool5699, %if.else64 ]
   br i1 %tobool56.lcssa, label %if.then72, label %if.end122

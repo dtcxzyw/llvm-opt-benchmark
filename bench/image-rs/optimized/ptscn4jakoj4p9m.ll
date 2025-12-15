@@ -4613,6 +4613,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %19 = load ptr, ptr %18, align 8, !alias.scope !1481, !noalias !1486, !noundef !24
   %20 = icmp eq ptr %19, null
+  %.fr.i.i = freeze { i64, i1 } zeroinitializer
   br i1 %20, label %27, label %21
 
 21:                                               ; preds = %2
@@ -4620,24 +4621,23 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.val77.i.i = load ptr, ptr %22, align 8, !alias.scope !1489, !noalias !1492, !nonnull !24, !noundef !24
   %23 = ptrtoint ptr %.val77.i.i to i64
   %24 = ptrtoint ptr %19 to i64
-  %25 = sub nuw i64 %23, %24
+  %25 = sub i64 %23, %24
   %26 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %25, i64 4)
   br label %27
 
 27:                                               ; preds = %21, %2
-  %.sroa.088.0.i.i = phi { i64, i1 } [ %26, %21 ], [ zeroinitializer, %2 ]
-  %.sroa.088.0.fr.i.i = freeze { i64, i1 } %.sroa.088.0.i.i
+  %.sroa.088.0.i.i = phi { i64, i1 } [ %26, %21 ], [ %.fr.i.i, %2 ]
   %28 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i, i64 %.sroa.784.0.i.i)
   %29 = extractvalue { i64, i1 } %28, 1
   %30 = extractvalue { i64, i1 } %28, 0
   br i1 %29, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit.thread", label %31
 
 31:                                               ; preds = %27
-  %.pre.i.i = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i, 1
+  %.pre.i.i = extractvalue { i64, i1 } %.sroa.088.0.i.i, 1
   br i1 %.pre.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit.thread", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit": ; preds = %31
-  %32 = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i, 0
+  %32 = extractvalue { i64, i1 } %.sroa.088.0.i.i, 0
   %33 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %32)
   %34 = extractvalue { i64, i1 } %33, 1
   br i1 %34, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit.thread", label %35
@@ -4681,14 +4681,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   tail call void @llvm.assume(i1 %47)
   %48 = ptrtoint ptr %.sroa.12.0.copyload to i64
   %49 = ptrtoint ptr %19 to i64
-  %50 = sub nuw i64 %48, %49
+  %50 = sub i64 %48, %49
   %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %50, i64 4)
   br label %52
 
 52:                                               ; preds = %35, %46
-  %.sroa.088.0.i.i.i.i = phi { i64, i1 } [ %51, %46 ], [ zeroinitializer, %35 ]
-  %.sroa.088.0.fr.i.i.i.i = freeze { i64, i1 } %.sroa.088.0.i.i.i.i
-  %.pre.i.i.i.i = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i.i.i, 1
+  %.sroa.088.0.i.i.i.i = phi { i64, i1 } [ %51, %46 ], [ %.fr.i.i, %35 ]
+  %.pre.i.i.i.i = extractvalue { i64, i1 } %.sroa.088.0.i.i.i.i, 1
   br i1 %.pre.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit.thread.i.i", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit.i.i"
 
 .body.i.i:                                        ; preds = %70
@@ -4700,7 +4699,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17ha64fe0e97921a8b2E.exit.i.i": ; preds = %52
-  %54 = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i.i.i, 0
+  %54 = extractvalue { i64, i1 } %.sroa.088.0.i.i.i.i, 0
   %55 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %30, i64 %54)
   %56 = extractvalue { i64, i1 } %55, 1
   %57 = extractvalue { i64, i1 } %55, 0
@@ -5756,6 +5755,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8, !alias.scope !1908, !noalias !1913, !noundef !24
   %22 = icmp eq ptr %21, null
+  %.fr.i.i = freeze { i64, i1 } zeroinitializer
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %2
@@ -5771,24 +5771,24 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i": ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.val.i.i = load i64, ptr %26, align 8, !alias.scope !1908, !noalias !1913
-  %27 = udiv i64 %.val.i.i, %.val77.i.i
+  %.val.fr.i.i = freeze i64 %.val.i.i
+  %27 = udiv i64 %.val.fr.i.i, %.val77.i.i
   %28 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %27, i64 4)
   br label %29
 
 29:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i", %2
-  %.sroa.088.0.i.i = phi { i64, i1 } [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i" ], [ zeroinitializer, %2 ]
-  %.sroa.088.0.fr.i.i = freeze { i64, i1 } %.sroa.088.0.i.i
+  %.sroa.088.0.i.i = phi { i64, i1 } [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i" ], [ %.fr.i.i, %2 ]
   %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i, i64 %.sroa.784.0.i.i)
   %31 = extractvalue { i64, i1 } %30, 1
   %32 = extractvalue { i64, i1 } %30, 0
   br i1 %31, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit.thread", label %33
 
 33:                                               ; preds = %29
-  %.pre.i.i = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i, 1
+  %.pre.i.i = extractvalue { i64, i1 } %.sroa.088.0.i.i, 1
   br i1 %.pre.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit.thread", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit": ; preds = %33
-  %34 = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i, 0
+  %34 = extractvalue { i64, i1 } %.sroa.088.0.i.i, 0
   %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %32, i64 %34)
   %36 = extractvalue { i64, i1 } %35, 1
   br i1 %36, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit.thread", label %37
@@ -5809,6 +5809,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 8
+  %.val.fr.i.i.i.i = freeze i64 %.sroa.12.0.copyload
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.1410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.1410.0.copyload = load i64, ptr %.sroa.1410.0..sroa_idx, align 8
@@ -5842,14 +5843,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i.i.i": ; preds = %48
-  %50 = udiv i64 %.sroa.12.0.copyload, %.sroa.1410.0.copyload
+  %50 = udiv i64 %.val.fr.i.i.i.i, %.sroa.1410.0.copyload
   %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %50, i64 4)
   br label %52
 
 52:                                               ; preds = %37, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i.i.i"
-  %.sroa.088.0.i.i.i.i = phi { i64, i1 } [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i.i.i" ], [ zeroinitializer, %37 ]
-  %.sroa.088.0.fr.i.i.i.i = freeze { i64, i1 } %.sroa.088.0.i.i.i.i
-  %.pre.i.i.i.i = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i.i.i, 1
+  %.sroa.088.0.i.i.i.i = phi { i64, i1 } [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h67350cd73a16f18fE.exit.i.i.i.i" ], [ %.fr.i.i, %37 ]
+  %.pre.i.i.i.i = extractvalue { i64, i1 } %.sroa.088.0.i.i.i.i, 1
   br i1 %.pre.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit.thread.i.i", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit.i.i"
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i
@@ -5860,7 +5860,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17hb5787cc9071819ccE.exit.i.i": ; preds = %52
-  %53 = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i.i.i, 0
+  %53 = extractvalue { i64, i1 } %.sroa.088.0.i.i.i.i, 0
   %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %32, i64 %53)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
@@ -5936,7 +5936,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !1974
   store ptr %21, ptr %4, align 8, !noalias !1981
   %.sroa.5.0..sroa_idx38.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.5.0..sroa_idx38.i.i.i.i.i.i, align 8, !noalias !1944
+  store i64 %.val.fr.i.i.i.i, ptr %.sroa.5.0..sroa_idx38.i.i.i.i.i.i, align 8, !noalias !1944
   %.sroa.14.72..sroa.5.0..sroa_idx38.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.72..sroa.5.0..sroa_idx38.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx, i64 16, i1 false)
   %.sroa.1410.72..sroa.5.0..sroa_idx38.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32
@@ -6218,6 +6218,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %20 = getelementptr inbounds nuw i8, ptr %1, i64 64
   %21 = load ptr, ptr %20, align 8, !alias.scope !2064, !noalias !2069, !noundef !24
   %22 = icmp eq ptr %21, null
+  %.fr.i.i = freeze { i64, i1 } zeroinitializer
   br i1 %22, label %29, label %23
 
 23:                                               ; preds = %2
@@ -6233,24 +6234,24 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i": ; preds = %23
   %26 = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.val.i.i = load i64, ptr %26, align 8, !alias.scope !2064, !noalias !2069
-  %27 = udiv i64 %.val.i.i, %.val77.i.i
+  %.val.fr.i.i = freeze i64 %.val.i.i
+  %27 = udiv i64 %.val.fr.i.i, %.val77.i.i
   %28 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %27, i64 4)
   br label %29
 
 29:                                               ; preds = %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i", %2
-  %.sroa.088.0.i.i = phi { i64, i1 } [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i" ], [ zeroinitializer, %2 ]
-  %.sroa.088.0.fr.i.i = freeze { i64, i1 } %.sroa.088.0.i.i
+  %.sroa.088.0.i.i = phi { i64, i1 } [ %28, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i" ], [ %.fr.i.i, %2 ]
   %30 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %.sroa.7.0.i.i, i64 %.sroa.784.0.i.i)
   %31 = extractvalue { i64, i1 } %30, 1
   %32 = extractvalue { i64, i1 } %30, 0
   br i1 %31, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit.thread", label %33
 
 33:                                               ; preds = %29
-  %.pre.i.i = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i, 1
+  %.pre.i.i = extractvalue { i64, i1 } %.sroa.088.0.i.i, 1
   br i1 %.pre.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit.thread", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit"
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit": ; preds = %33
-  %34 = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i, 0
+  %34 = extractvalue { i64, i1 } %.sroa.088.0.i.i, 0
   %35 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %32, i64 %34)
   %36 = extractvalue { i64, i1 } %35, 1
   br i1 %36, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit.thread", label %37
@@ -6271,6 +6272,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   %.sroa.11.0.copyload = load i64, ptr %.sroa.11.0..sroa_idx, align 8
   %.sroa.12.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 72
   %.sroa.12.0.copyload = load i64, ptr %.sroa.12.0..sroa_idx, align 8
+  %.val.fr.i.i.i.i = freeze i64 %.sroa.12.0.copyload
   %.sroa.14.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 80
   %.sroa.1410.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 96
   %.sroa.1410.0.copyload = load i64, ptr %.sroa.1410.0..sroa_idx, align 8
@@ -6304,14 +6306,13 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   unreachable
 
 "_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i.i.i": ; preds = %48
-  %50 = udiv i64 %.sroa.12.0.copyload, %.sroa.1410.0.copyload
+  %50 = udiv i64 %.val.fr.i.i.i.i, %.sroa.1410.0.copyload
   %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %50, i64 4)
   br label %52
 
 52:                                               ; preds = %37, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i.i.i"
-  %.sroa.088.0.i.i.i.i = phi { i64, i1 } [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i.i.i" ], [ zeroinitializer, %37 ]
-  %.sroa.088.0.fr.i.i.i.i = freeze { i64, i1 } %.sroa.088.0.i.i.i.i
-  %.pre.i.i.i.i = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i.i.i, 1
+  %.sroa.088.0.i.i.i.i = phi { i64, i1 } [ %51, %"_ZN102_$LT$core..iter..adapters..map..Map$LT$I$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h7a5be4cd346daf03E.exit.i.i.i.i" ], [ %.fr.i.i, %37 ]
+  %.pre.i.i.i.i = extractvalue { i64, i1 } %.sroa.088.0.i.i.i.i, 1
   br i1 %.pre.i.i.i.i, label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit.thread.i.i", label %"_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit.i.i"
 
 .body.i.i:                                        ; preds = %.loopexit.split-lp.i.i.i.i.i.i, %.loopexit.i.i.i.i.i.i
@@ -6322,7 +6323,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   br label %.body
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$9size_hint17h86898d0302913183E.exit.i.i": ; preds = %52
-  %53 = extractvalue { i64, i1 } %.sroa.088.0.fr.i.i.i.i, 0
+  %53 = extractvalue { i64, i1 } %.sroa.088.0.i.i.i.i, 0
   %54 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %32, i64 %53)
   %55 = extractvalue { i64, i1 } %54, 1
   %56 = extractvalue { i64, i1 } %54, 0
@@ -6398,7 +6399,7 @@ define hidden void @"_ZN111_$LT$alloc..vec..Vec$LT$T$GT$$u20$as$u20$alloc..vec..
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !2130
   store ptr %21, ptr %4, align 8, !noalias !2137
   %.sroa.5.0..sroa_idx38.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %.sroa.12.0.copyload, ptr %.sroa.5.0..sroa_idx38.i.i.i.i.i.i, align 8, !noalias !2100
+  store i64 %.val.fr.i.i.i.i, ptr %.sroa.5.0..sroa_idx38.i.i.i.i.i.i, align 8, !noalias !2100
   %.sroa.14.72..sroa.5.0..sroa_idx38.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.72..sroa.5.0..sroa_idx38.i.i.i.i.i.i.sroa_idx, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.14.0..sroa_idx, i64 16, i1 false)
   %.sroa.1410.72..sroa.5.0..sroa_idx38.i.i.i.i.i.i.sroa_idx = getelementptr inbounds nuw i8, ptr %4, i64 32

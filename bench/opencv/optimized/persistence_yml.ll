@@ -2766,7 +2766,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %11
 
 126:                                              ; preds = %124
   %bcmp384 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(3) %97, ptr noundef nonnull dereferenceable(3) @.str.40, i64 3)
-  %127 = icmp eq i32 %bcmp384, 0
+  %bcmp384.fr = freeze i32 %bcmp384
+  %127 = icmp eq i32 %bcmp384.fr, 0
   %spec.select = select i1 %127, i32 5, i32 0
   br label %146
 
@@ -2777,7 +2778,8 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit445: ; preds = %11
 
 130:                                              ; preds = %128
   %bcmp385 = tail call i32 @bcmp(ptr noundef nonnull dereferenceable(5) %97, ptr noundef nonnull dereferenceable(5) @.str.41, i64 5)
-  %131 = icmp eq i32 %bcmp385, 0
+  %bcmp385.fr = freeze i32 %bcmp385
+  %131 = icmp eq i32 %bcmp385.fr, 0
   %spec.select439 = select i1 %131, i32 2, i32 0
   br label %146
 
@@ -3280,11 +3282,11 @@ _Z10cv_isalnumc.exit465.thread:                   ; preds = %298, %switch.early.
   %346 = load ptr, ptr %8, align 8, !tbaa !57
   %347 = icmp eq ptr %346, %344
   %348 = trunc i64 %345 to i8
-  %.sink760 = select i1 %347, i8 120, i8 %348
+  %.sink759 = select i1 %347, i8 120, i8 %348
   %.14 = select i1 %347, ptr %313, ptr %346
   %349 = sext i32 %.3358587 to i64
   %350 = getelementptr inbounds i8, ptr %192, i64 %349
-  store i8 %.sink760, ptr %350, align 1, !tbaa !41
+  store i8 %.sink759, ptr %350, align 1, !tbaa !41
   %.5360 = add nsw i32 %.3358587, 1
   br label %366
 
@@ -3704,7 +3706,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit489: ; preds = %48
   br i1 %or.cond53, label %.thread535, label %590
 
 .thread535:                                       ; preds = %197, %499
-  br i1 %4, label %.split.us.thread715, label %501
+  br i1 %4, label %.split.us.thread714, label %501
 
 501:                                              ; preds = %.thread535
   switch i8 %.0348518, label %532 [
@@ -3797,8 +3799,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %52
 
 532:                                              ; preds = %501
   %533 = getelementptr inbounds i8, ptr %.0304519, i64 -1
-  %.2354.fr = freeze i32 %.0352516
-  %534 = icmp eq i32 %.2354.fr, 3
+  %534 = icmp eq i32 %.0352516, 3
   br i1 %534, label %.split.us.thread, label %.critedge69
 
 .split.us:                                        ; preds = %switch.early.test
@@ -3808,7 +3809,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %52
   %537 = icmp ugt i8 %536, 31
   br i1 %537, label %.lr.ph603, label %.critedge67
 
-.split.us.thread715:                              ; preds = %.thread535
+.split.us.thread714:                              ; preds = %.thread535
   %538 = getelementptr inbounds i8, ptr %.0304519, i64 -1
   store ptr %.0304519, ptr %8, align 8, !tbaa !57
   %539 = load i8, ptr %.0304519, align 1, !tbaa !41
@@ -3825,18 +3826,18 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %52
   br i1 %4, label %.lr.ph603.split.us.preheader, label %.critedge69.us.preheader
 
 .critedge69.us.preheader:                         ; preds = %.split.us.thread, %.lr.ph603
-  %.4710712714 = phi ptr [ %151, %.lr.ph603 ], [ %.0304519, %.split.us.thread ]
+  %.4709711713 = phi ptr [ %151, %.lr.ph603 ], [ %.0304519, %.split.us.thread ]
   br label %.critedge69.us
 
-.lr.ph603.split.us.preheader:                     ; preds = %.split.us.thread715, %.lr.ph603
-  %543 = phi ptr [ %535, %.lr.ph603 ], [ %538, %.split.us.thread715 ]
-  %.4710712719 = phi ptr [ %151, %.lr.ph603 ], [ %.0304519, %.split.us.thread715 ]
-  %544 = phi i8 [ %536, %.lr.ph603 ], [ %539, %.split.us.thread715 ]
+.lr.ph603.split.us.preheader:                     ; preds = %.split.us.thread714, %.lr.ph603
+  %543 = phi ptr [ %535, %.lr.ph603 ], [ %538, %.split.us.thread714 ]
+  %.4709711718 = phi ptr [ %151, %.lr.ph603 ], [ %.0304519, %.split.us.thread714 ]
+  %544 = phi i8 [ %536, %.lr.ph603 ], [ %539, %.split.us.thread714 ]
   br label %.lr.ph603.split.us
 
 .lr.ph603.split.us:                               ; preds = %.lr.ph603.split.us.preheader, %.critedge69.us.us
   %545 = phi i8 [ %549, %.critedge69.us.us ], [ %544, %.lr.ph603.split.us.preheader ]
-  %546 = phi ptr [ %548, %.critedge69.us.us ], [ %.4710712719, %.lr.ph603.split.us.preheader ]
+  %546 = phi ptr [ %548, %.critedge69.us.us ], [ %.4709711718, %.lr.ph603.split.us.preheader ]
   %547 = phi ptr [ %546, %.critedge69.us.us ], [ %543, %.lr.ph603.split.us.preheader ]
   switch i8 %545, label %.critedge69.us.us [
     i8 125, label %.critedge67
@@ -3852,7 +3853,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %52
   br i1 %550, label %.lr.ph603.split.us, label %.critedge67
 
 .critedge69.us:                                   ; preds = %.critedge69.us.preheader, %.critedge69.us
-  %551 = phi ptr [ %552, %.critedge69.us ], [ %.4710712714, %.critedge69.us.preheader ]
+  %551 = phi ptr [ %552, %.critedge69.us ], [ %.4709711713, %.critedge69.us.preheader ]
   %552 = getelementptr inbounds nuw i8, ptr %551, i64 1
   store ptr %552, ptr %8, align 8, !tbaa !57
   %553 = load i8, ptr %552, align 1, !tbaa !41
@@ -3869,13 +3870,13 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit495: ; preds = %52
   %or.cond621 = and i1 %558, %559
   br i1 %or.cond621, label %.critedge69, label %.critedge67, !llvm.loop !70
 
-.critedge67:                                      ; preds = %.critedge69, %.critedge69.us, %.lr.ph603.split.us, %.lr.ph603.split.us, %.lr.ph603.split.us, %.critedge69.us.us, %.split.us.thread715, %.split.us.thread, %.split.us
-  %.4709 = phi ptr [ %151, %.split.us ], [ %.0304519, %.split.us.thread ], [ %.0304519, %.split.us.thread715 ], [ %.4710712719, %.critedge69.us.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712719, %.lr.ph603.split.us ], [ %.4710712714, %.critedge69.us ], [ %.0304519, %.critedge69 ]
-  %560 = phi ptr [ %151, %.split.us ], [ %.0304519, %.split.us.thread ], [ %.0304519, %.split.us.thread715 ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %548, %.critedge69.us.us ], [ %552, %.critedge69.us ], [ %556, %.critedge69 ]
-  %.us-phi = phi ptr [ %535, %.split.us ], [ %533, %.split.us.thread ], [ %538, %.split.us.thread715 ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %546, %.critedge69.us.us ], [ %551, %.critedge69.us ], [ %555, %.critedge69 ]
-  %.us-phi595 = phi i8 [ %536, %.split.us ], [ %541, %.split.us.thread ], [ %539, %.split.us.thread715 ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %549, %.critedge69.us.us ], [ %553, %.critedge69.us ], [ %557, %.critedge69 ]
+.critedge67:                                      ; preds = %.critedge69, %.critedge69.us, %.lr.ph603.split.us, %.lr.ph603.split.us, %.lr.ph603.split.us, %.critedge69.us.us, %.split.us.thread714, %.split.us.thread, %.split.us
+  %.4708 = phi ptr [ %151, %.split.us ], [ %.0304519, %.split.us.thread ], [ %.0304519, %.split.us.thread714 ], [ %.4709711718, %.critedge69.us.us ], [ %.4709711718, %.lr.ph603.split.us ], [ %.4709711718, %.lr.ph603.split.us ], [ %.4709711718, %.lr.ph603.split.us ], [ %.4709711713, %.critedge69.us ], [ %.0304519, %.critedge69 ]
+  %560 = phi ptr [ %151, %.split.us ], [ %.0304519, %.split.us.thread ], [ %.0304519, %.split.us.thread714 ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %546, %.lr.ph603.split.us ], [ %548, %.critedge69.us.us ], [ %552, %.critedge69.us ], [ %556, %.critedge69 ]
+  %.us-phi = phi ptr [ %535, %.split.us ], [ %533, %.split.us.thread ], [ %538, %.split.us.thread714 ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %547, %.lr.ph603.split.us ], [ %546, %.critedge69.us.us ], [ %551, %.critedge69.us ], [ %555, %.critedge69 ]
+  %.us-phi595 = phi i8 [ %536, %.split.us ], [ %541, %.split.us.thread ], [ %539, %.split.us.thread714 ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %545, %.lr.ph603.split.us ], [ %549, %.critedge69.us.us ], [ %553, %.critedge69.us ], [ %557, %.critedge69 ]
   %561 = getelementptr inbounds nuw i8, ptr %.us-phi, i64 1
-  %562 = icmp eq ptr %561, %.4709
+  %562 = icmp eq ptr %561, %.4708
   br i1 %562, label %563, label %578
 
 563:                                              ; preds = %.critedge67
@@ -3928,21 +3929,21 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit498: ; preds = %57
   %.0 = phi ptr [ %580, %.preheader ], [ %561, %578 ]
   %580 = getelementptr inbounds i8, ptr %.0, i64 -1
   %581 = load i8, ptr %580, align 1, !tbaa !41
-  %582 = icmp ugt ptr %580, %.4709
+  %582 = icmp ugt ptr %580, %.4708
   %583 = icmp eq i8 %581, 32
   %584 = select i1 %582, i1 %583, i1 false
   br i1 %584, label %.preheader, label %585, !llvm.loop !71
 
 585:                                              ; preds = %.preheader
   %586 = ptrtoint ptr %.0 to i64
-  %587 = ptrtoint ptr %.4709 to i64
+  %587 = ptrtoint ptr %.4708 to i64
   %588 = sub i64 %586, %587
   %589 = trunc i64 %588 to i32
-  tail call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3, ptr noundef %.4709, i32 noundef %589)
+  tail call void @_ZN2cv8FileNode8setValueEiPKvi(ptr noundef nonnull align 8 dereferenceable(24) %2, i32 noundef 3, ptr noundef %.4708, i32 noundef %589)
   br label %687
 
 590:                                              ; preds = %499, %578
-  %.19 = phi ptr [ %.4709, %578 ], [ %.0304519, %499 ]
+  %.19 = phi ptr [ %.4708, %578 ], [ %.0304519, %499 ]
   %591 = phi i1 [ true, %578 ], [ false, %499 ]
   %.0300 = phi i32 [ 5, %578 ], [ 4, %499 ]
   %592 = getelementptr inbounds nuw i8, ptr %0, i64 8

@@ -349,7 +349,8 @@ if.end.i:                                         ; preds = %sw.bb16
 
 if.then2.i:                                       ; preds = %if.end.i
   %15 = load i32, ptr %call, align 4
-  %sub.i = sub nsw i32 0, %15
+  %.fr = freeze i32 %15
+  %sub.i = sub i32 0, %.fr
   br label %out.i
 
 if.end4.i:                                        ; preds = %if.end.i
@@ -387,7 +388,8 @@ if.then17.i:                                      ; preds = %if.end12.i
 
 if.then20.i:                                      ; preds = %if.then17.i
   %21 = load i32, ptr %call, align 4
-  %sub22.i = sub nsw i32 0, %21
+  %.fr464 = freeze i32 %21
+  %sub22.i = sub i32 0, %.fr464
   br label %out.i
 
 if.end23.i:                                       ; preds = %if.then17.i
@@ -409,8 +411,9 @@ if.end31.i:                                       ; preds = %land.lhs.true.i, %i
 
 if.then35.i:                                      ; preds = %if.end31.i
   %26 = load i32, ptr %call, align 4
-  %sub37.i = sub nsw i32 0, %26
-  %cmp38.i = icmp ne i32 %26, 13
+  %.fr465 = freeze i32 %26
+  %sub37.i = sub i32 0, %.fr465
+  %cmp38.i = icmp ne i32 %.fr465, 13
   %27 = load i64, ptr %st_size.i, align 8
   %cmp42.i = icmp sgt i64 %27, 0
   %or.cond2.i = select i1 %cmp38.i, i1 true, i1 %cmp42.i
@@ -423,8 +426,9 @@ if.end47.i:                                       ; preds = %if.then35.i, %if.en
 
 if.then52.i:                                      ; preds = %if.end47.i
   %28 = load i32, ptr %call, align 4
-  %sub54.i = sub nsw i32 0, %28
-  %cmp55.not.i = icmp eq i32 %28, 1
+  %.fr466 = freeze i32 %28
+  %sub54.i = sub i32 0, %.fr466
+  %cmp55.not.i = icmp eq i32 %.fr466, 1
   br i1 %cmp55.not.i, label %if.end58.i, label %out.i
 
 if.end58.i:                                       ; preds = %if.then52.i
@@ -451,17 +455,18 @@ if.end75.i:                                       ; preds = %if.then70.i
 
 if.then79.i:                                      ; preds = %if.end75.i
   %32 = load i32, ptr %call, align 4
-  %sub81.i = sub nsw i32 0, %32
+  %.fr467 = freeze i32 %32
+  %sub81.i = sub i32 0, %.fr467
   br label %out.i
 
 if.end83.i:                                       ; preds = %if.end75.i, %if.end63.i
   %33 = load i64, ptr %st_size84.i, align 8
-  %cond513 = icmp eq i64 %33, 0
-  br i1 %cond513, label %out.i.thread, label %if.end90.i
+  %cond517 = icmp eq i64 %33, 0
+  br i1 %cond517, label %out.i.thread, label %if.end90.i
 
 if.end90.i:                                       ; preds = %if.end83.i, %if.end97.i
-  %in_offset.0.i515 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
-  %bytes_to_send.0.i514 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
+  %in_offset.0.i519 = phi i64 [ %add.i, %if.end97.i ], [ 0, %if.end83.i ]
+  %bytes_to_send.0.i518 = phi i64 [ %sub98.i, %if.end97.i ], [ %33, %if.end83.i ]
   store i32 6, ptr %type.i415, align 8
   store i32 5, ptr %fs_type.i416, align 8
   store ptr null, ptr %new_path.i421, align 8
@@ -469,29 +474,29 @@ if.end90.i:                                       ; preds = %if.end83.i, %if.end
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(40) %loop2.i419, i8 0, i64 40, i1 false)
   store i32 %conv.i427, ptr %flags17.i424, align 4
   store i32 %conv.i411, ptr %file.i397, align 8
-  store i64 %in_offset.0.i515, ptr %off5.i, align 8
-  store i64 %bytes_to_send.0.i514, ptr %len6.i, align 8
+  store i64 %in_offset.0.i519, ptr %off5.i, align 8
+  store i64 %bytes_to_send.0.i518, ptr %len6.i, align 8
   call void @uv__fs_work(ptr noundef nonnull %work_req31.i426)
   %34 = load i64, ptr %result.i417, align 8
+  %.fr468 = freeze i64 %34
   call void @uv_fs_req_cleanup(ptr noundef nonnull %fs_req.i)
-  %cmp93.i = icmp slt i64 %34, 0
+  %cmp93.i = icmp slt i64 %.fr468, 0
   br i1 %cmp93.i, label %if.then95.i, label %if.end97.i
 
 if.then95.i:                                      ; preds = %if.end90.i
-  %conv96.i = trunc i64 %34 to i32
+  %conv96.i = trunc i64 %.fr468 to i32
   br label %out.i
 
 if.end97.i:                                       ; preds = %if.end90.i
-  %sub98.i = sub nsw i64 %bytes_to_send.0.i514, %34
-  %add.i = add nuw nsw i64 %34, %in_offset.0.i515
+  %sub98.i = sub nsw i64 %bytes_to_send.0.i518, %.fr468
+  %add.i = add nuw nsw i64 %.fr468, %in_offset.0.i519
   %cond = icmp eq i64 %sub98.i, 0
   br i1 %cond, label %out.i.thread, label %if.end90.i
 
 out.i:                                            ; preds = %if.then95.i, %if.then79.i, %if.then52.i, %if.then35.i, %if.then20.i, %if.then2.i
   %dstfd.0.i = phi i32 [ -1, %if.then2.i ], [ %conv.i411, %if.then20.i ], [ %conv.i411, %if.then35.i ], [ %conv.i411, %if.then52.i ], [ %conv.i411, %if.then79.i ], [ %conv.i411, %if.then95.i ]
   %err.0.i = phi i32 [ %sub.i, %if.then2.i ], [ %sub22.i, %if.then20.i ], [ %sub37.i, %if.then35.i ], [ %sub54.i, %if.then52.i ], [ %sub81.i, %if.then79.i ], [ %conv96.i, %if.then95.i ]
-  %err.0.i.fr = freeze i32 %err.0.i
-  %spec.select463 = call i32 @llvm.smin.i32(i32 %err.0.i.fr, i32 0)
+  %spec.select463 = call i32 @llvm.smin.i32(i32 %err.0.i, i32 0)
   br label %out.i.thread
 
 out.i.thread:                                     ; preds = %if.end97.i, %if.end83.i, %out.i, %if.end4.i, %if.end58.i, %if.then70.i, %land.lhs.true.i

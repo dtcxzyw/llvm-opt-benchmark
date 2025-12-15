@@ -152,8 +152,8 @@ define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr nound
   %.sroa.5.0.i = phi i32 [ %.sroa.5.1.i, %40 ], [ 0, %2 ]
   %.sroa.7.0.i = phi i32 [ %.sroa.7.1.i, %40 ], [ 0, %2 ]
   %.sroa.9.0.i = phi i32 [ %.sroa.9.1.i, %40 ], [ 0, %2 ]
-  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.fr.i, %40 ], [ 0, %2 ]
-  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.fr.i, %40 ], [ 0, %2 ]
+  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.i, %40 ], [ 0, %2 ]
+  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.i, %40 ], [ 0, %2 ]
   %5 = phi i32 [ %41, %40 ], [ 0, %2 ]
   %6 = phi i32 [ %42, %40 ], [ 0, %2 ]
   %7 = phi i32 [ %43, %40 ], [ 0, %2 ]
@@ -241,8 +241,6 @@ define internal fastcc noundef nonnull ptr @gather_convert_stats_ascii(ptr nound
   %45 = phi i32 [ %9, %35 ], [ %9, %31 ], [ %9, %38 ], [ %9, %20 ], [ %9, %22 ], [ %25, %24 ], [ %9, %26 ]
   %46 = phi i32 [ %37, %35 ], [ %10, %31 ], [ %10, %38 ], [ %10, %20 ], [ %10, %22 ], [ %10, %24 ], [ %27, %26 ]
   %.2.i.i = phi i64 [ %.031.i.i, %35 ], [ %.031.i.i, %31 ], [ %.031.i.i, %38 ], [ %14, %20 ], [ %.031.i.i, %22 ], [ %.031.i.i, %24 ], [ %.031.i.i, %26 ]
-  %.sroa.14.1.fr.i = freeze i32 %.sroa.14.1.i
-  %.sroa.11.1.fr.i = freeze i32 %.sroa.11.1.i
   %47 = add nuw i64 %.2.i.i, 1
   %48 = icmp ult i64 %47, %1
   br i1 %48, label %.lr.ph.i.i, label %gather_stats.exit.i, !llvm.loop !9
@@ -260,8 +258,8 @@ convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
   %.fr.i = freeze i8 %51
   %52 = icmp eq i8 %.fr.i, 26
   %53 = add i32 %46, -1
-  %spec.select.i = select i1 %52, i32 %53, i32 %.sroa.14.1.fr.i
-  %54 = lshr i32 %.sroa.11.1.fr.i, 7
+  %spec.select.i = select i1 %52, i32 %53, i32 %.sroa.14.1.i
+  %54 = lshr i32 %.sroa.11.1.i, 7
   %.not.i = icmp ult i32 %54, %spec.select.i
   %spec.select18.i = select i1 %.not.i, i32 4, i32 0
   br label %gather_convert_stats.exit
@@ -3790,8 +3788,8 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   %.sroa.0.0.i = phi i32 [ %.sroa.0.1.i, %40 ], [ 0, %5 ]
   %.sroa.5.0.i = phi i32 [ %.sroa.5.1.i, %40 ], [ 0, %5 ]
   %.sroa.9.0.i = phi i32 [ %.sroa.9.1.i, %40 ], [ 0, %5 ]
-  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.fr.i, %40 ], [ 0, %5 ]
-  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.fr.i, %40 ], [ 0, %5 ]
+  %.sroa.11.0.i = phi i32 [ %.sroa.11.1.i, %40 ], [ 0, %5 ]
+  %.sroa.14.0.i = phi i32 [ %.sroa.14.1.i, %40 ], [ 0, %5 ]
   %8 = phi i32 [ %41, %40 ], [ 0, %5 ]
   %9 = phi i32 [ %42, %40 ], [ 0, %5 ]
   %10 = phi i32 [ %43, %40 ], [ 0, %5 ]
@@ -3872,8 +3870,6 @@ define internal fastcc range(i32 0, 2) i32 @has_crlf_in_index(ptr noundef %0, pt
   %44 = phi i32 [ %11, %35 ], [ %11, %31 ], [ %11, %38 ], [ %11, %22 ], [ %25, %24 ], [ %11, %26 ], [ %11, %.lr.ph.i.i ]
   %45 = phi i32 [ %37, %35 ], [ %12, %31 ], [ %12, %38 ], [ %12, %22 ], [ %12, %24 ], [ %27, %26 ], [ %12, %.lr.ph.i.i ]
   %.2.i.i = phi i64 [ %.031.i.i, %35 ], [ %.031.i.i, %31 ], [ %.031.i.i, %38 ], [ %16, %22 ], [ %.031.i.i, %24 ], [ %.031.i.i, %26 ], [ %.031.i.i, %.lr.ph.i.i ]
-  %.sroa.14.1.fr.i = freeze i32 %.sroa.14.1.i
-  %.sroa.11.1.fr.i = freeze i32 %.sroa.11.1.i
   %46 = add nuw i64 %.2.i.i, 1
   %47 = icmp ult i64 %46, %6
   br i1 %47, label %.lr.ph.i.i, label %gather_stats.exit.i, !llvm.loop !9
@@ -3891,8 +3887,8 @@ convert_is_binary.exit.i:                         ; preds = %gather_stats.exit.i
   %.fr.i = freeze i8 %50
   %51 = icmp eq i8 %.fr.i, 26
   %52 = add i32 %45, -1
-  %spec.select.i = select i1 %51, i32 %52, i32 %.sroa.14.1.fr.i
-  %53 = lshr i32 %.sroa.11.1.fr.i, 7
+  %spec.select.i = select i1 %51, i32 %52, i32 %.sroa.14.1.i
+  %53 = lshr i32 %.sroa.11.1.i, 7
   %.not.i = icmp uge i32 %53, %spec.select.i
   br label %convert_is_binary.exit.thread.i
 

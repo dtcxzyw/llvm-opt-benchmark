@@ -14292,7 +14292,9 @@ define internal void @_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6
   %.in87 = getelementptr inbounds nuw i8, ptr %5, i64 %.in87.v
   %65 = load i32, ptr %.in87, align 8, !tbaa !37
   %66 = load i32, ptr %32, align 8, !tbaa !53
-  %67 = mul nsw i32 %66, %65
+  %.fr227 = freeze i32 %66
+  %.fr228 = freeze i32 %65
+  %67 = mul i32 %.fr227, %.fr228
   br label %75
 
 68:                                               ; preds = %57
@@ -14304,12 +14306,12 @@ define internal void @_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6
   %72 = load i32, ptr %32, align 8, !tbaa !53
   %73 = mul nsw i32 %72, %71
   %74 = load i32, ptr %30, align 4, !tbaa !55
+  %.fr229 = freeze i32 %74
   br label %75
 
 75:                                               ; preds = %68, %61
   %76 = phi i32 [ %62, %61 ], [ %73, %68 ]
-  %77 = phi i32 [ %67, %61 ], [ %74, %68 ]
-  %.fr227 = freeze i32 %77
+  %77 = phi i32 [ %67, %61 ], [ %.fr229, %68 ]
   %78 = sub nsw i32 %76, %59
   %.sroa.speculated214 = call i32 @llvm.smin.i32(i32 %58, i32 %78)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -14317,7 +14319,7 @@ define internal void @_ZN4ncnnL11gemm_BT_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiiRKNS_6
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
   %79 = load i32, ptr %6, align 4, !tbaa !37
-  %80 = icmp sle i32 %.fr227, %79
+  %80 = icmp sle i32 %77, %79
   %81 = load i32, ptr %7, align 4
   %82 = icmp ne i32 %81, 3
   %or.cond.not219 = select i1 %80, i1 %82, i1 false
@@ -14374,12 +14376,12 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
   br i1 %110, label %.lr.ph223, label %_ZN4ncnn3MatD2Ev.exit
 
 .lr.ph223:                                        ; preds = %108
-  %111 = icmp sgt i32 %.fr227, 0
-  %.pre232 = load i32, ptr %11, align 4, !tbaa !37
+  %111 = icmp sgt i32 %77, 0
+  %.pre234 = load i32, ptr %11, align 4, !tbaa !37
   br i1 %111, label %.lr.ph223.split.us, label %.lr.ph223.split
 
 .lr.ph223.split.us:                               ; preds = %.lr.ph223, %123
-  %112 = phi i32 [ %124, %123 ], [ %.pre232, %.lr.ph223 ]
+  %112 = phi i32 [ %124, %123 ], [ %.pre234, %.lr.ph223 ]
   %113 = phi i32 [ %126, %123 ], [ %109, %.lr.ph223 ]
   %.082221.us = phi i32 [ %125, %123 ], [ 0, %.lr.ph223 ]
   %114 = sub nsw i32 %113, %.082221.us
@@ -14390,15 +14392,15 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
 
 117:                                              ; preds = %.lr.ph223.split.us
   call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr %.val135, i32 noundef %59, i32 noundef %.sroa.speculated214, i32 noundef %.082221.us, i32 noundef %.sroa.speculated192.us)
-  %.pre233 = load i32, ptr %7, align 4, !tbaa !37
-  %118 = icmp eq i32 %.pre233, 3
+  %.pre235 = load i32, ptr %7, align 4, !tbaa !37
+  %118 = icmp eq i32 %.pre235, 3
   %119 = select i1 %118, ptr %21, ptr %12
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %117, %.lr.ph223.split.us
   %120 = phi ptr [ %119, %117 ], [ %12, %.lr.ph223.split.us ]
   %121 = icmp eq i32 %.082221.us, 0
-  %.pre234 = load i32, ptr %6, align 4, !tbaa !37
+  %.pre236 = load i32, ptr %6, align 4, !tbaa !37
   br label %128
 
 122:                                              ; preds = %._crit_edge.us
@@ -14413,9 +14415,9 @@ _ZN4ncnn3MatD2Ev.exit98:                          ; preds = %84
   br i1 %127, label %.lr.ph223.split.us, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !229
 
 128:                                              ; preds = %.lr.ph.us, %_ZN4ncnn3MatD2Ev.exit94.us
-  %129 = phi i32 [ %.pre234, %.lr.ph.us ], [ %171, %_ZN4ncnn3MatD2Ev.exit94.us ]
+  %129 = phi i32 [ %.pre236, %.lr.ph.us ], [ %171, %_ZN4ncnn3MatD2Ev.exit94.us ]
   %.083220.us = phi i32 [ 0, %.lr.ph.us ], [ %172, %_ZN4ncnn3MatD2Ev.exit94.us ]
-  %130 = sub nsw i32 %.fr227, %.083220.us
+  %130 = sub nsw i32 %77, %.083220.us
   %.sroa.speculated.us = call i32 @llvm.smin.i32(i32 %129, i32 %130)
   %131 = invoke noundef i32 @_ZN4ncnn18get_omp_thread_numEv()
           to label %.noexc130.us unwind label %.loopexit.split.us
@@ -14470,13 +14472,13 @@ _ZN4ncnn3MatD2Ev.exit94.us:                       ; preds = %164, %163, %.noexc1
   %.not91.us = icmp eq i32 %165, 0
   %166 = load i32, ptr %6, align 4
   %167 = add nsw i32 %166, %.083220.us
-  %168 = icmp sge i32 %167, %.fr227
+  %168 = icmp sge i32 %167, %77
   %169 = select i1 %.not91.us, i1 %168, i1 false
   %170 = load i32, ptr %7, align 4, !tbaa !37
   call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr %146, ptr %160, ptr noundef nonnull align 8 dereferenceable(72) %120, ptr %.val135, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef %170, i32 noundef %59, i32 noundef %.sroa.speculated214, i32 noundef %.082221.us, i32 noundef %.sroa.speculated192.us, i32 noundef %.083220.us, i32 noundef %.sroa.speculated.us, i1 noundef zeroext %169)
   %171 = load i32, ptr %6, align 4, !tbaa !37
   %172 = add nsw i32 %171, %.083220.us
-  %173 = icmp slt i32 %172, %.fr227
+  %173 = icmp slt i32 %172, %77
   br i1 %173, label %128, label %._crit_edge.us, !llvm.loop !236
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit94.us
@@ -14490,14 +14492,14 @@ _ZN4ncnn3MatD2Ev.exit94.us:                       ; preds = %164, %163, %.noexc1
   br label %191
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %185, %123, %108
-  %.pre237 = load i32, ptr %18, align 4, !tbaa !37
+  %.pre239 = load i32, ptr %18, align 4, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %175 = add nsw i32 %.0226, 1
-  %.not.not = icmp slt i32 %.0226, %.pre237
+  %.not.not = icmp slt i32 %.0226, %.pre239
   br i1 %.not.not, label %57, label %._crit_edge
 
 .lr.ph223.split:                                  ; preds = %.lr.ph223, %185
-  %176 = phi i32 [ %186, %185 ], [ %.pre232, %.lr.ph223 ]
+  %176 = phi i32 [ %186, %185 ], [ %.pre234, %.lr.ph223 ]
   %177 = phi i32 [ %188, %185 ], [ %109, %.lr.ph223 ]
   %.082221 = phi i32 [ %187, %185 ], [ 0, %.lr.ph223 ]
   %178 = sub nsw i32 %177, %.082221
@@ -14718,7 +14720,9 @@ define internal void @_ZN4ncnnL8gemm_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiRKNS_6Optio
   %.in86 = getelementptr inbounds nuw i8, ptr %5, i64 %.in86.v
   %65 = load i32, ptr %.in86, align 8, !tbaa !37
   %66 = load i32, ptr %32, align 8, !tbaa !53
-  %67 = mul nsw i32 %66, %65
+  %.fr228 = freeze i32 %66
+  %.fr229 = freeze i32 %65
+  %67 = mul i32 %.fr228, %.fr229
   br label %75
 
 68:                                               ; preds = %57
@@ -14730,12 +14734,12 @@ define internal void @_ZN4ncnnL8gemm_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiRKNS_6Optio
   %72 = load i32, ptr %32, align 8, !tbaa !53
   %73 = mul nsw i32 %72, %71
   %74 = load i32, ptr %30, align 4, !tbaa !55
+  %.fr230 = freeze i32 %74
   br label %75
 
 75:                                               ; preds = %68, %61
   %76 = phi i32 [ %62, %61 ], [ %73, %68 ]
-  %77 = phi i32 [ %67, %61 ], [ %74, %68 ]
-  %.fr228 = freeze i32 %77
+  %77 = phi i32 [ %67, %61 ], [ %.fr230, %68 ]
   %78 = sub nsw i32 %76, %59
   %.sroa.speculated215 = call i32 @llvm.smin.i32(i32 %58, i32 %78)
   call void @llvm.lifetime.start.p0(ptr nonnull %21)
@@ -14743,7 +14747,7 @@ define internal void @_ZN4ncnnL8gemm_x86ERKNS_3MatES2_S2_RS0_iiiiiiiiRKNS_6Optio
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %21, i8 0, i64 28, i1 false)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(28) %36, i8 0, i64 28, i1 false)
   %79 = load i32, ptr %6, align 4, !tbaa !37
-  %80 = icmp sle i32 %.fr228, %79
+  %80 = icmp sle i32 %77, %79
   %81 = load i32, ptr %7, align 4
   %82 = icmp ne i32 %81, 3
   %or.cond.not220 = select i1 %80, i1 %82, i1 false
@@ -14800,12 +14804,12 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
   br i1 %110, label %.lr.ph224, label %_ZN4ncnn3MatD2Ev.exit
 
 .lr.ph224:                                        ; preds = %108
-  %111 = icmp sgt i32 %.fr228, 0
-  %.pre233 = load i32, ptr %11, align 4, !tbaa !37
+  %111 = icmp sgt i32 %77, 0
+  %.pre235 = load i32, ptr %11, align 4, !tbaa !37
   br i1 %111, label %.lr.ph224.split.us, label %.lr.ph224.split
 
 .lr.ph224.split.us:                               ; preds = %.lr.ph224, %123
-  %112 = phi i32 [ %124, %123 ], [ %.pre233, %.lr.ph224 ]
+  %112 = phi i32 [ %124, %123 ], [ %.pre235, %.lr.ph224 ]
   %113 = phi i32 [ %126, %123 ], [ %109, %.lr.ph224 ]
   %.081222.us = phi i32 [ %125, %123 ], [ 0, %.lr.ph224 ]
   %114 = sub nsw i32 %113, %.081222.us
@@ -14816,15 +14820,15 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
 
 117:                                              ; preds = %.lr.ph224.split.us
   call fastcc void @_ZN4ncnnL11pack_A_tileERKNS_3MatERS0_iiii(ptr noundef nonnull align 8 dereferenceable(72) %12, ptr %.val136, i32 noundef %59, i32 noundef %.sroa.speculated215, i32 noundef %.081222.us, i32 noundef %.sroa.speculated193.us)
-  %.pre234 = load i32, ptr %7, align 4, !tbaa !37
-  %118 = icmp eq i32 %.pre234, 3
+  %.pre236 = load i32, ptr %7, align 4, !tbaa !37
+  %118 = icmp eq i32 %.pre236, 3
   %119 = select i1 %118, ptr %21, ptr %12
   br label %.lr.ph.us
 
 .lr.ph.us:                                        ; preds = %117, %.lr.ph224.split.us
   %120 = phi ptr [ %119, %117 ], [ %12, %.lr.ph224.split.us ]
   %121 = icmp eq i32 %.081222.us, 0
-  %.pre235 = load i32, ptr %6, align 4, !tbaa !37
+  %.pre237 = load i32, ptr %6, align 4, !tbaa !37
   br label %128
 
 122:                                              ; preds = %._crit_edge.us
@@ -14839,9 +14843,9 @@ _ZN4ncnn3MatD2Ev.exit97:                          ; preds = %84
   br i1 %127, label %.lr.ph224.split.us, label %_ZN4ncnn3MatD2Ev.exit, !llvm.loop !243
 
 128:                                              ; preds = %.lr.ph.us, %_ZN4ncnn3MatD2Ev.exit93.us
-  %129 = phi i32 [ %.pre235, %.lr.ph.us ], [ %171, %_ZN4ncnn3MatD2Ev.exit93.us ]
+  %129 = phi i32 [ %.pre237, %.lr.ph.us ], [ %171, %_ZN4ncnn3MatD2Ev.exit93.us ]
   %.082221.us = phi i32 [ 0, %.lr.ph.us ], [ %172, %_ZN4ncnn3MatD2Ev.exit93.us ]
-  %130 = sub nsw i32 %.fr228, %.082221.us
+  %130 = sub nsw i32 %77, %.082221.us
   %.sroa.speculated.us = call i32 @llvm.smin.i32(i32 %129, i32 %130)
   %131 = invoke noundef i32 @_ZN4ncnn18get_omp_thread_numEv()
           to label %.noexc130.us unwind label %.loopexit.split.us
@@ -14896,13 +14900,13 @@ _ZN4ncnn3MatD2Ev.exit93.us:                       ; preds = %164, %163, %.noexc1
   %.not90.us = icmp eq i32 %165, 0
   %166 = load i32, ptr %6, align 4
   %167 = add nsw i32 %166, %.082221.us
-  %168 = icmp sge i32 %167, %.fr228
+  %168 = icmp sge i32 %167, %77
   %169 = select i1 %.not90.us, i1 %168, i1 false
   %170 = load i32, ptr %7, align 4, !tbaa !37
   call fastcc void @_ZN4ncnnL23gemm_transB_packed_tileERKNS_3MatES2_S2_RS0_S3_iiiiiiib(ptr %146, ptr %160, ptr noundef nonnull align 8 dereferenceable(72) %120, ptr %.val136, ptr noundef nonnull align 8 dereferenceable(72) %15, i32 noundef %170, i32 noundef %59, i32 noundef %.sroa.speculated215, i32 noundef %.081222.us, i32 noundef %.sroa.speculated193.us, i32 noundef %.082221.us, i32 noundef %.sroa.speculated.us, i1 noundef zeroext %169)
   %171 = load i32, ptr %6, align 4, !tbaa !37
   %172 = add nsw i32 %171, %.082221.us
-  %173 = icmp slt i32 %172, %.fr228
+  %173 = icmp slt i32 %172, %77
   br i1 %173, label %128, label %._crit_edge.us, !llvm.loop !250
 
 ._crit_edge.us:                                   ; preds = %_ZN4ncnn3MatD2Ev.exit93.us
@@ -14916,14 +14920,14 @@ _ZN4ncnn3MatD2Ev.exit93.us:                       ; preds = %164, %163, %.noexc1
   br label %191
 
 _ZN4ncnn3MatD2Ev.exit:                            ; preds = %185, %123, %108
-  %.pre238 = load i32, ptr %18, align 4, !tbaa !37
+  %.pre240 = load i32, ptr %18, align 4, !tbaa !37
   call void @llvm.lifetime.end.p0(ptr nonnull %21)
   %175 = add nsw i32 %.0227, 1
-  %.not.not = icmp slt i32 %.0227, %.pre238
+  %.not.not = icmp slt i32 %.0227, %.pre240
   br i1 %.not.not, label %57, label %._crit_edge
 
 .lr.ph224.split:                                  ; preds = %.lr.ph224, %185
-  %176 = phi i32 [ %186, %185 ], [ %.pre233, %.lr.ph224 ]
+  %176 = phi i32 [ %186, %185 ], [ %.pre235, %.lr.ph224 ]
   %177 = phi i32 [ %188, %185 ], [ %109, %.lr.ph224 ]
   %.081222 = phi i32 [ %187, %185 ], [ 0, %.lr.ph224 ]
   %178 = sub nsw i32 %177, %.081222

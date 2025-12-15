@@ -2902,15 +2902,18 @@ define internal fastcc zeroext i1 @IMA_ADPCM_Init(ptr noundef nonnull captures(n
 define internal fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
+  %.fr49 = freeze i16 %4
+  %5 = zext i16 %.fr49 to i64
   %6 = mul nuw nsw i64 %5, 7
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i16, ptr %7, align 8
-  %9 = zext i16 %8 to i64
+  %.fr = freeze i16 %8
+  %9 = zext i16 %.fr to i64
   %10 = udiv i64 %1, %9
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 50
   %12 = load i16, ptr %11, align 2
-  %13 = zext i16 %12 to i64
+  %.fr50 = freeze i16 %12
+  %13 = zext i16 %.fr50 to i64
   %14 = mul nuw nsw i64 %13, %5
   %15 = urem i64 %1, %9
   %16 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -2928,8 +2931,9 @@ define internal fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef no
 .thread:                                          ; preds = %18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %22 = load i32, ptr %21, align 4
-  %23 = zext i32 %22 to i64
-  %24 = mul nsw i64 %10, %23
+  %.fr47 = freeze i32 %22
+  %23 = zext i32 %.fr47 to i64
+  %24 = mul i64 %10, %23
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %24, ptr %25, align 8
   br label %thread-pre-split
@@ -2941,8 +2945,9 @@ define internal fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef no
 28:                                               ; preds = %2
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %30 = load i32, ptr %29, align 4
-  %31 = zext i32 %30 to i64
-  %32 = mul nsw i64 %10, %31
+  %.fr48 = freeze i32 %30
+  %31 = zext i32 %.fr48 to i64
+  %32 = mul i64 %10, %31
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %32, ptr %33, align 8
   %.not = icmp eq i64 %15, 0
@@ -2961,7 +2966,7 @@ define internal fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef no
   %.rhs.trunc = trunc nuw i64 %14 to i32
   %38 = udiv i32 %.lhs.trunc, %.rhs.trunc
   %narrow = add nuw nsw i32 %38, 2
-  %39 = tail call i32 @llvm.umin.i32(i32 %narrow, i32 %30)
+  %39 = tail call i32 @llvm.umin.i32(i32 %narrow, i32 %.fr48)
   %spec.select = zext nneg i32 %39 to i64
   %40 = add i64 %32, %spec.select
   store i64 %40, ptr %33, align 8
@@ -2970,7 +2975,6 @@ define internal fastcc zeroext i1 @MS_ADPCM_CalculateSampleFrames(ptr noundef no
 thread-pre-split:                                 ; preds = %34, %.thread, %36, %28
   %41 = phi i64 [ %24, %.thread ], [ %40, %36 ], [ %32, %28 ], [ %32, %34 ]
   %42 = phi ptr [ %25, %.thread ], [ %33, %36 ], [ %33, %28 ], [ %33, %34 ]
-  %.fr = freeze i64 %41
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %44 = load i32, ptr %43, align 8
   %45 = icmp eq i32 %44, 2
@@ -2983,7 +2987,7 @@ thread-pre-split:                                 ; preds = %34, %.thread, %36, 
   %50 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %51 = load i32, ptr %50, align 4
   %52 = zext i32 %51 to i64
-  %53 = icmp slt i64 %.fr, %52
+  %53 = icmp slt i64 %41, %52
   %or.cond.i = select i1 %49, i1 %53, i1 false
   br i1 %or.cond.i, label %WaveAdjustToFactValue.exit.thread, label %._crit_edge.i
 
@@ -2993,7 +2997,7 @@ WaveAdjustToFactValue.exit.thread:                ; preds = %46
   br label %57
 
 ._crit_edge.i:                                    ; preds = %46
-  %55 = icmp sgt i64 %.fr, %52
+  %55 = icmp sgt i64 %41, %52
   br i1 %55, label %WaveAdjustToFactValue.exit.thread44, label %WaveAdjustToFactValue.exit
 
 WaveAdjustToFactValue.exit.thread44:              ; preds = %._crit_edge.i
@@ -3001,8 +3005,8 @@ WaveAdjustToFactValue.exit.thread44:              ; preds = %._crit_edge.i
   br label %58
 
 WaveAdjustToFactValue.exit:                       ; preds = %thread-pre-split, %._crit_edge.i
-  store i64 %.fr, ptr %42, align 8
-  %56 = icmp slt i64 %.fr, 0
+  store i64 %41, ptr %42, align 8
+  %56 = icmp slt i64 %41, 0
   br i1 %56, label %57, label %58
 
 57:                                               ; preds = %WaveAdjustToFactValue.exit.thread, %WaveAdjustToFactValue.exit
@@ -3017,11 +3021,13 @@ WaveAdjustToFactValue.exit:                       ; preds = %thread-pre-split, %
 define internal fastcc zeroext i1 @IMA_ADPCM_CalculateSampleFrames(ptr noundef nonnull captures(none) %0, i64 noundef %1) unnamed_addr #0 {
   %3 = getelementptr inbounds nuw i8, ptr %0, i64 36
   %4 = load i16, ptr %3, align 4
-  %5 = zext i16 %4 to i64
+  %.fr61 = freeze i16 %4
+  %5 = zext i16 %.fr61 to i64
   %6 = shl nuw nsw i64 %5, 2
   %7 = getelementptr inbounds nuw i8, ptr %0, i64 48
   %8 = load i16, ptr %7, align 4
-  %9 = zext i16 %8 to i64
+  %.fr = freeze i16 %8
+  %9 = zext i16 %.fr to i64
   %10 = udiv i64 %1, %9
   %11 = urem i64 %1, %9
   %12 = getelementptr inbounds nuw i8, ptr %0, i64 108
@@ -3039,7 +3045,8 @@ define internal fastcc zeroext i1 @IMA_ADPCM_CalculateSampleFrames(ptr noundef n
 .thread:                                          ; preds = %14
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %18 = load i32, ptr %17, align 4
-  %19 = zext i32 %18 to i64
+  %.fr59 = freeze i32 %18
+  %19 = zext i32 %.fr59 to i64
   %20 = mul i64 %10, %19
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %20, ptr %21, align 8
@@ -3052,7 +3059,8 @@ define internal fastcc zeroext i1 @IMA_ADPCM_CalculateSampleFrames(ptr noundef n
 24:                                               ; preds = %2
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 56
   %26 = load i32, ptr %25, align 4
-  %27 = zext i32 %26 to i64
+  %.fr60 = freeze i32 %26
+  %27 = zext i32 %.fr60 to i64
   %28 = mul i64 %10, %27
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 88
   store i64 %28, ptr %29, align 8
@@ -3098,7 +3106,6 @@ define internal fastcc zeroext i1 @IMA_ADPCM_CalculateSampleFrames(ptr noundef n
 thread-pre-split:                                 ; preds = %30, %.thread, %47, %24
   %49 = phi i64 [ %20, %.thread ], [ %48, %47 ], [ %28, %24 ], [ %28, %30 ]
   %50 = phi ptr [ %21, %.thread ], [ %29, %47 ], [ %29, %24 ], [ %29, %30 ]
-  %.fr = freeze i64 %49
   %51 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %52 = load i32, ptr %51, align 8
   %53 = icmp eq i32 %52, 2
@@ -3111,7 +3118,7 @@ thread-pre-split:                                 ; preds = %30, %.thread, %47, 
   %58 = getelementptr inbounds nuw i8, ptr %0, i64 84
   %59 = load i32, ptr %58, align 4
   %60 = zext i32 %59 to i64
-  %61 = icmp slt i64 %.fr, %60
+  %61 = icmp slt i64 %49, %60
   %or.cond.i = select i1 %57, i1 %61, i1 false
   br i1 %or.cond.i, label %WaveAdjustToFactValue.exit.thread, label %._crit_edge.i
 
@@ -3121,7 +3128,7 @@ WaveAdjustToFactValue.exit.thread:                ; preds = %54
   br label %65
 
 ._crit_edge.i:                                    ; preds = %54
-  %63 = icmp sgt i64 %.fr, %60
+  %63 = icmp sgt i64 %49, %60
   br i1 %63, label %WaveAdjustToFactValue.exit.thread53, label %WaveAdjustToFactValue.exit
 
 WaveAdjustToFactValue.exit.thread53:              ; preds = %._crit_edge.i
@@ -3129,8 +3136,8 @@ WaveAdjustToFactValue.exit.thread53:              ; preds = %._crit_edge.i
   br label %66
 
 WaveAdjustToFactValue.exit:                       ; preds = %thread-pre-split, %._crit_edge.i
-  store i64 %.fr, ptr %50, align 8
-  %64 = icmp slt i64 %.fr, 0
+  store i64 %49, ptr %50, align 8
+  %64 = icmp slt i64 %49, 0
   br i1 %64, label %65, label %66
 
 65:                                               ; preds = %WaveAdjustToFactValue.exit.thread, %WaveAdjustToFactValue.exit

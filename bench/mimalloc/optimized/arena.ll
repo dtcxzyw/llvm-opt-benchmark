@@ -1601,50 +1601,49 @@ define internal fastcc void @mi_arenas_try_purge(i1 noundef zeroext %0, i1 nound
 
 .critedge.i.i:                                    ; preds = %76, %72
   %.022.lcssa.i.i = phi i64 [ %77, %76 ], [ %.02227.i.i, %72 ]
-  %.022.lcssa.i.fr.i = freeze i64 %.022.lcssa.i.i
-  %.not26.i.i = icmp eq i64 %.022.lcssa.i.fr.i, 0
+  %.not26.i.i = icmp eq i64 %.022.lcssa.i.i, 0
   br i1 %.not26.i.i, label %104, label %80
 
 80:                                               ; preds = %.critedge.i.i
   %81 = add i64 %.029.i.i, %53
-  %82 = shl i64 %.022.lcssa.i.fr.i, 22
+  %82 = shl i64 %.022.lcssa.i.i, 22
   %83 = load atomic ptr, ptr %46 seq_cst, align 8, !tbaa !49
   %84 = shl i64 %81, 22
   %85 = getelementptr inbounds nuw i8, ptr %83, i64 %84
   %86 = load ptr, ptr %47, align 8, !tbaa !58
   %87 = load i64, ptr %42, align 8, !tbaa !17
-  %88 = tail call zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef %86, i64 noundef %87, i64 noundef %.022.lcssa.i.fr.i, i64 noundef %81) #20
+  %88 = tail call zeroext i1 @_mi_bitmap_is_claimed_across(ptr noundef %86, i64 noundef %87, i64 noundef %.022.lcssa.i.i, i64 noundef %81) #20
   br i1 %88, label %89, label %94
 
 89:                                               ; preds = %80
   %90 = tail call zeroext i1 @_mi_os_purge(ptr noundef %85, i64 noundef %82) #20
   %91 = load ptr, ptr %44, align 8, !tbaa !59
   %92 = load i64, ptr %42, align 8, !tbaa !17
-  %93 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %91, i64 noundef %92, i64 noundef %.022.lcssa.i.fr.i, i64 noundef %81) #20
+  %93 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %91, i64 noundef %92, i64 noundef %.022.lcssa.i.i, i64 noundef %81) #20
   br i1 %90, label %99, label %mi_arena_purge.exit.i
 
 94:                                               ; preds = %80
   %95 = tail call zeroext i1 @_mi_os_purge_ex(ptr noundef %85, i64 noundef %82, i1 noundef zeroext false, i64 noundef 0) #20
   %96 = load ptr, ptr %44, align 8, !tbaa !59
   %97 = load i64, ptr %42, align 8, !tbaa !17
-  %98 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %96, i64 noundef %97, i64 noundef %.022.lcssa.i.fr.i, i64 noundef %81) #20
+  %98 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %96, i64 noundef %97, i64 noundef %.022.lcssa.i.i, i64 noundef %81) #20
   br i1 %95, label %99, label %mi_arena_purge.exit.i
 
 99:                                               ; preds = %94, %89
   %100 = load ptr, ptr %47, align 8, !tbaa !58
   %101 = load i64, ptr %42, align 8, !tbaa !17
-  %102 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %100, i64 noundef %101, i64 noundef %.022.lcssa.i.fr.i, i64 noundef %81) #20
+  %102 = tail call zeroext i1 @_mi_bitmap_unclaim_across(ptr noundef %100, i64 noundef %101, i64 noundef %.022.lcssa.i.i, i64 noundef %81) #20
   br label %mi_arena_purge.exit.i
 
 mi_arena_purge.exit.i:                            ; preds = %99, %94, %89
-  %103 = icmp eq i64 %.022.lcssa.i.fr.i, %.16079.i
+  %103 = icmp eq i64 %.022.lcssa.i.i, %.16079.i
   %spec.select.i.i = select i1 %103, i1 true, i1 %.02328.i.i
   br label %104
 
 104:                                              ; preds = %mi_arena_purge.exit.i, %.critedge.i.i
   %.1.i.i = phi i1 [ %spec.select.i.i, %mi_arena_purge.exit.i ], [ %.02328.i.i, %.critedge.i.i ]
   %105 = add i64 %.029.i.i, 1
-  %106 = add i64 %105, %.022.lcssa.i.fr.i
+  %106 = add i64 %105, %.022.lcssa.i.i
   %107 = icmp ult i64 %106, %70
   br i1 %107, label %.preheader.i.i, label %mi_arena_purge_range.exit.i, !llvm.loop !63
 

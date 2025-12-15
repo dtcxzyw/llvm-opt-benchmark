@@ -2249,9 +2249,10 @@ lv_label_get_text.exit:                           ; preds = %8
   %18 = call i32 @lv_font_get_line_height(ptr noundef %13) #7
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 116
   %20 = load i8, ptr %19, align 4
-  %21 = lshr i8 %20, 2
+  %.fr = freeze i8 %20
+  %21 = lshr i8 %.fr, 2
   %22 = and i8 %21, 8
-  %23 = lshr i8 %20, 6
+  %23 = lshr i8 %.fr, 6
   %24 = and i8 %23, 1
   %.113.i = or disjoint i8 %22, %24
   %.1.i = zext nneg i8 %.113.i to i32
@@ -2271,7 +2272,8 @@ lv_label_get_text.exit:                           ; preds = %8
 34:                                               ; preds = %29
   %35 = getelementptr inbounds nuw i8, ptr %0, i64 62
   %36 = load i16, ptr %35, align 2
-  %37 = and i16 %36, 2048
+  %.fr118 = freeze i16 %36
+  %37 = and i16 %.fr118, 2048
   %.not10.i = icmp eq i16 %37, 0
   %38 = or disjoint i32 %.1.i, 2
   %spec.select11.i = select i1 %.not10.i, i32 %38, i32 %.1.i
@@ -2319,7 +2321,6 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 60:                                               ; preds = %55, %41
   %.184 = phi i32 [ %.285, %55 ], [ %.083, %41 ]
   %.182 = phi i32 [ %57, %55 ], [ %42, %41 ]
-  %.184.fr = freeze i32 %.184
   %61 = load ptr, ptr %9, align 8, !tbaa !3
   %62 = call i32 @lv_obj_calculate_style_text_align(ptr noundef nonnull %0, i32 noundef 0, ptr noundef %61) #7
   switch i32 %62, label %74 [
@@ -2329,7 +2330,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 63:                                               ; preds = %60
   %64 = sub i32 %.182, %42
-  %65 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %64, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184.fr) #7
+  %65 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %64, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184) #7
   %66 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
   %67 = sdiv i32 %66, 2
   %.neg = sdiv i32 %65, -2
@@ -2338,7 +2339,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 69:                                               ; preds = %60
   %70 = sub i32 %.182, %42
-  %71 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %70, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184.fr) #7
+  %71 = call i32 @lv_text_get_width_with_flags(ptr noundef nonnull %44, i32 noundef %70, ptr noundef %13, i32 noundef %.sroa.0.0.extract.trunc.i103, i32 noundef %.184) #7
   %72 = call i32 @lv_area_get_width(ptr noundef nonnull %3) #7
   %73 = sub nsw i32 %72, %71
   br label %74
@@ -2358,7 +2359,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 .preheader105:                                    ; preds = %74
   %75 = add i32 %.182, -1
-  %76 = and i32 %.184.fr, 8
+  %76 = and i32 %.184, 8
   %.not101 = icmp eq i32 %76, 0
   br i1 %.not101, label %.preheader105.split.us, label %.outer
 
@@ -2379,7 +2380,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
 
 .outer.us:                                        ; preds = %.split.us.us.preheader, %.split.us.us
   %84 = phi i32 [ %91, %.split.us.us ], [ %81, %.split.us.us.preheader ]
-  %.187.ph.us115147 = phi i32 [ %86, %.split.us.us ], [ %.086, %.split.us.us.preheader ]
+  %.187.ph.us115149 = phi i32 [ %86, %.split.us.us ], [ %.086, %.split.us.us.preheader ]
   %85 = load i32, ptr %5, align 4, !tbaa !48
   %.not100.us.us = icmp ugt i32 %85, %75
   br i1 %.not100.us.us, label %.loopexit, label %.split.us.us, !llvm.loop !70
@@ -2439,7 +2440,7 @@ get_label_flags.exit:                             ; preds = %lv_label_get_text.e
   br label %.outer, !llvm.loop !70
 
 .loopexit:                                        ; preds = %94, %.outer.us, %.preheader105.split.us, %.split110.us, %74
-  %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %74 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115147, %.outer.us ], [ %.180.ph, %94 ]
+  %.079 = phi i32 [ %.us-phi111, %.split110.us ], [ 0, %74 ], [ 0, %.preheader105.split.us ], [ %.187.ph.us115149, %.outer.us ], [ %.180.ph, %94 ]
   %113 = load i32, ptr %6, align 4, !tbaa !48
   %114 = load i32, ptr %7, align 4, !tbaa !48
   %115 = call zeroext i16 @lv_font_get_glyph_width(ptr noundef %13, i32 noundef %113, i32 noundef %114) #7

@@ -12846,19 +12846,20 @@ define internal fastcc noundef zeroext i1 @sema_call_analyse_func_invocation(ptr
 
 54:                                               ; preds = %53
   %55 = load i32, ptr %43, align 8
-  %56 = icmp eq i32 %55, 31
+  %.fr51 = freeze i32 %55
+  %56 = icmp eq i32 %.fr51, 31
   br i1 %56, label %57, label %61
 
 57:                                               ; preds = %54
   %58 = getelementptr inbounds nuw i8, ptr %43, i64 8
   %59 = load ptr, ptr %58, align 8
   %60 = load i32, ptr %59, align 8
+  %.fr = freeze i32 %60
   br label %61
 
 61:                                               ; preds = %54, %57
-  %.038 = phi i32 [ %60, %57 ], [ %55, %54 ]
-  %.038.fr = freeze i32 %.038
-  %62 = icmp ne i32 %.038.fr, 40
+  %.038 = phi i32 [ %.fr, %57 ], [ %.fr51, %54 ]
+  %62 = icmp ne i32 %.038, 40
   %spec.select = select i1 %62, i16 0, i16 4096
   br label %.thread
 

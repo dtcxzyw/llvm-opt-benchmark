@@ -470,7 +470,8 @@ define internal fastcc void @rxfc_on_retire(ptr noundef captures(none) %0, i64 n
 16:                                               ; preds = %._crit_edge, %7
   %17 = phi i64 [ %.pre, %._crit_edge ], [ %14, %7 ]
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %19 = add i64 %17, %1
+  %.fr = freeze i64 %17
+  %19 = add i64 %.fr, %1
   store i64 %19, ptr %18, align 8, !tbaa !29
   %20 = load i64, ptr %0, align 8, !tbaa !18
   %21 = getelementptr inbounds nuw i8, ptr %0, i64 40
@@ -504,23 +505,27 @@ rxfc_cwm_bump_desired.exit.i:                     ; preds = %safe_mul_uint64_t.e
   br i1 %.not10.i, label %rxfc_update_cwm.exit, label %38
 
 38:                                               ; preds = %rxfc_cwm_bump_desired.exit.i
-  %.fr.i.i = freeze i64 %3
+  %.fr22.i.i = freeze i64 %3
   %39 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %40 = load i64, ptr %39, align 8, !tbaa !30
-  %41 = icmp eq i64 %19, %40
+  %.fr19.i.i = freeze i64 %40
+  %41 = icmp eq i64 %19, %.fr19.i.i
   br i1 %41, label %rxfc_should_bump_window_size.exit.thread.i.i, label %42
 
 42:                                               ; preds = %38
-  %43 = sub i64 %19, %40
+  %43 = sub i64 %19, %.fr19.i.i
   %44 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %45 = load ptr, ptr %44, align 8, !tbaa !24
   %46 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %47 = load ptr, ptr %46, align 8, !tbaa !25
   %48 = tail call i64 %45(ptr noundef %47) #9
   %49 = load i64, ptr %5, align 8
-  %..i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %48, i64 %49)
+  %.fr.i.i = freeze i64 %48
+  %.fr16.i.i = freeze i64 %49
+  %..i.i.i.i = tail call i64 @llvm.usub.sat.i64(i64 %.fr.i.i, i64 %.fr16.i.i)
   %50 = load i64, ptr %21, align 8, !tbaa !19
-  %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %..i.i.i.i, i64 %50)
+  %.fr17.i.i = freeze i64 %50
+  %51 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %..i.i.i.i, i64 %.fr17.i.i)
   %52 = extractvalue { i64, i1 } %51, 1
   br i1 %52, label %safe_mul_time.exit33.i.i.i.i.i, label %safe_muldiv_time.exit.thread.i.i.i.i
 
@@ -530,8 +535,8 @@ safe_muldiv_time.exit.thread.i.i.i.i:             ; preds = %42
   br label %rxfc_should_bump_window_size.exit.i.i
 
 safe_mul_time.exit33.i.i.i.i.i:                   ; preds = %42
-  %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %50, i64 %..i.i.i.i)
-  %spec.select31.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %50, i64 %..i.i.i.i)
+  %spec.select.i.i.i.i.i = tail call i64 @llvm.umin.i64(i64 %.fr17.i.i, i64 %..i.i.i.i)
+  %spec.select31.i.i.i.i.i = tail call i64 @llvm.umax.i64(i64 %.fr17.i.i, i64 %..i.i.i.i)
   %55 = udiv i64 %spec.select31.i.i.i.i.i, %43
   %56 = urem i64 %spec.select31.i.i.i.i.i, %43
   %57 = tail call { i64, i1 } @llvm.umul.with.overflow.i64(i64 %55, i64 %spec.select.i.i.i.i.i)
@@ -549,7 +554,7 @@ safe_mul_time.exit35.i.i.i.i.i:                   ; preds = %safe_mul_time.exit3
   %65 = tail call { i64, i1 } @llvm.uadd.with.overflow.i64(i64 %63, i64 %64)
   %66 = extractvalue { i64, i1 } %65, 1
   %67 = extractvalue { i64, i1 } %65, 0
-  %68 = select i1 %66, i1 true, i1 %60
+  %68 = or i1 %60, %66
   br i1 %68, label %safe_muldiv_time.exit.thread17.i.i.i.i, label %rxfc_should_bump_window_size.exit.i.i
 
 safe_muldiv_time.exit.thread17.i.i.i.i:           ; preds = %safe_mul_time.exit35.i.i.i.i.i, %safe_mul_time.exit33.i.i.i.i.i
@@ -557,11 +562,10 @@ safe_muldiv_time.exit.thread17.i.i.i.i:           ; preds = %safe_mul_time.exit3
 
 rxfc_should_bump_window_size.exit.i.i:            ; preds = %safe_muldiv_time.exit.thread17.i.i.i.i, %safe_mul_time.exit35.i.i.i.i.i, %safe_muldiv_time.exit.thread.i.i.i.i
   %.sroa.03.0.i.i.i.i = phi i64 [ 0, %safe_muldiv_time.exit.thread17.i.i.i.i ], [ %54, %safe_muldiv_time.exit.thread.i.i.i.i ], [ %67, %safe_mul_time.exit35.i.i.i.i.i ]
-  %69 = icmp ugt i64 %.fr.i.i, 4611686018427387903
-  %70 = shl nuw i64 %.fr.i.i, 2
+  %69 = icmp ugt i64 %.fr22.i.i, 4611686018427387903
+  %70 = shl nuw i64 %.fr22.i.i, 2
   %.sroa.02.0.i.i.i.i = select i1 %69, i64 -1, i64 %70
-  %.sroa.03.0.i.i.fr.i.i = freeze i64 %.sroa.03.0.i.i.i.i
-  %.not.i.i = icmp ult i64 %.sroa.03.0.i.i.fr.i.i, %.sroa.02.0.i.i.i.i
+  %.not.i.i = icmp ult i64 %.sroa.03.0.i.i.i.i, %.sroa.02.0.i.i.i.i
   %71 = shl i64 %22, 1
   br i1 %.not.i.i, label %rxfc_adjust_window_size.exit.i, label %rxfc_should_bump_window_size.exit.thread.i.i
 

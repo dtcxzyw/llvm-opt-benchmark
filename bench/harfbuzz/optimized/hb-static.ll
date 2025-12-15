@@ -6143,24 +6143,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set
   %18 = and i32 %2, 1073741823
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !181
-  %21 = urem i32 %18, %20
+  %.fr70 = freeze i32 %20
+  %21 = urem i32 %18, %.fr70
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !150
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 2
+  %.fr = freeze i32 %27
+  %28 = and i32 %.fr, 2
   %.not44 = icmp eq i32 %28, 0
   br i1 %.not44, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %29 = load i32, ptr %1, align 4, !tbaa !74
   %30 = load i32, ptr %14, align 4
+  %.fr71 = freeze i32 %30
   br label %31
 
 31:                                               ; preds = %.lr.ph, %37
-  %32 = phi i32 [ %27, %.lr.ph ], [ %47, %37 ]
+  %32 = phi i32 [ %.fr, %.lr.ph ], [ %.fr69, %37 ]
   %33 = phi ptr [ %25, %.lr.ph ], [ %45, %37 ]
   %.02848 = phi i32 [ 0, %.lr.ph ], [ %41, %37 ]
   %.03046 = phi i32 [ %21, %.lr.ph ], [ %43, %37 ]
@@ -6180,12 +6183,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set
   %spec.select = select i1 %or.cond.not, i32 %.03145, i32 %.03046
   %41 = add i32 %.02848, 1
   %42 = add i32 %41, %.03046
-  %43 = and i32 %30, %42
+  %43 = and i32 %.fr71, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %23, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 2
+  %.fr69 = freeze i32 %47
+  %48 = and i32 %.fr69, 2
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %.loopexit, label %31, !llvm.loop !265
 
@@ -6193,9 +6197,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set
   %.03143 = phi i32 [ %.03145, %36 ], [ %spec.select, %37 ]
   %.03041 = phi i32 [ %.03046, %36 ], [ %43, %37 ]
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
-  %.03143.fr = freeze i32 %.03143
-  %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %49 = icmp eq i32 %.03143, -1
+  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge
@@ -6402,24 +6405,27 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set
   %18 = and i32 %2, 1073741823
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %20 = load i32, ptr %19, align 8, !tbaa !181
-  %21 = urem i32 %18, %20
+  %.fr70 = freeze i32 %20
+  %21 = urem i32 %18, %.fr70
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   %23 = load ptr, ptr %22, align 8, !tbaa !150
   %24 = zext nneg i32 %21 to i64
   %25 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %23, i64 %24
   %26 = getelementptr inbounds nuw i8, ptr %25, i64 4
   %27 = load i32, ptr %26, align 4
-  %28 = and i32 %27, 2
+  %.fr = freeze i32 %27
+  %28 = and i32 %.fr, 2
   %.not44 = icmp eq i32 %28, 0
   br i1 %.not44, label %.loopexit.thread, label %.lr.ph
 
 .lr.ph:                                           ; preds = %.critedge
   %29 = load i32, ptr %1, align 4, !tbaa !74
   %30 = load i32, ptr %14, align 4
+  %.fr71 = freeze i32 %30
   br label %31
 
 31:                                               ; preds = %.lr.ph, %37
-  %32 = phi i32 [ %27, %.lr.ph ], [ %47, %37 ]
+  %32 = phi i32 [ %.fr, %.lr.ph ], [ %.fr69, %37 ]
   %33 = phi ptr [ %25, %.lr.ph ], [ %45, %37 ]
   %.02848 = phi i32 [ 0, %.lr.ph ], [ %41, %37 ]
   %.03046 = phi i32 [ %21, %.lr.ph ], [ %43, %37 ]
@@ -6439,12 +6445,13 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set
   %spec.select = select i1 %or.cond.not, i32 %.03145, i32 %.03046
   %41 = add i32 %.02848, 1
   %42 = add i32 %41, %.03046
-  %43 = and i32 %30, %42
+  %43 = and i32 %.fr71, %42
   %44 = zext i32 %43 to i64
   %45 = getelementptr inbounds nuw %"struct.hb_hashmap_t<unsigned int, unsigned int, true>::item_t", ptr %23, i64 %44
   %46 = getelementptr inbounds nuw i8, ptr %45, i64 4
   %47 = load i32, ptr %46, align 4
-  %48 = and i32 %47, 2
+  %.fr69 = freeze i32 %47
+  %48 = and i32 %.fr69, 2
   %.not = icmp eq i32 %48, 0
   br i1 %.not, label %.loopexit, label %31, !llvm.loop !271
 
@@ -6452,9 +6459,8 @@ define linkonce_odr dso_local noundef zeroext i1 @_ZN12hb_hashmap_tIjjLb1EE13set
   %.03143 = phi i32 [ %.03145, %36 ], [ %spec.select, %37 ]
   %.03041 = phi i32 [ %.03046, %36 ], [ %43, %37 ]
   %.02939 = phi i32 [ %.02848, %36 ], [ %41, %37 ]
-  %.03143.fr = freeze i32 %.03143
-  %49 = icmp eq i32 %.03143.fr, -1
-  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143.fr
+  %49 = icmp eq i32 %.03143, -1
+  %spec.select68 = select i1 %49, i32 %.03041, i32 %.03143
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %.critedge

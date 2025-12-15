@@ -3273,6 +3273,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %29 = getelementptr inbounds nuw i8, ptr %28, i64 40
   %30 = load ptr, ptr %29, align 8, !tbaa !65
   %31 = call i32 %30(ptr noundef %28, ptr noundef %.05493, i64 noundef %27, ptr noundef nonnull %8, ptr noundef nonnull %4, i32 noundef 0) #9
+  %.fr = freeze i32 %31
   %32 = load i64, ptr %4, align 8, !tbaa !64
   %33 = icmp sgt i64 %32, 0
   br i1 %33, label %.thread, label %37
@@ -3311,6 +3312,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %50 = load ptr, ptr %49, align 8, !tbaa !65
   %51 = load ptr, ptr %0, align 8, !tbaa !76
   %52 = call i32 %50(ptr noundef nonnull %39, ptr noundef %51, i64 noundef %.0, ptr noundef nonnull %8, ptr noundef nonnull %5, i32 noundef 1) #9
+  %.fr114 = freeze i32 %52
   %53 = load i64, ptr %5, align 8, !tbaa !64
   %54 = icmp sgt i64 %53, 0
   br i1 %54, label %62, label %55
@@ -3324,10 +3326,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 64
   %60 = load ptr, ptr %59, align 8, !tbaa !66
   %61 = call i32 %60(ptr noundef %58, i32 noundef 10, ptr noundef nonnull @.str.14) #9
+  %.fr115 = freeze i32 %61
   br label %.thread78
 
 .thread78:                                        ; preds = %57, %55
-  %.4.ph = phi i32 [ %52, %55 ], [ %61, %57 ]
+  %.4.ph = phi i32 [ %.fr114, %55 ], [ %.fr115, %57 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   br label %.loopexit
 
@@ -3338,7 +3341,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
   br label %63
 
 63:                                               ; preds = %62, %.thread, %13
-  %.265 = phi i32 [ %.06390, %13 ], [ %52, %62 ], [ %31, %.thread ]
+  %.265 = phi i32 [ %.06390, %13 ], [ %.fr114, %62 ], [ %.fr, %.thread ]
   %.161 = phi i64 [ %21, %13 ], [ %.06091, %62 ], [ %34, %.thread ]
   %.258 = phi i64 [ %23, %13 ], [ %.05692, %62 ], [ %36, %.thread ]
   %.155 = phi ptr [ %22, %13 ], [ %.05493, %62 ], [ %35, %.thread ]
@@ -3347,12 +3350,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_read(ptr noundef %0, ptr nound
 
 .loopexit:                                        ; preds = %63, %.thread78, %37
   %.05685 = phi i64 [ %.05692, %37 ], [ %.05692, %.thread78 ], [ %.258, %63 ]
-  %.164 = phi i32 [ %31, %37 ], [ %.4.ph, %.thread78 ], [ %.265, %63 ]
-  %.164.fr = freeze i32 %.164
-  %64 = icmp eq i32 %.164.fr, -1
+  %.164 = phi i32 [ %.fr, %37 ], [ %.4.ph, %.thread78 ], [ %.265, %63 ]
+  %64 = icmp eq i32 %.164, -1
   %65 = icmp eq i64 %.05685, %2
   %. = select i1 %65, i32 0, i32 10
-  %spec.select113 = select i1 %64, i32 %., i32 %.164.fr
+  %spec.select113 = select i1 %64, i32 %., i32 %.164
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %3
@@ -3402,6 +3404,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
   %21 = load ptr, ptr %20, align 8, !tbaa !65
   %22 = load ptr, ptr %0, align 8, !tbaa !76
   %23 = call i32 %21(ptr noundef %19, ptr noundef %22, i64 noundef 4096, ptr noundef nonnull %7, ptr noundef nonnull %3, i32 noundef 1) #9
+  %.fr = freeze i32 %23
   %24 = load i64, ptr %3, align 8, !tbaa !64
   %25 = icmp sgt i64 %24, 0
   br i1 %25, label %33, label %26
@@ -3415,10 +3418,11 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
   %30 = getelementptr inbounds nuw i8, ptr %29, i64 64
   %31 = load ptr, ptr %30, align 8, !tbaa !66
   %32 = call i32 %31(ptr noundef %29, i32 noundef 10, ptr noundef nonnull @.str.14) #9
+  %.fr61 = freeze i32 %32
   br label %.thread
 
 .thread:                                          ; preds = %28, %26
-  %.4.ph = phi i32 [ %23, %26 ], [ %32, %28 ]
+  %.4.ph = phi i32 [ %.fr, %26 ], [ %.fr61, %28 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   br label %.loopexit
 
@@ -3431,7 +3435,7 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
 34:                                               ; preds = %33, %12
   %35 = phi i64 [ %15, %12 ], [ %24, %33 ]
   %.133 = phi i64 [ %16, %12 ], [ %.03245, %33 ]
-  %.2 = phi i32 [ %.03046, %12 ], [ %23, %33 ]
+  %.2 = phi i32 [ %.03046, %12 ], [ %.fr, %33 ]
   %.1 = phi i64 [ %17, %12 ], [ %.02947, %33 ]
   %.not = icmp eq i64 %.133, 0
   br i1 %.not, label %.loopexit, label %9, !llvm.loop !111
@@ -3439,11 +3443,10 @@ define internal range(i32 0, -1) i32 @scratch_seq_skip(ptr noundef %0, i32 nound
 .loopexit:                                        ; preds = %34, %.thread
   %.02940 = phi i64 [ %.02947, %.thread ], [ %.1, %34 ]
   %.131 = phi i32 [ %.4.ph, %.thread ], [ %.2, %34 ]
-  %.131.fr = freeze i32 %.131
-  %36 = icmp eq i32 %.131.fr, -1
+  %36 = icmp eq i32 %.131, -1
   %37 = icmp eq i64 %.02940, %4
   %. = select i1 %37, i32 0, i32 10
-  %spec.select60 = select i1 %36, i32 %., i32 %.131.fr
+  %spec.select60 = select i1 %36, i32 %., i32 %.131
   br label %.loopexit.thread
 
 .loopexit.thread:                                 ; preds = %.loopexit, %2

@@ -328,7 +328,7 @@ swapfunc.exit275:                                 ; preds = %.preheader343, %.pr
   %158 = getelementptr inbounds i8, ptr %.0395, i64 %2
   %159 = add i64 %.0222394, -1
   %160 = mul i64 %159, %2
-  %161 = getelementptr inbounds i8, ptr %.0395, i64 %160
+  %161 = getelementptr i8, ptr %.0395, i64 %160
   br label %162
 
 162:                                              ; preds = %swapfunc.exit296, %swapfunc.exit275
@@ -485,13 +485,13 @@ swapfunc.exit282:                                 ; preds = %.preheader335, %.pr
   br i1 %212, label %.preheader333, label %swapfunc.exit289, !llvm.loop !10
 
 swapfunc.exit289:                                 ; preds = %.preheader333, %.preheader438, %197
-  %213 = getelementptr inbounds i8, ptr %.1229379, i64 %5
+  %213 = getelementptr i8, ptr %.1229379, i64 %5
   br label %214
 
 214:                                              ; preds = %swapfunc.exit289, %194
   %.4 = phi i32 [ 1, %swapfunc.exit289 ], [ %.3378, %194 ]
   %.2230 = phi ptr [ %213, %swapfunc.exit289 ], [ %.1229379, %194 ]
-  %215 = getelementptr inbounds i8, ptr %.1227380, i64 %5
+  %215 = getelementptr i8, ptr %.1227380, i64 %5
   %.not262 = icmp ugt ptr %.1225.lcssa, %215
   br i1 %.not262, label %.critedge2._crit_edge, label %.lr.ph382, !llvm.loop !12
 
@@ -538,7 +538,7 @@ swapfunc.exit289:                                 ; preds = %.preheader333, %.pr
 
 swapfunc.exit296:                                 ; preds = %.preheader337, %.preheader442, %216
   %232 = getelementptr inbounds i8, ptr %.1225.lcssa, i64 %2
-  %233 = getelementptr inbounds i8, ptr %.1227380, i64 %5
+  %233 = getelementptr i8, ptr %.1227380, i64 %5
   br label %162
 
 .critedge2._crit_edge:                            ; preds = %.critedge2, %214
@@ -704,10 +704,8 @@ swapfunc.exit303.loopexit329:                     ; preds = %.preheader328
   br i1 %298, label %.preheader341, label %swapfunc.exit310, !llvm.loop !10
 
 swapfunc.exit310:                                 ; preds = %.preheader341, %286, %273
-  %.1229.lcssa.fr = freeze ptr %.1229.lcssa
-  %299 = ptrtoint ptr %.1229.lcssa.fr to i64
-  %.1227.lcssa.fr = freeze ptr %.1227.lcssa
-  %300 = ptrtoint ptr %.1227.lcssa.fr to i64
+  %299 = ptrtoint ptr %.1229.lcssa to i64
+  %300 = ptrtoint ptr %.1227.lcssa to i64
   %301 = sub i64 %299, %300
   %302 = ptrtoint ptr %236 to i64
   %303 = add i64 %2, %299
