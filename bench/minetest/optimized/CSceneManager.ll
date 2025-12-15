@@ -2432,8 +2432,8 @@ if.else.i.i:                                      ; preds = %_ZN3irr4core8CMatri
   %.pre26.i = load float, ptr %arrayidx31.i.phi.trans.insert.i, align 8, !tbaa !10
   %71 = insertelement <2 x float> %68, float %69, i64 1
   %72 = insertelement <2 x float> %70, float %63, i64 1
-  %73 = shufflevector <4 x float> %67, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %74 = shufflevector <2 x float> %65, <2 x float> %73, <2 x i32> <i32 0, i32 2>
+  %73 = shufflevector <4 x float> %67, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %74 = shufflevector <2 x float> %65, <2 x float> %73, <2 x i32> <i32 0, i32 3>
   br label %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i
 
 _ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i: ; preds = %if.else.i.i, %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit
@@ -2551,8 +2551,8 @@ if.else.i.i61:                                    ; preds = %_ZNK3irr4core8CMatr
   %.pre26.i69 = load float, ptr %arrayidx31.i.phi.trans.insert.i68, align 8, !tbaa !10
   %135 = insertelement <2 x float> %132, float %133, i64 1
   %136 = insertelement <2 x float> %134, float %127, i64 1
-  %137 = shufflevector <4 x float> %131, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %138 = shufflevector <2 x float> %129, <2 x float> %137, <2 x i32> <i32 0, i32 2>
+  %137 = shufflevector <4 x float> %131, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %138 = shufflevector <2 x float> %129, <2 x float> %137, <2 x i32> <i32 0, i32 3>
   br label %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i32
 
 _ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i32: ; preds = %if.else.i.i61, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit
@@ -2670,8 +2670,8 @@ if.else.i.i116:                                   ; preds = %_ZNK3irr4core8CMatr
   %.pre26.i124 = load float, ptr %arrayidx31.i.phi.trans.insert.i123, align 8, !tbaa !10
   %199 = insertelement <2 x float> %196, float %197, i64 1
   %200 = insertelement <2 x float> %198, float %191, i64 1
-  %201 = shufflevector <4 x float> %195, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %202 = shufflevector <2 x float> %193, <2 x float> %201, <2 x i32> <i32 0, i32 2>
+  %201 = shufflevector <4 x float> %195, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %202 = shufflevector <2 x float> %193, <2 x float> %201, <2 x i32> <i32 0, i32 3>
   br label %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i87
 
 _ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i87: ; preds = %if.else.i.i116, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit70
@@ -2789,8 +2789,8 @@ if.else.i.i171:                                   ; preds = %_ZNK3irr4core8CMatr
   %.pre26.i179 = load float, ptr %arrayidx31.i.phi.trans.insert.i178, align 8, !tbaa !10
   %263 = insertelement <2 x float> %260, float %261, i64 1
   %264 = insertelement <2 x float> %262, float %255, i64 1
-  %265 = shufflevector <4 x float> %259, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %266 = shufflevector <2 x float> %257, <2 x float> %265, <2 x i32> <i32 0, i32 2>
+  %265 = shufflevector <4 x float> %259, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %266 = shufflevector <2 x float> %257, <2 x float> %265, <2 x i32> <i32 0, i32 3>
   br label %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i142
 
 _ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i142: ; preds = %if.else.i.i171, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit125
@@ -2908,8 +2908,8 @@ if.else.i.i226:                                   ; preds = %_ZNK3irr4core8CMatr
   %.pre26.i234 = load float, ptr %arrayidx31.i.phi.trans.insert.i233, align 8, !tbaa !10
   %327 = insertelement <2 x float> %324, float %325, i64 1
   %328 = insertelement <2 x float> %326, float %319, i64 1
-  %329 = shufflevector <4 x float> %323, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %330 = shufflevector <2 x float> %321, <2 x float> %329, <2 x i32> <i32 0, i32 2>
+  %329 = shufflevector <4 x float> %323, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %330 = shufflevector <2 x float> %321, <2 x float> %329, <2 x i32> <i32 0, i32 3>
   br label %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i197
 
 _ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i197: ; preds = %if.else.i.i226, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit180
@@ -3027,8 +3027,8 @@ if.else.i.i281:                                   ; preds = %_ZNK3irr4core8CMatr
   %.pre26.i289 = load float, ptr %arrayidx31.i.phi.trans.insert.i288, align 8, !tbaa !10
   %391 = insertelement <2 x float> %388, float %389, i64 1
   %392 = insertelement <2 x float> %390, float %383, i64 1
-  %393 = shufflevector <4 x float> %387, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %394 = shufflevector <2 x float> %385, <2 x float> %393, <2 x i32> <i32 0, i32 2>
+  %393 = shufflevector <4 x float> %387, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %394 = shufflevector <2 x float> %385, <2 x float> %393, <2 x i32> <i32 0, i32 3>
   br label %_ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i252
 
 _ZN3irr4core8CMatrix4IfEC2ERKS2_NS2_12eConstructorE.exit.i252: ; preds = %if.else.i.i281, %_ZNK3irr4core8CMatrix4IfE14transformPlaneERNS0_7plane3dIfEE.exit235

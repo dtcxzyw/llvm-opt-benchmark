@@ -148,8 +148,8 @@ define dso_local void @_ZN17btHingeConstraintC2ER11btRigidBodyS1_RK9btVector3S4_
   %62 = getelementptr inbounds nuw i8, ptr %1, i64 12
   %63 = getelementptr inbounds nuw i8, ptr %1, i64 44
   %.sroa.0.0.vec.insert.i76 = load <2 x float>, ptr %62, align 4
-  %64 = shufflevector <4 x float> %59, <4 x float> poison, <2 x i32> <i32 3, i32 poison>
-  %.sroa.0.4.vec.insert.i77 = shufflevector <2 x float> %.sroa.0.0.vec.insert.i76, <2 x float> %64, <2 x i32> <i32 0, i32 2>
+  %64 = shufflevector <4 x float> %59, <4 x float> poison, <2 x i32> <i32 poison, i32 3>
+  %.sroa.0.4.vec.insert.i77 = shufflevector <2 x float> %.sroa.0.0.vec.insert.i76, <2 x float> %64, <2 x i32> <i32 0, i32 3>
   %65 = load float, ptr %63, align 4, !tbaa !33
   %.sroa.3.12.vec.insert.i78 = insertelement <2 x float> <float poison, float 0.000000e+00>, float %65, i64 0
   br label %85

@@ -277,29 +277,15 @@ define hidden void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfil
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN123_$LT$$u5b$I$u3b$$u20$16$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$8_usize$C$2_usize$GT$$GT$15array_split_map17ha7e907db19c685a6E.llvm.2657819220133375221"(ptr noalias noundef writeonly sret([2 x i64]) align 8 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #1 personality ptr @rust_eh_personality {
   %3 = load <16 x i8>, ptr %1, align 1
-  %.sroa.04.0.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %4 = extractelement <16 x i8> %3, i64 9
-  %5 = extractelement <16 x i8> %3, i64 10
-  %6 = extractelement <16 x i8> %3, i64 11
-  %7 = extractelement <16 x i8> %3, i64 12
-  %8 = extractelement <16 x i8> %3, i64 13
-  %9 = extractelement <16 x i8> %3, i64 14
-  %10 = extractelement <16 x i8> %3, i64 15
   %.sroa.01.7.vec.insert.bc = bitcast <16 x i8> %3 to <2 x i64>
   %.sroa.01.7.vec.insert.extract = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc, i64 0
-  %11 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract)
-  %.sroa.04.1.vec.insert = insertelement <8 x i8> %.sroa.04.0.vec.insert, i8 %4, i64 1
-  %.sroa.04.2.vec.insert = insertelement <8 x i8> %.sroa.04.1.vec.insert, i8 %5, i64 2
-  %.sroa.04.3.vec.insert = insertelement <8 x i8> %.sroa.04.2.vec.insert, i8 %6, i64 3
-  %.sroa.04.4.vec.insert = insertelement <8 x i8> %.sroa.04.3.vec.insert, i8 %7, i64 4
-  %.sroa.04.5.vec.insert = insertelement <8 x i8> %.sroa.04.4.vec.insert, i8 %8, i64 5
-  %.sroa.04.6.vec.insert = insertelement <8 x i8> %.sroa.04.5.vec.insert, i8 %9, i64 6
-  %.sroa.04.7.vec.insert = insertelement <8 x i8> %.sroa.04.6.vec.insert, i8 %10, i64 7
-  %12 = bitcast <8 x i8> %.sroa.04.7.vec.insert to i64
-  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %12)
-  store i64 %11, ptr %0, align 8
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %13, ptr %14, align 8
+  %4 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract)
+  %.sroa.04.7.vec.insert.bc = bitcast <16 x i8> %3 to <2 x i64>
+  %.sroa.04.7.vec.insert.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.bc, i64 1
+  %5 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.extract)
+  store i64 %4, ptr %0, align 8
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i64 %5, ptr %6, align 8
   ret void
 }
 
@@ -790,71 +776,57 @@ define hidden void @_ZN4ring4aead3gcm8gcm_nohw5gmult17h8c991d290b0fb913E.llvm.26
   %5 = alloca { [2 x [8 x i8]] }, align 1
   tail call void @llvm.experimental.noalias.scope.decl(metadata !58)
   %6 = load <16 x i8>, ptr %0, align 1, !alias.scope !58, !noalias !61
-  %.sroa.04.0.vec.insert.i.i = shufflevector <16 x i8> %6, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %7 = extractelement <16 x i8> %6, i64 9
-  %8 = extractelement <16 x i8> %6, i64 10
-  %9 = extractelement <16 x i8> %6, i64 11
-  %10 = extractelement <16 x i8> %6, i64 12
-  %11 = extractelement <16 x i8> %6, i64 13
-  %12 = extractelement <16 x i8> %6, i64 14
-  %13 = extractelement <16 x i8> %6, i64 15
   %.sroa.01.7.vec.insert.bc.i.i = bitcast <16 x i8> %6 to <2 x i64>
   %.sroa.01.7.vec.insert.extract.i.i = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc.i.i, i64 0
-  %14 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i.i)
-  %.sroa.04.1.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.0.vec.insert.i.i, i8 %7, i64 1
-  %.sroa.04.2.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.1.vec.insert.i.i, i8 %8, i64 2
-  %.sroa.04.3.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.2.vec.insert.i.i, i8 %9, i64 3
-  %.sroa.04.4.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.3.vec.insert.i.i, i8 %10, i64 4
-  %.sroa.04.5.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.4.vec.insert.i.i, i8 %11, i64 5
-  %.sroa.04.6.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.5.vec.insert.i.i, i8 %12, i64 6
-  %.sroa.04.7.vec.insert.i.i = insertelement <8 x i8> %.sroa.04.6.vec.insert.i.i, i8 %13, i64 7
-  %15 = bitcast <8 x i8> %.sroa.04.7.vec.insert.i.i to i64
-  %16 = tail call noundef i64 @llvm.bswap.i64(i64 %15)
-  %17 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %16, i64 noundef %2)
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i.i)
+  %.sroa.04.7.vec.insert.i.i.bc = bitcast <16 x i8> %6 to <2 x i64>
+  %.sroa.04.7.vec.insert.i.i.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.i.i.bc, i64 1
+  %8 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.i.i.extract)
+  %9 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %8, i64 noundef %2)
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %12 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %7, i64 noundef %1)
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %15 = xor i64 %8, %7
+  %16 = xor i64 %2, %1
+  %17 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %15, i64 noundef %16)
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
-  %20 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %14, i64 noundef %1)
-  %21 = extractvalue { i64, i64 } %20, 0
-  %22 = extractvalue { i64, i64 } %20, 1
-  %23 = xor i64 %16, %14
-  %24 = xor i64 %2, %1
-  %25 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %23, i64 noundef %24)
-  %26 = extractvalue { i64, i64 } %25, 0
-  %27 = extractvalue { i64, i64 } %25, 1
-  %28 = shl i64 %18, 63
-  %29 = shl i64 %18, 62
-  %30 = shl i64 %18, 57
-  %31 = xor i64 %28, %29
-  %32 = xor i64 %31, %30
-  %33 = xor i64 %32, %26
-  %34 = xor i64 %33, %18
-  %35 = xor i64 %34, %19
-  %36 = xor i64 %35, %21
-  %37 = lshr i64 %18, 1
-  %38 = shl i64 %36, 63
-  %39 = lshr i64 %36, 1
-  %40 = lshr i64 %18, 2
-  %41 = shl i64 %36, 62
-  %42 = lshr i64 %36, 2
-  %43 = lshr i64 %18, 7
-  %44 = shl i64 %36, 57
-  %45 = xor i64 %40, %37
-  %46 = xor i64 %45, %43
-  %47 = xor i64 %46, %27
-  %48 = xor i64 %47, %38
-  %49 = xor i64 %48, %41
-  %50 = xor i64 %49, %44
-  %51 = xor i64 %50, %19
-  %52 = xor i64 %51, %18
-  %53 = xor i64 %52, %22
-  %54 = xor i64 %53, %21
-  %55 = lshr i64 %36, 7
-  %56 = xor i64 %39, %42
-  %57 = xor i64 %56, %55
-  %58 = xor i64 %57, %22
-  %59 = xor i64 %58, %36
-  %.sroa.011.0.vec.insert.i = insertelement <2 x i64> poison, i64 %59, i64 0
-  %.sroa.011.8.vec.insert.i = insertelement <2 x i64> %.sroa.011.0.vec.insert.i, i64 %54, i64 1
+  %20 = shl i64 %10, 63
+  %21 = shl i64 %10, 62
+  %22 = shl i64 %10, 57
+  %23 = xor i64 %20, %21
+  %24 = xor i64 %23, %22
+  %25 = xor i64 %24, %18
+  %26 = xor i64 %25, %10
+  %27 = xor i64 %26, %11
+  %28 = xor i64 %27, %13
+  %29 = lshr i64 %10, 1
+  %30 = shl i64 %28, 63
+  %31 = lshr i64 %28, 1
+  %32 = lshr i64 %10, 2
+  %33 = shl i64 %28, 62
+  %34 = lshr i64 %28, 2
+  %35 = lshr i64 %10, 7
+  %36 = shl i64 %28, 57
+  %37 = xor i64 %32, %29
+  %38 = xor i64 %37, %35
+  %39 = xor i64 %38, %19
+  %40 = xor i64 %39, %30
+  %41 = xor i64 %40, %33
+  %42 = xor i64 %41, %36
+  %43 = xor i64 %42, %11
+  %44 = xor i64 %43, %10
+  %45 = xor i64 %44, %14
+  %46 = xor i64 %45, %13
+  %47 = lshr i64 %28, 7
+  %48 = xor i64 %31, %34
+  %49 = xor i64 %48, %47
+  %50 = xor i64 %49, %14
+  %51 = xor i64 %50, %28
+  %.sroa.011.0.vec.insert.i = insertelement <2 x i64> poison, i64 %51, i64 0
+  %.sroa.011.8.vec.insert.i = insertelement <2 x i64> %.sroa.011.0.vec.insert.i, i64 %46, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %5), !noalias !63
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !63
   store <2 x i64> %.sroa.011.8.vec.insert.i, ptr %4, align 16, !noalias !63
@@ -935,120 +907,92 @@ define hidden void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h19ce292a39cc6e
   %3 = alloca [2 x i64], align 16
   %4 = alloca { [2 x [8 x i8]] }, align 1
   %5 = load <16 x i8>, ptr %0, align 1
-  %.sroa.04.0.vec.insert.i = shufflevector <16 x i8> %5, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %6 = extractelement <16 x i8> %5, i64 9
-  %7 = extractelement <16 x i8> %5, i64 10
-  %8 = extractelement <16 x i8> %5, i64 11
-  %9 = extractelement <16 x i8> %5, i64 12
-  %10 = extractelement <16 x i8> %5, i64 13
-  %11 = extractelement <16 x i8> %5, i64 14
-  %12 = extractelement <16 x i8> %5, i64 15
   %.sroa.01.7.vec.insert.bc.i = bitcast <16 x i8> %5 to <2 x i64>
   %.sroa.01.7.vec.insert.extract.i = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc.i, i64 0
-  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i)
-  %.sroa.04.1.vec.insert.i = insertelement <8 x i8> %.sroa.04.0.vec.insert.i, i8 %6, i64 1
-  %.sroa.04.2.vec.insert.i = insertelement <8 x i8> %.sroa.04.1.vec.insert.i, i8 %7, i64 2
-  %.sroa.04.3.vec.insert.i = insertelement <8 x i8> %.sroa.04.2.vec.insert.i, i8 %8, i64 3
-  %.sroa.04.4.vec.insert.i = insertelement <8 x i8> %.sroa.04.3.vec.insert.i, i8 %9, i64 4
-  %.sroa.04.5.vec.insert.i = insertelement <8 x i8> %.sroa.04.4.vec.insert.i, i8 %10, i64 5
-  %.sroa.04.6.vec.insert.i = insertelement <8 x i8> %.sroa.04.5.vec.insert.i, i8 %11, i64 6
-  %.sroa.04.7.vec.insert.i = insertelement <8 x i8> %.sroa.04.6.vec.insert.i, i8 %12, i64 7
-  %14 = bitcast <8 x i8> %.sroa.04.7.vec.insert.i to i64
-  %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
+  %6 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i)
+  %.sroa.04.7.vec.insert.i.bc = bitcast <16 x i8> %5 to <2 x i64>
+  %.sroa.04.7.vec.insert.i.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.i.bc, i64 1
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.i.extract)
   %.sroa.010.0.copyload = load ptr, ptr %1, align 8, !nonnull !4, !noundef !4
   %.sroa.411.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 8
   %.sroa.411.0.copyload = load i64, ptr %.sroa.411.0..sroa_idx, align 8
   %.sroa.5.0..sroa_idx = getelementptr inbounds nuw i8, ptr %1, i64 16
   %.sroa.5.0.copyload = load ptr, ptr %.sroa.5.0..sroa_idx, align 8, !nonnull !4, !noundef !4
   %.idx.i = shl nsw i64 %.sroa.411.0.copyload, 4
-  %16 = getelementptr inbounds i8, ptr %.sroa.010.0.copyload, i64 %.idx.i
+  %8 = getelementptr inbounds i8, ptr %.sroa.010.0.copyload, i64 %.idx.i
   tail call void @llvm.experimental.noalias.scope.decl(metadata !68)
-  %17 = icmp eq i64 %.sroa.411.0.copyload, 0
-  br i1 %17, label %"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit", label %.lr.ph.i.i
+  %9 = icmp eq i64 %.sroa.411.0.copyload, 0
+  br i1 %9, label %"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit", label %.lr.ph.i.i
 
 .lr.ph.i.i:                                       ; preds = %2
-  %18 = load i64, ptr %.sroa.5.0.copyload, align 8, !alias.scope !68, !noalias !71, !noundef !4
-  %19 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 8
-  %20 = load i64, ptr %19, align 8, !alias.scope !68, !noalias !71, !noundef !4
-  %21 = xor i64 %20, %18
-  br label %22
+  %10 = load i64, ptr %.sroa.5.0.copyload, align 8, !alias.scope !68, !noalias !71, !noundef !4
+  %11 = getelementptr inbounds nuw i8, ptr %.sroa.5.0.copyload, i64 8
+  %12 = load i64, ptr %11, align 8, !alias.scope !68, !noalias !71, !noundef !4
+  %13 = xor i64 %12, %10
+  br label %14
 
-22:                                               ; preds = %22, %.lr.ph.i.i
-  %23 = phi i64 [ %13, %.lr.ph.i.i ], [ %79, %22 ]
-  %.sroa.0.09.i.i = phi ptr [ %.sroa.010.0.copyload, %.lr.ph.i.i ], [ %25, %22 ]
-  %24 = phi i64 [ %15, %.lr.ph.i.i ], [ %74, %22 ]
-  %25 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
+14:                                               ; preds = %14, %.lr.ph.i.i
+  %15 = phi i64 [ %6, %.lr.ph.i.i ], [ %63, %14 ]
+  %.sroa.0.09.i.i = phi ptr [ %.sroa.010.0.copyload, %.lr.ph.i.i ], [ %17, %14 ]
+  %16 = phi i64 [ %7, %.lr.ph.i.i ], [ %58, %14 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sroa.0.09.i.i, i64 16
   %.val4.i.i = load <16 x i8>, ptr %.sroa.0.09.i.i, align 1, !noalias !76
-  %.sroa.04.0.vec.insert.i.i.i.i = shufflevector <16 x i8> %.val4.i.i, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %26 = extractelement <16 x i8> %.val4.i.i, i64 9
-  %27 = extractelement <16 x i8> %.val4.i.i, i64 10
-  %28 = extractelement <16 x i8> %.val4.i.i, i64 11
-  %29 = extractelement <16 x i8> %.val4.i.i, i64 12
-  %30 = extractelement <16 x i8> %.val4.i.i, i64 13
-  %31 = extractelement <16 x i8> %.val4.i.i, i64 14
-  %32 = extractelement <16 x i8> %.val4.i.i, i64 15
   %.sroa.01.7.vec.insert.bc.i.i.i.i = bitcast <16 x i8> %.val4.i.i to <2 x i64>
   %.sroa.01.7.vec.insert.extract.i.i.i.i = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc.i.i.i.i, i64 0
-  %33 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i.i.i.i)
-  %.sroa.04.1.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.0.vec.insert.i.i.i.i, i8 %26, i64 1
-  %.sroa.04.2.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.1.vec.insert.i.i.i.i, i8 %27, i64 2
-  %.sroa.04.3.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.2.vec.insert.i.i.i.i, i8 %28, i64 3
-  %.sroa.04.4.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.3.vec.insert.i.i.i.i, i8 %29, i64 4
-  %.sroa.04.5.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.4.vec.insert.i.i.i.i, i8 %30, i64 5
-  %.sroa.04.6.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.5.vec.insert.i.i.i.i, i8 %31, i64 6
-  %.sroa.04.7.vec.insert.i.i.i.i = insertelement <8 x i8> %.sroa.04.6.vec.insert.i.i.i.i, i8 %32, i64 7
-  %34 = bitcast <8 x i8> %.sroa.04.7.vec.insert.i.i.i.i to i64
-  %35 = tail call noundef i64 @llvm.bswap.i64(i64 %34)
-  %36 = xor i64 %35, %24
-  %37 = xor i64 %33, %23
-  %38 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %36, i64 noundef %20)
-  %39 = extractvalue { i64, i64 } %38, 0
-  %40 = extractvalue { i64, i64 } %38, 1
-  %41 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %37, i64 noundef %18)
-  %42 = extractvalue { i64, i64 } %41, 0
-  %43 = extractvalue { i64, i64 } %41, 1
-  %44 = xor i64 %36, %37
-  %45 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %44, i64 noundef %21)
-  %46 = extractvalue { i64, i64 } %45, 0
-  %47 = extractvalue { i64, i64 } %45, 1
-  %48 = shl i64 %39, 63
-  %49 = shl i64 %39, 62
-  %50 = shl i64 %39, 57
-  %51 = xor i64 %49, %48
-  %52 = xor i64 %51, %50
-  %53 = xor i64 %52, %46
-  %54 = xor i64 %53, %39
-  %55 = xor i64 %54, %40
-  %56 = xor i64 %55, %42
-  %57 = lshr i64 %39, 1
-  %58 = shl i64 %56, 63
-  %59 = lshr i64 %56, 1
-  %60 = lshr i64 %39, 2
-  %61 = shl i64 %56, 62
-  %62 = lshr i64 %56, 2
-  %63 = lshr i64 %39, 7
-  %64 = shl i64 %56, 57
-  %65 = xor i64 %57, %60
-  %66 = xor i64 %65, %63
-  %67 = xor i64 %66, %47
-  %68 = xor i64 %67, %58
-  %69 = xor i64 %68, %61
-  %70 = xor i64 %69, %64
-  %71 = xor i64 %70, %40
-  %72 = xor i64 %71, %39
-  %73 = xor i64 %72, %43
-  %74 = xor i64 %73, %42
-  %75 = lshr i64 %56, 7
-  %76 = xor i64 %62, %59
-  %77 = xor i64 %76, %75
-  %78 = xor i64 %77, %43
-  %79 = xor i64 %78, %56
-  %80 = icmp eq ptr %25, %16
-  br i1 %80, label %"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit", label %22
+  %18 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i.i.i.i)
+  %.sroa.04.7.vec.insert.i.i.i.i.bc = bitcast <16 x i8> %.val4.i.i to <2 x i64>
+  %.sroa.04.7.vec.insert.i.i.i.i.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.i.i.i.i.bc, i64 1
+  %19 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.i.i.i.i.extract)
+  %20 = xor i64 %19, %16
+  %21 = xor i64 %18, %15
+  %22 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %20, i64 noundef %12)
+  %23 = extractvalue { i64, i64 } %22, 0
+  %24 = extractvalue { i64, i64 } %22, 1
+  %25 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %21, i64 noundef %10)
+  %26 = extractvalue { i64, i64 } %25, 0
+  %27 = extractvalue { i64, i64 } %25, 1
+  %28 = xor i64 %20, %21
+  %29 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %28, i64 noundef %13)
+  %30 = extractvalue { i64, i64 } %29, 0
+  %31 = extractvalue { i64, i64 } %29, 1
+  %32 = shl i64 %23, 63
+  %33 = shl i64 %23, 62
+  %34 = shl i64 %23, 57
+  %35 = xor i64 %33, %32
+  %36 = xor i64 %35, %34
+  %37 = xor i64 %36, %30
+  %38 = xor i64 %37, %23
+  %39 = xor i64 %38, %24
+  %40 = xor i64 %39, %26
+  %41 = lshr i64 %23, 1
+  %42 = shl i64 %40, 63
+  %43 = lshr i64 %40, 1
+  %44 = lshr i64 %23, 2
+  %45 = shl i64 %40, 62
+  %46 = lshr i64 %40, 2
+  %47 = lshr i64 %23, 7
+  %48 = shl i64 %40, 57
+  %49 = xor i64 %41, %44
+  %50 = xor i64 %49, %47
+  %51 = xor i64 %50, %31
+  %52 = xor i64 %51, %42
+  %53 = xor i64 %52, %45
+  %54 = xor i64 %53, %48
+  %55 = xor i64 %54, %24
+  %56 = xor i64 %55, %23
+  %57 = xor i64 %56, %27
+  %58 = xor i64 %57, %26
+  %59 = lshr i64 %40, 7
+  %60 = xor i64 %46, %43
+  %61 = xor i64 %60, %59
+  %62 = xor i64 %61, %27
+  %63 = xor i64 %62, %40
+  %64 = icmp eq ptr %17, %8
+  br i1 %64, label %"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit", label %14
 
-"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit": ; preds = %22, %2
-  %.sroa.07.0 = phi i64 [ %15, %2 ], [ %74, %22 ]
-  %.sroa.6.0 = phi i64 [ %13, %2 ], [ %79, %22 ]
+"_ZN4ring4aead3gcm8gcm_nohw5ghash28_$u7b$$u7b$closure$u7d$$u7d$17h37f0c513eb95f044E.exit": ; preds = %14, %2
+  %.sroa.07.0 = phi i64 [ %7, %2 ], [ %58, %14 ]
+  %.sroa.6.0 = phi i64 [ %6, %2 ], [ %63, %14 ]
   %.sroa.012.0.vec.insert = insertelement <2 x i64> poison, i64 %.sroa.6.0, i64 0
   %.sroa.012.8.vec.insert = insertelement <2 x i64> %.sroa.012.0.vec.insert, i64 %.sroa.07.0, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !77
@@ -1113,74 +1057,60 @@ define hidden void @_ZN4ring4aead3gcm8gcm_nohw15with_swapped_xi17h2a0897eddebb30
   %3 = alloca [2 x i64], align 16
   %4 = alloca { [2 x [8 x i8]] }, align 1
   %5 = load <16 x i8>, ptr %0, align 1
-  %.sroa.04.0.vec.insert.i = shufflevector <16 x i8> %5, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %6 = extractelement <16 x i8> %5, i64 9
-  %7 = extractelement <16 x i8> %5, i64 10
-  %8 = extractelement <16 x i8> %5, i64 11
-  %9 = extractelement <16 x i8> %5, i64 12
-  %10 = extractelement <16 x i8> %5, i64 13
-  %11 = extractelement <16 x i8> %5, i64 14
-  %12 = extractelement <16 x i8> %5, i64 15
   %.sroa.01.7.vec.insert.bc.i = bitcast <16 x i8> %5 to <2 x i64>
   %.sroa.01.7.vec.insert.extract.i = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc.i, i64 0
-  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i)
-  %.sroa.04.1.vec.insert.i = insertelement <8 x i8> %.sroa.04.0.vec.insert.i, i8 %6, i64 1
-  %.sroa.04.2.vec.insert.i = insertelement <8 x i8> %.sroa.04.1.vec.insert.i, i8 %7, i64 2
-  %.sroa.04.3.vec.insert.i = insertelement <8 x i8> %.sroa.04.2.vec.insert.i, i8 %8, i64 3
-  %.sroa.04.4.vec.insert.i = insertelement <8 x i8> %.sroa.04.3.vec.insert.i, i8 %9, i64 4
-  %.sroa.04.5.vec.insert.i = insertelement <8 x i8> %.sroa.04.4.vec.insert.i, i8 %10, i64 5
-  %.sroa.04.6.vec.insert.i = insertelement <8 x i8> %.sroa.04.5.vec.insert.i, i8 %11, i64 6
-  %.sroa.04.7.vec.insert.i = insertelement <8 x i8> %.sroa.04.6.vec.insert.i, i8 %12, i64 7
-  %14 = bitcast <8 x i8> %.sroa.04.7.vec.insert.i to i64
-  %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
+  %6 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i)
+  %.sroa.04.7.vec.insert.i.bc = bitcast <16 x i8> %5 to <2 x i64>
+  %.sroa.04.7.vec.insert.i.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.i.bc, i64 1
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.i.extract)
   %.val = load i64, ptr %1, align 8, !noundef !4
-  %16 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %.val6 = load i64, ptr %16, align 8, !noundef !4
-  %17 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %15, i64 noundef %.val6)
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %.val6 = load i64, ptr %8, align 8, !noundef !4
+  %9 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %7, i64 noundef %.val6)
+  %10 = extractvalue { i64, i64 } %9, 0
+  %11 = extractvalue { i64, i64 } %9, 1
+  %12 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %6, i64 noundef %.val)
+  %13 = extractvalue { i64, i64 } %12, 0
+  %14 = extractvalue { i64, i64 } %12, 1
+  %15 = xor i64 %7, %6
+  %16 = xor i64 %.val6, %.val
+  %17 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %15, i64 noundef %16)
   %18 = extractvalue { i64, i64 } %17, 0
   %19 = extractvalue { i64, i64 } %17, 1
-  %20 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %13, i64 noundef %.val)
-  %21 = extractvalue { i64, i64 } %20, 0
-  %22 = extractvalue { i64, i64 } %20, 1
-  %23 = xor i64 %15, %13
-  %24 = xor i64 %.val6, %.val
-  %25 = tail call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %23, i64 noundef %24)
-  %26 = extractvalue { i64, i64 } %25, 0
-  %27 = extractvalue { i64, i64 } %25, 1
-  %28 = shl i64 %18, 63
-  %29 = shl i64 %18, 62
-  %30 = shl i64 %18, 57
-  %31 = xor i64 %29, %28
-  %32 = xor i64 %31, %30
-  %33 = xor i64 %32, %26
-  %34 = xor i64 %33, %18
-  %35 = xor i64 %34, %19
-  %36 = xor i64 %35, %21
-  %37 = lshr i64 %18, 1
-  %38 = shl i64 %36, 63
-  %39 = lshr i64 %36, 1
-  %40 = lshr i64 %18, 2
-  %41 = shl i64 %36, 62
-  %42 = lshr i64 %36, 2
-  %43 = lshr i64 %18, 7
-  %44 = shl i64 %36, 57
-  %45 = xor i64 %37, %40
-  %46 = xor i64 %45, %43
-  %47 = xor i64 %46, %27
-  %48 = xor i64 %47, %38
-  %49 = xor i64 %48, %41
-  %50 = xor i64 %49, %44
-  %51 = xor i64 %50, %19
-  %52 = xor i64 %51, %18
-  %53 = xor i64 %52, %22
-  %54 = xor i64 %53, %21
-  %55 = lshr i64 %36, 7
-  %56 = xor i64 %42, %39
-  %57 = xor i64 %56, %55
-  %58 = xor i64 %57, %22
-  %59 = xor i64 %58, %36
-  %.sroa.011.0.vec.insert = insertelement <2 x i64> poison, i64 %59, i64 0
-  %.sroa.011.8.vec.insert = insertelement <2 x i64> %.sroa.011.0.vec.insert, i64 %54, i64 1
+  %20 = shl i64 %10, 63
+  %21 = shl i64 %10, 62
+  %22 = shl i64 %10, 57
+  %23 = xor i64 %21, %20
+  %24 = xor i64 %23, %22
+  %25 = xor i64 %24, %18
+  %26 = xor i64 %25, %10
+  %27 = xor i64 %26, %11
+  %28 = xor i64 %27, %13
+  %29 = lshr i64 %10, 1
+  %30 = shl i64 %28, 63
+  %31 = lshr i64 %28, 1
+  %32 = lshr i64 %10, 2
+  %33 = shl i64 %28, 62
+  %34 = lshr i64 %28, 2
+  %35 = lshr i64 %10, 7
+  %36 = shl i64 %28, 57
+  %37 = xor i64 %29, %32
+  %38 = xor i64 %37, %35
+  %39 = xor i64 %38, %19
+  %40 = xor i64 %39, %30
+  %41 = xor i64 %40, %33
+  %42 = xor i64 %41, %36
+  %43 = xor i64 %42, %11
+  %44 = xor i64 %43, %10
+  %45 = xor i64 %44, %14
+  %46 = xor i64 %45, %13
+  %47 = lshr i64 %28, 7
+  %48 = xor i64 %34, %31
+  %49 = xor i64 %48, %47
+  %50 = xor i64 %49, %14
+  %51 = xor i64 %50, %28
+  %.sroa.011.0.vec.insert = insertelement <2 x i64> poison, i64 %51, i64 0
+  %.sroa.011.8.vec.insert = insertelement <2 x i64> %.sroa.011.0.vec.insert, i64 %46, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %4), !noalias !82
   call void @llvm.lifetime.start.p0(ptr nonnull %3), !noalias !82
   store <2 x i64> %.sroa.011.8.vec.insert, ptr %3, align 16, !noalias !82
@@ -1244,67 +1174,53 @@ define hidden void @_ZN4ring4aead3gcm3Key3new17hf289241910f377d9E(ptr noalias no
   %4 = alloca [2 x i64], align 8
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
   %5 = load <16 x i8>, ptr %1, align 1
-  %.sroa.04.0.vec.insert.i = shufflevector <16 x i8> %5, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %6 = extractelement <16 x i8> %5, i64 9
-  %7 = extractelement <16 x i8> %5, i64 10
-  %8 = extractelement <16 x i8> %5, i64 11
-  %9 = extractelement <16 x i8> %5, i64 12
-  %10 = extractelement <16 x i8> %5, i64 13
-  %11 = extractelement <16 x i8> %5, i64 14
-  %12 = extractelement <16 x i8> %5, i64 15
   %.sroa.01.7.vec.insert.bc.i = bitcast <16 x i8> %5 to <2 x i64>
   %.sroa.01.7.vec.insert.extract.i = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc.i, i64 0
-  %13 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i)
-  %.sroa.04.1.vec.insert.i = insertelement <8 x i8> %.sroa.04.0.vec.insert.i, i8 %6, i64 1
-  %.sroa.04.2.vec.insert.i = insertelement <8 x i8> %.sroa.04.1.vec.insert.i, i8 %7, i64 2
-  %.sroa.04.3.vec.insert.i = insertelement <8 x i8> %.sroa.04.2.vec.insert.i, i8 %8, i64 3
-  %.sroa.04.4.vec.insert.i = insertelement <8 x i8> %.sroa.04.3.vec.insert.i, i8 %9, i64 4
-  %.sroa.04.5.vec.insert.i = insertelement <8 x i8> %.sroa.04.4.vec.insert.i, i8 %10, i64 5
-  %.sroa.04.6.vec.insert.i = insertelement <8 x i8> %.sroa.04.5.vec.insert.i, i8 %11, i64 6
-  %.sroa.04.7.vec.insert.i = insertelement <8 x i8> %.sroa.04.6.vec.insert.i, i8 %12, i64 7
-  %14 = bitcast <8 x i8> %.sroa.04.7.vec.insert.i to i64
-  %15 = tail call noundef i64 @llvm.bswap.i64(i64 %14)
-  store i64 %13, ptr %4, align 8, !alias.scope !87, !noalias !90
-  %16 = getelementptr inbounds nuw i8, ptr %4, i64 8
-  store i64 %15, ptr %16, align 8, !alias.scope !87, !noalias !90
+  %6 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i)
+  %.sroa.04.7.vec.insert.i.bc = bitcast <16 x i8> %5 to <2 x i64>
+  %.sroa.04.7.vec.insert.i.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.i.bc, i64 1
+  %7 = tail call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.i.extract)
+  store i64 %6, ptr %4, align 8, !alias.scope !87, !noalias !90
+  %8 = getelementptr inbounds nuw i8, ptr %4, i64 8
+  store i64 %7, ptr %8, align 8, !alias.scope !87, !noalias !90
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %3, i8 0, i64 256, i1 false)
-  %17 = load i32, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, align 4, !noundef !4
-  %18 = and i32 %17, 16777216
-  %.not = icmp eq i32 %18, 0
-  br i1 %.not, label %24, label %19
+  %9 = load i32, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, align 4, !noundef !4
+  %10 = and i32 %9, 16777216
+  %.not = icmp eq i32 %10, 0
+  br i1 %.not, label %16, label %11
 
-19:                                               ; preds = %2
-  %20 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !4
-  %21 = and i32 %20, 2
-  %.not2 = icmp eq i32 %21, 0
-  br i1 %.not2, label %24, label %22
+11:                                               ; preds = %2
+  %12 = load i32, ptr getelementptr inbounds nuw (i8, ptr @ring_core_0_17_8__OPENSSL_ia32cap_P, i64 4), align 4, !noundef !4
+  %13 = and i32 %12, 2
+  %.not2 = icmp eq i32 %13, 0
+  br i1 %.not2, label %16, label %14
 
-22:                                               ; preds = %19
-  %23 = and i32 %20, 272629760
-  %.0.i = icmp eq i32 %23, 272629760
-  br i1 %.0.i, label %31, label %30
+14:                                               ; preds = %11
+  %15 = and i32 %12, 272629760
+  %.0.i = icmp eq i32 %15, 272629760
+  br i1 %.0.i, label %23, label %22
 
-24:                                               ; preds = %19, %2
-  %25 = tail call i64 @llvm.fshl.i64(i64 %13, i64 %15, i64 1)
-  %26 = tail call i64 @llvm.fshl.i64(i64 %15, i64 %13, i64 1)
-  %isneg.i = icmp slt i64 %13, 0
-  %27 = select i1 %isneg.i, i64 -4467570830351532032, i64 0
-  %28 = xor i64 %27, %25
-  store i64 %28, ptr %3, align 16
-  %29 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i64 %26, ptr %29, align 8
-  br label %32
+16:                                               ; preds = %11, %2
+  %17 = tail call i64 @llvm.fshl.i64(i64 %6, i64 %7, i64 1)
+  %18 = tail call i64 @llvm.fshl.i64(i64 %7, i64 %6, i64 1)
+  %isneg.i = icmp slt i64 %6, 0
+  %19 = select i1 %isneg.i, i64 -4467570830351532032, i64 0
+  %20 = xor i64 %19, %17
+  store i64 %20, ptr %3, align 16
+  %21 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i64 %18, ptr %21, align 8
+  br label %24
 
-30:                                               ; preds = %22
+22:                                               ; preds = %14
   call void @ring_core_0_17_8__gcm_init_clmul(ptr noalias noundef nonnull align 16 dereferenceable(256) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-  br label %32
+  br label %24
 
-31:                                               ; preds = %22
+23:                                               ; preds = %14
   call void @ring_core_0_17_8__gcm_init_avx(ptr noalias noundef nonnull align 16 dereferenceable(256) %3, ptr noalias noundef nonnull readonly align 8 dereferenceable(16) %4)
-  br label %32
+  br label %24
 
-32:                                               ; preds = %31, %30, %24
+24:                                               ; preds = %23, %22, %16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(256) %0, ptr noundef nonnull align 16 dereferenceable(256) %3, i64 256, i1 false)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
@@ -1356,14 +1272,14 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph: ; p
 
 18:                                               ; preds = %5
   store i8 1, ptr %0, align 16
-  br label %93
+  br label %85
 
 ._crit_edge:                                      ; preds = %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit, %11
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 16 dereferenceable(288) %19, ptr noundef nonnull align 16 dereferenceable(288) %9, i64 288, i1 false)
   store i8 0, ptr %0, align 16
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  br label %93
+  br label %85
 
 _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds = %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph, %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit
   %.sroa.5.029 = phi i64 [ %3, %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit.lr.ph ], [ %28, %_ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit ]
@@ -1418,71 +1334,57 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds =
   call void @llvm.experimental.noalias.scope.decl(metadata !115)
   call void @llvm.experimental.noalias.scope.decl(metadata !118), !noalias !105
   %38 = load <16 x i8>, ptr %9, align 16, !alias.scope !121, !noalias !122
-  %.sroa.04.0.vec.insert.i.i.i = shufflevector <16 x i8> %38, <16 x i8> poison, <8 x i32> <i32 8, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison, i32 poison>
-  %39 = extractelement <16 x i8> %38, i64 9
-  %40 = extractelement <16 x i8> %38, i64 10
-  %41 = extractelement <16 x i8> %38, i64 11
-  %42 = extractelement <16 x i8> %38, i64 12
-  %43 = extractelement <16 x i8> %38, i64 13
-  %44 = extractelement <16 x i8> %38, i64 14
-  %45 = extractelement <16 x i8> %38, i64 15
   %.sroa.01.7.vec.insert.bc.i.i.i = bitcast <16 x i8> %38 to <2 x i64>
   %.sroa.01.7.vec.insert.extract.i.i.i = extractelement <2 x i64> %.sroa.01.7.vec.insert.bc.i.i.i, i64 0
-  %46 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i.i.i)
-  %.sroa.04.1.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.0.vec.insert.i.i.i, i8 %39, i64 1
-  %.sroa.04.2.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.1.vec.insert.i.i.i, i8 %40, i64 2
-  %.sroa.04.3.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.2.vec.insert.i.i.i, i8 %41, i64 3
-  %.sroa.04.4.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.3.vec.insert.i.i.i, i8 %42, i64 4
-  %.sroa.04.5.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.4.vec.insert.i.i.i, i8 %43, i64 5
-  %.sroa.04.6.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.5.vec.insert.i.i.i, i8 %44, i64 6
-  %.sroa.04.7.vec.insert.i.i.i = insertelement <8 x i8> %.sroa.04.6.vec.insert.i.i.i, i8 %45, i64 7
-  %47 = bitcast <8 x i8> %.sroa.04.7.vec.insert.i.i.i to i64
-  %48 = call noundef i64 @llvm.bswap.i64(i64 %47)
-  %49 = call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %48, i64 noundef %37)
+  %39 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.01.7.vec.insert.extract.i.i.i)
+  %.sroa.04.7.vec.insert.i.i.i.bc = bitcast <16 x i8> %38 to <2 x i64>
+  %.sroa.04.7.vec.insert.i.i.i.extract = extractelement <2 x i64> %.sroa.04.7.vec.insert.i.i.i.bc, i64 1
+  %40 = call noundef i64 @llvm.bswap.i64(i64 %.sroa.04.7.vec.insert.i.i.i.extract)
+  %41 = call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %40, i64 noundef %37)
+  %42 = extractvalue { i64, i64 } %41, 0
+  %43 = extractvalue { i64, i64 } %41, 1
+  %44 = call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %39, i64 noundef %36)
+  %45 = extractvalue { i64, i64 } %44, 0
+  %46 = extractvalue { i64, i64 } %44, 1
+  %47 = xor i64 %40, %39
+  %48 = xor i64 %37, %36
+  %49 = call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %47, i64 noundef %48)
   %50 = extractvalue { i64, i64 } %49, 0
   %51 = extractvalue { i64, i64 } %49, 1
-  %52 = call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %46, i64 noundef %36)
-  %53 = extractvalue { i64, i64 } %52, 0
-  %54 = extractvalue { i64, i64 } %52, 1
-  %55 = xor i64 %48, %46
-  %56 = xor i64 %37, %36
-  %57 = call fastcc { i64, i64 } @_ZN4ring4aead3gcm8gcm_nohw14gcm_mul64_nohw17h06325e07cb6081e5E(i64 noundef %55, i64 noundef %56)
-  %58 = extractvalue { i64, i64 } %57, 0
-  %59 = extractvalue { i64, i64 } %57, 1
-  %60 = shl i64 %50, 63
-  %61 = shl i64 %50, 62
-  %62 = shl i64 %50, 57
-  %63 = xor i64 %61, %60
-  %64 = xor i64 %63, %62
-  %65 = xor i64 %64, %58
-  %66 = xor i64 %65, %50
-  %67 = xor i64 %66, %51
-  %68 = xor i64 %67, %53
-  %69 = lshr i64 %50, 1
-  %70 = shl i64 %68, 63
-  %71 = lshr i64 %68, 1
-  %72 = lshr i64 %50, 2
-  %73 = shl i64 %68, 62
-  %74 = lshr i64 %68, 2
-  %75 = lshr i64 %50, 7
-  %76 = shl i64 %68, 57
-  %77 = xor i64 %69, %72
-  %78 = xor i64 %77, %75
-  %79 = xor i64 %78, %59
-  %80 = xor i64 %79, %70
-  %81 = xor i64 %80, %73
-  %82 = xor i64 %81, %76
-  %83 = xor i64 %82, %51
-  %84 = xor i64 %83, %50
-  %85 = xor i64 %84, %54
-  %86 = xor i64 %85, %53
-  %87 = lshr i64 %68, 7
-  %88 = xor i64 %74, %71
-  %89 = xor i64 %88, %87
-  %90 = xor i64 %89, %54
-  %91 = xor i64 %90, %68
-  %.sroa.011.0.vec.insert.i.i = insertelement <2 x i64> poison, i64 %91, i64 0
-  %.sroa.011.8.vec.insert.i.i = insertelement <2 x i64> %.sroa.011.0.vec.insert.i.i, i64 %86, i64 1
+  %52 = shl i64 %42, 63
+  %53 = shl i64 %42, 62
+  %54 = shl i64 %42, 57
+  %55 = xor i64 %53, %52
+  %56 = xor i64 %55, %54
+  %57 = xor i64 %56, %50
+  %58 = xor i64 %57, %42
+  %59 = xor i64 %58, %43
+  %60 = xor i64 %59, %45
+  %61 = lshr i64 %42, 1
+  %62 = shl i64 %60, 63
+  %63 = lshr i64 %60, 1
+  %64 = lshr i64 %42, 2
+  %65 = shl i64 %60, 62
+  %66 = lshr i64 %60, 2
+  %67 = lshr i64 %42, 7
+  %68 = shl i64 %60, 57
+  %69 = xor i64 %61, %64
+  %70 = xor i64 %69, %67
+  %71 = xor i64 %70, %51
+  %72 = xor i64 %71, %62
+  %73 = xor i64 %72, %65
+  %74 = xor i64 %73, %68
+  %75 = xor i64 %74, %43
+  %76 = xor i64 %75, %42
+  %77 = xor i64 %76, %46
+  %78 = xor i64 %77, %45
+  %79 = lshr i64 %60, 7
+  %80 = xor i64 %66, %63
+  %81 = xor i64 %80, %79
+  %82 = xor i64 %81, %46
+  %83 = xor i64 %82, %60
+  %.sroa.011.0.vec.insert.i.i = insertelement <2 x i64> poison, i64 %83, i64 0
+  %.sroa.011.8.vec.insert.i.i = insertelement <2 x i64> %.sroa.011.0.vec.insert.i.i, i64 %78, i64 1
   call void @llvm.lifetime.start.p0(ptr nonnull %7), !noalias !124
   call void @llvm.lifetime.start.p0(ptr nonnull %6), !noalias !124
   store <2 x i64> %.sroa.011.8.vec.insert.i.i, ptr %6, align 16, !noalias !124
@@ -1526,10 +1428,10 @@ _ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit: ; preds =
 
 _ZN4ring4aead3gcm7Context12update_block17h70ca3aa9756cd3a1E.exit: ; preds = %34, %35
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  %92 = icmp eq i64 %28, 0
-  br i1 %92, label %._crit_edge, label %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit
+  %84 = icmp eq i64 %28, 0
+  br i1 %84, label %._crit_edge, label %_ZN4ring4aead5block5Block17overwrite_part_at17he2f95ace39200dceE.exit
 
-93:                                               ; preds = %._crit_edge, %18
+85:                                               ; preds = %._crit_edge, %18
   ret void
 }
 

@@ -190,35 +190,17 @@ define hidden void @"_ZN123_$LT$$u5b$I$u3b$$u20$12$u5d$$u20$as$u20$ring..polyfil
 ; Function Attrs: inlinehint mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @"_ZN123_$LT$$u5b$I$u3b$$u20$16$u5d$$u20$as$u20$ring..polyfill..array_split_map..ArraySplitMap$LT$I$C$O$C$4_usize$C$4_usize$GT$$GT$15array_split_map17h8c30995e6f7fd491E.llvm.6801758991666044160"(ptr noalias noundef writeonly sret([4 x i32]) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #2 personality ptr @rust_eh_personality {
   %3 = load <16 x i8>, ptr %1, align 1
-  %.sroa.04.0.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 4, i32 poison, i32 poison, i32 poison>
-  %4 = extractelement <16 x i8> %3, i64 5
-  %5 = extractelement <16 x i8> %3, i64 6
-  %6 = extractelement <16 x i8> %3, i64 7
-  %.sroa.07.0.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 8, i32 poison, i32 poison, i32 poison>
-  %7 = extractelement <16 x i8> %3, i64 9
-  %8 = extractelement <16 x i8> %3, i64 10
-  %9 = extractelement <16 x i8> %3, i64 11
-  %.sroa.010.0.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 12, i32 poison, i32 poison, i32 poison>
-  %10 = extractelement <16 x i8> %3, i64 13
-  %11 = extractelement <16 x i8> %3, i64 14
-  %12 = extractelement <16 x i8> %3, i64 15
   %.sroa.01.3.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 0, i32 1, i32 2, i32 3>
-  %.sroa.04.1.vec.insert = insertelement <4 x i8> %.sroa.04.0.vec.insert, i8 %4, i64 1
-  %.sroa.04.2.vec.insert = insertelement <4 x i8> %.sroa.04.1.vec.insert, i8 %5, i64 2
-  %.sroa.04.3.vec.insert = insertelement <4 x i8> %.sroa.04.2.vec.insert, i8 %6, i64 3
-  %.sroa.07.1.vec.insert = insertelement <4 x i8> %.sroa.07.0.vec.insert, i8 %7, i64 1
-  %.sroa.07.2.vec.insert = insertelement <4 x i8> %.sroa.07.1.vec.insert, i8 %8, i64 2
-  %.sroa.07.3.vec.insert = insertelement <4 x i8> %.sroa.07.2.vec.insert, i8 %9, i64 3
-  %.sroa.010.1.vec.insert = insertelement <4 x i8> %.sroa.010.0.vec.insert, i8 %10, i64 1
-  %.sroa.010.2.vec.insert = insertelement <4 x i8> %.sroa.010.1.vec.insert, i8 %11, i64 2
-  %.sroa.010.3.vec.insert = insertelement <4 x i8> %.sroa.010.2.vec.insert, i8 %12, i64 3
+  %.sroa.04.3.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 4, i32 5, i32 6, i32 7>
+  %.sroa.07.3.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 8, i32 9, i32 10, i32 11>
+  %.sroa.010.3.vec.insert = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 12, i32 13, i32 14, i32 15>
   store <4 x i8> %.sroa.01.3.vec.insert, ptr %0, align 4
-  %13 = getelementptr inbounds nuw i8, ptr %0, i64 4
-  store <4 x i8> %.sroa.04.3.vec.insert, ptr %13, align 4
-  %14 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store <4 x i8> %.sroa.07.3.vec.insert, ptr %14, align 4
-  %15 = getelementptr inbounds nuw i8, ptr %0, i64 12
-  store <4 x i8> %.sroa.010.3.vec.insert, ptr %15, align 4
+  %4 = getelementptr inbounds nuw i8, ptr %0, i64 4
+  store <4 x i8> %.sroa.04.3.vec.insert, ptr %4, align 4
+  %5 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store <4 x i8> %.sroa.07.3.vec.insert, ptr %5, align 4
+  %6 = getelementptr inbounds nuw i8, ptr %0, i64 12
+  store <4 x i8> %.sroa.010.3.vec.insert, ptr %6, align 4
   ret void
 }
 
@@ -423,34 +405,13 @@ define hidden void @_ZN4ring4aead6chacha7Counter9increment17hade1a45b6ac7c93bE(p
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind nonlazybind willreturn memory(argmem: readwrite) uwtable
 define hidden void @_ZN4ring4aead6chacha2Iv21assume_unique_for_key17hb0bcfb23cb9a11b0E(ptr noalias noundef writeonly sret({ [4 x i32] }) align 4 captures(none) dereferenceable(16) initializes((0, 16)) %0, ptr noalias noundef readonly align 1 captures(none) dereferenceable(16) %1) unnamed_addr #3 personality ptr @rust_eh_personality {
   %3 = load <16 x i8>, ptr %1, align 1, !alias.scope !20, !noalias !23
-  %.sroa.04.0.vec.insert.i = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 4, i32 poison, i32 poison, i32 poison>
-  %4 = extractelement <16 x i8> %3, i64 5
-  %5 = extractelement <16 x i8> %3, i64 6
-  %6 = extractelement <16 x i8> %3, i64 7
-  %.sroa.07.0.vec.insert.i = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 8, i32 poison, i32 poison, i32 poison>
-  %7 = extractelement <16 x i8> %3, i64 9
-  %8 = extractelement <16 x i8> %3, i64 10
-  %9 = extractelement <16 x i8> %3, i64 11
-  %.sroa.010.0.vec.insert.i = shufflevector <16 x i8> %3, <16 x i8> poison, <4 x i32> <i32 12, i32 poison, i32 poison, i32 poison>
-  %10 = extractelement <16 x i8> %3, i64 13
-  %11 = extractelement <16 x i8> %3, i64 14
-  %12 = extractelement <16 x i8> %3, i64 15
   %.sroa.01.3.vec.insert.i.bc = bitcast <16 x i8> %3 to <4 x i32>
-  %.sroa.04.1.vec.insert.i = insertelement <4 x i8> %.sroa.04.0.vec.insert.i, i8 %4, i64 1
-  %.sroa.04.2.vec.insert.i = insertelement <4 x i8> %.sroa.04.1.vec.insert.i, i8 %5, i64 2
-  %.sroa.04.3.vec.insert.i = insertelement <4 x i8> %.sroa.04.2.vec.insert.i, i8 %6, i64 3
-  %.sroa.07.1.vec.insert.i = insertelement <4 x i8> %.sroa.07.0.vec.insert.i, i8 %7, i64 1
-  %.sroa.07.2.vec.insert.i = insertelement <4 x i8> %.sroa.07.1.vec.insert.i, i8 %8, i64 2
-  %.sroa.07.3.vec.insert.i = insertelement <4 x i8> %.sroa.07.2.vec.insert.i, i8 %9, i64 3
-  %.sroa.010.1.vec.insert.i = insertelement <4 x i8> %.sroa.010.0.vec.insert.i, i8 %10, i64 1
-  %.sroa.010.2.vec.insert.i = insertelement <4 x i8> %.sroa.010.1.vec.insert.i, i8 %11, i64 2
-  %.sroa.010.3.vec.insert.i = insertelement <4 x i8> %.sroa.010.2.vec.insert.i, i8 %12, i64 3
-  %13 = bitcast <4 x i8> %.sroa.04.3.vec.insert.i to i32
-  %.sroa.0.4.vec.insert = insertelement <4 x i32> %.sroa.01.3.vec.insert.i.bc, i32 %13, i64 1
-  %14 = bitcast <4 x i8> %.sroa.07.3.vec.insert.i to i32
-  %.sroa.0.8.vec.insert = insertelement <4 x i32> %.sroa.0.4.vec.insert, i32 %14, i64 2
-  %15 = bitcast <4 x i8> %.sroa.010.3.vec.insert.i to i32
-  %.sroa.0.12.vec.insert = insertelement <4 x i32> %.sroa.0.8.vec.insert, i32 %15, i64 3
+  %.sroa.04.3.vec.insert.i.bc = bitcast <16 x i8> %3 to <4 x i32>
+  %.sroa.07.3.vec.insert.i.bc = bitcast <16 x i8> %3 to <4 x i32>
+  %.sroa.010.3.vec.insert.i.bc = bitcast <16 x i8> %3 to <4 x i32>
+  %.sroa.0.4.vec.insert = shufflevector <4 x i32> %.sroa.01.3.vec.insert.i.bc, <4 x i32> %.sroa.04.3.vec.insert.i.bc, <4 x i32> <i32 0, i32 5, i32 poison, i32 poison>
+  %.sroa.0.8.vec.insert = shufflevector <4 x i32> %.sroa.0.4.vec.insert, <4 x i32> %.sroa.07.3.vec.insert.i.bc, <4 x i32> <i32 0, i32 1, i32 6, i32 poison>
+  %.sroa.0.12.vec.insert = shufflevector <4 x i32> %.sroa.0.8.vec.insert, <4 x i32> %.sroa.010.3.vec.insert.i.bc, <4 x i32> <i32 0, i32 1, i32 2, i32 7>
   store <4 x i32> %.sroa.0.12.vec.insert, ptr %0, align 4
   ret void
 }
