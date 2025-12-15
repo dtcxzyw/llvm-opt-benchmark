@@ -300,7 +300,7 @@ declare ptr @prte_strerror(i32 noundef) local_unnamed_addr #1
 define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0 {
   %2 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 856), align 8, !tbaa !37, !range !35, !noundef !36
   %3 = trunc nuw i8 %2 to i1
-  br i1 %3, label %36, label %4
+  br i1 %3, label %31, label %4
 
 4:                                                ; preds = %1
   %5 = load i8, ptr getelementptr inbounds nuw (i8, ptr @prte_ras_base, i64 24), align 8, !tbaa !38, !range !35, !noundef !36
@@ -314,18 +314,18 @@ define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0
   %11 = load i32, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 256), align 8
   %12 = icmp eq i32 %11, 1
   %or.cond = select i1 %10, i1 %12, i1 false
-  br i1 %or.cond, label %36, label %13
+  br i1 %or.cond, label %31, label %13
 
 13:                                               ; preds = %7, %4
   %14 = getelementptr inbounds nuw i8, ptr %0, i64 424
   %15 = load ptr, ptr %14, align 8, !tbaa !19
   %16 = icmp eq ptr %15, null
-  br i1 %16, label %36, label %17
+  br i1 %16, label %31, label %17
 
 17:                                               ; preds = %13
   %18 = getelementptr inbounds nuw i8, ptr %0, i64 168
   %19 = tail call zeroext i1 @PMIx_Check_nspace(ptr noundef nonnull @prte_process_info, ptr noundef nonnull %18) #9
-  br i1 %19, label %20, label %30
+  br i1 %19, label %20, label %25
 
 20:                                               ; preds = %17
   %21 = load i8, ptr @prte_finalizing, align 1, !tbaa !34, !range !35, !noundef !36
@@ -333,28 +333,24 @@ define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0
   %23 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 848), align 8
   %24 = icmp ne ptr %23, null
   %or.cond3 = select i1 %22, i1 %24, i1 false
-  br i1 %or.cond3, label %25, label %36
+  br i1 %or.cond3, label %.sink.split, label %31
 
-25:                                               ; preds = %20
-  %26 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef nonnull %23, i1 noundef zeroext true, ptr noundef nonnull @_check_file) #9
-  %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 848), align 8, !tbaa !17
-  %28 = tail call i32 @rmdir(ptr noundef %27) #9
-  %29 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 848), align 8, !tbaa !17
-  tail call void @free(ptr noundef %29) #9
-  store ptr null, ptr getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 848), align 8, !tbaa !17
-  br label %36
+25:                                               ; preds = %17
+  %26 = load ptr, ptr %14, align 8, !tbaa !19
+  br label %.sink.split
 
-30:                                               ; preds = %17
-  %31 = load ptr, ptr %14, align 8, !tbaa !19
-  %32 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %31, i1 noundef zeroext true, ptr noundef nonnull @_check_file) #9
-  %33 = load ptr, ptr %14, align 8, !tbaa !19
-  %34 = tail call i32 @rmdir(ptr noundef %33) #9
-  %35 = load ptr, ptr %14, align 8, !tbaa !19
-  tail call void @free(ptr noundef %35) #9
-  store ptr null, ptr %14, align 8, !tbaa !19
-  br label %36
+.sink.split:                                      ; preds = %20, %25
+  %.sink13 = phi ptr [ %26, %25 ], [ %23, %20 ]
+  %.sink12 = phi ptr [ %14, %25 ], [ getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 848), %20 ]
+  %27 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %.sink13, i1 noundef zeroext true, ptr noundef nonnull @_check_file) #9
+  %28 = load ptr, ptr %.sink12, align 8, !tbaa !14
+  %29 = tail call i32 @rmdir(ptr noundef %28) #9
+  %30 = load ptr, ptr %.sink12, align 8, !tbaa !14
+  tail call void @free(ptr noundef %30) #9
+  store ptr null, ptr %.sink12, align 8, !tbaa !14
+  br label %31
 
-36:                                               ; preds = %20, %25, %13, %7, %1, %30
+31:                                               ; preds = %.sink.split, %20, %13, %7, %1
   ret void
 }
 

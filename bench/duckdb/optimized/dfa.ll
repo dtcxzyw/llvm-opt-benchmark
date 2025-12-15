@@ -2032,7 +2032,7 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
 .backedge:                                        ; preds = %122, %select.unfold, %.backedge70, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %39, %34, %31
   %.041.be = phi i32 [ %.142.ph, %31 ], [ %.142.ph, %34 ], [ %.142.ph, %39 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge70 ], [ %.142.ph, %select.unfold ], [ %.6, %122 ]
   %48 = icmp sgt i32 %.041.be, 0
-  br i1 %48, label %24, label %130, !llvm.loop !133
+  br i1 %48, label %24, label %128, !llvm.loop !133
 
 49:                                               ; preds = %.backedge70
   %50 = load ptr, ptr %9, align 8, !tbaa !85
@@ -2175,12 +2175,17 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %78, %_ZNKSt7__cxx11
   %109 = sext i32 %.4 to i64
   %110 = getelementptr inbounds i32, ptr %7, i64 %109
   store i32 -1, ptr %110, align 4, !tbaa !77
-  %.pre61 = load i32, ptr %86, align 4, !tbaa !114
+  br label %.outer.backedge.sink.split
+
+.outer.backedge.sink.split:                       ; preds = %122, %107
+  %.sink91 = phi ptr [ %86, %107 ], [ %115, %122 ]
+  %.142.ph.be.ph = phi i32 [ %108, %107 ], [ %.6, %122 ]
+  %.pre61 = load i32, ptr %.sink91, align 4, !tbaa !114
   br label %.outer.backedge
 
-.outer.backedge:                                  ; preds = %93, %97, %100, %104, %107, %126
-  %.sink = phi i32 [ %127, %126 ], [ %.pre61, %107 ], [ %94, %104 ], [ %94, %100 ], [ %94, %97 ], [ %94, %93 ]
-  %.142.ph.be = phi i32 [ %.6, %126 ], [ %108, %107 ], [ %.4, %104 ], [ %.4, %100 ], [ %.4, %97 ], [ %.4, %93 ]
+.outer.backedge:                                  ; preds = %.outer.backedge.sink.split, %93, %97, %100, %104
+  %.sink = phi i32 [ %94, %104 ], [ %94, %100 ], [ %94, %97 ], [ %94, %93 ], [ %.pre61, %.outer.backedge.sink.split ]
+  %.142.ph.be = phi i32 [ %.4, %104 ], [ %.4, %100 ], [ %.4, %97 ], [ %.4, %93 ], [ %.142.ph.be.ph, %.outer.backedge.sink.split ]
   %111 = lshr i32 %.sink, 4
   br label %.outer
 
@@ -2208,25 +2213,21 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %78, %_ZNKSt7__cxx11
   %124 = load i32, ptr %123, align 4, !tbaa !104
   %125 = and i32 %124, %12
   %.not43 = icmp eq i32 %125, 0
-  br i1 %.not43, label %126, label %.backedge
-
-126:                                              ; preds = %122
-  %127 = load i32, ptr %115, align 4, !tbaa !114
-  br label %.outer.backedge
+  br i1 %.not43, label %.outer.backedge.sink.split, label %.backedge
 
 select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit, %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
-  %128 = and i32 %70, 8
-  %.lobit = lshr exact i32 %128, 3
-  %129 = xor i32 %.lobit, 1
-  %spec.select53 = add nuw nsw i32 %129, %.040
-  %.not91 = icmp eq i32 %128, 0
-  br i1 %.not91, label %.backedge70.backedge, label %.backedge
+  %126 = and i32 %70, 8
+  %.lobit = lshr exact i32 %126, 3
+  %127 = xor i32 %.lobit, 1
+  %spec.select53 = add nuw nsw i32 %127, %.040
+  %.not92 = icmp eq i32 %126, 0
+  br i1 %.not92, label %.backedge70.backedge, label %.backedge
 
 .backedge70.backedge:                             ; preds = %select.unfold, %112
   %.040.be = phi i32 [ %spec.select53, %select.unfold ], [ %113, %112 ]
   br label %.backedge70
 
-130:                                              ; preds = %.backedge
+128:                                              ; preds = %.backedge
   ret void
 }
 

@@ -950,7 +950,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %28 = fsub reassoc nsz arcp contract afn float %25, %27
   %29 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %28)
   %30 = fcmp reassoc nsz arcp contract afn olt float %29, 0x3F1A36E2E0000000
-  br i1 %30, label %83, label %31
+  br i1 %30, label %81, label %31
 
 31:                                               ; preds = %23, %15, %3
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 100
@@ -983,7 +983,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %50 = fsub reassoc nsz arcp contract afn float %47, %49
   %51 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %50)
   %52 = fcmp reassoc nsz arcp contract afn olt float %51, 0x3F1A36E2E0000000
-  br i1 %52, label %83, label %53
+  br i1 %52, label %81, label %53
 
 53:                                               ; preds = %._crit_edge, %45, %37
   %54 = phi float [ %.pre, %._crit_edge ], [ %41, %45 ], [ %41, %37 ]
@@ -1004,46 +1004,40 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %64 = getelementptr inbounds nuw i8, ptr %6, i64 112
   %65 = load ptr, ptr %64, align 8, !tbaa !92
   %66 = icmp eq ptr %1, %65
-  br i1 %66, label %67, label %68
+  br i1 %66, label %.sink.split, label %67
 
 67:                                               ; preds = %53
-  store float %11, ptr %32, align 4, !tbaa !10
-  br label %.sink.split
+  %68 = getelementptr inbounds nuw i8, ptr %6, i64 80
+  %69 = load ptr, ptr %68, align 8, !tbaa !94
+  %70 = icmp eq ptr %1, %69
+  br i1 %70, label %.sink.split, label %79
 
-68:                                               ; preds = %53
-  %69 = getelementptr inbounds nuw i8, ptr %6, i64 80
-  %70 = load ptr, ptr %69, align 8, !tbaa !94
-  %71 = icmp eq ptr %1, %70
-  br i1 %71, label %72, label %81
-
-72:                                               ; preds = %68
-  store float %11, ptr %8, align 4, !tbaa !10
-  br label %.sink.split
-
-.sink.split:                                      ; preds = %67, %72
-  %.sink42 = phi i64 [ 4, %72 ], [ 104, %67 ]
-  %.sink40 = phi i64 [ 8, %72 ], [ 108, %67 ]
-  %.sink38 = phi i64 [ 72, %72 ], [ 104, %67 ]
-  %73 = load float, ptr %57, align 4, !tbaa !10
-  %74 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink42
+.sink.split:                                      ; preds = %67, %53
+  %.sink = phi ptr [ %32, %53 ], [ %8, %67 ]
+  %.sink42 = phi i64 [ 104, %53 ], [ 4, %67 ]
+  %.sink40 = phi i64 [ 108, %53 ], [ 8, %67 ]
+  %.sink38 = phi i64 [ 104, %53 ], [ 72, %67 ]
+  store float %11, ptr %.sink, align 4, !tbaa !10
+  %71 = load float, ptr %57, align 4, !tbaa !10
+  %72 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink42
+  store float %71, ptr %72, align 4, !tbaa !10
+  %73 = load float, ptr %60, align 8, !tbaa !10
+  %74 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink40
   store float %73, ptr %74, align 4, !tbaa !10
-  %75 = load float, ptr %60, align 8, !tbaa !10
-  %76 = getelementptr inbounds nuw i8, ptr %8, i64 %.sink40
-  store float %75, ptr %76, align 4, !tbaa !10
-  %77 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink38
-  %78 = load ptr, ptr %77, align 8, !tbaa !95
-  %79 = tail call i64 @gtk_color_chooser_get_type() #25
-  %80 = tail call ptr @g_type_check_instance_cast(ptr noundef %78, i64 noundef %79) #24
-  call void @gtk_color_chooser_set_rgba(ptr noundef %80, ptr noundef nonnull %4) #24
+  %75 = getelementptr inbounds nuw i8, ptr %6, i64 %.sink38
+  %76 = load ptr, ptr %75, align 8, !tbaa !95
+  %77 = tail call i64 @gtk_color_chooser_get_type() #25
+  %78 = tail call ptr @g_type_check_instance_cast(ptr noundef %76, i64 noundef %77) #24
+  call void @gtk_color_chooser_set_rgba(ptr noundef %78, ptr noundef nonnull %4) #24
+  br label %79
+
+79:                                               ; preds = %.sink.split, %67
+  %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !96
+  call void @dt_dev_add_history_item(ptr noundef %80, ptr noundef nonnull %0, i32 noundef 1) #24
+  call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %81
 
-81:                                               ; preds = %.sink.split, %68
-  %82 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !96
-  call void @dt_dev_add_history_item(ptr noundef %82, ptr noundef nonnull %0, i32 noundef 1) #24
-  call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %83
-
-83:                                               ; preds = %45, %23, %81
+81:                                               ; preds = %45, %23, %79
   ret void
 }
 

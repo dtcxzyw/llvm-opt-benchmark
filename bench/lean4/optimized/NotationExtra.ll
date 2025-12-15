@@ -35062,7 +35062,7 @@ lean_ensure_exclusive_array.exit.i82:             ; preds = %97, %95
   %102 = ptrtoint ptr %101 to i64
   %103 = and i64 %102, 1
   %.not.i84 = icmp eq i64 %103, 0
-  br i1 %.not.i84, label %104, label %lean_array_uset.exit86
+  br i1 %.not.i84, label %104, label %lean_dec.exit64
 
 104:                                              ; preds = %lean_ensure_exclusive_array.exit.i82
   %105 = load i32, ptr %101, align 4, !tbaa !5
@@ -35072,18 +35072,14 @@ lean_ensure_exclusive_array.exit.i82:             ; preds = %97, %95
 107:                                              ; preds = %104
   %108 = add nsw i32 %105, -1
   store i32 %108, ptr %101, align 4, !tbaa !5
-  br label %lean_array_uset.exit86
+  br label %lean_dec.exit64
 
 109:                                              ; preds = %104
   %.not.i.i85 = icmp eq i32 %105, 0
-  br i1 %.not.i.i85, label %lean_array_uset.exit86, label %110
+  br i1 %.not.i.i85, label %lean_dec.exit64, label %110
 
 110:                                              ; preds = %109
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %101) #5
-  br label %lean_array_uset.exit86
-
-lean_array_uset.exit86:                           ; preds = %lean_ensure_exclusive_array.exit.i82, %107, %109, %110
-  store ptr %62, ptr %100, align 8, !tbaa !11
   br label %lean_dec.exit64
 
 111:                                              ; preds = %lean_dec.exit63
@@ -35127,7 +35123,7 @@ lean_ensure_exclusive_array.exit.i88:             ; preds = %122, %lean_dec.exit
   %127 = ptrtoint ptr %126 to i64
   %128 = and i64 %127, 1
   %.not.i90 = icmp eq i64 %128, 0
-  br i1 %.not.i90, label %129, label %lean_array_uset.exit92
+  br i1 %.not.i90, label %129, label %lean_dec.exit64
 
 129:                                              ; preds = %lean_ensure_exclusive_array.exit.i88
   %130 = load i32, ptr %126, align 4, !tbaa !5
@@ -35137,22 +35133,20 @@ lean_ensure_exclusive_array.exit.i88:             ; preds = %122, %lean_dec.exit
 132:                                              ; preds = %129
   %133 = add nsw i32 %130, -1
   store i32 %133, ptr %126, align 4, !tbaa !5
-  br label %lean_array_uset.exit92
+  br label %lean_dec.exit64
 
 134:                                              ; preds = %129
   %.not.i.i91 = icmp eq i32 %130, 0
-  br i1 %.not.i.i91, label %lean_array_uset.exit92, label %135
+  br i1 %.not.i.i91, label %lean_dec.exit64, label %135
 
 135:                                              ; preds = %134
   tail call void @lean_dec_ref_cold(ptr noundef nonnull %126) #5
-  br label %lean_array_uset.exit92
-
-lean_array_uset.exit92:                           ; preds = %lean_ensure_exclusive_array.exit.i88, %132, %134, %135
-  store ptr %62, ptr %125, align 8, !tbaa !11
   br label %lean_dec.exit64
 
-lean_dec.exit64:                                  ; preds = %lean_array_uset.exit86, %lean_array_uset.exit92
-  %.153 = phi ptr [ %.0.i.i89, %lean_array_uset.exit92 ], [ %.0.i.i83, %lean_array_uset.exit86 ]
+lean_dec.exit64:                                  ; preds = %135, %134, %132, %lean_ensure_exclusive_array.exit.i88, %110, %109, %107, %lean_ensure_exclusive_array.exit.i82
+  %.sink = phi ptr [ %100, %lean_ensure_exclusive_array.exit.i82 ], [ %100, %107 ], [ %100, %109 ], [ %100, %110 ], [ %125, %lean_ensure_exclusive_array.exit.i88 ], [ %125, %132 ], [ %125, %134 ], [ %125, %135 ]
+  %.153 = phi ptr [ %.0.i.i83, %lean_ensure_exclusive_array.exit.i82 ], [ %.0.i.i83, %107 ], [ %.0.i.i83, %109 ], [ %.0.i.i83, %110 ], [ %.0.i.i89, %lean_ensure_exclusive_array.exit.i88 ], [ %.0.i.i89, %132 ], [ %.0.i.i89, %134 ], [ %.0.i.i89, %135 ]
+  store ptr %62, ptr %.sink, align 8, !tbaa !11
   %.148 = add nuw i64 %.047111, 1
   %exitcond.not = icmp eq i64 %.148, %0
   br i1 %exitcond.not, label %._crit_edge, label %.lr.ph

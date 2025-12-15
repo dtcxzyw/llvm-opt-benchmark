@@ -1010,49 +1010,36 @@ _ZNSt6vectorIPN4cvc57context10ContextObjESaIS3_EE9push_backERKS3_.exit: ; preds 
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(write, argmem: readwrite, inaccessiblemem: none, target_mem0: none, target_mem1: none) uwtable
 define hidden void @_ZN4cvc57context16ContextNotifyObjC2EPNS0_7ContextEb(ptr noundef nonnull align 8 dereferenceable(24) initializes((0, 8)) %0, ptr noundef %1, i1 noundef zeroext %2) unnamed_addr #10 align 2 {
   store ptr getelementptr inbounds nuw inrange(-16, 24) (i8, ptr @_ZTVN4cvc57context16ContextNotifyObjE, i64 16), ptr %0, align 8, !tbaa !36
-  br i1 %2, label %4, label %12
+  br i1 %2, label %4, label %7
 
 4:                                                ; preds = %3
   %5 = getelementptr inbounds nuw i8, ptr %1, i64 32
   %6 = load ptr, ptr %5, align 8, !tbaa !32
   %.not.i = icmp eq ptr %6, null
-  br i1 %.not.i, label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit, label %7
+  br i1 %.not.i, label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit, label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit.sink.split
 
-7:                                                ; preds = %4
-  %8 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %9 = getelementptr inbounds nuw i8, ptr %6, i64 16
-  store ptr %8, ptr %9, align 8, !tbaa !47
+7:                                                ; preds = %3
+  %8 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %9 = load ptr, ptr %8, align 8, !tbaa !41
+  %.not.i3 = icmp eq ptr %9, null
+  br i1 %.not.i3, label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit, label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit.sink.split
+
+_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit.sink.split: ; preds = %7, %4
+  %.sink10 = phi ptr [ %6, %4 ], [ %9, %7 ]
+  %.sink5.ph = phi ptr [ %5, %4 ], [ %8, %7 ]
+  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %11 = getelementptr inbounds nuw i8, ptr %.sink10, i64 16
+  store ptr %10, ptr %11, align 8, !tbaa !47
   br label %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit
 
-_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit: ; preds = %4, %7
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %6, ptr %10, align 8, !tbaa !48
-  %11 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %5, ptr %11, align 8, !tbaa !47
-  store ptr %0, ptr %5, align 8, !tbaa !32
-  br label %20
-
-12:                                               ; preds = %3
-  %13 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %14 = load ptr, ptr %13, align 8, !tbaa !41
-  %.not.i3 = icmp eq ptr %14, null
-  br i1 %.not.i3, label %_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit, label %15
-
-15:                                               ; preds = %12
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %14, i64 16
-  store ptr %16, ptr %17, align 8, !tbaa !47
-  br label %_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit
-
-_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit: ; preds = %12, %15
-  %18 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store ptr %14, ptr %18, align 8, !tbaa !48
-  %19 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  store ptr %13, ptr %19, align 8, !tbaa !47
-  store ptr %0, ptr %13, align 8, !tbaa !41
-  br label %20
-
-20:                                               ; preds = %_ZN4cvc57context7Context16addNotifyObjPostEPNS0_16ContextNotifyObjE.exit, %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit
+_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit: ; preds = %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit.sink.split, %7, %4
+  %.sink7 = phi ptr [ %6, %4 ], [ %9, %7 ], [ %.sink10, %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit.sink.split ]
+  %.sink5 = phi ptr [ %5, %4 ], [ %8, %7 ], [ %.sink5.ph, %_ZN4cvc57context7Context15addNotifyObjPreEPNS0_16ContextNotifyObjE.exit.sink.split ]
+  %12 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store ptr %.sink7, ptr %12, align 8, !tbaa !48
+  %13 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  store ptr %.sink5, ptr %13, align 8, !tbaa !47
+  store ptr %0, ptr %.sink5, align 8, !tbaa !48
   ret void
 }
 

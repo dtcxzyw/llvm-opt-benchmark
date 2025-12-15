@@ -2487,8 +2487,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i: ; pred
   store i64 %49, ptr %51, align 8, !tbaa !20
   store ptr %41, ptr %38, align 8, !tbaa !15
   store i64 0, ptr %50, align 8, !tbaa !20
-  store i8 0, ptr %41, align 8, !tbaa !21
-  br label %_ZN5vcpkg14BundleSettingsC2EOS0_.exit
+  br label %_ZN5vcpkg14BundleSettingsC2EOS0_.exit.sink.split
 
 52:                                               ; preds = %3
   %53 = load i16, ptr %2, align 8
@@ -2585,10 +2584,14 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i4: ; pre
   store i64 %92, ptr %94, align 8, !tbaa !20
   store ptr %84, ptr %81, align 8, !tbaa !15
   store i64 0, ptr %93, align 8, !tbaa !20
-  store i8 0, ptr %84, align 8, !tbaa !21
+  br label %_ZN5vcpkg14BundleSettingsC2EOS0_.exit.sink.split
+
+_ZN5vcpkg14BundleSettingsC2EOS0_.exit.sink.split: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i4
+  %.sink = phi ptr [ %84, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i4 ], [ %41, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i ]
+  store i8 0, ptr %.sink, align 1, !tbaa !21
   br label %_ZN5vcpkg14BundleSettingsC2EOS0_.exit
 
-_ZN5vcpkg14BundleSettingsC2EOS0_.exit:            ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i4, %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i2, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit.i.i6.i, %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i
+_ZN5vcpkg14BundleSettingsC2EOS0_.exit:            ; preds = %_ZN5vcpkg14BundleSettingsC2EOS0_.exit.sink.split, %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i2, %_ZN5vcpkg8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEC2EOS7_.exit.i
   ret void
 }
 
@@ -2671,20 +2674,19 @@ _ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_trait
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %21 = load i8, ptr %20, align 8, !tbaa !22, !range !25, !noundef !26
   %22 = trunc nuw i8 %21 to i1
-  %.not = xor i1 %22, true
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %24 = load ptr, ptr %23, align 8
   %25 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %26 = icmp eq ptr %24, %25
-  %or.cond = select i1 %.not, i1 true, i1 %26
-  br i1 %or.cond, label %_ZN5vcpkg15LocalizedStringD2Ev.exit, label %_ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split
+  %26 = icmp ne ptr %24, %25
+  %or.cond.not = select i1 %22, i1 %26, i1 false
+  br i1 %or.cond.not, label %_ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split, label %_ZN5vcpkg15LocalizedStringD2Ev.exit
 
 _ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split:   ; preds = %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit.i.i, %5
-  %.sink7.in = phi ptr [ %7, %5 ], [ %25, %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit.i.i ]
+  %.sink8 = phi ptr [ %7, %5 ], [ %25, %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit.i.i ]
   %.sink = phi ptr [ %6, %5 ], [ %24, %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit.i.i ]
-  %.sink7 = load i64, ptr %.sink7.in, align 8, !tbaa !21
-  %27 = add i64 %.sink7, 1
-  tail call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %27) #27
+  %27 = load i64, ptr %.sink8, align 8, !tbaa !21
+  %28 = add i64 %27, 1
+  tail call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %28) #27
   br label %_ZN5vcpkg15LocalizedStringD2Ev.exit
 
 _ZN5vcpkg15LocalizedStringD2Ev.exit:              ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split, %5, %_ZN5vcpkg7details19OptionalStorageDtorINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEELb0EED2Ev.exit.i.i
@@ -2724,11 +2726,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i: ; preds = %9
   br i1 %18, label %_ZN5vcpkg15LocalizedStringD2Ev.exit, label %_ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split
 
 _ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %5
-  %.sink7.in = phi ptr [ %7, %5 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
+  %.sink8 = phi ptr [ %7, %5 ], [ %17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
   %.sink = phi ptr [ %6, %5 ], [ %16, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i ]
-  %.sink7 = load i64, ptr %.sink7.in, align 8, !tbaa !21
-  %19 = add i64 %.sink7, 1
-  tail call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %19) #27
+  %19 = load i64, ptr %.sink8, align 8, !tbaa !21
+  %20 = add i64 %19, 1
+  tail call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %20) #27
   br label %_ZN5vcpkg15LocalizedStringD2Ev.exit
 
 _ZN5vcpkg15LocalizedStringD2Ev.exit:              ; preds = %_ZN5vcpkg15LocalizedStringD2Ev.exit.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i, %5

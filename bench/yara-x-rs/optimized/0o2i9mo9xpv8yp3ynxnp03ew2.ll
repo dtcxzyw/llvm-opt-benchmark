@@ -1811,7 +1811,6 @@ define void @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$protob
 5:                                                ; preds = %4
   %6 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %0, align 8
   br label %26
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit": ; preds = %1, %4
@@ -1828,7 +1827,6 @@ define void @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$protob
 11:                                               ; preds = %10
   %12 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %7, align 8
   br label %26
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit18": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit", %10
@@ -1845,7 +1843,6 @@ define void @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$protob
 17:                                               ; preds = %16
   %18 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %13, align 8
   br label %26
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit20": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit18", %16
@@ -1862,7 +1859,6 @@ define void @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$protob
 23:                                               ; preds = %22
   %24 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %19, align 8
   br label %26
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit22": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit20", %22
@@ -1872,7 +1868,9 @@ define void @"_ZN85_$LT$yara_x_proto_json..yara..ModuleOptions$u20$as$u20$protob
   ret void
 
 26:                                               ; preds = %23, %17, %11, %5
+  %.sink = phi ptr [ %19, %23 ], [ %13, %17 ], [ %7, %11 ], [ %0, %5 ]
   %.pn = phi { ptr, i32 } [ %24, %23 ], [ %18, %17 ], [ %12, %11 ], [ %6, %5 ]
+  store i64 -9223372036854775808, ptr %.sink, align 8
   resume { ptr, i32 } %.pn
 }
 
@@ -3309,8 +3307,7 @@ define void @"_ZN84_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$protobu
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %2, align 8
-  br label %common.resume
+  br label %common.resume.sink.split
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit": ; preds = %1, %5
   store i64 -9223372036854775808, ptr %2, align 8
@@ -3350,8 +3347,14 @@ define void @"_ZN84_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$protobu
   invoke void @"_ZN4core3ptr54drop_in_place$LT$yara_x_proto_json..yara..AclEntry$GT$17h4d981e06ac78e194E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %23) #22
           to label %18 unwind label %25
 
-common.resume:                                    ; preds = %18, %6, %32, %38
-  %common.resume.op = phi { ptr, i32 } [ %39, %38 ], [ %33, %32 ], [ %7, %6 ], [ %21, %18 ]
+common.resume.sink.split:                         ; preds = %38, %32, %6
+  %.sink = phi ptr [ %2, %6 ], [ %28, %32 ], [ %34, %38 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %7, %6 ], [ %33, %32 ], [ %39, %38 ]
+  store i64 -9223372036854775808, ptr %.sink, align 8
+  br label %common.resume
+
+common.resume:                                    ; preds = %18, %common.resume.sink.split
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.ph, %common.resume.sink.split ], [ %21, %18 ]
   resume { ptr, i32 } %common.resume.op
 
 25:                                               ; preds = %22
@@ -3375,8 +3378,7 @@ common.resume:                                    ; preds = %18, %6, %32, %38
 32:                                               ; preds = %31
   %33 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %28, align 8
-  br label %common.resume
+  br label %common.resume.sink.split
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit14": ; preds = %"_ZN4core3ptr64drop_in_place$LT$$u5b$yara_x_proto_json..yara..AclEntry$u5d$$GT$17hfc6ffb491fb58cfbE.exit", %31
   store i64 -9223372036854775808, ptr %28, align 8
@@ -3392,8 +3394,7 @@ common.resume:                                    ; preds = %18, %6, %32, %38
 38:                                               ; preds = %37
   %39 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %34, align 8
-  br label %common.resume
+  br label %common.resume.sink.split
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit16": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit14", %37
   store i64 -9223372036854775808, ptr %34, align 8
@@ -4488,8 +4489,7 @@ define void @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$protobuf..m
 6:                                                ; preds = %5
   %7 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %2, align 8
-  br label %common.resume
+  br label %common.resume.sink.split
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit": ; preds = %1, %5
   store i64 -9223372036854775808, ptr %2, align 8
@@ -4505,8 +4505,7 @@ define void @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$protobuf..m
 12:                                               ; preds = %11
   %13 = landingpad { ptr, i32 }
           cleanup
-  store i64 -9223372036854775808, ptr %8, align 8
-  br label %common.resume
+  br label %common.resume.sink.split
 
 "_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit10": ; preds = %"_ZN4core3ptr70drop_in_place$LT$core..option..Option$LT$alloc..string..String$GT$$GT$17h9c8546d75467d724E.exit", %11
   store i64 -9223372036854775808, ptr %8, align 8
@@ -4544,8 +4543,14 @@ define void @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$protobuf..m
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf5f794ef33da7d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #22
           to label %23 unwind label %30
 
-common.resume:                                    ; preds = %23, %41, %6, %12
-  %common.resume.op = phi { ptr, i32 } [ %13, %12 ], [ %7, %6 ], [ %44, %41 ], [ %26, %23 ]
+common.resume.sink.split:                         ; preds = %12, %6
+  %.sink = phi ptr [ %2, %6 ], [ %8, %12 ]
+  %common.resume.op.ph = phi { ptr, i32 } [ %7, %6 ], [ %13, %12 ]
+  store i64 -9223372036854775808, ptr %.sink, align 8
+  br label %common.resume
+
+common.resume:                                    ; preds = %23, %41, %common.resume.sink.split
+  %common.resume.op = phi { ptr, i32 } [ %common.resume.op.ph, %common.resume.sink.split ], [ %44, %41 ], [ %26, %23 ]
   resume { ptr, i32 } %common.resume.op
 
 30:                                               ; preds = %27

@@ -3066,7 +3066,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
   %.1269 = phi ptr [ %.12280, %38 ], [ %.0268399, %15 ]
   %.1256 = phi i64 [ %.12267, %38 ], [ %.0255400, %15 ]
   %.not69.i = icmp eq i64 %.1256, 0
-  br i1 %.not69.i, label %.critedge6.i.thread, label %.lr.ph.i.preheader
+  br i1 %.not69.i, label %next_field.exit.sink.split, label %.lr.ph.i.preheader
 
 .lr.ph.i.preheader:                               ; preds = %.preheader380
   %scevgep = getelementptr i8, ptr %.1269, i64 %.1256
@@ -3086,7 +3086,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
   %18 = getelementptr inbounds nuw i8, ptr %.2270, i64 1
   %19 = add i64 %.2257, -1
   %.not.i = icmp eq i64 %19, 0
-  br i1 %.not.i, label %.critedge6.i.thread, label %.lr.ph.i, !llvm.loop !66
+  br i1 %.not.i, label %next_field.exit.sink.split, label %.lr.ph.i, !llvm.loop !66
 
 .lr.ph72.ithread-pre-split:                       ; preds = %23
   %20 = getelementptr inbounds nuw i8, ptr %.10278, i64 1
@@ -3112,7 +3112,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
 23:                                               ; preds = %.lr.ph72.i
   %24 = add i64 %22, -1
   %.not50.i = icmp eq i64 %24, 0
-  br i1 %.not50.i, label %.critedge6.i.thread, label %.lr.ph72.ithread-pre-split, !llvm.loop !67
+  br i1 %.not50.i, label %next_field.exit.sink.split, label %.lr.ph72.ithread-pre-split, !llvm.loop !67
 
 .lr.ph81.i:                                       ; preds = %.lr.ph81.i.preheader, %27
   %.11279 = phi ptr [ %28, %27 ], [ %.10278, %.lr.ph81.i.preheader ]
@@ -3129,14 +3129,7 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
   %28 = getelementptr inbounds nuw i8, ptr %.11279, i64 1
   %29 = add i64 %25, -1
   %.not57.i = icmp eq i64 %29, 0
-  br i1 %.not57.i, label %.critedge6.i.thread, label %.lr.ph81.i, !llvm.loop !68
-
-.critedge6.i.thread:                              ; preds = %.critedge2.i, %23, %27, %.preheader380
-  %.5273 = phi ptr [ %.1269, %.preheader380 ], [ %scevgep, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
-  %.1241 = phi ptr [ %.1269, %.preheader380 ], [ %.2270, %27 ], [ %.2270, %23 ], [ %scevgep, %.critedge2.i ]
-  %.0238 = phi ptr [ %.1269, %.preheader380 ], [ %.10278, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
-  %.pr111.i = load i8, ptr %.5273, align 1, !tbaa !34
-  br label %next_field.exit
+  br i1 %.not57.i, label %next_field.exit.sink.split, label %.lr.ph81.i, !llvm.loop !68
 
 .lr.ph88.i.preheader:                             ; preds = %.lr.ph81.i
   %scevgep433 = getelementptr i8, ptr %.11279, i64 %25
@@ -3158,15 +3151,21 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
   br i1 %.not62.i, label %..critedge8.i.loopexit_crit_edge, label %.lr.ph88.i, !llvm.loop !69
 
 ..critedge8.i.loopexit_crit_edge:                 ; preds = %31
-  %.pre.pre = load i8, ptr %scevgep433, align 1, !tbaa !34
-  br label %next_field.exit, !llvm.loop !69
+  br label %next_field.exit.sink.split, !llvm.loop !69
 
-next_field.exit:                                  ; preds = %.lr.ph81.i, %.lr.ph81.i, %.lr.ph81.i, %.lr.ph88.i, %.lr.ph88.i, %.critedge6.i.thread, %..critedge8.i.loopexit_crit_edge
-  %.1239483 = phi ptr [ %.10278, %..critedge8.i.loopexit_crit_edge ], [ %.0238, %.critedge6.i.thread ], [ %.10278, %.lr.ph88.i ], [ %.10278, %.lr.ph88.i ], [ %.10278, %.lr.ph81.i ], [ %.10278, %.lr.ph81.i ], [ %.10278, %.lr.ph81.i ]
-  %.2242481 = phi ptr [ %.2270, %..critedge8.i.loopexit_crit_edge ], [ %.1241, %.critedge6.i.thread ], [ %.2270, %.lr.ph88.i ], [ %.2270, %.lr.ph88.i ], [ %.2270, %.lr.ph81.i ], [ %.2270, %.lr.ph81.i ], [ %.2270, %.lr.ph81.i ]
-  %.7275 = phi ptr [ %scevgep433, %..critedge8.i.loopexit_crit_edge ], [ %.5273, %.critedge6.i.thread ], [ %.8276, %.lr.ph88.i ], [ %.8276, %.lr.ph88.i ], [ %.11279, %.lr.ph81.i ], [ %.11279, %.lr.ph81.i ], [ %.11279, %.lr.ph81.i ]
-  %.7262 = phi i64 [ 0, %..critedge8.i.loopexit_crit_edge ], [ 0, %.critedge6.i.thread ], [ %.8263, %.lr.ph88.i ], [ %.8263, %.lr.ph88.i ], [ %25, %.lr.ph81.i ], [ %25, %.lr.ph81.i ], [ %25, %.lr.ph81.i ]
-  %.0243 = phi i8 [ %.pre.pre, %..critedge8.i.loopexit_crit_edge ], [ %.pr111.i, %.critedge6.i.thread ], [ %30, %.lr.ph88.i ], [ %30, %.lr.ph88.i ], [ %26, %.lr.ph81.i ], [ %26, %.lr.ph81.i ], [ %26, %.lr.ph81.i ]
+next_field.exit.sink.split:                       ; preds = %.critedge2.i, %23, %27, %.preheader380, %..critedge8.i.loopexit_crit_edge
+  %.5273.sink = phi ptr [ %scevgep433, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %scevgep, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
+  %.1239483.ph = phi ptr [ %.10278, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %.10278, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
+  %.2242481.ph = phi ptr [ %.2270, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %.2270, %27 ], [ %.2270, %23 ], [ %scevgep, %.critedge2.i ]
+  %.pr111.i = load i8, ptr %.5273.sink, align 1, !tbaa !34
+  br label %next_field.exit
+
+next_field.exit:                                  ; preds = %.lr.ph81.i, %.lr.ph81.i, %.lr.ph81.i, %.lr.ph88.i, %.lr.ph88.i, %next_field.exit.sink.split
+  %.1239483 = phi ptr [ %.1239483.ph, %next_field.exit.sink.split ], [ %.10278, %.lr.ph88.i ], [ %.10278, %.lr.ph88.i ], [ %.10278, %.lr.ph81.i ], [ %.10278, %.lr.ph81.i ], [ %.10278, %.lr.ph81.i ]
+  %.2242481 = phi ptr [ %.2242481.ph, %next_field.exit.sink.split ], [ %.2270, %.lr.ph88.i ], [ %.2270, %.lr.ph88.i ], [ %.2270, %.lr.ph81.i ], [ %.2270, %.lr.ph81.i ], [ %.2270, %.lr.ph81.i ]
+  %.7275 = phi ptr [ %.5273.sink, %next_field.exit.sink.split ], [ %.8276, %.lr.ph88.i ], [ %.8276, %.lr.ph88.i ], [ %.11279, %.lr.ph81.i ], [ %.11279, %.lr.ph81.i ], [ %.11279, %.lr.ph81.i ]
+  %.7262 = phi i64 [ 0, %next_field.exit.sink.split ], [ %.8263, %.lr.ph88.i ], [ %.8263, %.lr.ph88.i ], [ %25, %.lr.ph81.i ], [ %25, %.lr.ph81.i ], [ %25, %.lr.ph81.i ]
+  %.0243 = phi i8 [ %.pr111.i, %next_field.exit.sink.split ], [ %30, %.lr.ph88.i ], [ %30, %.lr.ph88.i ], [ %26, %.lr.ph81.i ], [ %26, %.lr.ph81.i ], [ %26, %.lr.ph81.i ]
   %.not65.i = icmp ne i64 %.7262, 0
   %.12280.idx = zext i1 %.not65.i to i64
   %.12280 = getelementptr inbounds nuw i8, ptr %.7275, i64 %.12280.idx

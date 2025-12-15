@@ -2419,17 +2419,12 @@ _ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i134: ; preds = %_ZNK6he
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138: ; preds = %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i134
   %82 = load i16, ptr %81, align 2
   %cmp.i139 = icmp eq i16 %82, 43
-  br i1 %cmp.i139, label %if.else.i.i140, label %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i117
+  br i1 %cmp.i139, label %_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i, label %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i117
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i129: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i146
   %83 = load i8, ptr %79, align 1
   %cmp4.i130 = icmp eq i8 %83, 43
   br i1 %cmp4.i130, label %if.then.i257.i, label %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i112
-
-if.else.i.i140:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138
-  %incdec.ptr3.i.i141 = getelementptr inbounds nuw i8, ptr %81, i64 2
-  store ptr %incdec.ptr3.i.i141, ptr %char16Ptr_.i.i.i135, align 8
-  br label %_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i
 
 _ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i117: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138, %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i134
   %char16Ptr_.i.i.i118 = getelementptr inbounds nuw i8, ptr %it.i, i64 8
@@ -2440,17 +2435,12 @@ _ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i117: ; preds = %_ZNK6he
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121: ; preds = %_ZNK6hermes2vm10StringView14const_iteratorneERKS2_.exit.i117
   %85 = load i16, ptr %84, align 2
   %cmp.i122 = icmp eq i16 %85, 45
-  br i1 %cmp.i122, label %if.else.i.i123, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
+  br i1 %cmp.i122, label %_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
 
 _ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i112: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i129
   %86 = load i8, ptr %79, align 1
   %cmp4.i113 = icmp eq i8 %86, 45
   br i1 %cmp4.i113, label %if.then.i257.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread
-
-if.else.i.i123:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121
-  %incdec.ptr3.i.i124 = getelementptr inbounds nuw i8, ptr %84, i64 2
-  store ptr %incdec.ptr3.i.i124, ptr %char16Ptr_.i.i.i118, align 8
-  br label %_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i
 
 if.then.i257.i:                                   ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i129, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i112
   %sign.1.i.ph582 = phi double [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i129 ], [ -1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.thread.i112 ]
@@ -2462,8 +2452,12 @@ if.then.i257.i:                                   ; preds = %_ZNK6hermes2vm10Str
   %cmp.i258.i = icmp ugt ptr %.ph, %retval.sroa.0.0.i253.i588
   br i1 %cmp.i258.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end90.i
 
-_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i: ; preds = %if.else.i.i140, %if.else.i.i123
-  %sign.1.i.ph = phi double [ -1.000000e+00, %if.else.i.i123 ], [ 1.000000e+00, %if.else.i.i140 ]
+_ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138
+  %.sink = phi ptr [ %81, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ %84, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
+  %char16Ptr_.i.i.i135.sink = phi ptr [ %char16Ptr_.i.i.i135, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ %char16Ptr_.i.i.i118, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
+  %sign.1.i.ph = phi double [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ -1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
+  %incdec.ptr3.i.i141 = getelementptr inbounds nuw i8, ptr %.sink, i64 2
+  store ptr %incdec.ptr3.i.i141, ptr %char16Ptr_.i.i.i135.sink, align 8
   %tobool.not.i249.i = icmp eq ptr %retval.sroa.0.0.i52.i, null
   %retval.sroa.3.0.idx.i.i = select i1 %tobool.not.i249.i, i64 -2, i64 0
   %retval.sroa.3.0.i252.i = getelementptr inbounds i16, ptr %retval.sroa.3.0.i51.i, i64 %retval.sroa.3.0.idx.i.i

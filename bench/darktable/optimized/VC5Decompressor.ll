@@ -3751,7 +3751,7 @@ _ZSt11make_uniqueIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandEJRS2_RNS0_10B
   %76 = load ptr, ptr %33, align 8, !tbaa !71
   store ptr %42, ptr %33, align 8, !tbaa !71
   %.not.i.i.i21 = icmp eq ptr %76, null
-  br i1 %.not.i.i.i21, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit
+  br i1 %.not.i.i.i21, label %_ZN8rawspeed8OptionalItE5resetEv.exit.sink.split, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit: ; preds = %_ZSt11make_uniqueIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandEJRS2_RNS0_10ByteStreamERtEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
   %77 = load ptr, ptr %76, align 8, !tbaa !76
@@ -3760,11 +3760,7 @@ _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_d
   tail call void %79(ptr noundef nonnull align 8 dereferenceable(88) %76) #35
   %.pre42 = load i8, ptr %36, align 8, !tbaa !103, !range !60
   %80 = trunc nuw i8 %.pre42 to i1
-  br i1 %80, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit.thread, label %_ZN8rawspeed8OptionalItE5resetEv.exit
-
-_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit.thread: ; preds = %_ZSt11make_uniqueIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandEJRS2_RNS0_10ByteStreamERtEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit
-  store i8 0, ptr %36, align 8, !tbaa !103
-  br label %_ZN8rawspeed8OptionalItE5resetEv.exit
+  br i1 %80, label %_ZN8rawspeed8OptionalItE5resetEv.exit.sink.split, label %_ZN8rawspeed8OptionalItE5resetEv.exit
 
 81:                                               ; preds = %29
   %82 = getelementptr inbounds nuw i8, ptr %0, i64 220
@@ -3802,7 +3798,7 @@ _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_d
   %100 = load ptr, ptr %33, align 8, !tbaa !71
   store ptr %93, ptr %33, align 8, !tbaa !71
   %.not.i.i.i25 = icmp eq ptr %100, null
-  br i1 %.not.i.i.i25, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit.thread, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit
+  br i1 %.not.i.i.i25, label %_ZN8rawspeed8OptionalItE5resetEv.exit.sink.split, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit
 
 _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit: ; preds = %86
   %101 = load ptr, ptr %100, align 8, !tbaa !76
@@ -3811,13 +3807,14 @@ _ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_
   tail call void %103(ptr noundef nonnull align 8 dereferenceable(88) %100) #35
   %.pre = load i8, ptr %82, align 4, !tbaa !104, !range !60
   %104 = trunc nuw i8 %.pre to i1
-  br i1 %104, label %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit.thread, label %_ZN8rawspeed8OptionalItE5resetEv.exit
+  br i1 %104, label %_ZN8rawspeed8OptionalItE5resetEv.exit.sink.split, label %_ZN8rawspeed8OptionalItE5resetEv.exit
 
-_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit.thread: ; preds = %86, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit
-  store i8 0, ptr %82, align 4, !tbaa !104
+_ZN8rawspeed8OptionalItE5resetEv.exit.sink.split: ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit, %86, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit, %_ZSt11make_uniqueIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandEJRS2_RNS0_10ByteStreamERtEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit
+  %.sink = phi ptr [ %36, %_ZSt11make_uniqueIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandEJRS2_RNS0_10ByteStreamERtEENSt8__detail9_MakeUniqIT_E15__single_objectEDpOT0_.exit ], [ %36, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit ], [ %82, %86 ], [ %82, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit ]
+  store i8 0, ptr %.sink, align 2, !tbaa !58
   br label %_ZN8rawspeed8OptionalItE5resetEv.exit
 
-_ZN8rawspeed8OptionalItE5resetEv.exit:            ; preds = %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit.thread, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit
+_ZN8rawspeed8OptionalItE5resetEv.exit:            ; preds = %_ZN8rawspeed8OptionalItE5resetEv.exit.sink.split, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet12HighPassBandESt14default_deleteIS3_EED2Ev.exit, %_ZNSt10unique_ptrIN8rawspeed15VC5Decompressor7Wavelet11LowPassBandESt14default_deleteIS3_EED2Ev.exit
   %105 = load i32, ptr %23, align 8, !tbaa !6
   %106 = or i32 %105, %25
   store i32 %106, ptr %23, align 8, !tbaa !6

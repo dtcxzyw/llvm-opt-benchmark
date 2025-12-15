@@ -19613,7 +19613,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   %2478 = getelementptr inbounds nuw i8, ptr %1, i64 1612
   %2479 = load i8, ptr %2478, align 4, !range !26, !noalias !5524, !noundef !5
   %2480 = trunc nuw i8 %2479 to i1
-  br i1 %2480, label %2494, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i"
+  br i1 %2480, label %2494, label %2605
 
 2481:                                             ; preds = %"_ZN4core3ptr90drop_in_place$LT$async_lock..rwlock..RwLockWriteGuard$LT$zbus..object_server..Node$GT$$GT$17h75bcb3a01b23b95fE.exit221.i"
   %2482 = getelementptr inbounds nuw i8, ptr %1, i64 1344
@@ -19645,10 +19645,6 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           cleanup
   br label %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit252.i"
 
-"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i": ; preds = %2502, %2497, %2494, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit227.i"
-  store i8 0, ptr %2478, align 4, !noalias !5524
-  br label %2605
-
 2494:                                             ; preds = %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit227.i"
   %2495 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   call void @llvm.experimental.noalias.scope.decl(metadata !6179)
@@ -19656,7 +19652,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   call void @llvm.experimental.noalias.scope.decl(metadata !6185)
   %2496 = load i64, ptr %2495, align 8, !range !22, !alias.scope !6188, !noalias !5524, !noundef !5
   %switch.i.i.i228.i = icmp samesign ult i64 %2496, 2
-  br i1 %switch.i.i.i228.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i", label %2497
+  br i1 %switch.i.i.i228.i, label %2605, label %2497
 
 2497:                                             ; preds = %2494
   %2498 = getelementptr inbounds nuw i8, ptr %1, i64 1328
@@ -19665,12 +19661,12 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   %2499 = load ptr, ptr %2498, align 8, !alias.scope !6195, !noalias !5524, !nonnull !5, !noundef !5
   %2500 = atomicrmw sub ptr %2499, i64 1 release, align 8, !noalias !6196
   %2501 = icmp eq i64 %2500, 1
-  br i1 %2501, label %2502, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i"
+  br i1 %2501, label %2502, label %2605
 
 2502:                                             ; preds = %2497
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h718d63e7dc0a768bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2498)
-          to label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i" unwind label %2506, !noalias !5528
+          to label %2605 unwind label %2506, !noalias !5528
 
 "_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit257.i": ; preds = %2601, %2596, %2593, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit254.i", %2506
   %2503 = phi ptr [ %2507, %2506 ], [ %2546, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit254.i" ], [ %2546, %2601 ], [ %2546, %2593 ], [ %2546, %2596 ]
@@ -19768,7 +19764,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   %2537 = getelementptr inbounds nuw i8, ptr %1, i64 1612
   %2538 = load i8, ptr %2537, align 4, !range !26, !noalias !5524, !noundef !5
   %2539 = trunc nuw i8 %2538 to i1
-  br i1 %2539, label %2554, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i"
+  br i1 %2539, label %2554, label %2605
 
 2540:                                             ; preds = %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit238.i"
   %2541 = getelementptr inbounds nuw i8, ptr %1, i64 1616
@@ -19801,10 +19797,6 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
           cleanup
   br label %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit254.i"
 
-"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i": ; preds = %2562, %2557, %2554, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i"
-  store i8 0, ptr %2537, align 4, !noalias !5524
-  br label %2605
-
 2554:                                             ; preds = %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i"
   %2555 = getelementptr inbounds nuw i8, ptr %1, i64 1320
   call void @llvm.experimental.noalias.scope.decl(metadata !6247)
@@ -19812,7 +19804,7 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   call void @llvm.experimental.noalias.scope.decl(metadata !6253)
   %2556 = load i64, ptr %2555, align 8, !range !22, !alias.scope !6256, !noalias !5524, !noundef !5
   %switch.i.i.i240.i = icmp samesign ult i64 %2556, 2
-  br i1 %switch.i.i.i240.i, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i", label %2557
+  br i1 %switch.i.i.i240.i, label %2605, label %2557
 
 2557:                                             ; preds = %2554
   %2558 = getelementptr inbounds nuw i8, ptr %1, i64 1328
@@ -19821,12 +19813,12 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   %2559 = load ptr, ptr %2558, align 8, !alias.scope !6263, !noalias !5524, !nonnull !5, !noundef !5
   %2560 = atomicrmw sub ptr %2559, i64 1 release, align 8, !noalias !6264
   %2561 = icmp eq i64 %2560, 1
-  br i1 %2561, label %2562, label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i"
+  br i1 %2561, label %2562, label %2605
 
 2562:                                             ; preds = %2557
   fence acquire
   invoke void @"_ZN5alloc4sync16Arc$LT$T$C$A$GT$9drop_slow17h718d63e7dc0a768bE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %2558)
-          to label %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i" unwind label %2506, !noalias !5528
+          to label %2605 unwind label %2506, !noalias !5528
 
 2563:                                             ; preds = %2410
   %2564 = getelementptr inbounds nuw i8, ptr %1, i64 1704
@@ -19945,9 +19937,11 @@ _ZN4core3ops8function6FnOnce9call_once17hf36152332a4ffcfcE.exit.i54.i.i: ; preds
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.6321.i)
   br label %2610
 
-2605:                                             ; preds = %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i", %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i"
-  %2606 = phi ptr [ %1699, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i" ], [ %1835, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i" ]
-  %2607 = phi ptr [ %1700, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit230.i" ], [ %1836, %"_ZN4core3ptr62drop_in_place$LT$zbus_names..interface_name..InterfaceName$GT$17h79766f5fa9c48ff2E.exit242.i" ]
+2605:                                             ; preds = %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit227.i", %2494, %2497, %2502, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i", %2554, %2557, %2562
+  %2606 = phi ptr [ %1835, %2557 ], [ %1835, %2554 ], [ %1835, %2562 ], [ %1835, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i" ], [ %1699, %2497 ], [ %1699, %2494 ], [ %1699, %2502 ], [ %1699, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit227.i" ]
+  %2607 = phi ptr [ %1836, %2557 ], [ %1836, %2554 ], [ %1836, %2562 ], [ %1836, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i" ], [ %1700, %2497 ], [ %1700, %2494 ], [ %1700, %2502 ], [ %1700, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit227.i" ]
+  %.sink526.i = phi ptr [ %2537, %2557 ], [ %2537, %2554 ], [ %2537, %2562 ], [ %2537, %"_ZN4core3ptr65drop_in_place$LT$zbus..object_server..interface..ArcInterface$GT$17h5f3d32aa12cce471E.exit.i" ], [ %2478, %2497 ], [ %2478, %2494 ], [ %2478, %2502 ], [ %2478, %"_ZN4core3ptr54drop_in_place$LT$zvariant..object_path..ObjectPath$GT$17hc579dcd9e643ded5E.exit227.i" ]
+  store i8 0, ptr %.sink526.i, align 4, !noalias !5524
   %.sroa.0497.0.copyload498 = load i64, ptr %104, align 8, !noalias !6329
   %.sroa.12499.0..sroa_idx500 = getelementptr inbounds nuw i8, ptr %104, i64 8
   %.sroa.12499.sroa.0.0.copyload = load i64, ptr %.sroa.12499.0..sroa_idx500, align 8
@@ -25582,14 +25576,16 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit": ; preds = %4540, %4539, %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17h4a20a31823f77688E.exit", %4545
   %4569 = getelementptr inbounds nuw i8, ptr %1, i64 905
   store i8 0, ptr %4569, align 1
-  store i8 0, ptr %4522, align 1
-  store i8 0, ptr %4525, align 4
   br label %4570
 
 4570:                                             ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335", %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit"
-  %.sroa.0534.5 = phi i64 [ 21, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ], [ %.sroa.0534.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ]
-  %.sroa.17.5 = phi i8 [ undef, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ], [ %.sroa.17.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ]
-  %.sroa.8536.5 = phi ptr [ %4464, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ], [ %.sroa.8536.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ]
+  %.sink854 = phi ptr [ %4700, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4522, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sink853 = phi ptr [ %4714, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4525, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sroa.0534.5 = phi i64 [ %.sroa.0534.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ 21, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sroa.17.5 = phi i8 [ %.sroa.17.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sroa.8536.5 = phi ptr [ %.sroa.8536.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4464, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  store i8 0, ptr %.sink854, align 1
+  store i8 0, ptr %.sink853, align 4
   store i64 %.sroa.0534.5, ptr %0, align 8
   %.sroa.8536.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store ptr %.sroa.8536.5, ptr %.sroa.8536.0..sroa_idx, align 8
@@ -25836,7 +25832,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   %4665 = add nsw i64 %4662, -4
   %4666 = icmp ult i64 %4665, 5
   %4667 = select i1 %4666, i64 %4665, i64 2
-  switch i64 %4667, label %.invoke853 [
+  switch i64 %4667, label %.invoke855 [
     i64 0, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split"
     i64 1, label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split"
     i64 2, label %4668
@@ -25846,7 +25842,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   invoke void @"_ZN4core3ptr43drop_in_place$LT$zbus..address..Address$GT$17h632ab74766d27bbfE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4661)
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325" unwind label %4680
 
-.invoke853:                                       ; preds = %4664
+.invoke855:                                       ; preds = %4664
   %4669 = getelementptr inbounds nuw i8, ptr %1, i64 416
   invoke void @"_ZN4core3ptr205drop_in_place$LT$zbus..connection..socket..split..Split$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$C$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17h78ba746454fe8e19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4669)
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325" unwind label %4680
@@ -25879,7 +25875,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           cleanup
   br label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit349"
 
-4680:                                             ; preds = %.invoke853, %4668
+4680:                                             ; preds = %.invoke855, %4668
   %4681 = landingpad { ptr, i32 }
           cleanup
   %4682 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -25887,12 +25883,12 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           to label %4694 unwind label %1012
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split": ; preds = %4664, %4664
-  %.sink854.in = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %.sink854 = load i32, ptr %.sink854.in, align 8, !alias.scope !7700, !noundef !5
-  %4683 = call noundef i32 @close(i32 noundef %.sink854) #22, !noalias !7700
+  %.sink856.in = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %.sink856 = load i32, ptr %.sink856.in, align 8, !alias.scope !7700, !noundef !5
+  %4683 = call noundef i32 @close(i32 noundef %.sink856) #22, !noalias !7700
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325"
 
-"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325": ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split", %.invoke853, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit", %4668
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325": ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split", %.invoke855, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit", %4668
   %4684 = getelementptr inbounds nuw i8, ptr %1, i64 360
   call void @llvm.experimental.noalias.scope.decl(metadata !7701)
   %4685 = load i64, ptr %4684, align 8, !range !106, !alias.scope !7701, !noundef !5
@@ -26065,8 +26061,6 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
 
 "_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335": ; preds = %4729, %4728, %"_ZN4core3ptr154drop_in_place$LT$core..option..Option$LT$alloc..collections..vec_deque..VecDeque$LT$zbus..connection..handshake..auth_mechanism..AuthMechanism$GT$$GT$$GT$17h4a20a31823f77688E.exit341", %4734
   store i8 0, ptr %4703, align 1
-  store i8 0, ptr %4700, align 1
-  store i8 0, ptr %4714, align 4
   br label %4570
 
 4752:                                             ; preds = %4694

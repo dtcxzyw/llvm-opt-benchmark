@@ -2585,21 +2585,20 @@ define void @Extra_ThreshSimplifyInequalities(i32 noundef %0, i32 noundef %1, pt
 19:                                               ; preds = %17
   %20 = sub nuw i64 %15, %13
   store i64 %20, ptr %14, align 8, !tbaa !9
-  store i64 0, ptr %12, align 8, !tbaa !9
   br label %24
 
 21:                                               ; preds = %17
   %22 = sub nuw i64 %13, %15
   store i64 %22, ptr %12, align 8, !tbaa !9
-  store i64 0, ptr %14, align 8, !tbaa !9
   br label %24
 
 23:                                               ; preds = %11
   store i64 0, ptr %12, align 8, !tbaa !9
-  store i64 0, ptr %14, align 8, !tbaa !9
   br label %24
 
 24:                                               ; preds = %23, %21, %19
+  %.sink = phi ptr [ %14, %23 ], [ %14, %21 ], [ %12, %19 ]
+  store i64 0, ptr %.sink, align 8, !tbaa !9
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge.us, label %11, !llvm.loop !78
@@ -2703,21 +2702,20 @@ define range(i32 -2147483647, 1001) i32 @Extra_ThreshAssignWeights(ptr readnone 
 52:                                               ; preds = %50
   %53 = sub nuw i64 %48, %46
   store i64 %53, ptr %47, align 8, !tbaa !9
-  store i64 0, ptr %45, align 8, !tbaa !9
   br label %57
 
 54:                                               ; preds = %50
   %55 = sub nuw i64 %46, %48
   store i64 %55, ptr %45, align 8, !tbaa !9
-  store i64 0, ptr %47, align 8, !tbaa !9
   br label %57
 
 56:                                               ; preds = %44
   store i64 0, ptr %45, align 8, !tbaa !9
-  store i64 0, ptr %47, align 8, !tbaa !9
   br label %57
 
 57:                                               ; preds = %56, %54, %52
+  %.sink.i = phi ptr [ %47, %56 ], [ %47, %54 ], [ %45, %52 ]
+  store i64 0, ptr %.sink.i, align 8, !tbaa !9
   %indvars.iv.next.i = add nuw nsw i64 %indvars.iv.i, 1
   %exitcond.not.i = icmp eq i64 %indvars.iv.next.i, %wide.trip.count.i
   br i1 %exitcond.not.i, label %._crit_edge.us.i, label %44, !llvm.loop !78

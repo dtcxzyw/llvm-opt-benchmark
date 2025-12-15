@@ -34874,58 +34874,53 @@ define linkonce_odr dso_local noundef i32 @_ZN12ExampleAsset20CompareWithSortSpe
   %11 = getelementptr inbounds nuw i8, ptr %10, i64 4
   %12 = load i16, ptr %11, align 4, !tbaa !590
   switch i16 %12, label %.thread27 [
-    i16 0, label %13
-    i16 1, label %17
+    i16 0, label %14
+    i16 1, label %13
   ]
 
 13:                                               ; preds = %9
-  %14 = load i32, ptr %0, align 4, !tbaa !581
-  %15 = load i32, ptr %1, align 4, !tbaa !581
-  %16 = sub nsw i32 %14, %15
-  br label %21
+  br label %14
 
-17:                                               ; preds = %9
-  %18 = load i32, ptr %7, align 4, !tbaa !585
-  %19 = load i32, ptr %8, align 4, !tbaa !585
-  %20 = sub nsw i32 %18, %19
-  br label %21
+14:                                               ; preds = %9, %13
+  %.sink47 = phi ptr [ %7, %13 ], [ %0, %9 ]
+  %.sink46 = phi ptr [ %8, %13 ], [ %1, %9 ]
+  %15 = load i32, ptr %.sink47, align 4, !tbaa !54
+  %16 = load i32, ptr %.sink46, align 4, !tbaa !54
+  %17 = sub nsw i32 %15, %16
+  %18 = icmp sgt i32 %17, 0
+  br i1 %18, label %19, label %24
 
-21:                                               ; preds = %17, %13
-  %.0 = phi i32 [ %16, %13 ], [ %20, %17 ]
-  %22 = icmp sgt i32 %.0, 0
-  br i1 %22, label %23, label %28
-
-23:                                               ; preds = %21
-  %24 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %25 = load i8, ptr %24, align 4, !tbaa !504
-  %26 = icmp eq i8 %25, 1
-  %27 = select i1 %26, i32 1, i32 -1
+19:                                               ; preds = %14
+  %20 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %21 = load i8, ptr %20, align 4, !tbaa !504
+  %22 = icmp eq i8 %21, 1
+  %23 = select i1 %22, i32 1, i32 -1
   br label %.thread34
 
-28:                                               ; preds = %21
-  %29 = icmp slt i32 %.0, 0
-  br i1 %29, label %30, label %.thread27
+24:                                               ; preds = %14
+  %25 = icmp slt i32 %17, 0
+  br i1 %25, label %26, label %.thread27
 
-30:                                               ; preds = %28
-  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %32 = load i8, ptr %31, align 4, !tbaa !504
-  %33 = icmp eq i8 %32, 1
-  %34 = select i1 %33, i32 -1, i32 1
+26:                                               ; preds = %24
+  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %28 = load i8, ptr %27, align 4, !tbaa !504
+  %29 = icmp eq i8 %28, 1
+  %30 = select i1 %29, i32 -1, i32 1
   br label %.thread34
 
-.thread27:                                        ; preds = %9, %28
+.thread27:                                        ; preds = %9, %24
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !591
 
 ._crit_edge:                                      ; preds = %.thread27, %2
-  %35 = load i32, ptr %0, align 4, !tbaa !581
-  %36 = load i32, ptr %1, align 4, !tbaa !581
-  %37 = sub nsw i32 %35, %36
+  %31 = load i32, ptr %0, align 4, !tbaa !581
+  %32 = load i32, ptr %1, align 4, !tbaa !581
+  %33 = sub nsw i32 %31, %32
   br label %.thread34
 
-.thread34:                                        ; preds = %30, %23, %._crit_edge
-  %.3 = phi i32 [ %37, %._crit_edge ], [ %34, %30 ], [ %27, %23 ]
+.thread34:                                        ; preds = %26, %19, %._crit_edge
+  %.3 = phi i32 [ %33, %._crit_edge ], [ %30, %26 ], [ %23, %19 ]
   ret i32 %.3
 }
 

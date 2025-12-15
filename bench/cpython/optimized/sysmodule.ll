@@ -2432,33 +2432,27 @@ define dso_local range(i32 -1, 1) i32 @PySys_AddAuditHook(ptr noundef %0, ptr no
 _PyMutex_Lock.exit:                               ; preds = %20, %26
   %27 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10496), align 8, !tbaa !100
   %28 = icmp eq ptr %27, null
-  br i1 %28, label %29, label %.preheader.i
-
-29:                                               ; preds = %_PyMutex_Lock.exit
-  store ptr %21, ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10496), align 8, !tbaa !100
-  br label %add_audit_hook_entry_unlocked.exit
+  br i1 %28, label %add_audit_hook_entry_unlocked.exit, label %.preheader.i
 
 .preheader.i:                                     ; preds = %_PyMutex_Lock.exit, %.preheader.i
-  %.0.i = phi ptr [ %30, %.preheader.i ], [ %27, %_PyMutex_Lock.exit ]
-  %30 = load ptr, ptr %.0.i, align 8, !tbaa !199
-  %.not.i = icmp eq ptr %30, null
-  br i1 %.not.i, label %31, label %.preheader.i, !llvm.loop !202
+  %.0.i = phi ptr [ %29, %.preheader.i ], [ %27, %_PyMutex_Lock.exit ]
+  %29 = load ptr, ptr %.0.i, align 8, !tbaa !199
+  %.not.i = icmp eq ptr %29, null
+  br i1 %.not.i, label %add_audit_hook_entry_unlocked.exit, label %.preheader.i, !llvm.loop !202
 
-31:                                               ; preds = %.preheader.i
-  store ptr %21, ptr %.0.i, align 8, !tbaa !199
-  br label %add_audit_hook_entry_unlocked.exit
+add_audit_hook_entry_unlocked.exit:               ; preds = %.preheader.i, %_PyMutex_Lock.exit
+  %.0.lcssa.sink.i = phi ptr [ getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10496), %_PyMutex_Lock.exit ], [ %.0.i, %.preheader.i ]
+  store ptr %21, ptr %.0.lcssa.sink.i, align 8, !tbaa !190
+  %30 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10488), i8 1, i8 0 seq_cst seq_cst, align 1
+  %31 = extractvalue { i8, i1 } %30, 1
+  br i1 %31, label %_PyMutex_Unlock.exit, label %32
 
-add_audit_hook_entry_unlocked.exit:               ; preds = %29, %31
-  %32 = cmpxchg ptr getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10488), i8 1, i8 0 seq_cst seq_cst, align 1
-  %33 = extractvalue { i8, i1 } %32, 1
-  br i1 %33, label %_PyMutex_Unlock.exit, label %34
-
-34:                                               ; preds = %add_audit_hook_entry_unlocked.exit
+32:                                               ; preds = %add_audit_hook_entry_unlocked.exit
   tail call void @PyMutex_Unlock(ptr noundef nonnull getelementptr inbounds nuw (i8, ptr @_PyRuntime, i64 10488)) #15
   br label %_PyMutex_Unlock.exit
 
-_PyMutex_Unlock.exit:                             ; preds = %14, %.thread26, %34, %add_audit_hook_entry_unlocked.exit, %18, %10, %13
-  %.0 = phi i32 [ 0, %13 ], [ -1, %10 ], [ -1, %18 ], [ 0, %add_audit_hook_entry_unlocked.exit ], [ 0, %34 ], [ -1, %.thread26 ], [ -1, %14 ]
+_PyMutex_Unlock.exit:                             ; preds = %14, %.thread26, %32, %add_audit_hook_entry_unlocked.exit, %18, %10, %13
+  %.0 = phi i32 [ 0, %13 ], [ -1, %10 ], [ -1, %18 ], [ 0, %add_audit_hook_entry_unlocked.exit ], [ 0, %32 ], [ -1, %.thread26 ], [ -1, %14 ]
   ret i32 %.0
 }
 

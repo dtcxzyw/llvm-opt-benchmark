@@ -2307,12 +2307,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit99.._crit_edge_cri
 
 275:                                              ; preds = %265
   %276 = icmp ugt i64 %266, 7
-  br i1 %276, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit101.thread, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit101
-
-_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit101.thread: ; preds = %275
-  %.0.copyload.i.i100 = load i64, ptr %267, align 1
-  store i64 %.0.copyload.i.i100, ptr %264, align 8, !tbaa !30
-  br label %.sink.split
+  br i1 %276, label %.sink.split, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit101
 
 _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit101:    ; preds = %275
   call void @llvm.lifetime.start.p0(ptr nonnull %27)
@@ -2340,12 +2335,7 @@ _ZN7rocksdb6Status10IncompleteERKNS_5SliceES3_.exit103: ; preds = %_ZN7rocksdb10
 
 281:                                              ; preds = %265
   %282 = icmp ugt i64 %266, 7
-  br i1 %282, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit105.thread, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit105
-
-_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit105.thread: ; preds = %281
-  %.0.copyload.i.i104 = load i64, ptr %267, align 1
-  store i64 %.0.copyload.i.i104, ptr %263, align 8, !tbaa !30
-  br label %.sink.split
+  br i1 %282, label %.sink.split, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit105
 
 _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit105:    ; preds = %281
   call void @llvm.lifetime.start.p0(ptr nonnull %29)
@@ -2373,12 +2363,7 @@ _ZN7rocksdb6Status10IncompleteERKNS_5SliceES3_.exit107: ; preds = %_ZN7rocksdb10
 
 287:                                              ; preds = %265
   %288 = icmp ugt i64 %266, 7
-  br i1 %288, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit109.thread, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit109
-
-_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit109.thread: ; preds = %287
-  %.0.copyload.i.i108 = load i64, ptr %267, align 1
-  store i64 %.0.copyload.i.i108, ptr %262, align 8, !tbaa !30
-  br label %.sink.split
+  br i1 %288, label %.sink.split, label %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit109
 
 _ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit109:    ; preds = %287
   call void @llvm.lifetime.start.p0(ptr nonnull %31)
@@ -2404,7 +2389,10 @@ _ZN7rocksdb6Status10IncompleteERKNS_5SliceES3_.exit111: ; preds = %_ZN7rocksdb10
   call void @llvm.lifetime.end.p0(ptr nonnull %31)
   br label %344
 
-.sink.split:                                      ; preds = %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit101.thread, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit105.thread, %_ZN7rocksdb10GetFixed64EPNS_5SliceEPm.exit109.thread
+.sink.split:                                      ; preds = %287, %281, %275
+  %.sink = phi ptr [ %264, %275 ], [ %263, %281 ], [ %262, %287 ]
+  %.0.copyload.i.i108 = load i64, ptr %267, align 1
+  store i64 %.0.copyload.i.i108, ptr %.sink, align 8, !tbaa !30
   %293 = getelementptr inbounds nuw i8, ptr %267, i64 8
   store ptr %293, ptr %10, align 8, !tbaa !72
   %294 = add i64 %266, -8

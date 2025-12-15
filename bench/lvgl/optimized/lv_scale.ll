@@ -1732,7 +1732,7 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   %19 = load i64, ptr %18, align 4
   %20 = and i64 %19, 32766
   %21 = icmp eq i64 %20, 0
-  br i1 %21, label %248, label %22
+  br i1 %21, label %245, label %22
 
 22:                                               ; preds = %2
   call void @llvm.lifetime.start.p0(ptr nonnull %11)
@@ -1808,9 +1808,9 @@ define internal fastcc void @scale_draw_indicator(ptr noundef %0, ptr noundef %1
   %64 = getelementptr inbounds nuw i8, ptr %12, i64 56
   br label %65
 
-65:                                               ; preds = %.lr.ph81, %246
-  %.078 = phi i32 [ 0, %.lr.ph81 ], [ %247, %246 ]
-  %.06277 = phi i32 [ 0, %.lr.ph81 ], [ %.1, %246 ]
+65:                                               ; preds = %.lr.ph81, %241
+  %.078 = phi i32 [ 0, %.lr.ph81 ], [ %244, %241 ]
+  %.06277 = phi i32 [ 0, %.lr.ph81 ], [ %.1, %241 ]
   %66 = load i64, ptr %18, align 4
   %67 = trunc i64 %66 to i32
   %68 = lshr i32 %67, 15
@@ -2188,42 +2188,37 @@ scale_build_custom_label_text.exit.i:             ; preds = %153, %152, %151, %1
 .thread:                                          ; preds = %238, %232, %scale_build_custom_label_text.exit.i
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %240
+  br label %241
 
 239:                                              ; preds = %.loopexit
-  br i1 %71, label %240, label %243
+  br i1 %71, label %241, label %240
 
-240:                                              ; preds = %.thread, %239
-  %241 = call <2 x float> @lv_point_to_precise(ptr noundef nonnull %15) #9
-  store <2 x float> %241, ptr %63, align 8
-  %242 = call <2 x float> @lv_point_to_precise(ptr noundef nonnull %16) #9
-  store <2 x float> %242, ptr %64, align 8
-  br label %246
+240:                                              ; preds = %239
+  br label %241
 
-243:                                              ; preds = %239
-  %244 = call <2 x float> @lv_point_to_precise(ptr noundef nonnull %15) #9
-  store <2 x float> %244, ptr %47, align 8
-  %245 = call <2 x float> @lv_point_to_precise(ptr noundef nonnull %16) #9
-  store <2 x float> %245, ptr %48, align 8
-  br label %246
-
-246:                                              ; preds = %243, %240
-  %.sink = phi ptr [ %13, %243 ], [ %12, %240 ]
+241:                                              ; preds = %239, %.thread, %240
+  %.sink96 = phi ptr [ %47, %240 ], [ %63, %.thread ], [ %63, %239 ]
+  %.sink94 = phi ptr [ %48, %240 ], [ %64, %.thread ], [ %64, %239 ]
+  %.sink = phi ptr [ %13, %240 ], [ %12, %.thread ], [ %12, %239 ]
+  %242 = call <2 x float> @lv_point_to_precise(ptr noundef nonnull %15) #9
+  store <2 x float> %242, ptr %.sink96, align 8
+  %243 = call <2 x float> @lv_point_to_precise(ptr noundef nonnull %16) #9
+  store <2 x float> %243, ptr %.sink94, align 8
   call void @lv_draw_line(ptr noundef %17, ptr noundef nonnull %.sink) #9
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  %247 = add nuw nsw i32 %.078, 1
-  %exitcond.not = icmp eq i32 %247, %36
+  %244 = add nuw nsw i32 %.078, 1
+  %exitcond.not = icmp eq i32 %244, %36
   br i1 %exitcond.not, label %._crit_edge, label %65, !llvm.loop !105
 
-._crit_edge:                                      ; preds = %246, %31
+._crit_edge:                                      ; preds = %241, %31
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
-  br label %248
+  br label %245
 
-248:                                              ; preds = %2, %._crit_edge
+245:                                              ; preds = %2, %._crit_edge
   ret void
 }
 

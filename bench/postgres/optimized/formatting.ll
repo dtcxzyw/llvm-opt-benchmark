@@ -5953,7 +5953,7 @@ define internal fastcc void @NUM_processor(ptr noundef readonly captures(none) %
 
 24:                                               ; preds = %19
   %25 = tail call ptr @strcpy(ptr noundef nonnull dereferenceable(1) %2, ptr noundef nonnull dereferenceable(1) %3) #18
-  br label %713
+  br label %710
 
 26:                                               ; preds = %15
   br i1 %7, label %27, label %72
@@ -7575,7 +7575,7 @@ NUM_numpart_to_char.exit:                         ; preds = %633, %628, %.prehea
 
 705:                                              ; preds = %._crit_edge
   store i8 0, ptr %.sroa.140.1, align 1
-  br label %713
+  br label %710
 
 ._crit_edge.thread:                               ; preds = %149, %._crit_edge
   %.sroa.106.2644 = phi ptr [ %.sroa.106.2, %._crit_edge ], [ %.sroa.106.1, %149 ]
@@ -7583,22 +7583,13 @@ NUM_numpart_to_char.exit:                         ; preds = %633, %628, %.prehea
   %706 = getelementptr inbounds i8, ptr %.sroa.106.2644, i64 -1
   %707 = load i8, ptr %706, align 1
   %708 = icmp eq i8 %707, 46
-  br i1 %708, label %709, label %710
+  %..sroa.106.2644 = select i1 %708, ptr %706, ptr %.sroa.106.2644
+  store i8 0, ptr %..sroa.106.2644, align 1
+  %709 = getelementptr inbounds nuw i8, ptr %1, i64 4
+  store i32 %.sroa.79.1643, ptr %709, align 4
+  br label %710
 
-709:                                              ; preds = %._crit_edge.thread
-  store i8 0, ptr %706, align 1
-  br label %711
-
-710:                                              ; preds = %._crit_edge.thread
-  store i8 0, ptr %.sroa.106.2644, align 1
-  br label %711
-
-711:                                              ; preds = %710, %709
-  %712 = getelementptr inbounds nuw i8, ptr %1, i64 4
-  store i32 %.sroa.79.1643, ptr %712, align 4
-  br label %713
-
-713:                                              ; preds = %711, %705, %24
+710:                                              ; preds = %._crit_edge.thread, %705, %24
   ret void
 }
 

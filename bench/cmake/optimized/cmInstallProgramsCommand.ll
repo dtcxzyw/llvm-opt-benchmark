@@ -2391,7 +2391,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %71
   store i64 %77, ptr %79, align 8, !tbaa !19
   store ptr %69, ptr %10, align 8, !tbaa !16
   store i64 0, ptr %78, align 8, !tbaa !19
-  store i8 0, ptr %69, align 8, !tbaa !18
   br label %121
 
 80:                                               ; preds = %_Z8cmStrCatIRKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEcJRPKcEES5_OT_OT0_DpOT1_.exit
@@ -2457,7 +2456,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit17: ; preds = %
   store i64 %105, ptr %107, align 8, !tbaa !19
   store ptr %97, ptr %11, align 8, !tbaa !16
   store i64 0, ptr %106, align 8, !tbaa !19
-  store i8 0, ptr %97, align 8, !tbaa !18
   br label %121
 
 108:                                              ; preds = %93
@@ -2490,10 +2488,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit19: ; preds = %
   store i64 %118, ptr %120, align 8, !tbaa !19
   store ptr %110, ptr %10, align 8, !tbaa !16
   store i64 0, ptr %119, align 8, !tbaa !19
-  store i8 0, ptr %110, align 8, !tbaa !18
   br label %121
 
 121:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit17, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit
+  %.sink = phi ptr [ %110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit19 ], [ %97, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit17 ], [ %69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ]
+  store i8 0, ptr %.sink, align 1, !tbaa !18
   %122 = load ptr, ptr %11, align 8, !tbaa !16
   %123 = getelementptr inbounds nuw i8, ptr %11, i64 16
   %124 = icmp eq ptr %122, %123

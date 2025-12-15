@@ -49,7 +49,7 @@ define internal fastcc { i1, i8 } @"_ZN106_$LT$core..iter..adapters..flatten..Fl
   %16 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h719481b464802fbcE.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.body.i.i unwind label %17
+          to label %common.resume.i unwind label %17
 
 17:                                               ; preds = %15
   %18 = landingpad { ptr, i32 }
@@ -64,16 +64,13 @@ define internal fastcc { i1, i8 } @"_ZN106_$LT$core..iter..adapters..flatten..Fl
 19:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$17h72d18c9b20c16a0cE.exit.i.i.i"
   %20 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i.i
-
-common.resume.i:                                  ; preds = %.body.i9.i, %.body.i.i
-  %common.resume.op.i = phi { ptr, i32 } [ %eh.lpad-body.i.i, %.body.i.i ], [ %eh.lpad-body.i10.i, %.body.i9.i ]
-  resume { ptr, i32 } %common.resume.op.i
-
-.body.i.i:                                        ; preds = %19, %15
-  %eh.lpad-body.i.i = phi { ptr, i32 } [ %20, %19 ], [ %16, %15 ]
-  store ptr null, ptr %4, align 8, !alias.scope !7
   br label %common.resume.i
+
+common.resume.i:                                  ; preds = %48, %44, %19, %15
+  %.sink.i = phi ptr [ %4, %19 ], [ %4, %15 ], [ %32, %48 ], [ %32, %44 ]
+  %common.resume.op.i = phi { ptr, i32 } [ %20, %19 ], [ %16, %15 ], [ %49, %48 ], [ %45, %44 ]
+  store ptr null, ptr %.sink.i, align 8, !alias.scope !4
+  resume { ptr, i32 } %common.resume.op.i
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$$GT$17ha820d6504e303c88E.exit.i.i": ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$17h72d18c9b20c16a0cE.exit.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %3), !noalias !19
@@ -139,7 +136,7 @@ _ZN4core3ops8function6FnOnce9call_once17ha49ea840d08bdb09E.exit.thread.i6.i: ; p
   %45 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17h719481b464802fbcE.llvm.4233002952263615725"(ptr noalias noundef nonnull align 8 dereferenceable(8) %2)
-          to label %.body.i9.i unwind label %46
+          to label %common.resume.i unwind label %46
 
 46:                                               ; preds = %44
   %47 = landingpad { ptr, i32 }
@@ -154,11 +151,6 @@ _ZN4core3ops8function6FnOnce9call_once17ha49ea840d08bdb09E.exit.thread.i6.i: ; p
 48:                                               ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$17h72d18c9b20c16a0cE.exit.i.i11.i"
   %49 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i9.i
-
-.body.i9.i:                                       ; preds = %48, %44
-  %eh.lpad-body.i10.i = phi { ptr, i32 } [ %49, %48 ], [ %45, %44 ]
-  store ptr null, ptr %32, align 8, !alias.scope !43
   br label %common.resume.i
 
 "_ZN4core3ptr90drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$$GT$17ha820d6504e303c88E.exit.i12.i": ; preds = %"_ZN4core3ptr62drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$u8$GT$$GT$17h72d18c9b20c16a0cE.exit.i.i11.i"

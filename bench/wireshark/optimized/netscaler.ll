@@ -816,9 +816,7 @@ nstrace_ensure_buflen.exit:                       ; preds = %153
   %167 = load i64, ptr %15, align 8
   %168 = add i64 %167, %166
   store i64 %168, ptr %15, align 8
-  store i64 %168, ptr %16, align 8
-  %.val204 = load i16, ptr %159, align 1
-  br label %205
+  br label %.sink.split
 
 169:                                              ; preds = %.lr.ph
   %.val215 = load i32, ptr %13, align 4
@@ -863,9 +861,7 @@ nstrace_ensure_buflen.exit225:                    ; preds = %169
   %189 = mul nuw i32 %186, 1000
   %190 = zext i32 %189 to i64
   %191 = add i64 %183, %190
-  store i64 %191, ptr %16, align 8
-  %.val208 = load i16, ptr %175, align 1
-  br label %205
+  br label %.sink.split
 
 192:                                              ; preds = %.lr.ph
   %.val216 = load i32, ptr %13, align 4
@@ -899,8 +895,15 @@ nstrace_ensure_buflen.exit227:                    ; preds = %192
   store ptr %204, ptr %3, align 8
   br label %.critedge
 
-205:                                              ; preds = %197, %177, %161
-  %.sink375 = phi i16 [ %.val208, %177 ], [ %.val204, %161 ], [ %203, %197 ]
+.sink.split:                                      ; preds = %161, %177
+  %.sink376 = phi i64 [ %191, %177 ], [ %168, %161 ]
+  %.sink = phi ptr [ %175, %177 ], [ %159, %161 ]
+  store i64 %.sink376, ptr %16, align 8
+  %.val208 = load i16, ptr %.sink, align 1
+  br label %205
+
+205:                                              ; preds = %.sink.split, %197
+  %.sink375 = phi i16 [ %203, %197 ], [ %.val208, %.sink.split ]
   %206 = zext i16 %.sink375 to i32
   %207 = add i32 %.1174278, %206
   %208 = icmp ult i32 %207, %.0179

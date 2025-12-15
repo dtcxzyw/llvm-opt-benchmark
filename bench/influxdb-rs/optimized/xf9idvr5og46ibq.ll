@@ -12722,12 +12722,17 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   invoke void @"_ZN5tokio4sync4mpsc4chan15Rx$LT$T$C$S$GT$4recv17h310f3900b46eba86E"(ptr noalias noundef nonnull sret({ i64, [21 x i64] }) align 8 captures(none) dereferenceable(176) %86, ptr noalias noundef nonnull align 8 dereferenceable(8) %.val.i.i.i.i, ptr noalias noundef nonnull align 8 dereferenceable(8) %1)
           to label %"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h299ecaa227e87602E.exit.i.i.i.i" unwind label %350, !noalias !2418
 
+common.resume.i.i.i:                              ; preds = %.body.i34.i.i.i, %.body27.i.i.i.i, %659, %378, %376, %371, %366, %350
+  %.sink.i.i.i = phi ptr [ %332, %350 ], [ %242, %.body27.i.i.i.i ], [ %242, %659 ], [ %242, %378 ], [ %242, %376 ], [ %242, %371 ], [ %242, %366 ], [ %234, %.body.i34.i.i.i ]
+  %common.resume.op.i.i.i = phi { ptr, i32 } [ %351, %350 ], [ %.pn.i.i.i.i, %.body27.i.i.i.i ], [ %.pn.i.i.i.i.i.i, %659 ], [ %379, %378 ], [ %377, %376 ], [ %372, %371 ], [ %367, %366 ], [ %.pn13.i.i.i.i, %.body.i34.i.i.i ]
+  store i8 2, ptr %.sink.i.i.i, align 8, !noalias !2406
+  br label %.body.i
+
 350:                                              ; preds = %349
   %351 = landingpad { ptr, i32 }
           cleanup
   call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !2417
-  store i8 2, ptr %332, align 8, !noalias !2413
-  br label %.body.i
+  br label %common.resume.i.i.i
 
 "_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h299ecaa227e87602E.exit.i.i.i.i": ; preds = %349
   %352 = load i64, ptr %86, align 8, !range !1587, !noalias !2417, !noundef !4
@@ -12748,8 +12753,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
 
 357:                                              ; preds = %"_ZN88_$LT$tokio..future..poll_fn..PollFn$LT$F$GT$$u20$as$u20$core..future..future..Future$GT$4poll17h299ecaa227e87602E.exit.i.i.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %86), !noalias !2417
-  store i8 3, ptr %332, align 8, !noalias !2413
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.i.i.i"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.sink.split.i.i.i"
 
 358:                                              ; preds = %354
   %.sroa.11.sroa.0.0.extract.trunc326.i = trunc i64 %.sroa.5.i.i.sroa.0.0.copyload.i to i8
@@ -12758,8 +12762,13 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(156) %.sroa.15.i, ptr noundef nonnull align 4 dereferenceable(156) %.sroa.5.i.i.sroa.5.i, i64 156, i1 false), !noalias !2420
   br label %764
 
-"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.i.i.i": ; preds = %"_ZN5tokio4sync5watch17Receiver$LT$T$GT$7changed28_$u7b$$u7b$closure$u7d$$u7d$17h38344f3f9ab8d3efE.exit.thread.i.i.i", %"_ZN5tokio4time8interval8Interval4tick28_$u7b$$u7b$closure$u7d$$u7d$17h11183fd47387eedeE.exit.i.i.i", %357, %354, %343, %341, %339
-  %.1.i.i.i = phi i1 [ %.0162.i.i.i, %339 ], [ %.0162.i.i.i, %341 ], [ %.0162.i.i.i, %343 ], [ true, %"_ZN5tokio4time8interval8Interval4tick28_$u7b$$u7b$closure$u7d$$u7d$17h11183fd47387eedeE.exit.i.i.i" ], [ true, %"_ZN5tokio4sync5watch17Receiver$LT$T$GT$7changed28_$u7b$$u7b$closure$u7d$$u7d$17h38344f3f9ab8d3efE.exit.thread.i.i.i" ], [ true, %357 ], [ %.0162.i.i.i, %354 ]
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.sink.split.i.i.i": ; preds = %"_ZN5tokio4sync5watch17Receiver$LT$T$GT$7changed28_$u7b$$u7b$closure$u7d$$u7d$17h38344f3f9ab8d3efE.exit.thread.i.i.i", %357
+  %.sink215.i.i.i = phi ptr [ %332, %357 ], [ %234, %"_ZN5tokio4sync5watch17Receiver$LT$T$GT$7changed28_$u7b$$u7b$closure$u7d$$u7d$17h38344f3f9ab8d3efE.exit.thread.i.i.i" ]
+  store i8 3, ptr %.sink215.i.i.i, align 8, !noalias !2406
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.i.i.i"
+
+"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.i.i.i": ; preds = %"_ZN5tokio4time8interval8Interval4tick28_$u7b$$u7b$closure$u7d$$u7d$17h11183fd47387eedeE.exit.i.i.i", %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.sink.split.i.i.i", %354, %343, %341, %339
+  %.1.i.i.i = phi i1 [ %.0162.i.i.i, %339 ], [ %.0162.i.i.i, %341 ], [ %.0162.i.i.i, %343 ], [ true, %"_ZN5tokio4time8interval8Interval4tick28_$u7b$$u7b$closure$u7d$$u7d$17h11183fd47387eedeE.exit.i.i.i" ], [ %.0162.i.i.i, %354 ], [ true, %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.sink.split.i.i.i" ]
   %.not.not.i.i.i = icmp eq i32 %335, 3
   br i1 %.not.not.i.i.i, label %333, label %334
 
@@ -12798,7 +12807,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
 366:                                              ; preds = %365
   %367 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i.i.i.i
+  br label %common.resume.i.i.i
 
 368:                                              ; preds = %.noexc.i.i.i.i, %361
   %.sroa.0.0.i.i.i.i.i = phi i64 [ %.sroa.0.0.copyload.i.i.i.i.i, %.noexc.i.i.i.i ], [ 2, %361 ]
@@ -12829,7 +12838,7 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   %372 = landingpad { ptr, i32 }
           cleanup
   invoke fastcc void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hb946059ad9d4b3f3E"(ptr noalias noundef nonnull align 8 dereferenceable(40) %85) #26
-          to label %.body.i.i.i.i unwind label %374, !noalias !2439
+          to label %common.resume.i.i.i unwind label %374, !noalias !2439
 
 373:                                              ; preds = %368
   call void @llvm.lifetime.end.p0(ptr nonnull %79), !noalias !2434
@@ -12845,12 +12854,12 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
 376:                                              ; preds = %373
   %377 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i.i.i.i
+  br label %common.resume.i.i.i
 
 378:                                              ; preds = %"_ZN4core3ptr58drop_in_place$LT$tokio..util..trace..AsyncOpTracingCtx$GT$17h649f68e177c6be75E.llvm.12494526139044184965.exit.i.i.i.i.i"
   %379 = landingpad { ptr, i32 }
           cleanup
-  br label %.body.i.i.i.i
+  br label %common.resume.i.i.i
 
 380:                                              ; preds = %373
   call void @llvm.lifetime.end.p0(ptr nonnull %80), !noalias !2433
@@ -12858,11 +12867,6 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   call void @llvm.lifetime.end.p0(ptr nonnull %82), !noalias !2433
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(144) %251, ptr noundef nonnull align 8 dereferenceable(144) %84, i64 144, i1 false), !noalias !2421
   br label %381
-
-.body.i.i.i.i:                                    ; preds = %.body27.i.i.i.i, %659, %378, %376, %371, %366
-  %.pn16.pn.i.i.i.i = phi { ptr, i32 } [ %367, %366 ], [ %377, %376 ], [ %372, %371 ], [ %.pn.i.i.i.i, %.body27.i.i.i.i ], [ %379, %378 ], [ %.pn.i.i.i.i.i.i, %659 ]
-  store i8 2, ptr %242, align 8, !noalias !2421
-  br label %.body.i
 
 381:                                              ; preds = %380, %359
   call void @llvm.experimental.noalias.scope.decl(metadata !2440)
@@ -13867,7 +13871,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
 659:                                              ; preds = %660, %656
   %.pn.i.i.i.i.i.i = phi { ptr, i32 } [ %661, %660 ], [ %657, %656 ]
   invoke void @"_ZN4core3ptr40drop_in_place$LT$tracing..span..Span$GT$17hb946059ad9d4b3f3E.llvm.12494526139044184965"(ptr noalias noundef nonnull align 8 dereferenceable(40) %254) #26
-          to label %.body.i.i.i.i unwind label %662, !noalias !2431
+          to label %common.resume.i.i.i unwind label %662, !noalias !2431
 
 660:                                              ; preds = %658
   %661 = landingpad { ptr, i32 }
@@ -13887,7 +13891,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
 .body27.i.i.i.i:                                  ; preds = %653, %527, %405
   %.pn.i.i.i.i = phi { ptr, i32 } [ %654, %653 ], [ %.pn143.pn.pn.i.i.i.i.i, %527 ], [ %.pn.pn.i.i.i.i.i, %405 ]
   invoke void @"_ZN4core3ptr230drop_in_place$LT$tokio..util..trace..InstrumentedAsyncOp$LT$tokio..future..poll_fn..PollFn$LT$tokio..time..interval..Interval..tick..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17h272c69f15b0c007cE"(ptr noalias noundef nonnull align 8 dereferenceable(144) %251) #26
-          to label %.body.i.i.i.i unwind label %664, !noalias !2431
+          to label %common.resume.i.i.i unwind label %664, !noalias !2431
 
 664:                                              ; preds = %.body27.i.i.i.i
   %665 = landingpad { ptr, i32 }
@@ -13934,10 +13938,6 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
   store ptr %674, ptr %.sroa.725.0..sroa_idx.i.i.i.i, align 8, !noalias !2593
   store i8 0, ptr %.phi.trans.insert.i33.i.i.i, align 1, !noalias !2593
   br label %680
-
-.body20.i.i.i.i:                                  ; preds = %.body.i34.i.i.i
-  store i8 2, ptr %234, align 8, !noalias !2593
-  br label %.body.i
 
 .invoke.i.loopexit:                               ; preds = %345, %359, %670
   %.ph = phi ptr [ @anon.ac300e8587a3771c06c4fe0a0665760c.77, %670 ], [ @anon.ac300e8587a3771c06c4fe0a0665760c.86, %359 ], [ @anon.ac300e8587a3771c06c4fe0a0665760c.74, %345 ]
@@ -14013,8 +14013,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
 
 "_ZN5tokio4sync5watch17Receiver$LT$T$GT$7changed28_$u7b$$u7b$closure$u7d$$u7d$17h38344f3f9ab8d3efE.exit.thread.i.i.i": ; preds = %691
   store i8 4, ptr %.phi.trans.insert.i33.i.i.i, align 1, !noalias !2596
-  store i8 3, ptr %234, align 8, !noalias !2593
-  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.i.i.i"
+  br label %"_ZN4core3ptr109drop_in_place$LT$core..option..Option$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$$GT$17h90e6280cc3192f80E.exit.sink.split.i.i.i"
 
 692:                                              ; preds = %691
   invoke void @"_ZN71_$LT$tokio..sync..notify..Notified$u20$as$u20$core..ops..drop..Drop$GT$4drop17h7fbbe8ff03a7409fE"(ptr noundef nonnull align 8 %239)
@@ -14197,7 +14196,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17he62257500e7c8da9E.exit231
 .body.i34.i.i.i:                                  ; preds = %755, %.body42.i.i.i.i.i
   %.pn13.i.i.i.i = phi { ptr, i32 } [ %756, %755 ], [ %.pn36.i.i.i.i.i, %.body42.i.i.i.i.i ]
   invoke fastcc void @"_ZN4core3ptr98drop_in_place$LT$tokio..sync..watch..changed_impl$LT$$LP$$RP$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$17h6950c1f68a5b82a4E"(ptr noundef nonnull align 8 %235) #26
-          to label %.body20.i.i.i.i unwind label %757, !noalias !2431
+          to label %common.resume.i.i.i unwind label %757, !noalias !2431
 
 757:                                              ; preds = %.body.i34.i.i.i
   %758 = landingpad { ptr, i32 }
@@ -16098,8 +16097,8 @@ _ZN3std11collections4hash3map11RandomState3new4KEYS7__getit17h40a9c6ea1342215fE.
   invoke void @"_ZN4core3ptr81drop_in_place$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$17hea673fe25ecec99fE"(ptr noalias noundef nonnull align 8 dereferenceable(176) %115) #26
           to label %1163 unwind label %829
 
-.body.i:                                          ; preds = %762, %.body20.i.i.i.i, %.body.i.i.i.i, %350
-  %.pn115.i = phi { ptr, i32 } [ %763, %762 ], [ %351, %350 ], [ %.pn16.pn.i.i.i.i, %.body.i.i.i.i ], [ %.pn13.i.i.i.i, %.body20.i.i.i.i ]
+.body.i:                                          ; preds = %762, %common.resume.i.i.i
+  %.pn115.i = phi { ptr, i32 } [ %763, %762 ], [ %common.resume.op.i.i.i, %common.resume.i.i.i ]
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.15.i)
   %1367 = getelementptr inbounds nuw i8, ptr %0, i64 360
   invoke fastcc void @"_ZN4core3ptr322drop_in_place$LT$$LP$tokio..sync..mpsc..bounded..Receiver$LT$influxdb3_write..write_buffer..buffer_segment..BufferedWrite$GT$..recv..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..time..interval..Interval..tick..$u7b$$u7b$closure$u7d$$u7d$$C$tokio..sync..watch..Receiver$LT$$LP$$RP$$GT$..changed..$u7b$$u7b$closure$u7d$$u7d$$RP$$GT$17h2d193a26834ee627E"(ptr noundef nonnull align 8 %1367) #26

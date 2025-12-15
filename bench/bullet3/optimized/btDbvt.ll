@@ -1831,7 +1831,7 @@ _ZNK12btDbvtAabbMm7ContainERKS_.exit:             ; preds = %27
   %35 = getelementptr inbounds nuw i8, ptr %2, i64 24
   %36 = load float, ptr %35, align 4, !tbaa !37
   %37 = fcmp ult float %34, %36
-  br i1 %37, label %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread, label %83
+  br i1 %37, label %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread, label %80
 
 _ZNK12btDbvtAabbMm7ContainERKS_.exit.thread:      ; preds = %._ZNK12btDbvtAabbMm7ContainERKS_.exit.thread_crit_edge, %9, %15, %21, %27, %_ZNK12btDbvtAabbMm7ContainERKS_.exit
   %38 = phi float [ %.pre, %._ZNK12btDbvtAabbMm7ContainERKS_.exit.thread_crit_edge ], [ %13, %9 ], [ %13, %15 ], [ %13, %21 ], [ %13, %27 ], [ %13, %_ZNK12btDbvtAabbMm7ContainERKS_.exit ]
@@ -1858,73 +1858,64 @@ _ZNK12btDbvtAabbMm7ContainERKS_.exit.thread:      ; preds = %._ZNK12btDbvtAabbMm
   store float %53, ptr %51, align 4, !tbaa !37
   %54 = load float, ptr %3, align 4, !tbaa !37
   %55 = fcmp ogt float %54, 0.000000e+00
-  br i1 %55, label %56, label %58
-
-56:                                               ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread
-  %57 = fadd float %47, %54
-  store float %57, ptr %45, align 4, !tbaa !37
-  br label %_ZN12btDbvtAabbMm12SignedExpandERK9btVector3.exit
-
-58:                                               ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread
-  %59 = fadd float %39, %54
-  store float %59, ptr %2, align 4, !tbaa !37
-  br label %_ZN12btDbvtAabbMm12SignedExpandERK9btVector3.exit
-
-_ZN12btDbvtAabbMm12SignedExpandERK9btVector3.exit: ; preds = %56, %58
-  %60 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %. = select i1 %55, float %47, float %39
+  %.23 = select i1 %55, ptr %45, ptr %2
+  %56 = fadd float %., %54
+  store float %56, ptr %.23, align 4, !tbaa !37
+  %57 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %58 = load float, ptr %57, align 4, !tbaa !37
+  %59 = fcmp ogt float %58, 0.000000e+00
+  %..i = select i1 %59, i64 20, i64 4
+  %60 = getelementptr inbounds nuw i8, ptr %2, i64 %..i
   %61 = load float, ptr %60, align 4, !tbaa !37
-  %62 = fcmp ogt float %61, 0.000000e+00
-  %..i = select i1 %62, i64 20, i64 4
-  %63 = getelementptr inbounds nuw i8, ptr %2, i64 %..i
+  %62 = fadd float %58, %61
+  store float %62, ptr %60, align 4, !tbaa !37
+  %63 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %64 = load float, ptr %63, align 4, !tbaa !37
-  %65 = fadd float %61, %64
-  store float %65, ptr %63, align 4, !tbaa !37
-  %66 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  %65 = fcmp ogt float %64, 0.000000e+00
+  %.sink19.i = select i1 %65, i64 24, i64 8
+  %66 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink19.i
   %67 = load float, ptr %66, align 4, !tbaa !37
-  %68 = fcmp ogt float %67, 0.000000e+00
-  %.sink19.i = select i1 %68, i64 24, i64 8
-  %69 = getelementptr inbounds nuw i8, ptr %2, i64 %.sink19.i
-  %70 = load float, ptr %69, align 4, !tbaa !37
-  %71 = fadd float %67, %70
-  store float %71, ptr %69, align 4, !tbaa !37
-  %72 = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
-  %.not.i = icmp eq ptr %72, null
-  br i1 %.not.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %73
+  %68 = fadd float %64, %67
+  store float %68, ptr %66, align 4, !tbaa !37
+  %69 = tail call fastcc noundef ptr @_ZL10removeleafP6btDbvtP10btDbvtNode(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef nonnull %1)
+  %.not.i = icmp eq ptr %69, null
+  br i1 %.not.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %70
 
-73:                                               ; preds = %_ZN12btDbvtAabbMm12SignedExpandERK9btVector3.exit
-  %74 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %75 = load i32, ptr %74, align 8, !tbaa !16
-  %76 = icmp sgt i32 %75, -1
-  br i1 %76, label %.preheader.i, label %81
+70:                                               ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread
+  %71 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %72 = load i32, ptr %71, align 8, !tbaa !16
+  %73 = icmp sgt i32 %72, -1
+  br i1 %73, label %.preheader.i, label %78
 
-.preheader.i:                                     ; preds = %73
-  %.not19.i = icmp eq i32 %75, 0
+.preheader.i:                                     ; preds = %70
+  %.not19.i = icmp eq i32 %72, 0
   br i1 %.not19.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %.lr.ph.i
 
-77:                                               ; preds = %.lr.ph.i
-  %78 = add nuw nsw i32 %.016.i, 1
-  %exitcond.not.i = icmp eq i32 %78, %75
+74:                                               ; preds = %.lr.ph.i
+  %75 = add nuw nsw i32 %.016.i, 1
+  %exitcond.not.i = icmp eq i32 %75, %72
   br i1 %exitcond.not.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %.lr.ph.i, !llvm.loop !67
 
-.lr.ph.i:                                         ; preds = %.preheader.i, %77
-  %.016.i = phi i32 [ %78, %77 ], [ 0, %.preheader.i ]
-  %.115.i = phi ptr [ %80, %77 ], [ %72, %.preheader.i ]
-  %79 = getelementptr inbounds nuw i8, ptr %.115.i, i64 32
-  %80 = load ptr, ptr %79, align 8, !tbaa !40
-  %.not14.i = icmp eq ptr %80, null
-  br i1 %.not14.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %77
+.lr.ph.i:                                         ; preds = %.preheader.i, %74
+  %.016.i = phi i32 [ %75, %74 ], [ 0, %.preheader.i ]
+  %.115.i = phi ptr [ %77, %74 ], [ %69, %.preheader.i ]
+  %76 = getelementptr inbounds nuw i8, ptr %.115.i, i64 32
+  %77 = load ptr, ptr %76, align 8, !tbaa !40
+  %.not14.i = icmp eq ptr %77, null
+  br i1 %.not14.i, label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit, label %74
 
-81:                                               ; preds = %73
-  %82 = load ptr, ptr %0, align 8, !tbaa !21
+78:                                               ; preds = %70
+  %79 = load ptr, ptr %0, align 8, !tbaa !21
   br label %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit
 
-_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit: ; preds = %77, %.lr.ph.i, %_ZN12btDbvtAabbMm12SignedExpandERK9btVector3.exit, %.preheader.i, %81
-  %.010.i = phi ptr [ %82, %81 ], [ null, %_ZN12btDbvtAabbMm12SignedExpandERK9btVector3.exit ], [ %72, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %80, %77 ]
+_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit: ; preds = %74, %.lr.ph.i, %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread, %.preheader.i, %78
+  %.010.i = phi ptr [ %79, %78 ], [ null, %_ZNK12btDbvtAabbMm7ContainERKS_.exit.thread ], [ %69, %.preheader.i ], [ %.115.i, %.lr.ph.i ], [ %77, %74 ]
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %1, ptr noundef nonnull readonly align 4 dereferenceable(32) %2, i64 32, i1 false), !tbaa.struct !53
   tail call fastcc void @_ZL10insertleafP6btDbvtP10btDbvtNodeS2_(ptr noundef nonnull align 8 dereferenceable(64) %0, ptr noundef %.010.i, ptr noundef nonnull %1)
-  br label %83
+  br label %80
 
-83:                                               ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit, %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit
+80:                                               ; preds = %_ZNK12btDbvtAabbMm7ContainERKS_.exit, %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit
   %.0 = phi i1 [ false, %_ZNK12btDbvtAabbMm7ContainERKS_.exit ], [ true, %_ZN6btDbvt6updateEP10btDbvtNodeR12btDbvtAabbMm.exit ]
   ret i1 %.0
 }

@@ -6666,7 +6666,7 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
 2:                                                ; preds = %.backedge, %1
   %.0 = phi ptr [ %0, %1 ], [ %.0.be, %.backedge ]
   %3 = load i32, ptr %.0, align 8
-  switch i32 %3, label %24 [
+  switch i32 %3, label %18 [
     i32 0, label %.loopexit
     i32 1, label %.loopexit
     i32 3, label %.loopexit
@@ -6693,13 +6693,13 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
     i32 20, label %4
     i32 23, label %4
     i32 25, label %6
-    i32 24, label %16
-    i32 26, label %16
-    i32 27, label %16
-    i32 29, label %16
-    i32 30, label %16
-    i32 32, label %16
-    i32 28, label %16
+    i32 24, label %12
+    i32 26, label %12
+    i32 27, label %12
+    i32 29, label %12
+    i32 30, label %12
+    i32 32, label %12
+    i32 28, label %12
     i32 31, label %.backedge
     i32 33, label %4
     i32 34, label %4
@@ -6708,9 +6708,9 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
     i32 37, label %4
     i32 38, label %4
     i32 40, label %4
-    i32 39, label %23
-    i32 42, label %23
-    i32 43, label %23
+    i32 39, label %17
+    i32 42, label %17
+    i32 43, label %17
   ]
 
 4:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -6732,38 +6732,32 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   %10 = getelementptr inbounds nuw i8, ptr %8, i64 56
   %11 = load ptr, ptr %10, align 8
   %.not17 = icmp eq ptr %11, null
-  br i1 %.not17, label %14, label %12
+  %. = select i1 %.not17, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %11
+  br label %.loopexit.sink.split
 
-12:                                               ; preds = %9
-  %13 = load ptr, ptr %11, align 8
-  br label %.loopexit
+12:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
+  %13 = getelementptr inbounds nuw i8, ptr %.0, i64 56
+  %14 = load ptr, ptr %13, align 8
+  %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
+  %16 = load ptr, ptr %15, align 8
+  %.not = icmp eq ptr %16, null
+  br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
-14:                                               ; preds = %9
-  %15 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), align 8
-  br label %.loopexit
-
-16:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
-  %17 = getelementptr inbounds nuw i8, ptr %.0, i64 56
-  %18 = load ptr, ptr %17, align 8
-  %19 = getelementptr inbounds nuw i8, ptr %18, i64 56
-  %20 = load ptr, ptr %19, align 8
-  %.not = icmp eq ptr %20, null
-  br i1 %.not, label %.loopexit, label %21
-
-21:                                               ; preds = %16
-  %22 = load ptr, ptr %20, align 8
-  br label %.loopexit
-
-23:                                               ; preds = %2, %2, %2
+17:                                               ; preds = %2, %2, %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #14
   unreachable
 
-24:                                               ; preds = %2
+18:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #14
   unreachable
 
-.loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %21, %16, %14, %12, %6
-  %.012 = phi ptr [ %13, %12 ], [ %15, %14 ], [ null, %6 ], [ %22, %21 ], [ null, %16 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
+.loopexit.sink.split:                             ; preds = %12, %9
+  %.sink33 = phi ptr [ %., %9 ], [ %16, %12 ]
+  %19 = load ptr, ptr %.sink33, align 8
+  br label %.loopexit
+
+.loopexit:                                        ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %2, %.loopexit.sink.split, %12, %6
+  %.012 = phi ptr [ null, %6 ], [ null, %12 ], [ %19, %.loopexit.sink.split ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ], [ null, %2 ]
   ret ptr %.012
 }
 

@@ -2297,8 +2297,7 @@ _ZL12HashEndOfMBBRKN4llvm17MachineBasicBlockE.exit167: ; preds = %402, %367, %37
 _ZN4llvm8DebugLocC2ERKS0_.exit.thread:            ; preds = %_ZL12HashEndOfMBBRKN4llvm17MachineBasicBlockE.exit167
   store i32 %.0.i166, ptr %11, align 8, !tbaa !413
   store ptr %231, ptr %172, align 8, !tbaa !415
-  store ptr null, ptr %173, align 8, !tbaa !407
-  br label %_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170
+  br label %_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170.sink.split
 
 _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %_ZL12HashEndOfMBBRKN4llvm17MachineBasicBlockE.exit167
   %411 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking5trackEPvRNS_8MetadataENS_12PointerUnionIJPNS_15MetadataAsValueEPS2_PNS_14DebugValueUserEEEE(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %410, i64 1) #24
@@ -2311,10 +2310,14 @@ _ZN4llvm8DebugLocC2ERKS0_.exit:                   ; preds = %_ZL12HashEndOfMBBRK
 
 412:                                              ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit
   %413 = call noundef zeroext i1 @_ZN4llvm16MetadataTracking7retrackEPvRNS_8MetadataES1_(ptr noundef nonnull align 8 dereferenceable(8) %12, ptr noundef nonnull align 4 dereferenceable(8) %.pr, ptr noundef nonnull align 8 dereferenceable(8) %173) #24
-  store ptr null, ptr %12, align 8, !tbaa !407
+  br label %_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170.sink.split
+
+_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170.sink.split: ; preds = %412, %_ZN4llvm8DebugLocC2ERKS0_.exit.thread
+  %.sink = phi ptr [ %173, %_ZN4llvm8DebugLocC2ERKS0_.exit.thread ], [ %12, %412 ]
+  store ptr null, ptr %.sink, align 8, !tbaa !407
   br label %_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170
 
-_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170: ; preds = %_ZN4llvm8DebugLocC2ERKS0_.exit.thread, %_ZN4llvm8DebugLocC2ERKS0_.exit, %412
+_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170: ; preds = %_ZN4llvm12BranchFolder18MergePotentialsEltC2EjPNS_17MachineBasicBlockENS_8DebugLocE.exit170.sink.split, %_ZN4llvm8DebugLocC2ERKS0_.exit
   %414 = load ptr, ptr %18, align 8, !tbaa !406
   %415 = load ptr, ptr %174, align 8, !tbaa !416
   %.not.i.i171 = icmp eq ptr %414, %415

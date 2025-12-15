@@ -1863,47 +1863,41 @@ _ZN6icu_7712LocalPointerINS_11PtnSkeletonEE29adoptInsteadAndCheckErrorCodeEPS1_R
   store i8 %61, ptr %62, align 8, !tbaa !58
   %63 = load ptr, ptr %14, align 8, !tbaa !53
   %64 = icmp eq ptr %63, null
-  br i1 %64, label %65, label %66
+  br i1 %64, label %_ZN6icu_7712LocalPointerINS_7PtnElemEED2Ev.exit46, label %65
 
 65:                                               ; preds = %59
-  store ptr %16, ptr %14, align 8, !tbaa !53
-  br label %_ZN6icu_7712LocalPointerINS_7PtnElemEED2Ev.exit46
-
-66:                                               ; preds = %59
   %.not45 = icmp eq ptr %.03572, null
-  br i1 %.not45, label %75, label %67
+  br i1 %.not45, label %74, label %66
 
-67:                                               ; preds = %66
-  %68 = getelementptr inbounds nuw i8, ptr %.03572, i64 152
-  %69 = load ptr, ptr %68, align 8, !tbaa !63
-  %70 = icmp eq ptr %69, null
-  br i1 %70, label %_ZN6icu_7712LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit, label %71
+66:                                               ; preds = %65
+  %67 = getelementptr inbounds nuw i8, ptr %.03572, i64 152
+  %68 = load ptr, ptr %67, align 8, !tbaa !63
+  %69 = icmp eq ptr %68, null
+  br i1 %69, label %_ZN6icu_7712LocalPointerINS_7PtnElemEED2Ev.exit46, label %70
 
-71:                                               ; preds = %67
-  %72 = load ptr, ptr %69, align 8, !tbaa !15
-  %73 = getelementptr inbounds nuw i8, ptr %72, i64 8
-  %74 = load ptr, ptr %73, align 8
-  tail call void %74(ptr noundef nonnull align 8 dereferenceable(160) %69) #35
-  br label %_ZN6icu_7712LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit
-
-_ZN6icu_7712LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit: ; preds = %67, %71
-  store ptr %16, ptr %68, align 8, !tbaa !63
+70:                                               ; preds = %66
+  %71 = load ptr, ptr %68, align 8, !tbaa !15
+  %72 = getelementptr inbounds nuw i8, ptr %71, i64 8
+  %73 = load ptr, ptr %72, align 8
+  tail call void %73(ptr noundef nonnull align 8 dereferenceable(160) %68) #35
   br label %_ZN6icu_7712LocalPointerINS_7PtnElemEED2Ev.exit46
 
-75:                                               ; preds = %66
+74:                                               ; preds = %65
   tail call void @abort() #37
   unreachable
 
 _ZN6icu_7712LocalPointerINS_11PtnSkeletonEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit.thread: ; preds = %.thread52, %_ZN6icu_7712LocalPointerINS_11PtnSkeletonEE29adoptInsteadAndCheckErrorCodeEPS1_R10UErrorCode.exit, %_ZN6icu_7712LocalPointerINS_7PtnElemEEC2EPS1_R10UErrorCode.exit, %48
-  %76 = load ptr, ptr %16, align 8, !tbaa !15
-  %77 = getelementptr inbounds nuw i8, ptr %76, i64 8
-  %78 = load ptr, ptr %77, align 8
-  tail call void %78(ptr noundef nonnull align 8 dereferenceable(160) %16) #35
+  %75 = load ptr, ptr %16, align 8, !tbaa !15
+  %76 = getelementptr inbounds nuw i8, ptr %75, i64 8
+  %77 = load ptr, ptr %76, align 8
+  tail call void %77(ptr noundef nonnull align 8 dereferenceable(160) %16) #35
   br label %.loopexit
 
-_ZN6icu_7712LocalPointerINS_7PtnElemEED2Ev.exit46: ; preds = %65, %_ZN6icu_7712LocalPointerINS_7PtnElemEE12adoptInsteadEPS1_.exit
-  %79 = getelementptr inbounds nuw i8, ptr %.03773, i64 152
-  %.037 = load ptr, ptr %79, align 8, !tbaa !53
+_ZN6icu_7712LocalPointerINS_7PtnElemEED2Ev.exit46: ; preds = %70, %66, %59
+  %.sink = phi ptr [ %14, %59 ], [ %67, %66 ], [ %67, %70 ]
+  store ptr %16, ptr %.sink, align 8, !tbaa !53
+  %78 = getelementptr inbounds nuw i8, ptr %.03773, i64 152
+  %.037 = load ptr, ptr %78, align 8, !tbaa !53
   %.not41 = icmp eq ptr %.037, null
   br i1 %.not41, label %.critedge, label %15, !llvm.loop !64
 

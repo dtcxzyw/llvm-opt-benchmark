@@ -6558,7 +6558,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput16read_channel
   store i64 %15, ptr %6, align 8, !tbaa !23
   call void @_ZNK11OpenImageIO6v3_1_010ImageInput8errorfmtIJjmEEEvPKcDpRKT_(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef nonnull @.str.95, ptr noundef nonnull align 4 dereferenceable(4) %5, ptr noundef nonnull align 8 dereferenceable(8) %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br label %123
+  br label %119
 
 17:                                               ; preds = %4
   %18 = getelementptr inbounds nuw i8, ptr %1, i64 24
@@ -6567,20 +6567,20 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput16read_channel
     i16 0, label %20
     i16 1, label %45
     i16 2, label %70
-    i16 3, label %94
+    i16 3, label %91
   ]
 
 20:                                               ; preds = %17
   %21 = getelementptr inbounds nuw i64, ptr %11, i64 %7
   %22 = load i64, ptr %21, align 8, !tbaa !23
   %23 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %22, i32 noundef 0)
-  br i1 %23, label %24, label %123
+  br i1 %23, label %24, label %119
 
 24:                                               ; preds = %20
   %25 = load i32, ptr %1, align 8, !tbaa !244
   %26 = zext i32 %25 to i64
   %27 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput6ioreadEPvmm(ptr noundef nonnull align 8 dereferenceable(184) %0, ptr noundef %3, i64 noundef %26, i64 noundef 1)
-  br i1 %27, label %28, label %123
+  br i1 %27, label %28, label %119
 
 28:                                               ; preds = %24
   %29 = getelementptr inbounds nuw i8, ptr %0, i64 672
@@ -6634,7 +6634,7 @@ define hidden noundef zeroext i1 @_ZN11OpenImageIO6v3_1_08PSDInput16read_channel
   %46 = getelementptr inbounds nuw i64, ptr %11, i64 %7
   %47 = load i64, ptr %46, align 8, !tbaa !23
   %48 = tail call noundef zeroext i1 @_ZN11OpenImageIO6v3_1_010ImageInput6ioseekEli(ptr noundef nonnull align 8 dereferenceable(184) %0, i64 noundef %47, i32 noundef 0)
-  br i1 %48, label %49, label %123
+  br i1 %48, label %49, label %119
 
 49:                                               ; preds = %45
   %50 = getelementptr inbounds nuw i8, ptr %1, i64 64
@@ -6694,7 +6694,7 @@ _ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5v
   br label %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55
 
 _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55: ; preds = %68, %_ZNKSt14default_deleteIA_cEclIcEENSt9enable_ifIXsr14is_convertibleIPA_T_PS0_EE5valueEvE4typeEPS4_.exit.i54
-  br i1 %69, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit, label %123
+  br i1 %69, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit, label %119
 
 70:                                               ; preds = %17
   %71 = getelementptr inbounds nuw i8, ptr %1, i64 40
@@ -6717,69 +6717,62 @@ _ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55: ; preds = %68, %_ZNKSt
   %88 = zext nneg i16 %87 to i64
   %89 = mul i64 %84, %88
   %90 = icmp eq i64 %77, %89
-  br i1 %90, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split, label %91, !prof !330
+  br i1 %90, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split, !prof !330
 
-91:                                               ; preds = %70
-  %92 = load ptr, ptr @stderr, align 8, !tbaa !316
-  %93 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %92, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 2074, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_08PSDInput16read_channel_rowERNS1_11ChannelInfoEjPc, ptr noundef nonnull @.str.96) #39
-  %.pre65 = load i32, ptr %78, align 4, !tbaa !226
-  %.pre66 = load i16, ptr %85, align 8, !tbaa !222
-  %.pre67 = load ptr, ptr %71, align 8, !tbaa !126
-  %.pre68 = zext i32 %.pre65 to i64
-  %.pre69 = lshr i16 %.pre66, 3
-  %.pre71 = zext nneg i16 %.pre69 to i64
-  br label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split
-
-94:                                               ; preds = %17
-  %95 = getelementptr inbounds nuw i8, ptr %1, i64 40
-  %96 = getelementptr inbounds nuw i8, ptr %1, i64 48
-  %97 = load ptr, ptr %96, align 8, !tbaa !329
-  %98 = load ptr, ptr %95, align 8, !tbaa !126
-  %99 = ptrtoint ptr %97 to i64
-  %100 = ptrtoint ptr %98 to i64
-  %101 = sub i64 %99, %100
-  %102 = getelementptr inbounds nuw i8, ptr %1, i64 28
-  %103 = load i32, ptr %102, align 4, !tbaa !226
+91:                                               ; preds = %17
+  %92 = getelementptr inbounds nuw i8, ptr %1, i64 40
+  %93 = getelementptr inbounds nuw i8, ptr %1, i64 48
+  %94 = load ptr, ptr %93, align 8, !tbaa !329
+  %95 = load ptr, ptr %92, align 8, !tbaa !126
+  %96 = ptrtoint ptr %94 to i64
+  %97 = ptrtoint ptr %95 to i64
+  %98 = sub i64 %96, %97
+  %99 = getelementptr inbounds nuw i8, ptr %1, i64 28
+  %100 = load i32, ptr %99, align 4, !tbaa !226
+  %101 = zext i32 %100 to i64
+  %102 = getelementptr inbounds nuw i8, ptr %1, i64 32
+  %103 = load i32, ptr %102, align 8, !tbaa !237
   %104 = zext i32 %103 to i64
-  %105 = getelementptr inbounds nuw i8, ptr %1, i64 32
-  %106 = load i32, ptr %105, align 8, !tbaa !237
-  %107 = zext i32 %106 to i64
-  %108 = mul nuw i64 %107, %104
-  %109 = getelementptr inbounds nuw i8, ptr %0, i64 672
-  %110 = load i16, ptr %109, align 8, !tbaa !222
-  %111 = lshr i16 %110, 3
-  %112 = zext nneg i16 %111 to i64
-  %113 = mul i64 %108, %112
-  %114 = icmp eq i64 %101, %113
-  br i1 %114, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split, label %115, !prof !330
+  %105 = mul nuw i64 %104, %101
+  %106 = getelementptr inbounds nuw i8, ptr %0, i64 672
+  %107 = load i16, ptr %106, align 8, !tbaa !222
+  %108 = lshr i16 %107, 3
+  %109 = zext nneg i16 %108 to i64
+  %110 = mul i64 %105, %109
+  %111 = icmp eq i64 %98, %110
+  br i1 %111, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split, label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split, !prof !330
 
-115:                                              ; preds = %94
-  %116 = load ptr, ptr @stderr, align 8, !tbaa !316
-  %117 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %116, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef 2084, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_08PSDInput16read_channel_rowERNS1_11ChannelInfoEjPc, ptr noundef nonnull @.str.96) #39
-  %.pre = load i32, ptr %102, align 4, !tbaa !226
-  %.pre63 = load i16, ptr %109, align 8, !tbaa !222
-  %.pre64 = load ptr, ptr %95, align 8, !tbaa !126
+_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split: ; preds = %91, %70
+  %.sink92 = phi i32 [ 2074, %70 ], [ 2084, %91 ]
+  %.sink90 = phi ptr [ %78, %70 ], [ %99, %91 ]
+  %.sink89 = phi ptr [ %85, %70 ], [ %106, %91 ]
+  %.sink = phi ptr [ %71, %70 ], [ %92, %91 ]
+  %112 = load ptr, ptr @stderr, align 8, !tbaa !316
+  %113 = tail call i32 (ptr, ptr, ...) @fprintf(ptr noundef %112, ptr noundef nonnull @.str.42, ptr noundef nonnull @.str.43, i32 noundef %.sink92, ptr noundef nonnull @__FUNCTION__._ZN11OpenImageIO6v3_1_08PSDInput16read_channel_rowERNS1_11ChannelInfoEjPc, ptr noundef nonnull @.str.96) #39
+  %.pre = load i32, ptr %.sink90, align 4, !tbaa !226
+  %.pre63 = load i16, ptr %.sink89, align 8, !tbaa !222
+  %.pre64 = load ptr, ptr %.sink, align 8, !tbaa !126
   %.pre73 = zext i32 %.pre to i64
   %.pre75 = lshr i16 %.pre63, 3
   %.pre77 = zext nneg i16 %.pre75 to i64
   br label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split
 
-_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split: ; preds = %115, %94, %91, %70
-  %.pre-phi74.sink = phi i64 [ %80, %70 ], [ %.pre68, %91 ], [ %104, %94 ], [ %.pre73, %115 ]
-  %.pre-phi78.sink = phi i64 [ %88, %70 ], [ %.pre71, %91 ], [ %112, %94 ], [ %.pre77, %115 ]
-  %.sink87 = phi ptr [ %74, %70 ], [ %.pre67, %91 ], [ %98, %94 ], [ %.pre64, %115 ]
-  %118 = mul nuw i64 %.pre-phi74.sink, %7
-  %119 = mul i64 %118, %.pre-phi78.sink
-  %120 = getelementptr inbounds nuw i8, ptr %.sink87, i64 %119
-  %121 = load i32, ptr %1, align 8, !tbaa !244
-  %122 = zext i32 %121 to i64
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %120, i64 %122, i1 false)
+_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split: ; preds = %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split, %91, %70
+  %.pre-phi74.sink = phi i64 [ %80, %70 ], [ %101, %91 ], [ %.pre73, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split ]
+  %.pre-phi78.sink = phi i64 [ %88, %70 ], [ %109, %91 ], [ %.pre77, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split ]
+  %.sink87 = phi ptr [ %74, %70 ], [ %95, %91 ], [ %.pre64, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split.sink.split ]
+  %114 = mul nuw i64 %.pre-phi74.sink, %7
+  %115 = mul i64 %114, %.pre-phi78.sink
+  %116 = getelementptr inbounds nuw i8, ptr %.sink87, i64 %115
+  %117 = load i32, ptr %1, align 8, !tbaa !244
+  %118 = zext i32 %117 to i64
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %3, ptr align 1 %116, i64 %118, i1 false)
   br label %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit
 
 _ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit: ; preds = %.lr.ph.i49, %.lr.ph.i, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit.sink.split, %38, %31, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55, %28, %17
-  br label %123
+  br label %119
 
-123:                                              ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55, %45, %24, %20, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit, %16
+119:                                              ; preds = %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55, %45, %24, %20, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit, %16
   %.0 = phi i1 [ false, %16 ], [ true, %_ZN11OpenImageIO6v3_1_011swap_endianItEEvPT_i.exit ], [ false, %_ZNSt10unique_ptrIA_cSt14default_deleteIS0_EED2Ev.exit55 ], [ false, %20 ], [ false, %24 ], [ false, %45 ]
   ret i1 %.0
 }

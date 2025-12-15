@@ -1310,7 +1310,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 40:                                               ; preds = %32
   %41 = add nsw i32 %38, 1
   store i32 %41, ptr %37, align 4
-  br label %_ZN11TransTableS9AddLenSetEii.exit
+  br label %._crit_edge.sink.split
 
 42:                                               ; preds = %32
   %43 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1334,7 +1334,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 56:                                               ; preds = %49, %42
   %57 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %57, align 4
-  br label %_ZN11TransTableS9AddLenSetEii.exit
+  br label %._crit_edge.sink.split
 
 58:                                               ; preds = %49
   %59 = add nsw i32 %53, 1
@@ -1358,7 +1358,7 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
 73:                                               ; preds = %58
   %74 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %74, align 4
-  br label %_ZN11TransTableS9AddLenSetEii.exit
+  br label %._crit_edge.sink.split
 
 75:                                               ; preds = %58
   %76 = load i64, ptr %43, align 8
@@ -1374,10 +1374,6 @@ define noundef ptr @_ZN11TransTableS18SearchLenAndInsertEPNS_18posSearchTypeSmal
   %84 = getelementptr inbounds [4 x ptr], ptr %83, i64 %34
   %85 = getelementptr inbounds ptr, ptr %84, i64 %36
   store ptr %82, ptr %85, align 8
-  br label %_ZN11TransTableS9AddLenSetEii.exit
-
-_ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
-  store ptr %.0, ptr %31, align 8
   br label %._crit_edge.sink.split
 
 86:                                               ; preds = %.lr.ph
@@ -1403,7 +1399,7 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
 99:                                               ; preds = %91
   %100 = add nsw i32 %97, 1
   store i32 %100, ptr %96, align 4
-  br label %_ZN11TransTableS9AddLenSetEii.exit53
+  br label %._crit_edge.sink.split
 
 101:                                              ; preds = %91
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 368
@@ -1427,7 +1423,7 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
 115:                                              ; preds = %108, %101
   %116 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %116, align 4
-  br label %_ZN11TransTableS9AddLenSetEii.exit53
+  br label %._crit_edge.sink.split
 
 117:                                              ; preds = %108
   %118 = add nsw i32 %112, 1
@@ -1451,7 +1447,7 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
 132:                                              ; preds = %117
   %133 = getelementptr inbounds nuw i8, ptr %0, i64 404
   store i8 1, ptr %133, align 4
-  br label %_ZN11TransTableS9AddLenSetEii.exit53
+  br label %._crit_edge.sink.split
 
 134:                                              ; preds = %117
   %135 = load i64, ptr %102, align 8
@@ -1467,10 +1463,6 @@ _ZN11TransTableS9AddLenSetEii.exit:               ; preds = %40, %56, %73, %75
   %143 = getelementptr inbounds [4 x ptr], ptr %142, i64 %93
   %144 = getelementptr inbounds ptr, ptr %143, i64 %95
   store ptr %141, ptr %144, align 8
-  br label %_ZN11TransTableS9AddLenSetEii.exit53
-
-_ZN11TransTableS9AddLenSetEii.exit53:             ; preds = %99, %115, %132, %134
-  store ptr %.0, ptr %90, align 8
   br label %._crit_edge.sink.split
 
 145:                                              ; preds = %86, %27
@@ -1480,7 +1472,9 @@ _ZN11TransTableS9AddLenSetEii.exit53:             ; preds = %99, %115, %132, %13
   %148 = icmp eq i64 %2, %147
   br i1 %148, label %._crit_edge, label %.lr.ph, !llvm.loop !31
 
-._crit_edge.sink.split:                           ; preds = %_ZN11TransTableS9AddLenSetEii.exit, %_ZN11TransTableS9AddLenSetEii.exit53
+._crit_edge.sink.split:                           ; preds = %134, %132, %115, %99, %75, %73, %56, %40
+  %.sink75 = phi ptr [ %31, %40 ], [ %31, %56 ], [ %31, %73 ], [ %31, %75 ], [ %90, %99 ], [ %90, %115 ], [ %90, %132 ], [ %90, %134 ]
+  store ptr %.0, ptr %.sink75, align 8
   store ptr null, ptr %.0, align 8
   %149 = getelementptr inbounds nuw i8, ptr %.0, i64 8
   store i64 %2, ptr %149, align 8

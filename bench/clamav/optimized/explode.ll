@@ -125,9 +125,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %23 = add i32 %9, %6
   store i32 %23, ptr %8, align 8, !tbaa !17
   %24 = getelementptr inbounds nuw i8, ptr %20, i64 %22
-  store ptr %24, ptr %0, align 8, !tbaa !19
-  store i32 0, ptr %5, align 4, !tbaa !18
-  br label %514
+  br label %.sink.split
 
 25:                                               ; preds = %14
   %26 = zext i32 %15 to i64
@@ -191,9 +189,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %56 = add i32 %39, %36
   store i32 %56, ptr %38, align 8, !tbaa !17
   %57 = getelementptr inbounds nuw i8, ptr %53, i64 %55
-  store ptr %57, ptr %0, align 8, !tbaa !19
-  store i32 0, ptr %35, align 4, !tbaa !18
-  br label %514
+  br label %.sink.split
 
 58:                                               ; preds = %46
   %59 = zext i32 %48 to i64
@@ -257,9 +253,7 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   %89 = add i32 %72, %69
   store i32 %89, ptr %71, align 8, !tbaa !17
   %90 = getelementptr inbounds nuw i8, ptr %86, i64 %88
-  store ptr %90, ptr %0, align 8, !tbaa !19
-  store i32 0, ptr %68, align 4, !tbaa !18
-  br label %514
+  br label %.sink.split
 
 91:                                               ; preds = %79
   %92 = zext i32 %81 to i64
@@ -277,16 +271,16 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %71, align 8, !tbaa !17
   %98 = load i32, ptr %2, align 8, !tbaa !14
   %99 = add i32 %98, 1
-  br label %.sink.split
+  br label %.sink.split563
 
-.sink.split:                                      ; preds = %233, %477, %97
-  %.sink561 = phi i32 [ %99, %97 ], [ 3, %477 ], [ 3, %233 ]
+.sink.split563:                                   ; preds = %233, %477, %97
+  %.sink564 = phi i32 [ %99, %97 ], [ 3, %477 ], [ 3, %233 ]
   %.4.ph = phi i32 [ -1, %97 ], [ %.14, %477 ], [ %.1, %233 ]
-  store i32 %.sink561, ptr %2, align 8, !tbaa !14
+  store i32 %.sink564, ptr %2, align 8, !tbaa !14
   br label %100
 
-100:                                              ; preds = %.sink.split, %1
-  %.4 = phi i32 [ -1, %1 ], [ %.4.ph, %.sink.split ]
+100:                                              ; preds = %.sink.split563, %1
+  %.4 = phi i32 [ -1, %1 ], [ %.4.ph, %.sink.split563 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %102 = load i32, ptr %101, align 4, !tbaa !18
   %.not409 = icmp eq i32 %102, 0
@@ -574,7 +568,7 @@ lookup_tree.exit.thread:                          ; preds = %179
   %250 = load ptr, ptr %246, align 8, !tbaa !25
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   store ptr %251, ptr %246, align 8, !tbaa !25
-  br label %.sink.split
+  br label %.sink.split563
 
 252:                                              ; preds = %123
   store i32 6, ptr %2, align 8, !tbaa !14
@@ -989,7 +983,7 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %480 = add i16 %478, -1
   store i16 %480, ptr %479, align 2, !tbaa !22
   %.not428 = icmp eq i16 %478, 0
-  br i1 %.not428, label %.sink.split, label %481
+  br i1 %.not428, label %.sink.split563, label %481
 
 481:                                              ; preds = %477, %1
   %.3 = phi i32 [ %.14, %477 ], [ -1, %1 ]
@@ -1046,8 +1040,15 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %.pre503 = load i16, ptr %.phi.trans.insert502, align 2, !tbaa !22
   br label %477
 
-514:                                              ; preds = %1, %105, %481, %436, %423, %384, %357, %318, %268, %230, %195, %182, %143, %91, %77, %67, %58, %44, %34, %25, %4, %87, %54, %21
-  %.0369 = phi i32 [ 0, %21 ], [ 0, %54 ], [ 0, %87 ], [ 0, %4 ], [ 1, %25 ], [ 0, %34 ], [ 1, %44 ], [ 1, %58 ], [ 0, %67 ], [ 1, %77 ], [ 1, %91 ], [ 0, %143 ], [ 1, %182 ], [ 0, %195 ], [ 0, %230 ], [ 0, %268 ], [ 0, %318 ], [ 1, %357 ], [ 0, %384 ], [ 1, %423 ], [ 0, %436 ], [ 0, %481 ], [ 0, %105 ], [ 0, %1 ]
+.sink.split:                                      ; preds = %21, %54, %87
+  %.sink559 = phi ptr [ %90, %87 ], [ %57, %54 ], [ %24, %21 ]
+  %.sink558 = phi ptr [ %68, %87 ], [ %35, %54 ], [ %5, %21 ]
+  store ptr %.sink559, ptr %0, align 8, !tbaa !19
+  store i32 0, ptr %.sink558, align 4, !tbaa !18
+  br label %514
+
+514:                                              ; preds = %.sink.split, %1, %105, %481, %436, %423, %384, %357, %318, %268, %230, %195, %182, %143, %91, %77, %67, %58, %44, %34, %25, %4
+  %.0369 = phi i32 [ 0, %4 ], [ 1, %25 ], [ 0, %34 ], [ 1, %44 ], [ 1, %58 ], [ 0, %67 ], [ 1, %77 ], [ 1, %91 ], [ 0, %143 ], [ 1, %182 ], [ 0, %195 ], [ 0, %230 ], [ 0, %268 ], [ 0, %318 ], [ 1, %357 ], [ 0, %384 ], [ 1, %423 ], [ 0, %436 ], [ 0, %481 ], [ 0, %105 ], [ 0, %1 ], [ 0, %.sink.split ]
   ret i32 %.0369
 }
 

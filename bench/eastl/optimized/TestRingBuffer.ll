@@ -44059,18 +44059,21 @@ delete.notnull.i.i.i.i:                           ; preds = %_ZN5eastl31uninitia
 _ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i: ; preds = %delete.notnull.i.i.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i
   store ptr %call.i.i.i.i.i27, ptr %cTemp, align 8
   store ptr %add.ptr.i, ptr %mpEnd.i.i, align 8
-  %add.ptr25.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i27, i64 %add
-  store ptr %add.ptr25.i, ptr %mCapacityAllocator.i.i.i, align 8
-  br label %invoke.cont4
+  br label %invoke.cont4.sink.split
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i: ; preds = %if.then.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %mBuffer.i.i, i8 0, i64 %mul.i13.i, i1 false)
-  %add.ptr30.i = getelementptr inbounds nuw i32, ptr %mBuffer.i.i, i64 %add
-  store ptr %add.ptr30.i, ptr %mpEnd.i.i, align 8
+  br label %invoke.cont4.sink.split
+
+invoke.cont4.sink.split:                          ; preds = %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i
+  %mBuffer.i.i.sink = phi ptr [ %mBuffer.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %call.i.i.i.i.i27, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ]
+  %mpEnd.i.i.sink = phi ptr [ %mpEnd.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %mCapacityAllocator.i.i.i, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ]
+  %add.ptr30.i = getelementptr inbounds i32, ptr %mBuffer.i.i.sink, i64 %add
+  store ptr %add.ptr30.i, ptr %mpEnd.i.i.sink, align 8
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %if.then, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i
-  %6 = phi ptr [ %mBuffer.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %call.i.i.i.i.i27, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ], [ %mBuffer.i.i, %if.then ]
+invoke.cont4:                                     ; preds = %invoke.cont4.sink.split, %if.then
+  %6 = phi ptr [ %mBuffer.i.i, %if.then ], [ %mBuffer.i.i.sink, %invoke.cont4.sink.split ]
   %mBegin.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %7 = load ptr, ptr %mBegin.i, align 8, !noalias !3184
   %mEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 448
@@ -44242,18 +44245,21 @@ delete.notnull.i.i.i.i:                           ; preds = %_ZN5eastl31uninitia
 _ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i: ; preds = %delete.notnull.i.i.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i
   store ptr %call.i.i.i.i.i27, ptr %cTemp, align 8
   store ptr %add.ptr.i, ptr %mpEnd.i.i, align 8
-  %add.ptr25.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i27, i64 %add
-  store ptr %add.ptr25.i, ptr %mCapacityAllocator.i.i.i, align 8
-  br label %invoke.cont4
+  br label %invoke.cont4.sink.split
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i: ; preds = %if.then.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %mBuffer.i.i, i8 0, i64 %mul.i13.i, i1 false)
-  %add.ptr30.i = getelementptr inbounds nuw i32, ptr %mBuffer.i.i, i64 %add
-  store ptr %add.ptr30.i, ptr %mpEnd.i.i, align 8
+  br label %invoke.cont4.sink.split
+
+invoke.cont4.sink.split:                          ; preds = %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i
+  %mBuffer.i.i.sink = phi ptr [ %mBuffer.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %call.i.i.i.i.i27, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ]
+  %mpEnd.i.i.sink = phi ptr [ %mpEnd.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %mCapacityAllocator.i.i.i, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ]
+  %add.ptr30.i = getelementptr inbounds i32, ptr %mBuffer.i.i.sink, i64 %add
+  store ptr %add.ptr30.i, ptr %mpEnd.i.i.sink, align 8
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %if.then, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i
-  %6 = phi ptr [ %mBuffer.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %call.i.i.i.i.i27, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ], [ %mBuffer.i.i, %if.then ]
+invoke.cont4:                                     ; preds = %invoke.cont4.sink.split, %if.then
+  %6 = phi ptr [ %mBuffer.i.i, %if.then ], [ %mBuffer.i.i.sink, %invoke.cont4.sink.split ]
   %mBegin.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %7 = load ptr, ptr %mBegin.i, align 8, !noalias !3193
   %mSize = getelementptr inbounds nuw i8, ptr %this, i64 456
@@ -44458,18 +44464,21 @@ delete.notnull.i.i.i.i:                           ; preds = %_ZN5eastl31uninitia
 _ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i: ; preds = %delete.notnull.i.i.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit.i
   store ptr %call.i.i.i.i.i23, ptr %cTemp, align 8
   store ptr %add.ptr.i, ptr %mpEnd.i.i, align 8
-  %add.ptr25.i = getelementptr inbounds i32, ptr %call.i.i.i.i.i23, i64 %add
-  store ptr %add.ptr25.i, ptr %mCapacityAllocator.i.i.i, align 8
-  br label %invoke.cont4
+  br label %invoke.cont4.sink.split
 
 _ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i: ; preds = %if.then.i
   call void @llvm.memset.p0.i64(ptr nonnull align 8 %mBuffer.i.i, i8 0, i64 %mul.i13.i, i1 false)
-  %add.ptr30.i = getelementptr inbounds nuw i32, ptr %mBuffer.i.i, i64 %add
-  store ptr %add.ptr30.i, ptr %mpEnd.i.i, align 8
+  br label %invoke.cont4.sink.split
+
+invoke.cont4.sink.split:                          ; preds = %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i
+  %mBuffer.i.i.sink = phi ptr [ %mBuffer.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %call.i.i.i.i.i23, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ]
+  %mpEnd.i.i.sink = phi ptr [ %mpEnd.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %mCapacityAllocator.i.i.i, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ]
+  %add.ptr30.i = getelementptr inbounds i32, ptr %mBuffer.i.i.sink, i64 %add
+  store ptr %add.ptr30.i, ptr %mpEnd.i.i.sink, align 8
   br label %invoke.cont4
 
-invoke.cont4:                                     ; preds = %if.then, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i
-  %6 = phi ptr [ %mBuffer.i.i, %_ZN5eastl31uninitialized_value_construct_nIPimEET_S2_T0_.exit21.i ], [ %call.i.i.i.i.i23, %_ZN5eastl10VectorBaseIiNS_22fixed_vector_allocatorILm4ELm100ELm4ELm0ELb1ENS_9allocatorEEEE6DoFreeEPim.exit.i ], [ %mBuffer.i.i, %if.then ]
+invoke.cont4:                                     ; preds = %invoke.cont4.sink.split, %if.then
+  %6 = phi ptr [ %mBuffer.i.i, %if.then ], [ %mBuffer.i.i.sink, %invoke.cont4.sink.split ]
   %mBegin.i = getelementptr inbounds nuw i8, ptr %this, i64 440
   %7 = load ptr, ptr %mBegin.i, align 8, !noalias !3199
   %mEnd.i = getelementptr inbounds nuw i8, ptr %this, i64 448

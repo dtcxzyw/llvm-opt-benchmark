@@ -1366,16 +1366,16 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 210:                                              ; preds = %.critedge194
   %211 = load ptr, ptr %4, align 8, !tbaa !55
   %212 = call i32 @gzclose(ptr noundef %211) #19
-  store ptr null, ptr %4, align 8, !tbaa !55
   br label %216
 
 213:                                              ; preds = %.critedge194
   %214 = load ptr, ptr %69, align 8, !tbaa !56
   %215 = call i32 @fclose(ptr noundef %214)
-  store ptr null, ptr %69, align 8, !tbaa !56
   br label %216
 
 216:                                              ; preds = %213, %210
+  %.sink = phi ptr [ %69, %213 ], [ %4, %210 ]
+  store ptr null, ptr %.sink, align 8, !tbaa !65
   %217 = load ptr, ptr %49, align 8, !tbaa !58
   %.not11.i195 = icmp eq ptr %217, null
   br i1 %.not11.i195, label %219, label %218
@@ -1402,7 +1402,7 @@ define internal fastcc range(i32 0, 27) i32 @cli_tgzload(i32 noundef %0, ptr nou
 
 223:                                              ; preds = %.critedge
   %224 = getelementptr inbounds nuw i8, ptr %.0217, i64 16
-  %225 = load i64, ptr %224, align 8, !tbaa !65
+  %225 = load i64, ptr %224, align 8, !tbaa !66
   %226 = zext i32 %222 to i64
   %.not187 = icmp eq i64 %225, %226
   br i1 %.not187, label %228, label %227
@@ -1819,7 +1819,7 @@ define range(i32 0, 21) i32 @cl_cvdgetage(ptr noundef %0, ptr noundef captures(n
 
 12:                                               ; preds = %2
   %13 = getelementptr inbounds nuw i8, ptr %7, i64 24
-  %14 = load i32, ptr %13, align 8, !tbaa !66
+  %14 = load i32, ptr %13, align 8, !tbaa !67
   %15 = and i32 %14, 61440
   %16 = icmp eq i32 %15, 16384
   br i1 %16, label %32, label %17
@@ -1907,7 +1907,7 @@ sub_0:                                            ; preds = %36
   %.03198 = phi i1 [ true, %.lr.ph ], [ %.132, %80 ]
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 16 dereferenceable(1024) %8, i8 0, i64 1024, i1 false)
-  %48 = load i64, ptr %47, align 8, !tbaa !69
+  %48 = load i64, ptr %47, align 8, !tbaa !70
   %.not46 = icmp eq i64 %48, 0
   br i1 %.not46, label %80, label %sub_088
 
@@ -2275,10 +2275,11 @@ attributes #22 = { nounwind allocsize(0,1) }
 !62 = !{!41, !9, i64 16}
 !63 = !{!41, !9, i64 56}
 !64 = !{!41, !9, i64 20}
-!65 = !{!49, !20, i64 16}
-!66 = !{!67, !9, i64 24}
-!67 = !{!"stat", !20, i64 0, !20, i64 8, !20, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !68, i64 72, !68, i64 88, !68, i64 104, !7, i64 120}
-!68 = !{!"timespec", !20, i64 0, !20, i64 8}
-!69 = !{!70, !20, i64 0}
-!70 = !{!"dirent", !20, i64 0, !20, i64 8, !71, i64 16, !7, i64 18, !7, i64 19}
-!71 = !{!"short", !7, i64 0}
+!65 = !{!6, !6, i64 0}
+!66 = !{!49, !20, i64 16}
+!67 = !{!68, !9, i64 24}
+!68 = !{!"stat", !20, i64 0, !20, i64 8, !20, i64 16, !9, i64 24, !9, i64 28, !9, i64 32, !9, i64 36, !20, i64 40, !20, i64 48, !20, i64 56, !20, i64 64, !69, i64 72, !69, i64 88, !69, i64 104, !7, i64 120}
+!69 = !{!"timespec", !20, i64 0, !20, i64 8}
+!70 = !{!71, !20, i64 0}
+!71 = !{!"dirent", !20, i64 0, !20, i64 8, !72, i64 16, !7, i64 18, !7, i64 19}
+!72 = !{!"short", !7, i64 0}

@@ -313,8 +313,7 @@ ChooseExtendedStatisticName.exit:                 ; preds = %.lr.ph.i256, %Choos
 
 144:                                              ; preds = %140, %138
   call void @relation_close(ptr noundef %37, i32 noundef 0) #9
-  %.sroa.3.0.copyload = load i32, ptr getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), align 4
-  br label %454
+  br label %453
 
 145:                                              ; preds = %134
   %146 = call zeroext i1 @errstart_cold(i32 noundef 21, ptr noundef null) #10
@@ -951,13 +950,10 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   call void @CreateComments(i32 noundef %409, i32 noundef 3381, i32 noundef 0, ptr noundef nonnull %451) #9
   br label %453
 
-453:                                              ; preds = %452, %447
-  %.sroa.3.0.copyload186 = load i32, ptr %435, align 4
-  br label %454
-
-454:                                              ; preds = %453, %144
-  %.sroa.0184.0.in = phi ptr [ @InvalidObjectAddress, %144 ], [ %10, %453 ]
-  %.sroa.3.0 = phi i32 [ %.sroa.3.0.copyload, %144 ], [ %.sroa.3.0.copyload186, %453 ]
+453:                                              ; preds = %447, %452, %144
+  %.sink = phi ptr [ getelementptr inbounds nuw (i8, ptr @InvalidObjectAddress, i64 8), %144 ], [ %435, %452 ], [ %435, %447 ]
+  %.sroa.0184.0.in = phi ptr [ @InvalidObjectAddress, %144 ], [ %10, %452 ], [ %10, %447 ]
+  %.sroa.3.0.copyload186 = load i32, ptr %.sink, align 4
   %.sroa.0184.0 = load i64, ptr %.sroa.0184.0.in, align 4
   call void @llvm.lifetime.end.p0(ptr nonnull %11)
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
@@ -968,7 +964,7 @@ list_length.exit268.thread:                       ; preds = %337, %list_length.e
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   %.fca.0.insert = insertvalue { i64, i32 } poison, i64 %.sroa.0184.0, 0
-  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0, 1
+  %.fca.1.insert = insertvalue { i64, i32 } %.fca.0.insert, i32 %.sroa.3.0.copyload186, 1
   ret { i64, i32 } %.fca.1.insert
 }
 

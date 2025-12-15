@@ -57586,8 +57586,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateSt1
 
 _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit: ; preds = %if.then, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateSt10error_codeNSt15__exception_ptr13exception_ptrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S4_S6_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %_value.i, ptr noundef nonnull align 8 dereferenceable(16) %.reload.addr, i64 16, i1 false)
-  store i8 1, ptr %_M_index.i.i.i.i.i.i, align 8
-  br label %CoroSave98
+  br label %CoroSave98.sink.split
 
 lpad26:                                           ; preds = %call2.i.noexc, %await.ready
   %22 = landingpad { ptr, i32 }
@@ -57642,7 +57641,12 @@ _ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit13: ; preds = %ehc
   invoke void @__cxa_end_catch()
           to label %CoroSave98 unwind label %lpad51
 
-CoroSave98:                                       ; preds = %_ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit13, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit24, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit34
+CoroSave98.sink.split:                            ; preds = %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit34, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit24, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit
+  %_M_index.i.i.i.i.i.i.sink = phi ptr [ %_M_index.i.i.i.i.i.i, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit ], [ %_M_index.i.i.i.i.i.i27, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit24 ], [ %_M_index.i.i.i.i.i.i27, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit34 ]
+  store i8 1, ptr %_M_index.i.i.i.i.i.i.sink, align 8
+  br label %CoroSave98
+
+CoroSave98:                                       ; preds = %CoroSave98.sink.split, %_ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit13
   store ptr null, ptr %0, align 8
   store i2 -2, ptr %index.addr, align 8
   %retval.sroa.0.0.copyload.i14 = load ptr, ptr %__promise.reload.addr, align 8
@@ -57683,8 +57687,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvO
   store i32 71, ptr %_value.i26, align 8
   %ref.tmp42.sroa.437.0._value.i16.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %call.i, ptr %ref.tmp42.sroa.437.0._value.i16.sroa_idx, align 8
-  store i8 1, ptr %_M_index.i.i.i.i.i.i27, align 8
-  br label %CoroSave98
+  br label %CoroSave98.sink.split
 
 if.end44:                                         ; preds = %if.else
   %call.i25 = tail call noundef nonnull align 8 dereferenceable(8) ptr @_ZNSt3_V215system_categoryEv() #41
@@ -57709,8 +57712,7 @@ _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvO
   store i32 0, ptr %_value.i26, align 8
   %ref.tmp45.sroa.438.0._value.i26.sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 40
   store ptr %call.i25, ptr %ref.tmp45.sroa.438.0._value.i26.sroa_idx, align 8
-  store i8 1, ptr %_M_index.i.i.i.i.i.i27, align 8
-  br label %CoroSave98
+  br label %CoroSave98.sink.split
 
 lpad51:                                           ; preds = %_ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit13
   %42 = landingpad { ptr, i32 }
@@ -58124,8 +58126,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateSt1
 
 _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit: ; preds = %_ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateSt10error_codeNSt15__exception_ptr13exception_ptrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S4_S6_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %_value.i, ptr noundef nonnull align 8 dereferenceable(16) %.reload.addr, i64 16, i1 false)
-  store i8 1, ptr %_M_index.i.i.i.i.i.i, align 8
-  br label %CoroSave166
+  br label %CoroSave166.sink.split
 
 lpad37:                                           ; preds = %call2.i5.noexc, %await.ready
   %33 = landingpad { ptr, i32 }
@@ -58285,8 +58286,7 @@ _ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateSt1
 
 _ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51: ; preds = %_ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit41, %_ZSt10__do_visitIvZNSt8__detail9__variant16_Variant_storageILb0EJSt9monostateSt10error_codeNSt15__exception_ptr13exception_ptrEEE8_M_resetEvEUlOT_E_JRSt7variantIJS3_S4_S6_EEEEDcOT0_DpOT1_.exit.i.i.i.i.i50
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(17) %_value.i43, ptr noundef nonnull align 8 dereferenceable(16) %.reload.addr176, i64 16, i1 false)
-  store i8 1, ptr %_M_index.i.i.i.i.i.i44, align 8
-  br label %CoroSave166
+  br label %CoroSave166.sink.split
 
 lpad74:                                           ; preds = %call2.i.noexc, %await2.ready
   %65 = landingpad { ptr, i32 }
@@ -58342,7 +58342,12 @@ catch:                                            ; preds = %invoke.cont.i.i60, 
   invoke void @__cxa_end_catch()
           to label %CoroSave166 unwind label %lpad99
 
-CoroSave166:                                      ; preds = %catch, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit
+CoroSave166.sink.split:                           ; preds = %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51
+  %_M_index.i.i.i.i.i.i44.sink = phi ptr [ %_M_index.i.i.i.i.i.i44, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51 ], [ %_M_index.i.i.i.i.i.i, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit ]
+  store i8 1, ptr %_M_index.i.i.i.i.i.i44.sink, align 8
+  br label %CoroSave166
+
+CoroSave166:                                      ; preds = %CoroSave166.sink.split, %catch
   store ptr null, ptr %0, align 8
   store i2 -1, ptr %index.addr, align 8
   %retval.sroa.0.0.copyload.i62 = load ptr, ptr %__promise.reload.addr, align 8
@@ -58408,11 +58413,7 @@ if.then.i.i:                                      ; preds = %_ZN12async_simple4c
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   invoke fastcc void %8(ptr nonnull %6)
-          to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  store ptr null, ptr %ref.tmp22.reload.addr, align 8
-  br label %cleanup117
+          to label %cleanup117.sink.split unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %9 = landingpad { ptr, i32 }
@@ -58452,11 +58453,7 @@ if.then.i.i10:                                    ; preds = %_ZN12async_simple4c
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   invoke fastcc void %18(ptr nonnull %16)
-          to label %invoke.cont.i.i12 unwind label %terminate.lpad.i.i11
-
-invoke.cont.i.i12:                                ; preds = %if.then.i.i10
-  store ptr null, ptr %ref.tmp56.reload.addr, align 8
-  br label %cleanup117
+          to label %cleanup117.sink.split unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   %19 = landingpad { ptr, i32 }
@@ -58465,7 +58462,12 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %20) #36
   unreachable
 
-cleanup117:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit8, %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %entry.destroy
+cleanup117.sink.split:                            ; preds = %if.then.i.i10, %if.then.i.i
+  %ref.tmp56.reload.addr.sink = phi ptr [ %ref.tmp22.reload.addr, %if.then.i.i ], [ %ref.tmp56.reload.addr, %if.then.i.i10 ]
+  store ptr null, ptr %ref.tmp56.reload.addr.sink, align 8
+  br label %cleanup117
+
+cleanup117:                                       ; preds = %cleanup117.sink.split, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit8, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %entry.destroy
   %_value.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %_M_index.i.i.i.i.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %0, i64 48
   %21 = load i8, ptr %_M_index.i.i.i.i.i.i.i.i.i.i, align 8
@@ -60271,11 +60273,7 @@ if.then.i.i:                                      ; preds = %_ZN12async_simple4c
   %27 = getelementptr inbounds nuw i8, ptr %26, i64 8
   %28 = load ptr, ptr %27, align 8
   invoke fastcc void %28(ptr nonnull %26)
-          to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  store ptr null, ptr %ref.tmp28.reload.addr, align 8
-  br label %if.end
+          to label %if.end.sink.split unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %29 = landingpad { ptr, i32 }
@@ -60446,11 +60444,7 @@ if.then.i.i75:                                    ; preds = %_ZN12async_simple4c
   %59 = getelementptr inbounds nuw i8, ptr %58, i64 8
   %60 = load ptr, ptr %59, align 8
   invoke fastcc void %60(ptr nonnull %58)
-          to label %invoke.cont.i.i77 unwind label %terminate.lpad.i.i76
-
-invoke.cont.i.i77:                                ; preds = %if.then.i.i75
-  store ptr null, ptr %ref.tmp79.reload.addr, align 8
-  br label %if.end
+          to label %if.end.sink.split unwind label %terminate.lpad.i.i76
 
 terminate.lpad.i.i76:                             ; preds = %if.then.i.i75
   %61 = landingpad { ptr, i32 }
@@ -60505,7 +60499,12 @@ terminate.lpad.i.i86:                             ; preds = %if.then.i.i85
   tail call void @__clang_call_terminate(ptr %73) #36
   unreachable
 
-if.end:                                           ; preds = %invoke.cont.i.i77, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit73, %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit
+if.end.sink.split:                                ; preds = %if.then.i.i75, %if.then.i.i
+  %ref.tmp79.reload.addr.sink = phi ptr [ %ref.tmp28.reload.addr, %if.then.i.i ], [ %ref.tmp79.reload.addr, %if.then.i.i75 ]
+  store ptr null, ptr %ref.tmp79.reload.addr.sink, align 8
+  br label %if.end
+
+if.end:                                           ; preds = %if.end.sink.split, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit73, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit
   %74 = load i32, ptr %ret.reload.addr, align 8
   %cmp.i89.not = icmp eq i32 %74, 0
   br i1 %cmp.i89.not, label %cleanup159, label %if.then116
@@ -61000,11 +60999,7 @@ if.then.i.i:                                      ; preds = %_ZN12async_simple4c
   %7 = getelementptr inbounds nuw i8, ptr %6, i64 8
   %8 = load ptr, ptr %7, align 8
   invoke fastcc void %8(ptr nonnull %6)
-          to label %invoke.cont.i.i unwind label %terminate.lpad.i.i
-
-invoke.cont.i.i:                                  ; preds = %if.then.i.i
-  store ptr null, ptr %ref.tmp28.reload.addr, align 8
-  br label %cleanup232
+          to label %cleanup232.sink.split unwind label %terminate.lpad.i.i
 
 terminate.lpad.i.i:                               ; preds = %if.then.i.i
   %9 = landingpad { ptr, i32 }
@@ -61044,11 +61039,7 @@ if.then.i.i10:                                    ; preds = %_ZN12async_simple4c
   %17 = getelementptr inbounds nuw i8, ptr %16, i64 8
   %18 = load ptr, ptr %17, align 8
   invoke fastcc void %18(ptr nonnull %16)
-          to label %invoke.cont.i.i12 unwind label %terminate.lpad.i.i11
-
-invoke.cont.i.i12:                                ; preds = %if.then.i.i10
-  store ptr null, ptr %ref.tmp79.reload.addr, align 8
-  br label %cleanup232
+          to label %cleanup232.sink.split unwind label %terminate.lpad.i.i11
 
 terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   %19 = landingpad { ptr, i32 }
@@ -61057,7 +61048,12 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %20) #36
   unreachable
 
-cleanup232:                                       ; preds = %invoke.cont.i.i12, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit8, %invoke.cont.i.i, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %entry.destroy
+cleanup232.sink.split:                            ; preds = %if.then.i.i10, %if.then.i.i
+  %ref.tmp79.reload.addr.sink = phi ptr [ %ref.tmp28.reload.addr, %if.then.i.i ], [ %ref.tmp79.reload.addr, %if.then.i.i10 ]
+  store ptr null, ptr %ref.tmp79.reload.addr.sink, align 8
+  br label %cleanup232
+
+cleanup232:                                       ; preds = %cleanup232.sink.split, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit8, %_ZN12async_simple4coro6detail8LazyBaseISt4pairISt10error_codemELb0EE12ValueAwaiterD2Ev.exit, %entry.destroy, %entry.destroy
   %_exception.i = getelementptr inbounds nuw i8, ptr %0, i64 32
   %21 = load ptr, ptr %_exception.i, align 8
   %tobool.not.i.i = icmp eq ptr %21, null

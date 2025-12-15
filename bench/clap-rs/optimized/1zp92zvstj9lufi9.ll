@@ -6426,17 +6426,12 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   %.sroa.6.0..sroa_idx.i.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %10, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i.i.i.i.i, i64 16, i1 false), !noalias !2009
   call void @llvm.lifetime.end.p0(ptr nonnull %10), !noalias !1988
-  br label %88
+  br label %87
 
 35:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$17hb543d1402a7b80e5E.exit.i.i.i.i.i"
   %36 = landingpad { ptr, i32 }
           cleanup
   br label %.body.i.i.i.i
-
-.body.i.i.i.i:                                    ; preds = %35, %30
-  %eh.lpad-body.i.i.i.i = phi { ptr, i32 } [ %36, %35 ], [ %31, %30 ]
-  store ptr null, ptr %12, align 8, !alias.scope !1971, !noalias !1972
-  br label %87
 
 "_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$$GT$17hbb3858a2807adf97E.exit.i.i.i.i": ; preds = %.noexc.i.i.i.i, %.loopexit69.i.i.i.i, %2
   store ptr null, ptr %12, align 8, !alias.scope !1971, !noalias !1972
@@ -6495,7 +6490,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   %54 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5200017f70f6b28E.llvm.13290713768692451428"(ptr noalias noundef nonnull align 8 dereferenceable(8) %5)
-          to label %.body20.i.i.i.i unwind label %55, !noalias !2008
+          to label %.body.i.i.i.i unwind label %55, !noalias !2008
 
 55:                                               ; preds = %53
   %56 = landingpad { ptr, i32 }
@@ -6516,17 +6511,12 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.0..sroa_idx4.i.i.i.i.i.i.i, i64 16, i1 false), !noalias !2009
   call void @llvm.lifetime.end.p0(ptr nonnull %7), !noalias !2029
   call void @llvm.lifetime.end.p0(ptr nonnull %8), !noalias !2018
-  br label %88
+  br label %87
 
 58:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$17hb543d1402a7b80e5E.exit.i19.i.i.i.i"
   %59 = landingpad { ptr, i32 }
           cleanup
-  br label %.body20.i.i.i.i
-
-.body20.i.i.i.i:                                  ; preds = %58, %53
-  %eh.lpad-body21.i.i.i.i = phi { ptr, i32 } [ %59, %58 ], [ %54, %53 ]
-  store ptr null, ptr %12, align 8, !alias.scope !1971, !noalias !1972
-  br label %87
+  br label %.body.i.i.i.i
 
 "_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$$GT$17hbb3858a2807adf97E.exit23.i.i.i.i": ; preds = %.noexc22.i.i.i.i, %.loopexit94.i.i.i.i, %"_ZN4core3ptr114drop_in_place$LT$core..option..Option$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$$GT$17hbb3858a2807adf97E.exit.i.i.i.i"
   store ptr null, ptr %12, align 8, !alias.scope !1971, !noalias !1972
@@ -6586,7 +6576,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   %81 = landingpad { ptr, i32 }
           cleanup
   invoke void @"_ZN157_$LT$$LT$alloc..vec..into_iter..IntoIter$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hb5200017f70f6b28E.llvm.13290713768692451428"(ptr noalias noundef nonnull align 8 dereferenceable(8) %3)
-          to label %.body34.i.i.i.i unwind label %82, !noalias !2008
+          to label %.body.i.i.i.i unwind label %82, !noalias !2008
 
 82:                                               ; preds = %80
   %83 = landingpad { ptr, i32 }
@@ -6606,23 +6596,20 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   %.sroa.6.0..sroa_idx.i.i27.i.i.i.i = getelementptr inbounds nuw i8, ptr %4, i64 8
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %.sroa.7.i, ptr noundef nonnull align 8 dereferenceable(16) %.sroa.6.0..sroa_idx.i.i27.i.i.i.i, i64 16, i1 false), !noalias !2009
   call void @llvm.lifetime.end.p0(ptr nonnull %4), !noalias !2070
-  br label %88
+  br label %87
 
 85:                                               ; preds = %"_ZN4core3ptr86drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$clap_builder..util..id..Id$GT$$GT$17hb543d1402a7b80e5E.exit.i33.i.i.i.i"
   %86 = landingpad { ptr, i32 }
           cleanup
-  br label %.body34.i.i.i.i
+  br label %.body.i.i.i.i
 
-.body34.i.i.i.i:                                  ; preds = %85, %80
-  %eh.lpad-body35.i.i.i.i = phi { ptr, i32 } [ %86, %85 ], [ %81, %80 ]
-  store ptr null, ptr %60, align 8, !alias.scope !1971, !noalias !1972
-  br label %87
-
-87:                                               ; preds = %.body34.i.i.i.i, %.body20.i.i.i.i, %.body.i.i.i.i
-  %.pn.i.i.i.i = phi { ptr, i32 } [ %eh.lpad-body35.i.i.i.i, %.body34.i.i.i.i ], [ %eh.lpad-body21.i.i.i.i, %.body20.i.i.i.i ], [ %eh.lpad-body.i.i.i.i, %.body.i.i.i.i ]
+.body.i.i.i.i:                                    ; preds = %85, %80, %58, %53, %35, %30
+  %.sink.i.i.i.i = phi ptr [ %12, %30 ], [ %12, %35 ], [ %12, %53 ], [ %12, %58 ], [ %60, %80 ], [ %60, %85 ]
+  %.pn.i.i.i.i = phi { ptr, i32 } [ %31, %30 ], [ %36, %35 ], [ %54, %53 ], [ %59, %58 ], [ %81, %80 ], [ %86, %85 ]
+  store ptr null, ptr %.sink.i.i.i.i, align 8, !alias.scope !1971, !noalias !1972
   resume { ptr, i32 } %.pn.i.i.i.i
 
-88:                                               ; preds = %84, %57, %34
+87:                                               ; preds = %84, %57, %34
   %.sroa.011.0.i = phi i64 [ %74, %84 ], [ %46, %57 ], [ %24, %34 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %11), !noalias !1962
   store i64 %.sroa.011.0.i, ptr %0, align 8, !alias.scope !1948, !noalias !2090
@@ -6636,7 +6623,7 @@ define internal fastcc void @"_ZN115_$LT$core..iter..adapters..filter_map..Filte
   store i64 -9223372036854775808, ptr %0, align 8, !alias.scope !1948, !noalias !2090
   br label %_ZN4core4iter6traits8iterator8Iterator8find_map17h50c355452ecd3f16E.exit
 
-_ZN4core4iter6traits8iterator8Iterator8find_map17h50c355452ecd3f16E.exit: ; preds = %88, %"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..string..String$GT$$GT$17hc4e6c8db97d879efE.exit.i"
+_ZN4core4iter6traits8iterator8Iterator8find_map17h50c355452ecd3f16E.exit: ; preds = %87, %"_ZN4core3ptr86drop_in_place$LT$core..ops..control_flow..ControlFlow$LT$alloc..string..String$GT$$GT$17hc4e6c8db97d879efE.exit.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %.sroa.7.i)
   ret void
 }

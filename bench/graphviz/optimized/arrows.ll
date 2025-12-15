@@ -1343,28 +1343,25 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   store double %51, ptr %52, align 8, !tbaa !60
   %53 = and i32 %7, 64
   %.not = icmp eq i32 %53, 0
-  br i1 %.not, label %55, label %54
+  br i1 %.not, label %54, label %.sink.split
 
 54:                                               ; preds = %37
-  store double %.sroa.042.0, ptr %9, align 16, !tbaa !55
-  store double %.sroa.946.0, ptr %40, align 8, !tbaa !55
-  store double %.sroa.034.0, ptr %50, align 16, !tbaa !55
-  store double %.sroa.9.0, ptr %52, align 8, !tbaa !55
-  br label %58
+  %55 = and i32 %7, 128
+  %.not76 = icmp eq i32 %55, 0
+  br i1 %.not76, label %56, label %.sink.split
 
-55:                                               ; preds = %37
-  %56 = and i32 %7, 128
-  %.not76 = icmp eq i32 %56, 0
-  br i1 %.not76, label %58, label %57
+.sink.split:                                      ; preds = %54, %37
+  %.sink85 = phi ptr [ %9, %37 ], [ %42, %54 ]
+  %.sink84 = phi ptr [ %40, %37 ], [ %44, %54 ]
+  %.sink83 = phi ptr [ %50, %37 ], [ %46, %54 ]
+  %.sink = phi ptr [ %52, %37 ], [ %48, %54 ]
+  store double %.sroa.042.0, ptr %.sink85, align 16, !tbaa !55
+  store double %.sroa.946.0, ptr %.sink84, align 8, !tbaa !55
+  store double %.sroa.034.0, ptr %.sink83, align 16, !tbaa !55
+  store double %.sroa.9.0, ptr %.sink, align 8, !tbaa !55
+  br label %56
 
-57:                                               ; preds = %55
-  store double %.sroa.042.0, ptr %42, align 16, !tbaa !55
-  store double %.sroa.946.0, ptr %44, align 8, !tbaa !55
-  store double %.sroa.034.0, ptr %46, align 16, !tbaa !55
-  store double %.sroa.9.0, ptr %48, align 8, !tbaa !55
-  br label %58
-
-58:                                               ; preds = %55, %57, %54
+56:                                               ; preds = %.sink.split, %54
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #13
   store double %.sroa.067.0, ptr %9, align 16, !tbaa !55
   store double %.sroa.771.0, ptr %40, align 8, !tbaa !55
@@ -1447,44 +1444,41 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   store double %43, ptr %44, align 8, !tbaa !60
   %45 = and i32 %7, 64
   %.not = icmp eq i32 %45, 0
-  br i1 %.not, label %47, label %46
+  br i1 %.not, label %46, label %.sink.split
 
 46:                                               ; preds = %25
-  store double %26, ptr %9, align 16, !tbaa !55
-  store double %27, ptr %32, align 8, !tbaa !55
-  store double %28, ptr %42, align 16, !tbaa !55
-  store double %29, ptr %44, align 8, !tbaa !55
-  br label %50
+  %47 = and i32 %7, 128
+  %.not62 = icmp eq i32 %47, 0
+  br i1 %.not62, label %48, label %.sink.split
 
-47:                                               ; preds = %25
-  %48 = and i32 %7, 128
-  %.not62 = icmp eq i32 %48, 0
-  br i1 %.not62, label %50, label %49
+.sink.split:                                      ; preds = %46, %25
+  %.sink66 = phi ptr [ %9, %25 ], [ %34, %46 ]
+  %.sink65 = phi ptr [ %32, %25 ], [ %36, %46 ]
+  %.sink64 = phi ptr [ %42, %25 ], [ %38, %46 ]
+  %.sink = phi ptr [ %44, %25 ], [ %40, %46 ]
+  store double %26, ptr %.sink66, align 16, !tbaa !55
+  store double %27, ptr %.sink65, align 8, !tbaa !55
+  store double %28, ptr %.sink64, align 16, !tbaa !55
+  store double %29, ptr %.sink, align 8, !tbaa !55
+  br label %48
 
-49:                                               ; preds = %47
-  store double %26, ptr %34, align 16, !tbaa !55
-  store double %27, ptr %36, align 8, !tbaa !55
-  store double %28, ptr %38, align 16, !tbaa !55
-  store double %29, ptr %40, align 8, !tbaa !55
-  br label %50
-
-50:                                               ; preds = %47, %49, %46
-  %51 = fadd double %2, %4
-  %52 = fsub double %51, %.sroa.7.0
-  %53 = fadd double %1, %3
-  %54 = fsub double %53, %.sroa.09.0
-  %55 = lshr i32 %7, 4
-  %.lobit = and i32 %55, 1
-  %56 = xor i32 %.lobit, 1
-  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %56) #13
+48:                                               ; preds = %.sink.split, %46
+  %49 = fadd double %2, %4
+  %50 = fsub double %49, %.sroa.7.0
+  %51 = fadd double %1, %3
+  %52 = fsub double %51, %.sroa.09.0
+  %53 = lshr i32 %7, 4
+  %.lobit = and i32 %53, 1
+  %54 = xor i32 %.lobit, 1
+  call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef %54) #13
   store double %28, ptr %9, align 16, !tbaa !55
   store double %29, ptr %32, align 8, !tbaa !55
-  store double %54, ptr %34, align 16, !tbaa !55
-  store double %52, ptr %36, align 8, !tbaa !55
+  store double %52, ptr %34, align 16, !tbaa !55
+  store double %50, ptr %36, align 8, !tbaa !55
   call void @gvrender_polyline(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 2) #13
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
-  %.fca.0.insert = insertvalue { double, double } poison, double %54, 0
-  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %52, 1
+  %.fca.0.insert = insertvalue { double, double } poison, double %52, 0
+  %.fca.1.insert = insertvalue { double, double } %.fca.0.insert, double %50, 1
   ret { double, double } %.fca.1.insert
 }
 

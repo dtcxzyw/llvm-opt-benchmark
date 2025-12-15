@@ -1392,29 +1392,24 @@ define void @_ZN3net14VersionOfIndexERKSt6vectorINS_11QuicVersionESaIS1_EEi(ptr 
 _ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i: ; preds = %3
   %14 = zext nneg i32 %2 to i64
   %15 = getelementptr inbounds nuw i32, ptr %6, i64 %14
-  %16 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %17 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %18 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-  %19 = load i32, ptr %15, align 4, !tbaa !66
-  store i32 %19, ptr %18, align 4, !tbaa !66
-  %20 = getelementptr inbounds nuw i8, ptr %18, i64 4
-  store ptr %18, ptr %0, align 8, !tbaa !31
-  store ptr %20, ptr %16, align 8, !tbaa !30
-  store ptr %20, ptr %17, align 8, !tbaa !33
+  %16 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
+  %17 = load i32, ptr %15, align 4, !tbaa !66
+  store i32 %17, ptr %16, align 4, !tbaa !66
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
 _ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i: ; preds = %3
-  %21 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  %22 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %23 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
-  store i32 0, ptr %23, align 4, !tbaa !66
-  %24 = getelementptr inbounds nuw i8, ptr %23, i64 4
-  store ptr %23, ptr %0, align 8, !tbaa !31
-  store ptr %24, ptr %21, align 8, !tbaa !30
-  store ptr %24, ptr %22, align 8, !tbaa !33
+  %18 = tail call noalias noundef nonnull dereferenceable(4) ptr @_Znwm(i64 noundef 4) #28
+  store i32 0, ptr %18, align 4, !tbaa !66
   br label %_ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit
 
 _ZNSt6vectorIN3net11QuicVersionESaIS1_EE9push_backERKS1_.exit: ; preds = %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i
+  %.sink21 = phi ptr [ %18, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i.i ], [ %16, %_ZNKSt6vectorIN3net11QuicVersionESaIS1_EE12_M_check_lenEmPKc.exit.i.i ]
+  %.sink17 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %.sink19 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  %19 = getelementptr inbounds nuw i8, ptr %.sink21, i64 4
+  store ptr %.sink21, ptr %0, align 8, !tbaa !31
+  store ptr %19, ptr %.sink19, align 8, !tbaa !30
+  store ptr %19, ptr %.sink17, align 8, !tbaa !33
   ret void
 }
 

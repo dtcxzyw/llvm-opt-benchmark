@@ -1845,7 +1845,7 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..collections..binary_
   %6 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %7 = load i64, ptr %6, align 8, !alias.scope !156, !noundef !10
   %.not.i.i.i.i = icmp eq i64 %7, 0
-  br i1 %5, label %8, label %25
+  br i1 %5, label %8, label %23
 
 8:                                                ; preds = %1
   br i1 %.not.i.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit", label %9
@@ -1860,52 +1860,44 @@ define hidden void @"_ZN4core3ptr114drop_in_place$LT$alloc..collections..binary_
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !156, !noundef !10
   %.not3.i.i.i.i = icmp eq i64 %16, %13
-  br i1 %.not3.i.i.i.i, label %17, label %19
+  br i1 %.not3.i.i.i.i, label %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.i.i", label %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.sink.split.i.i"
 
-17:                                               ; preds = %19, %9
-  %18 = add i64 %13, %7
-  store i64 %18, ptr %12, align 8, !noalias !156
+"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.sink.split.i.i": ; preds = %24, %9
+  %.sink.i.i = phi ptr [ %26, %24 ], [ %11, %9 ]
+  %.sink31.i.i = phi i64 [ %31, %24 ], [ %16, %9 ]
+  %.sink30.i.i = phi i64 [ %28, %24 ], [ %13, %9 ]
+  %.sink25.ph.i.i = phi ptr [ %27, %24 ], [ %12, %9 ]
+  %17 = getelementptr inbounds nuw i8, ptr %.sink.i.i, i64 8
+  %18 = load ptr, ptr %17, align 8, !noalias !156, !nonnull !10, !noundef !10
+  %19 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %18, i64 %.sink31.i.i
+  %20 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %18, i64 %.sink30.i.i
+  %21 = mul i64 %7, 24
+  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %20, ptr nonnull align 8 %19, i64 %21, i1 false), !noalias !156
+  br label %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.i.i"
+
+"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.i.i": ; preds = %24, %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.sink.split.i.i", %9
+  %.sink26.i.i = phi i64 [ %28, %24 ], [ %13, %9 ], [ %.sink30.i.i, %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.sink.split.i.i" ]
+  %.sink25.i.i = phi ptr [ %27, %24 ], [ %12, %9 ], [ %.sink25.ph.i.i, %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.sink.split.i.i" ]
+  %22 = add i64 %.sink26.i.i, %7
+  store i64 %22, ptr %.sink25.i.i, align 8, !noalias !156
   br label %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit"
 
-19:                                               ; preds = %9
-  %20 = getelementptr inbounds nuw i8, ptr %11, i64 8
-  %21 = load ptr, ptr %20, align 8, !noalias !156, !nonnull !10, !noundef !10
-  %22 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %21, i64 %16
-  %23 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %21, i64 %13
-  %24 = mul i64 %7, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %23, ptr nonnull align 8 %22, i64 %24, i1 false), !noalias !156
-  br label %17
+23:                                               ; preds = %1
+  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit", label %24
 
-25:                                               ; preds = %1
-  br i1 %.not.i.i.i.i, label %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit", label %26
+24:                                               ; preds = %23
+  %25 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %26 = load ptr, ptr %25, align 8, !alias.scope !156, !nonnull !10, !noundef !10
+  %27 = getelementptr inbounds nuw i8, ptr %26, i64 16
+  %28 = load i64, ptr %27, align 8, !noalias !156, !noundef !10
+  %29 = icmp ult i64 %28, 384307168202282326
+  tail call void @llvm.assume(i1 %29)
+  %30 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %31 = load i64, ptr %30, align 8, !alias.scope !156, !noundef !10
+  %.not3.i.i17.i.i = icmp eq i64 %31, %28
+  br i1 %.not3.i.i17.i.i, label %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.i.i", label %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.sink.split.i.i"
 
-26:                                               ; preds = %25
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %28 = load ptr, ptr %27, align 8, !alias.scope !156, !nonnull !10, !noundef !10
-  %29 = getelementptr inbounds nuw i8, ptr %28, i64 16
-  %30 = load i64, ptr %29, align 8, !noalias !156, !noundef !10
-  %31 = icmp ult i64 %30, 384307168202282326
-  tail call void @llvm.assume(i1 %31)
-  %32 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %33 = load i64, ptr %32, align 8, !alias.scope !156, !noundef !10
-  %.not3.i.i17.i.i = icmp eq i64 %33, %30
-  br i1 %.not3.i.i17.i.i, label %34, label %36
-
-34:                                               ; preds = %36, %26
-  %35 = add i64 %30, %7
-  store i64 %35, ptr %29, align 8, !noalias !156
-  br label %"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit"
-
-36:                                               ; preds = %26
-  %37 = getelementptr inbounds nuw i8, ptr %28, i64 8
-  %38 = load ptr, ptr %37, align 8, !noalias !156, !nonnull !10, !noundef !10
-  %39 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %38, i64 %33
-  %40 = getelementptr inbounds nuw { i64, i64, i32, [1 x i32] }, ptr %38, i64 %30
-  %41 = mul i64 %7, 24
-  tail call void @llvm.memmove.p0.p0.i64(ptr nonnull align 8 %40, ptr nonnull align 8 %39, i64 %41, i1 false), !noalias !156
-  br label %34
-
-"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit": ; preds = %8, %17, %25, %34
+"_ZN4core3ptr100drop_in_place$LT$alloc..vec..drain..Drain$LT$quinn_proto..connection..streams..PendingStream$GT$$GT$17hba0189c36d9d6a44E.exit": ; preds = %8, %"_ZN4core3ptr194drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$quinn_proto..connection..streams..PendingStream$C$alloc..alloc..Global$GT$$GT$17h7bec8d38a1fcadd8E.exit.sink.split.i.i", %23
   ret void
 }
 
@@ -13991,18 +13983,22 @@ define hidden void @_ZN11quinn_proto10congestion3bbr7min_max6MinMax10update_max1
   %22 = getelementptr inbounds nuw i8, ptr %0, i64 40
   store i64 %2, ptr %22, align 8
   store i64 %1, ptr %21, align 8
-  store i64 %2, ptr %15, align 8
-  br label %24
+  br label %.sink.split
 
 23:                                               ; preds = %17
   store i64 %1, ptr %8, align 8
-  store i64 %2, ptr %18, align 8
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %20, %23
+  %.sink = phi ptr [ %18, %23 ], [ %15, %20 ]
+  %.ph = phi i64 [ %16, %23 ], [ %2, %20 ]
+  store i64 %2, ptr %.sink, align 8
   br label %24
 
-24:                                               ; preds = %23, %17, %20
-  %25 = phi i64 [ %2, %23 ], [ %19, %17 ], [ %2, %20 ]
-  %26 = phi i64 [ %16, %23 ], [ %16, %17 ], [ %2, %20 ]
-  %27 = phi i64 [ %1, %23 ], [ %9, %17 ], [ %1, %20 ]
+24:                                               ; preds = %.sink.split, %17
+  %25 = phi i64 [ %19, %17 ], [ %2, %.sink.split ]
+  %26 = phi i64 [ %16, %17 ], [ %.ph, %.sink.split ]
+  %27 = phi i64 [ %9, %17 ], [ %1, %.sink.split ]
   %28 = load i64, ptr %0, align 8, !alias.scope !2069, !noundef !10
   %29 = sub i64 %1, %28
   %30 = icmp ugt i64 %29, %12

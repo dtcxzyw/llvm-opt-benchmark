@@ -150,33 +150,31 @@ define range(i32 0, -2147483648) i32 @EVP_PKEY_get_security_bits(ptr noundef %0)
 ; Function Attrs: mustprogress nofree norecurse nosync nounwind willreturn memory(argmem: readwrite) uwtable
 define i32 @EVP_PKEY_save_parameters(ptr noundef captures(none) %0, i32 noundef %1) local_unnamed_addr #2 {
   %3 = load i32, ptr %0, align 8, !tbaa !26
-  switch i32 %3, label %14 [
+  switch i32 %3, label %12 [
     i32 116, label %4
-    i32 408, label %9
+    i32 408, label %8
   ]
 
 4:                                                ; preds = %2
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8, !tbaa !27
   %7 = icmp sgt i32 %1, -1
-  br i1 %7, label %8, label %14
+  br i1 %7, label %.sink.split, label %12
 
-8:                                                ; preds = %4
-  store i32 %1, ptr %5, align 8, !tbaa !27
-  br label %14
+8:                                                ; preds = %2
+  %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
+  %10 = load i32, ptr %9, align 8, !tbaa !27
+  %11 = icmp sgt i32 %1, -1
+  br i1 %11, label %.sink.split, label %12
 
-9:                                                ; preds = %2
-  %10 = getelementptr inbounds nuw i8, ptr %0, i64 72
-  %11 = load i32, ptr %10, align 8, !tbaa !27
-  %12 = icmp sgt i32 %1, -1
-  br i1 %12, label %13, label %14
+.sink.split:                                      ; preds = %8, %4
+  %.sink = phi ptr [ %5, %4 ], [ %9, %8 ]
+  %.0.ph = phi i32 [ %6, %4 ], [ %10, %8 ]
+  store i32 %1, ptr %.sink, align 8, !tbaa !27
+  br label %12
 
-13:                                               ; preds = %9
-  store i32 %1, ptr %10, align 8, !tbaa !27
-  br label %14
-
-14:                                               ; preds = %2, %9, %13, %4, %8
-  %.0 = phi i32 [ %6, %8 ], [ %6, %4 ], [ %11, %13 ], [ %11, %9 ], [ 0, %2 ]
+12:                                               ; preds = %.sink.split, %2, %8, %4
+  %.0 = phi i32 [ %6, %4 ], [ %10, %8 ], [ 0, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }
 

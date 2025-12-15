@@ -2757,15 +2757,15 @@ define internal range(i32 0, 2) i32 @save_marker(ptr noundef %0) #0 {
 ._crit_edge163:                                   ; preds = %._crit_edge.thread189, %104
   %108 = getelementptr inbounds nuw i8, ptr %.pre, i64 120
   store ptr %.0128, ptr %108, align 8, !tbaa !117
-  store ptr %.0128, ptr %101, align 8, !tbaa !115
   br label %110
 
 109:                                              ; preds = %104
   store ptr %.0128, ptr %106, align 8, !tbaa !106
-  store ptr %.0128, ptr %105, align 8, !tbaa !117
   br label %110
 
 110:                                              ; preds = %109, %._crit_edge163
+  %.sink = phi ptr [ %105, %109 ], [ %101, %._crit_edge163 ]
+  store ptr %.0128, ptr %.sink, align 8, !tbaa !119
   %111 = getelementptr inbounds nuw i8, ptr %.0128, i64 24
   %112 = load ptr, ptr %111, align 8, !tbaa !111
   %113 = getelementptr inbounds nuw i8, ptr %.0128, i64 12
@@ -2985,13 +2985,13 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
 
 18:                                               ; preds = %14, %4
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 312
-  store i32 %1, ptr %19, align 8, !tbaa !119
+  store i32 %1, ptr %19, align 8, !tbaa !120
   %20 = getelementptr inbounds nuw i8, ptr %0, i64 544
   %21 = load ptr, ptr %20, align 8, !tbaa !116
   %22 = getelementptr inbounds nuw i8, ptr %21, i64 20
-  store i32 %2, ptr %22, align 4, !tbaa !120
+  store i32 %2, ptr %22, align 4, !tbaa !121
   %23 = getelementptr inbounds nuw i8, ptr %0, i64 316
-  store i32 %3, ptr %23, align 4, !tbaa !121
+  store i32 %3, ptr %23, align 4, !tbaa !122
   %24 = icmp eq i64 %9, 0
   br i1 %24, label %25, label %32
 
@@ -3061,7 +3061,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %63 = load i8, ptr %.2159, align 1, !tbaa !34
   %64 = zext i8 %63 to i32
   %65 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  store i32 %64, ptr %65, align 8, !tbaa !122
+  store i32 %64, ptr %65, align 8, !tbaa !123
   %66 = icmp eq i64 %61, 0
   br i1 %66, label %67, label %74
 
@@ -3086,7 +3086,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %78 = zext i8 %77 to i32
   %79 = shl nuw nsw i32 %78, 8
   %80 = getelementptr inbounds nuw i8, ptr %0, i64 52
-  store i32 %79, ptr %80, align 4, !tbaa !123
+  store i32 %79, ptr %80, align 4, !tbaa !124
   %81 = icmp eq i64 %75, 0
   br i1 %81, label %82, label %89
 
@@ -3100,7 +3100,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
 86:                                               ; preds = %82
   %87 = load ptr, ptr %6, align 8, !tbaa !37
   %88 = load i64, ptr %8, align 8, !tbaa !39
-  %.pre = load i32, ptr %80, align 4, !tbaa !123
+  %.pre = load i32, ptr %80, align 4, !tbaa !124
   br label %89
 
 89:                                               ; preds = %86, %74
@@ -3112,7 +3112,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %93 = load i8, ptr %.4161, align 1, !tbaa !34
   %94 = zext i8 %93 to i32
   %95 = add i32 %90, %94
-  store i32 %95, ptr %80, align 4, !tbaa !123
+  store i32 %95, ptr %80, align 4, !tbaa !124
   %96 = icmp eq i64 %91, 0
   br i1 %96, label %97, label %104
 
@@ -3137,7 +3137,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %108 = zext i8 %107 to i32
   %109 = shl nuw nsw i32 %108, 8
   %110 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  store i32 %109, ptr %110, align 8, !tbaa !124
+  store i32 %109, ptr %110, align 8, !tbaa !125
   %111 = icmp eq i64 %105, 0
   br i1 %111, label %112, label %119
 
@@ -3151,7 +3151,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
 116:                                              ; preds = %112
   %117 = load ptr, ptr %6, align 8, !tbaa !37
   %118 = load i64, ptr %8, align 8, !tbaa !39
-  %.pre204 = load i32, ptr %110, align 8, !tbaa !124
+  %.pre204 = load i32, ptr %110, align 8, !tbaa !125
   br label %119
 
 119:                                              ; preds = %116, %104
@@ -3163,7 +3163,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %123 = load i8, ptr %.6163, align 1, !tbaa !34
   %124 = zext i8 %123 to i32
   %125 = add i32 %120, %124
-  store i32 %125, ptr %110, align 8, !tbaa !124
+  store i32 %125, ptr %110, align 8, !tbaa !125
   %126 = icmp eq i64 %121, 0
   br i1 %126, label %127, label %134
 
@@ -3192,10 +3192,10 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %141 = getelementptr inbounds nuw i8, ptr %0, i64 540
   %142 = load i32, ptr %141, align 4, !tbaa !3
   store i32 %142, ptr %140, align 4, !tbaa !56
-  %143 = load i32, ptr %110, align 8, !tbaa !124
+  %143 = load i32, ptr %110, align 8, !tbaa !125
   %144 = getelementptr inbounds nuw i8, ptr %139, i64 48
   store i32 %143, ptr %144, align 4, !tbaa !56
-  %145 = load i32, ptr %80, align 4, !tbaa !123
+  %145 = load i32, ptr %80, align 4, !tbaa !124
   %146 = getelementptr inbounds nuw i8, ptr %139, i64 52
   store i32 %145, ptr %146, align 4, !tbaa !56
   %147 = load i32, ptr %137, align 8, !tbaa !79
@@ -3206,12 +3206,12 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %150 = getelementptr inbounds nuw i8, ptr %139, i64 8
   %151 = load ptr, ptr %150, align 8, !tbaa !35
   tail call void %151(ptr noundef nonnull %0, i32 noundef 1) #7
-  %152 = load i32, ptr %80, align 4, !tbaa !123
+  %152 = load i32, ptr %80, align 4, !tbaa !124
   %153 = icmp eq i32 %152, 0
   br i1 %153, label %160, label %154
 
 154:                                              ; preds = %134
-  %155 = load i32, ptr %110, align 8, !tbaa !124
+  %155 = load i32, ptr %110, align 8, !tbaa !125
   %156 = icmp eq i32 %155, 0
   br i1 %156, label %160, label %157
 
@@ -3281,7 +3281,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %.0169198 = phi i32 [ 0, %.lr.ph ], [ %241, %225 ]
   %.0170197 = phi ptr [ %184, %.lr.ph ], [ %242, %225 ]
   %189 = getelementptr inbounds nuw i8, ptr %.0170197, i64 4
-  store i32 %.0169198, ptr %189, align 4, !tbaa !125
+  store i32 %.0169198, ptr %189, align 4, !tbaa !126
   %190 = icmp eq i64 %.8200, 0
   br i1 %190, label %191, label %197
 
@@ -3327,10 +3327,10 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %213 = zext i8 %212 to i32
   %214 = lshr i32 %213, 4
   %215 = getelementptr inbounds nuw i8, ptr %.0170197, i64 8
-  store i32 %214, ptr %215, align 8, !tbaa !126
+  store i32 %214, ptr %215, align 8, !tbaa !127
   %216 = and i32 %213, 15
   %217 = getelementptr inbounds nuw i8, ptr %.0170197, i64 12
-  store i32 %216, ptr %217, align 4, !tbaa !127
+  store i32 %216, ptr %217, align 4, !tbaa !128
   %218 = icmp eq i64 %210, 0
   br i1 %218, label %219, label %225
 
@@ -3351,18 +3351,18 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %226 = load i8, ptr %.11168, align 1, !tbaa !34
   %227 = zext i8 %226 to i32
   %228 = getelementptr inbounds nuw i8, ptr %.0170197, i64 16
-  store i32 %227, ptr %228, align 8, !tbaa !128
+  store i32 %227, ptr %228, align 8, !tbaa !129
   %229 = load ptr, ptr %0, align 8, !tbaa !30
   %230 = getelementptr inbounds nuw i8, ptr %229, i64 44
   %231 = load i32, ptr %.0170197, align 8, !tbaa !80
   store i32 %231, ptr %230, align 4, !tbaa !56
-  %232 = load i32, ptr %215, align 8, !tbaa !126
+  %232 = load i32, ptr %215, align 8, !tbaa !127
   %233 = getelementptr inbounds nuw i8, ptr %229, i64 48
   store i32 %232, ptr %233, align 4, !tbaa !56
-  %234 = load i32, ptr %217, align 4, !tbaa !127
+  %234 = load i32, ptr %217, align 4, !tbaa !128
   %235 = getelementptr inbounds nuw i8, ptr %229, i64 52
   store i32 %234, ptr %235, align 4, !tbaa !56
-  %236 = load i32, ptr %228, align 8, !tbaa !128
+  %236 = load i32, ptr %228, align 8, !tbaa !129
   %237 = getelementptr inbounds nuw i8, ptr %229, i64 56
   store i32 %236, ptr %237, align 4, !tbaa !56
   %238 = getelementptr inbounds nuw i8, ptr %229, i64 40
@@ -3376,7 +3376,7 @@ define internal fastcc range(i32 0, 2) i32 @get_sof(ptr noundef %0, i32 noundef 
   %.8 = add i64 %.11, -1
   %243 = load i32, ptr %137, align 8, !tbaa !79
   %244 = icmp slt i32 %241, %243
-  br i1 %244, label %188, label %._crit_edge, !llvm.loop !129
+  br i1 %244, label %188, label %._crit_edge, !llvm.loop !130
 
 ._crit_edge:                                      ; preds = %225, %183
   %.8165.lcssa = phi ptr [ %.8165195, %183 ], [ %.8165, %225 ]
@@ -3818,14 +3818,15 @@ attributes #7 = { nounwind }
 !116 = !{!4, !19, i64 544}
 !117 = !{!118, !17, i64 120}
 !118 = !{!"jpeg_decomp_master", !6, i64 0, !6, i64 8, !11, i64 16, !11, i64 20, !11, i64 24, !11, i64 28, !7, i64 32, !7, i64 72, !11, i64 112, !11, i64 116, !17, i64 120}
-!119 = !{!4, !11, i64 312}
-!120 = !{!118, !11, i64 20}
-!121 = !{!4, !11, i64 316}
-!122 = !{!4, !11, i64 296}
-!123 = !{!4, !11, i64 52}
-!124 = !{!4, !11, i64 48}
-!125 = !{!81, !11, i64 4}
-!126 = !{!81, !11, i64 8}
-!127 = !{!81, !11, i64 12}
-!128 = !{!81, !11, i64 16}
-!129 = distinct !{!129, !45}
+!119 = !{!17, !17, i64 0}
+!120 = !{!4, !11, i64 312}
+!121 = !{!118, !11, i64 20}
+!122 = !{!4, !11, i64 316}
+!123 = !{!4, !11, i64 296}
+!124 = !{!4, !11, i64 52}
+!125 = !{!4, !11, i64 48}
+!126 = !{!81, !11, i64 4}
+!127 = !{!81, !11, i64 8}
+!128 = !{!81, !11, i64 12}
+!129 = !{!81, !11, i64 16}
+!130 = distinct !{!130, !45}

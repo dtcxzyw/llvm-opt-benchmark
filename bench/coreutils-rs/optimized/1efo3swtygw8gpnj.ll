@@ -8781,7 +8781,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4a6f33d66c97e3f4E.exit: ; pred
   %.not = icmp ult i64 %55, %54
   %56 = load ptr, ptr %41, align 8, !nonnull !4
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
-  br i1 %.not, label %59, label %74
+  br i1 %.not, label %59, label %72
 
 58:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit._crit_edge"
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4920c289cb5bce572bf2b72717362552.97) #25
@@ -8817,31 +8817,28 @@ _ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6
   %70 = load i64, ptr %43, align 8, !noundef !4
   %71 = call i64 @llvm.uadd.sat.i64(i64 %70, i64 1)
   store i64 %71, ptr %43, align 8
-  %72 = load i8, ptr %57, align 1, !noundef !4
-  %73 = call { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2053c3ce634457a8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39, i8 noundef %68, i8 noundef %72)
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit"
 
-74:                                               ; preds = %53
+72:                                               ; preds = %53
   %.not40 = icmp eq i64 %54, 0
-  %75 = getelementptr i8, ptr %56, i64 %54
-  %76 = getelementptr i8, ptr %75, i64 -1
-  %77 = icmp eq ptr %76, null
-  %78 = select i1 %.not40, i1 true, i1 %77
-  br i1 %78, label %80, label %81
+  %73 = getelementptr i8, ptr %56, i64 %54
+  %74 = getelementptr i8, ptr %73, i64 -1
+  %75 = icmp eq ptr %74, null
+  %76 = select i1 %.not40, i1 true, i1 %75
+  br i1 %76, label %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit"
 
-"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit": ; preds = %81, %_ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6E.exit
+"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit": ; preds = %72, %_ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6E.exit
+  %.sink69 = phi ptr [ %57, %_ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6E.exit ], [ %74, %72 ]
+  %.sink = phi i8 [ %68, %_ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6E.exit ], [ %1, %72 ]
+  %77 = load i8, ptr %.sink69, align 1, !noundef !4
+  %78 = call { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2053c3ce634457a8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39, i8 noundef %.sink, i8 noundef %77)
   %79 = call fastcc noundef align 1 dereferenceable_or_null(1) ptr @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$3get17ha9798ce1bd0c6e04E"(ptr noalias noundef readonly align 8 dereferenceable(48) %39, i8 %1)
   %.not38 = icmp eq ptr %79, null
   br i1 %.not38, label %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit._crit_edge"
 
-80:                                               ; preds = %74
+80:                                               ; preds = %72
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4920c289cb5bce572bf2b72717362552.98) #25
   unreachable
-
-81:                                               ; preds = %74
-  %82 = load i8, ptr %76, align 1, !noundef !4
-  %83 = call { i1, i8 } @"_ZN9hashbrown3map28HashMap$LT$K$C$V$C$S$C$A$GT$6insert17h2053c3ce634457a8E"(ptr noalias noundef nonnull align 8 dereferenceable(48) %39, i8 noundef %1, i8 noundef %82)
-  br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit"
 }
 
 ; Function Attrs: nonlazybind uwtable

@@ -40909,18 +40909,22 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.threa
 233:                                              ; preds = %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.thread
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 1
   store ptr %234, ptr %4, align 8, !tbaa !131
-  store i8 0, ptr %231, align 1, !tbaa !11
-  br label %239
+  br label %.sink.split298
 
 235:                                              ; preds = %67
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %237 = load ptr, ptr %236, align 8, !tbaa !132
   %238 = tail call noundef i32 (ptr, i32, ptr, ...) %237(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.32)
-  store i8 0, ptr %.1184, align 1, !tbaa !11
+  br label %.sink.split298
+
+.sink.split298:                                   ; preds = %233, %235
+  %.1184.sink = phi ptr [ %.1184, %235 ], [ %231, %233 ]
+  %.3.ph = phi ptr [ %.1184, %235 ], [ %.2185, %233 ]
+  store i8 0, ptr %.1184.sink, align 1, !tbaa !11
   br label %239
 
-239:                                              ; preds = %235, %233, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.thread, %2
-  %.3 = phi ptr [ %1, %2 ], [ %.1184, %235 ], [ %.2185, %233 ], [ %.2185, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.thread ]
+239:                                              ; preds = %.sink.split298, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.thread, %2
+  %.3 = phi ptr [ %1, %2 ], [ %.2185, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPcEEiPNS2_7ScannerIT_EE.exit.thread ], [ %.3.ph, %.sink.split298 ]
   ret ptr %.3
 }
 
@@ -81400,18 +81404,22 @@ _ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thre
 233:                                              ; preds = %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thread
   %234 = getelementptr inbounds nuw i8, ptr %231, i64 1
   store ptr %234, ptr %4, align 8, !tbaa !216
-  store i8 0, ptr %231, align 1, !tbaa !11
-  br label %239
+  br label %.sink.split298
 
 235:                                              ; preds = %67
   %236 = getelementptr inbounds nuw i8, ptr %0, i64 104
   %237 = load ptr, ptr %236, align 8, !tbaa !217
   %238 = tail call noundef i32 (ptr, i32, ptr, ...) %237(ptr noundef nonnull %0, i32 noundef 0, ptr noundef nonnull @.str.32)
-  store i8 0, ptr %.1184, align 1, !tbaa !11
+  br label %.sink.split298
+
+.sink.split298:                                   ; preds = %233, %235
+  %.1184.sink = phi ptr [ %.1184, %235 ], [ %231, %233 ]
+  %.3.ph = phi ptr [ %.1184, %235 ], [ %.2185, %233 ]
+  store i8 0, ptr %.1184.sink, align 1, !tbaa !11
   br label %239
 
-239:                                              ; preds = %235, %233, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thread, %2
-  %.3 = phi ptr [ %1, %2 ], [ %.1184, %235 ], [ %.2185, %233 ], [ %.2185, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thread ]
+239:                                              ; preds = %.sink.split298, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thread, %2
+  %.3 = phi ptr [ %1, %2 ], [ %.2185, %_ZN5boost4wave8cpplexer7re2clex12get_one_charIPKcEEiPNS2_7ScannerIT_EE.exit.thread ], [ %.3.ph, %.sink.split298 ]
   ret ptr %.3
 }
 

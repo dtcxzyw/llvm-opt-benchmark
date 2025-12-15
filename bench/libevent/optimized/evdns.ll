@@ -3348,11 +3348,11 @@ evdns_request_remove.exit:                        ; preds = %17, %.sink.split.i
   %66 = getelementptr inbounds nuw i8, ptr %0, i64 192
   %67 = load ptr, ptr %66, align 8
   %.not42 = icmp eq ptr %67, null
-  br i1 %.not42, label %91, label %68
+  br i1 %.not42, label %89, label %68
 
 68:                                               ; preds = %65
   %.not43 = icmp eq i32 %2, 0
-  br i1 %.not43, label %90, label %69
+  br i1 %.not43, label %.sink.split, label %69
 
 69:                                               ; preds = %68
   %70 = getelementptr inbounds nuw i8, ptr %67, i64 136
@@ -3407,33 +3407,30 @@ search_request_finished.exit:                     ; preds = %80, %83
   %86 = getelementptr inbounds nuw i8, ptr %85, i64 16
   %87 = load i32, ptr %86, align 8
   %.not44 = icmp eq i32 %87, 0
-  br i1 %.not44, label %88, label %89
+  br i1 %.not44, label %88, label %.sink.split
 
 88:                                               ; preds = %search_request_finished.exit
   tail call void @event_mm_free_(ptr noundef nonnull %85) #21
+  br label %.sink.split
+
+.sink.split:                                      ; preds = %68, %search_request_finished.exit, %88
+  %.sink = phi ptr [ %66, %88 ], [ %66, %search_request_finished.exit ], [ %67, %68 ]
+  store ptr null, ptr %.sink, align 8
   br label %89
 
-89:                                               ; preds = %88, %search_request_finished.exit
-  store ptr null, ptr %66, align 8
-  br label %91
-
-90:                                               ; preds = %68
-  store ptr null, ptr %67, align 8
-  br label %91
-
-91:                                               ; preds = %89, %90, %65
+89:                                               ; preds = %.sink.split, %65
   tail call void @event_mm_free_(ptr noundef nonnull %0) #21
   tail call fastcc void @evdns_requests_pump_waiting_queue(ptr noundef nonnull %5)
-  %92 = load ptr, ptr %7, align 8
-  %.not45 = icmp eq ptr %92, null
-  br i1 %.not45, label %96, label %93
+  %90 = load ptr, ptr %7, align 8
+  %.not45 = icmp eq ptr %90, null
+  br i1 %.not45, label %94, label %91
 
-93:                                               ; preds = %91
-  %94 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
-  %95 = tail call i32 %94(i32 noundef 0, ptr noundef nonnull %92) #21
-  br label %96
+91:                                               ; preds = %89
+  %92 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @evthread_lock_fns_, i64 32), align 8
+  %93 = tail call i32 %92(i32 noundef 0, ptr noundef nonnull %90) #21
+  br label %94
 
-96:                                               ; preds = %93, %91
+94:                                               ; preds = %91, %89
   ret void
 }
 

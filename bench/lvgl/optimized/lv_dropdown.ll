@@ -618,44 +618,42 @@ get_id_on_point.exit.i:                           ; preds = %97, %get_label.exit
   %.not.i25 = icmp eq i8 %118, 0
   %119 = getelementptr inbounds nuw i8, ptr %12, i64 108
   %120 = load i32, ptr %119, align 4, !tbaa !22
-  br i1 %.not.i25, label %131, label %121
+  br i1 %.not.i25, label %129, label %121
 
 121:                                              ; preds = %115
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 100
   %123 = load i32, ptr %122, align 4, !tbaa !20
   %124 = icmp eq i32 %120, %123
-  br i1 %124, label %125, label %127
+  br i1 %124, label %125, label %126
 
 125:                                              ; preds = %121
   call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 33)
-  %126 = load i32, ptr %119, align 4, !tbaa !22
-  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %126, i16 noundef zeroext 33)
-  br label %133
+  br label %130
 
-127:                                              ; preds = %121
+126:                                              ; preds = %121
   call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 32)
-  %128 = load i32, ptr %119, align 4, !tbaa !22
-  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %128, i16 noundef zeroext 32)
-  %129 = load i32, ptr %122, align 4, !tbaa !20
-  call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %129, i16 noundef zeroext 1)
-  %130 = load i32, ptr %122, align 4, !tbaa !20
-  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %130, i16 noundef zeroext 1)
-  br label %133
+  %127 = load i32, ptr %119, align 4, !tbaa !22
+  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %127, i16 noundef zeroext 32)
+  %128 = load i32, ptr %122, align 4, !tbaa !20
+  call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %128, i16 noundef zeroext 1)
+  br label %130
 
-131:                                              ; preds = %115
+129:                                              ; preds = %115
   call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 32)
-  %132 = load i32, ptr %119, align 4, !tbaa !22
-  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %132, i16 noundef zeroext 32)
-  br label %133
+  br label %130
 
-133:                                              ; preds = %131, %127, %125
+130:                                              ; preds = %129, %126, %125
+  %.sink38.i = phi ptr [ %119, %125 ], [ %122, %126 ], [ %119, %129 ]
+  %.sink37.i = phi i16 [ 33, %125 ], [ 1, %126 ], [ 32, %129 ]
+  %131 = load i32, ptr %.sink38.i, align 4, !tbaa !32
+  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %131, i16 noundef zeroext %.sink37.i)
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 4 dereferenceable(16) %14, ptr noundef nonnull align 4 dereferenceable(16) %4, i64 16, i1 false), !tbaa.struct !33
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %draw_list.exit
 
-draw_list.exit:                                   ; preds = %.thread, %133
+draw_list.exit:                                   ; preds = %.thread, %130
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %134 = call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #8
+  %132 = call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #8
   br label %list_press_handler.exit
 
 list_press_handler.exit:                          ; preds = %get_id_on_point.exit.i, %87, %82, %draw_list.exit, %21, %113, %25, %list_release_handler.exit, %19

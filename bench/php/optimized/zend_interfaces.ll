@@ -917,7 +917,7 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   %29 = load i32, ptr %28, align 8
   %30 = and i32 %29, 65280
   %.not25 = icmp eq i32 %30, 0
-  br i1 %.not25, label %44, label %31
+  br i1 %.not25, label %43, label %31
 
 31:                                               ; preds = %27
   %32 = and i32 %29, 255
@@ -931,31 +931,27 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   %38 = load i32, ptr %37, align 8
   %39 = and i32 %38, 65280
   %.not26 = icmp eq i32 %39, 0
-  br i1 %.not26, label %44, label %.sink.split
+  br i1 %.not26, label %43, label %.sink.split
 
 .sink.split:                                      ; preds = %31, %34
-  %.sink38 = phi i32 [ %38, %34 ], [ %29, %31 ]
-  %.sink.in = phi ptr [ %36, %34 ], [ %26, %31 ]
-  %40 = and i32 %.sink38, 65280
-  %41 = icmp ne i32 %40, 0
-  tail call void @llvm.assume(i1 %41)
-  %.sink = load ptr, ptr %.sink.in, align 8, !tbaa !4
-  %42 = load i32, ptr %.sink, align 4, !tbaa !52
-  %43 = add i32 %42, 1
-  store i32 %43, ptr %.sink, align 4, !tbaa !52
-  br label %44
+  %.sink36 = phi ptr [ %36, %34 ], [ %26, %31 ]
+  %40 = load ptr, ptr %.sink36, align 8, !tbaa !4
+  %41 = load i32, ptr %40, align 4, !tbaa !52
+  %42 = add i32 %41, 1
+  store i32 %42, ptr %40, align 4, !tbaa !52
+  br label %43
 
-44:                                               ; preds = %.sink.split, %27, %34
-  %.0 = phi ptr [ %36, %34 ], [ %26, %27 ], [ %.sink.in, %.sink.split ]
-  %45 = load ptr, ptr %.0, align 8, !tbaa !4
-  %46 = getelementptr inbounds nuw i8, ptr %.0, i64 8
-  %47 = load i32, ptr %46, align 8, !tbaa !4
-  store ptr %45, ptr %1, align 8, !tbaa !4
-  %48 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  store i32 %47, ptr %48, align 8, !tbaa !4
+43:                                               ; preds = %.sink.split, %27, %34
+  %.0 = phi ptr [ %36, %34 ], [ %26, %27 ], [ %.sink36, %.sink.split ]
+  %44 = load ptr, ptr %.0, align 8, !tbaa !4
+  %45 = getelementptr inbounds nuw i8, ptr %.0, i64 8
+  %46 = load i32, ptr %45, align 8, !tbaa !4
+  store ptr %44, ptr %1, align 8, !tbaa !4
+  %47 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  store i32 %46, ptr %47, align 8, !tbaa !4
   br label %zend_internal_iterator_ensure_rewound.exit
 
-zend_internal_iterator_ensure_rewound.exit:       ; preds = %19, %10, %.thread.i, %44, %5
+zend_internal_iterator_ensure_rewound.exit:       ; preds = %19, %10, %.thread.i, %43, %5
   ret void
 }
 

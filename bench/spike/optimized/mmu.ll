@@ -1520,7 +1520,7 @@ _ZNK5mmu_t7in_mprvEv.exit:                        ; preds = %22
   %30 = load i64, ptr %29, align 8, !tbaa !216
   %31 = and i64 %30, 131072
   %.not41 = icmp eq i64 %31, 0
-  br i1 %.not41, label %_ZNK5mmu_t7in_mprvEv.exit.thread, label %89
+  br i1 %.not41, label %_ZNK5mmu_t7in_mprvEv.exit.thread, label %85
 
 _ZNK5mmu_t7in_mprvEv.exit.thread:                 ; preds = %5, %16, %22, %_ZNK5mmu_t7in_mprvEv.exit
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 39056
@@ -1617,33 +1617,21 @@ _ZNK5mmu_t7in_mprvEv.exit.thread:                 ; preds = %5, %16, %22, %_ZNK5
   br i1 %81, label %_ZN5mmu_t15pmp_homogeneousEmm.exit, label %71
 
 .loopexit:                                        ; preds = %71, %66, %.preheader.i
-  br i1 %53, label %82, label %83
-
-82:                                               ; preds = %.loopexit
-  store i64 %.0, ptr %45, align 8, !tbaa !193
+  %82 = icmp eq i32 %4, 1
+  %. = select i1 %82, ptr %39, ptr %33
+  %.sink = select i1 %53, ptr %45, ptr %.
+  store i64 %.0, ptr %.sink, align 8, !tbaa !193
   br label %_ZN5mmu_t15pmp_homogeneousEmm.exit
 
-83:                                               ; preds = %.loopexit
-  %84 = icmp eq i32 %4, 1
-  br i1 %84, label %85, label %86
-
-85:                                               ; preds = %83
-  store i64 %.0, ptr %39, align 8, !tbaa !193
-  br label %_ZN5mmu_t15pmp_homogeneousEmm.exit
-
-86:                                               ; preds = %83
-  store i64 %.0, ptr %33, align 8, !tbaa !193
-  br label %_ZN5mmu_t15pmp_homogeneousEmm.exit
-
-_ZN5mmu_t15pmp_homogeneousEmm.exit:               ; preds = %.lr.ph.i, %82, %86, %85
-  %87 = getelementptr inbounds nuw i8, ptr %0, i64 32912
-  %88 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %87, i64 %7
-  store ptr %9, ptr %88, align 8, !tbaa !212
-  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %88, i64 8
+_ZN5mmu_t15pmp_homogeneousEmm.exit:               ; preds = %.lr.ph.i, %.loopexit
+  %83 = getelementptr inbounds nuw i8, ptr %0, i64 32912
+  %84 = getelementptr inbounds nuw %struct.tlb_entry_t, ptr %83, i64 %7
+  store ptr %9, ptr %84, align 8, !tbaa !212
+  %.sroa.3.0..sroa_idx = getelementptr inbounds nuw i8, ptr %84, i64 8
   store i64 %10, ptr %.sroa.3.0..sroa_idx, align 8, !tbaa !193
-  br label %89
+  br label %85
 
-89:                                               ; preds = %_ZNK5mmu_t7in_mprvEv.exit, %_ZN5mmu_t15pmp_homogeneousEmm.exit
+85:                                               ; preds = %_ZNK5mmu_t7in_mprvEv.exit, %_ZN5mmu_t15pmp_homogeneousEmm.exit
   %.fca.0.insert = insertvalue { ptr, i64 } poison, ptr %9, 0
   %.fca.1.insert = insertvalue { ptr, i64 } %.fca.0.insert, i64 %10, 1
   ret { ptr, i64 } %.fca.1.insert

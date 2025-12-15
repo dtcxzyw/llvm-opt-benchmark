@@ -1065,13 +1065,13 @@ _ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit:           ; preds = %39, %41
   store i8 0, ptr %0, align 8
   %42 = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i32 256, ptr %42, align 8
-  br label %145
+  br label %144
 
 43:                                               ; preds = %.noexc, %_ZN8WasmEdge7ErrInfo8InfoFileC2ERKNSt10filesystem7__cxx114pathE.exit
   %44 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8WasmEdge7ErrInfo8InfoFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %15) #23
-  br label %146
+  br label %145
 
 45:                                               ; preds = %2
   %46 = call noundef ptr @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE5c_strEv(ptr noundef nonnull align 8 dereferenceable(40) %1) #23
@@ -1300,10 +1300,6 @@ _ZN8WasmEdge7ErrInfo8InfoFileC2ERKNSt10filesystem7__cxx114pathE.exit50: ; preds 
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %102, ptr noundef nonnull %111) #23
   br label %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55
 
-_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55:         ; preds = %110, %112
-  store ptr null, ptr %102, align 8
-  br label %142
-
 113:                                              ; preds = %75, %74
   %114 = landingpad { ptr, i32 }
           cleanup
@@ -1312,18 +1308,18 @@ _ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55:         ; preds = %110, %112
 .loopexit:                                        ; preds = %.lr.ph, %85
   %lpad.loopexit = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
 .loopexit.split-lp:                               ; preds = %89, %96, %.noexc42, %98, %.noexc45, %117, %.noexc56, %119, %.noexc59
   %lpad.loopexit.split-lp = landingpad { ptr, i32 }
           cleanup
-  br label %144
+  br label %143
 
 115:                                              ; preds = %.noexc51, %_ZN8WasmEdge7ErrInfo8InfoFileC2ERKNSt10filesystem7__cxx114pathE.exit50
   %116 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8WasmEdge7ErrInfo8InfoFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %21) #23
-  br label %144
+  br label %143
 
 117:                                              ; preds = %95
   store i32 257, ptr %22, align 4
@@ -1391,21 +1387,17 @@ _ZN8WasmEdge7ErrInfo8InfoFileC2ERKNSt10filesystem7__cxx114pathE.exit65: ; preds 
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
   %132 = load ptr, ptr %123, align 8
   %.not.i.i.i.i69 = icmp eq ptr %132, null
-  br i1 %.not.i.i.i.i69, label %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70, label %133
+  br i1 %.not.i.i.i.i69, label %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55, label %133
 
 133:                                              ; preds = %131
   call void @_ZNKSt10filesystem7__cxx114path5_List13_Impl_deleterclEPNS2_5_ImplE(ptr noundef nonnull align 8 dereferenceable(8) %123, ptr noundef nonnull %132) #23
-  br label %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70
-
-_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70:         ; preds = %131, %133
-  store ptr null, ptr %123, align 8
-  br label %142
+  br label %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55
 
 134:                                              ; preds = %.noexc66, %_ZN8WasmEdge7ErrInfo8InfoFileC2ERKNSt10filesystem7__cxx114pathE.exit65
   %135 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN8WasmEdge7ErrInfo8InfoFileD2Ev(ptr noundef nonnull align 8 dereferenceable(40) %24) #23
-  br label %144
+  br label %143
 
 136:                                              ; preds = %87
   %137 = add i64 %.019100, %.sroa.speculated
@@ -1426,34 +1418,36 @@ _ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70:         ; preds = %131, %133
   store ptr %.sroa.10.1112, ptr %141, align 8
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-142:                                              ; preds = %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70
-  %.sink121 = phi ptr [ %21, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55 ], [ %24, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70 ]
-  %.sink = phi i32 [ 258, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55 ], [ 257, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit70 ]
+_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55:         ; preds = %133, %131, %112, %110
+  %.sink122 = phi ptr [ %102, %110 ], [ %102, %112 ], [ %123, %131 ], [ %123, %133 ]
+  %.sink121 = phi ptr [ %21, %110 ], [ %21, %112 ], [ %24, %131 ], [ %24, %133 ]
+  %.sink = phi i32 [ 258, %110 ], [ 258, %112 ], [ 257, %131 ], [ 257, %133 ]
+  store ptr null, ptr %.sink122, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %.sink121) #23
   store i8 0, ptr %0, align 8
-  %143 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i32 %.sink, ptr %143, align 8
+  %142 = getelementptr inbounds nuw i8, ptr %0, i64 8
+  store i32 %.sink, ptr %142, align 8
   call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %27) #27
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit
 
-144:                                              ; preds = %115, %134, %.loopexit.split-lp, %.loopexit
+143:                                              ; preds = %115, %134, %.loopexit.split-lp, %.loopexit
   %.pn = phi { ptr, i32 } [ %116, %115 ], [ %135, %134 ], [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit.split-lp, %.loopexit.split-lp ]
   call void @_ZdlPvm(ptr noundef nonnull %76, i64 noundef %27) #27
   br label %_ZNSt6vectorIhSaIhEED2Ev.exit72
 
-_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %142, %.thread, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit38
+_ZNSt6vectorIhSaIhEED2Ev.exit:                    ; preds = %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit55, %.thread, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit38
+  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %16) #23
+  br label %144
+
+_ZNSt6vectorIhSaIhEED2Ev.exit72:                  ; preds = %143, %113, %70, %68
+  %.pn23 = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ], [ %114, %113 ], [ %.pn, %143 ]
   call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %16) #23
   br label %145
 
-_ZNSt6vectorIhSaIhEED2Ev.exit72:                  ; preds = %144, %113, %70, %68
-  %.pn23 = phi { ptr, i32 } [ %71, %70 ], [ %69, %68 ], [ %114, %113 ], [ %.pn, %144 ]
-  call void @_ZNSt14basic_ifstreamIcSt11char_traitsIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(256) %16) #23
-  br label %146
-
-145:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit
+144:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit, %_ZN8WasmEdge7ErrInfo8InfoFileD2Ev.exit
   ret void
 
-146:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit72, %43
+145:                                              ; preds = %_ZNSt6vectorIhSaIhEED2Ev.exit72, %43
   %.pn25 = phi { ptr, i32 } [ %44, %43 ], [ %.pn23, %_ZNSt6vectorIhSaIhEED2Ev.exit72 ]
   resume { ptr, i32 } %.pn25
 }

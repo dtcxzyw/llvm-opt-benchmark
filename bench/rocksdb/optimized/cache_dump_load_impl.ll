@@ -810,14 +810,15 @@ define void @_ZN7rocksdb15CacheDumperImpl24DumpCacheEntriesToWriterEv(ptr dead_o
   %14 = invoke noalias noundef nonnull dereferenceable(14) ptr @_Znam(i64 noundef 14) #27
           to label %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit unwind label %_ZN7rocksdb6StatusD2Ev.exit.i.i.i, !noalias !106
 
-common.resume:                                    ; preds = %_ZN7rocksdb6StatusD2Ev.exit33, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i
-  %common.resume.op = phi { ptr, i32 } [ %15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %25, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12 ], [ %36, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15 ], [ %.pn, %_ZN7rocksdb6StatusD2Ev.exit33 ]
+common.resume:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i
+  %.sink = phi ptr [ %34, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15 ], [ %23, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12 ], [ %13, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %134, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32 ]
+  %common.resume.op = phi { ptr, i32 } [ %36, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15 ], [ %25, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12 ], [ %15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32 ]
+  store ptr null, ptr %.sink, align 8, !tbaa !71
   resume { ptr, i32 } %common.resume.op
 
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i:                ; preds = %10
   %15 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %13, align 8, !tbaa !71, !alias.scope !106
   br label %common.resume
 
 _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit: ; preds = %10
@@ -847,7 +848,6 @@ _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit: ; preds = %10
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i12:              ; preds = %20
   %25 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %23, align 8, !tbaa !71, !alias.scope !110
   br label %common.resume
 
 _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit13: ; preds = %20
@@ -877,7 +877,6 @@ _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit13: ; preds = %20
 _ZN7rocksdb6StatusD2Ev.exit.i.i.i15:              ; preds = %31
   %36 = landingpad { ptr, i32 }
           cleanup
-  store ptr null, ptr %34, align 8, !tbaa !71, !alias.scope !114
   br label %common.resume
 
 _ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit16: ; preds = %31
@@ -1132,14 +1131,10 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30: ; preds = %129
   %134 = getelementptr inbounds nuw i8, ptr %0, i64 8
   %135 = load ptr, ptr %134, align 8, !tbaa !71
   %.not.i.i31 = icmp eq ptr %135, null
-  br i1 %.not.i.i31, label %_ZN7rocksdb6StatusD2Ev.exit33, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32
+  br i1 %.not.i.i31, label %common.resume, label %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32
 
 _ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30
   call void @_ZdaPv(ptr noundef nonnull %135) #24
-  br label %_ZN7rocksdb6StatusD2Ev.exit33
-
-_ZN7rocksdb6StatusD2Ev.exit33:                    ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32
-  store ptr null, ptr %134, align 8, !tbaa !71
   br label %common.resume
 
 136:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit, %38, %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit16, %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit13, %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit

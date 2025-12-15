@@ -5153,67 +5153,63 @@ define dso_local noalias noundef ptr @dictGetStatsHt(ptr noundef readonly captur
   %25 = getelementptr inbounds nuw i8, ptr %5, i64 24
   br label %26
 
-26:                                               ; preds = %.lr.ph, %52
-  %.04249 = phi i64 [ 0, %.lr.ph ], [ %53, %52 ]
+26:                                               ; preds = %.lr.ph, %47
+  %.04249 = phi i64 [ 0, %.lr.ph ], [ %50, %47 ]
   %27 = getelementptr inbounds nuw ptr, ptr %22, i64 %.04249
   %28 = load ptr, ptr %27, align 8, !tbaa !31
   %29 = icmp eq ptr %28, null
-  br i1 %29, label %30, label %33
+  br i1 %29, label %47, label %30
 
 30:                                               ; preds = %26
-  %31 = load i64, ptr %4, align 8, !tbaa !14
+  %31 = load i64, ptr %23, align 8, !tbaa !100
   %32 = add i64 %31, 1
-  store i64 %32, ptr %4, align 8, !tbaa !14
-  br label %52
+  store i64 %32, ptr %23, align 8, !tbaa !100
+  br label %33
 
-33:                                               ; preds = %26
-  %34 = load i64, ptr %23, align 8, !tbaa !100
-  %35 = add i64 %34, 1
-  store i64 %35, ptr %23, align 8, !tbaa !100
-  br label %36
-
-36:                                               ; preds = %33, %dictGetNext.exit
-  %.048 = phi i64 [ 0, %33 ], [ %37, %dictGetNext.exit ]
-  %.04147 = phi ptr [ %28, %33 ], [ %.0.i, %dictGetNext.exit ]
-  %37 = add i64 %.048, 1
-  %38 = ptrtoint ptr %.04147 to i64
-  %39 = and i64 %38, 3
-  %.not.i = icmp eq i64 %39, 0
+33:                                               ; preds = %30, %dictGetNext.exit
+  %.048 = phi i64 [ 0, %30 ], [ %34, %dictGetNext.exit ]
+  %.04147 = phi ptr [ %28, %30 ], [ %.0.i, %dictGetNext.exit ]
+  %34 = add i64 %.048, 1
+  %35 = ptrtoint ptr %.04147 to i64
+  %36 = and i64 %35, 3
+  %.not.i = icmp eq i64 %36, 0
   br i1 %.not.i, label %dictGetNext.exit, label %dictGetNext.exit.thread
 
-dictGetNext.exit:                                 ; preds = %36
-  %40 = and i64 %38, 4
-  %.not5.i = icmp eq i64 %40, 0
-  %41 = and i64 %38, -8
-  %42 = inttoptr i64 %41 to ptr
-  %43 = getelementptr inbounds nuw i8, ptr %42, i64 8
-  %44 = getelementptr inbounds nuw i8, ptr %.04147, i64 16
-  %.0.i.in = select i1 %.not5.i, ptr %44, ptr %43
+dictGetNext.exit:                                 ; preds = %33
+  %37 = and i64 %35, 4
+  %.not5.i = icmp eq i64 %37, 0
+  %38 = and i64 %35, -8
+  %39 = inttoptr i64 %38 to ptr
+  %40 = getelementptr inbounds nuw i8, ptr %39, i64 8
+  %41 = getelementptr inbounds nuw i8, ptr %.04147, i64 16
+  %.0.i.in = select i1 %.not5.i, ptr %41, ptr %40
   %.0.i = load ptr, ptr %.0.i.in, align 8, !tbaa !31
   %.not46 = icmp eq ptr %.0.i, null
-  br i1 %.not46, label %dictGetNext.exit.thread, label %36, !llvm.loop !107
+  br i1 %.not46, label %dictGetNext.exit.thread, label %33, !llvm.loop !107
 
-dictGetNext.exit.thread:                          ; preds = %36, %dictGetNext.exit
-  %45 = tail call i64 @llvm.umin.i64(i64 %37, i64 49)
-  %46 = getelementptr inbounds nuw i64, ptr %4, i64 %45
-  %47 = load i64, ptr %46, align 8, !tbaa !14
-  %48 = add i64 %47, 1
-  store i64 %48, ptr %46, align 8, !tbaa !14
-  %49 = load i64, ptr %24, align 8, !tbaa !101
-  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %37, i64 %49)
+dictGetNext.exit.thread:                          ; preds = %33, %dictGetNext.exit
+  %42 = tail call i64 @llvm.umin.i64(i64 %34, i64 49)
+  %43 = getelementptr inbounds nuw i64, ptr %4, i64 %42
+  %44 = load i64, ptr %43, align 8, !tbaa !14
+  %45 = add i64 %44, 1
+  store i64 %45, ptr %43, align 8, !tbaa !14
+  %46 = load i64, ptr %24, align 8, !tbaa !101
+  %spec.store.select = tail call i64 @llvm.umax.i64(i64 %34, i64 %46)
   store i64 %spec.store.select, ptr %24, align 8
-  %50 = load i64, ptr %25, align 8, !tbaa !102
-  %51 = add i64 %50, %37
-  store i64 %51, ptr %25, align 8, !tbaa !102
-  br label %52
+  br label %47
 
-52:                                               ; preds = %dictGetNext.exit.thread, %30
-  %53 = add i64 %.04249, 1
-  %.042.highbits = lshr i64 %53, %12
-  %54 = icmp eq i64 %.042.highbits, 0
-  br i1 %54, label %26, label %.loopexit, !llvm.loop !108
+47:                                               ; preds = %26, %dictGetNext.exit.thread
+  %.sink = phi ptr [ %25, %dictGetNext.exit.thread ], [ %4, %26 ]
+  %.lcssa.sink = phi i64 [ %34, %dictGetNext.exit.thread ], [ 1, %26 ]
+  %48 = load i64, ptr %.sink, align 8, !tbaa !14
+  %49 = add i64 %48, %.lcssa.sink
+  store i64 %49, ptr %.sink, align 8, !tbaa !14
+  %50 = add i64 %.04249, 1
+  %.042.highbits = lshr i64 %50, %12
+  %51 = icmp eq i64 %.042.highbits, 0
+  br i1 %51, label %26, label %.loopexit, !llvm.loop !108
 
-.loopexit:                                        ; preds = %52, %3
+.loopexit:                                        ; preds = %47, %3
   ret ptr %5
 }
 

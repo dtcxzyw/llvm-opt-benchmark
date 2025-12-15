@@ -20203,7 +20203,7 @@ define weak_odr dso_local noundef i32 @_ZNSt3__113basic_filebufIcNS_11char_trait
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 120
   %5 = load ptr, ptr %4, align 8, !tbaa !107
   %6 = icmp eq ptr %5, null
-  br i1 %6, label %140, label %7
+  br i1 %6, label %137, label %7
 
 7:                                                ; preds = %1
   %8 = getelementptr inbounds nuw i8, ptr %0, i64 156
@@ -20275,7 +20275,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE11__read_modeEv.exit: ; preds = %
   %40 = phi i64 [ %.sroa.speculated32, %33 ], [ 0, %31 ]
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 32
   %42 = icmp eq ptr %32, %.pre39
-  br i1 %42, label %43, label %131
+  br i1 %42, label %43, label %128
 
 43:                                               ; preds = %._crit_edge
   %44 = sub nsw i64 0, %40
@@ -20299,7 +20299,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE11__read_modeEv.exit: ; preds = %
   %59 = load ptr, ptr %4, align 8, !tbaa !107
   %60 = call i64 @fread(ptr noundef %58, i64 noundef 1, i64 noundef %57, ptr noundef %59)
   %.not28 = icmp eq i64 %60, 0
-  br i1 %.not28, label %134, label %61
+  br i1 %.not28, label %131, label %61
 
 61:                                               ; preds = %51
   %62 = load ptr, ptr %45, align 8, !tbaa !29
@@ -20309,7 +20309,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE11__read_modeEv.exit: ; preds = %
   store ptr %64, ptr %41, align 8, !tbaa !27
   %65 = load i8, ptr %63, align 1, !tbaa !28
   %66 = zext i8 %65 to i32
-  br label %134
+  br label %131
 
 67:                                               ; preds = %43
   %68 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -20359,7 +20359,7 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE11__read_modeEv.exit: ; preds = %
   %99 = load ptr, ptr %4, align 8, !tbaa !107
   %100 = call i64 @fread(ptr noundef %86, i64 noundef 1, i64 noundef %.sroa.speculated, ptr noundef %99)
   %.not25 = icmp eq i64 %100, 0
-  br i1 %.not25, label %134, label %101
+  br i1 %.not25, label %131, label %101
 
 101:                                              ; preds = %78
   %102 = getelementptr inbounds nuw i8, ptr %0, i64 128
@@ -20386,59 +20386,57 @@ _ZNSt3__113basic_filebufIcNS_11char_traitsIcEEE11__read_modeEv.exit: ; preds = %
   %115 = load ptr, ptr %114, align 8
   %116 = call noundef i32 %115(ptr noundef nonnull align 8 dereferenceable(16) %103, ptr noundef nonnull align 4 dereferenceable(8) %96, ptr noundef %108, ptr noundef nonnull %107, ptr noundef nonnull align 8 dereferenceable(8) %70, ptr noundef %110, ptr noundef %112, ptr noundef nonnull align 8 dereferenceable(8) %3)
   %117 = icmp eq i32 %116, 3
-  br i1 %117, label %118, label %123
+  br i1 %117, label %118, label %121
 
 118:                                              ; preds = %105
   %119 = load ptr, ptr %81, align 8, !tbaa !118
   %120 = load ptr, ptr %68, align 8, !tbaa !120
   store ptr %119, ptr %45, align 8, !tbaa !29
-  store ptr %119, ptr %25, align 8, !tbaa !22
-  store ptr %120, ptr %41, align 8, !tbaa !27
-  %121 = load i8, ptr %119, align 1, !tbaa !28
-  %122 = zext i8 %121 to i32
-  br label %130
+  br label %.sink.split
 
-123:                                              ; preds = %105
-  %124 = load ptr, ptr %3, align 8, !tbaa !33
-  %125 = load ptr, ptr %45, align 8, !tbaa !29
-  %126 = getelementptr inbounds nuw i8, ptr %125, i64 %40
-  %.not27 = icmp eq ptr %124, %126
-  br i1 %.not27, label %130, label %127
+121:                                              ; preds = %105
+  %122 = load ptr, ptr %3, align 8, !tbaa !33
+  %123 = load ptr, ptr %45, align 8, !tbaa !29
+  %124 = getelementptr inbounds nuw i8, ptr %123, i64 %40
+  %.not27 = icmp eq ptr %122, %124
+  br i1 %.not27, label %127, label %.sink.split
 
-127:                                              ; preds = %123
-  store ptr %126, ptr %25, align 8, !tbaa !22
-  store ptr %124, ptr %41, align 8, !tbaa !27
-  %128 = load i8, ptr %126, align 1, !tbaa !28
-  %129 = zext i8 %128 to i32
-  br label %130
+.sink.split:                                      ; preds = %121, %118
+  %.sink53 = phi ptr [ %119, %118 ], [ %124, %121 ]
+  %.sink = phi ptr [ %120, %118 ], [ %122, %121 ]
+  store ptr %.sink53, ptr %25, align 8, !tbaa !22
+  store ptr %.sink, ptr %41, align 8, !tbaa !27
+  %125 = load i8, ptr %.sink53, align 1, !tbaa !28
+  %126 = zext i8 %125 to i32
+  br label %127
 
-130:                                              ; preds = %123, %127, %118
-  %.2 = phi i32 [ %122, %118 ], [ %129, %127 ], [ -1, %123 ]
+127:                                              ; preds = %.sink.split, %121
+  %.2 = phi i32 [ -1, %121 ], [ %126, %.sink.split ]
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  br label %134
+  br label %131
 
-131:                                              ; preds = %._crit_edge
-  %132 = load i8, ptr %32, align 1, !tbaa !28
-  %133 = zext i8 %132 to i32
-  br label %134
+128:                                              ; preds = %._crit_edge
+  %129 = load i8, ptr %32, align 1, !tbaa !28
+  %130 = zext i8 %129 to i32
+  br label %131
 
-134:                                              ; preds = %78, %130, %51, %61, %131
-  %.3 = phi i32 [ %133, %131 ], [ %66, %61 ], [ -1, %51 ], [ %.2, %130 ], [ -1, %78 ]
-  %135 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %136 = load ptr, ptr %135, align 8, !tbaa !29
-  %137 = icmp eq ptr %136, %2
-  br i1 %137, label %138, label %139
+131:                                              ; preds = %78, %127, %51, %61, %128
+  %.3 = phi i32 [ %130, %128 ], [ %66, %61 ], [ -1, %51 ], [ %.2, %127 ], [ -1, %78 ]
+  %132 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %133 = load ptr, ptr %132, align 8, !tbaa !29
+  %134 = icmp eq ptr %133, %2
+  br i1 %134, label %135, label %136
 
-138:                                              ; preds = %134
-  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %135, i8 0, i64 24, i1 false)
-  br label %139
+135:                                              ; preds = %131
+  call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(24) %132, i8 0, i64 24, i1 false)
+  br label %136
 
-139:                                              ; preds = %138, %134
+136:                                              ; preds = %135, %131
   call void @llvm.lifetime.end.p0(ptr nonnull %2)
-  br label %140
+  br label %137
 
-140:                                              ; preds = %1, %139
-  %.0 = phi i32 [ %.3, %139 ], [ -1, %1 ]
+137:                                              ; preds = %1, %136
+  %.0 = phi i32 [ %.3, %136 ], [ -1, %1 ]
   ret i32 %.0
 }
 

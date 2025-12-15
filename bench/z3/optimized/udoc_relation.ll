@@ -7118,11 +7118,7 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 
 68:                                               ; preds = %62, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i29
   invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %25)
-          to label %.noexc33 unwind label %69
-
-.noexc33:                                         ; preds = %68
-  %.pre.i.i30 = load ptr, ptr %25, align 8, !tbaa !196
-  br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split
+          to label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split unwind label %69
 
 69:                                               ; preds = %84, %68, %50
   %70 = landingpad { ptr, i32 }
@@ -7154,20 +7150,17 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
 
 84:                                               ; preds = %78, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.exit.i36
   invoke void @_ZN6vectorIP4exprLb0EjE13expand_vectorEv(ptr noundef nonnull align 8 dereferenceable(8) %26)
-          to label %.noexc40 unwind label %69
+          to label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split unwind label %69
 
-.noexc40:                                         ; preds = %84
-  %.pre.i.i37 = load ptr, ptr %26, align 8, !tbaa !196
-  br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split
-
-_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split: ; preds = %.noexc33, %.noexc40
-  %.pre.i.i37.sink = phi ptr [ %.pre.i.i37, %.noexc40 ], [ %.pre.i.i30, %.noexc33 ]
-  %.phi.trans.insert.i.i38 = getelementptr inbounds i8, ptr %.pre.i.i37.sink, i64 -4
+_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split: ; preds = %84, %68
+  %.sink103 = phi ptr [ %25, %68 ], [ %26, %84 ]
+  %.pre.i.i37 = load ptr, ptr %.sink103, align 8, !tbaa !196
+  %.phi.trans.insert.i.i38 = getelementptr inbounds i8, ptr %.pre.i.i37, i64 -4
   %.pre2.i.i39 = load i32, ptr %.phi.trans.insert.i.i38, align 4, !tbaa !14
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34: ; preds = %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split, %78, %62
-  %.sink102 = phi ptr [ %60, %62 ], [ %76, %78 ], [ %.pre.i.i37.sink, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split ]
+  %.sink102 = phi ptr [ %60, %62 ], [ %76, %78 ], [ %.pre.i.i37, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split ]
   %.sink = phi i32 [ %64, %62 ], [ %80, %78 ], [ %.pre2.i.i39, %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split ]
   %85 = getelementptr inbounds i8, ptr %.sink102, i64 -4
   %86 = zext i32 %.sink to i64

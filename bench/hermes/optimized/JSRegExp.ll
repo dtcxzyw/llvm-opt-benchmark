@@ -1863,15 +1863,7 @@ if.then.i.i.i.i39:                                ; preds = %_ZN6hermes2vm10Call
   %33 = load ptr, ptr %ref.tmp15, align 8
   %add.ptr.i.i.i.i.i.i.i.i40 = getelementptr inbounds nuw i8, ptr %ref.tmp15, i64 16
   %cmp.i.i.i.i.i.i.i41 = icmp eq ptr %33, %add.ptr.i.i.i.i.i.i.i.i40
-  br i1 %cmp.i.i.i.i.i.i.i41, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i43, label %if.then.i.i.i.i.i.i42
-
-if.then.i.i.i.i.i.i42:                            ; preds = %if.then.i.i.i.i39
-  call void @free(ptr noundef %33) #19
-  br label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i43
-
-_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i43: ; preds = %if.then.i.i.i.i.i.i42, %if.then.i.i.i.i39
-  store i8 0, ptr %hasVal.i.i.i36, align 8
-  br label %if.end37
+  br i1 %cmp.i.i.i.i.i.i.i41, label %if.end37.sink.split, label %if.end37.sink.split.sink.split
 
 if.else:                                          ; preds = %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit24
   %bytecode_28 = getelementptr inbounds nuw i8, ptr %2, i64 24
@@ -2113,17 +2105,20 @@ if.then.i.i.i.i102:                               ; preds = %_ZN6hermes2vm10Call
   %63 = load ptr, ptr %ref.tmp25, align 8
   %add.ptr.i.i.i.i.i.i.i.i103 = getelementptr inbounds nuw i8, ptr %ref.tmp25, i64 16
   %cmp.i.i.i.i.i.i.i104 = icmp eq ptr %63, %add.ptr.i.i.i.i.i.i.i.i103
-  br i1 %cmp.i.i.i.i.i.i.i104, label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i106, label %if.then.i.i.i.i.i.i105
+  br i1 %cmp.i.i.i.i.i.i.i104, label %if.end37.sink.split, label %if.end37.sink.split.sink.split
 
-if.then.i.i.i.i.i.i105:                           ; preds = %if.then.i.i.i.i102
-  call void @free(ptr noundef %63) #19
-  br label %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i106
+if.end37.sink.split.sink.split:                   ; preds = %if.then.i.i.i.i102, %if.then.i.i.i.i39
+  %.sink = phi ptr [ %33, %if.then.i.i.i.i39 ], [ %63, %if.then.i.i.i.i102 ]
+  %hasVal.i.i.i77.sink.ph = phi ptr [ %hasVal.i.i.i36, %if.then.i.i.i.i39 ], [ %hasVal.i.i.i77, %if.then.i.i.i.i102 ]
+  call void @free(ptr noundef %.sink) #19
+  br label %if.end37.sink.split
 
-_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i106: ; preds = %if.then.i.i.i.i.i.i105, %if.then.i.i.i.i102
-  store i8 0, ptr %hasVal.i.i.i77, align 8
+if.end37.sink.split:                              ; preds = %if.end37.sink.split.sink.split, %if.then.i.i.i.i102, %if.then.i.i.i.i39
+  %hasVal.i.i.i77.sink = phi ptr [ %hasVal.i.i.i36, %if.then.i.i.i.i39 ], [ %hasVal.i.i.i77, %if.then.i.i.i.i102 ], [ %hasVal.i.i.i77.sink.ph, %if.end37.sink.split.sink.split ]
+  store i8 0, ptr %hasVal.i.i.i77.sink, align 8
   br label %if.end37
 
-if.end37:                                         ; preds = %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i106, %_ZN6hermes2vm10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEaSEOSA_.exit99, %_ZN4llvh11SmallVectorIN6hermes8OptValueINS1_2vm16RegExpMatchRangeEEELj4EED2Ev.exit.i.i.i.i43, %_ZN6hermes2vm10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEaSEOSA_.exit
+if.end37:                                         ; preds = %if.end37.sink.split, %_ZN6hermes2vm10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEaSEOSA_.exit99, %_ZN6hermes2vm10CallResultIN4llvh11SmallVectorINS_8OptValueINS0_16RegExpMatchRangeEEELj4EEELNS0_6detail20CallResultSpecializeE0EEaSEOSA_.exit
   %64 = load i8, ptr %hasVal.i.i.i12, align 8
   %65 = and i8 %64, 1
   %cmp.i = icmp eq i8 %65, 0

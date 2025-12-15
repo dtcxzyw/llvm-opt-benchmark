@@ -7580,7 +7580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %76 = load ptr, ptr %6, align 8, !tbaa !4
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %78 = icmp eq ptr %76, %77
-  br i1 %78, label %.critedge38.sink.split, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55
+  br i1 %78, label %.critedge38.sink.split, label %.critedge38.sink.split.sink.split
 
 .thread75:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %23
   %79 = landingpad { ptr, i32 }
@@ -7588,22 +7588,15 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %80 = load ptr, ptr %6, align 8, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %82 = icmp eq ptr %80, %81
-  br i1 %82, label %.critedge38.sink.split, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread
+  br i1 %82, label %.critedge38.sink.split, label %.critedge38.sink.split.sink.split
 
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread: ; preds = %.thread75
-  %83 = load i64, ptr %81, align 8, !tbaa !12
-  br label %.critedge38.sink.split.sink.split
-
-_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55: ; preds = %75
-  %84 = load i64, ptr %77, align 8, !tbaa !12
-  br label %.critedge38.sink.split.sink.split
-
-.critedge38.sink.split.sink.split:                ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread
-  %.sink104 = phi i64 [ %83, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread ], [ %84, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55 ]
-  %.sink = phi ptr [ %80, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread ], [ %76, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55 ]
-  %.pn.pn.pn.pn71.ph.ph = phi { ptr, i32 } [ %79, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread ], [ %.pn, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55 ]
-  %85 = add i64 %.sink104, 1
-  call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %85) #21
+.critedge38.sink.split.sink.split:                ; preds = %75, %.thread75
+  %.sink105 = phi ptr [ %81, %.thread75 ], [ %77, %75 ]
+  %.sink = phi ptr [ %80, %.thread75 ], [ %76, %75 ]
+  %.pn.pn.pn.pn71.ph.ph = phi { ptr, i32 } [ %79, %.thread75 ], [ %.pn, %75 ]
+  %83 = load i64, ptr %.sink105, align 8, !tbaa !12
+  %84 = add i64 %83, 1
+  call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %84) #21
   br label %.critedge38.sink.split
 
 .critedge38.sink.split:                           ; preds = %.critedge38.sink.split.sink.split, %75, %.thread75
@@ -9335,7 +9328,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit: ; preds = %30
   store i64 %37, ptr %38, align 8, !tbaa !14
   store ptr %28, ptr %25, align 8, !tbaa !4
   store i64 0, ptr %36, align 8, !tbaa !14
-  store i8 0, ptr %28, align 8, !tbaa !12
   br label %58
 
 39:                                               ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit12, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE8capacityEv.exit
@@ -9379,10 +9371,11 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14: ; preds = %
   store i64 %56, ptr %57, align 8, !tbaa !14
   store ptr %47, ptr %44, align 8, !tbaa !4
   store i64 0, ptr %55, align 8, !tbaa !14
-  store i8 0, ptr %47, align 8, !tbaa !12
   br label %58
 
 58:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14
+  %.sink = phi ptr [ %28, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit ], [ %47, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEC2EOS4_.exit14 ]
+  store i8 0, ptr %.sink, align 1, !tbaa !12
   ret void
 }
 

@@ -2010,8 +2010,14 @@ define internal fastcc void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$G
   invoke void @"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #57
           to label %28 unwind label %35, !noalias !5
 
-common.resume.i.i.i.i:                            ; preds = %28, %115, %.body60.i.i.i.i, %.body42.i.i.i.i, %.body.i.i.i.i
-  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %142, %.body60.i.i.i.i ], [ %89, %.body42.i.i.i.i ], [ %56, %.body.i.i.i.i ], [ %118, %115 ], [ %31, %28 ]
+common.resume.sink.split.i.i.i.i:                 ; preds = %53, %86, %139
+  %.sink.i.i.i.i = phi ptr [ %95, %139 ], [ %1, %86 ], [ %1, %53 ]
+  %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %142, %139 ], [ %89, %86 ], [ %56, %53 ]
+  store i64 0, ptr %.sink.i.i.i.i, align 8, !alias.scope !20, !noalias !5
+  br label %common.resume.i.i.i.i
+
+common.resume.i.i.i.i:                            ; preds = %28, %115, %common.resume.sink.split.i.i.i.i
+  %common.resume.op.i.i.i.i = phi { ptr, i32 } [ %common.resume.op.ph.i.i.i.i, %common.resume.sink.split.i.i.i.i ], [ %118, %115 ], [ %31, %28 ]
   resume { ptr, i32 } %common.resume.op.i.i.i.i
 
 35:                                               ; preds = %32
@@ -2065,7 +2071,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
 53:                                               ; preds = %57, %55
   %.1.i.i.i.i34.i.i.i.i = phi i64 [ %47, %55 ], [ %59, %57 ]
   %54 = icmp eq i64 %.1.i.i.i.i34.i.i.i.i, %44
-  br i1 %54, label %.body.i.i.i.i, label %57
+  br i1 %54, label %common.resume.sink.split.i.i.i.i, label %57
 
 55:                                               ; preds = %.noexc.i.i.i.i35.i.i.i.i, %51
   %56 = landingpad { ptr, i32 }
@@ -2083,10 +2089,6 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
           filter [0 x ptr] zeroinitializer
   tail call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #58, !noalias !5
   unreachable
-
-.body.i.i.i.i:                                    ; preds = %53
-  store i64 0, ptr %1, align 8, !alias.scope !20, !noalias !5
-  br label %common.resume.i.i.i.i
 
 "_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$typst..foundations..content..Content$C$2_usize$GT$$GT$$GT$17h1b381cfcf98f74c3E.exit.i.i.i.i": ; preds = %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit.i.i.i.i33.i.i.i.i", %40, %38, %8
   %.064.i.i.i.i = phi i64 [ %37, %38 ], [ %37, %40 ], [ %6, %8 ], [ %37, %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit.i.i.i.i33.i.i.i.i" ]
@@ -2154,7 +2156,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
 86:                                               ; preds = %90, %88
   %.1.i.i.i.i40.i.i.i.i = phi i64 [ %80, %88 ], [ %92, %90 ]
   %87 = icmp eq i64 %.1.i.i.i.i40.i.i.i.i, %77
-  br i1 %87, label %.body42.i.i.i.i, label %90
+  br i1 %87, label %common.resume.sink.split.i.i.i.i, label %90
 
 88:                                               ; preds = %.noexc.i.i.i.i41.i.i.i.i, %84
   %89 = landingpad { ptr, i32 }
@@ -2172,10 +2174,6 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #58, !noalias !5
   unreachable
-
-.body42.i.i.i.i:                                  ; preds = %86
-  store i64 0, ptr %1, align 8, !alias.scope !20, !noalias !5
-  br label %common.resume.i.i.i.i
 
 "_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$typst..foundations..content..Content$C$2_usize$GT$$GT$$GT$17h1b381cfcf98f74c3E.exit44.i.i.i.i": ; preds = %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit.i.i.i.i39.i.i.i.i", %70, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h9c040b437c66f098E.exit.thread.i.i.i.i", %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$typst..foundations..content..Content$C$2_usize$GT$$GT$$GT$17h1b381cfcf98f74c3E.exit.i.i.i.i"
   %..i3668101.i.i.i.i = phi i64 [ %68, %70 ], [ %68, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h9c040b437c66f098E.exit.thread.i.i.i.i" ], [ %.064.i.i.i.i, %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$typst..foundations..content..Content$C$2_usize$GT$$GT$$GT$17h1b381cfcf98f74c3E.exit.i.i.i.i" ], [ %68, %"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E.exit.i.i.i.i39.i.i.i.i" ]
@@ -2291,7 +2289,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit53.i.i.i.i: ; preds
 139:                                              ; preds = %143, %141
   %.1.i.i.i.i58.i.i.i.i = phi i64 [ %133, %141 ], [ %145, %143 ]
   %140 = icmp eq i64 %.1.i.i.i.i58.i.i.i.i, %130
-  br i1 %140, label %.body60.i.i.i.i, label %143
+  br i1 %140, label %common.resume.sink.split.i.i.i.i, label %143
 
 141:                                              ; preds = %.noexc.i.i.i.i59.i.i.i.i, %137
   %142 = landingpad { ptr, i32 }
@@ -2309,10 +2307,6 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit53.i.i.i.i: ; preds
           filter [0 x ptr] zeroinitializer
   call void @_ZN4core9panicking16panic_in_cleanup17h76c6e1c84248d3ffE() #58, !noalias !5
   unreachable
-
-.body60.i.i.i.i:                                  ; preds = %139
-  store i64 0, ptr %95, align 8, !alias.scope !20, !noalias !5
-  br label %common.resume.i.i.i.i
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$10advance_by17haa5e0aac193aba9fE.exit.i": ; preds = %"_ZN4core3ptr130drop_in_place$LT$core..option..Option$LT$core..array..iter..IntoIter$LT$typst..foundations..content..Content$C$2_usize$GT$$GT$$GT$17h1b381cfcf98f74c3E.exit44.i.i.i.i"
   %148 = icmp eq i64 %..i3668101.i.i.i.i, 0

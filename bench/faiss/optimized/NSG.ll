@@ -1048,7 +1048,6 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit109:            ; preds = %_ZSt6fill_nIPimiET_
 160:                                              ; preds = %155
   %161 = getelementptr inbounds nuw i8, ptr %149, i64 12
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %161, ptr nonnull align 4 %149, i64 %.idx, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %149, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 .preheader68.i:                                   ; preds = %155
@@ -1119,13 +1118,13 @@ _ZNSt6vectorIiSaIiEEC2EmRKS0_.exit109:            ; preds = %_ZSt6fill_nIPimiET_
   %194 = sext i32 %193 to i64
   %195 = mul nsw i64 %194, 12
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %192, ptr nonnull align 4 %188, i64 %195, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %188, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %191, %160
-  %.sink = phi ptr [ %149, %160 ], [ %188, %191 ]
+  %.sink204 = phi ptr [ %149, %160 ], [ %188, %191 ]
   %.0.i.ph = phi i32 [ 0, %160 ], [ %.063.lcssa81.i, %191 ]
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %.sink204, align 4
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink204, i64 8
   store i8 1, ptr %.sroa.12.0..sroa_idx.i, align 4, !tbaa !75
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
@@ -3974,7 +3973,6 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
 162:                                              ; preds = %157
   %163 = getelementptr inbounds nuw i8, ptr %151, i64 12
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %163, ptr nonnull align 4 %151, i64 %.idx, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %151, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 .preheader68.i:                                   ; preds = %157
@@ -4045,13 +4043,13 @@ _ZNSt6vectorIlSaIlEEC2EmRKS0_.exit:               ; preds = %_ZSt6fill_nIPlmlET_
   %196 = sext i32 %195 to i64
   %197 = mul nsw i64 %196, 12
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %194, ptr nonnull align 4 %190, i64 %197, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %190, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %193, %162
-  %.sink = phi ptr [ %151, %162 ], [ %190, %193 ]
+  %.sink201 = phi ptr [ %151, %162 ], [ %190, %193 ]
   %.0.i.ph = phi i32 [ 0, %162 ], [ %.063.lcssa81.i, %193 ]
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %.sink201, align 4
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink201, i64 8
   store i8 1, ptr %.sroa.12.0..sroa_idx.i, align 4, !tbaa !75
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
@@ -4952,7 +4950,6 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE12emplace_backIJRiRfEEERS2_DpOT_.exit121: 
 220:                                              ; preds = %215
   %221 = getelementptr inbounds nuw i8, ptr %208, i64 12
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %221, ptr nonnull align 4 %208, i64 %.idx, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %208, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 .preheader68.i:                                   ; preds = %215
@@ -5027,13 +5024,13 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE12emplace_backIJRiRfEEERS2_DpOT_.exit121: 
   %253 = sext i32 %252 to i64
   %254 = mul nsw i64 %253, 12
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %251, ptr nonnull align 4 %247, i64 %254, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %247, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %250, %220
-  %.sink = phi ptr [ %208, %220 ], [ %247, %250 ]
+  %.sink242 = phi ptr [ %208, %220 ], [ %247, %250 ]
   %.0.i.ph = phi i32 [ 0, %220 ], [ %.063.lcssa81.i, %250 ]
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %.sink242, align 4
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink242, i64 8
   store i8 1, ptr %.sroa.12.0..sroa_idx.i, align 4, !tbaa !75
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 
@@ -8381,7 +8378,6 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE12emplace_backIJRiRfEEERS2_DpOT_.exit125: 
 218:                                              ; preds = %213
   %219 = getelementptr inbounds nuw i8, ptr %206, i64 12
   call void @llvm.memmove.p0.p0.i64(ptr nonnull align 4 %219, ptr nonnull align 4 %206, i64 %.idx, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %206, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 .preheader68.i:                                   ; preds = %213
@@ -8456,13 +8452,13 @@ _ZNSt6vectorIN5faiss3nsg4NodeESaIS2_EE12emplace_backIJRiRfEEERS2_DpOT_.exit125: 
   %251 = sext i32 %250 to i64
   %252 = mul nsw i64 %251, 12
   call void @llvm.memmove.p0.p0.i64(ptr align 4 %249, ptr nonnull align 4 %245, i64 %252, i1 false)
-  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %245, align 4
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split
 
 _ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit.sink.split: ; preds = %248, %218
-  %.sink = phi ptr [ %206, %218 ], [ %245, %248 ]
+  %.sink245 = phi ptr [ %206, %218 ], [ %245, %248 ]
   %.0.i.ph = phi i32 [ 0, %218 ], [ %.063.lcssa81.i, %248 ]
-  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink, i64 8
+  store i64 %.sroa.0.sroa.0.0.insert.insert, ptr %.sink245, align 4
+  %.sroa.12.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %.sink245, i64 8
   store i8 1, ptr %.sroa.12.0..sroa_idx.i, align 4, !tbaa !75
   br label %_ZN5faiss3nsg16insert_into_poolEPNS0_8NeighborEiS1_.exit
 

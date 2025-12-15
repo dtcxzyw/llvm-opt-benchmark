@@ -28283,7 +28283,6 @@ define internal fastcc { i32, i32 } @"_ZN115_$LT$core..iter..adapters..filter_ma
 29:                                               ; preds = %28
   %30 = landingpad { ptr, i32 }
           cleanup
-  store i64 0, ptr %9, align 8, !alias.scope !3767, !noalias !3768
   br label %70
 
 "_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Stmt$GT$$GT$$GT$17h936f27774bb2023aE.exit.i.i.i": ; preds = %28, %23, %20, %1
@@ -28330,7 +28329,6 @@ define internal fastcc { i32, i32 } @"_ZN115_$LT$core..iter..adapters..filter_ma
 46:                                               ; preds = %45
   %47 = landingpad { ptr, i32 }
           cleanup
-  store i64 0, ptr %9, align 8, !alias.scope !3767, !noalias !3768
   br label %70
 
 "_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Stmt$GT$$GT$$GT$17h936f27774bb2023aE.exit37.i.i.i": ; preds = %45, %40, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h61b4dbf7077367cbE.exit.thread.i.i.i", %"_ZN4core3ptr116drop_in_place$LT$core..option..Option$LT$syntax..ast..AstChildren$LT$syntax..ast..generated..nodes..Stmt$GT$$GT$$GT$17h936f27774bb2023aE.exit.i.i.i"
@@ -28390,11 +28388,12 @@ define internal fastcc { i32, i32 } @"_ZN115_$LT$core..iter..adapters..filter_ma
 68:                                               ; preds = %67
   %69 = landingpad { ptr, i32 }
           cleanup
-  store i64 0, ptr %48, align 8, !alias.scope !3767, !noalias !3768
   br label %70
 
 70:                                               ; preds = %68, %46, %29
+  %.sink.i.i.i = phi ptr [ %48, %68 ], [ %9, %46 ], [ %9, %29 ]
   %.pn.i.i.i = phi { ptr, i32 } [ %69, %68 ], [ %47, %46 ], [ %30, %29 ]
+  store i64 0, ptr %.sink.i.i.i, align 8, !alias.scope !3767, !noalias !3768
   resume { ptr, i32 } %.pn.i.i.i
 
 "_ZN114_$LT$core..iter..adapters..flatten..FlatMap$LT$I$C$U$C$F$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$8try_fold17h80838acdddc8ea09E.exit.thread.i": ; preds = %16, %55, %"_ZN107_$LT$core..iter..adapters..fuse..Fuse$LT$I$GT$$u20$as$u20$core..iter..adapters..fuse..FuseImpl$LT$I$GT$$GT$8try_fold17h61b4dbf7077367cbE.exit.i.i.i"
@@ -51006,17 +51005,17 @@ define void @"_ZN78_$LT$hir_def..VariantId$u20$as$u20$hir_def..child_by_source..
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit:                      ; preds = %64, %62
-  %lpad.loopexit26 = landingpad { ptr, i32 }
+  %lpad.loopexit28 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp.loopexit.split-lp:             ; preds = %.invoke
-  %lpad.loopexit.split-lp27 = landingpad { ptr, i32 }
+  %lpad.loopexit.split-lp29 = landingpad { ptr, i32 }
           cleanup
   br label %.loopexit.split-lp
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
-  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit26, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp27, %.loopexit.split-lp.loopexit.split-lp ]
+  %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit28, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp29, %.loopexit.split-lp.loopexit.split-lp ]
   invoke void @"_ZN4core3ptr271drop_in_place$LT$hir_expand..files..InFileWrapper$LT$span..HirFileId$C$la_arena..map..ArenaMap$LT$la_arena..Idx$LT$hir_def..data..adt..FieldData$GT$$C$either..Either$LT$syntax..ast..generated..nodes..TupleField$C$syntax..ast..generated..nodes..RecordField$GT$$GT$$GT$$GT$17h6755e8dafcd250d8E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %9) #44
           to label %common.resume unwind label %67
 
@@ -51135,13 +51134,13 @@ common.resume:                                    ; preds = %.loopexit.split-lp,
 
 62:                                               ; preds = %50
   %63 = extractvalue { i32, i1 } %54, 0
-  store i32 %63, ptr %52, align 4, !noalias !9027
+  store i32 %63, ptr %52, align 4, !noalias !9021
   invoke void @"_ZN97_$LT$hir_def..dyn_map..keys..AstPtrPolicy$LT$AST$C$ID$GT$$u20$as$u20$hir_def..dyn_map..Policy$GT$6insert17hcacebb7e9f1aba91E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %51, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %7)
           to label %66 unwind label %.loopexit.split-lp.loopexit
 
 64:                                               ; preds = %56
   %65 = extractvalue { i32, i1 } %60, 0
-  store i32 %65, ptr %58, align 4, !noalias !9031
+  store i32 %65, ptr %58, align 4, !noalias !9021
   invoke void @"_ZN97_$LT$hir_def..dyn_map..keys..AstPtrPolicy$LT$AST$C$ID$GT$$u20$as$u20$hir_def..dyn_map..Policy$GT$6insert17h9b4634944b9cda07E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %3, ptr noundef nonnull %57, ptr noalias noundef nonnull align 4 captures(none) dereferenceable(12) %7)
           to label %66 unwind label %.loopexit.split-lp.loopexit
 

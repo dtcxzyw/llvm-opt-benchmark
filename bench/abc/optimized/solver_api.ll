@@ -1844,7 +1844,7 @@ vec_uint_push_back.exit:                          ; preds = %.critedge, %37, %ve
 
 ..split24_crit_edge.i:                            ; preds = %vec_uint_push_back.exit
   %.pre45.i = zext i32 %58 to i64
-  br label %.split24.i
+  br label %heap_percolate_up.exit
 
 .lr.ph.i:                                         ; preds = %vec_uint_push_back.exit
   %59 = getelementptr i8, ptr %0, i64 16
@@ -1855,11 +1855,6 @@ vec_uint_push_back.exit:                          ; preds = %.critedge, %37, %ve
   %62 = getelementptr inbounds nuw i64, ptr %.val35.val.i, i64 %61
   %63 = load i64, ptr %62, align 8, !tbaa !122
   br label %64
-
-.split24.i:                                       ; preds = %73, %..split24_crit_edge.i
-  %.pre-phi.i = phi i64 [ %.pre45.i, %..split24_crit_edge.i ], [ %61, %73 ]
-  store i32 %58, ptr %.val28.i, align 4, !tbaa !103
-  br label %heap_percolate_up.exit
 
 64:                                               ; preds = %73, %.lr.ph.i
   %.02341.i = phi i32 [ %54, %.lr.ph.i ], [ %.042.i, %73 ]
@@ -1874,11 +1869,7 @@ vec_uint_push_back.exit:                          ; preds = %.critedge, %37, %ve
   %.not36.i = icmp ugt i64 %63, %70
   %71 = zext i32 %.02341.i to i64
   %72 = getelementptr inbounds nuw i32, ptr %.val28.i, i64 %71
-  br i1 %.not36.i, label %73, label %.split.i
-
-.split.i:                                         ; preds = %64
-  store i32 %58, ptr %72, align 4, !tbaa !103
-  br label %heap_percolate_up.exit
+  br i1 %.not36.i, label %73, label %heap_percolate_up.exit
 
 73:                                               ; preds = %64
   store i32 %67, ptr %72, align 4, !tbaa !103
@@ -1887,11 +1878,13 @@ vec_uint_push_back.exit:                          ; preds = %.critedge, %37, %ve
   %76 = getelementptr inbounds nuw i32, ptr %.val27, i64 %75
   store i32 %.02341.i, ptr %76, align 4, !tbaa !103
   %.not.i28 = icmp eq i32 %.042.i, 0
-  br i1 %.not.i28, label %.split24.i, label %64, !llvm.loop !133
+  br i1 %.not.i28, label %heap_percolate_up.exit, label %64, !llvm.loop !133
 
-heap_percolate_up.exit:                           ; preds = %.split24.i, %.split.i
-  %.pre-phi.i.sink = phi i64 [ %.pre-phi.i, %.split24.i ], [ %61, %.split.i ]
-  %.sink = phi i32 [ 0, %.split24.i ], [ %.02341.i, %.split.i ]
+heap_percolate_up.exit:                           ; preds = %64, %73, %..split24_crit_edge.i
+  %.val28.i.sink = phi ptr [ %.val28.i, %..split24_crit_edge.i ], [ %72, %64 ], [ %.val28.i, %73 ]
+  %.pre-phi.i.sink = phi i64 [ %.pre45.i, %..split24_crit_edge.i ], [ %61, %73 ], [ %61, %64 ]
+  %.sink = phi i32 [ 0, %..split24_crit_edge.i ], [ %.02341.i, %64 ], [ 0, %73 ]
+  store i32 %58, ptr %.val28.i.sink, align 4, !tbaa !103
   %77 = getelementptr inbounds nuw i32, ptr %.val27, i64 %.pre-phi.i.sink
   store i32 %.sink, ptr %77, align 4, !tbaa !103
   ret void

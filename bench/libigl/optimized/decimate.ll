@@ -3387,28 +3387,25 @@ _ZN3igl4AABBIN5Eigen6MatrixIdLin1ELin1ELi0ELin1ELin1EEELi3EED2Ev.exit5: ; preds 
   %31 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %32 = load ptr, ptr %31, align 8, !tbaa !164
   %.not = icmp eq ptr %32, null
-  br i1 %.not, label %42, label %33
+  br i1 %.not, label %40, label %33
 
 33:                                               ; preds = %30
   %34 = load ptr, ptr %32, align 8, !tbaa !162
   %35 = icmp eq ptr %34, %0
-  br i1 %35, label %36, label %37
+  br i1 %35, label %.sink.split, label %36
 
 36:                                               ; preds = %33
-  store ptr null, ptr %32, align 8, !tbaa !162
-  br label %42
+  %37 = getelementptr inbounds nuw i8, ptr %32, i64 8
+  %38 = load ptr, ptr %37, align 8, !tbaa !163
+  %39 = icmp eq ptr %38, %0
+  br i1 %39, label %.sink.split, label %40
 
-37:                                               ; preds = %33
-  %38 = getelementptr inbounds nuw i8, ptr %32, i64 8
-  %39 = load ptr, ptr %38, align 8, !tbaa !163
-  %40 = icmp eq ptr %39, %0
-  br i1 %40, label %41, label %42
+.sink.split:                                      ; preds = %36, %33
+  %.sink = phi ptr [ %32, %33 ], [ %37, %36 ]
+  store ptr null, ptr %.sink, align 8, !tbaa !4
+  br label %40
 
-41:                                               ; preds = %37
-  store ptr null, ptr %38, align 8, !tbaa !163
-  br label %42
-
-42:                                               ; preds = %36, %37, %41, %30
+40:                                               ; preds = %.sink.split, %36, %30
   store ptr null, ptr %31, align 8, !tbaa !164
   ret void
 }

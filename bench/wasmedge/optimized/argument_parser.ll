@@ -1675,16 +1675,16 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
   %44 = getelementptr inbounds nuw i8, ptr %4, i64 8
   br label %45
 
-45:                                               ; preds = %.lr.ph354, %77
-  %.0352 = phi i1 [ true, %.lr.ph354 ], [ %.1, %77 ]
-  %.sroa.0329.0351 = phi ptr [ %39, %.lr.ph354 ], [ %78, %77 ]
+45:                                               ; preds = %.lr.ph354, %73
+  %.0352 = phi i1 [ true, %.lr.ph354 ], [ %.1, %73 ]
+  %.sroa.0329.0351 = phi ptr [ %39, %.lr.ph354 ], [ %74, %73 ]
   %46 = load i64, ptr %.sroa.0329.0351, align 8
   %47 = load ptr, ptr %42, align 8
   %48 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %47, i64 %46
   %49 = getelementptr inbounds nuw i8, ptr %48, i64 144
   %50 = load i8, ptr %49, align 1
   %51 = trunc i8 %50 to i1
-  br i1 %51, label %77, label %52
+  br i1 %51, label %73, label %52
 
 52:                                               ; preds = %45
   br i1 %.0352, label %53, label %54
@@ -1713,59 +1713,50 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
   %63 = getelementptr inbounds %"class.WasmEdge::PO::ArgumentParser::ArgumentDescriptor", ptr %62, i64 %61
   %64 = getelementptr inbounds nuw i8, ptr %63, i64 48
   %65 = load i64, ptr %64, align 8
-  switch i64 %65, label %72 [
-    i64 0, label %75
+  switch i64 %65, label %.invoke [
+    i64 0, label %71
     i64 1, label %66
   ]
 
 66:                                               ; preds = %60
-  %67 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.sroa.012.0.copyload.i = load i64, ptr %67, align 8
-  %.sroa.213.0..sroa_idx.i = getelementptr inbounds nuw i8, ptr %48, i64 24
-  %.sroa.213.0.copyload.i = load ptr, ptr %.sroa.213.0..sroa_idx.i, align 8
-  %68 = ptrtoint ptr %.sroa.213.0.copyload.i to i64
-  store i64 %68, ptr %3, align 16
-  store i64 %.sroa.012.0.copyload.i, ptr %43, align 8
   br label %.invoke
 
-.invoke:                                          ; preds = %72, %66
-  %69 = phi ptr [ @.str.8, %66 ], [ @.str.9, %72 ]
-  %70 = phi i64 [ 2, %66 ], [ 6, %72 ]
-  %71 = phi ptr [ %3, %66 ], [ %4, %72 ]
-  invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull %69, i64 %70, i64 13, ptr nonnull %71)
-          to label %75 unwind label %.loopexit
-
-72:                                               ; preds = %60
-  %73 = getelementptr inbounds nuw i8, ptr %48, i64 16
-  %.sroa.012.0.copyload.i311 = load i64, ptr %73, align 8
+.invoke:                                          ; preds = %60, %66
+  %.sink362 = phi ptr [ %3, %66 ], [ %4, %60 ]
+  %.sink = phi ptr [ %43, %66 ], [ %44, %60 ]
+  %67 = phi ptr [ @.str.8, %66 ], [ @.str.9, %60 ]
+  %68 = phi i64 [ 2, %66 ], [ 6, %60 ]
+  %69 = getelementptr inbounds nuw i8, ptr %48, i64 16
+  %.sroa.012.0.copyload.i311 = load i64, ptr %69, align 8
   %.sroa.213.0..sroa_idx.i312 = getelementptr inbounds nuw i8, ptr %48, i64 24
   %.sroa.213.0.copyload.i313 = load ptr, ptr %.sroa.213.0..sroa_idx.i312, align 8
-  %74 = ptrtoint ptr %.sroa.213.0.copyload.i313 to i64
-  store i64 %74, ptr %4, align 16
-  store i64 %.sroa.012.0.copyload.i311, ptr %44, align 8
-  br label %.invoke
+  %70 = ptrtoint ptr %.sroa.213.0.copyload.i313 to i64
+  store i64 %70, ptr %.sink362, align 16
+  store i64 %.sroa.012.0.copyload.i311, ptr %.sink, align 8
+  invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull %67, i64 %68, i64 13, ptr nonnull %.sink362)
+          to label %71 unwind label %.loopexit
 
-75:                                               ; preds = %.invoke, %60
-  br i1 %57, label %76, label %77
+71:                                               ; preds = %.invoke, %60
+  br i1 %57, label %72, label %73
 
-76:                                               ; preds = %75
+72:                                               ; preds = %71
   invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull @.str.10, i64 1, i64 0, ptr nonnull %10)
-          to label %77 unwind label %.loopexit
+          to label %73 unwind label %.loopexit
 
-77:                                               ; preds = %75, %76, %45
-  %.1 = phi i1 [ %.0352, %45 ], [ false, %76 ], [ false, %75 ]
-  %78 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0351, i64 8
-  %.not344 = icmp eq ptr %78, %41
+73:                                               ; preds = %71, %72, %45
+  %.1 = phi i1 [ %.0352, %45 ], [ false, %72 ], [ false, %71 ]
+  %74 = getelementptr inbounds nuw i8, ptr %.sroa.0329.0351, i64 8
+  %.not344 = icmp eq ptr %74, %41
   br i1 %.not344, label %._crit_edge355, label %45
 
-._crit_edge355:                                   ; preds = %77, %37
+._crit_edge355:                                   ; preds = %73, %37
   invoke void @_ZN3fmt2v86vprintEP8_IO_FILENS0_17basic_string_viewIcEENS0_17basic_format_argsINS0_20basic_format_contextINS0_8appenderEcEEEE(ptr noundef %1, ptr nonnull @.str.11, i64 1, i64 0, ptr nonnull %11)
-          to label %79 unwind label %.loopexit.split-lp.loopexit.split-lp
+          to label %75 unwind label %.loopexit.split-lp.loopexit.split-lp
 
-79:                                               ; preds = %._crit_edge355
+75:                                               ; preds = %._crit_edge355
   ret void
 
-.loopexit:                                        ; preds = %.invoke, %53, %54, %59, %76
+.loopexit:                                        ; preds = %.invoke, %53, %54, %59, %72
   %lpad.loopexit = landingpad { ptr, i32 }
           catch ptr null
   br label %.loopexit.split-lp
@@ -1782,8 +1773,8 @@ define void @_ZNK8WasmEdge2PO14ArgumentParser20SubCommandDescriptor5usageEP8_IO_
 
 .loopexit.split-lp:                               ; preds = %.loopexit.split-lp.loopexit, %.loopexit.split-lp.loopexit.split-lp, %.loopexit
   %lpad.phi = phi { ptr, i32 } [ %lpad.loopexit, %.loopexit ], [ %lpad.loopexit345, %.loopexit.split-lp.loopexit ], [ %lpad.loopexit.split-lp346, %.loopexit.split-lp.loopexit.split-lp ]
-  %80 = extractvalue { ptr, i32 } %lpad.phi, 0
-  call void @__clang_call_terminate(ptr %80) #20
+  %76 = extractvalue { ptr, i32 } %lpad.phi, 0
+  call void @__clang_call_terminate(ptr %76) #20
   unreachable
 }
 

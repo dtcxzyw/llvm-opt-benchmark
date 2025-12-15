@@ -11369,8 +11369,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
   tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
-  %.pre = load ptr, ptr %59, align 8
-  br label %.thread.sink.split
+  br label %.thread.sink.split.sink.split
 
 63:                                               ; preds = %13, %32, %49
   %64 = tail call ptr @netdev_master_upper_dev_get(ptr noundef %1) #19
@@ -11438,8 +11437,7 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   tail call void asm sideeffect "570: nop\0A\09.pushsection .discard.instr_begin\0A\09.long 570b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 570) #19, !srcloc !49
   tail call void asm sideeffect "1:\09.byte 0x0f, 0x0b\0A.pushsection __bug_table,\22aw\22\0A2:\09.long 1b - .\09# bug_entry::bug_addr\0A\09.long ${0:c} - .\09# bug_entry::file\0A\09.word ${1:c}\09# bug_entry::line\0A\09.word ${2:c}\09# bug_entry::flags\0A\09.org 2b+${3:c}\0A.popsection\0A998:\0A\09.pushsection .discard.reachable\0A\09.long 998b\0A\09.popsection\0A\09", "i,i,i,i,~{dirflag},~{fpsr},~{flags}"(ptr nonnull @.str.9, i32 1062, i32 2305, i64 12) #19, !srcloc !50
   tail call void asm sideeffect "571: nop\0A\09.pushsection .discard.instr_end\0A\09.long 571b - .\0A\09.popsection\0A\09", "i,~{dirflag},~{fpsr},~{flags}"(i32 571) #19, !srcloc !51
-  %.pre14 = load ptr, ptr %105, align 8
-  br label %.thread.sink.split
+  br label %.thread.sink.split.sink.split
 
 109:                                              ; preds = %63, %66, %95, %78
   %110 = load ptr, ptr %3, align 8
@@ -11453,10 +11451,17 @@ define internal fastcc range(i32 -2147483648, 1) i32 @rtnl_link_fill(ptr noundef
   store i16 %117, ptr %8, align 2
   br label %133
 
-.thread.sink.split:                               ; preds = %104, %108, %58, %62
-  %.sink31 = phi ptr [ %40, %62 ], [ %40, %58 ], [ %86, %108 ], [ %86, %104 ]
-  %.sink30 = phi ptr [ %.pre, %62 ], [ %60, %58 ], [ %.pre14, %108 ], [ %106, %104 ]
-  %.ph = phi i32 [ %47, %62 ], [ %47, %58 ], [ %93, %108 ], [ %93, %104 ]
+.thread.sink.split.sink.split:                    ; preds = %62, %108
+  %.sink = phi ptr [ %105, %108 ], [ %59, %62 ]
+  %.sink31.ph = phi ptr [ %86, %108 ], [ %40, %62 ]
+  %.ph.ph = phi i32 [ %93, %108 ], [ %47, %62 ]
+  %.pre14 = load ptr, ptr %.sink, align 8
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %.thread.sink.split.sink.split, %104, %58
+  %.sink31 = phi ptr [ %40, %58 ], [ %86, %104 ], [ %.sink31.ph, %.thread.sink.split.sink.split ]
+  %.sink30 = phi ptr [ %60, %58 ], [ %106, %104 ], [ %.pre14, %.thread.sink.split.sink.split ]
+  %.ph = phi i32 [ %47, %58 ], [ %93, %104 ], [ %.ph.ph, %.thread.sink.split.sink.split ]
   %118 = ptrtoint ptr %.sink31 to i64
   %119 = ptrtoint ptr %.sink30 to i64
   %120 = sub i64 %118, %119

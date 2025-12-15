@@ -657,8 +657,7 @@ ff_rtmp_packet_destroy.exit.i:                    ; preds = %114
   %116 = getelementptr inbounds nuw i8, ptr %49, i64 24
   call void @av_freep(ptr noundef nonnull %116) #16
   store i32 0, ptr %50, align 8, !tbaa !19
-  store i32 0, ptr %112, align 8, !tbaa !25
-  br label %rtmp_packet_read_one_chunk.exit.thread
+  br label %rtmp_packet_read_one_chunk.exit.thread.sink.split
 
 117:                                              ; preds = %111
   %.not.i165.i = icmp eq i32 %.0144.i, 0
@@ -726,8 +725,7 @@ ff_rtmp_packet_destroy.exit.i:                    ; preds = %114
 
 ff_rtmp_packet_destroy.exit168.i:                 ; preds = %136
   call void @av_freep(ptr noundef nonnull %11) #16
-  store i32 0, ptr %12, align 8, !tbaa !19
-  br label %rtmp_packet_read_one_chunk.exit.thread
+  br label %rtmp_packet_read_one_chunk.exit.thread.sink.split
 
 144:                                              ; preds = %136
   %145 = load i32, ptr %16, align 8, !tbaa !25
@@ -750,8 +748,14 @@ rtmp_packet_read_one_chunk.exit.thread15:         ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %154
 
-rtmp_packet_read_one_chunk.exit.thread:           ; preds = %24, %61, %75, %77, %94, %101, %35, %118, %ff_rtmp_packet_destroy.exit.i, %ff_rtmp_packet_destroy.exit168.i
-  %.0.i.ph = phi i32 [ -5, %ff_rtmp_packet_destroy.exit168.i ], [ -1094995529, %ff_rtmp_packet_destroy.exit.i ], [ -5, %24 ], [ -5, %61 ], [ -5, %75 ], [ -5, %77 ], [ -5, %94 ], [ -5, %101 ], [ -12, %35 ], [ -12, %118 ]
+rtmp_packet_read_one_chunk.exit.thread.sink.split: ; preds = %ff_rtmp_packet_destroy.exit168.i, %ff_rtmp_packet_destroy.exit.i
+  %.lcssa58.sink = phi ptr [ %112, %ff_rtmp_packet_destroy.exit.i ], [ %12, %ff_rtmp_packet_destroy.exit168.i ]
+  %.0.i.ph.ph = phi i32 [ -1094995529, %ff_rtmp_packet_destroy.exit.i ], [ -5, %ff_rtmp_packet_destroy.exit168.i ]
+  store i32 0, ptr %.lcssa58.sink, align 8, !tbaa !15
+  br label %rtmp_packet_read_one_chunk.exit.thread
+
+rtmp_packet_read_one_chunk.exit.thread:           ; preds = %24, %61, %75, %77, %94, %101, %35, %118, %rtmp_packet_read_one_chunk.exit.thread.sink.split
+  %.0.i.ph = phi i32 [ %.0.i.ph.ph, %rtmp_packet_read_one_chunk.exit.thread.sink.split ], [ -5, %24 ], [ -5, %61 ], [ -5, %75 ], [ -5, %77 ], [ -5, %94 ], [ -5, %101 ], [ -12, %35 ], [ -12, %118 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %.loopexit
 

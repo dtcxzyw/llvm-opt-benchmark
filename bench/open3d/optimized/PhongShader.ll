@@ -1692,7 +1692,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i: 
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit: ; preds = %28, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %304
+  br label %300
 
 33:                                               ; preds = %.noexc.i
   %34 = landingpad { ptr, i32 }
@@ -1715,7 +1715,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79: ; preds = %35, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77, %33
   %.pn74 = phi { ptr, i32 } [ %34, %33 ], [ %36, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i77 ], [ %36, %35 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %12)
-  br label %305
+  br label %301
 
 41:                                               ; preds = %7
   %42 = getelementptr inbounds nuw i8, ptr %1, i64 48
@@ -1766,7 +1766,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86: ; preds = %57, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i84
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %304
+  br label %300
 
 62:                                               ; preds = %.noexc.i81
   %63 = landingpad { ptr, i32 }
@@ -1789,7 +1789,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89: ; preds = %64, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87, %62
   %.pn = phi { ptr, i32 } [ %63, %62 ], [ %65, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i87 ], [ %65, %64 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %13)
-  br label %305
+  br label %301
 
 _ZNK6open3d8geometry12TriangleMesh18HasTriangleNormalsEv.exit: ; preds = %41
   %70 = ptrtoint ptr %48 to i64
@@ -1890,7 +1890,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104: ; preds = %109, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i102
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %304
+  br label %300
 
 114:                                              ; preds = %.noexc.i92
   %115 = landingpad { ptr, i32 }
@@ -1913,7 +1913,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107: ; preds = %116, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105, %114
   %.pn69 = phi { ptr, i32 } [ %115, %114 ], [ %117, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i105 ], [ %117, %116 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %14)
-  br label %305
+  br label %301
 
 122:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit97
   %123 = landingpad { ptr, i32 }
@@ -1936,7 +1936,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i10
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110: ; preds = %124, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i108, %122
   %.pn71 = phi { ptr, i32 } [ %123, %122 ], [ %125, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i108 ], [ %125, %124 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %15)
-  br label %305
+  br label %301
 
 130:                                              ; preds = %_ZNK6open3d8geometry8MeshBase16HasVertexNormalsEv.exit
   call void @llvm.lifetime.start.p0(ptr nonnull %16)
@@ -2050,7 +2050,7 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %195 = trunc i64 %194 to i32
   %196 = getelementptr inbounds nuw i8, ptr %0, i64 28
   store i32 %195, ptr %196, align 4, !tbaa !57
-  br label %304
+  br label %300
 
 197:                                              ; preds = %.lr.ph, %201
   %198 = phi ptr [ %174, %.lr.ph ], [ %204, %201 ]
@@ -2059,7 +2059,7 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %200 = mul i64 %.066130, 3
   br label %210
 
-201:                                              ; preds = %295
+201:                                              ; preds = %275
   %202 = add nuw i64 %.066130, 1
   %203 = load ptr, ptr %47, align 8, !tbaa !98
   %204 = load ptr, ptr %46, align 8, !tbaa !101
@@ -2070,8 +2070,8 @@ _ZNSt12__shared_ptrIKN6open3d13visualization8ColorMapELN9__gnu_cxx12_Lock_policy
   %209 = icmp ult i64 %202, %208
   br i1 %209, label %197, label %._crit_edge, !llvm.loop !102
 
-210:                                              ; preds = %197, %295
-  %.065129 = phi i64 [ 0, %197 ], [ %303, %295 ]
+210:                                              ; preds = %197, %275
+  %.065129 = phi i64 [ 0, %197 ], [ %299, %275 ]
   %211 = add i64 %.065129, %200
   %212 = getelementptr inbounds nuw i32, ptr %199, i64 %.065129
   %213 = load i32, ptr %212, align 4, !tbaa !88
@@ -2199,40 +2199,30 @@ _ZNK6open3d8geometry8MeshBase15HasVertexColorsEv.exit.thread: ; preds = %257, %_
   %286 = getelementptr inbounds nuw %"class.Eigen::Matrix.81", ptr %285, i64 %211
   %287 = getelementptr inbounds nuw i8, ptr %286, i64 4
   %288 = getelementptr inbounds nuw i8, ptr %286, i64 8
-  br i1 %284, label %289, label %292
-
-289:                                              ; preds = %275
-  %290 = load ptr, ptr %74, align 8, !tbaa !78
-  %291 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %290, i64 %.066130
-  br label %295
-
-292:                                              ; preds = %275
-  %293 = load ptr, ptr %86, align 8, !tbaa !78
-  %294 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %293, i64 %214
-  br label %295
-
-295:                                              ; preds = %292, %289
-  %.sink159 = phi ptr [ %294, %292 ], [ %291, %289 ]
-  %.sink160 = load double, ptr %.sink159, align 8, !tbaa !90
-  %296 = fptrunc double %.sink160 to float
-  store float %296, ptr %286, align 4, !tbaa !91
-  %297 = getelementptr inbounds nuw i8, ptr %.sink159, i64 8
-  %298 = load double, ptr %297, align 8, !tbaa !90
-  %299 = fptrunc double %298 to float
-  store float %299, ptr %287, align 4, !tbaa !91
-  %300 = getelementptr inbounds nuw i8, ptr %.sink159, i64 16
-  %301 = load double, ptr %300, align 8, !tbaa !90
-  %302 = fptrunc double %301 to float
-  store float %302, ptr %288, align 4, !tbaa !91
-  %303 = add nuw nsw i64 %.065129, 1
-  %exitcond.not = icmp eq i64 %303, 3
+  %. = select i1 %284, ptr %74, ptr %86
+  %.066130. = select i1 %284, i64 %.066130, i64 %214
+  %289 = load ptr, ptr %., align 8, !tbaa !78
+  %290 = getelementptr inbounds nuw %"class.Eigen::Matrix.31", ptr %289, i64 %.066130.
+  %291 = load double, ptr %290, align 8, !tbaa !90
+  %292 = fptrunc double %291 to float
+  store float %292, ptr %286, align 4, !tbaa !91
+  %293 = getelementptr inbounds nuw i8, ptr %290, i64 8
+  %294 = load double, ptr %293, align 8, !tbaa !90
+  %295 = fptrunc double %294 to float
+  store float %295, ptr %287, align 4, !tbaa !91
+  %296 = getelementptr inbounds nuw i8, ptr %290, i64 16
+  %297 = load double, ptr %296, align 8, !tbaa !90
+  %298 = fptrunc double %297 to float
+  store float %298, ptr %288, align 4, !tbaa !91
+  %299 = add nuw nsw i64 %.065129, 1
+  %exitcond.not = icmp eq i64 %299, 3
   br i1 %exitcond.not, label %201, label %210, !llvm.loop !105
 
-304:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
+300:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104, %._crit_edge, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ true, %._crit_edge ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit104 ], [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit86 ]
   ret i1 %.0
 
-305:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
+301:                                              ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79
   %.pn74.pn = phi { ptr, i32 } [ %.pn74, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit79 ], [ %.pn71, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit110 ], [ %.pn69, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit107 ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit89 ]
   resume { ptr, i32 } %.pn74.pn
 }

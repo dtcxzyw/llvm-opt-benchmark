@@ -1618,7 +1618,7 @@ files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38,
   %150 = add i32 %149, -1
   store i32 %150, ptr %148, align 4, !tbaa !50
   %.not.i.i = icmp eq i32 %150, 0
-  br i1 %.not.i.i, label %151, label %parse_and_write_reflog.exit
+  br i1 %.not.i.i, label %151, label %clear_loose_ref_cache.exit126.sink.split
 
 151:                                              ; preds = %144
   %152 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -1626,11 +1626,7 @@ files_transaction_finish_initial.exit:            ; preds = %._crit_edge.i, %38,
   %154 = load ptr, ptr %126, align 8, !tbaa !55
   tail call void @free(ptr noundef %154) #20
   tail call void @free(ptr noundef nonnull %126) #20
-  br label %parse_and_write_reflog.exit
-
-parse_and_write_reflog.exit:                      ; preds = %144, %151
-  store ptr null, ptr %145, align 8, !tbaa !56
-  br label %clear_loose_ref_cache.exit126
+  br label %clear_loose_ref_cache.exit126.sink.split
 
 parse_and_write_reflog.exit.thread:               ; preds = %135, %133, %121
   %155 = getelementptr inbounds nuw i8, ptr %124, i64 72
@@ -1687,7 +1683,7 @@ clear_loose_ref_cache.exit:                       ; preds = %169, %171
   %178 = add i32 %177, -1
   store i32 %178, ptr %176, align 4, !tbaa !50
   %.not.i121 = icmp eq i32 %178, 0
-  br i1 %.not.i121, label %179, label %unlock_ref.exit
+  br i1 %.not.i121, label %179, label %clear_loose_ref_cache.exit126.sink.split
 
 179:                                              ; preds = %173
   %180 = getelementptr inbounds nuw i8, ptr %126, i64 8
@@ -1695,11 +1691,7 @@ clear_loose_ref_cache.exit:                       ; preds = %169, %171
   %182 = load ptr, ptr %126, align 8, !tbaa !55
   tail call void @free(ptr noundef %182) #20
   tail call void @free(ptr noundef nonnull %126) #20
-  br label %unlock_ref.exit
-
-unlock_ref.exit:                                  ; preds = %173, %179
-  store ptr null, ptr %174, align 8, !tbaa !56
-  br label %clear_loose_ref_cache.exit126
+  br label %clear_loose_ref_cache.exit126.sink.split
 
 create_ref_symlink.exit.thread:                   ; preds = %159, %clear_loose_ref_cache.exit, %166
   %183 = add nuw i64 %.078144, 1
@@ -1832,11 +1824,16 @@ strbuf_setlen.exit124._crit_edge:                 ; preds = %strbuf_setlen.exit1
 
 239:                                              ; preds = %._crit_edge150
   call void @free_ref_cache(ptr noundef nonnull %238) #20
-  store ptr null, ptr %237, align 8, !tbaa !32
+  br label %clear_loose_ref_cache.exit126.sink.split
+
+clear_loose_ref_cache.exit126.sink.split:         ; preds = %179, %173, %151, %144, %239
+  %.sink = phi ptr [ %237, %239 ], [ %145, %144 ], [ %145, %151 ], [ %174, %173 ], [ %174, %179 ]
+  %.281.ph = phi i32 [ 0, %239 ], [ -3, %144 ], [ -3, %151 ], [ -3, %173 ], [ -3, %179 ]
+  store ptr null, ptr %.sink, align 8, !tbaa !56
   br label %clear_loose_ref_cache.exit126
 
-clear_loose_ref_cache.exit126:                    ; preds = %strbuf_setlen.exit124, %239, %._crit_edge150, %unlock_ref.exit, %parse_and_write_reflog.exit, %205
-  %.281 = phi i32 [ %206, %205 ], [ -3, %unlock_ref.exit ], [ -3, %parse_and_write_reflog.exit ], [ 0, %._crit_edge150 ], [ 0, %239 ], [ -3, %strbuf_setlen.exit124 ]
+clear_loose_ref_cache.exit126:                    ; preds = %strbuf_setlen.exit124, %clear_loose_ref_cache.exit126.sink.split, %._crit_edge150, %205
+  %.281 = phi i32 [ %206, %205 ], [ 0, %._crit_edge150 ], [ %.281.ph, %clear_loose_ref_cache.exit126.sink.split ], [ -3, %strbuf_setlen.exit124 ]
   call fastcc void @files_transaction_cleanup(ptr noundef nonnull %0, ptr noundef nonnull %1)
   %240 = load i64, ptr %108, align 8, !tbaa !42
   %.not157 = icmp eq i64 %240, 0

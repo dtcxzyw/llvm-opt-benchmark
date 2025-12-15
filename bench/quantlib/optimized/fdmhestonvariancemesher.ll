@@ -1450,17 +1450,11 @@ if.then385:                                       ; preds = %land.lhs.true
   %sub390 = fsub double %126, %109
   %128 = call double @llvm.fabs.f64(double %sub390)
   %cmp391 = fcmp olt double %127, %128
-  br i1 %cmp391, label %if.then392, label %if.else
-
-if.then392:                                       ; preds = %if.then385
-  store double %109, ptr %add.ptr.i352, align 8, !tbaa !6
+  %add.ptr.i352. = select i1 %cmp391, ptr %add.ptr.i352, ptr %124
+  store double %109, ptr %add.ptr.i352., align 8, !tbaa !6
   br label %for.inc398
 
-if.else:                                          ; preds = %if.then385
-  store double %109, ptr %124, align 8, !tbaa !6
-  br label %for.inc398
-
-for.inc398:                                       ; preds = %for.body379, %land.lhs.true, %if.else, %if.then392
+for.inc398:                                       ; preds = %if.then385, %for.body379, %land.lhs.true
   %inc399 = add nuw i64 %i374.0533, 1
   %exitcond541.not = icmp eq i64 %inc399, %sub.ptr.div.i343
   br i1 %exitcond541.not, label %for.cond.cleanup378, label %for.body379, !llvm.loop !92

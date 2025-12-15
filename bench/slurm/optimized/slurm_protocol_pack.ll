@@ -39197,16 +39197,19 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_stat(ptr noundef w
 
 21:                                               ; preds = %17, %13
   call void @slurm_free_job_step_pids(ptr noundef %15) #7
-  store ptr null, ptr %14, align 8
-  br label %_unpack_job_step_pids.exit
+  br label %_unpack_job_step_pids.exit.sink.split
 
 22:                                               ; preds = %11, %8, %3
   tail call void @slurm_free_job_step_stat(ptr noundef nonnull %5) #7
-  store ptr null, ptr %0, align 8
+  br label %_unpack_job_step_pids.exit.sink.split
+
+_unpack_job_step_pids.exit.sink.split:            ; preds = %22, %21
+  %.sink = phi ptr [ %14, %21 ], [ %0, %22 ]
+  store ptr null, ptr %.sink, align 8
   br label %_unpack_job_step_pids.exit
 
-_unpack_job_step_pids.exit:                       ; preds = %21, %17, %22
-  %.0 = phi i32 [ -1, %22 ], [ -1, %21 ], [ 0, %17 ]
+_unpack_job_step_pids.exit:                       ; preds = %_unpack_job_step_pids.exit.sink.split, %17
+  %.0 = phi i32 [ 0, %17 ], [ -1, %_unpack_job_step_pids.exit.sink.split ]
   ret i32 %.0
 }
 
@@ -41325,7 +41328,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
 11:                                               ; preds = %3
   %12 = tail call i32 @unpack32(ptr noundef %9, ptr noundef %1) #7
   %.not90 = icmp eq i32 %12, 0
-  br i1 %.not90, label %13, label %88
+  br i1 %.not90, label %13, label %89
 
 13:                                               ; preds = %11
   call void @llvm.lifetime.start.p0(ptr nonnull %4)
@@ -41333,25 +41336,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %15 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %14, ptr noundef nonnull %4, ptr noundef %1) #7
   %.not91 = icmp eq i32 %15, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %.not91, label %16, label %88
+  br i1 %.not91, label %16, label %89
 
 16:                                               ; preds = %13
   %17 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %18 = call i32 @unpack32(ptr noundef nonnull %17, ptr noundef %1) #7
   %.not92 = icmp eq i32 %18, 0
-  br i1 %.not92, label %19, label %88
+  br i1 %.not92, label %19, label %89
 
 19:                                               ; preds = %16
   %20 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %21 = call i32 @unpack32(ptr noundef nonnull %20, ptr noundef %1) #7
   %.not93 = icmp eq i32 %21, 0
-  br i1 %.not93, label %22, label %88
+  br i1 %.not93, label %22, label %89
 
 22:                                               ; preds = %19
   %23 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %24 = call i32 @unpack_slurm_step_layout(ptr noundef nonnull %23, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not94 = icmp eq i32 %24, 0
-  br i1 %.not94, label %25, label %88
+  br i1 %.not94, label %25, label %89
 
 25:                                               ; preds = %22
   call void @llvm.lifetime.start.p0(ptr nonnull %5)
@@ -41359,20 +41362,20 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %27 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %26, ptr noundef nonnull %5, ptr noundef %1) #7
   %.not95 = icmp eq i32 %27, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %5)
-  br i1 %.not95, label %28, label %88
+  br i1 %.not95, label %28, label %89
 
 28:                                               ; preds = %25
   %29 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %2) #7
   %30 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %29, ptr %30, align 8
   %.not96 = icmp eq ptr %29, null
-  br i1 %.not96, label %88, label %31
+  br i1 %.not96, label %89, label %31
 
 31:                                               ; preds = %28
   %32 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %33 = call i32 @unpack16(ptr noundef nonnull %32, ptr noundef %1) #7
   %.not97 = icmp eq i32 %33, 0
-  br i1 %.not97, label %89, label %88
+  br i1 %.not97, label %90, label %89
 
 34:                                               ; preds = %3
   %35 = icmp samesign ugt i16 %2, 10495
@@ -41381,7 +41384,7 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
 36:                                               ; preds = %34
   %37 = tail call i32 @unpack32(ptr noundef %9, ptr noundef %1) #7
   %.not81 = icmp eq i32 %37, 0
-  br i1 %.not81, label %38, label %88
+  br i1 %.not81, label %38, label %89
 
 38:                                               ; preds = %36
   call void @llvm.lifetime.start.p0(ptr nonnull %6)
@@ -41389,25 +41392,25 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %40 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %39, ptr noundef nonnull %6, ptr noundef %1) #7
   %.not82 = icmp eq i32 %40, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
-  br i1 %.not82, label %41, label %88
+  br i1 %.not82, label %41, label %89
 
 41:                                               ; preds = %38
   %42 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %43 = call i32 @unpack32(ptr noundef nonnull %42, ptr noundef %1) #7
   %.not83 = icmp eq i32 %43, 0
-  br i1 %.not83, label %44, label %88
+  br i1 %.not83, label %44, label %89
 
 44:                                               ; preds = %41
   %45 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %46 = call i32 @unpack32(ptr noundef nonnull %45, ptr noundef %1) #7
   %.not84 = icmp eq i32 %46, 0
-  br i1 %.not84, label %47, label %88
+  br i1 %.not84, label %47, label %89
 
 47:                                               ; preds = %44
   %48 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %49 = call i32 @unpack_slurm_step_layout(ptr noundef nonnull %48, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not85 = icmp eq i32 %49, 0
-  br i1 %.not85, label %50, label %88
+  br i1 %.not85, label %50, label %89
 
 50:                                               ; preds = %47
   call void @llvm.lifetime.start.p0(ptr nonnull %7)
@@ -41415,14 +41418,14 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %52 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %51, ptr noundef nonnull %7, ptr noundef %1) #7
   %.not86 = icmp eq i32 %52, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
-  br i1 %.not86, label %53, label %88
+  br i1 %.not86, label %53, label %89
 
 53:                                               ; preds = %50
   %54 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %2) #7
   %55 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %54, ptr %55, align 8
   %.not87 = icmp eq ptr %54, null
-  br i1 %.not87, label %88, label %56
+  br i1 %.not87, label %89, label %56
 
 56:                                               ; preds = %53
   %57 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -41434,16 +41437,16 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %60 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %61 = call i32 @unpack16(ptr noundef nonnull %60, ptr noundef %1) #7
   %.not89 = icmp eq i32 %61, 0
-  br i1 %.not89, label %89, label %88
+  br i1 %.not89, label %90, label %89
 
 62:                                               ; preds = %34
   %63 = icmp samesign ugt i16 %2, 10239
-  br i1 %63, label %64, label %89
+  br i1 %63, label %64, label %90
 
 64:                                               ; preds = %62
   %65 = tail call i32 @unpack32(ptr noundef %9, ptr noundef %1) #7
   %.not = icmp eq i32 %65, 0
-  br i1 %.not, label %66, label %88
+  br i1 %.not, label %66, label %89
 
 66:                                               ; preds = %64
   call void @llvm.lifetime.start.p0(ptr nonnull %8)
@@ -41451,32 +41454,32 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %68 = call i32 @unpackstr_xmalloc_chooser(ptr noundef nonnull %67, ptr noundef nonnull %8, ptr noundef %1) #7
   %.not74 = icmp eq i32 %68, 0
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br i1 %.not74, label %69, label %88
+  br i1 %.not74, label %69, label %89
 
 69:                                               ; preds = %66
   %70 = getelementptr inbounds nuw i8, ptr %9, i64 4
   %71 = call i32 @unpack32(ptr noundef nonnull %70, ptr noundef %1) #7
   %.not75 = icmp eq i32 %71, 0
-  br i1 %.not75, label %72, label %88
+  br i1 %.not75, label %72, label %89
 
 72:                                               ; preds = %69
   %73 = getelementptr inbounds nuw i8, ptr %9, i64 8
   %74 = call i32 @unpack32(ptr noundef nonnull %73, ptr noundef %1) #7
   %.not76 = icmp eq i32 %74, 0
-  br i1 %.not76, label %75, label %88
+  br i1 %.not76, label %75, label %89
 
 75:                                               ; preds = %72
   %76 = getelementptr inbounds nuw i8, ptr %9, i64 24
   %77 = call i32 @unpack_slurm_step_layout(ptr noundef nonnull %76, ptr noundef %1, i16 noundef zeroext %2) #7
   %.not77 = icmp eq i32 %77, 0
-  br i1 %.not77, label %78, label %88
+  br i1 %.not77, label %78, label %89
 
 78:                                               ; preds = %75
   %79 = call ptr @slurm_cred_unpack(ptr noundef %1, i16 noundef zeroext %2) #7
   %80 = getelementptr inbounds nuw i8, ptr %9, i64 40
   store ptr %79, ptr %80, align 8
   %.not78 = icmp eq ptr %79, null
-  br i1 %.not78, label %88, label %81
+  br i1 %.not78, label %89, label %81
 
 81:                                               ; preds = %78
   %82 = getelementptr inbounds nuw i8, ptr %9, i64 56
@@ -41488,22 +41491,22 @@ define internal fastcc range(i32 -1, 1) i32 @_unpack_job_step_create_response_ms
   %85 = getelementptr inbounds nuw i8, ptr %9, i64 64
   %86 = call i32 @unpack16(ptr noundef nonnull %85, ptr noundef %1) #7
   %.not80 = icmp eq i32 %86, 0
-  br i1 %.not80, label %89, label %88
+  br i1 %.not80, label %90, label %89
 
 .sink.split:                                      ; preds = %81, %56
-  %.sink.in = phi ptr [ %57, %56 ], [ %82, %81 ]
+  %.sink102 = phi ptr [ %57, %56 ], [ %82, %81 ]
   %87 = call i32 (ptr, ...) @error(ptr noundef nonnull @.str.11) #7
-  %.sink = load ptr, ptr %.sink.in, align 8
-  call void @switch_g_free_stepinfo(ptr noundef %.sink) #7
-  br label %88
-
-88:                                               ; preds = %.sink.split, %66, %50, %38, %25, %13, %84, %78, %75, %72, %69, %64, %59, %53, %47, %44, %41, %36, %31, %28, %22, %19, %16, %11
-  call void @slurm_free_job_step_create_response_msg(ptr noundef %9) #7
-  store ptr null, ptr %0, align 8
+  %88 = load ptr, ptr %.sink102, align 8
+  call void @switch_g_free_stepinfo(ptr noundef %88) #7
   br label %89
 
-89:                                               ; preds = %31, %62, %84, %59, %88
-  %.072 = phi i32 [ -1, %88 ], [ 0, %59 ], [ 0, %84 ], [ 0, %62 ], [ 0, %31 ]
+89:                                               ; preds = %.sink.split, %66, %50, %38, %25, %13, %84, %78, %75, %72, %69, %64, %59, %53, %47, %44, %41, %36, %31, %28, %22, %19, %16, %11
+  call void @slurm_free_job_step_create_response_msg(ptr noundef %9) #7
+  store ptr null, ptr %0, align 8
+  br label %90
+
+90:                                               ; preds = %31, %62, %84, %59, %89
+  %.072 = phi i32 [ -1, %89 ], [ 0, %59 ], [ 0, %84 ], [ 0, %62 ], [ 0, %31 ]
   ret i32 %.072
 }
 

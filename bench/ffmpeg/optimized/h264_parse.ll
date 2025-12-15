@@ -939,16 +939,20 @@ get_ue_golomb.exit57:                             ; preds = %80, %90
 
 115:                                              ; preds = %._crit_edge62
   tail call void (ptr, i32, ptr, ...) @av_log(ptr noundef %6, i32 noundef 48, ptr noundef nonnull @.str.9, i32 noundef %.pre60, i32 noundef %15) #8
-  store i32 0, ptr %12, align 4, !tbaa !25
-  br label %.thread
+  br label %.thread.sink.split
 
 116:                                              ; preds = %7
   store i32 0, ptr %12, align 4, !tbaa !25
-  store i32 0, ptr %1, align 4, !tbaa !25
+  br label %.thread.sink.split
+
+.thread.sink.split:                               ; preds = %116, %115
+  %.sink = phi ptr [ %12, %115 ], [ %1, %116 ]
+  %.1.ph = phi i32 [ %., %115 ], [ 0, %116 ]
+  store i32 0, ptr %.sink, align 4, !tbaa !25
   br label %.thread
 
-.thread:                                          ; preds = %115, %._crit_edge62, %116
-  %.1 = phi i32 [ 0, %116 ], [ %., %._crit_edge62 ], [ %., %115 ]
+.thread:                                          ; preds = %.thread.sink.split, %._crit_edge62
+  %.1 = phi i32 [ %., %._crit_edge62 ], [ %.1.ph, %.thread.sink.split ]
   store i32 %.1, ptr %0, align 4, !tbaa !25
   br label %117
 

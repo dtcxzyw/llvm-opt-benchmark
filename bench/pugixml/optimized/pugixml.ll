@@ -7506,30 +7506,21 @@ _ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xm
   %31 = getelementptr inbounds nuw i8, ptr %16, i64 24
   %32 = load ptr, ptr %31, align 8, !tbaa !26
   %.not.i11.i = icmp eq ptr %30, null
-  br i1 %.not.i11.i, label %33, label %35
+  br i1 %.not.i11.i, label %33, label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
 
 33:                                               ; preds = %23
   %34 = load ptr, ptr %19, align 8, !tbaa !59
-  br label %35
+  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
 
-35:                                               ; preds = %33, %23
+_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i: ; preds = %33, %23
   %.sink15.i.i = phi ptr [ %34, %33 ], [ %30, %23 ]
-  %36 = getelementptr inbounds nuw i8, ptr %.sink15.i.i, i64 24
-  store ptr %32, ptr %36, align 8, !tbaa !26
-  %37 = getelementptr inbounds nuw i8, ptr %32, i64 32
-  %38 = load ptr, ptr %37, align 8, !tbaa !22
-  %.not14.i.i = icmp eq ptr %38, null
-  br i1 %.not14.i.i, label %40, label %39
-
-39:                                               ; preds = %35
-  store ptr %30, ptr %37, align 8, !tbaa !22
-  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
-
-40:                                               ; preds = %35
-  store ptr %30, ptr %19, align 8, !tbaa !59
-  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
-
-_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i: ; preds = %40, %39
+  %35 = getelementptr inbounds nuw i8, ptr %.sink15.i.i, i64 24
+  store ptr %32, ptr %35, align 8, !tbaa !26
+  %36 = getelementptr inbounds nuw i8, ptr %32, i64 32
+  %37 = load ptr, ptr %36, align 8, !tbaa !22
+  %.not14.i.i = icmp eq ptr %37, null
+  %..i = select i1 %.not14.i.i, ptr %19, ptr %36
+  store ptr %30, ptr %..i, align 8, !tbaa !63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %31, i8 0, i64 16, i1 false)
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_117destroy_attributeEPNS_20xml_attribute_structERNS1_13xml_allocatorE(ptr noundef nonnull %16, ptr noundef nonnull align 8 dereferenceable(16) %28)
   br label %_ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE.exit
@@ -7543,12 +7534,12 @@ _ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE.exit: ; preds = %_ZNK4
 define noundef zeroext i1 @_ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE(ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %0, ptr noundef nonnull readonly align 8 captures(none) dereferenceable(8) %1) local_unnamed_addr #5 align 2 {
   %3 = load ptr, ptr %0, align 8, !tbaa !54
   %.not = icmp eq ptr %3, null
-  br i1 %.not, label %30, label %4
+  br i1 %.not, label %27, label %4
 
 4:                                                ; preds = %2
   %5 = load ptr, ptr %1, align 8, !tbaa !19
   %.not10 = icmp eq ptr %5, null
-  br i1 %.not10, label %30, label %6
+  br i1 %.not10, label %27, label %6
 
 6:                                                ; preds = %4
   %7 = getelementptr inbounds nuw i8, ptr %3, i64 56
@@ -7564,7 +7555,7 @@ define noundef zeroext i1 @_ZN4pugi8xml_node16remove_attributeERKNS_13xml_attrib
   br i1 %or.cond.not.i, label %8, label %_ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit, !llvm.loop !84
 
 _ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit: ; preds = %8
-  br i1 %.not.i, label %11, label %30
+  br i1 %.not.i, label %11, label %27
 
 11:                                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
   %12 = load i64, ptr %3, align 8, !tbaa !64
@@ -7577,36 +7568,27 @@ _ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xm
   %19 = getelementptr inbounds nuw i8, ptr %5, i64 24
   %20 = load ptr, ptr %19, align 8, !tbaa !26
   %.not.i11 = icmp eq ptr %18, null
-  br i1 %.not.i11, label %21, label %23
+  br i1 %.not.i11, label %21, label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
 
 21:                                               ; preds = %11
   %22 = load ptr, ptr %7, align 8, !tbaa !59
-  br label %23
+  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
 
-23:                                               ; preds = %21, %11
+_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit: ; preds = %21, %11
   %.sink15.i = phi ptr [ %22, %21 ], [ %18, %11 ]
-  %24 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 24
-  store ptr %20, ptr %24, align 8, !tbaa !26
-  %25 = getelementptr inbounds nuw i8, ptr %20, i64 32
-  %26 = load ptr, ptr %25, align 8, !tbaa !22
-  %.not14.i = icmp eq ptr %26, null
-  br i1 %.not14.i, label %28, label %27
-
-27:                                               ; preds = %23
-  store ptr %18, ptr %25, align 8, !tbaa !22
-  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
-
-28:                                               ; preds = %23
-  store ptr %18, ptr %7, align 8, !tbaa !59
-  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
-
-_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit: ; preds = %27, %28
+  %23 = getelementptr inbounds nuw i8, ptr %.sink15.i, i64 24
+  store ptr %20, ptr %23, align 8, !tbaa !26
+  %24 = getelementptr inbounds nuw i8, ptr %20, i64 32
+  %25 = load ptr, ptr %24, align 8, !tbaa !22
+  %.not14.i = icmp eq ptr %25, null
+  %. = select i1 %.not14.i, ptr %7, ptr %24
+  store ptr %18, ptr %., align 8, !tbaa !63
   tail call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %19, i8 0, i64 16, i1 false)
-  %29 = load ptr, ptr %1, align 8, !tbaa !19
-  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_117destroy_attributeEPNS_20xml_attribute_structERNS1_13xml_allocatorE(ptr noundef %29, ptr noundef nonnull align 8 dereferenceable(16) %16)
-  br label %30
+  %26 = load ptr, ptr %1, align 8, !tbaa !19
+  tail call fastcc void @_ZN4pugi4impl12_GLOBAL__N_117destroy_attributeEPNS_20xml_attribute_structERNS1_13xml_allocatorE(ptr noundef %26, ptr noundef nonnull align 8 dereferenceable(16) %16)
+  br label %27
 
-30:                                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit, %2, %4, %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
+27:                                               ; preds = %_ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit, %2, %4, %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit
   %.0 = phi i1 [ true, %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit ], [ false, %4 ], [ false, %2 ], [ false, %_ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit ]
   ret i1 %.0
 }
@@ -7739,30 +7721,21 @@ _ZN4pugi4impl12_GLOBAL__N_115is_attribute_ofEPNS_20xml_attribute_structEPNS_15xm
   %42 = getelementptr inbounds nuw i8, ptr %27, i64 24
   %43 = load ptr, ptr %42, align 8, !tbaa !26
   %.not.i11.i = icmp eq ptr %41, null
-  br i1 %.not.i11.i, label %44, label %46
+  br i1 %.not.i11.i, label %44, label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
 
 44:                                               ; preds = %34
   %45 = load ptr, ptr %30, align 8, !tbaa !59
-  br label %46
+  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
 
-46:                                               ; preds = %44, %34
+_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i: ; preds = %44, %34
   %.sink15.i.i = phi ptr [ %45, %44 ], [ %41, %34 ]
-  %47 = getelementptr inbounds nuw i8, ptr %.sink15.i.i, i64 24
-  store ptr %43, ptr %47, align 8, !tbaa !26
-  %48 = getelementptr inbounds nuw i8, ptr %43, i64 32
-  %49 = load ptr, ptr %48, align 8, !tbaa !22
-  %.not14.i.i = icmp eq ptr %49, null
-  br i1 %.not14.i.i, label %51, label %50
-
-50:                                               ; preds = %46
-  store ptr %41, ptr %48, align 8, !tbaa !22
-  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
-
-51:                                               ; preds = %46
-  store ptr %41, ptr %30, align 8, !tbaa !59
-  br label %_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i
-
-_ZN4pugi4impl12_GLOBAL__N_116remove_attributeEPNS_20xml_attribute_structEPNS_15xml_node_structE.exit.i: ; preds = %51, %50
+  %46 = getelementptr inbounds nuw i8, ptr %.sink15.i.i, i64 24
+  store ptr %43, ptr %46, align 8, !tbaa !26
+  %47 = getelementptr inbounds nuw i8, ptr %43, i64 32
+  %48 = load ptr, ptr %47, align 8, !tbaa !22
+  %.not14.i.i = icmp eq ptr %48, null
+  %..i = select i1 %.not14.i.i, ptr %30, ptr %47
+  store ptr %41, ptr %..i, align 8, !tbaa !63
   call void @llvm.memset.p0.i64(ptr noundef nonnull align 8 dereferenceable(16) %42, i8 0, i64 16, i1 false)
   call fastcc void @_ZN4pugi4impl12_GLOBAL__N_117destroy_attributeEPNS_20xml_attribute_structERNS1_13xml_allocatorE(ptr noundef nonnull %27, ptr noundef nonnull align 8 dereferenceable(16) %39)
   br label %_ZN4pugi8xml_node16remove_attributeERKNS_13xml_attributeE.exit

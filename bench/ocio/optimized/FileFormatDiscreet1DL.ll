@@ -932,17 +932,17 @@ _ZNSi7getlineEPcl.exit.i.i:                       ; preds = %.noexc51, %241
   %276 = getelementptr inbounds i8, ptr %12, i64 %275
   %277 = load i8, ptr %276, align 1, !tbaa !14
   %.not24.i.i.i = icmp eq i8 %277, 0
-  br i1 %.not24.i.i.i, label %.preheader306, label %278
+  br i1 %.not24.i.i.i, label %.preheader309, label %278
 
 278:                                              ; preds = %.critedge.i.i120.i
   store i8 0, ptr %276, align 1, !tbaa !14
-  br label %.preheader306
+  br label %.preheader309
 
-.preheader306:                                    ; preds = %278, %.critedge.i.i120.i
+.preheader309:                                    ; preds = %278, %.critedge.i.i120.i
   br label %279
 
-279:                                              ; preds = %.preheader306, %279
-  %.2.i.i.i = phi i16 [ %280, %279 ], [ -1, %.preheader306 ]
+279:                                              ; preds = %.preheader309, %279
+  %.2.i.i.i = phi i16 [ %280, %279 ], [ -1, %.preheader309 ]
   %280 = add i16 %.2.i.i.i, 1
   %281 = sext i16 %280 to i64
   %282 = getelementptr inbounds i8, ptr %12, i64 %281
@@ -1171,10 +1171,6 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i.i: ; preds = 
   %365 = icmp sgt i32 %364, 0
   br i1 %365, label %.lr.ph18.i.i.i, label %.thread.sink.split.sink.split
 
-._crit_edge19.loopexit.i.i.i:                     ; preds = %376
-  %.pre25.i.i.i = load ptr, ptr %216, align 8, !tbaa !31
-  br label %.thread.sink.split.sink.split
-
 .lr.ph18.i.i.i:                                   ; preds = %.preheader13.i.i.i, %376
   %366 = phi i32 [ %377, %376 ], [ %364, %.preheader13.i.i.i ]
   %indvars.iv22.i.i.i = phi i64 [ %indvars.iv.next23.i.i.i, %376 ], [ 0, %.preheader13.i.i.i ]
@@ -1216,7 +1212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i.i: ; preds = 
   %indvars.iv.next23.i.i.i = add nuw nsw i64 %indvars.iv22.i.i.i, 1
   %378 = sext i32 %377 to i64
   %379 = icmp slt i64 %indvars.iv.next23.i.i.i, %378
-  br i1 %379, label %.lr.ph18.i.i.i, label %._crit_edge19.loopexit.i.i.i, !llvm.loop !73
+  br i1 %379, label %.lr.ph18.i.i.i, label %.thread.sink.split.sink.split.sink.split, !llvm.loop !73
 
 .loopexit187.loopexit.i:                          ; preds = %354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   %.pre.i47 = load i32, ptr %18, align 4, !tbaa !27
@@ -1557,10 +1553,6 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %492 = icmp sgt i32 %491, 0
   br i1 %492, label %.lr.ph18.i.i152.i, label %.thread.sink.split.sink.split
 
-._crit_edge19.loopexit.i.i164.i:                  ; preds = %503
-  %.pre25.i.i165.i = load ptr, ptr %489, align 8, !tbaa !31
-  br label %.thread.sink.split.sink.split
-
 .lr.ph18.i.i152.i:                                ; preds = %.preheader13.i.i149.i, %503
   %493 = phi i32 [ %504, %503 ], [ %491, %.preheader13.i.i149.i ]
   %indvars.iv22.i.i153.i = phi i64 [ %indvars.iv.next23.i.i163.i, %503 ], [ 0, %.preheader13.i.i149.i ]
@@ -1602,7 +1594,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %indvars.iv.next23.i.i163.i = add nuw nsw i64 %indvars.iv22.i.i153.i, 1
   %505 = sext i32 %504 to i64
   %506 = icmp slt i64 %indvars.iv.next23.i.i163.i, %505
-  br i1 %506, label %.lr.ph18.i.i152.i, label %._crit_edge19.loopexit.i.i164.i, !llvm.loop !73
+  br i1 %506, label %.lr.ph18.i.i152.i, label %.thread.sink.split.sink.split.sink.split, !llvm.loop !73
 
 507:                                              ; preds = %.noexc56
   %508 = load ptr, ptr %17, align 8, !tbaa !25
@@ -1616,10 +1608,17 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.body
 
-.thread.sink.split.sink.split:                    ; preds = %.preheader13.i.i149.i, %._crit_edge19.loopexit.i.i164.i, %.preheader13.i.i.i, %._crit_edge19.loopexit.i.i.i
-  %.sink290 = phi ptr [ %.pre25.i.i.i, %._crit_edge19.loopexit.i.i.i ], [ %363, %.preheader13.i.i.i ], [ %.pre25.i.i165.i, %._crit_edge19.loopexit.i.i164.i ], [ %490, %.preheader13.i.i149.i ]
-  %.sink.ph = phi ptr [ %215, %._crit_edge19.loopexit.i.i.i ], [ %215, %.preheader13.i.i.i ], [ %487, %._crit_edge19.loopexit.i.i164.i ], [ %487, %.preheader13.i.i149.i ]
-  %.063.i.ph.ph.ph = phi i32 [ %.014.i.i, %._crit_edge19.loopexit.i.i.i ], [ %.014.i.i, %.preheader13.i.i.i ], [ 4, %._crit_edge19.loopexit.i.i164.i ], [ 4, %.preheader13.i.i149.i ]
+.thread.sink.split.sink.split.sink.split:         ; preds = %376, %503
+  %.sink291 = phi ptr [ %489, %503 ], [ %216, %376 ]
+  %.sink.ph.ph = phi ptr [ %487, %503 ], [ %215, %376 ]
+  %.063.i.ph.ph.ph.ph = phi i32 [ 4, %503 ], [ %.014.i.i, %376 ]
+  %.pre25.i.i165.i = load ptr, ptr %.sink291, align 8, !tbaa !31
+  br label %.thread.sink.split.sink.split
+
+.thread.sink.split.sink.split:                    ; preds = %.thread.sink.split.sink.split.sink.split, %.preheader13.i.i149.i, %.preheader13.i.i.i
+  %.sink290 = phi ptr [ %363, %.preheader13.i.i.i ], [ %490, %.preheader13.i.i149.i ], [ %.pre25.i.i165.i, %.thread.sink.split.sink.split.sink.split ]
+  %.sink.ph = phi ptr [ %215, %.preheader13.i.i.i ], [ %487, %.preheader13.i.i149.i ], [ %.sink.ph.ph, %.thread.sink.split.sink.split.sink.split ]
+  %.063.i.ph.ph.ph = phi i32 [ %.014.i.i, %.preheader13.i.i.i ], [ 4, %.preheader13.i.i149.i ], [ %.063.i.ph.ph.ph.ph, %.thread.sink.split.sink.split.sink.split ]
   call void @free(ptr noundef %.sink290) #32
   br label %.thread.sink.split
 

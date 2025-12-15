@@ -1543,11 +1543,7 @@ attr_counter_set_free.exit.i:                     ; preds = %38, %attr_counter_f
 49:                                               ; preds = %44
   %50 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i.i84.i = icmp eq ptr %50, null
-  br i1 %.not.i.i84.i, label %attr_counter_new.exit.thread.i.i, label %attr_counter_new.exit.i.i
-
-attr_counter_new.exit.thread.i.i:                 ; preds = %49
-  store ptr null, ptr %8, align 8, !tbaa !106
-  br label %attr_counter_set_collect.exit.i
+  br i1 %.not.i.i84.i, label %attr_counter_set_collect.exit.sink.split.i, label %attr_counter_new.exit.i.i
 
 attr_counter_new.exit.i.i:                        ; preds = %49
   %51 = getelementptr inbounds nuw i8, ptr %50, i64 24
@@ -1674,11 +1670,7 @@ attr_counter_inc.exit.thread.i.i:                 ; preds = %87, %86, %82, %69, 
 99:                                               ; preds = %94
   %100 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i95.i.i = icmp eq ptr %100, null
-  br i1 %.not.i95.i.i, label %attr_counter_new.exit96.thread.i.i, label %attr_counter_new.exit96.i.i
-
-attr_counter_new.exit96.thread.i.i:               ; preds = %99
-  store ptr null, ptr %9, align 8, !tbaa !112
-  br label %attr_counter_set_collect.exit.i
+  br i1 %.not.i95.i.i, label %attr_counter_set_collect.exit.sink.split.i, label %attr_counter_new.exit96.i.i
 
 attr_counter_new.exit96.i.i:                      ; preds = %99
   %101 = getelementptr inbounds nuw i8, ptr %100, i64 24
@@ -1805,11 +1797,7 @@ attr_counter_inc.exit100.thread.i.i:              ; preds = %137, %136, %132, %1
 149:                                              ; preds = %144
   %150 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i115.i.i = icmp eq ptr %150, null
-  br i1 %.not.i115.i.i, label %attr_counter_new.exit116.thread.i.i, label %attr_counter_new.exit116.i.i
-
-attr_counter_new.exit116.thread.i.i:              ; preds = %149
-  store ptr null, ptr %10, align 8, !tbaa !114
-  br label %attr_counter_set_collect.exit.i
+  br i1 %.not.i115.i.i, label %attr_counter_set_collect.exit.sink.split.i, label %attr_counter_new.exit116.i.i
 
 attr_counter_new.exit116.i.i:                     ; preds = %149
   %151 = getelementptr inbounds nuw i8, ptr %150, i64 24
@@ -1937,11 +1925,7 @@ attr_counter_inc.exit120.thread.i.i:              ; preds = %187, %186, %182, %1
 200:                                              ; preds = %194
   %201 = tail call noalias dereferenceable_or_null(32) ptr @malloc(i64 noundef 32) #17
   %.not.i135.i.i = icmp eq ptr %201, null
-  br i1 %.not.i135.i.i, label %attr_counter_new.exit136.thread.i.i, label %attr_counter_new.exit136.i.i
-
-attr_counter_new.exit136.thread.i.i:              ; preds = %200
-  store ptr null, ptr %11, align 8, !tbaa !116
-  br label %attr_counter_set_collect.exit.i
+  br i1 %.not.i135.i.i, label %attr_counter_set_collect.exit.sink.split.i, label %attr_counter_new.exit136.i.i
 
 attr_counter_new.exit136.i.i:                     ; preds = %200
   %202 = getelementptr inbounds nuw i8, ptr %201, i64 24
@@ -2057,7 +2041,12 @@ attr_counter_new.exit136.i.i:                     ; preds = %200
   %.not89.i.i = icmp eq ptr %248, null
   br i1 %.not89.i.i, label %.split76.i.i, label %210, !llvm.loop !117
 
-attr_counter_set_collect.exit.i:                  ; preds = %.split76.i.i, %.split73.i.i, %.split70.i.i, %.split.i.i, %attr_counter_new.exit136.thread.i.i, %attr_counter_new.exit116.thread.i.i, %attr_counter_new.exit96.thread.i.i, %attr_counter_new.exit.thread.i.i
+attr_counter_set_collect.exit.sink.split.i:       ; preds = %200, %149, %99, %49
+  %.sink.i = phi ptr [ %8, %49 ], [ %9, %99 ], [ %10, %149 ], [ %11, %200 ]
+  store ptr null, ptr %.sink.i, align 8, !tbaa !49
+  br label %attr_counter_set_collect.exit.i
+
+attr_counter_set_collect.exit.i:                  ; preds = %.split76.i.i, %.split73.i.i, %.split70.i.i, %.split.i.i, %attr_counter_set_collect.exit.sink.split.i
   tail call void (ptr, i32, ptr, ...) @archive_set_error(ptr noundef %0, i32 noundef 12, ptr noundef nonnull @.str.43) #14
   br label %write_mtree_entry_tree.exit.thread
 

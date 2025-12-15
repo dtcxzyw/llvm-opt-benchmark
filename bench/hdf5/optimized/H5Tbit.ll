@@ -1067,7 +1067,7 @@ define zeroext i1 @H5T__bit_dec(ptr noundef captures(none) %0, i64 noundef %1, i
   %9 = trunc nuw i8 %8 to i1
   %10 = xor i1 %9, true
   %11 = select i1 %7, i1 true, i1 %10
-  br i1 %11, label %12, label %60, !prof !9
+  br i1 %11, label %12, label %55, !prof !9
 
 12:                                               ; preds = %3
   %13 = add i64 %1, -1
@@ -1077,7 +1077,7 @@ define zeroext i1 @H5T__bit_dec(ptr noundef captures(none) %0, i64 noundef %1, i
   %17 = getelementptr inbounds nuw i8, ptr %0, i64 %4
   %18 = load i8, ptr %17, align 1, !tbaa !10
   %19 = zext i8 %18 to i32
-  br i1 %16, label %20, label %48
+  br i1 %16, label %20, label %44
 
 20:                                               ; preds = %12
   %21 = trunc nuw nsw i64 %5 to i32
@@ -1114,7 +1114,7 @@ define zeroext i1 @H5T__bit_dec(ptr noundef captures(none) %0, i64 noundef %1, i
   %.062.lcssa = phi i64 [ %.06271, %20 ], [ %.062, %.lr.ph ]
   %34 = icmp ne i64 %.061.lcssa, 0
   %or.cond = select i1 %.2.in.lcssa, i1 %34, i1 false
-  br i1 %or.cond, label %35, label %60
+  br i1 %or.cond, label %35, label %55
 
 35:                                               ; preds = %._crit_edge
   %36 = getelementptr inbounds nuw i8, ptr %0, i64 %.062.lcssa
@@ -1127,37 +1127,33 @@ define zeroext i1 @H5T__bit_dec(ptr noundef captures(none) %0, i64 noundef %1, i
   %42 = zext i8 %37 to i32
   %43 = lshr i32 %42, %40
   %.not68 = icmp eq i32 %41, %43
-  br i1 %.not68, label %60, label %44
+  br i1 %.not68, label %55, label %.sink.split
 
-44:                                               ; preds = %35
-  %45 = shl nuw i32 1, %40
-  %46 = trunc i32 %45 to i8
-  %47 = add i8 %38, %46
-  store i8 %47, ptr %36, align 1, !tbaa !10
-  br label %60
+44:                                               ; preds = %12
+  %45 = trunc nuw nsw i64 %5 to i8
+  %.neg = shl nsw i8 -1, %45
+  %46 = add i8 %18, %.neg
+  store i8 %46, ptr %17, align 1, !tbaa !10
+  %47 = zext i8 %46 to i32
+  %48 = add i64 %5, %2
+  %49 = trunc i64 %48 to i32
+  %50 = lshr i32 %47, %49
+  %51 = lshr i32 %19, %49
+  %.not = icmp eq i32 %50, %51
+  br i1 %.not, label %55, label %.sink.split
 
-48:                                               ; preds = %12
-  %49 = trunc nuw nsw i64 %5 to i8
-  %.neg = shl nsw i8 -1, %49
-  %50 = add i8 %18, %.neg
-  store i8 %50, ptr %17, align 1, !tbaa !10
-  %51 = zext i8 %50 to i32
-  %52 = add i64 %5, %2
-  %53 = trunc i64 %52 to i32
-  %54 = lshr i32 %51, %53
-  %55 = lshr i32 %19, %53
-  %.not = icmp eq i32 %54, %55
-  br i1 %.not, label %60, label %56
+.sink.split:                                      ; preds = %44, %35
+  %.sink83 = phi i32 [ %40, %35 ], [ %49, %44 ]
+  %.sink81 = phi i8 [ %38, %35 ], [ %46, %44 ]
+  %.sink80 = phi ptr [ %36, %35 ], [ %17, %44 ]
+  %52 = shl nuw i32 1, %.sink83
+  %53 = trunc i32 %52 to i8
+  %54 = add i8 %.sink81, %53
+  store i8 %54, ptr %.sink80, align 1, !tbaa !10
+  br label %55
 
-56:                                               ; preds = %48
-  %57 = shl nuw i32 1, %53
-  %58 = trunc i32 %57 to i8
-  %59 = add i8 %50, %58
-  store i8 %59, ptr %17, align 1, !tbaa !10
-  br label %60
-
-60:                                               ; preds = %35, %44, %._crit_edge, %56, %48, %3
-  %.0 = phi i1 [ true, %44 ], [ true, %35 ], [ %.2.in.lcssa, %._crit_edge ], [ true, %56 ], [ false, %48 ], [ false, %3 ]
+55:                                               ; preds = %.sink.split, %35, %._crit_edge, %44, %3
+  %.0 = phi i1 [ true, %35 ], [ %.2.in.lcssa, %._crit_edge ], [ false, %44 ], [ false, %3 ], [ true, %.sink.split ]
   ret i1 %.0
 }
 
