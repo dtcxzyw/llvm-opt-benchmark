@@ -932,16 +932,16 @@ _ZNSi7getlineEPcl.exit.i.i:                       ; preds = %.noexc51, %241
   %276 = getelementptr inbounds i8, ptr %12, i64 %275
   %277 = load i8, ptr %276, align 1, !tbaa !14
   %.not24.i.i.i = icmp eq i8 %277, 0
-  br i1 %.not24.i.i.i, label %.preheader309, label %278
+  br i1 %.not24.i.i.i, label %.preheader306, label %278
 
 278:                                              ; preds = %.critedge.i.i120.i
   store i8 0, ptr %276, align 1, !tbaa !14
-  br label %.preheader309
+  br label %.preheader306
 
-.preheader309:                                    ; preds = %278, %.critedge.i.i120.i
+.preheader306:                                    ; preds = %278, %.critedge.i.i120.i
   br label %279
 
-279:                                              ; preds = %.preheader309, %279
+279:                                              ; preds = %.preheader306, %279
   %.2.i.i.i = phi i16 [ %280, %279 ], [ -1, %.preheader309 ]
   %280 = add i16 %.2.i.i.i, 1
   %281 = sext i16 %280 to i64
@@ -1212,7 +1212,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit21.i.i: ; preds = 
   %indvars.iv.next23.i.i.i = add nuw nsw i64 %indvars.iv22.i.i.i, 1
   %378 = sext i32 %377 to i64
   %379 = icmp slt i64 %indvars.iv.next23.i.i.i, %378
-  br i1 %379, label %.lr.ph18.i.i.i, label %.thread.sink.split.sink.split.sink.split, !llvm.loop !73
+  br i1 %379, label %.lr.ph18.i.i.i, label %.thread.sink.split.sink.split, !llvm.loop !73
 
 .loopexit187.loopexit.i:                          ; preds = %354, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i.i
   %.pre.i47 = load i32, ptr %18, align 4, !tbaa !27
@@ -1594,7 +1594,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   %indvars.iv.next23.i.i163.i = add nuw nsw i64 %indvars.iv22.i.i153.i, 1
   %505 = sext i32 %504 to i64
   %506 = icmp slt i64 %indvars.iv.next23.i.i163.i, %505
-  br i1 %506, label %.lr.ph18.i.i152.i, label %.thread.sink.split.sink.split.sink.split, !llvm.loop !73
+  br i1 %506, label %.lr.ph18.i.i152.i, label %.thread.sink.split.sink.split, !llvm.loop !73
 
 507:                                              ; preds = %.noexc56
   %508 = load ptr, ptr %17, align 8, !tbaa !25
@@ -1608,10 +1608,10 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.threa
   call void @llvm.lifetime.end.p0(ptr nonnull %16)
   br label %.body
 
-.thread.sink.split.sink.split.sink.split:         ; preds = %376, %503
-  %.sink291 = phi ptr [ %489, %503 ], [ %216, %376 ]
-  %.sink.ph.ph = phi ptr [ %487, %503 ], [ %215, %376 ]
-  %.063.i.ph.ph.ph.ph = phi i32 [ 4, %503 ], [ %.014.i.i, %376 ]
+.thread.sink.split.sink.split:                    ; preds = %376, %503
+  %.sink290 = phi ptr [ %489, %503 ], [ %216, %376 ]
+  %.sink.ph = phi ptr [ %487, %503 ], [ %215, %376 ]
+  %.063.i.ph.ph.ph = phi i32 [ 4, %503 ], [ %.014.i.i, %376 ]
   %.pre25.i.i165.i = load ptr, ptr %.sink291, align 8, !tbaa !31
   br label %.thread.sink.split.sink.split
 

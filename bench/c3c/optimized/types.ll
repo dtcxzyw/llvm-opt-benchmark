@@ -6708,9 +6708,9 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
     i32 37, label %4
     i32 38, label %4
     i32 40, label %4
-    i32 39, label %17
-    i32 42, label %17
-    i32 43, label %17
+    i32 39, label %23
+    i32 42, label %23
+    i32 43, label %23
   ]
 
 4:                                                ; preds = %2, %2, %2, %2, %2, %2, %2, %2, %2
@@ -6735,7 +6735,7 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   %. = select i1 %.not17, ptr getelementptr inbounds nuw (i8, ptr @global_context, i64 16), ptr %11
   br label %.loopexit.sink.split
 
-12:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
+21:                                               ; preds = %2, %2, %2, %2, %2, %2, %2
   %13 = getelementptr inbounds nuw i8, ptr %.0, i64 56
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 56
@@ -6743,16 +6743,16 @@ define dso_local ptr @type_base_module(ptr noundef readonly captures(none) %0) l
   %.not = icmp eq ptr %16, null
   br i1 %.not, label %.loopexit, label %.loopexit.sink.split
 
-17:                                               ; preds = %2, %2, %2
+23:                                               ; preds = %2, %2, %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2361) #14
   unreachable
 
-18:                                               ; preds = %2
+24:                                               ; preds = %2
   tail call void (ptr, ...) @error_exit(ptr noundef nonnull @.str, ptr noundef nonnull @.str.17, ptr noundef nonnull @__func__.type_base_module, ptr noundef nonnull @.str.2, i32 noundef 2363) #14
   unreachable
 
-.loopexit.sink.split:                             ; preds = %12, %9
-  %.sink33 = phi ptr [ %., %9 ], [ %16, %12 ]
+.loopexit:                                        ; preds = %12, %9
+  %.012 = phi ptr [ %., %9 ], [ %16, %12 ]
   %19 = load ptr, ptr %.sink33, align 8
   br label %.loopexit
 

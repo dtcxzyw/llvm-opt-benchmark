@@ -57,12 +57,12 @@ define hidden void @_ZN6Assimp3LWO12AnimResolverC2ERNSt7__cxx114listINS0_8Envelo
   %.not36 = icmp eq ptr %.sroa.08.035, %1
   br i1 %.not36, label %._crit_edge40, label %.lr.ph39
 
-._crit_edge40:                                    ; preds = %64, %3
+._crit_edge40:                                    ; preds = %65, %3
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 104
   store i8 1, ptr %19, align 8
   ret void
 
-.lr.ph39:                                         ; preds = %3, %64
+.lr.ph39:                                         ; preds = %3, %65
   %.sroa.08.037 = phi ptr [ %.sroa.08.0, %64 ], [ %.sroa.08.035, %3 ]
   %20 = getelementptr inbounds nuw i8, ptr %.sroa.08.037, i64 16
   %21 = getelementptr inbounds nuw i8, ptr %.sroa.08.037, i64 56
@@ -79,14 +79,14 @@ define hidden void @_ZN6Assimp3LWO12AnimResolverC2ERNSt7__cxx114listINS0_8Envelo
   %31 = getelementptr inbounds nuw i8, ptr %.sroa.08.037, i64 64
   store i64 %30, ptr %31, align 8
   %32 = icmp eq ptr %25, %24
-  br i1 %32, label %64, label %33
+  br i1 %32, label %65, label %33
 
 33:                                               ; preds = %.lr.ph39
   %34 = getelementptr inbounds nuw i8, ptr %.sroa.08.037, i64 20
   %35 = load i32, ptr %34, align 4
   %36 = add i32 %35, -17
   %or.cond = icmp ult i32 %36, -16
-  br i1 %or.cond, label %64, label %37
+  br i1 %or.cond, label %65, label %37
 
 37:                                               ; preds = %33
   switch i32 %35, label %64 [
@@ -138,35 +138,35 @@ define hidden void @_ZN6Assimp3LWO12AnimResolverC2ERNSt7__cxx114listINS0_8Envelo
   br label %._crit_edge
 
 ._crit_edge:                                      ; preds = %._crit_edge.loopexit, %46
-  %49 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %47, %46 ]
-  %50 = load double, ptr %49, align 8
-  %51 = load double, ptr %18, align 8
-  %52 = fcmp olt double %50, %51
-  %53 = select i1 %52, double %50, double %51
-  store double %53, ptr %18, align 8
-  %54 = load ptr, ptr %23, align 8
-  %55 = getelementptr inbounds i8, ptr %54, i64 -40
-  %56 = load double, ptr %17, align 8
-  %57 = load double, ptr %55, align 8
-  %58 = fcmp olt double %56, %57
-  %59 = select i1 %58, double %57, double %56
-  store double %59, ptr %17, align 8
-  br label %64
+  %50 = phi ptr [ %.pre, %._crit_edge.loopexit ], [ %47, %46 ]
+  %51 = load double, ptr %50, align 8
+  %52 = load double, ptr %18, align 8
+  %53 = fcmp olt double %51, %52
+  %54 = select i1 %53, double %51, double %52
+  store double %54, ptr %18, align 8
+  %55 = load ptr, ptr %23, align 8
+  %56 = getelementptr inbounds i8, ptr %55, i64 -40
+  %57 = load double, ptr %17, align 8
+  %58 = load double, ptr %56, align 8
+  %59 = fcmp olt double %57, %58
+  %60 = select i1 %59, double %58, double %57
+  store double %60, ptr %17, align 8
+  br label %65
 
 .lr.ph:                                           ; preds = %46, %.lr.ph
-  %.sroa.04.034 = phi ptr [ %62, %.lr.ph ], [ %47, %46 ]
-  %60 = load double, ptr %.sroa.04.034, align 8
-  %61 = fmul double %2, %60
-  store double %61, ptr %.sroa.04.034, align 8
-  %62 = getelementptr inbounds nuw i8, ptr %.sroa.04.034, i64 40
-  %63 = load ptr, ptr %23, align 8
-  %.not30 = icmp eq ptr %62, %63
+  %.sroa.04.034 = phi ptr [ %63, %.lr.ph ], [ %47, %46 ]
+  %61 = load double, ptr %.sroa.04.034, align 8
+  %62 = fmul double %2, %61
+  store double %62, ptr %.sroa.04.034, align 8
+  %63 = getelementptr inbounds nuw i8, ptr %.sroa.04.034, i64 40
+  %64 = load ptr, ptr %23, align 8
+  %.not30 = icmp eq ptr %63, %64
   br i1 %.not30, label %._crit_edge.loopexit, label %.lr.ph, !llvm.loop !3
 
-64:                                               ; preds = %37, %33, %.lr.ph39, %._crit_edge
+65:                                               ; preds = %37, %33, %.lr.ph39, %._crit_edge
   %.sroa.08.0 = load ptr, ptr %.sroa.08.037, align 8
-  %65 = load ptr, ptr %0, align 8
-  %.not = icmp eq ptr %.sroa.08.0, %65
+  %66 = load ptr, ptr %0, align 8
+  %.not = icmp eq ptr %.sroa.08.0, %66
   br i1 %.not, label %._crit_edge40, label %.lr.ph39, !llvm.loop !5
 }
 

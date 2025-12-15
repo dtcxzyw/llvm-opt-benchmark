@@ -487,14 +487,14 @@ _ZN5vcpkg4PathD2Ev.exit46:                        ; preds = %_ZN5vcpkg4PathD2Ev.
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i39: ; preds = %_ZN5vcpkg4PathD2Ev.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i38
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  %178 = load ptr, ptr %3, align 8, !tbaa !21
+  %.pre56 = load ptr, ptr %3, align 8, !tbaa !21
   %179 = getelementptr inbounds nuw i8, ptr %3, i64 16
   %180 = icmp eq ptr %178, %179
   br i1 %180, label %_ZN5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEED2Ev.exit, label %_ZN5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEED2Ev.exit.sink.split
 
-_ZN5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEED2Ev.exit.sink.split: ; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i39, %.thread84
+_ZN5vcpkg9ExpectedTINS_4PathENS_15LocalizedStringEED2Ev.exit.sink.split:; preds = %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i39, %.thread84
   %.sink87 = phi ptr [ %20, %.thread84 ], [ %179, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i39 ]
-  %.sink = phi ptr [ %19, %.thread84 ], [ %178, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i39 ]
+  %.sink = phi ptr [ %19, %.thread84 ], [ %.pre56, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.thread.i.i.i39 ]
   %181 = load i64, ptr %.sink87, align 8, !tbaa !4
   %182 = add i64 %181, 1
   call void @_ZdlPvm(ptr noundef %.sink, i64 noundef %182) #12

@@ -35144,7 +35144,7 @@ lean_ensure_exclusive_array.exit.i88:             ; preds = %122, %lean_dec.exit
   br label %lean_dec.exit64
 
 lean_dec.exit64:                                  ; preds = %135, %134, %132, %lean_ensure_exclusive_array.exit.i88, %110, %109, %107, %lean_ensure_exclusive_array.exit.i82
-  %.sink = phi ptr [ %100, %lean_ensure_exclusive_array.exit.i82 ], [ %100, %107 ], [ %100, %109 ], [ %100, %110 ], [ %125, %lean_ensure_exclusive_array.exit.i88 ], [ %125, %132 ], [ %125, %134 ], [ %125, %135 ]
+  %.153 = phi ptr [ %100, %lean_ensure_exclusive_array.exit.i82 ], [ %100, %107 ], [ %100, %109 ], [ %100, %110 ], [ %125, %lean_ensure_exclusive_array.exit.i88 ], [ %125, %132 ], [ %125, %134 ], [ %125, %135 ]
   %.153 = phi ptr [ %.0.i.i83, %lean_ensure_exclusive_array.exit.i82 ], [ %.0.i.i83, %107 ], [ %.0.i.i83, %109 ], [ %.0.i.i83, %110 ], [ %.0.i.i89, %lean_ensure_exclusive_array.exit.i88 ], [ %.0.i.i89, %132 ], [ %.0.i.i89, %134 ], [ %.0.i.i89, %135 ]
   store ptr %62, ptr %.sink, align 8, !tbaa !11
   %.148 = add nuw i64 %.047111, 1

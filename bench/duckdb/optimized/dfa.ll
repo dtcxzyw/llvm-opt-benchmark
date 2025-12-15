@@ -2032,7 +2032,7 @@ define hidden void @_ZN10duckdb_re23DFA10AddToQueueEPNS0_5WorkqEij(ptr noundef n
 .backedge:                                        ; preds = %122, %select.unfold, %.backedge70, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit, %_ZN10LogMessageD2Ev.exit, %39, %34, %31
   %.041.be = phi i32 [ %.142.ph, %31 ], [ %.142.ph, %34 ], [ %.142.ph, %39 ], [ %.142.ph, %_ZN10LogMessageD2Ev.exit ], [ %.142.ph, %_ZNK10duckdb_re210SparseSetTIvE8containsEi.exit ], [ %.142.ph, %.backedge70 ], [ %.142.ph, %select.unfold ], [ %.6, %122 ]
   %48 = icmp sgt i32 %.041.be, 0
-  br i1 %48, label %24, label %128, !llvm.loop !133
+  br i1 %48, label %24, label %130, !llvm.loop !133
 
 49:                                               ; preds = %.backedge70
   %50 = load ptr, ptr %9, align 8, !tbaa !85
@@ -2216,18 +2216,18 @@ _ZN10LogMessageD2Ev.exit:                         ; preds = %78, %_ZNKSt7__cxx11
   br i1 %.not43, label %.outer.backedge.sink.split, label %.backedge
 
 select.unfold:                                    ; preds = %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit, %_ZN10duckdb_re23DFA5Workq10insert_newEi.exit
-  %126 = and i32 %70, 8
-  %.lobit = lshr exact i32 %126, 3
-  %127 = xor i32 %.lobit, 1
-  %spec.select53 = add nuw nsw i32 %127, %.040
-  %.not92 = icmp eq i32 %126, 0
-  br i1 %.not92, label %.backedge70.backedge, label %.backedge
+  %128 = and i32 %70, 8
+  %.lobit = lshr exact i32 %128, 3
+  %129 = xor i32 %.lobit, 1
+  %spec.select53 = add nuw nsw i32 %129, %.040
+  %.not91 = icmp eq i32 %128, 0
+  br i1 %.not91, label %.backedge70.backedge, label %.backedge
 
 .backedge70.backedge:                             ; preds = %select.unfold, %112
   %.040.be = phi i32 [ %spec.select53, %select.unfold ], [ %113, %112 ]
   br label %.backedge70
 
-128:                                              ; preds = %.backedge
+130:                                              ; preds = %.backedge
   ret void
 }
 

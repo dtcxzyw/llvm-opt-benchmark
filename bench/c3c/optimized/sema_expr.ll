@@ -12451,30 +12451,30 @@ expr_may_ref.exit.thread:                         ; preds = %tailrecurse.i, %tai
   br label %sema_analyse_expr.exit.thread.sink.split
 
 sema_analyse_expr_lvalue.exit.thread99:           ; preds = %109
-  %119 = and i16 %116, -3841
-  %120 = or disjoint i16 %119, 512
-  store i16 %120, ptr %84, align 8
-  %121 = tail call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %0, ptr noundef nonnull %3)
-  br i1 %121, label %122, label %sema_analyse_expr.exit.thread
+  %120 = and i16 %116, -3841
+  %121 = or disjoint i16 %120, 512
+  store i16 %121, ptr %84, align 8
+  %122 = tail call fastcc zeroext i1 @sema_cast_rvalue(ptr noundef %0, ptr noundef nonnull %3)
+  br i1 %122, label %123, label %sema_analyse_expr.exit.thread
 
-122:                                              ; preds = %sema_analyse_expr_lvalue.exit.thread99
+123:                                              ; preds = %sema_analyse_expr_lvalue.exit.thread99
   tail call void @expr_rewrite_insert_deref(ptr noundef nonnull %3) #12
   br label %expr_may_ref.exit.thread90
 
-expr_may_ref.exit.thread90:                       ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %58, %58, %58, %58, %58, %58, %58, %expr_may_ref.exit, %122, %34, %42, %38, %35
-  %123 = tail call zeroext i1 @sema_expr_analyse_general_call(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null)
-  %124 = load i16, ptr %.sroa.3.0..sroa_idx, align 8
-  br i1 %123, label %127, label %125
+expr_may_ref.exit.thread90:                       ; preds = %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %tailrecurse.i, %58, %58, %58, %58, %58, %58, %58, %expr_may_ref.exit, %123, %34, %42, %38, %35
+  %124 = tail call zeroext i1 @sema_expr_analyse_general_call(ptr noundef %0, ptr noundef nonnull %1, ptr noundef %2, ptr noundef nonnull %3, i1 noundef zeroext false, ptr noundef null)
+  %125 = load i16, ptr %.sroa.3.0..sroa_idx, align 8
+  br i1 %124, label %127, label %126
 
-125:                                              ; preds = %expr_may_ref.exit.thread90
-  %126 = and i16 %124, -4096
+126:                                              ; preds = %expr_may_ref.exit.thread90
+  %127 = and i16 %125, -4096
   br label %sema_analyse_expr.exit.thread.sink.split
 
-127:                                              ; preds = %expr_may_ref.exit.thread90
+127:; preds = %expr_may_ref.exit.thread90
   %128 = and i16 %124, -3841
   br label %sema_analyse_expr.exit.thread.sink.split
 
-sema_analyse_expr.exit.thread.sink.split:         ; preds = %125, %127, %117
+sema_analyse_expr.exit.thread.sink.split:; preds = %126, %127, %117
   %.sink122 = phi i16 [ %118, %117 ], [ %128, %127 ], [ %126, %125 ]
   %.sink121 = phi ptr [ %84, %117 ], [ %.sroa.3.0..sroa_idx, %127 ], [ %.sroa.3.0..sroa_idx, %125 ]
   %.079.ph = phi i1 [ false, %117 ], [ true, %127 ], [ false, %125 ]

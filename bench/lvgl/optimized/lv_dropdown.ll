@@ -624,25 +624,25 @@ get_id_on_point.exit.i:                           ; preds = %97, %get_label.exit
   %122 = getelementptr inbounds nuw i8, ptr %12, i64 100
   %123 = load i32, ptr %122, align 4, !tbaa !20
   %124 = icmp eq i32 %120, %123
-  br i1 %124, label %125, label %126
+  br i1 %124, label %125, label %127
 
 125:                                              ; preds = %121
   call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 33)
   br label %130
 
-126:                                              ; preds = %121
+127:                                              ; preds = %121
   call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 32)
-  %127 = load i32, ptr %119, align 4, !tbaa !22
-  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %127, i16 noundef zeroext 32)
-  %128 = load i32, ptr %122, align 4, !tbaa !20
-  call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %128, i16 noundef zeroext 1)
+  %128 = load i32, ptr %119, align 4, !tbaa !22
+  call fastcc void @draw_box_label(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %128, i16 noundef zeroext 32)
+  %129 = load i32, ptr %122, align 4, !tbaa !20
+  call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %129, i16 noundef zeroext 1)
+  br label %133
+
+129:; preds = %115
+  call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 32)
   br label %130
 
-129:                                              ; preds = %115
-  call fastcc void @draw_box(ptr noundef nonnull %12, ptr noundef nonnull %13, i32 noundef %120, i16 noundef zeroext 32)
-  br label %130
-
-130:                                              ; preds = %129, %126, %125
+133:                                              ; preds = %129, %127, %125
   %.sink38.i = phi ptr [ %119, %125 ], [ %122, %126 ], [ %119, %129 ]
   %.sink37.i = phi i16 [ 33, %125 ], [ 1, %126 ], [ 32, %129 ]
   %131 = load i32, ptr %.sink38.i, align 4, !tbaa !32
@@ -651,9 +651,9 @@ get_id_on_point.exit.i:                           ; preds = %97, %get_label.exit
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   br label %draw_list.exit
 
-draw_list.exit:                                   ; preds = %.thread, %130
+draw_list.exit:                                   ; preds = %.thread, %133
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %132 = call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #8
+  %134 = call i32 @lv_obj_event_base(ptr noundef nonnull @lv_dropdownlist_class, ptr noundef %1) #8
   br label %list_press_handler.exit
 
 list_press_handler.exit:                          ; preds = %get_id_on_point.exit.i, %87, %82, %draw_list.exit, %21, %113, %25, %list_release_handler.exit, %19

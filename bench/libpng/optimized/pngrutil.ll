@@ -5233,7 +5233,7 @@ define internal range(i32 0, 4) i32 @png_handle_sBIT(ptr noalias noundef %0, ptr
 16:                                               ; preds = %15
   %17 = tail call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef %2, i32 noundef 0)
   tail call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.43) #13
-  br label %42
+  br label %43
 
 png_crc_read.exit:                                ; preds = %15
   %18 = getelementptr inbounds nuw i8, ptr %4, i64 3
@@ -5245,7 +5245,7 @@ png_crc_read.exit:                                ; preds = %15
   call void @png_calculate_crc(ptr noundef nonnull %0, ptr noundef nonnull %4, i64 noundef %21) #13
   %22 = call fastcc range(i32 0, 2) i32 @png_crc_finish_critical(ptr noundef nonnull %0, i32 noundef 0, i32 noundef 0)
   %.not37 = icmp eq i32 %22, 0
-  br i1 %.not37, label %.preheader, label %42
+  br i1 %.not37, label %.preheader, label %43
 
 .preheader:                                       ; preds = %png_crc_read.exit
   %.not40 = icmp eq i32 %2, 0
@@ -5266,7 +5266,7 @@ png_crc_read.exit:                                ; preds = %15
 
 27:                                               ; preds = %.lr.ph
   call void @png_chunk_benign_error(ptr noundef nonnull %0, ptr noundef nonnull @.str.30) #13
-  br label %42
+  br label %43
 
 ._crit_edge:                                      ; preds = %23, %.preheader
   %28 = load i8, ptr %5, align 1, !tbaa !124
@@ -5285,10 +5285,10 @@ png_crc_read.exit:                                ; preds = %15
   store i8 %30, ptr %35, align 1, !tbaa !195
   br label %36
 
-36:                                               ; preds = %34, %31
+36:; preds = %34, %31
   %.sink46 = phi ptr [ %20, %34 ], [ %18, %31 ]
   %.sink43 = phi i8 [ %30, %34 ], [ %32, %31 ]
-  %.sink42 = phi i8 [ %30, %34 ], [ %33, %31 ]
+  %.sink43 = phi i8 [ %30, %34 ], [ %33, %31 ]
   %37 = load i8, ptr %.sink46, align 1, !tbaa !3
   %38 = getelementptr inbounds nuw i8, ptr %0, i64 784
   store i8 %30, ptr %38, align 8, !tbaa !196
@@ -5299,9 +5299,9 @@ png_crc_read.exit:                                ; preds = %15
   %41 = getelementptr inbounds nuw i8, ptr %0, i64 788
   store i8 %37, ptr %41, align 4, !tbaa !199
   call void @png_set_sBIT(ptr noundef nonnull %0, ptr noundef %1, ptr noundef nonnull %38) #13
-  br label %42
+  br label %43
 
-42:                                               ; preds = %png_crc_read.exit, %36, %27, %16
+43:                                               ; preds = %png_crc_read.exit, %36, %27, %16
   %.034 = phi i32 [ 0, %16 ], [ 0, %27 ], [ 3, %36 ], [ 0, %png_crc_read.exit ]
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret i32 %.034

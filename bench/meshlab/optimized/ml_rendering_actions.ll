@@ -8250,28 +8250,28 @@ define void @_ZN33MLRenderingUserDefinedColorAction19updateRenderingDataER15MLRe
   %175 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %176 = zext i1 %175 to i8
   store i8 %176, ptr %10, align 2
-  br label %.sink.split
+  br label %184
 
-177:                                              ; preds = %37, %37
+177:; preds = %37, %37
   %178 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %179 = zext i1 %178 to i8
   store i8 %179, ptr %11, align 1
   br label %.sink.split
 
-180:                                              ; preds = %37
+180:; preds = %37
   %181 = tail call noundef zeroext i1 @_ZNK7QAction9isCheckedEv(ptr noundef nonnull align 8 dereferenceable(16) %0)
   %182 = zext i1 %181 to i8
   store i8 %182, ptr %12, align 4
-  br label %.sink.split
+  br label %184
 
-.sink.split:                                      ; preds = %174, %177, %180
+184:                                              ; preds = %174, %177, %180
   %.sink5 = phi ptr [ %7, %180 ], [ %6, %177 ], [ %5, %174 ]
   %183 = getelementptr inbounds nuw i8, ptr %0, i64 16
   %184 = load i32, ptr %183, align 8
   store i32 %184, ptr %.sink5, align 1
   br label %185
 
-185:                                              ; preds = %.sink.split, %37
+185:; preds = %184, %37
   call void @_ZN15MLRenderingData3setERK18MLPerViewGLOptions(ptr noundef nonnull align 8 dereferenceable(40) %1, ptr noundef nonnull align 8 dereferenceable(90) %3)
   br label %_ZNK3vcg11PerViewDataI18MLPerViewGLOptionsE3getERS1_.exit
 

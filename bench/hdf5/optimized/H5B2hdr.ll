@@ -1266,27 +1266,27 @@ define range(i32 -1, 1) i32 @H5B2__hdr_delete(ptr noundef %0) local_unnamed_addr
   %33 = load i64, ptr %32, align 8, !tbaa !74
   %34 = tail call i32 @H5AC_unprotect(ptr noundef %31, ptr noundef nonnull @H5AC_BT2_HDR, i64 noundef %33, ptr noundef nonnull %0, i32 noundef 0) #5
   %35 = icmp slt i32 %34, 0
-  br i1 %35, label %H5B2__hdr_unprotect.exit, label %H5B2__hdr_unprotect.exit.thread
+  br i1 %35, label %49, label %H5B2__hdr_unprotect.exit.thread
 
 .split:                                           ; preds = %..split_crit_edge, %8
   %.pre-phi24 = phi i1 [ %.pre23, %..split_crit_edge ], [ %6, %8 ]
   %.pre-phi = phi i1 [ %.pre20, %..split_crit_edge ], [ %3, %8 ]
-  %36 = select i1 %.pre-phi, i1 true, i1 %.pre-phi24
-  br i1 %36, label %37, label %H5B2__hdr_unprotect.exit.thread, !prof !9
+  %41 = select i1 %.pre-phi, i1 true, i1 %.pre-phi24
+  br i1 %41, label %42, label %H5B2__hdr_unprotect.exit.thread, !prof !9
 
-37:                                               ; preds = %.split
-  %38 = getelementptr inbounds nuw i8, ptr %0, i64 288
-  %39 = load ptr, ptr %38, align 8, !tbaa !60
-  %40 = getelementptr inbounds nuw i8, ptr %0, i64 296
-  %41 = load i64, ptr %40, align 8, !tbaa !74
-  %42 = tail call i32 @H5AC_unprotect(ptr noundef %39, ptr noundef nonnull @H5AC_BT2_HDR, i64 noundef %41, ptr noundef nonnull %0, i32 noundef 259) #5
-  %43 = icmp slt i32 %42, 0
-  br i1 %43, label %H5B2__hdr_unprotect.exit, label %H5B2__hdr_unprotect.exit.thread
+42:                                               ; preds = %.split
+  %43 = getelementptr inbounds nuw i8, ptr %0, i64 288
+  %44 = load ptr, ptr %43, align 8, !tbaa !60
+  %45 = getelementptr inbounds nuw i8, ptr %0, i64 296
+  %46 = load i64, ptr %45, align 8, !tbaa !74
+  %47 = tail call i32 @H5AC_unprotect(ptr noundef %44, ptr noundef nonnull @H5AC_BT2_HDR, i64 noundef %46, ptr noundef nonnull %0, i32 noundef 259) #5
+  %48 = icmp slt i32 %47, 0
+  br i1 %48, label %49, label %H5B2__hdr_unprotect.exit.thread
 
-H5B2__hdr_unprotect.exit:                         ; preds = %37, %29
+49:                                               ; preds = %42, %29
   %.sink27 = phi ptr [ %32, %29 ], [ %40, %37 ]
-  %44 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
-  %45 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !40
+  %51 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
+  %52 = load i64, ptr @H5E_CANTUNPROTECT_g, align 8, !tbaa !40
   %46 = load i64, ptr %.sink27, align 8, !tbaa !74
   %47 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_unprotect, i32 noundef 553, i64 noundef %44, i64 noundef %45, ptr noundef nonnull @.str.22, i64 noundef %46) #5
   %48 = load i64, ptr @H5E_BTREE_g, align 8, !tbaa !40
@@ -1294,7 +1294,7 @@ H5B2__hdr_unprotect.exit:                         ; preds = %37, %29
   %50 = tail call i32 (ptr, ptr, i32, i64, i64, ptr, ...) @H5E_printf_stack(ptr noundef nonnull @.str.1, ptr noundef nonnull @__func__.H5B2__hdr_delete, i32 noundef 679, i64 noundef %48, i64 noundef %49, ptr noundef nonnull @.str.16) #5
   br label %H5B2__hdr_unprotect.exit.thread
 
-H5B2__hdr_unprotect.exit.thread:                  ; preds = %.split, %37, %.split14, %29, %H5B2__hdr_unprotect.exit, %1
+H5B2__hdr_unprotect.exit.thread:                  ; preds = %.split, %42, %.split14, %29, %H5B2__hdr_unprotect.exit, %1
   %.0 = phi i32 [ -1, %H5B2__hdr_unprotect.exit ], [ 0, %1 ], [ 0, %37 ], [ 0, %.split ], [ -1, %29 ], [ -1, %.split14 ]
   ret i32 %.0
 }

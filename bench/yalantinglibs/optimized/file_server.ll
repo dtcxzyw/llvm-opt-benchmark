@@ -57641,7 +57641,7 @@ _ZN12async_simple4coro4LazyISt4pairISt10error_codemEED2Ev.exit13: ; preds = %ehc
   invoke void @__cxa_end_catch()
           to label %CoroSave98 unwind label %lpad51
 
-CoroSave98.sink.split:                            ; preds = %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit34, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit24, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit
+CoroSave98:                                       ; preds = %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit34, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit24, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit
   %_M_index.i.i.i.i.i.i.sink = phi ptr [ %_M_index.i.i.i.i.i.i, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit ], [ %_M_index.i.i.i.i.i.i27, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit24 ], [ %_M_index.i.i.i.i.i.i27, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S6_E.exit34 ]
   store i8 1, ptr %_M_index.i.i.i.i.i.i.sink, align 8
   br label %CoroSave98
@@ -58342,7 +58342,7 @@ catch:                                            ; preds = %invoke.cont.i.i60, 
   invoke void @__cxa_end_catch()
           to label %CoroSave166 unwind label %lpad99
 
-CoroSave166.sink.split:                           ; preds = %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51
+CoroSave166:                                      ; preds = %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51
   %_M_index.i.i.i.i.i.i44.sink = phi ptr [ %_M_index.i.i.i.i.i.i44, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit51 ], [ %_M_index.i.i.i.i.i.i, %_ZN12async_simple4coro6detail11LazyPromiseISt10error_codeE12return_valueIRS3_EEvOT_Qsr3stdE16is_convertible_vIOTL0__S7_E.exit ]
   store i8 1, ptr %_M_index.i.i.i.i.i.i44.sink, align 8
   br label %CoroSave166
@@ -58462,7 +58462,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %20) #36
   unreachable
 
-cleanup117.sink.split:                            ; preds = %if.then.i.i10, %if.then.i.i
+cleanup117:                                       ; preds = %if.then.i.i10, %if.then.i.i
   %ref.tmp56.reload.addr.sink = phi ptr [ %ref.tmp22.reload.addr, %if.then.i.i ], [ %ref.tmp56.reload.addr, %if.then.i.i10 ]
   store ptr null, ptr %ref.tmp56.reload.addr.sink, align 8
   br label %cleanup117
@@ -60499,7 +60499,7 @@ terminate.lpad.i.i86:                             ; preds = %if.then.i.i85
   tail call void @__clang_call_terminate(ptr %73) #36
   unreachable
 
-if.end.sink.split:                                ; preds = %if.then.i.i75, %if.then.i.i
+if.end:                                           ; preds = %if.then.i.i75, %if.then.i.i
   %ref.tmp79.reload.addr.sink = phi ptr [ %ref.tmp28.reload.addr, %if.then.i.i ], [ %ref.tmp79.reload.addr, %if.then.i.i75 ]
   store ptr null, ptr %ref.tmp79.reload.addr.sink, align 8
   br label %if.end
@@ -61048,7 +61048,7 @@ terminate.lpad.i.i11:                             ; preds = %if.then.i.i10
   tail call void @__clang_call_terminate(ptr %20) #36
   unreachable
 
-cleanup232.sink.split:                            ; preds = %if.then.i.i10, %if.then.i.i
+cleanup232:                                       ; preds = %if.then.i.i10, %if.then.i.i
   %ref.tmp79.reload.addr.sink = phi ptr [ %ref.tmp28.reload.addr, %if.then.i.i ], [ %ref.tmp79.reload.addr, %if.then.i.i10 ]
   store ptr null, ptr %ref.tmp79.reload.addr.sink, align 8
   br label %cleanup232

@@ -1269,7 +1269,7 @@ _ZNSt10unique_ptrIN4LIEF5dwarf15CompilationUnitESt14default_deleteIS2_EED2Ev.exi
   %399 = load i8, ptr %120, align 8, !tbaa !51, !range !54, !noalias !48, !noundef !55
   %400 = trunc nuw i8 %399 to i1
   store ptr %121, ptr %38, align 8, !tbaa !22, !alias.scope !48
-  br i1 %400, label %401, label %_ZNO2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsE8value_orIRA1_KcEES6_OT_.exit
+  br i1 %400, label %401, label %._crit_edge.i.i.i
 
 401:                                              ; preds = %398
   %402 = load ptr, ptr %39, align 8, !tbaa !25, !noalias !48
@@ -1297,7 +1297,7 @@ _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i23
   store ptr %123, ptr %39, align 8, !tbaa !25, !noalias !48
   br label %_ZNO2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsE8value_orIRA1_KcEES6_OT_.exit
 
-_ZNO2tl8expectedINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE11lief_errorsE8value_orIRA1_KcEES6_OT_.exit: ; preds = %398, %.thread.i
+._crit_edge.i.i.i:                                ; preds = %398, %.thread.i
   %.sink556 = phi ptr [ %.phi.trans.insert.i, %.thread.i ], [ %122, %398 ]
   %.sink = phi ptr [ %123, %.thread.i ], [ %121, %398 ]
   store i64 0, ptr %.sink556, align 8, !tbaa !28

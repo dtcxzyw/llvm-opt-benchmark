@@ -4499,13 +4499,13 @@ _ZN4llvm11GraphWriterIPN12_GLOBAL__N_118MachineGadgetGraphEE11writeHeaderERKNSt7
   %198 = load i16, ptr %197, align 4, !tbaa !377, !noalias !590
   %199 = icmp eq i16 %198, 2124
   store ptr %175, ptr %3, align 8, !tbaa !34, !alias.scope !590
-  br i1 %199, label %._crit_edge.i.i3.i.i.i.i.i, label %_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE17getNodeAttributesB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_.exit.i.i.i.i
+  br i1 %199, label %._crit_edge.i.i3.i.i.i.i.i, label %._crit_edge.i.i5.i.i.i.i.i
 
 ._crit_edge.i.i3.i.i.i.i.i:                       ; preds = %196
   call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(13) %175, ptr noundef nonnull align 1 dereferenceable(13) @.str.70, i64 13, i1 false)
   br label %_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE17getNodeAttributesB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_.exit.i.i.i.i
 
-_ZN4llvm14DOTGraphTraitsIPN12_GLOBAL__N_118MachineGadgetGraphEE17getNodeAttributesB5cxx11EPKNS_14ImmutableGraphIPNS_12MachineInstrEiE4NodeES3_.exit.i.i.i.i: ; preds = %._crit_edge.i.i3.i.i.i.i.i, %196, %._crit_edge.i.i.i.i.i.i.i
+._crit_edge.i.i5.i.i.i.i.i:                       ; preds = %._crit_edge.i.i3.i.i.i.i.i, %196, %._crit_edge.i.i.i.i.i.i.i
   %.sink41.i.i.i = phi i64 [ 13, %._crit_edge.i.i3.i.i.i.i.i ], [ 12, %._crit_edge.i.i.i.i.i.i.i ], [ 0, %196 ]
   %.sink.i.i.i = phi ptr [ %177, %._crit_edge.i.i3.i.i.i.i.i ], [ %178, %._crit_edge.i.i.i.i.i.i.i ], [ %175, %196 ]
   store i64 %.sink41.i.i.i, ptr %176, align 8, !tbaa !36, !alias.scope !590

@@ -3155,8 +3155,8 @@ define dso_local range(i32 -30, 1) i32 @archive_acl_from_text_nl(ptr noundef cap
 
 next_field.exit.sink.split:                       ; preds = %.critedge2.i, %23, %27, %.preheader380, %..critedge8.i.loopexit_crit_edge
   %.5273.sink = phi ptr [ %scevgep433, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %scevgep, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
-  %.1239483.ph = phi ptr [ %.10278, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %.10278, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
-  %.2242481.ph = phi ptr [ %.2270, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %.2270, %27 ], [ %.2270, %23 ], [ %scevgep, %.critedge2.i ]
+  %.1239483 = phi ptr [ %.10278, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %.10278, %27 ], [ %scevgep, %23 ], [ %scevgep, %.critedge2.i ]
+  %.2242481 = phi ptr [ %.2270, %..critedge8.i.loopexit_crit_edge ], [ %.1269, %.preheader380 ], [ %.2270, %27 ], [ %.2270, %23 ], [ %scevgep, %.critedge2.i ]
   %.pr111.i = load i8, ptr %.5273.sink, align 1, !tbaa !34
   br label %next_field.exit
 

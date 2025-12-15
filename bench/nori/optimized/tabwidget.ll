@@ -2034,14 +2034,14 @@ _ZNKSt8functionIFviEEclEi.exit:                   ; preds = %230, %224
   br i1 %3, label %.thread140, label %.thread142
 
 .thread142.sink.split:                            ; preds = %.thread142.sink.split.loopexit169.critedge, %.thread142.sink.split.loopexit.critedge
-  %.sink171 = phi ptr [ %11, %.thread142.sink.split.loopexit169.critedge ], [ %10, %.thread142.sink.split.loopexit.critedge ]
+  %.sink = phi ptr [ %11, %.thread142.sink.split.loopexit169.critedge ], [ %10, %.thread142.sink.split.loopexit.critedge ]
   %.04.i70.sroa.gep72.sink = phi ptr [ %.04.i70.sroa.gep72, %.thread142.sink.split.loopexit169.critedge ], [ %.04.i.sroa.gep73, %.thread142.sink.split.loopexit.critedge ]
   store i32 0, ptr %.sink171, align 4
   store i32 0, ptr %.04.i70.sroa.gep72.sink, align 4
   %241 = load ptr, ptr %0, align 8
   %242 = getelementptr inbounds nuw i8, ptr %241, i64 40
   %243 = load ptr, ptr %242, align 8
-  %244 = call noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink171, i32 noundef 0, i32 noundef 0)
+  %244 = call noundef zeroext i1 %243(ptr noundef nonnull align 8 dereferenceable(416) %0, ptr noundef nonnull align 4 dereferenceable(8) %1, ptr noundef nonnull align 4 dereferenceable(8) %.sink, i32 noundef 0, i32 noundef 0)
   br label %.thread142
 
 .thread142:                                       ; preds = %.thread142.sink.split, %239, %185, %240

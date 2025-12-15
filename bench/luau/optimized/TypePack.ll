@@ -3831,7 +3831,7 @@ _ZN4Luau10getMutableINS_8TypePackEEEPT_PKNS_11TypePackVarE.exit.sink.split.i.i.i
   %10 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.pn, i64 16
   %11 = load ptr, ptr %10, align 8, !tbaa !68
   %12 = icmp eq ptr %9, %11
-  br i1 %12, label %13, label %.thread.sink.split
+  br i1 %12, label %13, label %.critedge
 
 13:                                               ; preds = %.lr.ph.i
   %14 = getelementptr inbounds nuw i8, ptr %.sink.i.i.i.pn, i64 40
@@ -3860,24 +3860,24 @@ _ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit.i: ; 
 
 _ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit: ; preds = %_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit.i, %24
   %.sroa.016.2.ph35 = phi ptr [ %4, %24 ], [ %20, %_ZNK4Luau6TxnLog10getMutableINS_8TypePackEPKNS_11TypePackVarEEEPT_T0_.exit.i ]
-  %25 = load i32, ptr %.sroa.016.2.ph35, align 8, !tbaa !49
-  %.not = icmp eq i32 %25, 5
+  %27 = load i32, ptr %.sroa.016.2.ph35, align 8, !tbaa !49
+  %.not = icmp eq i32 %27, 5
   br i1 %.not, label %26, label %.thread
 
 26:                                               ; preds = %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit
   %27 = getelementptr inbounds nuw i8, ptr %.sroa.016.2.ph35, i64 8
-  %28 = getelementptr inbounds nuw i8, ptr %.sroa.016.2.ph35, i64 16
-  %29 = load i8, ptr %28, align 8, !tbaa !111, !range !74, !noundef !75
-  %30 = trunc nuw i8 %29 to i1
-  %or.cond = and i1 %1, %30
-  br i1 %or.cond, label %.thread, label %.thread.sink.split
+  %30 = getelementptr inbounds nuw i8, ptr %.sroa.016.2.ph35, i64 16
+  %31 = load i8, ptr %30, align 8, !tbaa !111, !range !74, !noundef !75
+  %32 = trunc nuw i8 %31 to i1
+  %or.cond = and i1 %1, %32
+  br i1 %or.cond, label %.thread, label %.critedge
 
-.thread.sink.split:                               ; preds = %.lr.ph.i, %26
+.critedge:                                        ; preds = %.lr.ph.i, %26
   %.sink = phi ptr [ %27, %26 ], [ %9, %.lr.ph.i ]
   %31 = load ptr, ptr %.sink, align 8, !tbaa !83
   br label %.thread
 
-.thread:                                          ; preds = %17, %13, %.thread.sink.split, %6, %26, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, %24
+.thread:                                          ; preds = %17, %13, %.critedge, %6, %26, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit, %24
   %.sroa.019.0 = phi ptr [ undef, %24 ], [ undef, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit ], [ undef, %26 ], [ undef, %6 ], [ %31, %.thread.sink.split ], [ undef, %13 ], [ undef, %17 ]
   %.sroa.320.0 = phi i8 [ 0, %24 ], [ 0, %_ZN4Luau3getINS_16VariadicTypePackEEEPKT_PKNS_11TypePackVarE.exit ], [ 0, %26 ], [ 0, %6 ], [ 1, %.thread.sink.split ], [ 0, %13 ], [ 0, %17 ]
   %.fca.0.insert = insertvalue { ptr, i8 } poison, ptr %.sroa.019.0, 0

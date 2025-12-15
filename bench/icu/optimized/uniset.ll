@@ -6407,12 +6407,12 @@ define noundef nonnull align 8 dereferenceable(200) ptr @_ZN6icu_7710UnicodeSet1
   %26 = select i1 %.not.i.i.i.i, ptr %25, ptr %23
   %27 = load i16, ptr %26, align 2, !tbaa !38
   %28 = zext i16 %27 to i32
-  br label %47
+  br label %48
 
 29:                                               ; preds = %13
   %30 = tail call noundef i32 @_ZNK6icu_7713UnicodeString8char32AtEi(ptr noundef nonnull align 8 dereferenceable(64) %1, i32 noundef 0)
   %31 = icmp slt i32 %30, 65536
-  br i1 %31, label %_ZN6icu_7710UnicodeSet11getSingleCPERKNS_13UnicodeStringE.exit, label %42
+  br i1 %31, label %_ZN6icu_7710UnicodeSet11getSingleCPERKNS_13UnicodeStringE.exit, label %43
 
 _ZN6icu_7710UnicodeSet11getSingleCPERKNS_13UnicodeStringE.exit: ; preds = %29, %13
   %32 = getelementptr inbounds nuw i8, ptr %0, i64 80
@@ -6438,49 +6438,49 @@ _ZNK6icu_7710UnicodeSet15stringsContainsERKNS_13UnicodeStringE.exit.thread: ; pr
   %40 = getelementptr inbounds nuw i8, ptr %0, i64 64
   %41 = load ptr, ptr %40, align 8, !tbaa !35
   %.not.i11 = icmp eq ptr %41, null
-  br i1 %.not.i11, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split
+  br i1 %.not.i11, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %57
 
-42:                                               ; preds = %29
+43:                                               ; preds = %29
   %.pre = load ptr, ptr %4, align 8, !tbaa !37
   %.pre17 = load ptr, ptr %6, align 8
-  %43 = icmp eq ptr %.pre, null
-  %44 = icmp eq ptr %.pre17, null
-  %45 = select i1 %43, i1 %44, i1 false
-  %46 = tail call i32 @llvm.umin.i32(i32 %30, i32 1114111)
-  br i1 %45, label %47, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
+  %44 = icmp eq ptr %.pre, null
+  %45 = icmp eq ptr %.pre17, null
+  %46 = select i1 %44, i1 %45, i1 false
+  %47 = tail call i32 @llvm.umin.i32(i32 %30, i32 1114111)
+  br i1 %46, label %48, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-47:                                               ; preds = %.thread, %42
-  %.0.i.ph23 = phi i32 [ %28, %.thread ], [ %46, %42 ]
-  %48 = load i8, ptr %10, align 8, !tbaa !34
-  %49 = and i8 %48, 1
-  %.not2.i = icmp eq i8 %49, 0
-  br i1 %.not2.i, label %50, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
+48:                                               ; preds = %.thread, %43
+  %.0.i.ph23 = phi i32 [ %28, %.thread ], [ %47, %42 ]
+  %49 = load i8, ptr %10, align 8, !tbaa !34
+  %50 = and i8 %49, 1
+  %.not2.i = icmp eq i8 %50, 0
+  br i1 %.not2.i, label %51, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-50:                                               ; preds = %47
+51:                                               ; preds = %48
   call void @llvm.lifetime.start.p0(ptr nonnull %3)
   store i32 %.0.i.ph23, ptr %3, align 4, !tbaa !12
-  %51 = getelementptr inbounds nuw i8, ptr %3, i64 4
-  %52 = add nuw nsw i32 %.0.i.ph23, 1
-  store i32 %52, ptr %51, align 4, !tbaa !12
-  %53 = getelementptr inbounds nuw i8, ptr %3, i64 8
-  store i32 1114112, ptr %53, align 4, !tbaa !12
+  %52 = getelementptr inbounds nuw i8, ptr %3, i64 4
+  %53 = add nuw nsw i32 %.0.i.ph23, 1
+  store i32 %53, ptr %52, align 4, !tbaa !12
+  %54 = getelementptr inbounds nuw i8, ptr %3, i64 8
+  store i32 1114112, ptr %54, align 4, !tbaa !12
   call void @_ZN6icu_7710UnicodeSet11exclusiveOrEPKiia(ptr noundef nonnull align 8 dereferenceable(200) %0, ptr noundef nonnull %3, i32 noundef 2, i8 noundef signext 0)
   call void @llvm.lifetime.end.p0(ptr nonnull %3)
-  %54 = getelementptr inbounds nuw i8, ptr %0, i64 64
-  %55 = load ptr, ptr %54, align 8, !tbaa !35
-  %.not.i7.i = icmp eq ptr %55, null
-  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split
+  %55 = getelementptr inbounds nuw i8, ptr %0, i64 64
+  %56 = load ptr, ptr %55, align 8, !tbaa !35
+  %.not.i7.i = icmp eq ptr %56, null
+  br i1 %.not.i7.i, label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit, label %57
 
-_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split: ; preds = %50, %39
-  %.sink24 = phi ptr [ %41, %39 ], [ %55, %50 ]
-  %.sink = phi ptr [ %40, %39 ], [ %54, %50 ]
+57:                                               ; preds = %51, %39
+  %.sink24 = phi ptr [ %41, %39 ], [ %56, %50 ]
+  %.sink = phi ptr [ %40, %39 ], [ %55, %50 ]
   tail call void @uprv_free_77(ptr noundef nonnull %.sink24)
   store ptr null, ptr %.sink, align 8, !tbaa !35
   %56 = getelementptr inbounds nuw i8, ptr %0, i64 72
   store i32 0, ptr %56, align 8, !tbaa !36
   br label %_ZN6icu_7710UnicodeSet14releasePatternEv.exit
 
-_ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split, %50, %47, %42, %39, %2, %9
+_ZN6icu_7710UnicodeSet14releasePatternEv.exit:    ; preds = %_ZN6icu_7710UnicodeSet14releasePatternEv.exit.sink.split, %51, %48, %43, %39, %2, %9
   ret ptr %0
 }
 

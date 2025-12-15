@@ -17311,18 +17311,18 @@ define hidden void @_ZN3ue215recordResourcesERNS_13RoseResourcesERKNS_11RoseProg
   %11 = getelementptr inbounds nuw i8, ptr %0, i64 1
   br label %12
 
-._crit_edge:                                      ; preds = %23, %2
+._crit_edge:                                      ; preds = %24, %2
   ret void
 
-12:                                               ; preds = %.lr.ph, %23
-  %.sroa.010.014 = phi ptr [ %3, %.lr.ph ], [ %24, %23 ]
+12:                                               ; preds = %.lr.ph, %24
+  %.sroa.010.014 = phi ptr [ %3, %.lr.ph ], [ %25, %23 ]
   %13 = load ptr, ptr %.sroa.010.014, align 8
   %14 = load ptr, ptr %13, align 8
   %15 = getelementptr inbounds nuw i8, ptr %14, i64 16
   %16 = load ptr, ptr %15, align 8
   %17 = tail call noundef i32 %16(ptr noundef nonnull align 8 dereferenceable(8) %13)
   switch i32 %17, label %23 [
-    i32 27, label %.sink.split
+    i32 27, label %23
     i32 26, label %18
     i32 16, label %18
     i32 17, label %18
@@ -17338,28 +17338,28 @@ define hidden void @_ZN3ue215recordResourcesERNS_13RoseResourcesERKNS_11RoseProg
   ]
 
 18:                                               ; preds = %12, %12, %12, %12
-  br label %.sink.split
+  br label %23
 
 19:                                               ; preds = %12, %12, %12, %12
-  br label %.sink.split
+  br label %23
 
 20:                                               ; preds = %12
-  br label %.sink.split
+  br label %23
 
 21:                                               ; preds = %12
-  br label %.sink.split
+  br label %23
 
 22:                                               ; preds = %12, %12
-  br label %.sink.split
+  br label %23
 
-.sink.split:                                      ; preds = %12, %18, %19, %20, %21, %22
+23:                                               ; preds = %12, %18, %19, %20, %21, %22
   %.sink = phi ptr [ %6, %22 ], [ %7, %21 ], [ %8, %20 ], [ %9, %19 ], [ %10, %18 ], [ %11, %12 ]
   store i8 1, ptr %.sink, align 1
   br label %23
 
-23:                                               ; preds = %.sink.split, %12
-  %24 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
-  %.not = icmp eq ptr %24, %5
+24:                                               ; preds = %23, %12
+  %25 = getelementptr inbounds nuw i8, ptr %.sroa.010.014, i64 8
+  %.not = icmp eq ptr %25, %5
   br i1 %.not, label %._crit_edge, label %12
 }
 

@@ -159,7 +159,7 @@ define i32 @EVP_PKEY_save_parameters(ptr noundef captures(none) %0, i32 noundef 
   %5 = getelementptr inbounds nuw i8, ptr %0, i64 72
   %6 = load i32, ptr %5, align 8, !tbaa !27
   %7 = icmp sgt i32 %1, -1
-  br i1 %7, label %.sink.split, label %12
+  br i1 %7, label %.sink.split, label %14
 
 8:                                                ; preds = %2
   %9 = getelementptr inbounds nuw i8, ptr %0, i64 72
@@ -167,13 +167,13 @@ define i32 @EVP_PKEY_save_parameters(ptr noundef captures(none) %0, i32 noundef 
   %11 = icmp sgt i32 %1, -1
   br i1 %11, label %.sink.split, label %12
 
-.sink.split:                                      ; preds = %8, %4
+.sink.split:; preds = %8, %4
   %.sink = phi ptr [ %5, %4 ], [ %9, %8 ]
   %.0.ph = phi i32 [ %6, %4 ], [ %10, %8 ]
   store i32 %1, ptr %.sink, align 8, !tbaa !27
   br label %12
 
-12:                                               ; preds = %.sink.split, %2, %8, %4
+14:                                               ; preds = %.sink.split, %2, %8, %4
   %.0 = phi i32 [ %6, %4 ], [ %10, %8 ], [ 0, %2 ], [ %.0.ph, %.sink.split ]
   ret i32 %.0
 }

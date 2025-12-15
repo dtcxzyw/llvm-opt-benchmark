@@ -271,15 +271,15 @@ define range(i32 0, 2) i32 @explode(ptr noundef %0) local_unnamed_addr #1 {
   store i32 0, ptr %71, align 8, !tbaa !17
   %98 = load i32, ptr %2, align 8, !tbaa !14
   %99 = add i32 %98, 1
-  br label %.sink.split563
+  br label %.sink.split
 
-.sink.split563:                                   ; preds = %233, %477, %97
-  %.sink564 = phi i32 [ %99, %97 ], [ 3, %477 ], [ 3, %233 ]
+.sink.split:                                      ; preds = %233, %477, %97
+  %.sink561 = phi i32 [ %99, %97 ], [ 3, %477 ], [ 3, %233 ]
   %.4.ph = phi i32 [ -1, %97 ], [ %.14, %477 ], [ %.1, %233 ]
-  store i32 %.sink564, ptr %2, align 8, !tbaa !14
+  store i32 %.sink561, ptr %2, align 8, !tbaa !14
   br label %100
 
-100:                                              ; preds = %.sink.split563, %1
+100:                                              ; preds = %.sink.split, %1
   %.4 = phi i32 [ -1, %1 ], [ %.4.ph, %.sink.split563 ]
   %101 = getelementptr inbounds nuw i8, ptr %0, i64 1572
   %102 = load i32, ptr %101, align 4, !tbaa !18
@@ -568,7 +568,7 @@ lookup_tree.exit.thread:                          ; preds = %179
   %250 = load ptr, ptr %246, align 8, !tbaa !25
   %251 = getelementptr inbounds nuw i8, ptr %250, i64 1
   store ptr %251, ptr %246, align 8, !tbaa !25
-  br label %.sink.split563
+  br label %.sink.split
 
 252:                                              ; preds = %123
   store i32 6, ptr %2, align 8, !tbaa !14
@@ -983,7 +983,7 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %480 = add i16 %478, -1
   store i16 %480, ptr %479, align 2, !tbaa !22
   %.not428 = icmp eq i16 %478, 0
-  br i1 %.not428, label %.sink.split563, label %481
+  br i1 %.not428, label %.sink.split, label %481
 
 481:                                              ; preds = %477, %1
   %.3 = phi i32 [ %.14, %477 ], [ -1, %1 ]
@@ -1040,8 +1040,8 @@ lookup_tree.exit451.thread:                       ; preds = %420
   %.pre503 = load i16, ptr %.phi.trans.insert502, align 2, !tbaa !22
   br label %477
 
-.sink.split:                                      ; preds = %21, %54, %87
-  %.sink559 = phi ptr [ %90, %87 ], [ %57, %54 ], [ %24, %21 ]
+514:                                              ; preds = %21, %54, %87
+  %.0369 = phi ptr [ %90, %87 ], [ %57, %54 ], [ %24, %21 ]
   %.sink558 = phi ptr [ %68, %87 ], [ %35, %54 ], [ %5, %21 ]
   store ptr %.sink559, ptr %0, align 8, !tbaa !19
   store i32 0, ptr %.sink558, align 4, !tbaa !18

@@ -811,7 +811,7 @@ define void @_ZN7rocksdb15CacheDumperImpl24DumpCacheEntriesToWriterEv(ptr dead_o
           to label %_ZN7rocksdb8IOStatus15InvalidArgumentERKNS_5SliceES3_.exit unwind label %_ZN7rocksdb6StatusD2Ev.exit.i.i.i, !noalias !106
 
 common.resume:                                    ; preds = %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i
-  %.sink = phi ptr [ %34, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15 ], [ %23, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12 ], [ %13, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %134, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32 ]
+  %common.resume.op = phi ptr [ %34, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15 ], [ %23, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12 ], [ %13, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %134, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %134, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32 ]
   %common.resume.op = phi { ptr, i32 } [ %36, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i15 ], [ %25, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i12 ], [ %15, %_ZN7rocksdb6StatusD2Ev.exit.i.i.i ], [ %.pn, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit30 ], [ %.pn, %_ZNKSt14default_deleteIA_KcEclIS0_EENSt9enable_ifIXsr14is_convertibleIPA_T_PS1_EE5valueEvE4typeEPS5_.exit.i.i32 ]
   store ptr null, ptr %.sink, align 8, !tbaa !71
   resume { ptr, i32 } %common.resume.op

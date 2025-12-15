@@ -339,18 +339,18 @@ define void @prte_job_session_dir_finalize(ptr noundef %0) local_unnamed_addr #0
   %26 = load ptr, ptr %14, align 8, !tbaa !19
   br label %.sink.split
 
-.sink.split:                                      ; preds = %20, %25
+.sink.split:; preds = %20, %25
   %.sink13 = phi ptr [ %26, %25 ], [ %23, %20 ]
   %.sink12 = phi ptr [ %14, %25 ], [ getelementptr inbounds nuw (i8, ptr @prte_process_info, i64 848), %20 ]
   %27 = tail call i32 @pmix_os_dirpath_destroy(ptr noundef %.sink13, i1 noundef zeroext true, ptr noundef nonnull @_check_file) #9
   %28 = load ptr, ptr %.sink12, align 8, !tbaa !14
   %29 = tail call i32 @rmdir(ptr noundef %28) #9
-  %30 = load ptr, ptr %.sink12, align 8, !tbaa !14
-  tail call void @free(ptr noundef %30) #9
+  %31 = load ptr, ptr %.sink12, align 8, !tbaa !14
+  tail call void @free(ptr noundef %31) #9
   store ptr null, ptr %.sink12, align 8, !tbaa !14
   br label %31
 
-31:                                               ; preds = %.sink.split, %20, %13, %7, %1
+31:  ; preds = %.sink.split, %20, %13, %7, %1
   ret void
 }
 

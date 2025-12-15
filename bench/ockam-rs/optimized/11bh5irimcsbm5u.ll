@@ -2431,7 +2431,7 @@ _ZN12tracing_core8callsite15DefaultCallsite8interest17h90c4fcd119ea9721E.exit.i.
           to label %677 unwind label %675, !noalias !126
 
 674:                                              ; preds = %547, %393
-  %.phi.trans.insert.i.i.sink = phi ptr [ %.phi.trans.insert.i.i, %547 ], [ %133, %393 ]
+  %.sink.i.ph.i = phi ptr [ %.phi.trans.insert.i.i, %547 ], [ %133, %393 ]
   %.sink.i.ph.i = phi i8 [ 3, %547 ], [ 4, %393 ]
   store i8 3, ptr %.phi.trans.insert.i.i.sink, align 8, !noalias !134
   store i8 %.sink.i.ph.i, ptr %105, align 1, !noalias !134
@@ -3431,7 +3431,7 @@ default.unreachable:                              ; preds = %82, %67
           to label %"_ZN10ockam_node5relay15processor_relay23ProcessorRelay$LT$P$GT$3run28_$u7b$$u7b$closure$u7d$$u7d$28_$u7b$$u7b$closure$u7d$$u7d$17h06ae5a24c2eff153E.exit" unwind label %75, !range !136
 
 common.resume:                                    ; preds = %93, %101, %106, %.body83.i, %219, %230, %232, %241, %75
-  %.sink = phi ptr [ %25, %75 ], [ %28, %241 ], [ %28, %232 ], [ %28, %230 ], [ %28, %219 ], [ %28, %.body83.i ], [ %28, %106 ], [ %28, %101 ], [ %28, %93 ]
+  %common.resume.op = phi ptr [ %25, %75 ], [ %28, %241 ], [ %28, %232 ], [ %28, %230 ], [ %28, %219 ], [ %28, %.body83.i ], [ %28, %106 ], [ %28, %101 ], [ %28, %93 ]
   %common.resume.op = phi { ptr, i32 } [ %76, %75 ], [ %lpad.phi, %241 ], [ %233, %232 ], [ %231, %230 ], [ %220, %219 ], [ %.pn69.i, %.body83.i ], [ %107, %106 ], [ %102, %101 ], [ %94, %93 ]
   store i8 2, ptr %.sink, align 8, !noalias !4
   resume { ptr, i32 } %common.resume.op

@@ -67,7 +67,7 @@ define internal fastcc { i1, i8 } @"_ZN106_$LT$core..iter..adapters..flatten..Fl
   br label %common.resume.i
 
 common.resume.i:                                  ; preds = %48, %44, %19, %15
-  %.sink.i = phi ptr [ %4, %19 ], [ %4, %15 ], [ %32, %48 ], [ %32, %44 ]
+  %common.resume.op.i = phi ptr [ %4, %19 ], [ %4, %15 ], [ %32, %48 ], [ %32, %44 ]
   %common.resume.op.i = phi { ptr, i32 } [ %20, %19 ], [ %16, %15 ], [ %49, %48 ], [ %45, %44 ]
   store ptr null, ptr %.sink.i, align 8, !alias.scope !4
   resume { ptr, i32 } %common.resume.op.i

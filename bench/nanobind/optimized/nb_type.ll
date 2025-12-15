@@ -2785,7 +2785,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit, %79
 89:                                               ; preds = %88, %_ZL11_Py_XINCREFP7_object.exit
   %90 = icmp eq ptr %74, null
   %or.cond3 = or i1 %90, %.194.ph
-  br i1 %or.cond3, label %121, label %.preheader
+  br i1 %or.cond3, label %128, label %.preheader
 
 .preheader:                                       ; preds = %89
   %91 = load ptr, ptr %74, align 8
@@ -2798,7 +2798,7 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit, %79
   %94 = getelementptr inbounds nuw i8, ptr %14, i64 288
   br label %95
 
-95:                                               ; preds = %.lr.ph139, %116
+95:                                               ; preds = %.lr.ph139, %125
   %96 = phi ptr [ %91, %.lr.ph139 ], [ %120, %116 ]
   %.090138 = phi ptr [ %74, %.lr.ph139 ], [ %119, %116 ]
   %97 = getelementptr inbounds nuw i8, ptr %.090138, i64 8
@@ -2825,14 +2825,14 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit, %79
 110:                                              ; preds = %107
   %111 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %96, ptr noundef nonnull dereferenceable(21) @.str.31) #30
   %112 = icmp eq i32 %111, 0
-  br i1 %112, label %116, label %113
+  br i1 %112, label %116, label %116
 
-113:                                              ; preds = %110, %100, %95
+116:                                              ; preds = %110, %100, %95
   %114 = load ptr, ptr @PyExc_RuntimeError, align 8
   %115 = tail call ptr (ptr, ptr, ...) @PyErr_Format(ptr noundef %114, ptr noundef nonnull @.str.32)
   br label %.thread131
 
-116:                                              ; preds = %110, %107, %104
+125:                                              ; preds = %110, %107, %104
   %.sink155 = phi ptr [ %94, %104 ], [ %93, %107 ], [ %92, %110 ]
   %117 = getelementptr inbounds nuw i8, ptr %.090138, i64 16
   %118 = load i64, ptr %117, align 8
@@ -2842,19 +2842,19 @@ _ZL11_Py_XINCREFP7_object.exit:                   ; preds = %.loopexit, %79
   %.not112 = icmp eq ptr %120, null
   br i1 %.not112, label %.thread133, label %95, !llvm.loop !50
 
-121:                                              ; preds = %89
+128:                                              ; preds = %89
   br i1 %.194.ph, label %.thread131, label %.thread133
 
-.thread133:                                       ; preds = %116, %.preheader, %121
-  %122 = tail call i32 @PyType_Ready(ptr noundef nonnull %14)
-  %.not113 = icmp eq i32 %122, 0
+.thread133:                                       ; preds = %125, %.preheader, %128
+  %129 = tail call i32 @PyType_Ready(ptr noundef nonnull %14)
+  %.not113 = icmp eq i32 %129, 0
   br i1 %.not113, label %_ZL10_Py_DECREFP7_object.exit, label %.thread131
 
-.thread131:                                       ; preds = %.thread123, %113, %.thread133, %121
-  %123 = load i64, ptr %14, align 8
-  %124 = add nsw i64 %123, -1
-  store i64 %124, ptr %14, align 8
-  %.not.i117 = icmp eq i64 %124, 0
+.thread131:                                       ; preds = %.thread123, %113, %.thread133, %128
+  %130 = load i64, ptr %14, align 8
+  %131 = add nsw i64 %130, -1
+  store i64 %131, ptr %14, align 8
+  %.not.i117 = icmp eq i64 %131, 0
   br i1 %.not.i117, label %_ZL10_Py_DECREFP7_object.exit.sink.split, label %_ZL10_Py_DECREFP7_object.exit
 
 _ZL10_Py_DECREFP7_object.exit.sink.split:         ; preds = %.thread131, %15, %10

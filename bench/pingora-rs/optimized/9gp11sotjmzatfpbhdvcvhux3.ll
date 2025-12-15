@@ -16535,7 +16535,7 @@ default.unreachable118:                           ; preds = %144, %141, %129, %1
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %74
 
-.body50:                                          ; preds = %common.resume.i.i, %156, %171
+.body50:                                          ; preds = %.body.i.i.i, %156, %171
   %.pn26 = phi { ptr, i32 } [ %172, %171 ], [ %157, %156 ], [ %common.resume.op.i.i, %common.resume.i.i ]
   %61 = getelementptr inbounds nuw i8, ptr %0, i64 32
   invoke void @"_ZN4core3ptr48drop_in_place$LT$tokio..signal..unix..Signal$GT$17h33ec6a9c0d49129cE"(ptr noalias noundef nonnull align 8 dereferenceable(16) %61) #22
@@ -16701,8 +16701,8 @@ _ZN4core3ops8function6FnOnce9call_once17h951e10204ef3885cE.exit.i.i.i: ; preds =
   store i8 0, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !1078
   br label %114
 
-common.resume.i.i:                                ; preds = %153, %151, %138, %136, %122, %120
-  %.sink.i.i = phi ptr [ %97, %122 ], [ %97, %120 ], [ %94, %138 ], [ %94, %136 ], [ %91, %153 ], [ %91, %151 ]
+.body.i.i.i:                                      ; preds = %153, %151, %138, %136, %122, %120
+  %.pn7.i.i.i = phi ptr [ %97, %122 ], [ %97, %120 ], [ %94, %138 ], [ %94, %136 ], [ %91, %153 ], [ %91, %151 ]
   %common.resume.op.i.i = phi { ptr, i32 } [ %123, %122 ], [ %121, %120 ], [ %139, %138 ], [ %137, %136 ], [ %154, %153 ], [ %152, %151 ]
   store i8 2, ptr %.sink.i.i, align 8, !noalias !1073
   br label %.body50
@@ -16752,12 +16752,12 @@ common.resume.i.i:                                ; preds = %153, %151, %138, %1
   %121 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %.phi.trans.insert.i.i.i, align 8, !noalias !1081
-  br label %common.resume.i.i
+  br label %.body.i.i.i
 
 122:                                              ; preds = %117, %116
   %123 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i.i
+  br label %.body.i.i.i
 
 "_ZN5tokio6signal4unix6Signal4recv28_$u7b$$u7b$closure$u7d$$u7d$17hb25a480706b034a5E.exit.i.i": ; preds = %118
   %124 = icmp eq i8 %119, 2
@@ -16832,12 +16832,12 @@ common.resume.i.i:                                ; preds = %153, %151, %138, %1
   %137 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %.phi.trans.insert.i24.i.i, align 8, !noalias !1088
-  br label %common.resume.i.i
+  br label %.body.i.i.i
 
 138:                                              ; preds = %133, %132
   %139 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i.i
+  br label %.body.i.i.i
 
 "_ZN5tokio6signal4unix6Signal4recv28_$u7b$$u7b$closure$u7d$$u7d$17hb25a480706b034a5E.exit38.i.i": ; preds = %134
   %140 = icmp eq i8 %135, 2
@@ -16921,12 +16921,12 @@ common.resume.i.i:                                ; preds = %153, %151, %138, %1
   %152 = landingpad { ptr, i32 }
           cleanup
   store i8 2, ptr %.phi.trans.insert.i39.i.i, align 8, !noalias !1095
-  br label %common.resume.i.i
+  br label %.body.i.i.i
 
 153:                                              ; preds = %148, %147
   %154 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i.i
+  br label %.body.i.i.i
 
 "_ZN5tokio6signal4unix6Signal4recv28_$u7b$$u7b$closure$u7d$$u7d$17hb25a480706b034a5E.exit53.i.i": ; preds = %149
   %155 = icmp eq i8 %150, 2

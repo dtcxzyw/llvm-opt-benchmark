@@ -34879,9 +34879,9 @@ define linkonce_odr dso_local noundef i32 @_ZN12ExampleAsset20CompareWithSortSpe
   ]
 
 13:                                               ; preds = %9
-  br label %14
+  br label %23
 
-14:                                               ; preds = %9, %13
+23:                                               ; preds = %9, %13
   %.sink47 = phi ptr [ %7, %13 ], [ %0, %9 ]
   %.sink46 = phi ptr [ %8, %13 ], [ %1, %9 ]
   %15 = load i32, ptr %.sink47, align 4, !tbaa !54
@@ -34897,30 +34897,30 @@ define linkonce_odr dso_local noundef i32 @_ZN12ExampleAsset20CompareWithSortSpe
   %23 = select i1 %22, i32 1, i32 -1
   br label %.thread34
 
-24:                                               ; preds = %14
-  %25 = icmp slt i32 %17, 0
-  br i1 %25, label %26, label %.thread27
+28:                                               ; preds = %14
+  %29 = icmp slt i32 %17, 0
+  br i1 %29, label %30, label %.thread27
 
-26:                                               ; preds = %24
-  %27 = getelementptr inbounds nuw i8, ptr %10, i64 8
-  %28 = load i8, ptr %27, align 4, !tbaa !504
-  %29 = icmp eq i8 %28, 1
-  %30 = select i1 %29, i32 -1, i32 1
+30:                                               ; preds = %28
+  %31 = getelementptr inbounds nuw i8, ptr %10, i64 8
+  %32 = load i8, ptr %31, align 4, !tbaa !504
+  %33 = icmp eq i8 %32, 1
+  %34 = select i1 %33, i32 -1, i32 1
   br label %.thread34
 
-.thread27:                                        ; preds = %9, %24
+.thread27:                                        ; preds = %9, %28
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
   br i1 %exitcond.not, label %._crit_edge, label %9, !llvm.loop !591
 
 ._crit_edge:                                      ; preds = %.thread27, %2
-  %31 = load i32, ptr %0, align 4, !tbaa !581
-  %32 = load i32, ptr %1, align 4, !tbaa !581
-  %33 = sub nsw i32 %31, %32
+  %35 = load i32, ptr %0, align 4, !tbaa !581
+  %36 = load i32, ptr %1, align 4, !tbaa !581
+  %37 = sub nsw i32 %35, %36
   br label %.thread34
 
-.thread34:                                        ; preds = %26, %19, %._crit_edge
-  %.3 = phi i32 [ %33, %._crit_edge ], [ %30, %26 ], [ %23, %19 ]
+.thread34:                                        ; preds = %30, %19, %._crit_edge
+  %.3 = phi i32 [ %37, %._crit_edge ], [ %34, %26 ], [ %23, %19 ]
   ret i32 %.3
 }
 

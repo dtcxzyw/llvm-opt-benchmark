@@ -2453,7 +2453,7 @@ if.then.i257.i:                                   ; preds = %_ZNK6hermes2vm10Str
   br i1 %cmp.i258.i, label %_ZN6hermes2vmL12parseISODateENS0_10StringViewE.exit.thread, label %if.end90.i
 
 _ZNK6hermes2vm10StringView14const_iteratorgtERKS2_.exit.i: ; preds = %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138
-  %.sink = phi ptr [ %81, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ %84, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
+  %sign.1.i.ph = phi ptr [ %81, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ %84, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
   %char16Ptr_.i.i.i135.sink = phi ptr [ %char16Ptr_.i.i.i135, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ %char16Ptr_.i.i.i118, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
   %sign.1.i.ph = phi double [ 1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i138 ], [ -1.000000e+00, %_ZNK6hermes2vm10StringView14const_iteratordeEv.exit.i121 ]
   %incdec.ptr3.i.i141 = getelementptr inbounds nuw i8, ptr %.sink, i64 2

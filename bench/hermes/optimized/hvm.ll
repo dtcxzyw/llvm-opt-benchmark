@@ -1551,8 +1551,8 @@ _ZN9__gnu_cxx27__exchange_and_add_dispatchEPii.exit.i.i.i.i.i.i171: ; preds = %i
   br i1 %cmp.i.i.i.i.i.i173, label %if.end81.sink.split, label %if.end81
 
 if.end81.sink.split.sink.split:                   ; preds = %if.then.i.i.i154, %if.then.i.i.i83
-  %_M_use_count.i.i.i.i155.sink = phi ptr [ %_M_use_count.i.i.i.i84, %if.then.i.i.i83 ], [ %_M_use_count.i.i.i.i155, %if.then.i.i.i154 ]
-  %.sink227 = phi ptr [ %72, %if.then.i.i.i83 ], [ %99, %if.then.i.i.i154 ]
+  %.sink227 = phi ptr [ %_M_use_count.i.i.i.i84, %if.then.i.i.i83 ], [ %_M_use_count.i.i.i.i155, %if.then.i.i.i154 ]
+  %success.0.ph.ph = phi ptr [ %72, %if.then.i.i.i83 ], [ %99, %if.then.i.i.i154 ]
   %success.0.ph.ph = phi i1 [ %call72, %if.then.i.i.i83 ], [ %success.1.lcssa, %if.then.i.i.i154 ]
   store i32 0, ptr %_M_use_count.i.i.i.i155.sink, align 8
   %_M_weak_count.i.i.i.i180 = getelementptr inbounds nuw i8, ptr %.sink227, i64 12

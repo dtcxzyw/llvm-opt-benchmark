@@ -7009,11 +7009,11 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$
   %15 = getelementptr inbounds nuw i8, ptr %0, i64 24
   %16 = load i64, ptr %15, align 8, !alias.scope !1560, !noundef !3
   %.not3.i.i.i = icmp eq i64 %16, %13
-  br i1 %.not3.i.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.i", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.sink.split.i"
+  br i1 %.not3.i.i.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.i", label %17
 
-"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.sink.split.i": ; preds = %23, %9
+17:                                               ; preds = %23, %9
   %.sink.i = phi ptr [ %25, %23 ], [ %11, %9 ]
-  %.sink34.i = phi i64 [ %30, %23 ], [ %16, %9 ]
+  %.sink34.i = phi i64 [ %32, %23 ], [ %16, %9 ]
   %.sink33.i = phi i64 [ %27, %23 ], [ %13, %9 ]
   %.sink29.ph.i = phi ptr [ %26, %23 ], [ %12, %9 ]
   %17 = getelementptr inbounds nuw i8, ptr %.sink.i, i64 8
@@ -7030,20 +7030,20 @@ define hidden void @"_ZN4core3ptr55drop_in_place$LT$alloc..vec..drain..Drain$LT$
   store i64 %21, ptr %.sink29.i, align 8, !noalias !1560
   br label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1d0da4b3eff1b6E.exit"
 
-22:                                               ; preds = %1
+19:                                               ; preds = %1
   br i1 %.not.i.i.i, label %"_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1d0da4b3eff1b6E.exit", label %23
 
-23:                                               ; preds = %22
-  %24 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %25 = load ptr, ptr %24, align 8, !alias.scope !1560, !nonnull !3, !noundef !3
-  %26 = getelementptr inbounds nuw i8, ptr %25, i64 16
-  %27 = load i64, ptr %26, align 8, !noalias !1560, !noundef !3
-  %28 = icmp sgt i64 %27, -1
-  tail call void @llvm.assume(i1 %28)
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %30 = load i64, ptr %29, align 8, !alias.scope !1560, !noundef !3
-  %.not3.i.i21.i = icmp eq i64 %30, %27
-  br i1 %.not3.i.i21.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.i", label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.sink.split.i"
+25:                                               ; preds = %22
+  %26 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %27 = load ptr, ptr %26, align 8, !alias.scope !1560, !nonnull !3, !noundef !3
+  %28 = getelementptr inbounds nuw i8, ptr %27, i64 16
+  %29 = load i64, ptr %28, align 8, !noalias !1560, !noundef !3
+  %30 = icmp sgt i64 %29, -1
+  tail call void @llvm.assume(i1 %30)
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %32 = load i64, ptr %31, align 8, !alias.scope !1560, !noundef !3
+  %.not3.i.i21.i = icmp eq i64 %32, %29
+  br i1 %.not3.i.i21.i, label %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.i", label %17
 
 "_ZN79_$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$4drop17hdb1d0da4b3eff1b6E.exit": ; preds = %8, %"_ZN4core3ptr149drop_in_place$LT$$LT$alloc..vec..drain..Drain$LT$T$C$A$GT$$u20$as$u20$core..ops..drop..Drop$GT$..drop..DropGuard$LT$u8$C$alloc..alloc..Global$GT$$GT$17h8366c1cec1cdb5d4E.exit.sink.split.i", %22
   ret void

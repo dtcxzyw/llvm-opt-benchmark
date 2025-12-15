@@ -3347,8 +3347,8 @@ define void @"_ZN84_$LT$yara_x_proto_json..yara..FieldOptions$u20$as$u20$protobu
   invoke void @"_ZN4core3ptr54drop_in_place$LT$yara_x_proto_json..yara..AclEntry$GT$17h4d981e06ac78e194E"(ptr noalias noundef nonnull align 8 dereferenceable(112) %23) #22
           to label %18 unwind label %25
 
-common.resume.sink.split:                         ; preds = %38, %32, %6
-  %.sink = phi ptr [ %2, %6 ], [ %28, %32 ], [ %34, %38 ]
+common.resume:                                    ; preds = %38, %32, %6
+  %common.resume.op = phi ptr [ %2, %6 ], [ %28, %32 ], [ %34, %38 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %7, %6 ], [ %33, %32 ], [ %39, %38 ]
   store i64 -9223372036854775808, ptr %.sink, align 8
   br label %common.resume
@@ -4543,8 +4543,8 @@ define void @"_ZN80_$LT$yara_x_proto_json..yara..AclEntry$u20$as$u20$protobuf..m
   invoke void @"_ZN4core3ptr42drop_in_place$LT$alloc..string..String$GT$17hbf5f794ef33da7d7E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %28) #22
           to label %23 unwind label %30
 
-common.resume.sink.split:                         ; preds = %12, %6
-  %.sink = phi ptr [ %2, %6 ], [ %8, %12 ]
+common.resume:                                    ; preds = %12, %6
+  %common.resume.op = phi ptr [ %2, %6 ], [ %8, %12 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %7, %6 ], [ %13, %12 ]
   store i64 -9223372036854775808, ptr %.sink, align 8
   br label %common.resume

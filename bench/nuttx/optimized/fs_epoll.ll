@@ -955,11 +955,11 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr noundef w
   %. = select i1 %.not61, ptr %9, ptr %10
   br label %.sink.split
 
-.sink.split:                                      ; preds = %15, %26
+.sink.split:; preds = %15, %26
   %.sink75 = phi ptr [ %., %26 ], [ %9, %15 ]
   %.1.ph = phi i32 [ %33, %26 ], [ %.05965, %15 ]
-  %37 = load ptr, ptr %.sink75, align 8
-  store ptr %37, ptr %.05866, align 8
+  %39 = load ptr, ptr %.sink75, align 8
+  store ptr %39, ptr %.05866, align 8
   store ptr %.sink75, ptr %.0.in67, align 8
   %38 = load ptr, ptr %.sink75, align 8
   %39 = getelementptr inbounds nuw i8, ptr %38, i64 8
@@ -967,14 +967,14 @@ define internal fastcc i32 @epoll_teardown(ptr noundef nonnull %0, ptr noundef w
   store ptr %.05866, ptr %.sink75, align 8
   br label %40
 
-40:                                               ; preds = %.sink.split, %11
+40:; preds = %.sink.split, %11
   %.1 = phi i32 [ %.05965, %11 ], [ %.1.ph, %.sink.split ]
   %.not = icmp eq ptr %.068, %6
   br i1 %.not, label %._crit_edge, label %11, !llvm.loop !19
 
 ._crit_edge:                                      ; preds = %40, %3
   %.059.lcssa = phi i32 [ 0, %3 ], [ %.1, %40 ]
-  %41 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %4) #9
+  %50 = tail call i32 @nxmutex_unlock(ptr noundef nonnull %4) #9
   ret i32 %.059.lcssa
 }
 

@@ -7580,7 +7580,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %76 = load ptr, ptr %6, align 8, !tbaa !4
   %77 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %78 = icmp eq ptr %76, %77
-  br i1 %78, label %.critedge38.sink.split, label %.critedge38.sink.split.sink.split
+  br i1 %78, label %.critedge38.sink.split, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread
 
 .thread75:                                        ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE6appendERKS4_.exit.i, %23
   %79 = landingpad { ptr, i32 }
@@ -7588,9 +7588,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit54: ; preds = %_ZN
   %80 = load ptr, ptr %6, align 8, !tbaa !4
   %81 = getelementptr inbounds nuw i8, ptr %6, i64 16
   %82 = icmp eq ptr %80, %81
-  br i1 %82, label %.critedge38.sink.split, label %.critedge38.sink.split.sink.split
+  br i1 %82, label %.critedge38.sink.split, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread
 
-.critedge38.sink.split.sink.split:                ; preds = %75, %.thread75
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i55.thread: ; preds = %75, %.thread75
   %.sink105 = phi ptr [ %81, %.thread75 ], [ %77, %75 ]
   %.sink = phi ptr [ %80, %.thread75 ], [ %76, %75 ]
   %.pn.pn.pn.pn71.ph.ph = phi { ptr, i32 } [ %79, %.thread75 ], [ %.pn, %75 ]

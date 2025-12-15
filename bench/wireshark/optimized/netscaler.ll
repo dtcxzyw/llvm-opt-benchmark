@@ -895,8 +895,8 @@ nstrace_ensure_buflen.exit227:                    ; preds = %192
   store ptr %204, ptr %3, align 8
   br label %.critedge
 
-.sink.split:                                      ; preds = %161, %177
-  %.sink376 = phi i64 [ %191, %177 ], [ %168, %161 ]
+205:                                              ; preds = %161, %177
+  %.sink375 = phi i64 [ %191, %177 ], [ %168, %161 ]
   %.sink = phi ptr [ %175, %177 ], [ %159, %161 ]
   store i64 %.sink376, ptr %16, align 8
   %.val208 = load i16, ptr %.sink, align 1

@@ -2971,7 +2971,7 @@ if.then.i.i:                                      ; preds = %entry
   %2 = load i8, ptr %hasValue.i.i.i.i, align 2
   %tobool.i.i.i.i = trunc i8 %2 to i1
   %hasValue.i.i.i.i.i = getelementptr inbounds nuw i8, ptr %this, i64 74
-  br i1 %tobool.i.i.i.i, label %_ZNR5folly8OptionalIN4fizz10NamedGroupEE5valueEv.exit.i.i, label %if.end4.sink.split.i.i
+  br i1 %tobool.i.i.i.i, label %_ZNR5folly8OptionalIN4fizz10NamedGroupEE5valueEv.exit.i.i, label %if.else.i.i
 
 _ZNR5folly8OptionalIN4fizz10NamedGroupEE5valueEv.exit.i.i: ; preds = %if.then.i.i
   %3 = load i8, ptr %hasValue.i.i.i.i.i, align 2
@@ -2985,14 +2985,14 @@ if.else.i.i.i:                                    ; preds = %_ZNR5folly8Optional
 
 _ZN5folly8OptionalIN4fizz10NamedGroupEE6assignEOS2_.exit.i.i: ; preds = %if.else.i.i.i, %_ZNR5folly8OptionalIN4fizz10NamedGroupEE5valueEv.exit.i.i
   store i16 %4, ptr %group, align 8
-  br label %if.end4.sink.split.i.i
+  br label %if.then.i.i8.i.i
 
-if.end4.sink.split.i.i:                           ; preds = %_ZN5folly8OptionalIN4fizz10NamedGroupEE6assignEOS2_.exit.i.i, %if.then.i.i
+if.else.i.i:                                      ; preds = %_ZN5folly8OptionalIN4fizz10NamedGroupEE6assignEOS2_.exit.i.i, %if.then.i.i
   %hasValue.i.i.sink.i.i = phi ptr [ %hasValue.i.i.i.i, %_ZN5folly8OptionalIN4fizz10NamedGroupEE6assignEOS2_.exit.i.i ], [ %hasValue.i.i.i.i.i, %if.then.i.i ]
   store i8 0, ptr %hasValue.i.i.sink.i.i, align 2
   br label %_ZN5folly8OptionalIN4fizz10NamedGroupEEaSEOS3_.exit
 
-_ZN5folly8OptionalIN4fizz10NamedGroupEEaSEOS3_.exit: ; preds = %entry, %if.end4.sink.split.i.i
+_ZN5folly8OptionalIN4fizz10NamedGroupEEaSEOS3_.exit: ; preds = %entry, %if.else.i.i
   %serverCert = getelementptr inbounds nuw i8, ptr %this, i64 80
   %serverCert8 = getelementptr inbounds nuw i8, ptr %0, i64 80
   %5 = load ptr, ptr %serverCert8, align 8
@@ -3189,19 +3189,19 @@ if.else.i.i.i49:                                  ; preds = %_ZNR5folly8Optional
 _ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i: ; preds = %if.else.i.i.i49, %if.then.i.i.i
   %34 = load i8, ptr %hasValue.i.i.i.i44, align 8
   %tobool.i.i7.i.i = trunc i8 %34 to i1
-  br i1 %tobool.i.i7.i.i, label %if.end4.sink.split.i.i48, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit
+  br i1 %tobool.i.i7.i.i, label %if.then.i.i8.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit
 
-if.else.i.i:                                      ; preds = %if.then.i.i43
-  br i1 %tobool.i.i.i.i.i47, label %if.end4.sink.split.i.i48, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit
+if.then.i.i8.i.i:                                 ; preds = %if.then.i.i43
+  br i1 %tobool.i.i.i.i.i47, label %if.else.i.i, label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit
 
-if.end4.sink.split.i.i48:                         ; preds = %if.else.i.i, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i
-  %hasValue.i.i.i.sink.i.i = phi ptr [ %hasValue.i.i.i.i44, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i ], [ %hasValue.i.i.i.i.i46, %if.else.i.i ]
+if.end4.sink.split.i.i:                           ; preds = %if.then.i.i8.i.i, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i
+  %this.sink.i.i = phi ptr [ %hasValue.i.i.i.i44, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i ], [ %hasValue.i.i.i.i.i46, %if.else.i.i ]
   %this.sink.i.i = phi ptr [ %alpn13, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i ], [ %alpn, %if.else.i.i ]
   store i8 0, ptr %hasValue.i.i.i.sink.i.i, align 8
   tail call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(40) %this.sink.i.i) #31
   br label %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit
 
-_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit: ; preds = %_ZNSt10shared_ptrIKN5folly25AsyncTransportCertificateEEaSEOS3_.exit41, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i, %if.else.i.i, %if.end4.sink.split.i.i48
+_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEEaSEOS7_.exit: ; preds = %_ZNSt10shared_ptrIKN5folly25AsyncTransportCertificateEEaSEOS3_.exit41, %_ZN5folly8OptionalINSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6assignEOS6_.exit.i.i, %if.else.i.i, %if.end4.sink.split.i.i
   %ticketAgeAdd = getelementptr inbounds nuw i8, ptr %this, i64 160
   %ticketAgeAdd15 = getelementptr inbounds nuw i8, ptr %0, i64 160
   tail call void @llvm.memcpy.p0.p0.i64(ptr noundef nonnull align 8 dereferenceable(32) %ticketAgeAdd, ptr noundef nonnull align 8 dereferenceable(32) %ticketAgeAdd15, i64 32, i1 false)

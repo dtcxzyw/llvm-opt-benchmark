@@ -6721,9 +6721,9 @@ define hidden void @"_ZN4core4iter8adapters7flatten26FlattenCompat$LT$I$C$U$GT$1
   br label %47
 
 47:                                               ; preds = %"_ZN4core3ptr702drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$either..Either$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$C$which..finder..Finder..path_search_candidates$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$which..finder..Finder..find$LT$$RF$str$C$std..ffi..os_str..OsString$C$std..path..PathBuf$C$which..Noop$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_interpreters_with_executable_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf812e1126dffed89E.exit24", %17, %44, %31
-  %.sink67 = phi i64 [ -9223372036854775807, %"_ZN4core3ptr702drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$either..Either$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$C$which..finder..Finder..path_search_candidates$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$which..finder..Finder..find$LT$$RF$str$C$std..ffi..os_str..OsString$C$std..path..PathBuf$C$which..Noop$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_interpreters_with_executable_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf812e1126dffed89E.exit24" ], [ %12, %17 ], [ %39, %44 ], [ %26, %31 ]
+  %.sink = phi i64 [ -9223372036854775807, %"_ZN4core3ptr702drop_in_place$LT$core..option..Option$LT$core..iter..adapters..map..Map$LT$core..iter..adapters..filter_map..FilterMap$LT$either..Either$LT$core..iter..sources..once..Once$LT$std..path..PathBuf$GT$$C$core..iter..adapters..map..Map$LT$alloc..vec..into_iter..IntoIter$LT$std..path..PathBuf$GT$$C$which..finder..Finder..path_search_candidates$LT$alloc..vec..Vec$LT$std..path..PathBuf$GT$$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$C$which..finder..Finder..find$LT$$RF$str$C$std..ffi..os_str..OsString$C$std..path..PathBuf$C$which..Noop$GT$..$u7b$$u7b$closure$u7d$$u7d$$GT$$C$uv_python..discovery..python_interpreters_with_executable_name..$u7b$$u7b$closure$u7d$$u7d$..$u7b$$u7b$closure$u7d$$u7d$$GT$$GT$$GT$17hf812e1126dffed89E.exit24" ], [ %12, %17 ], [ %39, %44 ], [ %26, %31 ]
   %48 = getelementptr inbounds nuw i8, ptr %0, i64 8
-  store i64 %.sink67, ptr %48, align 8
+  store i64 %.sink, ptr %48, align 8
   ret void
 
 49:                                               ; preds = %45, %32, %18
@@ -10832,9 +10832,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h964293312164cbc0E.exit29.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h0dedafb2d3b67b2aE.exit.i.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h0dedafb2d3b67b2aE.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit5.i.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit.i.i.i"
-  %.sink4.i.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit5.i.i.i" ]
+  %.sink46.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit5.i.i.i" ]
   %118 = load i64, ptr %4, align 8, !noalias !3805, !noundef !3
-  %119 = add i64 %118, %.sink4.i.i.i
+  %119 = add i64 %118, %.sink46.i.i
   store i64 %119, ptr %4, align 8, !noalias !3805
   br label %.outer.i.i
 
@@ -11123,9 +11123,9 @@ _ZN10serde_json3ser9Formatter21write_string_fragment17h62dab5ee508e1849E.exit29.
   br label %_ZN10serde_json3ser9Formatter17write_char_escape17h74f89700ac0bde25E.exit.i.i
 
 _ZN10serde_json3ser9Formatter17write_char_escape17h74f89700ac0bde25E.exit.i.i: ; preds = %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit5.i.i.i", %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit.i.i.i"
-  %.sink4.i.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit5.i.i.i" ]
+  %.sink46.i.i = phi i64 [ 6, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit.i.i.i" ], [ 2, %"_ZN3std2io5impls58_$LT$impl$u20$std..io..Write$u20$for$u20$$RF$mut$u20$W$GT$9write_all17hdb2905b43ebce1e2E.exit5.i.i.i" ]
   %118 = load i64, ptr %4, align 8, !noalias !3924, !noundef !3
-  %119 = add i64 %118, %.sink4.i.i.i
+  %119 = add i64 %118, %.sink46.i.i
   store i64 %119, ptr %4, align 8, !noalias !3924
   br label %.outer.i.i
 

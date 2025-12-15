@@ -25579,9 +25579,9 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   br label %4570
 
 4570:                                             ; preds = %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335", %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit"
-  %.sink854 = phi ptr [ %4700, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4522, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
-  %.sink853 = phi ptr [ %4714, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4525, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
-  %.sroa.0534.5 = phi i64 [ %.sroa.0534.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ 21, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sroa.0534.5 = phi ptr [ %4700, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4522, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sroa.17.5 = phi ptr [ %4714, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4525, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
+  %.sroa.8536.5 = phi i64 [ %.sroa.0534.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ 21, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
   %.sroa.17.5 = phi i8 [ %.sroa.17.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ undef, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
   %.sroa.8536.5 = phi ptr [ %.sroa.8536.0, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit335" ], [ %4464, %"_ZN4core3ptr100drop_in_place$LT$core..option..Option$LT$zbus..connection..handshake..cookies..CookieContext$GT$$GT$17h128dbae0658d224bE.exit" ]
   store i8 0, ptr %.sink854, align 1
@@ -25842,7 +25842,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
   invoke void @"_ZN4core3ptr43drop_in_place$LT$zbus..address..Address$GT$17h632ab74766d27bbfE"(ptr noalias noundef nonnull align 8 dereferenceable(104) %4661)
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325" unwind label %4680
 
-.invoke855:                                       ; preds = %4664
+.invoke853:                                       ; preds = %4664
   %4669 = getelementptr inbounds nuw i8, ptr %1, i64 416
   invoke void @"_ZN4core3ptr205drop_in_place$LT$zbus..connection..socket..split..Split$LT$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..ReadHalf$GT$$C$alloc..boxed..Box$LT$dyn$u20$zbus..connection..socket..WriteHalf$GT$$GT$$GT$17h78ba746454fe8e19E"(ptr noalias noundef nonnull align 8 dereferenceable(32) %4669)
           to label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325" unwind label %4680
@@ -25875,7 +25875,7 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           cleanup
   br label %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit349"
 
-4680:                                             ; preds = %.invoke855, %4668
+4680:                                             ; preds = %.invoke853, %4668
   %4681 = landingpad { ptr, i32 }
           cleanup
   %4682 = getelementptr inbounds nuw i8, ptr %1, i64 360
@@ -25883,12 +25883,12 @@ _ZN4zbus12abstractions8executor8Executor5spawn17hf6419a1b4d2234d8E.exit.i.i: ; p
           to label %4694 unwind label %1012
 
 "_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split": ; preds = %4664, %4664
-  %.sink856.in = getelementptr inbounds nuw i8, ptr %1, i64 416
-  %.sink856 = load i32, ptr %.sink856.in, align 8, !alias.scope !7700, !noundef !5
-  %4683 = call noundef i32 @close(i32 noundef %.sink856) #22, !noalias !7700
+  %.sink854.in = getelementptr inbounds nuw i8, ptr %1, i64 416
+  %.sink854 = load i32, ptr %.sink854.in, align 8, !alias.scope !7700, !noundef !5
+  %4683 = call noundef i32 @close(i32 noundef %.sink854) #22, !noalias !7700
   br label %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325"
 
-"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325": ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split", %.invoke855, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit", %4668
+"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325": ; preds = %"_ZN4core3ptr82drop_in_place$LT$core..option..Option$LT$zbus..connection..builder..Target$GT$$GT$17hff9ec135ebb43037E.exit325.sink.split", %.invoke853, %"_ZN4core3ptr59drop_in_place$LT$zbus..abstractions..executor..Executor$GT$17h56ed182dfa3d54e3E.exit", %4668
   %4684 = getelementptr inbounds nuw i8, ptr %1, i64 360
   call void @llvm.experimental.noalias.scope.decl(metadata !7701)
   %4685 = load i64, ptr %4684, align 8, !range !106, !alias.scope !7701, !noundef !5

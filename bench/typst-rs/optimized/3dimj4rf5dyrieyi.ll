@@ -2010,8 +2010,8 @@ define internal fastcc void @"_ZN100_$LT$core..iter..adapters..skip..Skip$LT$I$G
   invoke void @"_ZN4core3ptr57drop_in_place$LT$typst..foundations..content..Content$GT$17hb6546307b32d0cd5E"(ptr noalias noundef nonnull align 8 dereferenceable(24) %33) #57
           to label %28 unwind label %35, !noalias !5
 
-common.resume.sink.split.i.i.i.i:                 ; preds = %53, %86, %139
-  %.sink.i.i.i.i = phi ptr [ %95, %139 ], [ %1, %86 ], [ %1, %53 ]
+common.resume.i.i.i.i:                            ; preds = %53, %86, %139
+  %common.resume.op.i.i.i.i = phi ptr [ %95, %139 ], [ %1, %86 ], [ %1, %53 ]
   %common.resume.op.ph.i.i.i.i = phi { ptr, i32 } [ %142, %139 ], [ %89, %86 ], [ %56, %53 ]
   store i64 0, ptr %.sink.i.i.i.i, align 8, !alias.scope !20, !noalias !5
   br label %common.resume.i.i.i.i
@@ -2071,7 +2071,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
 53:                                               ; preds = %57, %55
   %.1.i.i.i.i34.i.i.i.i = phi i64 [ %47, %55 ], [ %59, %57 ]
   %54 = icmp eq i64 %.1.i.i.i.i34.i.i.i.i, %44
-  br i1 %54, label %common.resume.sink.split.i.i.i.i, label %57
+  br i1 %54, label %common.resume.i.i.i.i, label %57
 
 55:                                               ; preds = %.noexc.i.i.i.i35.i.i.i.i, %51
   %56 = landingpad { ptr, i32 }
@@ -2156,7 +2156,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit.i.i.i.i: ; preds =
 86:                                               ; preds = %90, %88
   %.1.i.i.i.i40.i.i.i.i = phi i64 [ %80, %88 ], [ %92, %90 ]
   %87 = icmp eq i64 %.1.i.i.i.i40.i.i.i.i, %77
-  br i1 %87, label %common.resume.sink.split.i.i.i.i, label %90
+  br i1 %87, label %common.resume.i.i.i.i, label %90
 
 88:                                               ; preds = %.noexc.i.i.i.i41.i.i.i.i, %84
   %89 = landingpad { ptr, i32 }
@@ -2289,7 +2289,7 @@ _ZN4core3ops8function5FnMut8call_mut17hbf9d6b77650cef0aE.exit53.i.i.i.i: ; preds
 139:                                              ; preds = %143, %141
   %.1.i.i.i.i58.i.i.i.i = phi i64 [ %133, %141 ], [ %145, %143 ]
   %140 = icmp eq i64 %.1.i.i.i.i58.i.i.i.i, %130
-  br i1 %140, label %common.resume.sink.split.i.i.i.i, label %143
+  br i1 %140, label %common.resume.i.i.i.i, label %143
 
 141:                                              ; preds = %.noexc.i.i.i.i59.i.i.i.i, %137
   %142 = landingpad { ptr, i32 }

@@ -1350,7 +1350,7 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   %.not76 = icmp eq i32 %55, 0
   br i1 %.not76, label %56, label %.sink.split
 
-.sink.split:                                      ; preds = %54, %37
+.sink.split:; preds = %54, %37
   %.sink85 = phi ptr [ %9, %37 ], [ %42, %54 ]
   %.sink84 = phi ptr [ %40, %37 ], [ %44, %54 ]
   %.sink83 = phi ptr [ %50, %37 ], [ %46, %54 ]
@@ -1361,7 +1361,7 @@ define internal { double, double } @arrow_type_tee(ptr noundef %0, double %1, do
   store double %.sroa.9.0, ptr %.sink, align 8, !tbaa !55
   br label %56
 
-56:                                               ; preds = %.sink.split, %54
+56:; preds = %.sink.split, %54
   call void @gvrender_polygon(ptr noundef %0, ptr noundef nonnull %9, i64 noundef 4, i32 noundef 1) #13
   store double %.sroa.067.0, ptr %9, align 16, !tbaa !55
   store double %.sroa.771.0, ptr %40, align 8, !tbaa !55
@@ -1451,7 +1451,7 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   %.not62 = icmp eq i32 %47, 0
   br i1 %.not62, label %48, label %.sink.split
 
-.sink.split:                                      ; preds = %46, %25
+.sink.split:; preds = %46, %25
   %.sink66 = phi ptr [ %9, %25 ], [ %34, %46 ]
   %.sink65 = phi ptr [ %32, %25 ], [ %36, %46 ]
   %.sink64 = phi ptr [ %42, %25 ], [ %38, %46 ]
@@ -1462,7 +1462,7 @@ define internal { double, double } @arrow_type_box(ptr noundef %0, double %1, do
   store double %29, ptr %.sink, align 8, !tbaa !55
   br label %48
 
-48:                                               ; preds = %.sink.split, %46
+48:  ; preds = %.sink.split, %46
   %49 = fadd double %2, %4
   %50 = fsub double %49, %.sroa.7.0
   %51 = fadd double %1, %3

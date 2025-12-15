@@ -7825,7 +7825,7 @@ define linkonce_odr void @_ZN9grpc_core14promise_detail11PromiseLikeINS_2IfIbZNS
   %2 = load i8, ptr %0, align 16, !tbaa !417, !range !104, !noundef !35
   %3 = trunc nuw i8 %2 to i1
   %4 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  br i1 %3, label %5, label %32
+  br i1 %3, label %5, label %33
 
 5:                                                ; preds = %1
   %6 = load i8, ptr %4, align 16, !tbaa !419, !range !104, !noundef !35
@@ -7861,46 +7861,46 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i:   ; preds = %17
   %23 = load i8, ptr %20, align 8, !range !104
   %24 = trunc nuw i8 %23 to i1
   %or.cond.i.i.i.i.i = select i1 %.not.i.i.i.i.i, i1 %24, i1 false
-  br i1 %or.cond.i.i.i.i.i, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split.sink.split, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split
+  br i1 %or.cond.i.i.i.i.i, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split
 
 25:                                               ; preds = %17
   %26 = and i64 %18, 1
   %.not.i.i1.i.i.i.i = icmp eq i64 %26, 0
   br i1 %.not.i.i1.i.i.i.i, label %27, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit
 
-27:                                               ; preds = %25
-  %28 = inttoptr i64 %18 to ptr
-  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %28)
-          to label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit unwind label %29
+28:                                               ; preds = %25
+  %29 = inttoptr i64 %18 to ptr
+  invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %29)
+          to label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit unwind label %30
 
-29:                                               ; preds = %27
-  %30 = landingpad { ptr, i32 }
+30:                                               ; preds = %28
+  %31 = landingpad { ptr, i32 }
           catch ptr null
-  %31 = extractvalue { ptr, i32 } %30, 0
-  tail call void @__clang_call_terminate(ptr %31) #35
+  %32 = extractvalue { ptr, i32 } %31, 0
+  tail call void @__clang_call_terminate(ptr %32) #35
   unreachable
 
-32:                                               ; preds = %1
-  %33 = load i64, ptr %4, align 16, !tbaa !31
-  %34 = icmp eq i64 %33, 1
-  br i1 %34, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i, label %40
+33:                                               ; preds = %1
+  %34 = load i64, ptr %4, align 16, !tbaa !31
+  %35 = icmp eq i64 %34, 1
+  br i1 %35, label %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i, label %40
 
-_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %32
-  %35 = getelementptr inbounds nuw i8, ptr %0, i64 24
-  %36 = getelementptr inbounds nuw i8, ptr %0, i64 32
-  %37 = load ptr, ptr %36, align 16, !tbaa !52
-  %.not.i.i.i.i = icmp ne ptr %37, null
-  %38 = load i8, ptr %35, align 8, !range !104
-  %39 = trunc nuw i8 %38 to i1
-  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %39, i1 false
-  br i1 %or.cond.i.i.i.i, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split.sink.split, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split
+_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %33
+  %36 = getelementptr inbounds nuw i8, ptr %0, i64 24
+  %37 = getelementptr inbounds nuw i8, ptr %0, i64 32
+  %38 = load ptr, ptr %37, align 16, !tbaa !52
+  %.not.i.i.i.i = icmp ne ptr %38, null
+  %39 = load i8, ptr %36, align 8, !range !104
+  %40 = trunc nuw i8 %39 to i1
+  %or.cond.i.i.i.i = select i1 %.not.i.i.i.i, i1 %40, i1 false
+  br i1 %or.cond.i.i.i.i, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split
 
-40:                                               ; preds = %32
+41:                                               ; preds = %32
   %41 = and i64 %33, 1
   %.not.i.i1.i.i.i = icmp eq i64 %41, 0
   br i1 %.not.i.i1.i.i.i, label %42, label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit
 
-42:                                               ; preds = %40
+_ZNSt10unique_ptrI19grpc_metadata_batchN9grpc_core5Arena13PooledDeleterEED2Ev.exit.i.i.i: ; preds = %40
   %43 = inttoptr i64 %33 to ptr
   invoke void @_ZNK4absl12lts_2024072215status_internal9StatusRep5UnrefEv(ptr noundef nonnull align 8 dereferenceable(48) %43)
           to label %_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit unwind label %44
@@ -7908,11 +7908,11 @@ _ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i:     ; preds = %32
 44:                                               ; preds = %42
   %45 = landingpad { ptr, i32 }
           catch ptr null
-  %46 = extractvalue { ptr, i32 } %45, 0
-  tail call void @__clang_call_terminate(ptr %46) #35
+  %48 = extractvalue { ptr, i32 } %45, 0
+  tail call void @__clang_call_terminate(ptr %48) #35
   unreachable
 
-_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit.sink.split.sink.split: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i
+_ZN9grpc_core2IfIbZNS_16ClientAuthFilter20GetCallCredsMetadataESt10unique_ptrI19grpc_metadata_batchNS_5Arena13PooledDeleterEEEUlvE_ZNS1_20GetCallCredsMetadataES6_EUlvE0_ED2Ev.exit: ; preds = %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i
   %.sink5 = phi ptr [ %22, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i ], [ %37, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i ]
   %.sink.ph = phi ptr [ %21, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i.i ], [ %36, %_ZN4absl12lts_202407226StatusD2Ev.exit.i.i.i ]
   tail call void @_ZN9grpc_core11MetadataMapI19grpc_metadata_batchJNS_16HttpPathMetadataENS_21HttpAuthorityMetadataENS_18HttpMethodMetadataENS_18HttpStatusMetadataENS_18HttpSchemeMetadataENS_19ContentTypeMetadataENS_10TeMetadataENS_20GrpcEncodingMetadataENS_27GrpcInternalEncodingRequestENS_26GrpcAcceptEncodingMetadataENS_18GrpcStatusMetadataENS_19GrpcTimeoutMetadataENS_31GrpcPreviousRpcAttemptsMetadataENS_27GrpcRetryPushbackMsMetadataENS_17UserAgentMetadataENS_19GrpcMessageMetadataENS_12HostMetadataENS_30EndpointLoadMetricsBinMetadataENS_26GrpcServerStatsBinMetadataENS_20GrpcTraceBinMetadataENS_19GrpcTagsBinMetadataENS_25GrpcLbClientStatsMetadataENS_17LbCostBinMetadataENS_15LbTokenMetadataENS_18XEnvoyPeerMetadataENS_22W3CTraceParentMetadataENS_22GrpcStreamNetworkStateENS_10PeerStringENS_17GrpcStatusContextENS_18GrpcStatusFromWireENS_20GrpcCallWasCancelledENS_12WaitForReadyENS_18IsTransparentRetryENS_16GrpcTrailersOnlyENS_10GrpcTarPitENS_20GrpcRegisteredMethodEEED2Ev(ptr noundef nonnull align 8 dereferenceable(600) %.sink5) #33

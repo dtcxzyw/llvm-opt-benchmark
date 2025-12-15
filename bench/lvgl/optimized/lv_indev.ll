@@ -4166,7 +4166,7 @@ lv_indev_get_point.exit:                          ; preds = %37, %38
   %55 = load i8, ptr %54, align 4
   %56 = and i8 %55, 2
   %.not.i27.i = icmp eq i8 %56, 0
-  br i1 %.not.i27.i, label %send_event.exit, label %send_event.exit.sink.split
+  br i1 %.not.i27.i, label %send_event.exit, label %indev_reset_check.exit31.i36
 
 57:                                               ; preds = %46
   %58 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
@@ -4176,7 +4176,7 @@ lv_indev_get_point.exit:                          ; preds = %37, %38
   %62 = load i8, ptr %61, align 4
   %63 = and i8 %62, 2
   %.not.i27.i26 = icmp eq i8 %63, 0
-  br i1 %.not.i27.i26, label %send_event.exit, label %send_event.exit.sink.split
+  br i1 %.not.i27.i26, label %send_event.exit, label %indev_reset_check.exit31.i36
 
 64:                                               ; preds = %46
   %65 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 152), align 8, !tbaa !40
@@ -4186,9 +4186,9 @@ lv_indev_get_point.exit:                          ; preds = %37, %38
   %69 = load i8, ptr %68, align 4
   %70 = and i8 %69, 2
   %.not.i27.i35 = icmp eq i8 %70, 0
-  br i1 %.not.i27.i35, label %send_event.exit, label %send_event.exit.sink.split
+  br i1 %.not.i27.i35, label %send_event.exit, label %indev_reset_check.exit31.i36
 
-send_event.exit.sink.split:                       ; preds = %64, %57, %50
+indev_reset_check.exit31.i36:                     ; preds = %64, %57, %50
   %.sink = phi ptr [ %54, %50 ], [ %61, %57 ], [ %68, %64 ]
   store ptr null, ptr getelementptr inbounds nuw (i8, ptr @lv_global, i64 160), align 8, !tbaa !66
   %.pre.i28.i37 = load i8, ptr %.sink, align 4
@@ -4198,7 +4198,7 @@ send_event.exit.sink.split:                       ; preds = %64, %57, %50
   %71 = zext i1 %.not36.i40 to i32
   br label %send_event.exit
 
-send_event.exit:                                  ; preds = %send_event.exit.sink.split, %64, %57, %50, %46, %lv_indev_get_point.exit
+send_event.exit:                                  ; preds = %indev_reset_check.exit31.i36, %64, %57, %50, %46, %lv_indev_get_point.exit
   %.0.shrunk = phi i32 [ 0, %lv_indev_get_point.exit ], [ 1, %46 ], [ 1, %50 ], [ 1, %57 ], [ 1, %64 ], [ %71, %send_event.exit.sink.split ]
   ret i32 %.0.shrunk
 }

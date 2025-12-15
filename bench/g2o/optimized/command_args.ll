@@ -5745,7 +5745,7 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit9: ; preds = %
           to label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit10 unwind label %24
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit10: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit9
-  br i1 %5, label %18, label %26
+  br i1 %5, label %18, label %28
 
 18:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit10
   %19 = getelementptr inbounds nuw i8, ptr %0, i64 64
@@ -5759,26 +5759,26 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit10: ; preds = 
   invoke void @_ZN3g2o11CommandArgs15CommandArgumentC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(82) %20, ptr noundef nonnull align 8 dereferenceable(82) %7)
           to label %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit.sink.split unwind label %24
 
-24:                                               ; preds = %.invoke, %31, %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %6
+.noexc:                                           ; preds = %.invoke, %31, %23, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit9, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit, %6
   %25 = landingpad { ptr, i32 }
           cleanup
   call void @_ZN3g2o11CommandArgs15CommandArgumentD2Ev(ptr noundef nonnull align 8 dereferenceable(82) %7) #26
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   resume { ptr, i32 } %25
 
-26:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit10
-  %27 = getelementptr inbounds nuw i8, ptr %0, i64 40
-  %28 = load ptr, ptr %27, align 8, !tbaa !17
-  %29 = getelementptr inbounds nuw i8, ptr %0, i64 48
-  %30 = load ptr, ptr %29, align 8, !tbaa !20
-  %.not.i12 = icmp eq ptr %28, %30
-  br i1 %.not.i12, label %.invoke, label %31
+28:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEaSERKS4_.exit10
+  %29 = getelementptr inbounds nuw i8, ptr %0, i64 40
+  %30 = load ptr, ptr %29, align 8, !tbaa !17
+  %31 = getelementptr inbounds nuw i8, ptr %0, i64 48
+  %32 = load ptr, ptr %31, align 8, !tbaa !20
+  %.not.i12 = icmp eq ptr %30, %32
+  br i1 %.not.i12, label %.invoke, label %33
 
-31:                                               ; preds = %26
-  invoke void @_ZN3g2o11CommandArgs15CommandArgumentC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(82) %28, ptr noundef nonnull align 8 dereferenceable(82) %7)
+33:                                               ; preds = %28
+  invoke void @_ZN3g2o11CommandArgs15CommandArgumentC2ERKS1_(ptr noundef nonnull align 8 dereferenceable(82) %30, ptr noundef nonnull align 8 dereferenceable(82) %7)
           to label %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit.sink.split unwind label %24
 
-.invoke:                                          ; preds = %26, %18
+.noexc13:                                         ; preds = %26, %18
   %.sink = phi i64 [ 56, %18 ], [ 32, %26 ]
   %32 = phi ptr [ %20, %18 ], [ %28, %26 ]
   %33 = getelementptr inbounds nuw i8, ptr %0, i64 %.sink
@@ -5792,26 +5792,26 @@ _ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit.s
   store ptr %35, ptr %.sink25, align 8, !tbaa !17
   br label %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit
 
-_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit: ; preds = %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit.sink.split, %.invoke
+.invoke:                                          ; preds = %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit.sink.split, %.noexc13
   %36 = load ptr, ptr %11, align 8, !tbaa !6
   %37 = icmp eq ptr %36, %12
   br i1 %37, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit
-  %38 = load i64, ptr %12, align 8, !tbaa !13
-  %39 = add i64 %38, 1
-  call void @_ZdlPvm(ptr noundef %36, i64 noundef %39) #25
+  %40 = load i64, ptr %12, align 8, !tbaa !13
+  %41 = add i64 %40, 1
+  call void @_ZdlPvm(ptr noundef %36, i64 noundef %41) #25
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i: ; preds = %_ZNSt6vectorIN3g2o11CommandArgs15CommandArgumentESaIS2_EE9push_backERKS2_.exit, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
-  %40 = load ptr, ptr %7, align 8, !tbaa !6
-  %41 = icmp eq ptr %40, %9
-  br i1 %41, label %_ZN3g2o11CommandArgs15CommandArgumentD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
+  %42 = load ptr, ptr %7, align 8, !tbaa !6
+  %43 = icmp eq ptr %42, %9
+  br i1 %43, label %_ZN3g2o11CommandArgs15CommandArgumentD2Ev.exit, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i
-  %42 = load i64, ptr %9, align 8, !tbaa !13
-  %43 = add i64 %42, 1
-  call void @_ZdlPvm(ptr noundef %40, i64 noundef %43) #25
+  %44 = load i64, ptr %9, align 8, !tbaa !13
+  %45 = add i64 %44, 1
+  call void @_ZdlPvm(ptr noundef %42, i64 noundef %45) #25
   br label %_ZN3g2o11CommandArgs15CommandArgumentD2Ev.exit
 
 _ZN3g2o11CommandArgs15CommandArgumentD2Ev.exit:   ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit.i, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i1.i

@@ -8781,7 +8781,7 @@ _ZN4core4iter6traits8iterator8Iterator8try_fold17h4a6f33d66c97e3f4E.exit: ; pred
   %.not = icmp ult i64 %55, %54
   %56 = load ptr, ptr %41, align 8, !nonnull !4
   %57 = getelementptr inbounds i8, ptr %56, i64 %55
-  br i1 %.not, label %59, label %72
+  br i1 %.not, label %59, label %74
 
 58:                                               ; preds = %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit._crit_edge"
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4920c289cb5bce572bf2b72717362552.97) #25
@@ -8819,13 +8819,13 @@ _ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6
   store i64 %71, ptr %43, align 8
   br label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit"
 
-72:                                               ; preds = %53
+74:                                               ; preds = %53
   %.not40 = icmp eq i64 %54, 0
-  %73 = getelementptr i8, ptr %56, i64 %54
-  %74 = getelementptr i8, ptr %73, i64 -1
-  %75 = icmp eq ptr %74, null
-  %76 = select i1 %.not40, i1 true, i1 %75
-  br i1 %76, label %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit"
+  %75 = getelementptr i8, ptr %56, i64 %54
+  %76 = getelementptr i8, ptr %75, i64 -1
+  %77 = icmp eq ptr %76, null
+  %78 = select i1 %.not40, i1 true, i1 %77
+  br i1 %78, label %80, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit"
 
 "_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit": ; preds = %72, %_ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6E.exit
   %.sink69 = phi ptr [ %57, %_ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6E.exit ], [ %74, %72 ]
@@ -8836,7 +8836,7 @@ _ZN5uu_tr9operation18TranslateOperation20next_complement_char17h7bb03d1174183ef6
   %.not38 = icmp eq ptr %79, null
   br i1 %.not38, label %53, label %"_ZN91_$LT$core..slice..iter..Iter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4find17hf133601099b98e19E.exit._crit_edge"
 
-80:                                               ; preds = %72
+80:                                               ; preds = %74
   call void @_ZN4core6option13unwrap_failed17hcb3a256a9f1ca882E(ptr noalias noundef readonly align 8 dereferenceable(24) @anon.4920c289cb5bce572bf2b72717362552.98) #25
   unreachable
 }

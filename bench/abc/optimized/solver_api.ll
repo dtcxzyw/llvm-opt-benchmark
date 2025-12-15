@@ -1881,8 +1881,8 @@ vec_uint_push_back.exit:                          ; preds = %.critedge, %37, %ve
   br i1 %.not.i28, label %heap_percolate_up.exit, label %64, !llvm.loop !133
 
 heap_percolate_up.exit:                           ; preds = %64, %73, %..split24_crit_edge.i
-  %.val28.i.sink = phi ptr [ %.val28.i, %..split24_crit_edge.i ], [ %72, %64 ], [ %.val28.i, %73 ]
-  %.pre-phi.i.sink = phi i64 [ %.pre45.i, %..split24_crit_edge.i ], [ %61, %73 ], [ %61, %64 ]
+  %.pre-phi.i.sink = phi ptr [ %.val28.i, %..split24_crit_edge.i ], [ %72, %64 ], [ %.val28.i, %73 ]
+  %.sink = phi i64 [ %.pre45.i, %..split24_crit_edge.i ], [ %61, %73 ], [ %61, %64 ]
   %.sink = phi i32 [ 0, %..split24_crit_edge.i ], [ %.02341.i, %64 ], [ 0, %73 ]
   store i32 %58, ptr %.val28.i.sink, align 4, !tbaa !103
   %77 = getelementptr inbounds nuw i32, ptr %.val27, i64 %.pre-phi.i.sink

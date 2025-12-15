@@ -7153,8 +7153,8 @@ _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE7inc_refEPS0_.
           to label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split unwind label %69
 
 _ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34.sink.split: ; preds = %84, %68
-  %.sink103 = phi ptr [ %25, %68 ], [ %26, %84 ]
-  %.pre.i.i37 = load ptr, ptr %.sink103, align 8, !tbaa !196
+  %.pre.i.i37.sink = phi ptr [ %25, %68 ], [ %26, %84 ]
+  %.pre.i.i37 = load ptr, ptr %.pre.i.i37.sink, align 8, !tbaa !196
   %.phi.trans.insert.i.i38 = getelementptr inbounds i8, ptr %.pre.i.i37, i64 -4
   %.pre2.i.i39 = load i32, ptr %.phi.trans.insert.i.i38, align 4, !tbaa !14
   br label %_ZN15ref_vector_coreI4expr19ref_manager_wrapperIS0_11ast_managerEE9push_backEPS0_.exit34

@@ -5391,29 +5391,29 @@ _ZN4Luau14AstJsonEncoder9writeTypeESt17basic_string_viewIcSt11char_traitsIcEE.ex
   %cond = icmp eq i32 %4, 0
   %5 = load i8, ptr %2, align 8, !tbaa !36, !range !43, !noundef !44
   %6 = trunc nuw i8 %5 to i1
-  br i1 %cond, label %7, label %9
+  br i1 %cond, label %7, label %8
 
 7:                                                ; preds = %_ZN4Luau14AstJsonEncoder9writeTypeESt17basic_string_viewIcSt11char_traitsIcEE.exit
   %8 = getelementptr inbounds nuw i8, ptr %1, i64 16
   br i1 %6, label %_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit.sink.split, label %_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit
 
-9:                                                ; preds = %_ZN4Luau14AstJsonEncoder9writeTypeESt17basic_string_viewIcSt11char_traitsIcEE.exit
-  %10 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  br i1 %6, label %11, label %_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit6
+8:                                                ; preds = %_ZN4Luau14AstJsonEncoder9writeTypeESt17basic_string_viewIcSt11char_traitsIcEE.exit
+  %9 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  br i1 %6, label %10, label %_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit6
 
-11:                                               ; preds = %9
+10:                                               ; preds = %8
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.63)
   br label %_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit6
 
-_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit6: ; preds = %9, %11
+_ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_traitsIcEERKT_.exit6: ; preds = %8, %10
   store i8 1, ptr %2, align 8, !tbaa !36
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.64)
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 3, ptr nonnull @.str.130)
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 2, ptr nonnull @.str.65)
-  %12 = load ptr, ptr %10, align 8, !tbaa !331
-  %13 = load ptr, ptr %12, align 8, !tbaa !8
-  %14 = load ptr, ptr %13, align 8
-  tail call void %14(ptr noundef nonnull align 8 dereferenceable(28) %12, ptr noundef nonnull align 8 dereferenceable(33) %0)
+  %11 = load ptr, ptr %9, align 8, !tbaa !331
+  %12 = load ptr, ptr %11, align 8, !tbaa !8
+  %13 = load ptr, ptr %12, align 8
+  tail call void %14(ptr noundef nonnull align 8 dereferenceable(28) %11, ptr noundef nonnull align 8 dereferenceable(33) %0)
   %15 = getelementptr inbounds nuw i8, ptr %1, i64 16
   %16 = load i8, ptr %2, align 8, !tbaa !36, !range !43, !noundef !44
   %17 = trunc nuw i8 %16 to i1
@@ -5431,8 +5431,8 @@ _ZN4Luau14AstJsonEncoder5writeIPNS_7AstExprEEEvSt17basic_string_viewIcSt11char_t
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 5, ptr nonnull @.str.75)
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 2, ptr nonnull @.str.65)
   %18 = load ptr, ptr %.sink23, align 8, !tbaa !331
-  %19 = load ptr, ptr %18, align 8, !tbaa !8
-  %20 = load ptr, ptr %19, align 8
+  %.sink22 = load ptr, ptr %18, align 8, !tbaa !8
+  %16 = load ptr, ptr %.sink22, align 8
   tail call void %20(ptr noundef nonnull align 8 dereferenceable(28) %18, ptr noundef nonnull align 8 dereferenceable(33) %0)
   store i8 %3, ptr %2, align 8, !tbaa !36
   tail call void @_ZN4Luau14AstJsonEncoder11appendChunkESt17basic_string_viewIcSt11char_traitsIcEE(ptr noundef nonnull align 8 dereferenceable(33) %0, i64 1, ptr nonnull @.str.61)

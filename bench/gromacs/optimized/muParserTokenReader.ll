@@ -8670,7 +8670,7 @@ _ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetVa
   %105 = load i32, ptr %104, align 4, !tbaa !74
   %106 = and i32 %105, 4
   %.not41 = icmp eq i32 %106, 0
-  br i1 %.not41, label %.loopexit.sink.split, label %107
+  br i1 %.not41, label %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit80, label %107
 
 107:                                              ; preds = %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit
   %108 = load i32, ptr %62, align 8, !tbaa !73
@@ -8872,19 +8872,19 @@ _ZNK2mu17ParserTokenReader5ErrorENS_11EErrorCodesEiRKNSt7__cxx1112basic_stringIc
   %182 = load ptr, ptr %181, align 8, !tbaa !94
   store ptr null, ptr %181, align 8, !tbaa !94
   %.not.i.i.i77 = icmp eq ptr %182, null
-  br i1 %.not.i.i.i77, label %.loopexit.sink.split, label %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i78
+  br i1 %.not.i.i.i77, label %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit80, label %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i78
 
 _ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i78: ; preds = %.noexc79
   call void @_ZN2mu14ParserCallbackD1Ev(ptr noundef nonnull align 8 dereferenceable(32) %182) #26
   call void @_ZdlPv(ptr noundef nonnull %182) #28
-  br label %.loopexit.sink.split
+  br label %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit80
 
-.loopexit.sink.split:                             ; preds = %.noexc79, %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i78, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit, %107
+_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit80: ; preds = %.noexc79, %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i78, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit, %107
   %.sink = phi ptr [ %104, %107 ], [ %104, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit ], [ %160, %_ZNKSt14default_deleteIN2mu14ParserCallbackEEclEPS1_.exit.i.i.i78 ], [ %160, %.noexc79 ]
   store i32 3373, ptr %.sink, align 4, !tbaa !74
   br label %.loopexit
 
-.loopexit:                                        ; preds = %.critedge51, %.loopexit.sink.split
+.loopexit:                                        ; preds = %.critedge51, %_ZN2mu11ParserTokenIdNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEEE6SetValEdRKS6_.exit80
   %.2 = phi i1 [ true, %.loopexit.sink.split ], [ false, %.critedge51 ]
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   %183 = load ptr, ptr %8, align 8, !tbaa !47

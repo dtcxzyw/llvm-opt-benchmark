@@ -934,14 +934,14 @@ zend_internal_iterator_fetch.exit:                ; preds = %6
   br i1 %.not26, label %43, label %.sink.split
 
 .sink.split:                                      ; preds = %31, %34
-  %.sink36 = phi ptr [ %36, %34 ], [ %26, %31 ]
+  %.sink38 = phi ptr [ %36, %34 ], [ %26, %31 ]
   %40 = load ptr, ptr %.sink36, align 8, !tbaa !4
   %41 = load i32, ptr %40, align 4, !tbaa !52
   %42 = add i32 %41, 1
   store i32 %42, ptr %40, align 4, !tbaa !52
   br label %43
 
-43:                                               ; preds = %.sink.split, %27, %34
+43:; preds = %.sink.split, %27, %34
   %.0 = phi ptr [ %36, %34 ], [ %26, %27 ], [ %.sink36, %.sink.split ]
   %44 = load ptr, ptr %.0, align 8, !tbaa !4
   %45 = getelementptr inbounds nuw i8, ptr %.0, i64 8

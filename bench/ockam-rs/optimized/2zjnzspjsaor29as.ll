@@ -362,7 +362,7 @@ default.unreachable:                              ; preds = %102, %75, %70
   br label %common.resume
 
 common.resume:                                    ; preds = %113, %121, %126, %.body86.i, %239, %250, %252, %261, %.body.i.i, %95
-  %.sink = phi ptr [ %27, %95 ], [ %27, %.body.i.i ], [ %32, %261 ], [ %32, %252 ], [ %32, %250 ], [ %32, %239 ], [ %32, %.body86.i ], [ %32, %126 ], [ %32, %121 ], [ %32, %113 ]
+  %common.resume.op = phi ptr [ %27, %95 ], [ %27, %.body.i.i ], [ %32, %261 ], [ %32, %252 ], [ %32, %250 ], [ %32, %239 ], [ %32, %.body86.i ], [ %32, %126 ], [ %32, %121 ], [ %32, %113 ]
   %common.resume.op = phi { ptr, i32 } [ %96, %95 ], [ %.pn.pn.i.i, %.body.i.i ], [ %lpad.phi, %261 ], [ %253, %252 ], [ %251, %250 ], [ %240, %239 ], [ %.pn69.i, %.body86.i ], [ %127, %126 ], [ %122, %121 ], [ %114, %113 ]
   store i8 2, ptr %.sink, align 8, !noalias !14
   resume { ptr, i32 } %common.resume.op

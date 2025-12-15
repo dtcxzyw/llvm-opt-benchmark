@@ -1412,7 +1412,7 @@ define internal noundef i32 @gitmodules_fetch_config(ptr noundef %0, ptr noundef
 6:                                                ; preds = %4
   %7 = load ptr, ptr %3, align 8, !tbaa !107
   %.not12 = icmp eq ptr %7, null
-  br i1 %.not12, label %29, label %8
+  br i1 %.not12, label %30, label %8
 
 8:                                                ; preds = %6
   %9 = load ptr, ptr %2, align 8, !tbaa !111
@@ -1427,50 +1427,50 @@ define internal noundef i32 @gitmodules_fetch_config(ptr noundef %0, ptr noundef
 
 14:                                               ; preds = %8
   %.not.i = icmp eq i32 %10, 0
-  br i1 %.not.i, label %15, label %.sink.split
+  br i1 %.not.i, label %15, label %parse_fetch_recurse_submodules_arg.exit
 
 15:                                               ; preds = %14
   %16 = tail call i32 @online_cpus() #16
-  br label %.sink.split
+  br label %parse_fetch_recurse_submodules_arg.exit
 
-17:                                               ; preds = %4
+parse_submodule_fetchjobs.exit:                   ; preds = %4
   %18 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %0, ptr noundef nonnull dereferenceable(24) @.str.42) #17
   %.not13 = icmp eq i32 %18, 0
   br i1 %.not13, label %19, label %29
 
-19:                                               ; preds = %17
+18:                                               ; preds = %17
   %20 = getelementptr inbounds nuw i8, ptr %3, i64 8
   %21 = load ptr, ptr %20, align 8, !tbaa !110
   %.not14 = icmp eq ptr %21, null
   br i1 %.not14, label %29, label %22
 
-22:                                               ; preds = %19
+22: ; preds = %18
   %23 = tail call i32 @git_parse_maybe_bool(ptr noundef %1) #16
   switch i32 %23, label %25 [
     i32 1, label %.sink.split
     i32 0, label %24
   ]
 
-24:                                               ; preds = %22
-  br label %.sink.split
-
 25:                                               ; preds = %22
-  %26 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.13) #17
-  %.not.i.i = icmp eq i32 %26, 0
-  br i1 %.not.i.i, label %.sink.split, label %27
+  br label %parse_fetch_recurse_submodules_arg.exit
 
-27:                                               ; preds = %25
+26:                                               ; preds = %22
+  %27 = tail call i32 @strcmp(ptr noundef nonnull dereferenceable(1) %1, ptr noundef nonnull dereferenceable(10) @.str.13) #17
+  %.not.i.i = icmp eq i32 %27, 0
+  br i1 %.not.i.i, label %parse_fetch_recurse_submodules_arg.exit, label %28
+
+28:                                               ; preds = %26
   tail call void (ptr, ...) @die(ptr noundef nonnull @.str.14, ptr noundef nonnull %0, ptr noundef nonnull %1) #18
   unreachable
 
-.sink.split:                                      ; preds = %25, %24, %22, %15, %14
-  %.sink15 = phi ptr [ %3, %14 ], [ %3, %15 ], [ %20, %22 ], [ %20, %24 ], [ %20, %25 ]
+parse_fetch_recurse_submodules_arg.exit:          ; preds = %25, %25, %22, %15, %14
+  %.0.i.i = phi ptr [ %3, %14 ], [ %3, %15 ], [ %20, %22 ], [ %20, %24 ], [ %20, %25 ]
   %.0.i.i.sink = phi i32 [ %10, %14 ], [ %16, %15 ], [ 2, %22 ], [ 0, %24 ], [ -1, %25 ]
-  %28 = load ptr, ptr %.sink15, align 8, !tbaa !114
+  %28 = load ptr, ptr %.0.i.i, align 8, !tbaa !114
   store i32 %.0.i.i.sink, ptr %28, align 4, !tbaa !26
   br label %29
 
-29:                                               ; preds = %.sink.split, %17, %19, %6
+30:                                               ; preds = %parse_fetch_recurse_submodules_arg.exit, %parse_submodule_fetchjobs.exit, %19, %6
   ret i32 0
 }
 

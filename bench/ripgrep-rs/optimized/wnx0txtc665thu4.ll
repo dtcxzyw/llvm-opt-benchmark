@@ -789,9 +789,9 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
           catch ptr null
   %32 = extractvalue { ptr, i32 } %31, 0
   call void @_ZN3std9panicking3try8do_catch17heb3989dc8a2bdaffE.llvm.5952769917390182195(ptr nonnull %4, ptr %32), !noalias !138
-  br label %33
+  br label %34
 
-33:                                               ; preds = %30, %29
+34:                                               ; preds = %30, %29
   %.sink = phi ptr [ %4, %30 ], [ %.sink97.i.sroa.gep, %29 ]
   %.sink97.i.sroa.phi = phi ptr [ %.sink97.i.sroa.gep, %30 ], [ %.sink97.i.sroa.gep1, %29 ]
   %.sroa.0.0.i = phi i64 [ -9223372036854775807, %30 ], [ %.sroa.0.0.copyload32.i, %29 ]
@@ -806,7 +806,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   %40 = icmp eq i64 %39, -9223372036854775806
   br i1 %40, label %"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$grep_cli..process..CommandError$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17he83b04aae66f12d6E.exit.i", label %41
 
-41:                                               ; preds = %33
+41:                                               ; preds = %34
   call void @llvm.experimental.noalias.scope.decl(metadata !143)
   %.not.i.i.i = icmp eq i64 %39, -9223372036854775807
   br i1 %.not.i.i.i, label %59, label %42
@@ -917,7 +917,7 @@ define internal void @"_ZN4core3ops8function6FnOnce40call_once$u7b$$u7b$vtable.s
   store ptr %35, ptr %.sroa.6.0..sroa_idx.i, align 8
   br label %.thread78.thread.i
 
-"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$grep_cli..process..CommandError$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17he83b04aae66f12d6E.exit.i": ; preds = %79, %72, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit.i.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h77a83bea1473771dE.exit.i.i.i.i.i", %33
+"_ZN4core3ptr181drop_in_place$LT$core..option..Option$LT$core..result..Result$LT$grep_cli..process..CommandError$C$alloc..boxed..Box$LT$dyn$u20$core..any..Any$u2b$core..marker..Send$GT$$GT$$GT$$GT$17he83b04aae66f12d6E.exit.i": ; preds = %79, %72, %"_ZN4core3ptr46drop_in_place$LT$alloc..vec..Vec$LT$u8$GT$$GT$17h9b11311928cb727fE.exit.i.i.i.i.i", %"_ZN4core3ptr42drop_in_place$LT$std..io..error..Error$GT$17h77a83bea1473771dE.exit.i.i.i.i.i", %34
   store i64 %.sroa.0.0.i, ptr %38, align 8
   %.sroa.5.0..sroa_idx39.i = getelementptr inbounds nuw i8, ptr %37, i64 32
   store ptr %34, ptr %.sroa.5.0..sroa_idx39.i, align 8

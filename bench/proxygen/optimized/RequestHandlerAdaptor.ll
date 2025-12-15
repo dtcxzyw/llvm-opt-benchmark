@@ -424,7 +424,7 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i: ; preds = %
   store ptr null, ptr %body_.i, align 8
   %17 = load ptr, ptr %headers_.i5, align 8
   %cmp.not.i2.i = icmp eq ptr %17, null
-  br i1 %cmp.not.i2.i, label %if.end41, label %if.end41.sink.split
+  br i1 %cmp.not.i2.i, label %if.end41, label %_ZN8proxygen15ResponseBuilderD2Ev.exit35
 
 if.else:                                          ; preds = %for.inc.i.i
   store ptr %add.ptr, ptr %ref.tmp32, align 8
@@ -485,16 +485,16 @@ _ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31: ; preds =
   store ptr null, ptr %body_.i28, align 8
   %21 = load ptr, ptr %headers_.i14, align 8
   %cmp.not.i2.i33 = icmp eq ptr %21, null
-  br i1 %cmp.not.i2.i33, label %if.end41, label %if.end41.sink.split
+  br i1 %cmp.not.i2.i33, label %if.end41, label %_ZN8proxygen15ResponseBuilderD2Ev.exit35
 
-if.end41.sink.split:                              ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i
+_ZN8proxygen15ResponseBuilderD2Ev.exit35:         ; preds = %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i
   %.sink49 = phi ptr [ %17, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i ], [ %21, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31 ]
   %headers_.i14.sink.ph = phi ptr [ %headers_.i5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i ], [ %headers_.i14, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31 ]
   call void @_ZN8proxygen11HTTPMessageD1Ev(ptr noundef nonnull align 8 dereferenceable(616) %.sink49) #21
   call void @_ZdlPv(ptr noundef nonnull %.sink49) #23
   br label %if.end41
 
-if.end41:                                         ; preds = %if.end41.sink.split, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i
+if.end41:                                         ; preds = %_ZN8proxygen15ResponseBuilderD2Ev.exit35, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i
   %headers_.i14.sink = phi ptr [ %headers_.i5, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i ], [ %headers_.i14, %_ZNSt10unique_ptrIN5folly5IOBufESt14default_deleteIS1_EED2Ev.exit.i31 ], [ %headers_.i14.sink.ph, %if.end41.sink.split ]
   store ptr null, ptr %headers_.i14.sink, align 8
   call void @_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED1Ev(ptr noundef nonnull align 8 dereferenceable(32) %expectation) #21

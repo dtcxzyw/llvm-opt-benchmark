@@ -748,8 +748,8 @@ rtmp_packet_read_one_chunk.exit.thread15:         ; preds = %144
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   br label %154
 
-rtmp_packet_read_one_chunk.exit.thread.sink.split: ; preds = %ff_rtmp_packet_destroy.exit168.i, %ff_rtmp_packet_destroy.exit.i
-  %.lcssa58.sink = phi ptr [ %112, %ff_rtmp_packet_destroy.exit.i ], [ %12, %ff_rtmp_packet_destroy.exit168.i ]
+rtmp_packet_read_one_chunk.exit.thread:           ; preds = %ff_rtmp_packet_destroy.exit168.i, %ff_rtmp_packet_destroy.exit.i
+  %.0.i.ph = phi ptr [ %112, %ff_rtmp_packet_destroy.exit.i ], [ %12, %ff_rtmp_packet_destroy.exit168.i ]
   %.0.i.ph.ph = phi i32 [ -1094995529, %ff_rtmp_packet_destroy.exit.i ], [ -5, %ff_rtmp_packet_destroy.exit168.i ]
   store i32 0, ptr %.lcssa58.sink, align 8, !tbaa !15
   br label %rtmp_packet_read_one_chunk.exit.thread

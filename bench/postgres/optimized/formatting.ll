@@ -7589,7 +7589,7 @@ NUM_numpart_to_char.exit:                         ; preds = %633, %628, %.prehea
   store i32 %.sroa.79.1643, ptr %709, align 4
   br label %710
 
-710:                                              ; preds = %._crit_edge.thread, %705, %24
+709:                                              ; preds = %._crit_edge.thread, %705, %24
   ret void
 }
 

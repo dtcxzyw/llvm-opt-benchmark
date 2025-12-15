@@ -113327,9 +113327,9 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i: ; preds = %.no
           cleanup
   %32 = load ptr, ptr %3, align 8, !tbaa !15, !alias.scope !2266
   %33 = icmp eq ptr %32, %5
-  br i1 %33, label %common.resume, label %common.resume.sink.split
+  br i1 %33, label %common.resume, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-common.resume.sink.split:                         ; preds = %30, %69
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i: ; preds = %30, %69
   %.sink32 = phi ptr [ %45, %69 ], [ %5, %30 ]
   %.sink29 = phi ptr [ %71, %69 ], [ %32, %30 ]
   %common.resume.op.ph = phi { ptr, i32 } [ %70, %69 ], [ %31, %30 ]
@@ -113430,36 +113430,36 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i10: ; preds = %.
           cleanup
   %71 = load ptr, ptr %4, align 8, !tbaa !15, !alias.scope !2269
   %72 = icmp eq ptr %71, %45
-  br i1 %72, label %common.resume, label %common.resume.sink.split
+  br i1 %72, label %common.resume, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i
 
-73:                                               ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i10, %.lr.ph.i6, %.lr.ph.i6
+_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i.i11: ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEpLEc.exit.i10, %.lr.ph.i6, %.lr.ph.i6
   %74 = getelementptr inbounds nuw i8, ptr %.sroa.010.014.i7, i64 1
   %.not.i8 = icmp eq ptr %74, %49
   br i1 %.not.i8, label %_ZN4pbrt12normalizeArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16, label %.lr.ph.i6
 
 _ZN4pbrt12normalizeArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16: ; preds = %73, %44
-  %75 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.317) #40
-  %76 = icmp eq i32 %75, 0
-  %77 = load ptr, ptr %4, align 8, !tbaa !15
-  %78 = icmp eq ptr %77, %45
-  br i1 %78, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
+  %76 = call noundef i32 @_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE7compareEPKc(ptr noundef nonnull align 8 dereferenceable(32) %4, ptr noundef nonnull @.str.317) #40
+  %77 = icmp eq i32 %76, 0
+  %78 = load ptr, ptr %4, align 8, !tbaa !15
+  %79 = icmp eq ptr %78, %45
+  br i1 %79, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, label %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
 
 _ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17: ; preds = %_ZN4pbrt12normalizeArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16
-  %79 = load i64, ptr %45, align 8, !tbaa !13
-  %80 = add i64 %79, 1
-  call void @_ZdlPvm(ptr noundef %77, i64 noundef %80) #39
+  %80 = load i64, ptr %45, align 8, !tbaa !13
+  %81 = add i64 %80, 1
+  call void @_ZdlPvm(ptr noundef %78, i64 noundef %81) #39
   br label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
 
 _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19: ; preds = %_ZN4pbrt12normalizeArgERKNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEEE.exit16, %_ZNKSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEE11_M_is_localEv.exit.i.i17
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br i1 %76, label %.sink.split, label %81
+  br i1 %77, label %.sink.split, label %82
 
 .sink.split:                                      ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit
   %.sink = phi i8 [ 0, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit ], [ 1, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ]
   store i8 %.sink, ptr %1, align 1, !tbaa !633
-  br label %81
+  br label %82
 
-81:                                               ; preds = %.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
+82:                                               ; preds = %.sink.split, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19
   %.0 = phi i1 [ false, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcESaIcEED2Ev.exit19 ], [ true, %.sink.split ]
   ret i1 %.0
 }

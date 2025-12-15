@@ -3363,7 +3363,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit198: ; preds = %466, %474
   %484 = and i64 %483, 3
   %485 = icmp eq i64 %484, 3
   %or.cond.i.i200 = or i1 %.not.i.i199, %485
-  br i1 %or.cond.i.i200, label %.sink.split, label %486
+  br i1 %or.cond.i.i200, label %563, label %486
 
 486:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit198
   %487 = and i64 %483, -8
@@ -3488,7 +3488,7 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212: ; preds = %531, %539
   %549 = and i64 %548, 3
   %550 = icmp eq i64 %549, 3
   %or.cond.i.i214 = or i1 %.not.i.i213, %550
-  br i1 %or.cond.i.i214, label %.sink.split, label %551
+  br i1 %or.cond.i.i214, label %563, label %551
 
 551:                                              ; preds = %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212
   %552 = and i64 %548, -8
@@ -3516,8 +3516,8 @@ _ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212: ; preds = %531, %539
   call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %22) #21
   br label %653
 
-.sink.split:                                      ; preds = %551, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212, %486, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit198
-  %.sink = phi ptr [ %446, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit198 ], [ %446, %486 ], [ %511, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212 ], [ %511, %551 ]
+563:                                              ; preds = %551, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212, %486, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit198
+  %564 = phi ptr [ %446, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit198 ], [ %446, %486 ], [ %511, %_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev.exit212 ], [ %511, %551 ]
   store ptr null, ptr %.sink, align 8
   br label %563
 
@@ -3715,9 +3715,9 @@ _ZNK32pxrInternal_v0_24__pxrReserved__10GfInterval7IsEmptyEv.exit.thread280: ; p
   ret void
 
 653:                                              ; preds = %632, %634, %616, %618, %559, %561, %494, %496, %419, %417, %362, %364, %284, %286, %222, %220, %163, %165, %82, %80
-  %.sink318 = phi ptr [ %7, %82 ], [ %5, %80 ], [ %9, %165 ], [ %9, %163 ], [ %11, %220 ], [ %11, %222 ], [ %13, %286 ], [ %13, %284 ], [ %15, %364 ], [ %15, %362 ], [ %17, %417 ], [ %17, %419 ], [ %19, %496 ], [ %19, %494 ], [ %21, %561 ], [ %21, %559 ], [ %23, %618 ], [ %23, %616 ], [ %25, %634 ], [ %25, %632 ]
+  %.sink = phi ptr [ %7, %82 ], [ %5, %80 ], [ %9, %165 ], [ %9, %163 ], [ %11, %220 ], [ %11, %222 ], [ %13, %286 ], [ %13, %284 ], [ %15, %364 ], [ %15, %362 ], [ %17, %417 ], [ %17, %419 ], [ %19, %496 ], [ %19, %494 ], [ %21, %561 ], [ %21, %559 ], [ %23, %618 ], [ %23, %616 ], [ %25, %634 ], [ %25, %632 ]
   %.pn98.pn = phi { ptr, i32 } [ %83, %82 ], [ %81, %80 ], [ %166, %165 ], [ %164, %163 ], [ %221, %220 ], [ %223, %222 ], [ %287, %286 ], [ %285, %284 ], [ %365, %364 ], [ %363, %362 ], [ %418, %417 ], [ %420, %419 ], [ %497, %496 ], [ %495, %494 ], [ %562, %561 ], [ %560, %559 ], [ %619, %618 ], [ %617, %616 ], [ %635, %634 ], [ %633, %632 ]
-  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink318) #21
+  call void @_ZN32pxrInternal_v0_24__pxrReserved__7VtValueD2Ev(ptr noundef nonnull align 8 dereferenceable(16) %.sink) #21
   resume { ptr, i32 } %.pn98.pn
 }
 

@@ -45111,8 +45111,8 @@ _ZN5typst4text3raw10load_theme17hb46966b03ba1c96eE.exit.i.i: ; preds = %350, %34
   store i64 %456, ptr %.sroa.224.sroa.4.0..sroa.224.0..sroa_idx.sroa_idx.i, align 8, !noalias !8584
   %.sroa.224.sroa.5.0..sroa.224.0..sroa_idx.sroa_idx.i = getelementptr inbounds nuw i8, ptr %43, i64 40
   store i8 %.0.i.i.i201.i, ptr %.sroa.224.sroa.5.0..sroa.224.0..sroa_idx.sroa_idx.i, align 8, !noalias !8584
-  %.not490.i = icmp eq i64 %456, 0
-  br i1 %.not490.i, label %._crit_edge.i, label %.lr.ph.i
+  %.not492.i = icmp eq i64 %456, 0
+  br i1 %.not492.i, label %._crit_edge.i, label %.lr.ph.i
 
 .lr.ph.i:                                         ; preds = %"_ZN88_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he334cc2070464776E.exit202.i"
   %.sroa.7303.8..sroa_idx.i = getelementptr inbounds nuw i8, ptr %42, i64 8
@@ -45221,11 +45221,11 @@ _ZN5typst4text3raw10load_theme17hb46966b03ba1c96eE.exit.i.i: ; preds = %350, %34
   br label %.critedge144.i
 
 ._crit_edge.loopexit.i:                           ; preds = %671, %"_ZN87_$LT$ecow..vec..IntoIter$LT$T$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17hc50b919628d9556aE.exit.i.i"
-  %.pre455.i = load i8, ptr %.sroa.224.sroa.5.0..sroa.224.0..sroa_idx.sroa_idx.i, align 8, !range !173, !alias.scope !8829, !noalias !8584
+  %.pre457.i = load i8, ptr %.sroa.224.sroa.5.0..sroa.224.0..sroa_idx.sroa_idx.i, align 8, !range !173, !alias.scope !8829, !noalias !8584
   br label %._crit_edge.i
 
 ._crit_edge.i:                                    ; preds = %._crit_edge.loopexit.i, %"_ZN88_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he334cc2070464776E.exit202.i"
-  %515 = phi i8 [ %.pre455.i, %._crit_edge.loopexit.i ], [ %.0.i.i.i201.i, %"_ZN88_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he334cc2070464776E.exit202.i" ]
+  %515 = phi i8 [ %.pre457.i, %._crit_edge.loopexit.i ], [ %.0.i.i.i201.i, %"_ZN88_$LT$ecow..vec..EcoVec$LT$T$GT$$u20$as$u20$core..iter..traits..collect..IntoIterator$GT$9into_iter17he334cc2070464776E.exit202.i" ]
   call void @llvm.experimental.noalias.scope.decl(metadata !8836)
   call void @llvm.experimental.noalias.scope.decl(metadata !8837)
   %516 = trunc nuw i8 %515 to i1
@@ -45611,10 +45611,10 @@ _ZN4core3ops8function6FnOnce9call_once17hd6e41f4b8a211abeE.exit.thread.i.i.i: ; 
 625:                                              ; preds = %"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntect..highlighting..style..Style$C$$RF$str$RP$$GT$$GT$17h29c5fa23c9400263E.exit.i.i.i.i"
   %626 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i227.i
+  br label %.body.i.i.i
 
-common.resume.i227.i:                             ; preds = %644, %640, %625, %621
-  %.sink.i.i = phi ptr [ %.sroa.027.sroa.2.0..sroa_idx.i, %625 ], [ %.sroa.027.sroa.2.0..sroa_idx.i, %621 ], [ %.sroa.027.sroa.4.0..sroa_idx.i, %644 ], [ %.sroa.027.sroa.4.0..sroa_idx.i, %640 ]
+.body.i.i.i:                                      ; preds = %644, %640, %625, %621
+  %eh.lpad-body.i.i.i = phi ptr [ %.sroa.027.sroa.2.0..sroa_idx.i, %625 ], [ %.sroa.027.sroa.2.0..sroa_idx.i, %621 ], [ %.sroa.027.sroa.4.0..sroa_idx.i, %644 ], [ %.sroa.027.sroa.4.0..sroa_idx.i, %640 ]
   %common.resume.op.i228.i = phi { ptr, i32 } [ %626, %625 ], [ %622, %621 ], [ %645, %644 ], [ %641, %640 ]
   store ptr null, ptr %.sink.i.i, align 8, !alias.scope !8924, !noalias !8951
   br label %.body229.i
@@ -45699,7 +45699,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd6e41f4b8a211abeE.exit.thread.i12.i.i: 
 644:                                              ; preds = %"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntect..highlighting..style..Style$C$$RF$str$RP$$GT$$GT$17h29c5fa23c9400263E.exit.i.i16.i.i"
   %645 = landingpad { ptr, i32 }
           cleanup
-  br label %common.resume.i227.i
+  br label %.body.i.i.i
 
 "_ZN116_$LT$core..iter..adapters..flatten..FlattenCompat$LT$I$C$U$GT$$u20$as$u20$core..iter..traits..iterator..Iterator$GT$4next17h8a0ac3c95482c3d5E.exit.thread378.i": ; preds = %"_ZN4core3ptr113drop_in_place$LT$alloc..vec..into_iter..IntoIter$LT$$LP$syntect..highlighting..style..Style$C$$RF$str$RP$$GT$$GT$17h29c5fa23c9400263E.exit.i.i16.i.i"
   call void @llvm.lifetime.end.p0(ptr nonnull %9), !noalias !8984
@@ -45722,7 +45722,7 @@ _ZN4core3ops8function6FnOnce9call_once17hd6e41f4b8a211abeE.exit.thread.i12.i.i: 
           cleanup
   br label %.body229.i
 
-.body229.i:                                       ; preds = %693, %648, %common.resume.i227.i
+.body229.i:                                       ; preds = %693, %648, %.body.i.i.i
   %eh.lpad-body230.i = phi { ptr, i32 } [ %common.resume.op.i228.i, %common.resume.i227.i ], [ %649, %648 ], [ %694, %693 ]
   invoke void @"_ZN4core3ptr274drop_in_place$LT$core..iter..adapters..flatten..FlattenCompat$LT$core..result..IntoIter$LT$alloc..vec..Vec$LT$$LP$syntect..highlighting..style..Style$C$$RF$str$RP$$GT$$GT$$C$alloc..vec..into_iter..IntoIter$LT$$LP$syntect..highlighting..style..Style$C$$RF$str$RP$$GT$$GT$$GT$17hccd4659c70e9f9dcE.llvm.16845035774076767816"(ptr noalias noundef nonnull align 8 dereferenceable(88) %39)
           to label %.thread354.i unwind label %686, !noalias !8590

@@ -6011,60 +6011,60 @@ _ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M
   br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE17_M_construct_nodeIJRKS7_EEEvPSt13_Rb_tree_nodeIS7_EDpOT_.exit
 
 _ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE20_Reuse_or_alloc_node10_M_extractEv.exit: ; preds = %2
-  %43 = getelementptr inbounds nuw i8, ptr %0, i64 16
-  %44 = load ptr, ptr %43, align 8
-  %45 = load ptr, ptr %44, align 8
-  %46 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %45, i64 noundef 72) #15
-  %47 = getelementptr inbounds nuw i8, ptr %46, i64 32
-  %48 = getelementptr inbounds nuw i8, ptr %46, i64 56
-  %49 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #15, !noalias !43
-  store ptr %49, ptr %47, align 8
-  %50 = getelementptr inbounds nuw i8, ptr %46, i64 40
-  store ptr %48, ptr %50, align 8
-  %51 = getelementptr inbounds nuw i8, ptr %1, i64 8
-  %52 = load ptr, ptr %51, align 8
-  %53 = getelementptr inbounds nuw i8, ptr %1, i64 16
-  %54 = load i64, ptr %53, align 8
-  %55 = icmp ugt i64 %54, 15
-  br i1 %55, label %56, label %._crit_edge.i.i.i.i.i.i
+  %46 = getelementptr inbounds nuw i8, ptr %0, i64 16
+  %47 = load ptr, ptr %46, align 8
+  %48 = load ptr, ptr %47, align 8
+  %49 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %48, i64 noundef 72) #15
+  %50 = getelementptr inbounds nuw i8, ptr %49, i64 32
+  %51 = getelementptr inbounds nuw i8, ptr %49, i64 56
+  %52 = tail call noundef nonnull align 8 dereferenceable(96) ptr @_ZN7glslang22GetThreadPoolAllocatorEv() #15, !noalias !43
+  store ptr %52, ptr %50, align 8
+  %53 = getelementptr inbounds nuw i8, ptr %49, i64 40
+  store ptr %51, ptr %53, align 8
+  %54 = getelementptr inbounds nuw i8, ptr %1, i64 8
+  %55 = load ptr, ptr %54, align 8
+  %56 = getelementptr inbounds nuw i8, ptr %1, i64 16
+  %57 = load i64, ptr %56, align 8
+  %58 = icmp ugt i64 %57, 15
+  br i1 %58, label %59, label %._crit_edge.i.i.i.i.i.i
 
-56:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE20_Reuse_or_alloc_node10_M_extractEv.exit
-  %57 = icmp slt i64 %54, 0
-  br i1 %57, label %58, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i
+59:                                               ; preds = %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE20_Reuse_or_alloc_node10_M_extractEv.exit
+  %60 = icmp slt i64 %57, 0
+  br i1 %60, label %61, label %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i
 
-58:                                               ; preds = %56
+61:                                               ; preds = %59
   tail call void @_ZSt20__throw_length_errorPKc(ptr noundef nonnull @.str.24) #17
   unreachable
 
-_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i: ; preds = %56
-  %59 = add nuw i64 %54, 1
-  %60 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %49, i64 noundef %59) #15
-  store ptr %60, ptr %50, align 8
-  store i64 %54, ptr %48, align 8
+_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i: ; preds = %59
+  %62 = add nuw i64 %57, 1
+  %63 = tail call noundef ptr @_ZN7glslang14TPoolAllocator8allocateEm(ptr noundef nonnull align 8 dereferenceable(96) %52, i64 noundef %62) #15
+  store ptr %63, ptr %53, align 8
+  store i64 %57, ptr %51, align 8
   br label %._crit_edge.i.i.i.i.i.i
 
 ._crit_edge.i.i.i.i.i.i:                          ; preds = %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE20_Reuse_or_alloc_node10_M_extractEv.exit
-  %61 = phi ptr [ %60, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i ], [ %48, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE20_Reuse_or_alloc_node10_M_extractEv.exit ]
-  switch i64 %54, label %64 [
-    i64 1, label %62
-    i64 0, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE17_M_construct_nodeIJRKS7_EEEvPSt13_Rb_tree_nodeIS7_EDpOT_.exit
+  %64 = phi ptr [ %63, %_ZNSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEE9_M_createERmm.exit.i.i.i.i.i.i ], [ %51, %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE20_Reuse_or_alloc_node10_M_extractEv.exit ]
+  switch i64 %57, label %64 [
+    i64 1, label %65
+    i64 0, label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE14_M_create_nodeIJRKS7_EEEPSt13_Rb_tree_nodeIS7_EDpOT_.exit
   ]
 
-62:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  %63 = load i8, ptr %52, align 1
-  store i8 %63, ptr %61, align 1
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE17_M_construct_nodeIJRKS7_EEEvPSt13_Rb_tree_nodeIS7_EDpOT_.exit
+65:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+  %66 = load i8, ptr %55, align 1
+  store i8 %66, ptr %64, align 1
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE14_M_create_nodeIJRKS7_EEEPSt13_Rb_tree_nodeIS7_EDpOT_.exit
 
-64:                                               ; preds = %._crit_edge.i.i.i.i.i.i
-  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %61, ptr align 1 %52, i64 %54, i1 false)
-  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE17_M_construct_nodeIJRKS7_EEEvPSt13_Rb_tree_nodeIS7_EDpOT_.exit
+67:                                               ; preds = %._crit_edge.i.i.i.i.i.i
+  tail call void @llvm.memcpy.p0.p0.i64(ptr align 1 %64, ptr align 1 %55, i64 %57, i1 false)
+  br label %_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE14_M_create_nodeIJRKS7_EEEPSt13_Rb_tree_nodeIS7_EDpOT_.exit
 
-_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE17_M_construct_nodeIJRKS7_EEEvPSt13_Rb_tree_nodeIS7_EDpOT_.exit: ; preds = %64, %62, %._crit_edge.i.i.i.i.i.i, %42, %40, %._crit_edge.i.i.i.i.i
-  %.sink19 = phi ptr [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %40 ], [ %4, %42 ], [ %46, %._crit_edge.i.i.i.i.i.i ], [ %46, %62 ], [ %46, %64 ]
-  %.sink17 = phi i64 [ %32, %._crit_edge.i.i.i.i.i ], [ %32, %40 ], [ %32, %42 ], [ %54, %._crit_edge.i.i.i.i.i.i ], [ %54, %62 ], [ %54, %64 ]
-  %.sink = phi ptr [ %25, %._crit_edge.i.i.i.i.i ], [ %25, %40 ], [ %25, %42 ], [ %50, %._crit_edge.i.i.i.i.i.i ], [ %50, %62 ], [ %50, %64 ]
-  %65 = getelementptr inbounds nuw i8, ptr %.sink19, i64 48
-  store i64 %.sink17, ptr %65, align 8
+_ZNSt8_Rb_treeINSt7__cxx1112basic_stringIcSt11char_traitsIcEN7glslang14pool_allocatorIcEEEES7_St9_IdentityIS7_ESt4lessIS7_ENS5_IS7_EEE14_M_create_nodeIJRKS7_EEEPSt13_Rb_tree_nodeIS7_EDpOT_.exit: ; preds = %64, %65, %._crit_edge.i.i.i.i.i.i, %42, %40, %._crit_edge.i.i.i.i.i
+  %.sink19 = phi ptr [ %4, %._crit_edge.i.i.i.i.i ], [ %4, %40 ], [ %4, %42 ], [ %49, %._crit_edge.i.i.i.i.i.i ], [ %46, %62 ], [ %46, %64 ]
+  %.sink17 = phi i64 [ %32, %._crit_edge.i.i.i.i.i ], [ %32, %40 ], [ %32, %42 ], [ %57, %._crit_edge.i.i.i.i.i.i ], [ %54, %62 ], [ %54, %64 ]
+  %.sink = phi ptr [ %25, %._crit_edge.i.i.i.i.i ], [ %25, %40 ], [ %25, %42 ], [ %53, %._crit_edge.i.i.i.i.i.i ], [ %50, %62 ], [ %50, %64 ]
+  %70 = getelementptr inbounds nuw i8, ptr %.sink19, i64 48
+  store i64 %.sink17, ptr %70, align 8
   %66 = load ptr, ptr %.sink, align 8
   %67 = getelementptr inbounds i8, ptr %66, i64 %.sink17
   store i8 0, ptr %67, align 1

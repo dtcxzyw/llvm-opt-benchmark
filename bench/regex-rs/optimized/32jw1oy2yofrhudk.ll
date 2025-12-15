@@ -9523,11 +9523,11 @@ default.unreachable26:                            ; preds = %"_ZN84_$LT$alloc..v
   br label %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit"
 
 "_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit": ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit.sink.split", %28, %21
-  %.sink34 = phi i64 [ %24, %21 ], [ %31, %28 ], [ %.pre.i11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit.sink.split" ]
+  %28 = phi i64 [ %24, %21 ], [ %31, %28 ], [ %.pre.i11, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit.sink.split" ]
   %.sink = phi ptr [ %23, %21 ], [ %30, %28 ], [ %.sink38, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit.sink.split" ]
   %35 = getelementptr inbounds nuw i8, ptr %13, i64 16
   %36 = load ptr, ptr %35, align 8, !nonnull !4, !noundef !4
-  %37 = getelementptr inbounds i32, ptr %36, i64 %.sink34
+  %37 = getelementptr inbounds i32, ptr %36, i64 %28
   store i32 %3, ptr %37, align 4
   %38 = load i64, ptr %.sink, align 8, !noundef !4
   %39 = add i64 %38, 1
@@ -9538,31 +9538,31 @@ default.unreachable26:                            ; preds = %"_ZN84_$LT$alloc..v
   %.not.i = icmp eq i64 %41, 0
   br i1 %.not.i, label %.thread, label %42
 
-42:                                               ; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit"
+42:; preds = %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit"
   %43 = getelementptr inbounds nuw i8, ptr %1, i64 8
   %44 = load i64, ptr %43, align 8, !alias.scope !1816, !noalias !1819, !noundef !4
   %45 = shl i64 %.val10, 5
   %46 = add i64 %45, %40
   %47 = icmp ugt i64 %46, %44
-  br i1 %47, label %49, label %.thread
+  br i1 %47, label %57, label %.thread
 
 .thread.sink.split:                               ; preds = %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit", %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit", %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit", %20
-  %.sink37 = phi i64 [ 12, %20 ], [ 4, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit" ], [ 4, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit" ], [ 4, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit" ]
-  %48 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink37
-  store i32 %3, ptr %48, align 4
+  %.sink30 = phi i64 [ 12, %20 ], [ 4, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit" ], [ 4, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit" ], [ 4, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit" ]
+  %56 = getelementptr inbounds nuw i8, ptr %13, i64 %.sink30
+  store i32 %3, ptr %56, align 4
   br label %.thread
 
 .thread:                                          ; preds = %.thread.sink.split, %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit", %"_ZN84_$LT$alloc..vec..Vec$LT$T$C$A$GT$$u20$as$u20$core..ops..index..IndexMut$LT$I$GT$$GT$9index_mut17hbe23888e0b58b727E.exit", %42, %"_ZN5alloc3vec16Vec$LT$T$C$A$GT$4push17h3a4f749c8deb5dbcE.exit"
   store i64 -9223372036854775800, ptr %0, align 8
-  br label %50
+  br label %58
 
-49:                                               ; preds = %42
+57:                                               ; preds = %42
   store i64 -9223372036854775803, ptr %0, align 8
   %.sroa.29.0..sroa_idx = getelementptr inbounds nuw i8, ptr %0, i64 8
   store i64 %44, ptr %.sroa.29.0..sroa_idx, align 8
-  br label %50
+  br label %58
 
-50:                                               ; preds = %49, %.thread
+58:                                               ; preds = %57, %.thread
   ret void
 }
 

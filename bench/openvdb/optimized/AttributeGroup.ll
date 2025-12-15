@@ -631,10 +631,10 @@ call.i.noexc.i:                                   ; preds = %if.then.i.i
   %10 = load ptr, ptr %mData.i.i, align 8
   store ptr %call.i1.i, ptr %mData.i.i, align 8
   %tobool.not.i.i.i.i = icmp eq ptr %10, null
-  br i1 %tobool.not.i.i.i.i, label %return.sink.split.sink.split, label %return.sink.split.sink.split.sink.split
+  br i1 %tobool.not.i.i.i.i, label %return.sink.split.sink.split, label %return.sink.split
 
 common.resume:                                    ; preds = %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i
-  %mMutex.i21.sink = phi ptr [ %mMutex.i21, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24 ], [ %mMutex.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i ]
+  %common.resume.op = phi ptr [ %mMutex.i21, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24 ], [ %mMutex.i, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i ]
   %common.resume.op = phi { ptr, i32 } [ %16, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24 ], [ %11, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i ]
   store atomic i8 0, ptr %mMutex.i21.sink release, align 1
   resume { ptr, i32 } %common.resume.op
@@ -702,7 +702,7 @@ call.i.noexc.i27:                                 ; preds = %if.then.i.i25
   %15 = load ptr, ptr %mData.i.i28, align 8
   store ptr %call.i1.i26, ptr %mData.i.i28, align 8
   %tobool.not.i.i.i.i29 = icmp eq ptr %15, null
-  br i1 %tobool.not.i.i.i.i29, label %return.sink.split.sink.split, label %return.sink.split.sink.split.sink.split
+  br i1 %tobool.not.i.i.i.i29, label %return.sink.split.sink.split, label %return.sink.split
 
 _ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEED2Ev.exit6.i24: ; preds = %if.then.i.i25, %_ZN3tbb6detail2d118unique_scoped_lockINS1_10spin_mutexEEC2ERS3_.exit.i23
   %16 = landingpad { ptr, i32 }
@@ -722,8 +722,8 @@ for.body:                                         ; preds = %for.body.lr.ph, %fo
   %cmp = icmp ult i32 %inc, %18
   br i1 %cmp, label %for.body, label %return, !llvm.loop !7
 
-return.sink.split.sink.split.sink.split:          ; preds = %call.i.noexc.i27, %call.i.noexc.i
-  %.sink = phi ptr [ %10, %call.i.noexc.i ], [ %15, %call.i.noexc.i27 ]
+return.sink.split:                                ; preds = %call.i.noexc.i27, %call.i.noexc.i
+  %or17.sink = phi ptr [ %10, %call.i.noexc.i ], [ %15, %call.i.noexc.i27 ]
   %mMutex.i21.sink55.ph = phi ptr [ %mMutex.i, %call.i.noexc.i ], [ %mMutex.i21, %call.i.noexc.i27 ]
   %or17.sink.ph.ph = phi i8 [ %or17, %call.i.noexc.i ], [ %and, %call.i.noexc.i27 ]
   tail call void @_ZdaPv(ptr noundef nonnull %.sink) #18

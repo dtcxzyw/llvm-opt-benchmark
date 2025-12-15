@@ -16777,14 +16777,14 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIPN4lean4exprEN9__g
   br label %6
 
 6:                                                ; preds = %_ZN4lean4expraSEOS0_.exit, %2
-  %.010.sink = phi ptr [ %.010, %_ZN4lean4expraSEOS0_.exit ], [ %0, %2 ]
-  store ptr inttoptr (i64 1 to ptr), ptr %.010.sink, align 8, !tbaa !3
+  %.0 = phi ptr [ %.010, %_ZN4lean4expraSEOS0_.exit ], [ %0, %2 ]
+  store ptr inttoptr (i64 1 to ptr), ptr %.0, align 8, !tbaa !3
   %.010 = getelementptr inbounds i8, ptr %.010.sink, i64 -8
   %7 = invoke fastcc noundef zeroext i1 @"_ZZN4lean10sort_fvarsERKNS_9local_ctxERNS_6bufferINS_4exprELm16EEEENK3$_0clERKS4_S9_"(ptr noundef nonnull readonly align 8 dereferenceable(8) %3, ptr %5, ptr noundef nonnull readonly align 8 dereferenceable(8) %.010)
           to label %"_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4lean10sort_fvarsERKNS2_9local_ctxERNS2_6bufferINS2_4exprELm16EEEE3$_0EclIS7_PS7_EEbRT_T0_.exit" unwind label %.loopexit
 
 "_ZN9__gnu_cxx5__ops14_Val_comp_iterIZN4lean10sort_fvarsERKNS2_9local_ctxERNS2_6bufferINS2_4exprELm16EEEE3$_0EclIS7_PS7_EEbRT_T0_.exit": ; preds = %6
-  %8 = load ptr, ptr %.010.sink, align 8, !tbaa !3
+  %8 = load ptr, ptr %.0, align 8, !tbaa !3
   %9 = ptrtoint ptr %8 to i64
   %10 = and i64 %9, 1
   %.not.i.i.i = icmp eq i64 %10, 0
@@ -16813,7 +16813,7 @@ define internal fastcc void @"_ZSt25__unguarded_linear_insertIPN4lean4exprEN9__g
 
 _ZN4lean4expraSEOS0_.exit:                        ; preds = %18, %11, %15, %17
   %19 = load ptr, ptr %.010, align 8, !tbaa !3
-  store ptr %19, ptr %.010.sink, align 8, !tbaa !3
+  store ptr %19, ptr %.0, align 8, !tbaa !3
   br label %6
 
 .loopexit:                                        ; preds = %6, %18
@@ -16854,7 +16854,7 @@ _ZN4lean4expraSEOS0_.exit:                        ; preds = %18, %11, %15, %17
           to label %_ZN4lean10object_refD2Ev.exit unwind label %.loopexit.split-lp
 
 _ZN4lean10object_refD2Ev.exit:                    ; preds = %28, %21, %25, %27
-  store ptr %5, ptr %.010.sink, align 8, !tbaa !3
+  store ptr %5, ptr %.0, align 8, !tbaa !3
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
   ret void
 }

@@ -950,7 +950,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %28 = fsub reassoc nsz arcp contract afn float %25, %27
   %29 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %28)
   %30 = fcmp reassoc nsz arcp contract afn olt float %29, 0x3F1A36E2E0000000
-  br i1 %30, label %81, label %31
+  br i1 %30, label %83, label %31
 
 31:                                               ; preds = %23, %15, %3
   %32 = getelementptr inbounds nuw i8, ptr %8, i64 100
@@ -983,7 +983,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %50 = fsub reassoc nsz arcp contract afn float %47, %49
   %51 = tail call reassoc nsz arcp contract afn float @llvm.fabs.f32(float %50)
   %52 = fcmp reassoc nsz arcp contract afn olt float %51, 0x3F1A36E2E0000000
-  br i1 %52, label %81, label %53
+  br i1 %52, label %83, label %53
 
 53:                                               ; preds = %._crit_edge, %45, %37
   %54 = phi float [ %.pre, %._crit_edge ], [ %41, %45 ], [ %41, %37 ]
@@ -1012,7 +1012,7 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   %70 = icmp eq ptr %1, %69
   br i1 %70, label %.sink.split, label %79
 
-.sink.split:                                      ; preds = %67, %53
+.sink.split:; preds = %67, %53
   %.sink = phi ptr [ %32, %53 ], [ %8, %67 ]
   %.sink42 = phi i64 [ 104, %53 ], [ 4, %67 ]
   %.sink40 = phi i64 [ 108, %53 ], [ 8, %67 ]
@@ -1031,13 +1031,13 @@ define void @color_picker_apply(ptr noundef %0, ptr noundef readnone captures(ad
   call void @gtk_color_chooser_set_rgba(ptr noundef %78, ptr noundef nonnull %4) #24
   br label %79
 
-79:                                               ; preds = %.sink.split, %67
+79:    ; preds = %.sink.split, %67
   %80 = load ptr, ptr getelementptr inbounds nuw (i8, ptr @darktable, i64 64), align 8, !tbaa !96
   call void @dt_dev_add_history_item(ptr noundef %80, ptr noundef nonnull %0, i32 noundef 1) #24
   call void @llvm.lifetime.end.p0(ptr nonnull %4)
-  br label %81
+  br label %83
 
-81:                                               ; preds = %45, %23, %79
+83:                                               ; preds = %45, %23, %79
   ret void
 }
 

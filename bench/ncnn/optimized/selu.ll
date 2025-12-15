@@ -111,7 +111,7 @@ define internal void @_ZNK4ncnn4SELU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
   %11 = alloca i32, align 4
   %12 = load i32, ptr %2, align 4, !tbaa !34
   %13 = icmp sgt i32 %12, 0
-  br i1 %13, label %14, label %41
+  br i1 %13, label %14, label %44
 
 14:                                               ; preds = %7
   %15 = add nsw i32 %12, -1
@@ -171,8 +171,8 @@ define internal void @_ZNK4ncnn4SELU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
 38:                                               ; preds = %31, %35
   %.sink50 = phi ptr [ %5, %35 ], [ %27, %31 ]
   %.sink49 = phi float [ %37, %35 ], [ %33, %31 ]
-  %39 = load float, ptr %.sink50, align 4, !tbaa !35
-  %40 = fmul fast float %39, %.sink49
+  %41 = load float, ptr %.sink50, align 4, !tbaa !35
+  %42 = fmul fast float %41, %.sink49
   store float %40, ptr %32, align 4, !tbaa !35
   %indvars.iv.next = add nuw nsw i64 %indvars.iv, 1
   %exitcond.not = icmp eq i64 %indvars.iv.next, %wide.trip.count
@@ -190,9 +190,9 @@ define internal void @_ZNK4ncnn4SELU15forward_inplaceERNS_3MatERKNS_6OptionE.omp
   call void @llvm.lifetime.end.p0(ptr nonnull %10)
   call void @llvm.lifetime.end.p0(ptr nonnull %9)
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
-  br label %41
+  br label %44
 
-41:                                               ; preds = %._crit_edge38, %7
+44:                                               ; preds = %._crit_edge38, %7
   ret void
 }
 
