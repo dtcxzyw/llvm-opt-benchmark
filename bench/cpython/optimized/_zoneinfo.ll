@@ -5479,7 +5479,7 @@ parse_transition_time.exit.i:                     ; preds = %parse_digits.exit24
   call void @PyMem_Free(ptr noundef nonnull %.lcssa179.sink) #9
   br label %.loopexit
 
-.loopexit:                                        ; preds = %149, %152, %.preheader79.i, %parse_digits.exit37.thread.i, %108, %parse_digits.exit.thread.i, %191, %254, %.preheader.i57, %162, %216, %235, %.loopexit.sink.split
+.loopexit:                                        ; preds = %149, %152, %.preheader79.i, %parse_digits.exit37.thread.i, %108, %parse_digits.exit.thread.i, %.preheader.i57, %254, %191, %162, %216, %235, %.loopexit.sink.split
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   call void @llvm.lifetime.end.p0(ptr nonnull %6)
   call void @llvm.lifetime.end.p0(ptr nonnull %5)

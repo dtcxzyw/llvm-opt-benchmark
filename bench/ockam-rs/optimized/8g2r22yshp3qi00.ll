@@ -18880,7 +18880,7 @@ define hidden noundef range(i8 0, 3) i8 @"_ZN113_$LT$tracing_subscriber..layer..
   br label %"_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17h1dc28328eeda14c9E.exit"
 
 "_ZN18tracing_subscriber5layer7layered24Layered$LT$A$C$B$C$S$GT$13pick_interest17h1dc28328eeda14c9E.exit": ; preds = %38, %15, %18, %20, %24, %26, %34, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17haf242af4e1f88cd7E.exit11.i", %.thread.i
-  %.0.i = phi i8 [ %46, %.thread.i ], [ 1, %34 ], [ %.0.i.i.i10.i, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17haf242af4e1f88cd7E.exit11.i" ], [ %28, %26 ], [ %17, %15 ], [ 0, %18 ], [ %22, %24 ], [ 1, %20 ], [ %36, %38 ]
+  %.0.i = phi i8 [ %46, %.thread.i ], [ %28, %26 ], [ %.0.i.i.i10.i, %"_ZN113_$LT$tracing_subscriber..layer..layered..Layered$LT$L$C$S$GT$$u20$as$u20$tracing_core..subscriber..Subscriber$GT$17register_callsite28_$u7b$$u7b$closure$u7d$$u7d$17haf242af4e1f88cd7E.exit11.i" ], [ 1, %34 ], [ %17, %15 ], [ 0, %18 ], [ %22, %24 ], [ 1, %20 ], [ %36, %38 ]
   ret i8 %.0.i
 }
 
