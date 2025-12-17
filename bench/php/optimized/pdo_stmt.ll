@@ -4004,7 +4004,7 @@ zval_ptr_dtor_str.exit:                           ; preds = %zend_symtable_updat
   call void @llvm.lifetime.end.p0(ptr nonnull %8)
   br label %.critedge172
 
-.critedge172:                                     ; preds = %180, %179, %172, %165, %146, %145, %138, %131, %pdo_get_fcc_from_zval.exit.thread, %pdo_get_fcc_from_zval.exit.thread241, %118, %117, %110, %103, %.critedge.sink.split.i, %65, %37, %42, %81, %87, %98, %302, %156, %151
+.critedge172:                                     ; preds = %180, %179, %172, %165, %146, %145, %138, %131, %pdo_get_fcc_from_zval.exit.thread, %pdo_get_fcc_from_zval.exit.thread241, %118, %117, %110, %103, %65, %.critedge.sink.split.i, %37, %42, %81, %87, %98, %302, %156, %151
   call void @llvm.lifetime.end.p0(ptr nonnull %7)
   ret void
 }

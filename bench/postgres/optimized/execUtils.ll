@@ -816,7 +816,7 @@ ExecGetResultSlotOps.exit26.i:                    ; preds = %39, %.sink.split.i2
   br label %ExecGetCommonSlotOps.exit
 
 ExecGetCommonSlotOps.exit:                        ; preds = %ExecGetResultSlotOps.exit26.i, %.thread.i18.i, %.thread.i.i, %ExecGetResultSlotOps.exit.i
-  %.0.i = phi ptr [ null, %.thread.i.i ], [ null, %ExecGetResultSlotOps.exit.i ], [ %spec.select, %ExecGetResultSlotOps.exit26.i ], [ null, %.thread.i18.i ]
+  %.0.i = phi ptr [ null, %.thread.i.i ], [ null, %ExecGetResultSlotOps.exit.i ], [ null, %.thread.i18.i ], [ %spec.select, %ExecGetResultSlotOps.exit26.i ]
   ret ptr %.0.i
 }
 

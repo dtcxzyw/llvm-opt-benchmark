@@ -12702,7 +12702,7 @@ is_subtype_with_mro.exit138.thread.sink.split.i.i: ; preds = %.lr.ph.i.i.i, %.lr
   br label %is_subtype_with_mro.exit138.thread.i.i
 
 is_subtype_with_mro.exit138.thread.i.i:           ; preds = %597, %603, %is_subtype_with_mro.exit138.thread.sink.split.i.i, %530
-  %607 = phi i64 [ %606, %is_subtype_with_mro.exit138.thread.sink.split.i.i ], [ %499, %530 ], [ %499, %603 ], [ %499, %597 ]
+  %607 = phi i64 [ %499, %530 ], [ %606, %is_subtype_with_mro.exit138.thread.sink.split.i.i ], [ %499, %603 ], [ %499, %597 ]
   %.val68.i.i = load i64, ptr %496, align 8, !tbaa !108
   %608 = and i64 %.val68.i.i, 4194304
   %.not65.i.i = icmp eq i64 %608, 0
